@@ -14,6 +14,7 @@
     "synthesize:audit": "tsx --env-file=.env.local 03_agents/audit-synthesizer/src/cli.ts",
     "curate:memory": "tsx --env-file=.env.local 03_agents/learning-memory-curation/src/cli.ts",
     "context:brief": "tsx --env-file=.env.local 03_agents/memory-context/src/cli.ts",
+    "llm:smoke": "tsx --env-file=.env.local 06_packages/llm/scripts/smoke.ts",
     "secret-scan": "gitleaks protect --staged --no-banner --redact",
     "secret-scan:full": "gitleaks detect --no-banner --redact",
     "lint": "biome check .",

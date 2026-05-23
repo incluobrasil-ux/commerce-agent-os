@@ -21,6 +21,7 @@
     { "path": "./05_integrations/google-merchant" },
     { "path": "./05_integrations/review-apps" },
     { "path": "./05_integrations/higgsfield" },
-    { "path": "./05_integrations/posthog" }
+    { "path": "./05_integrations/posthog" },
+    { "path": "./03_agents/repo-auditor" }
   ]
 }

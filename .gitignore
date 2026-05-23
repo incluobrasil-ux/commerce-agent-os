@@ -32,7 +32,8 @@ coverage/
 .cache/
 *.tsbuildinfo
 
-# Upstreams (clones serão tratados via submódulo/subtree posteriormente)
-01_upstreams/**/node_modules/
-01_upstreams/**/dist/
-01_upstreams/**/build/
+# Upstreams — read-only (ADR-0002). Cada operador clona localmente via
+# `bash 10_ops/scripts/clone-upstreams.sh`. Conteúdo NÃO entra no monorepo
+# para manter o repo leve. Manifest de versões pinned vive no script.
+01_upstreams/*/
+!01_upstreams/README.md

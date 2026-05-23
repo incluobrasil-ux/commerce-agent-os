@@ -1,8 +1,19 @@
 # Índice de upstreams
 
-Repositórios externos previamente estudados. Read-only em `01_upstreams/`.
+Repositórios externos previamente estudados. Read-only em `01_upstreams/`. Conteúdo **não** entra no monorepo — cada operador clona via `bash 10_ops/scripts/clone-upstreams.sh`.
 
-> Classificação completa (papel, prioridade, risco) em [REPO_SELECTION.md](./REPO_SELECTION.md). Audits detalhados em [../02_architecture/repo-audits/](../02_architecture/repo-audits/).
+> Classificação completa (papel, prioridade, risco) em [REPO_SELECTION.md](./REPO_SELECTION.md). Audits detalhados em [../02_architecture/repo-audits/](../02_architecture/repo-audits/). Auditorias automáticas (via `pnpm audit:repo`): [`../12_reports/audits/repo-auditor/`](../12_reports/audits/repo-auditor/).
+
+## Clonados localmente (com licença confirmada via `repo-auditor`)
+
+| # | Nome | Pin SHA | Licença | Auditado em |
+|---|---|---|---|---|
+| 1 | `langgraph` | `d1e2ff05` | MIT | 2026-05-23 |
+| 9 | `shopify-app-template-react-router` | `5a0017b0` | MIT | 2026-05-23 |
+
+Outros 18 upstreams ainda não clonados — adicionar ao script `10_ops/scripts/clone-upstreams.sh` quando necessários.
+
+## Catálogo de referência (20 upstreams classificados)
 
 | # | Repositório | Categoria | Uso esperado |
 |---|---|---|---|

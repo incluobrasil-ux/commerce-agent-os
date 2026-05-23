@@ -1,0 +1,14 @@
+{
+  "artifact_type": "feed_row",
+  "artifact": {
+    "sku": "gid://shopify/Product/100",
+    "title": "Best Ever Trail Shoes - Cures Foot Pain Guaranteed!",
+    "description": "<p>Slip these on for amazing wet grip.</p>",
+    "google_product_category": null,
+    "price": { "amount": "149.00", "currencyCode": "USD" },
+    "gtin": "0123",
+    "gender": null
+  },
+  "policy_ref": "policy:gmc+region:US+brand:acme",
+  "context_ref": "memory://acme-myshopify-com/facts/brand-style.md"
+}

@@ -1,0 +1,39 @@
+# Relatórios GMC consumidos. Para v0/v1, foco em disapprovals.
+# Performance reports são opcionais — exigem volume e configuração específica.
+
+reports:
+  - id: disapprovals
+    via: productstatuses.list
+    purpose: "detectar SKUs reprovados e seus motivos"
+    consumers: [merchant-compliance, catalog-feed-ops]
+    frequency: "polling a cada 30min (job disapproval-monitor)"
+    fields:
+      - sku
+      - destination          # "shopping_ads" | "free_listings" | etc.
+      - status               # "approved" | "disapproved" | "pending" | "expiring"
+      - disapproval_reasons[]
+      - last_update_date
+
+  - id: warnings
+    via: productstatuses.list
+    purpose: "SKUs aprovados mas com warnings (eligibility limitada)"
+    consumers: [merchant-compliance]
+    frequency: "polling diário"
+
+  - id: issues_by_attribute
+    via: productstatuses.list (agregação)
+    purpose: "agrupar disapprovals por causa raiz (ex.: 'missing gender')"
+    consumers: [merchant-compliance, analytics-optimization]
+
+  # Performance — opcional, baixa prioridade até termos volume
+  - id: impressions_clicks
+    via: reports.search
+    status: optional
+    purpose: "performance por SKU em Shopping ads (requer Google Ads link)"
+    consumers: [analytics-optimization]
+    frequency: "diário"
+
+# Garantias do adapter:
+# - polling respeita rate limits (cost guard);
+# - resultados normalizados em tipos de ./types/;
+# - paginação automática via async iterator no client.

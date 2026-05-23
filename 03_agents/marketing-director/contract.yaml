@@ -1,0 +1,33 @@
+name: marketing-director
+version: 0.0.0
+tier: 3
+
+input:
+  tenant_id: { type: string, required: true }
+  horizon:
+    from: string
+    to: string
+  objectives:
+    type: array
+    items:
+      key: string
+      priority: number
+  budget_usd: number
+  context_ref: { type: string, required: false }
+
+output:
+  plan:
+    type: array
+    items:
+      initiative_id: string
+      objective_key: string
+      channel: string
+      creative_brief: object
+      budget_usd: number
+      kpi: { name: string, target: number, unit: string }
+  kpi_targets: { type: object }
+  risks: { type: array, items: { detail: string, mitigation: string } }
+
+errors:
+  - BudgetUnderfunded
+  - ConflictingObjectives

@@ -1,0 +1,38 @@
+{
+  "decision": "block",
+  "reasons": [
+    "Title contains forbidden marketing phrase 'Best Ever' (policy:brand:acme rule brand_voice.forbidden_phrases).",
+    "Title contains regulated health claim 'Cures Foot Pain' (policy:region:US rule region.us.regulated_claims).",
+    "Title contains 'Guaranteed' as outcome claim without substantiation (policy:region:US rule region.us.substantiation).",
+    "GTIN '0123' fails checksum validation (policy:gmc rule gmc.gtin_invalid).",
+    "Field 'gender' is required for apparel category (policy:gmc rule gmc.missing_attribute.gender)."
+  ],
+  "suggested_revisions": [],
+  "policy_hits": [
+    {
+      "rule_id": "brand:acme.voice.forbidden_phrases",
+      "severity": "hard",
+      "detail": "'Best Ever' is in forbidden phrases list."
+    },
+    {
+      "rule_id": "region:US.regulated_claims.health",
+      "severity": "hard",
+      "detail": "Health claim 'cures' triggers FDA-style restrictions."
+    },
+    {
+      "rule_id": "region:US.substantiation",
+      "severity": "hard",
+      "detail": "'Guaranteed' outcome requires substantiation evidence; none provided."
+    },
+    {
+      "rule_id": "gmc.gtin_invalid",
+      "severity": "hard",
+      "detail": "GTIN must be 8/12/13/14 digit with valid checksum."
+    },
+    {
+      "rule_id": "gmc.missing_attribute.gender",
+      "severity": "hard",
+      "detail": "Apparel SKUs require 'gender' attribute."
+    }
+  ]
+}

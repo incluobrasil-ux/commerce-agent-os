@@ -1,0 +1,37 @@
+name: product-feed-seo
+version: 0.0.0
+tier: 4
+
+input:
+  tenant_id: { type: string, required: true }
+  scope:
+    kind: { type: string, enum: [sku_list, collection, category] }
+    ids: { type: array, items: string }
+  targets:
+    type: array
+    items: { type: string, enum: [google_mc, seo_pdp, seo_collection] }
+  policy:
+    char_limits: { type: object }
+    forbidden_words: { type: array, items: string }
+    brand_tone: string
+
+output:
+  proposed_changes:
+    type: array
+    items:
+      sku: string
+      field: string
+      from: string
+      to: string
+  signals_used:
+    type: array
+    items:
+      sku: string
+      signal: string
+      detail: string
+  expected_lift:
+    type: object
+
+errors:
+  - SkuNotFound
+  - PolicyViolation

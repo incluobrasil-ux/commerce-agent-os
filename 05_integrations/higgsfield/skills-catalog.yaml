@@ -1,0 +1,53 @@
+# Catálogo declarativo de skills Higgsfield selecionadas (cherry-pick).
+# Esta lista é PROVISÓRIA — confirmar com o upstream higgsfield-ai/skills quando clonado.
+# Política (ADR-0002): nunca importar em bloco; cherry-pick com atribuição.
+
+api_compat: "to-confirm"   # placeholder até inspecionar manifest real do upstream
+
+skills_of_interest:
+  # Marketing — apoiam marketing-director
+  - id: "marketing/icp-extract"
+    why: "Extrair ICP a partir de descrição de produto + reviews"
+    consumers: [marketing-director, product-offer]
+    status: planned
+
+  - id: "marketing/positioning-framework"
+    why: "Framework de positioning (jobs-to-be-done / 'for X who...')"
+    consumers: [marketing-director, product-offer]
+    status: planned
+
+  # Copy — apoiam creative-copy-assets
+  - id: "copy/headline-variants"
+    why: "Gerar N variantes de headline conforme tom + char limit"
+    consumers: [creative-copy-assets]
+    status: planned
+
+  - id: "copy/cta-microcopy"
+    why: "Microcopy de CTA por intent (browse vs buy vs subscribe)"
+    consumers: [creative-copy-assets, design-ux-localization]
+    status: planned
+
+  - id: "copy/email-subject-line"
+    why: "Variantes de assunto de email com preview e A/B candidates"
+    consumers: [creative-copy-assets]
+    status: planned
+
+  # E-commerce — apoiam product-feed-seo + product-offer
+  - id: "ecommerce/title-rewrite-pdp"
+    why: "Reescrita de title de produto para PDP+SEO"
+    consumers: [product-feed-seo]
+    status: planned
+    note: "Sobrepõe parcialmente lógica de feedgen; reusar conforme convergência"
+
+  - id: "ecommerce/attribute-fill"
+    why: "Inferir atributos faltantes (gender, age_group, color) por categoria"
+    consumers: [product-feed-seo, merchant-compliance]
+    status: planned
+
+  # Research / VoC — apoiam reviews-ops
+  - id: "research/theme-clustering"
+    why: "Clusterizar reviews em temas com sentimento"
+    consumers: [reviews-ops]
+    status: planned
+
+# NOTA: nada importado/usado ainda. Schema real e disponibilidade dependem do clone.

@@ -1,0 +1,39 @@
+{
+  "findings": [
+    {
+      "title": "Drop-off forte em add_to_cart → begin_checkout",
+      "metric": "step_conversion_rate(add_to_cart→begin_checkout)",
+      "value": 0.41,
+      "delta_vs_baseline": -0.08,
+      "estimated_impact_usd": 12400
+    },
+    {
+      "title": "Mobile CR atrás de desktop em ~28%",
+      "metric": "purchase_rate_by_device(mobile)",
+      "value": 0.018,
+      "delta_vs_baseline": -0.005,
+      "estimated_impact_usd": 7200
+    }
+  ],
+  "experiments_proposed": [
+    {
+      "hypothesis": "Mostrar custo de frete antes do checkout reduz fricção em add_to_cart → begin_checkout",
+      "variant": "frete-preview-no-cart-drawer",
+      "primary_metric": "step_conversion_rate(add_to_cart→begin_checkout)",
+      "minimum_detectable_effect": 0.03,
+      "sample_size": 7800,
+      "duration_estimate_days": 14
+    },
+    {
+      "hypothesis": "Sticky CTA mobile + 1-tap apple pay aumenta CR em sessões mobile",
+      "variant": "mobile-sticky-cta-applepay",
+      "primary_metric": "purchase_rate_by_device(mobile)",
+      "minimum_detectable_effect": 0.005,
+      "sample_size": 23000,
+      "duration_estimate_days": 21
+    }
+  ],
+  "summary": {
+    "markdown": "## Funil — d30 vs Q1\n\nMaior perda: step add_to_cart → begin_checkout caiu 8pp vs baseline. Impacto USD ~12.4k/30d. Hipótese forte: surpresa de frete no checkout (VoC menciona em 4% reviews recentes).\n\nMobile continua atrás: -28% vs desktop. Mais alavanca em CTA + payment do que em copy.\n\nDois experimentos propostos. Total amostra: ~31k usuários; ~3 semanas para ambos completarem (rodar em paralelo possível com bucket separado)."
+  }
+}

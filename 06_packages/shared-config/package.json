@@ -1,0 +1,19 @@
+{
+  "name": "@cao/shared-config",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Schemas de configuração compartilhados (env vars, feature flags, policy refs)",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rm -rf dist .tsbuildinfo"
+  }
+}

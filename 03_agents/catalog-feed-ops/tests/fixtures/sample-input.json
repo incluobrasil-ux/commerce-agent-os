@@ -1,0 +1,20 @@
+{
+  "tenant_id": "acme-myshopify-com",
+  "changes": [
+    {
+      "sku": "gid://shopify/Product/100",
+      "field": "title",
+      "from": "Blue running shoes",
+      "to": "Lightweight Blue Running Shoes — Women's Trail",
+      "approved_by": "agent:governance-risk-qa"
+    },
+    {
+      "sku": "gid://shopify/Product/100",
+      "field": "google_product_category",
+      "from": null,
+      "to": "Apparel & Accessories > Shoes > Athletic Shoes",
+      "approved_by": "agent:governance-risk-qa"
+    }
+  ],
+  "mode": "apply"
+}

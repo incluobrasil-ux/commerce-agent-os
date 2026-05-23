@@ -1,0 +1,51 @@
+{
+  "plan": [
+    {
+      "initiative_id": "INI-001-aov-bundle",
+      "objective_key": "increase_aov",
+      "channel": "email",
+      "creative_brief": {
+        "ang": "Bundle trail + sock + gaiter; positioning 'completo' vs 'só sapato'",
+        "audience": "customers com 1 compra nos últimos 60 dias",
+        "format": ["email-hero", "email-cta-button", "lp-bundle"]
+      },
+      "budget_usd": 8000,
+      "kpi": { "name": "aov_lift_pct", "target": 12, "unit": "percent" }
+    },
+    {
+      "initiative_id": "INI-002-women-paid-search",
+      "objective_key": "open_women_segment",
+      "channel": "paid_google",
+      "creative_brief": {
+        "ang": "Modelo feminino com modificador 'women's trail running' (sinal market-intel: +18% QoQ)",
+        "audience": "first-time visitors via paid search",
+        "format": ["search-ad-headline", "search-ad-description", "responsive-display-image"]
+      },
+      "budget_usd": 32000,
+      "kpi": { "name": "new_visitors_women_segment", "target": 18000, "unit": "users" }
+    },
+    {
+      "initiative_id": "INI-003-organic-voc",
+      "objective_key": "defend_margin",
+      "channel": "organic_seo",
+      "creative_brief": {
+        "ang": "Reforço de claim 'wet grip' (vantagem detectada vs competitors em VoC)",
+        "audience": "organic search top-of-funnel",
+        "format": ["pdp-bullet", "blog-post"]
+      },
+      "budget_usd": 10000,
+      "kpi": { "name": "organic_sessions_pct", "target": 8, "unit": "percent" }
+    }
+  ],
+  "kpi_targets": {
+    "INI-001": { "aov_lift_pct": 12 },
+    "INI-002": { "new_visitors_women_segment": 18000 },
+    "INI-003": { "organic_sessions_pct": 8 }
+  },
+  "risks": [
+    {
+      "detail": "Investir 64% em paid_google pressiona CAC; conflita com 'defend_margin' se CAC piorar antes do organic ganhar tração.",
+      "mitigation": "Cap de CAC USD 45 na INI-002; re-avaliação semana 4 via analytics-optimization."
+    }
+  ]
+}

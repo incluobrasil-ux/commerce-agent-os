@@ -1,0 +1,13 @@
+tools:
+  - name: posthog_query
+    source: "05_integrations/posthog"
+    description: HogQL/funil/insights
+  - name: posthog_experiment
+    source: "05_integrations/posthog"
+    description: leitura de experimentos existentes (não cria)
+  - name: stats_power
+    source: "@cao/skills"
+    description: calculadora de sample size / MDE
+  - name: llm_summarize
+    source: "@cao/llm"
+    description: gera summary.markdown

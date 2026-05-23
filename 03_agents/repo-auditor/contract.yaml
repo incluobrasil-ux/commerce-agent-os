@@ -1,0 +1,28 @@
+name: repo-auditor
+version: 0.0.0
+tier: 0
+
+input:
+  repo_path: { type: string, required: true }
+  audit_profile:
+    type: string
+    enum: [license, security, architecture, full]
+    default: full
+
+output:
+  report:
+    markdown: string
+    summary: { type: array, items: string }
+  findings:
+    type: array
+    items:
+      category: string
+      severity: { type: string, enum: [info, warning, critical] }
+      file: string
+      line: number
+      recommendation: string
+  license: string
+
+errors:
+  - RepoNotFound
+  - NoLicenseDetected

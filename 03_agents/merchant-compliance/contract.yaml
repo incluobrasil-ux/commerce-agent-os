@@ -1,0 +1,36 @@
+name: merchant-compliance
+version: 0.0.0
+tier: 4
+
+input:
+  tenant_id: { type: string, required: true }
+  scope:
+    kind: { type: string, enum: [sku_list, feed_snapshot] }
+    ids: { type: array, items: string }
+  policies:
+    type: array
+    items: { type: string, enum: [gmc, shopify, "region:US", "region:EU", "region:BR"] }
+  mode: { type: string, enum: [audit, remediate], default: audit }
+
+output:
+  findings:
+    type: array
+    items:
+      sku: string
+      rule_id: string
+      severity: { type: string, enum: [warning, hard] }
+      evidence: string
+  remediations:
+    type: array
+    items:
+      sku: string
+      action: string
+      applied: boolean
+  compliance_summary:
+    by_policy:
+      type: object
+    overall_pass_rate: number
+
+errors:
+  - PolicyUnknown
+  - InsufficientData

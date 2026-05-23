@@ -1,0 +1,16 @@
+tools:
+  - name: shopify_product_read
+    source: "05_integrations/shopify"
+    description: lê fields atuais dos SKUs
+  - name: gmc_report_read
+    source: "05_integrations/google-merchant"
+    description: relatórios de feed (rejections, warnings)
+  - name: skills_feed_optimization
+    source: "@cao/skills"
+    description: heurísticas de feedgen adaptadas
+  - name: llm_compose
+    source: "@cao/llm"
+    description: geração de variantes
+  - name: policy_enforce
+    source: "@cao/guardrails"
+    description: char limits + forbidden words

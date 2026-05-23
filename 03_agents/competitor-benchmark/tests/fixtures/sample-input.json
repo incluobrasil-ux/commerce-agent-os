@@ -1,0 +1,6 @@
+{
+  "tenant_id": "acme-myshopify-com",
+  "competitors": ["hoka.com", "salomon.com", "altrarunning.com"],
+  "dimensions": ["price", "copy", "reviews"],
+  "since": "2026-05-01T00:00:00Z"
+}

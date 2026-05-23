@@ -1,0 +1,38 @@
+name: governance-risk-qa
+version: 0.0.0
+tier: 0
+
+input:
+  artifact_type:
+    type: string
+    enum: [product_description, feed_row, creative_image, campaign_plan, review_response, generic]
+  artifact:
+    type: object
+    description: payload do candidato (forma depende do artifact_type)
+  policy_ref:
+    type: string
+    required: true
+  context_ref:
+    type: string
+    required: false
+
+output:
+  decision:
+    type: string
+    enum: [approve, revise, block]
+  reasons:
+    type: array
+    items: string
+  suggested_revisions:
+    type: array
+    items: string
+  policy_hits:
+    type: array
+    items:
+      rule_id: string
+      severity: { type: string, enum: [soft, hard] }
+      detail: string
+
+errors:
+  - PolicyNotFound
+  - ArtifactMalformed

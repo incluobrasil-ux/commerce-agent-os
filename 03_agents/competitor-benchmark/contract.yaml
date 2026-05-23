@@ -1,0 +1,37 @@
+name: competitor-benchmark
+version: 0.0.0
+tier: 1
+
+input:
+  tenant_id: { type: string, required: true }
+  competitors:
+    type: array
+    items: string
+    minItems: 1
+  dimensions:
+    type: array
+    items: { type: string, enum: [price, catalog, copy, reviews, serp] }
+  since: { type: string, required: false }
+
+output:
+  snapshot:
+    type: object
+    description: chave = competitor; valor = medidas por dimensão
+  deltas:
+    type: array
+    items:
+      competitor: string
+      dimension: string
+      from: any
+      to: any
+  alerts:
+    type: array
+    items:
+      competitor: string
+      dimension: string
+      severity: { type: string, enum: [info, warning, critical] }
+      detail: string
+
+errors:
+  - CompetitorUnreachable
+  - LegalBlocked

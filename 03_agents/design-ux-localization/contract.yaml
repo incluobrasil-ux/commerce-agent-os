@@ -1,0 +1,36 @@
+name: design-ux-localization
+version: 0.0.0
+tier: 2
+
+input:
+  tenant_id: { type: string, required: true }
+  scope:
+    kind: { type: string, enum: [product, collection] }
+    id: string
+  target_markets:
+    type: array
+    items:
+      locale: string
+      currency: string
+      region: string
+  brand_style_ref: { type: string, required: false }
+
+output:
+  page_blueprint:
+    sections:
+      type: array
+      items:
+        id: string
+        block_type: string
+        order: number
+        notes: string
+  localized_copy:
+    type: object
+    description: keyed by locale
+  media_brief:
+    type: object
+    description: brief para creative-copy-assets
+
+errors:
+  - ThemeIncompatible
+  - LocaleUnsupported

@@ -1,0 +1,5 @@
+packages:
+  - "03_agents/*"
+  - "04_apps/*"
+  - "05_integrations/*"
+  - "06_packages/*"

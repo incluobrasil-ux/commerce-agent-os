@@ -1,0 +1,37 @@
+{
+  "proposed_changes": [
+    {
+      "sku": "gid://shopify/Product/100",
+      "field": "title",
+      "from": "Blue running shoes",
+      "to": "Lightweight Blue Running Shoes — Women's Trail"
+    },
+    {
+      "sku": "gid://shopify/Product/100",
+      "field": "google_product_category",
+      "from": null,
+      "to": "Apparel & Accessories > Shoes > Athletic Shoes"
+    },
+    {
+      "sku": "gid://shopify/Product/101",
+      "field": "description",
+      "from": "<p>Great shoes</p>",
+      "to": "<p>Trail-ready waterproof upper, EVA midsole, 8mm drop. Sized true to fit.</p>"
+    }
+  ],
+  "signals_used": [
+    {
+      "sku": "gid://shopify/Product/100",
+      "signal": "gmc_warning",
+      "detail": "Missing google_product_category"
+    },
+    {
+      "sku": "gid://shopify/Product/100",
+      "signal": "competitor_pattern",
+      "detail": "Top 3 SERP titles include gender + use-case modifier"
+    }
+  ],
+  "expected_lift": {
+    "qualitative": "Title compliance + gender modifier likely improves GMC eligibility and SERP CTR; magnitude unknown without baseline."
+  }
+}

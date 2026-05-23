@@ -1,0 +1,30 @@
+{
+  "applied": [
+    {
+      "sku": "gid://shopify/Product/100",
+      "field": "title",
+      "external_ids": {
+        "shopify": "gid://shopify/Product/100",
+        "gmc": "online:en:US:100"
+      },
+      "ms": 412
+    },
+    {
+      "sku": "gid://shopify/Product/100",
+      "field": "google_product_category",
+      "external_ids": {
+        "shopify": "gid://shopify/Product/100",
+        "gmc": "online:en:US:100"
+      },
+      "ms": 388
+    }
+  ],
+  "skipped": [],
+  "feed_status": [
+    {
+      "sku": "gid://shopify/Product/100",
+      "gmc_state": "pending",
+      "issues": []
+    }
+  ]
+}

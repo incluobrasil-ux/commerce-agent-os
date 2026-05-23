@@ -1,0 +1,31 @@
+{
+  "findings": [
+    {
+      "sku": "gid://shopify/Product/100",
+      "rule_id": "gmc.missing_attribute.gender",
+      "severity": "hard",
+      "evidence": "apparel category requires 'gender' attribute; field is empty in Shopify."
+    },
+    {
+      "sku": "gid://shopify/Product/101",
+      "rule_id": "gmc.gtin_invalid",
+      "severity": "hard",
+      "evidence": "GTIN '0123' fails checksum (must be 8/12/13/14 digits valid GTIN)."
+    },
+    {
+      "sku": "gid://shopify/Product/101",
+      "rule_id": "region:US.claim.cures",
+      "severity": "warning",
+      "evidence": "Description contains 'cures back pain' — regulated claim under FDA scope."
+    }
+  ],
+  "remediations": [],
+  "compliance_summary": {
+    "by_policy": {
+      "gmc": { "checked": 2, "passed": 0, "failed": 2 },
+      "shopify": { "checked": 2, "passed": 2, "failed": 0 },
+      "region:US": { "checked": 2, "passed": 1, "failed": 1 }
+    },
+    "overall_pass_rate": 0.0
+  }
+}

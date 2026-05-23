@@ -1,0 +1,14 @@
+{
+  "tenant_id": "acme-myshopify-com",
+  "brief": {
+    "ang": "Modelo feminino com modificador 'women's trail running' (sinal market-intel: +18% QoQ)",
+    "audience": "first-time visitors via paid search",
+    "format": ["search-ad-headline", "search-ad-description", "responsive-display-image"]
+  },
+  "outputs_required": [
+    { "channel": "paid_google", "format": "search-ad-headline", "locale": "en-US" },
+    { "channel": "paid_google", "format": "search-ad-description", "locale": "en-US" },
+    { "channel": "paid_google", "format": "responsive-display-image", "locale": "en-US" }
+  ],
+  "brand_style_ref": "memory://acme-myshopify-com/facts/brand-style.md"
+}

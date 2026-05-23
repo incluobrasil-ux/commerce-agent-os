@@ -1,0 +1,5 @@
+README.md
+*.test.*
+.DS_Store
+Thumbs.db
+node_modules/

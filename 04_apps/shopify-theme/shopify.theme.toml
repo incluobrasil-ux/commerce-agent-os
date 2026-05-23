@@ -1,0 +1,14 @@
+# Metadados do tema para Shopify CLI.
+# Preencher quando o tema for inicializado em uma loja de desenvolvimento.
+# Documentação: https://shopify.dev/docs/themes/tools/cli
+
+name = "commerce-agent-os-theme"
+# version = "0.0.0"
+# environments — definir quando houver loja de dev e produção
+# [environments.development]
+# store = "your-dev-store.myshopify.com"
+# theme = "unpublished-theme-id"
+
+# [environments.production]
+# store = "your-prod-store.myshopify.com"
+# theme = "live-theme-id"

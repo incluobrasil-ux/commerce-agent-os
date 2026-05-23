@@ -1,0 +1,56 @@
+# Webhooks Shopify que este adapter escuta.
+# Fonte da verdade espelhada em 04_apps/shopify-admin-app/shopify.app.toml.
+
+api_version: "2025-01"
+
+topics:
+  # ===== Obrigatórios para apps publicados =====
+  - id: app/uninstalled
+    handler: app-uninstalled
+    why: "limpeza de session storage + revogação do tenant"
+    mandatory: true
+
+  - id: shop/redact
+    handler: gdpr-shop-redact
+    why: "GDPR: apagar dados da loja após uninstall+48h"
+    mandatory: true
+
+  - id: customers/data_request
+    handler: gdpr-data-request
+    why: "GDPR: cliente solicita dados pessoais"
+    mandatory: true
+
+  - id: customers/redact
+    handler: gdpr-customer-redact
+    why: "GDPR: apagar dados de um cliente específico"
+    mandatory: true
+
+  # ===== Operacionais =====
+  - id: products/create
+    handler: products-mutated
+    why: "novo SKU pode disparar product-feed-seo"
+
+  - id: products/update
+    handler: products-mutated
+    why: "invalidar cache; agendar reanálise de feed/compliance"
+
+  - id: products/delete
+    handler: products-deleted
+    why: "remover de feed Merchant Center; invalidar memória relacionada"
+
+  # ===== Opt-in por tenant =====
+  - id: orders/create
+    handler: orders-created
+    why: "sinal para VoC/analytics; respeita opt-in em settings"
+    opt_in: true
+
+  - id: orders/updated
+    handler: orders-updated
+    why: "estado de pedido pode alterar VoC (refund, cancel)"
+    opt_in: true
+
+# Garantias do adapter de webhooks:
+# - HMAC verify obrigatório (X-Shopify-Hmac-Sha256 com SHOPIFY_API_SECRET)
+# - Deduplicação por X-Shopify-Webhook-Id em janela de 24h
+# - Resposta 200 sempre que recebemos válido (incluso dedup); 401 se HMAC falhar
+# - Processamento async — handler enfileira; HTTP responde rápido

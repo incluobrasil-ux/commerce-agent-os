@@ -1,0 +1,13 @@
+tools:
+  - name: fs_walk
+    source: "@cao/core"
+    description: lista arquivos do repo (respeita .gitignore)
+  - name: license_detect
+    source: "@cao/core"
+    description: detecta SPDX via header + LICENSE file
+  - name: secret_scan
+    source: "@cao/guardrails"
+    description: varre por chaves/tokens hardcoded
+  - name: llm_summarize
+    source: "@cao/llm"
+    description: gera resumo arquitetural

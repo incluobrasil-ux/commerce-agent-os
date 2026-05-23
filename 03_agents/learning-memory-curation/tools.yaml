@@ -1,0 +1,13 @@
+tools:
+  - name: memory_iter
+    source: "@cao/memory"
+    description: itera entradas da janela
+  - name: memory_write
+    source: "@cao/memory"
+    description: aplica ações (apenas em mode=apply)
+  - name: embed_compare
+    source: "@cao/llm"
+    description: similaridade semântica para dedup
+  - name: index_rebuild
+    source: "@cao/memory"
+    description: reconstrói índices após apply

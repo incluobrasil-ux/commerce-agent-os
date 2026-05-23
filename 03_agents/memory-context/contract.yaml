@@ -1,0 +1,25 @@
+name: memory-context
+version: 0.0.0
+tier: 0
+
+input:
+  tenant_id: { type: string, required: true }
+  query: { type: string, required: true }
+  token_budget: { type: number, required: true }
+  scopes: { type: array, items: string, required: false }
+
+output:
+  bundle:
+    markdown: string
+    sources:
+      type: array
+      items:
+        path: string
+        modified_at: string
+    tokens_estimate: number
+    truncated: boolean
+
+errors:
+  - QueryEmpty
+  - NoMemoryFound
+  - TokenBudgetTooSmall

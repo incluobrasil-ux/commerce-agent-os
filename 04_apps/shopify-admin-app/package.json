@@ -1,0 +1,14 @@
+{
+  "name": "@cao/shopify-admin-app",
+  "version": "0.0.0",
+  "private": true,
+  "description": "App embedded no admin Shopify",
+  "type": "module",
+  "scripts": {
+    "build": "echo \"placeholder: shopify cli build\"",
+    "dev": "echo \"placeholder: shopify app dev\"",
+    "typecheck": "tsc --noEmit",
+    "lint": "echo \"placeholder: lint\"",
+    "test": "echo \"placeholder: test\""
+  }
+}

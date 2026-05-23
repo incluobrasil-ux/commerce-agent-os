@@ -1,0 +1,48 @@
+name: orchestrator-master
+version: 0.0.0
+tier: 0
+
+input:
+  intent:
+    type: string
+    required: true
+    description: identificador da operação (ex.: publish_optimized_feed)
+  tenant_id:
+    type: string
+    required: true
+  context_ref:
+    type: string
+    required: false
+    description: ponteiro para um bundle de contexto em 07_memory/
+  policy:
+    type: object
+    required: true
+    fields:
+      max_cost_usd: { type: number }
+      max_duration_seconds: { type: number }
+      allow_destructive: { type: boolean, default: false }
+
+output:
+  plan:
+    type: object
+    description: árvore resolvida de chamadas a sub-agentes
+    fields:
+      status: { type: string, enum: [ok, needs_clarification, blocked] }
+      nodes: { type: array, items: object }
+  result:
+    type: object
+    description: resultado consolidado das execuções
+  audit_trail:
+    type: array
+    items:
+      agent: string
+      ms: number
+      tokens: number
+      cost_usd: number
+      outcome: string
+
+errors:
+  - PolicyViolation
+  - BudgetExceeded
+  - SubAgentFailure
+  - AmbiguousIntent

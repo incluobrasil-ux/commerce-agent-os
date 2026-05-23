@@ -1,0 +1,16 @@
+{
+  "tenant_id": "acme-myshopify-com",
+  "scope": {
+    "kind": "sku_list",
+    "ids": ["gid://shopify/Product/100", "gid://shopify/Product/101"]
+  },
+  "targets": ["google_mc", "seo_pdp"],
+  "policy": {
+    "char_limits": {
+      "title": 150,
+      "description": 5000
+    },
+    "forbidden_words": ["best ever", "cures"],
+    "brand_tone": "direct, warm, concrete"
+  }
+}

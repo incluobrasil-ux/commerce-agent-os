@@ -1,0 +1,23 @@
+{
+  "report": {
+    "markdown": "# Trail-running shoes — US — d90\n\n3 players dominam top SERP (Hoka, Salomon, Altra) com share of voice ~62%. Atributos de copy mais frequentes: 'waterproof', 'lightweight', 'rock plate'. Preço médio top-20 SERP: USD 145 (faixa 110-190). Tráfego crescente para queries com modificador 'women's' (+18% QoQ)."
+  },
+  "signals_outbound": [
+    {
+      "kind": "rising_search",
+      "detail": "Queries com modificador 'women's' crescem 18% QoQ",
+      "evidence": ["brightdata:serp:2026-04 vs 2026-05", "google_trends:proxy"]
+    },
+    {
+      "kind": "common_attribute_top_serp",
+      "detail": "70% dos top-10 destacam 'rock plate' no título",
+      "evidence": ["brightdata:dataset:competitor-pages"]
+    },
+    {
+      "kind": "price_band",
+      "detail": "Preço médio USD 145; faixa core USD 110-190",
+      "evidence": ["brightdata:dataset:pricing"]
+    }
+  ],
+  "confidence": 0.72
+}

@@ -1,0 +1,13 @@
+tools:
+  - name: policy_load
+    source: "@cao/guardrails"
+    description: carrega regras da política por policy_ref
+  - name: schema_validate
+    source: "@cao/guardrails"
+    description: valida artifact contra schema do artifact_type
+  - name: llm_judge
+    source: "@cao/llm"
+    description: avaliação semântica quando regras determinísticas não bastam
+  - name: audit_log
+    source: "@cao/observability"
+    description: registra decisão e razões

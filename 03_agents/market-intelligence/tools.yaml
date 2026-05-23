@@ -1,0 +1,13 @@
+tools:
+  - name: brightdata_serp
+    source: "05_integrations/brightdata"
+    description: consulta SERPs por palavras-chave
+  - name: brightdata_dataset
+    source: "05_integrations/brightdata"
+    description: pulls de datasets de marketplace/preços
+  - name: posthog_query
+    source: "05_integrations/posthog"
+    description: consulta sinais internos (funil, eventos)
+  - name: llm_synthesize
+    source: "@cao/llm"
+    description: sumariza e estrutura signals_outbound

@@ -1,0 +1,35 @@
+{
+  "snapshot": {
+    "hoka.com": {
+      "price": { "median_usd": 155, "range_usd": [120, 220] },
+      "copy": { "title_top_modifiers": ["responsive", "max cushion", "trail"], "description_avg_chars": 480 },
+      "reviews": { "avg_rating": 4.5, "review_count_top10": 2840 }
+    },
+    "salomon.com": {
+      "price": { "median_usd": 165, "range_usd": [130, 230] },
+      "copy": { "title_top_modifiers": ["grip", "stable", "trail"], "description_avg_chars": 410 },
+      "reviews": { "avg_rating": 4.3, "review_count_top10": 1920 }
+    },
+    "altrarunning.com": {
+      "price": { "median_usd": 145, "range_usd": [115, 195] },
+      "copy": { "title_top_modifiers": ["zero drop", "footshape", "trail"], "description_avg_chars": 520 },
+      "reviews": { "avg_rating": 4.2, "review_count_top10": 1180 }
+    }
+  },
+  "deltas": [
+    {
+      "competitor": "hoka.com",
+      "dimension": "price",
+      "from": { "median_usd": 150 },
+      "to": { "median_usd": 155 }
+    }
+  ],
+  "alerts": [
+    {
+      "competitor": "hoka.com",
+      "dimension": "price",
+      "severity": "info",
+      "detail": "Median price +3.3% vs last snapshot"
+    }
+  ]
+}

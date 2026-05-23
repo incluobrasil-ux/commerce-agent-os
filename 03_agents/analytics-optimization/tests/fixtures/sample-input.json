@@ -1,0 +1,9 @@
+{
+  "tenant_id": "acme-myshopify-com",
+  "surface": "funnel",
+  "window": {
+    "from": "2026-04-23T00:00:00Z",
+    "to": "2026-05-23T00:00:00Z"
+  },
+  "baseline_ref": "memory://acme-myshopify-com/working/analytics/funnel-baseline-2026-Q1.md"
+}

@@ -1,0 +1,18 @@
+# gitleaks config — commerce-agent-os
+# Documentação: https://github.com/gitleaks/gitleaks
+# Política de uso descrita em ADR-0006 e 10_ops/security/security-checklist.md.
+
+title = "commerce-agent-os gitleaks config"
+
+# Herda todas as regras padrão do gitleaks.
+[extend]
+useDefault = true
+
+# Allowlist mínima — paths conhecidos onde "secrets-like" strings são esperados
+# (fixtures de teste, upstreams read-only).
+[allowlist]
+description = "Fixtures de teste e upstreams read-only"
+paths = [
+  '''.*tests/fixtures/.*''',
+  '''01_upstreams/.*''',
+]

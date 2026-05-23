@@ -1,0 +1,36 @@
+name: analytics-optimization
+version: 0.0.0
+tier: 6
+
+input:
+  tenant_id: { type: string, required: true }
+  surface: { type: string, enum: [funnel, pdp, feed, campaign, voc] }
+  window:
+    from: string
+    to: string
+  baseline_ref: { type: string, required: false }
+
+output:
+  findings:
+    type: array
+    items:
+      title: string
+      metric: string
+      value: number
+      delta_vs_baseline: number
+      estimated_impact_usd: number
+  experiments_proposed:
+    type: array
+    items:
+      hypothesis: string
+      variant: string
+      primary_metric: string
+      minimum_detectable_effect: number
+      sample_size: number
+      duration_estimate_days: number
+  summary:
+    markdown: string
+
+errors:
+  - InsufficientData
+  - MetricNotFound

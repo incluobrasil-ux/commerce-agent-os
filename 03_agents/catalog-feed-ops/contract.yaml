@@ -1,0 +1,44 @@
+name: catalog-feed-ops
+version: 0.0.0
+tier: 4
+
+input:
+  tenant_id: { type: string, required: true }
+  changes:
+    type: array
+    items:
+      sku: string
+      field: string
+      from: string
+      to: string
+      approved_by: string
+  mode: { type: string, enum: [dry_run, apply] }
+  schedule: { type: string, required: false }
+
+output:
+  applied:
+    type: array
+    items:
+      sku: string
+      field: string
+      external_ids:
+        shopify: string
+        gmc: string
+      ms: number
+  skipped:
+    type: array
+    items:
+      sku: string
+      field: string
+      reason: string
+  feed_status:
+    type: array
+    items:
+      sku: string
+      gmc_state: { type: string, enum: [pending, approved, disapproved, expiring] }
+      issues: { type: array, items: string }
+
+errors:
+  - ProviderAuthFailure
+  - ChangeRejectedByProvider
+  - ChangesUnapproved

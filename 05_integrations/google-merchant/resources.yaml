@@ -1,0 +1,61 @@
+# Recursos Merchant API que este adapter suporta.
+# Versionamos esta lista para evitar usos não previstos.
+
+api_version: "v2.1"   # confirmar — Merchant API ainda em evolução; placeholder.
+
+resources:
+  - id: products
+    methods:
+      - id: insert
+        why: "criar/sobrescrever oferta no Merchant Center"
+        destructive: true
+        consumers: [catalog-feed-ops]
+      - id: update
+        why: "patch parcial em oferta existente"
+        destructive: true
+        consumers: [catalog-feed-ops]
+      - id: delete
+        why: "remover oferta (ex.: SKU deletado em Shopify)"
+        destructive: true
+        consumers: [catalog-feed-ops]
+      - id: list
+        why: "paginação para reconciliação"
+        consumers: [merchant-compliance, catalog-feed-ops]
+      - id: get
+        why: "leitura pontual de oferta"
+        consumers: [catalog-feed-ops, product-feed-seo]
+
+  - id: productstatuses
+    methods:
+      - id: get
+        why: "estado de uma oferta (approved | disapproved | pending | expiring)"
+        consumers: [catalog-feed-ops, merchant-compliance]
+      - id: list
+        why: "varredura de disapprovals (monitor periódico)"
+        consumers: [merchant-compliance]
+
+  - id: accounts
+    methods:
+      - id: get
+        why: "confirmar claim de domínio + ID válido"
+        consumers: [merchant-service]
+
+  # Recursos opcionais (avaliar antes de habilitar):
+  - id: datafeeds
+    status: optional
+    why: "alguns flows preferem feed nomeado; nosso default é products.insert direto"
+    consumers: []
+
+  - id: reports
+    status: optional
+    why: "queries de performance — depende de tier do Merchant Center"
+    consumers: [analytics-optimization]
+
+# Recursos NÃO suportados (intencionalmente):
+not_supported:
+  - id: localfeeds
+    why: "out of scope para v0/v1"
+  - id: liasettings
+    why: "Local Inventory Ads — fora de escopo"
+  - id: returnaddress
+    why: "gestão de devolução é responsabilidade do Shopify"

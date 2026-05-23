@@ -1,0 +1,28 @@
+name: market-intelligence
+version: 0.0.0
+tier: 1
+
+input:
+  tenant_id: { type: string, required: true }
+  scope:
+    category: string
+    region: string
+  horizon:
+    type: string
+    enum: [d7, d30, d90, custom]
+  signals: { type: array, items: string, required: false }
+
+output:
+  report:
+    markdown: string
+  signals_outbound:
+    type: array
+    items:
+      kind: string
+      detail: string
+      evidence: { type: array, items: string }
+  confidence: number
+
+errors:
+  - InsufficientData
+  - BudgetExceeded

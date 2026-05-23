@@ -1,0 +1,19 @@
+{
+  "name": "@cao/runtime",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Wrapper sobre LangGraph; contrato de agente e executor",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rm -rf dist .tsbuildinfo"
+  }
+}

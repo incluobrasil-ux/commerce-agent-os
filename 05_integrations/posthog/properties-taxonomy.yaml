@@ -1,0 +1,125 @@
+# Properties canônicas anexadas a eventos PostHog.
+# Naming: snake_case.
+# Common são adicionadas automaticamente pelo @cao/observability.
+
+version: "0.1"
+last_updated: "2026-05-23"
+
+# ===== Common (toda evento herda) =====
+common:
+  - name: tenant_id
+    type: string
+    required: true
+    pii: false
+    notes: "Adicionado automaticamente pelo @cao/observability; multi-tenant é invariante."
+
+  - name: env
+    type: string
+    required: true
+    values: [development, staging, production]
+
+  - name: app
+    type: string
+    required: true
+    notes: "Origem: shopify-admin-app, merchant-service, feed-service, review-service, analytics-service, creative-ops-service, shopify-theme."
+
+  - name: app_version
+    type: string
+    required: false
+
+# ===== Agent / runtime =====
+agent:
+  - { name: agent_name, type: string, required: true }
+  - { name: tier, type: integer, required: true, notes: "0–6 conforme ADR-0003" }
+  - { name: intent, type: string, required: true }
+  - { name: run_id, type: string, required: true, notes: "uuid; pareia agent.invoked + agent.completed + tool.invoked" }
+  - { name: ms, type: integer, required: false }
+  - { name: tokens, type: integer, required: false }
+  - { name: cost_usd, type: float, required: false }
+  - { name: outcome, type: string, required: false, values: [ok, blocked, needs_clarification, error] }
+  - { name: confidence, type: float, required: false }
+  - { name: error_code, type: string, required: false }
+  - { name: tool_name, type: string, required: false }
+  - { name: source, type: string, required: false, notes: "@cao/runtime, 05_integrations/<x>, ..." }
+
+# ===== Commerce / domínio =====
+commerce:
+  - { name: sku, type: string, required: false, notes: "branded type ShopifyProductId" }
+  - { name: product_id, type: string, required: false }
+  - { name: variant_id, type: string, required: false }
+  - { name: collection_id, type: string, required: false }
+  - { name: price_value, type: float, required: false, notes: "valor numérico; preserva precisão com 4 casas" }
+  - { name: cart_value, type: float, required: false }
+  - { name: total_value, type: float, required: false }
+  - { name: currency, type: string, required: false, notes: "ISO 4217" }
+  - { name: items_count, type: integer, required: false }
+  - { name: quantity, type: integer, required: false }
+  - { name: order_id, type: string, required: false }
+  - { name: first_purchase, type: boolean, required: false }
+
+# ===== Página / UX =====
+ui:
+  - { name: page_type, type: string, required: false, values: [home, product, collection, cart, checkout, search, blog, article, other] }
+  - { name: locale, type: string, required: false, notes: "ISO 639-1 / IETF BCP 47" }
+  - { name: referrer, type: string, required: false }
+  - { name: device, type: string, required: false, notes: "auto-captured pelo posthog-js" }
+
+# ===== UTM (campaign attribution) =====
+utm:
+  - { name: utm_source, type: string, required: false }
+  - { name: utm_medium, type: string, required: false }
+  - { name: utm_campaign, type: string, required: false, notes: "DEVE conter initiative_id quando vier de agente" }
+  - { name: utm_term, type: string, required: false }
+  - { name: utm_content, type: string, required: false, notes: "DEVE conter asset_id quando vier de criativo gerado" }
+
+# ===== Campanha / criativo =====
+campaign:
+  - { name: initiative_id, type: string, required: false, notes: "id da iniciativa em marketing-director" }
+  - { name: asset_id, type: string, required: false, notes: "creative-copy-assets / creative-ops-service" }
+  - { name: channel, type: string, required: false, values: [organic_seo, organic_social, email, paid_google, paid_meta, sms, other] }
+  - { name: format, type: string, required: false }
+  - { name: budget_usd, type: float, required: false }
+  - { name: spent_usd, type: float, required: false }
+  - { name: conversions, type: integer, required: false }
+  - { name: kpi_actual, type: float, required: false }
+
+# ===== Feed / GMC =====
+feed:
+  - { name: sku_count, type: integer, required: false }
+  - { name: applied_count, type: integer, required: false }
+  - { name: skipped_count, type: integer, required: false }
+  - { name: targets, type: array, required: false, notes: "ex.: [google_mc, seo_pdp]" }
+  - { name: disapproval_reason, type: string, required: false }
+
+# ===== Reviews =====
+review:
+  - { name: provider, type: string, required: false, notes: "judge-me, yotpo, loox, ..." }
+  - { name: review_id, type: string, required: false }
+  - { name: rating, type: float, required: false, notes: "1.0–5.0" }
+  - { name: has_media, type: boolean, required: false }
+  - { name: themes_count, type: integer, required: false }
+  - { name: scope_kind, type: string, required: false, values: [sku, collection, store] }
+  - { name: scope_id, type: string, required: false }
+
+# ===== Compliance / governance =====
+governance:
+  - { name: artifact_type, type: string, required: false }
+  - { name: decision, type: string, required: false, values: [approve, revise, block] }
+  - { name: findings_count, type: integer, required: false }
+  - { name: hard_count, type: integer, required: false }
+  - { name: approved_by, type: string, required: false }
+
+# ===== Admin / user (lojista) =====
+admin:
+  - { name: user_id, type: string, required: false, notes: "id do staff Shopify; não PII direto" }
+  - { name: action, type: string, required: false }
+  - { name: target_type, type: string, required: false }
+
+# ===== PII — nunca enviar =====
+forbidden:
+  - email
+  - phone
+  - full_name
+  - address
+  - ip_address      # PostHog tem opção de não persistir; ativar
+  - device_id_raw   # quando identificável; mascarar

@@ -1,0 +1,139 @@
+# Taxonomia canônica de eventos PostHog.
+# Naming: <surface>.<verb> em snake_case.
+# Toda mudança nesta lista é PR consciente.
+# Properties canônicas estão em properties-taxonomy.yaml — toda evento herda as common.
+
+version: "0.1"
+last_updated: "2026-05-23"
+
+# ===== Eventos onsite (capturados via posthog-js no shopify-theme) =====
+onsite:
+  - name: page.viewed
+    description: "Visualização de página (auto-captured pelo posthog-js)"
+    required_properties: [page_type, locale]
+    optional_properties: [referrer, utm_*]
+
+  - name: product.viewed
+    description: "PDP carregada"
+    required_properties: [sku, product_id, price_value, currency]
+    optional_properties: [collection_id, locale]
+
+  - name: collection.viewed
+    description: "Página de coleção"
+    required_properties: [collection_id]
+
+  - name: search.performed
+    description: "Busca no site"
+    required_properties: [query, results_count]
+
+  - name: cart.item_added
+    description: "Item adicionado ao carrinho"
+    required_properties: [sku, variant_id, quantity, price_value, currency]
+
+  - name: cart.item_removed
+    description: "Item removido"
+    required_properties: [sku, variant_id, quantity]
+
+  - name: checkout.begun
+    description: "Início do checkout"
+    required_properties: [cart_value, currency, items_count]
+
+  - name: purchase.completed
+    description: "Conversão"
+    required_properties: [order_id, total_value, currency, items_count]
+    optional_properties: [first_purchase]
+
+# ===== Eventos de agente (capturados via posthog-node no runtime) =====
+agent:
+  - name: agent.invoked
+    description: "Agente foi chamado"
+    required_properties: [agent_name, tier, intent, run_id]
+
+  - name: agent.completed
+    description: "Agente terminou com sucesso"
+    required_properties: [agent_name, run_id, ms, outcome]
+    optional_properties: [tokens, cost_usd, confidence]
+
+  - name: agent.failed
+    description: "Agente falhou"
+    required_properties: [agent_name, run_id, ms, error_code]
+
+  - name: tool.invoked
+    description: "Tool chamada por um agente"
+    required_properties: [agent_name, run_id, tool_name, source]
+    optional_properties: [ms, cost_usd]
+
+# ===== Eventos de feed (catalog-feed-ops + product-feed-seo) =====
+feed:
+  - name: feed.proposed
+    description: "product-feed-seo propôs mudanças"
+    required_properties: [sku_count, targets, run_id]
+
+  - name: feed.applied
+    description: "catalog-feed-ops aplicou mudanças"
+    required_properties: [sku_count, applied_count, skipped_count, run_id]
+
+  - name: feed.disapproved
+    description: "GMC reprovou SKU (detectado pelo disapproval-monitor)"
+    required_properties: [sku, disapproval_reason]
+
+# ===== Eventos de campanha (creative + traffic) =====
+campaign:
+  - name: creative.generated
+    description: "Asset criativo gerado"
+    required_properties: [asset_id, kind, channel, format, locale, cost_usd]
+
+  - name: creative.approved
+    description: "Asset aprovado pela governance"
+    required_properties: [asset_id, approved_by]
+
+  - name: campaign.launched
+    description: "Campanha paga lançada"
+    required_properties: [initiative_id, provider, channel, budget_usd]
+
+  - name: campaign.paused
+    description: "Campanha pausada"
+    required_properties: [initiative_id, reason]
+
+  - name: campaign.ended
+    description: "Campanha terminou"
+    required_properties: [initiative_id, spent_usd, conversions, kpi_actual]
+
+# ===== Eventos de reviews =====
+review:
+  - name: review.ingested
+    description: "Review novo entrou no sistema"
+    required_properties: [provider, review_id, rating, sku, has_media]
+
+  - name: review.synthesized
+    description: "VoC sintetizado para um scope"
+    required_properties: [scope_kind, scope_id, themes_count]
+
+  - name: review.responded
+    description: "Resposta publicada"
+    required_properties: [provider, review_id]
+
+# ===== Eventos de compliance =====
+compliance:
+  - name: compliance.audited
+    description: "merchant-compliance rodou audit"
+    required_properties: [sku_count, findings_count, hard_count]
+
+  - name: governance.decided
+    description: "governance-risk-qa decidiu sobre artefato"
+    required_properties: [artifact_type, decision, run_id]
+
+# ===== Eventos de admin / produto interno =====
+admin:
+  - name: admin.signed_in
+    description: "Lojista entrou no admin-app"
+    required_properties: [user_id]
+
+  - name: admin.action_performed
+    description: "Ação manual no admin-app"
+    required_properties: [action, target_type]
+
+# Reservados (NÃO usar até definir):
+reserved:
+  - voc.theme_extracted       # vai ficar sob review.synthesized? ADR pendente
+  - experiment.proposed       # PostHog tem experiments nativos; conflito de nome — confirmar

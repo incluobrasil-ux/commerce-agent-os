@@ -1,0 +1,36 @@
+# shopify.app.toml — metadados do app embedded para Shopify CLI.
+# Preencher quando o app for criado em Shopify Partners.
+# Documentação: https://shopify.dev/docs/apps/tools/cli/configuration
+
+# name = "commerce-agent-os"
+# client_id = "<from-shopify-partners>"
+# application_url = "https://<tunnel>.trycloudflare.com"
+# embedded = true
+
+[access_scopes]
+# Scopes mínimos. Justificativa por scope em 02_architecture/integrations/shopify-map.md.
+scopes = "read_products,write_products,read_orders,read_customers,read_inventory,read_themes,write_themes"
+
+[auth]
+redirect_urls = [
+  # "https://<tunnel>.trycloudflare.com/auth/callback",
+  # "https://<tunnel>.trycloudflare.com/auth/shopify/callback",
+  # "https://<tunnel>.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2025-01"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+  [[webhooks.subscriptions]]
+  topics = [ "shop/redact", "customers/data_request", "customers/redact" ]
+  uri = "/webhooks/compliance"
+
+[pos]
+embedded = false
+
+[build]
+include_config_on_deploy = true

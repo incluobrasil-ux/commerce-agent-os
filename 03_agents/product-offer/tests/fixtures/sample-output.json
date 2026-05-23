@@ -1,0 +1,9 @@
+{
+  "offer": {
+    "price": 149,
+    "bundle": [],
+    "positioning": "Para corredor de trilha que prioriza tração em rocha molhada e amortecimento técnico, sem o premium de marcas top-tier.",
+    "justification": "Preço USD 149 fica abaixo da mediana top-3 (USD 145-165) preservando margem de 47%. Posicionamento explora gap detectado: top SERP enfatiza 'rock plate' (70% dos competitors) mas pouca menção a 'wet grip' — onde nosso SKU performa mensuravelmente acima. Evidências: brightdata:dataset:pricing (2026-05-20), brightdata:dataset:competitor-pages (2026-05-20)."
+  },
+  "confidence": 0.78
+}

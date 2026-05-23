@@ -1,0 +1,13 @@
+tools:
+  - name: skills_marketing_plan
+    source: "@cao/skills"
+    description: templates de plano por objetivo/canal
+  - name: memory_read
+    source: "@cao/memory"
+    description: carrega context_ref e planos anteriores
+  - name: llm_compose
+    source: "@cao/llm"
+    description: monta plano + briefs
+  - name: posthog_metrics
+    source: "05_integrations/posthog"
+    description: baselines de KPI para set de targets

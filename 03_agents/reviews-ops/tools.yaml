@@ -1,0 +1,16 @@
+tools:
+  - name: reviews_fetch
+    source: "05_integrations/shopify"
+    description: ingestão de reviews (provider final a definir)
+  - name: skills_voc
+    source: "@cao/skills"
+    description: extração de temas e sentimento
+  - name: llm_compose
+    source: "@cao/llm"
+    description: gera response_drafts
+  - name: claim_classifier
+    source: "@cao/guardrails"
+    description: classifica claims sensíveis
+  - name: memory_write
+    source: "@cao/memory"
+    description: persiste VoC em 07_memory/<tenant>/voc/

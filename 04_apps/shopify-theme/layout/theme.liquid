@@ -1,0 +1,25 @@
+{%- comment -%}
+  layout/theme.liquid — placeholder.
+
+  Layout raiz do tema. Toda página renderizada pelo Shopify passa por aqui,
+  com o conteúdo específico injetado em {{ content_for_layout }}.
+
+  Referência canônica: estrutura de layout em Shopify/dawn — `01_upstreams/dawn/layout/theme.liquid`
+  (não clonado ainda). Reescrever, não copiar.
+
+  Mínimo esperado quando implementado:
+  - <html lang="{{ request.locale.iso_code }}">
+  - <head> com meta, {{ content_for_header }} (assets do Shopify), favicons, CSS critical
+  - <body> com {% section 'header' %}, {{ content_for_layout }}, {% section 'footer' %}
+  - {% render 'pixel-analytics' %} (PostHog via theme app extension futura)
+{%- endcomment -%}
+
+<!doctype html>
+<html lang="{{ request.locale.iso_code | default: 'en' }}">
+  <head>
+    {{ content_for_header }}
+  </head>
+  <body>
+    {{ content_for_layout }}
+  </body>
+</html>

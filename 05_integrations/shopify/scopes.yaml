@@ -1,0 +1,48 @@
+# Scopes Shopify solicitados pelo app embedded.
+# Fonte da verdade espelhada em 04_apps/shopify-admin-app/shopify.app.toml.
+# Justificativa por scope em 02_architecture/integrations/shopify-map.md.
+
+scopes:
+  - id: read_products
+    why: "leitura de catálogo"
+    consumers: [product-feed-seo, merchant-compliance, design-ux-localization, reviews-ops]
+
+  - id: write_products
+    why: "aplicar mudanças de feed/SEO em produtos"
+    consumers: [catalog-feed-ops]
+    destructive: true
+
+  - id: read_orders
+    why: "sinais de venda para pacing/VoC indireto"
+    consumers: [analytics-optimization, reviews-ops]
+
+  - id: read_customers
+    why: "base para segmentação (futuro), leitura apenas"
+    consumers: [marketing-director, reviews-ops]
+    pii: true
+
+  - id: read_inventory
+    why: "estoque informa product-offer"
+    consumers: [product-offer]
+
+  - id: read_themes
+    why: "mapear sections disponíveis no tema do tenant"
+    consumers: [design-ux-localization]
+
+  - id: write_themes
+    why: "aplicar blueprint de tema (com confirmação humana)"
+    consumers: [design-ux-localization]
+    destructive: true
+
+# Scopes intencionalmente NÃO solicitados:
+not_requested:
+  - id: write_orders
+    why: "fora de escopo; não tocamos pedido"
+  - id: write_customers
+    why: "fora de escopo; não tocamos cliente"
+  - id: write_inventory
+    why: "não gerimos estoque; só lemos"
+  - id: write_shipping
+    why: "fora de escopo"
+  - id: write_fulfillments
+    why: "fora de escopo"

@@ -1,0 +1,13 @@
+tools:
+  - name: skills_copy
+    source: "@cao/skills"
+    description: heurísticas/templates de copy por canal
+  - name: media_image_gen
+    source: "@cao/llm"
+    description: geração de imagem (provedor encapsulado)
+  - name: media_video_gen
+    source: "@cao/llm"
+    description: geração de vídeo (provedor encapsulado, opcional)
+  - name: brand_validator
+    source: "@cao/guardrails"
+    description: valida contra brand_style_ref

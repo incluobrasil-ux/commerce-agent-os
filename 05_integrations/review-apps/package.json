@@ -1,0 +1,30 @@
+{
+  "name": "@cao/integration-review-apps",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Adapter multi-provedor para apps de reviews (Judge.me, Yotpo, Loox, Stamped, Okendo, Shopify nativo)",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./types": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/types/index.js"
+    },
+    "./errors": {
+      "types": "./dist/errors/index.d.ts",
+      "import": "./dist/errors/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rm -rf dist .tsbuildinfo"
+  },
+  "dependencies": {
+    "@cao/shared-types": "workspace:*"
+  }
+}

@@ -1,0 +1,39 @@
+name: creative-copy-assets
+version: 0.0.0
+tier: 3
+
+input:
+  tenant_id: { type: string, required: true }
+  brief:
+    type: object
+    description: schema compartilhado com marketing-director e design-ux-localization
+  outputs_required:
+    type: array
+    items:
+      channel: string
+      format: string
+      locale: string
+  brand_style_ref: { type: string, required: true }
+
+output:
+  assets:
+    type: array
+    items:
+      kind: { type: string, enum: [image, video, copy] }
+      url: string
+      metadata: object
+  copy_variants:
+    type: object
+    description: keyed by "channel|format|locale"
+  provenance:
+    type: array
+    items:
+      asset_id: string
+      model: string
+      prompt: string
+      cost_usd: number
+
+errors:
+  - BrandViolation
+  - ProviderUnavailable
+  - BudgetExceeded

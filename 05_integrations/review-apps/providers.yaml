@@ -1,0 +1,83 @@
+# Catálogo declarativo de provedores de reviews suportados.
+# Status e flags refletem suporte planejado, não implementação atual.
+
+providers:
+  - id: judge-me
+    display_name: "Judge.me"
+    docs: "https://judge.me/api/docs"
+    auth: "API token per shop"
+    webhook: true
+    reply_api: true
+    photo_reviews: true
+    video_reviews: true
+    free_tier: true
+    pricing_notes: "Forever Free plan disponível; recursos avançados pagos"
+    status: recommended_v0
+    notes: "API documentada, comunidade ativa, free tier viável para dev"
+
+  - id: shopify-native
+    display_name: "Shopify Product Reviews (legacy)"
+    docs: "https://help.shopify.com/en/manual/online-store/manage-shop-with-apps/product-reviews"
+    auth: "Shopify Admin API access token (mesmo do app)"
+    webhook: false
+    reply_api: partial
+    photo_reviews: false
+    video_reviews: false
+    free_tier: true
+    pricing_notes: "Grátis; app legacy mas ainda disponível"
+    status: fallback
+    notes: "Sem webhook → polling; sem mídia; útil para lojistas mais simples"
+
+  - id: yotpo
+    display_name: "Yotpo"
+    docs: "https://apidocs.yotpo.com/"
+    auth: "App key + secret per shop"
+    webhook: true
+    reply_api: true
+    photo_reviews: true
+    video_reviews: true
+    free_tier: limited
+    pricing_notes: "Free tier muito limitado; preço escala com volume"
+    status: considered
+    notes: "Robusto mas caro em volume; bom se o lojista já usa"
+
+  - id: loox
+    display_name: "Loox"
+    docs: "https://loox.io/api"
+    auth: "API key per shop"
+    webhook: partial
+    reply_api: true
+    photo_reviews: true
+    video_reviews: true
+    free_tier: false
+    pricing_notes: "Sem free tier; mensal por shop"
+    status: considered
+    notes: "Forte em photo reviews; webhook coverage parcial — sempre fallback de polling"
+
+  - id: stamped
+    display_name: "Stamped"
+    docs: "https://stamped.io/developers"
+    auth: "API key per shop"
+    webhook: true
+    reply_api: true
+    photo_reviews: true
+    video_reviews: true
+    free_tier: limited
+    pricing_notes: "Free tier baixo volume; pago escala razoavelmente"
+    status: considered
+
+  - id: okendo
+    display_name: "Okendo"
+    docs: "https://www.okendo.io/developers"
+    auth: "API key per shop"
+    webhook: true
+    reply_api: true
+    photo_reviews: true
+    video_reviews: true
+    free_tier: false
+    pricing_notes: "Mercado mid-market; sem free tier"
+    status: considered
+
+# Recomendação inicial v0:
+# - Implementar judge-me (free tier + webhook + photo) + shopify-native (fallback).
+# - Adicionar yotpo/loox/stamped/okendo conforme demanda dos primeiros tenants.

@@ -1,0 +1,13 @@
+tools:
+  - name: ads_provider_client
+    source: "05_integrations/google-ads"
+    description: cria/atualiza campanhas (postergado)
+  - name: policy_enforce
+    source: "@cao/guardrails"
+    description: aplica daily_cap_usd e cpa_max_usd
+  - name: posthog_metrics
+    source: "05_integrations/posthog"
+    description: pacing + KPI realizado
+  - name: audit_log
+    source: "@cao/observability"
+    description: registra toda chamada destrutiva

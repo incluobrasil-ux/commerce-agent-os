@@ -1,0 +1,13 @@
+tools:
+  - name: brightdata_scrape
+    source: "05_integrations/brightdata"
+    description: coleta páginas-alvo (Web Unlocker/Scraping Browser)
+  - name: brightdata_dataset
+    source: "05_integrations/brightdata"
+    description: datasets prontos (marketplaces, reviews)
+  - name: memory_snapshot
+    source: "@cao/memory"
+    description: persiste snapshot e calcula delta vs since
+  - name: alert_policy
+    source: "@cao/guardrails"
+    description: aplica política para classificar deltas em alerts

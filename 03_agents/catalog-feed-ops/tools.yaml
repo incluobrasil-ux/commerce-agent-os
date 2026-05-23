@@ -1,0 +1,16 @@
+tools:
+  - name: shopify_product_write
+    source: "05_integrations/shopify"
+    description: aplica mudanças no produto Shopify
+  - name: gmc_product_write
+    source: "05_integrations/google-merchant"
+    description: aplica mudanças no Merchant Center
+  - name: gmc_product_status
+    source: "05_integrations/google-merchant"
+    description: estado atual do produto em GMC
+  - name: idempotency_guard
+    source: "@cao/core"
+    description: chave de idempotência por (sku, field, hash(value))
+  - name: audit_log
+    source: "@cao/observability"
+    description: registra toda escrita

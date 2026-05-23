@@ -1,0 +1,14 @@
+{
+  "tenant_id": "acme-myshopify-com",
+  "horizon": {
+    "from": "2026-07-01",
+    "to": "2026-09-30"
+  },
+  "objectives": [
+    { "key": "increase_aov", "priority": 1 },
+    { "key": "open_women_segment", "priority": 2 },
+    { "key": "defend_margin", "priority": 3 }
+  ],
+  "budget_usd": 50000,
+  "context_ref": "memory://acme-myshopify-com/working/market/trail-running-shoes-2026-06-15.md"
+}

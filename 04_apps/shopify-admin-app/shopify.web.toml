@@ -1,0 +1,9 @@
+# shopify.web.toml — declara este diretório como um "web" component para a Shopify CLI.
+# Documentação: https://shopify.dev/docs/apps/tools/cli/structure
+
+name = "shopify-admin-app"
+roles = ["frontend", "backend"]
+webhooks_path = "/webhooks"
+
+[commands]
+dev = "pnpm dev"

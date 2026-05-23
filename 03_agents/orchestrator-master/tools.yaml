@@ -1,0 +1,13 @@
+tools:
+  - name: invoke_agent
+    source: "@cao/runtime"
+    description: chama um agente Tier 1–6 com contexto e captura resultado
+  - name: load_context
+    source: "@cao/memory"
+    description: materializa um bundle de contexto a partir de 07_memory/
+  - name: budget_guard
+    source: "@cao/guardrails"
+    description: impõe policy.max_cost_usd e policy.max_duration_seconds
+  - name: audit_log
+    source: "@cao/observability"
+    description: registra chamadas no audit_trail e em PostHog

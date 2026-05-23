@@ -1,0 +1,32 @@
+{
+  "voc": {
+    "themes": [
+      {
+        "theme": "Fit runs small",
+        "prevalence": 0.18,
+        "sentiment": "negative",
+        "citations": ["review:judge-me:r-1041", "review:judge-me:r-1077"]
+      },
+      {
+        "theme": "Cushioning and comfort",
+        "prevalence": 0.42,
+        "sentiment": "positive",
+        "citations": ["review:judge-me:r-1003", "review:judge-me:r-1099"]
+      },
+      {
+        "theme": "Trail grip in wet conditions",
+        "prevalence": 0.12,
+        "sentiment": "mixed",
+        "citations": ["review:judge-me:r-1058"]
+      }
+    ]
+  },
+  "claims_flagged": [
+    {
+      "review_id": "review:judge-me:r-1077",
+      "category": "safety",
+      "claim": "Slipped on wet rock and twisted ankle."
+    }
+  ],
+  "response_drafts": []
+}

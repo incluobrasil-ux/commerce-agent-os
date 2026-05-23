@@ -1,0 +1,8 @@
+{
+  "tenant_id": "acme-myshopify-com",
+  "scope": {
+    "category": "trail-running-shoes",
+    "region": "US"
+  },
+  "horizon": "d90"
+}

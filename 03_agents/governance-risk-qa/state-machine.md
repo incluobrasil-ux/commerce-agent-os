@@ -1,0 +1,34 @@
+# State machine — governance-risk-qa
+
+```
+   ┌───────────┐
+   │  received │
+   └─────┬─────┘
+         ▼
+   ┌─────────────────┐
+   │ deterministic   │  regras hard de schema/regex
+   └──┬───────────┬──┘
+      │           │ hit hard
+      │           ▼
+      │      ┌────────┐
+      │      │ block  │──► fim
+      │      └────────┘
+      ▼
+   ┌─────────────────┐
+   │ semantic-judge  │  llm_judge se necessário
+   └──┬───────────┬──┘
+      │           │ hits soft
+      │           ▼
+      │      ┌────────┐
+      │      │ revise │──► fim
+      │      └────────┘
+      ▼
+   ┌────────────┐
+   │  approve   │──► fim
+   └────────────┘
+```
+
+## Invariantes
+- Toda transição deve gerar entrada em `audit_log`.
+- `block` é terminal — não emite `suggested_revisions`.
+- `revise` deve sempre apresentar pelo menos uma sugestão concreta.

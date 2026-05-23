@@ -1,0 +1,16 @@
+{
+  "name": "@cao/review-service",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Serviço de ingestão, síntese e resposta a reviews (multi-provedor)",
+  "type": "module",
+  "main": "./dist/server.js",
+  "scripts": {
+    "build": "tsc -b",
+    "dev": "echo \"placeholder: tsx watch src/server.ts\"",
+    "start": "echo \"placeholder: node dist/server.js\"",
+    "typecheck": "tsc --noEmit",
+    "test": "echo \"placeholder: test\"",
+    "clean": "rm -rf dist .tsbuildinfo"
+  }
+}

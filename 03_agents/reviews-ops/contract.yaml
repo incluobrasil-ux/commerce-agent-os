@@ -1,0 +1,39 @@
+name: reviews-ops
+version: 0.0.0
+tier: 5
+
+input:
+  tenant_id: { type: string, required: true }
+  scope:
+    kind: { type: string, enum: [sku, collection, store] }
+    id: { type: string, required: false }
+  mode: { type: string, enum: [ingest, synthesize, draft_responses] }
+  window:
+    from: string
+    to: string
+
+output:
+  voc:
+    themes:
+      type: array
+      items:
+        theme: string
+        prevalence: number
+        sentiment: { type: string, enum: [positive, neutral, negative, mixed] }
+        citations: { type: array, items: string }
+  claims_flagged:
+    type: array
+    items:
+      review_id: string
+      category: { type: string, enum: [health, safety, regulatory, other] }
+      claim: string
+  response_drafts:
+    type: array
+    items:
+      review_id: string
+      draft: string
+      tone: string
+
+errors:
+  - ProviderUnreachable
+  - NoReviewsInWindow

@@ -1,0 +1,13 @@
+tools:
+  - name: policy_load
+    source: "@cao/guardrails"
+    description: carrega regras de GMC/Shopify/região
+  - name: skills_compliance
+    source: "@cao/skills"
+    description: validadores específicos (GTIN, taxonomia, atributos obrigatórios)
+  - name: gmc_disapproval_read
+    source: "05_integrations/google-merchant"
+    description: lê motivos de disapproval atuais
+  - name: shopify_product_read
+    source: "05_integrations/shopify"
+    description: leitura de campos auxiliares

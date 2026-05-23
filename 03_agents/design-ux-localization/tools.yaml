@@ -1,0 +1,13 @@
+tools:
+  - name: theme_sections_list
+    source: "05_integrations/shopify"
+    description: lista seções disponíveis no tema do tenant
+  - name: skills_ux_blueprint
+    source: "@cao/skills"
+    description: heurísticas de UX para PDP/coleção
+  - name: skills_localization
+    source: "@cao/skills"
+    description: localização de copy/preço/data
+  - name: llm_compose
+    source: "@cao/llm"
+    description: geração de microcopy

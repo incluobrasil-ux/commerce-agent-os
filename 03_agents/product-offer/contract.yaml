@@ -1,0 +1,28 @@
+name: product-offer
+version: 0.0.0
+tier: 2
+
+input:
+  tenant_id: { type: string, required: true }
+  scope:
+    type: object
+    fields:
+      kind: { type: string, enum: [sku, collection, category] }
+      id: string
+  constraints:
+    margin_min: number
+    price_band: { min: number, max: number }
+    brand_rules: { type: array, items: string }
+  context_ref: { type: string, required: false }
+
+output:
+  offer:
+    price: number
+    bundle: { type: array, items: { sku: string, qty: number } }
+    positioning: string
+    justification: string
+  confidence: number
+
+errors:
+  - StockUnavailable
+  - MarginInfeasible

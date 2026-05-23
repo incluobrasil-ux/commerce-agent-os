@@ -1,0 +1,13 @@
+tools:
+  - name: memory_search
+    source: "@cao/memory"
+    description: busca em 07_memory/<tenant>/ por relevância textual
+  - name: memory_read
+    source: "@cao/memory"
+    description: lê arquivos específicos com paginação
+  - name: token_count
+    source: "@cao/llm"
+    description: estimativa de tokens para enforce de budget
+  - name: redact_pii
+    source: "@cao/guardrails"
+    description: aplica scrub de PII conforme política

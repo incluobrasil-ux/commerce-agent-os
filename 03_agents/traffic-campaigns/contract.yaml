@@ -1,0 +1,45 @@
+name: traffic-campaigns
+version: 0.0.0
+tier: 3
+
+input:
+  tenant_id: { type: string, required: true }
+  media_plan:
+    type: array
+    items:
+      initiative_id: string
+      channel: string
+      budget_usd: number
+      creative_ref: string
+      kpi: { name: string, target: number }
+  mode: { type: string, enum: [dry_run, launch, pause, tune] }
+  policy:
+    daily_cap_usd: number
+    cpa_max_usd: number
+
+output:
+  campaigns:
+    type: array
+    items:
+      initiative_id: string
+      provider: string
+      external_id: string
+      status: { type: string, enum: [draft, active, paused, ended, error] }
+  pacing_report:
+    type: array
+    items:
+      initiative_id: string
+      spent_usd: number
+      budget_usd: number
+      window_hours: number
+  recommendations:
+    type: array
+    items:
+      initiative_id: string
+      action: string
+      evidence: string
+
+errors:
+  - ProviderAuthFailure
+  - PolicyViolation
+  - CreativeMissing

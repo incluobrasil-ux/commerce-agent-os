@@ -1,0 +1,9 @@
+{
+  "tenant_id": "acme-myshopify-com",
+  "scope": {
+    "kind": "sku_list",
+    "ids": ["gid://shopify/Product/100", "gid://shopify/Product/101"]
+  },
+  "policies": ["gmc", "shopify", "region:US"],
+  "mode": "audit"
+}

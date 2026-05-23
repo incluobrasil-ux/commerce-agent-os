@@ -1,0 +1,32 @@
+{
+  "assets": [
+    {
+      "kind": "image",
+      "url": "https://cdn.cao-creative.local/acme/2026-07/INI-002-rdi-1.jpg",
+      "metadata": {
+        "width": 1200,
+        "height": 628,
+        "format": "rdi",
+        "asset_id": "AST-001"
+      }
+    }
+  ],
+  "copy_variants": {
+    "paid_google|search-ad-headline|en-US": "Women's Trail Shoes with Real Wet Grip",
+    "paid_google|search-ad-description|en-US": "Engineered rock plate plus an outsole built for slick rock. Tested on wet trails. Free shipping over $99."
+  },
+  "provenance": [
+    {
+      "asset_id": "AST-001",
+      "model": "image-gen-v3",
+      "prompt": "Hyper-realistic photo: woman trail running on wet granite rock face, late afternoon light, weather sealed shoes visible. Shot on 35mm.",
+      "cost_usd": 0.085
+    },
+    {
+      "asset_id": "COPY-search-headline-en-US",
+      "model": "claude-sonnet-4-6",
+      "prompt": "Generate a Google search ad headline (max 30 chars) for...",
+      "cost_usd": 0.012
+    }
+  ]
+}

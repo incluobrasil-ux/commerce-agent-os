@@ -1,0 +1,29 @@
+name: learning-memory-curation
+version: 0.0.0
+tier: 0
+
+input:
+  tenant_id: { type: string, required: true }
+  window:
+    type: object
+    fields:
+      from: string
+      to: string
+  mode: { type: string, enum: [dry_run, apply], default: dry_run }
+  policy:
+    max_age_days: { type: number, default: 365 }
+    dedup_threshold: { type: number, default: 0.85 }
+
+output:
+  actions:
+    type: array
+    items:
+      op: { type: string, enum: [merge, demote, delete, promote] }
+      target: string
+      detail: string
+  before_after_diff: string
+  index_updated: boolean
+
+errors:
+  - TenantNotFound
+  - IndexLocked

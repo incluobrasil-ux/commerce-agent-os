@@ -1,0 +1,13 @@
+tools:
+  - name: shopify_product_read
+    source: "05_integrations/shopify"
+    description: lê SKU, preço, estoque, custo
+  - name: skills_pricing
+    source: "@cao/skills"
+    description: heurísticas de pricing (cost-plus, value-based, dynamic)
+  - name: memory_read
+    source: "@cao/memory"
+    description: carrega context_ref
+  - name: llm_compose
+    source: "@cao/llm"
+    description: gera positioning e justification

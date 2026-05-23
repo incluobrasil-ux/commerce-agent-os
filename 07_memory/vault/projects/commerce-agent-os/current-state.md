@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T16:30:00Z
+updated_at: 2026-05-23T16:40:00Z
 tags: [current-state, status]
 source: mixed
 confidence: 1.0
@@ -23,9 +23,9 @@ confidence: 1.0
 | | |
 |---|---|
 | Macro-fase | 2 — Implementação |
-| Sub-fase | 2.2 concluída (núcleo + `repo-auditor` real) → 2.3 (clonar upstreams) |
-| Último marco | `pnpm audit:repo .` gerou relatório real em `12_reports/audits/repo-auditor/` |
-| Próximo marco técnico | LLM real invocado por agente (Sub-fase 2.4) ou primeiro upstream clonado + auditado (Sub-fase 2.3) |
+| Sub-fase | 2.3 parcial concluída (2/10 upstreams) → 2.4 (LLM end-to-end) |
+| Último marco | `langgraph` + `shopify-app-template-react-router` clonados e auditados — ambos MIT |
+| Próximo marco técnico | LLM real invocado por agente via `@cao/runtime` (Sub-fase 2.4) |
 
 ## Verde
 
@@ -33,17 +33,20 @@ confidence: 1.0
 - 6 packages `@cao/*` implementados com testes (core, llm, memory, guardrails, observability, runtime).
 - **`repo-auditor` é o 1º agente real**, executável via `pnpm audit:repo <path>`, modo determinístico (sem `ANTHROPIC_API_KEY`).
 - Suíte completa: **52 testes em ~1.6s** (8 arquivos).
-- `.env.example`, `SETUP_LOCAL.md`, `COMMANDS.md` populados para clone em outro PC.
+- `.env.example`, `SETUP_LOCAL.md`, `COMMANDS.md`, `clone-upstreams.sh` populados.
+- **2 upstreams clonados + auditados** (`langgraph`, `shopify-app-template-react-router`).
+- **Suíte 54 testes verdes** (detector de licença melhorou — reconhece MIT canônico).
 - CI no GitHub Actions; branch protection em `main`; tag `v0.1.0-architecture-baseline`.
 - 8 ADRs aceitos.
 - Cérebro operacional v1 multi-operador estruturado.
 
 ## Bloqueado
 
-- **B1** — `ANTHROPIC_API_KEY` não confirmada em dev → impede agente invocar LLM real.
-- **B2** — Nenhum upstream clonado em `01_upstreams/` → bloqueia auditoria de premissas.
+- ~~B1~~ — ✅ `ANTHROPIC_API_KEY` em `.env.local` 2026-05-23 (rotacionar — apareceu em chat log).
+- ~~B2~~ — ✅ 2 upstreams clonados 2026-05-23.
 - ~~B3~~ — ✅ ADR-0007 aceito 2026-05-23.
-- **B4** — Trabalho local (Sub-fase 2.2 + repo-auditor + cérebro + docs) **não commitado / não pushado**.
+- **B4** — N4 + correção do detector pendentes de commit + push.
+- **B5 (novo)** — `gitleaks` binário não instalado localmente (pre-commit hooks ativos mas sem secret scan).
 
 Detalhe em [blockers-and-risks.md](blockers-and-risks.md).
 

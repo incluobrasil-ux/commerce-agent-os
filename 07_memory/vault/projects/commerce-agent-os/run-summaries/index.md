@@ -48,6 +48,7 @@ Execuções de agentes em runtime real.
 
 | Data | Título | Resultado | Arquivo |
 |---|---|---|---|
+| 2026-05-23 | `repo-auditor` em 2 upstreams (langgraph + shopify-app-template) | 🟢 | [2026-05-23-agent-run-repo-auditor-2-upstreams.md](2026-05-23-agent-run-repo-auditor-2-upstreams.md) |
 | 2026-05-23 | Primeira execução real do `repo-auditor` (self-audit) | 🟢 | [2026-05-23-agent-run-repo-auditor-self-audit.md](2026-05-23-agent-run-repo-auditor-self-audit.md) |
 
 ---

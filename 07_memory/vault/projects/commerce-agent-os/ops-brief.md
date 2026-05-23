@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T16:10:00Z
+updated_at: 2026-05-23T16:40:00Z
 tags: [brief, status]
 source: mixed
 confidence: 1.0
@@ -35,7 +35,7 @@ Legenda: 🟢 funciona / 🟡 parcial / 🔴 não funciona / ⚪ não iniciado.
 | Outros agentes (16 declarativos) | 🔴 | só schema; nenhum executável |
 | Apps (`04_apps/`) | 🔴 | scaffolds, sem código real |
 | Integrações (`05_integrations/`) | 🔴 | contratos + adapters stub |
-| Upstreams (`01_upstreams/`) | ⚪ | 0 clonados (alvo 10 alta prioridade) |
+| Upstreams (`01_upstreams/`) | 🟡 | 2/10 clonados (langgraph + shopify-app-template, ambos MIT). Outros 8 sob demanda. |
 | Memória (`07_memory/`) | 🟢 (template + cérebro) / ⚪ (tenants) | template OK; cérebro v1 multi-operador; nenhum tenant provisionado |
 | CI | 🟢 | lint+typecheck+smoke+commitlint em PR |
 | CD | ⚪ | sem deploy ainda |

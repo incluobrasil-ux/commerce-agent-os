@@ -25,6 +25,12 @@ confidence: 1.0
 
 ---
 
+## 2026-05-23 — N4 entregue: 2 upstreams + detector evoluído + ADR-0007
+
+- Feito: clone-upstreams.sh + clone raso pinado de langgraph + shopify-app-template; `pnpm audit:repo` em ambos; detector evoluiu (`SPDX_PATTERNS` com matchers alternativos, 2 testes novos). ADR-0007 aceito. PR `feat/core-runtime-and-first-agent` empurrada. simple-git-hooks ativo. Cérebro reflete B1/B2/B3 resolvidos.
+- Resultado: verde. 54 testes verdes. 2 upstreams auditados (ambos MIT). Sub-fase 2.3 minimamente atendida.
+- Próximo: N5 (LLM end-to-end usando key recém-fornecida). N7 aguarda usuário instalar `gitleaks`.
+
 ## 2026-05-23 — Fechamento do repo para clone e equipe (DoR A/B/C/D)
 
 - Feito: implementado `repo-auditor` (1º agente real, determinístico) com lib + CLI + 9 unit tests + 2 smoke tests; script `pnpm audit:repo` na raiz; primeira execução real gerou relatório em `12_reports/audits/repo-auditor/`; criados `.env.example`, `10_ops/scripts/SETUP_LOCAL.md` e `COMMANDS.md`; atualizados `README.md` e `12_reports/releases/current-project-status.md`; cérebro espelha nova realidade.

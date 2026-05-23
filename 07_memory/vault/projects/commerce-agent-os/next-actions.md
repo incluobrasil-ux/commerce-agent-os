@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T16:10:00Z
+updated_at: 2026-05-23T16:40:00Z
 tags: [next-actions]
 source: mixed
 confidence: 1.0
@@ -18,33 +18,12 @@ confidence: 1.0
 
 ---
 
-## N1 — Commitar trabalho local + abrir PR
+## ✅ Concluídos nesta sessão
 
-- **Ação:** criar branch `feat/core-runtime-and-first-agent`, commit Conventional (`feat: @cao/* core + repo-auditor + brain v1 + setup docs`), push, abrir PR.
-- **Pré-requisito:** trabalho local verde (já está: install/typecheck/lint/test/smoke/audit:repo todos verdes).
-- **Resultado esperado:** PR aberto em GitHub passando no CI; aguardando merge.
-- **Quem puxa:** dev
-
-## N2 — Confirmar `ANTHROPIC_API_KEY` em dev
-
-- **Ação:** obter key Anthropic, escrever em `.env.local` na raiz, garantir `.gitignore` cobre `.env*` (já cobre).
-- **Pré-requisito:** acesso ao console Anthropic.
-- **Resultado esperado:** `$env:ANTHROPIC_API_KEY` retorna valor; nenhum vazamento em git.
-- **Quem puxa:** ops
-
-## N3 — Aceitar ADR-0007 (runtime TS via LangGraph JS)
-
-- **Ação:** criar `02_architecture/adr/ADR-0007-agent-runtime.md` com status `aceita`, atualizar [decision-index.md](decision-index.md) e [`00_meta/DECISIONS.md`](../../../../00_meta/DECISIONS.md).
-- **Pré-requisito:** N1 mergeado (evita conflito).
-- **Resultado esperado:** ADR-0007 sai da queue; `@cao/runtime` pode usar LangGraph oficialmente.
-- **Quem puxa:** tech lead
-
-## N4 — Clonar `langgraph` + `shopify-app-template` em `01_upstreams/`
-
-- **Ação:** `git clone <url> 01_upstreams/<repo>` (read-only); rodar `pnpm audit:repo 01_upstreams/<repo>`; confirmar licença em [`00_meta/upstreams_index.md`](../../../../00_meta/upstreams_index.md).
-- **Pré-requisito:** N3 (ADR-0007 aceito para langgraph).
-- **Resultado esperado:** 2 upstreams clonados; 2 relatórios em `12_reports/audits/repo-auditor/`; flags `⚠ verificar` resolvidas no index.
-- **Quem puxa:** dev
+- ~~N1 — Commitar Sub-fase 2.2 + repo-auditor + brain~~ (PR `feat/core-runtime-and-first-agent` aberta).
+- ~~N2 — `ANTHROPIC_API_KEY` em `.env.local`~~ (⚠ rotacionar — apareceu em chat).
+- ~~N3 — ADR-0007 aceito~~.
+- ~~N4 — 2 upstreams clonados + auditados~~ (langgraph + shopify-app-template-react-router, ambos MIT).
 
 ## N5 — LLM end-to-end via `@cao/runtime`
 
@@ -60,11 +39,11 @@ confidence: 1.0
 - **Resultado esperado:** índice de resumos cresce; cérebro reflete execuções reais.
 - **Quem puxa:** quem fez N4/N5
 
-## N7 — Polish residual (gitleaks + simple-git-hooks)
+## N7 — Instalar binário `gitleaks` (hooks já ativos)
 
-- **Ação:** instalar binário `gitleaks` local, ativar `npx simple-git-hooks`, validar que pre-commit roda lint+smoke+secret scan.
-- **Pré-requisito:** N1 mergeado.
-- **Resultado esperado:** hooks ativos em todo clone novo; secret scan no pre-commit.
+- **Ação:** `winget install gitleaks` (Windows) ou `scoop install gitleaks` ou `brew install gitleaks` (mac). `simple-git-hooks` já está ativo (rodou `npx simple-git-hooks`). Validar com `gitleaks --version` + fazer 1 commit com fake secret em test fixture para garantir que bloqueia.
+- **Pré-requisito:** acesso administrativo OS.
+- **Resultado esperado:** secret scan ativo no pre-commit; B5 fechado.
 - **Quem puxa:** ops
 
 ---

@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T16:10:00Z
+updated_at: 2026-05-23T16:40:00Z
 tags: [workstreams, parallel-tracks]
 source: mixed
 confidence: 1.0
@@ -38,13 +38,13 @@ confidence: 1.0
 
 | | |
 |---|---|
-| Status | 🟡 (1 agente real entregue; restantes 16 ainda declarativos) |
+| Status | 🟡 (1 agente real entregue; ~~B1/B2/B3 resolvidos~~; pronto para N5) |
 | Escopo | 17 agentes declarativos virando executáveis. |
-| Último marco | **`repo-auditor` funcional** — determinístico, sem LLM, `pnpm audit:repo <path>` |
-| Próximo marco | 1 agente invocando LLM real via `@cao/runtime` (depende de B1 + B3) |
+| Último marco | 2 upstreams auditados via `repo-auditor` (langgraph + shopify-app-template). Detector de licença evoluiu (54 testes verdes). |
+| Próximo marco | 1 agente invocando LLM real via `@cao/runtime` (N5 — pronto para executar) |
 | Dono sugerido | dev |
-| Depende de | `ANTHROPIC_API_KEY` (B1), ADR-0007 (B3), upstream relevante para auditoria (B2) |
-| Itens ativos | N3 (ADR-0007), N4 (clonar langgraph), N5 (LLM end-to-end) |
+| Depende de | — (todos os bloqueios resolvidos) |
+| Itens ativos | N5 (LLM end-to-end), N6 (resumir N5) |
 | Refs | [03_agents/repo-auditor/](../../../../03_agents/repo-auditor/), [`2026-05-23-agent-run-repo-auditor-self-audit.md`](run-summaries/2026-05-23-agent-run-repo-auditor-self-audit.md) |
 
 ## W3 — Shopify connect

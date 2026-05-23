@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T23:15:00Z
+updated_at: 2026-05-23T23:40:00Z
 tags: [blockers, risks]
 source: human:incluobrasil
 confidence: 1.0
@@ -27,7 +27,8 @@ Itens que **impedem** uma ação concreta agora.
 | B3 | ~~ADR-0007 (runtime alvo TS vs Python) não decidido~~ | — | — | tech lead | ✅ **resolvido** 2026-05-23 — ADR-0007 aceito (TS host + LangGraph JS como referência) |
 | B4 | Trabalho local (núcleo + cérebro + repo-auditor + N4 + detector fix) não commitado em parte | dispersa estado entre local e remoto | commitar pacote final na branch `feat/core-runtime-and-first-agent` + push | dev | parcialmente resolvido (6 commits pushados; falta N4 commit) |
 | B5 | ~~`gitleaks` binário não instalado~~ | — | — | ops | ✅ **resolvido** 2026-05-23 — gitleaks 8.30.1 instalado via winget; integrado ao pre-commit (`pnpm secret-scan`); validado com private key fake (exit 1) |
-| B6 | `SHOPIFY_SHOP` + `SHOPIFY_ADMIN_TOKEN` ausentes em `.env.local` | impede `pnpm shopify:list-products` rodar real (SKIPPED elegante, mas zero dados reais lidos) | (a) criar dev store em https://partners.shopify.com → (b) Admin → Settings → Apps and sales channels → Develop apps → Create app → marcar `read_products` → install → copiar token | ops | aberto (~3 min para destravar) |
+| B6 | `SHOPIFY_SHOP` + `SHOPIFY_ADMIN_TOKEN` ausentes em `.env.local` | impede `pnpm shopify:list-products` rodar real + `pnpm feed:dry-run --source=shopify` (cai para fixture) | (a) criar dev store em https://partners.shopify.com → (b) Admin → Settings → Apps and sales channels → Develop apps → Create app → marcar `read_products` → install → copiar token | ops | aberto (~3 min para destravar) |
+| B7 | Credenciais Google Merchant ausentes (`GOOGLE_OAUTH_CLIENT_ID`, `_SECRET`, `MERCHANT_ACCOUNT_ID`) | impede **upload real** ao GMC. **NÃO** afeta dry-run local (pipeline atual nem invoca cliente real). | escopo da Fase 9.x — quando ativar upload, criar GCP project + OAuth credentials + criar/linkar Merchant account. ~30–60 min de setup. | ops | adiado (não no caminho crítico) |
 
 ---
 

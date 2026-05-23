@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T23:15:00Z
+updated_at: 2026-05-23T23:40:00Z
 tags: [current-state, status]
 source: mixed
 confidence: 1.0
@@ -23,9 +23,9 @@ confidence: 1.0
 | | |
 |---|---|
 | Macro-fase | 2 — Implementação |
-| Sub-fase | 2.3 ✅ + 2.5 em curso + **2.6 caminho mínimo implementado** |
-| Último marco | **Shopify integration mínima funcional** — `pnpm shopify:list-products` lê produtos via Admin GraphQL (custom app token); OAuth helpers prontos para Remix futuro. |
-| Próximo marco técnico | Real run Shopify (depende de `SHOPIFY_SHOP` + `SHOPIFY_ADMIN_TOKEN` em `.env.local`) — primeira **demo mostrável a stakeholder**. |
+| Sub-fase | 2.3 ✅ + 2.5 (4 agentes + 1) + 2.6 ✅ + **2.7 dry-run Merchant implementado** |
+| Último marco | **Pipeline Merchant dry-run funcional** — `pnpm feed:dry-run` transforma produtos (fixture ou Shopify) → valida zod → escreve relatório auditável em `12_reports/merchant-dry-runs/`. Validado em real run (2 ok / 1 fail / 5 warnings). |
+| Próximo marco técnico | Conectar credenciais externas (Shopify + Anthropic) para rodar pipeline com dados reais — todas validações locais já passam. |
 
 ## Verde
 
@@ -34,9 +34,11 @@ confidence: 1.0
 - **`repo-auditor` é o 1º agente real**, executável via `pnpm audit:repo <path>`, modo determinístico (sem `ANTHROPIC_API_KEY`).
 - `.env.example`, `SETUP_LOCAL.md`, `COMMANDS.md`, `clone-upstreams.sh` populados.
 - **2 upstreams clonados + auditados** (`langgraph`, `shopify-app-template-react-router`).
-- **Suíte 96 testes verdes** em 14 arquivos (+ `admin-graphql` 8 + `oauth` 7 cobrindo Shopify).
+- **Suíte 114 testes verdes** em 17 arquivos (+ 11 cobrindo Merchant feed-row/dry-run + 5 cobrindo product-feed-seo + 2 ajustes em outros).
+- **6 agentes reais** (era 4): + `product-feed-seo` (LLM SEO) + `catalog-feed-ops` (orquestrador CLI).
 - **`pnpm llm:smoke`** — smoke LLM isolado.
-- **`pnpm shopify:list-products [--first=N]`** — Sub-fase 2.6 caminho mínimo (Custom App token; OAuth helpers prontos mas não necessários para o smoke).
+- **`pnpm shopify:list-products [--first=N]`** — Sub-fase 2.6.
+- **`pnpm feed:dry-run [--source=fixture|shopify] [--seo] [--first=N]`** — Sub-fase 2.7: pipeline Merchant completo, 100% local sem credenciais. Dry-run gera Markdown + JSON em `12_reports/merchant-dry-runs/`.
 - **4 agentes reais** (4 de 17): `repo-auditor` (det.) + `audit-synthesizer` + `learning-memory-curation` + `memory-context` (LLM).
 - **10 upstreams clonados + auditados** (Sub-fase 2.3 ✅). Licenças: 7 MIT, 2 Apache-2.0, 1 AGPL-3.0, 1 UNKNOWN (com finding crítico).
 - Audit log de tenant escrito por `@cao/runtime` em `07_memory/vault/_test/audit/`.
@@ -57,6 +59,6 @@ confidence: 1.0
 
 ## Resumo em 1 linha
 
-> Sub-fases 2.3 ✅ + 2.5 (4 agentes) + 2.6 (Shopify mínimo); 96 testes verdes; 2 bloqueios manuais restantes — atualizar `.env.local` com key Anthropic nova (B1) e com credenciais Shopify dev store (B6).
+> Sub-fases 2.3 ✅ + 2.5 (6 agentes) + 2.6 ✅ + 2.7 ✅ (Merchant dry-run); 114 testes verdes; pipeline real `Shopify → Merchant feed → validação → dry-run report` funciona 100% local com fixture. Bloqueios externos: B1 (Anthropic key), B6 (Shopify creds), B7 (Google creds — só para upload real, **não** para dry-run).
 
 Detalhe em [blockers-and-risks.md](blockers-and-risks.md).

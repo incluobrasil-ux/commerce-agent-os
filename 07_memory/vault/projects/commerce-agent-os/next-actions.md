@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T23:15:00Z
+updated_at: 2026-05-23T23:40:00Z
 tags: [next-actions]
 source: mixed
 confidence: 1.0
@@ -27,6 +27,7 @@ confidence: 1.0
 - ~~REPO_SELECTION.md~~ — atualizado com licenças confirmadas e 2 reclassificações (basic-memory → referência apenas; ad-factory-agent → não copiar).
 - ~~@cao/llm fallback + smoke~~ — `makeNoopComplete()` + `tryMakeAnthropicComplete()` + `pnpm llm:smoke`. 4 testes novos (suíte **81 verdes**). Smoke executado: detectou 401 com a key antiga (mensagem clara: "key inválida ou revogada").
 - ~~Sub-fase 2.6 caminho mínimo~~ — `@cao/integration-shopify` com `AdminGraphQLClient` + `listProducts()` + OAuth helpers. `pnpm shopify:list-products` rodou em SKIPPED limpo. Suíte 81 → **96 verdes** (+15 cobrindo Shopify).
+- ~~Sub-fase 2.7 dry-run Merchant~~ — `@cao/integration-google-merchant` (feed-row schema + transformer + validator + dry-run writer) + `@cao/product-feed-seo` (agente LLM) + `@cao/catalog-feed-ops` (CLI orquestrador). `pnpm feed:dry-run` rodou real com fixture, gerou 2 OK / 1 fail / 5 warnings. Suíte 96 → **114 verdes** (+18).
 
 ## N11 — Real run dos 3 agentes LLM (bloqueio único na sessão)
 
@@ -39,6 +40,47 @@ confidence: 1.0
 - **Pré-requisito:** **só** atualizar `.env.local` (a chave antiga está revogada; código + agentes + testes todos verdes localmente).
 - **Resultado esperado:** 3 outputs reais em `12_reports/` + `07_memory/vault/_test/facts/` + audit log atualizado. Custo estimado: < $0.05 total.
 - **Quem puxa:** ops (atualizar .env.local) → dev (validar)
+
+## Passos manuais externos pendentes (consolidados — ordem recomendada)
+
+Tudo abaixo está atualmente bloqueando demos reais mas **não** trava o desenvolvimento. Quando você quiser ir até produção, faça nesta ordem para encadear o pipeline `Shopify → LLM SEO → Merchant`:
+
+**Passo 1 — Anthropic key (5 min, destrava todos os 6 agentes LLM)**
+- Console: https://console.anthropic.com/settings/keys → criar key.
+- Editar `.env.local` → substituir `ANTHROPIC_API_KEY=...` pela nova.
+- Validar: `pnpm llm:smoke` (deve sair `OK` com custo < $0.001).
+
+**Passo 2 — Shopify dev store + Custom App (~3 min, destrava leitura real)**
+- https://partners.shopify.com → criar conta (gratuito) → criar Development Store (cria 5 produtos default).
+- Admin do store → **Settings** → **Apps and sales channels** → **Develop apps** → **Create app**.
+- **Configure Admin API scopes** → marcar `read_products` → **Save**.
+- **Install app** → **Reveal token once** → copiar.
+- Editar `.env.local`:
+  ```
+  SHOPIFY_SHOP=<sua-loja>.myshopify.com
+  SHOPIFY_ADMIN_TOKEN=shpat_xxxx...
+  ```
+- Validar: `pnpm shopify:list-products` (deve listar 5 produtos default).
+
+**Passo 3 — Pipeline real end-to-end com SEO (depois de 1 + 2)**
+```bash
+pnpm feed:dry-run --source=shopify --seo --first=5
+```
+Output: produtos reais Shopify → Claude otimiza title/description → transforma → valida → escreve relatório em `12_reports/merchant-dry-runs/`. Custo estimado: < $0.05.
+
+**Passo 4 — Google Merchant credenciais (~30–60 min, só quando upload real virar requisito)**
+- https://console.cloud.google.com → criar project → ativar **Content API for Shopping** (Merchant API v2.5).
+- Criar OAuth 2.0 credentials (Web application) ou Service Account.
+- Criar/linkar Merchant Center account em https://merchants.google.com.
+- Editar `.env.local`:
+  ```
+  GOOGLE_OAUTH_CLIENT_ID=...
+  GOOGLE_OAUTH_CLIENT_SECRET=...
+  GOOGLE_MERCHANT_ACCOUNT_ID=123456789
+  ```
+- **Não há comando pra rodar isso ainda** — implementação do cliente HTTP real Merchant fica para próxima sub-fase (não é dry-run).
+
+---
 
 ## N15 — Conectar Shopify dev store e rodar real (Sub-fase 2.6 demo)
 

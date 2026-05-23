@@ -25,6 +25,12 @@ confidence: 1.0
 
 ---
 
+## 2026-05-23 — Sub-fase 2.7: pipeline Merchant dry-run end-to-end funcional
+
+- Feito: 3 pacotes novos — `05_integrations/google-merchant/client/feed-row.ts` (schema zod + transformer + validator) + `dry-run.ts` (writer JSON+MD); `@cao/product-feed-seo` (agente LLM SEO); `@cao/catalog-feed-ops` (CLI orquestrador). Script root `pnpm feed:dry-run`. Real run com fixture: 2 OK / 1 fail (price 0) / 5 warnings. Schema rejeita price=0 (refine > 0, Google Merchant requirement). Suíte 96 → **114 verdes** (+18).
+- Resultado: verde. 6 agentes reais total. Pipeline 100% local sem credenciais — funciona com fixture; mesmas pipes rodariam com Shopify real se `.env.local` tivesse creds.
+- Próximo: passos manuais consolidados (Anthropic key → Shopify Custom App → `pnpm feed:dry-run --source=shopify --seo`). Google Merchant fica deferido (não no caminho crítico do dry-run).
+
 ## 2026-05-23 — Sub-fase 2.6 caminho mínimo: Shopify Admin GraphQL + OAuth helpers
 
 - Feito: criado `05_integrations/shopify/client/admin-graphql.ts` (`AdminGraphQLClient` + `listProducts()` com API v2025-01) + `oauth/index.ts` (helpers puros `buildAuthorizeUrl` + `exchangeCodeForToken` + `isValidShopDomain`) + CLI `04_apps/shopify-admin-app/scripts/list-products.ts`. Script root `pnpm shopify:list-products`. `.env.example` documenta CAMINHO 1 (Custom App) vs CAMINHO 2 (OAuth Partners). 15 testes novos (suíte 81 → **96**). Smoke real executado: SKIPPED elegante (sem credenciais).

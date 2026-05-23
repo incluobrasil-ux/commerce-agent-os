@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T23:15:00Z
+updated_at: 2026-05-23T23:40:00Z
 tags: [index, run-summaries]
 source: mixed
 confidence: 1.0
@@ -24,6 +24,7 @@ Marcos de implementação (sub-fase concluída, primeiro deploy, OAuth funcionan
 
 | Data | Título | Resultado | Arquivo |
 |---|---|---|---|
+| 2026-05-23 | Sub-fase 2.7 — Merchant dry-run end-to-end funcional (pipeline Shopify→SEO→Merchant; 114 testes verdes) | 🟢 | [2026-05-23-impl-milestone-merchant-dry-run.md](2026-05-23-impl-milestone-merchant-dry-run.md) |
 | 2026-05-23 | Sub-fase 2.6 — caminho mínimo Shopify (admin client + OAuth helpers + CLI; 96 testes verdes) | 🟢 | [2026-05-23-impl-milestone-shopify-minimal.md](2026-05-23-impl-milestone-shopify-minimal.md) |
 | 2026-05-23 | `@cao/llm` ganha noop fallback + `pnpm llm:smoke` (81 testes verdes) | 🟢 | [2026-05-23-impl-milestone-llm-fallback-and-smoke.md](2026-05-23-impl-milestone-llm-fallback-and-smoke.md) |
 | 2026-05-23 | 4º agente real: `memory-context` (read-only context brief) | 🟢 | [2026-05-23-impl-milestone-fourth-agent-memory-context.md](2026-05-23-impl-milestone-fourth-agent-memory-context.md) |

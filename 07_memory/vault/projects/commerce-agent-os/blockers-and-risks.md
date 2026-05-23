@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T19:25:00Z
+updated_at: 2026-05-23T22:40:00Z
 tags: [blockers, risks]
 source: human:incluobrasil
 confidence: 1.0
@@ -23,7 +23,7 @@ Itens que **impedem** uma ação concreta agora.
 | # | Bloqueio | Impacto | Mitigação | Dono sugerido | Status |
 |---|---|---|---|---|---|
 | B1 | ~~`ANTHROPIC_API_KEY` não confirmada em dev~~ | — | — | ops | ✅ **resolvido** 2026-05-23 — key em `.env.local` (gitignored). Key antiga (compartilhada em chat) **rotacionada e revogada** 2026-05-23; nova key em `.env.local` |
-| B2 | ~~Nenhum upstream clonado em `01_upstreams/`~~ | — | — | dev | ✅ **resolvido** 2026-05-23 — `langgraph` + `shopify-app-template-react-router` clonados via `clone-upstreams.sh`, auditados, ambos MIT |
+| B2 | ~~Nenhum upstream clonado em `01_upstreams/`~~ | — | — | dev | ✅ **resolvido + ampliado** 2026-05-23 — **10/10 upstreams prioritários** clonados via `clone-upstreams.sh` e auditados ([upstream-pass2](../../../../12_reports/audits/upstream-pass2/)). Achados: 7 MIT, 2 Apache, 1 AGPL (basic-memory — reclassificar), 1 UNKNOWN (ad-factory-agent — só estudo) |
 | B3 | ~~ADR-0007 (runtime alvo TS vs Python) não decidido~~ | — | — | tech lead | ✅ **resolvido** 2026-05-23 — ADR-0007 aceito (TS host + LangGraph JS como referência) |
 | B4 | Trabalho local (núcleo + cérebro + repo-auditor + N4 + detector fix) não commitado em parte | dispersa estado entre local e remoto | commitar pacote final na branch `feat/core-runtime-and-first-agent` + push | dev | parcialmente resolvido (6 commits pushados; falta N4 commit) |
 | B5 | ~~`gitleaks` binário não instalado~~ | — | — | ops | ✅ **resolvido** 2026-05-23 — gitleaks 8.30.1 instalado via winget; integrado ao pre-commit (`pnpm secret-scan`); validado com private key fake (exit 1) |
@@ -37,7 +37,7 @@ Itens que podem **piorar** se ignorados, mas ainda não bloqueiam.
 | # | Risco | Probabilidade | Impacto | Mitigação | Dono sugerido | Status |
 |---|---|---|---|---|---|---|
 | R1 | Scope `@cao/` ser tomado no npm antes de release v1 | média | retrabalho de renomear todos os pacotes | reservar scope no npm antes de qualquer publicação pública | ops | monitorado |
-| R2 | Upstreams (langgraph, dawn, etc.) com licença incompatível | baixa | bloqueio de uso comercial | confirmar licença de cada upstream ao clonar | dev | monitorado |
+| R2 | Upstreams com licença incompatível | média (era baixa) | bloqueio de uso comercial / contaminação copyleft | confirmar licença ao clonar (já feito p/ 10/10 prioritários — ver upstream-pass2). 2 achados: basic-memory **AGPL-3.0** (não importar código) + ad-factory-agent **UNKNOWN** (não copiar) | dev | mitigado (10 dos 20) |
 | R3 | `feedgen` ser Python pesado e não portável | média | atraso na Fase 9 | ADR-0011 já antecipa: sidecar Python isolado | tech lead | aceito |
 | R4 | Custo de LLM crescer sem instrumentação | alta | gasto sem visibilidade | `@cao/observability` captura cost + token usage; revisar mensal | ops | mitigado |
 | R5 | Cross-tenant leak em memória | baixa | crítico (privacy) | `@cao/memory` rejeita por construção; teste de isolamento já passa | dev | mitigado |

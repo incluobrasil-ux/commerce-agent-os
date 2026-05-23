@@ -25,6 +25,12 @@ confidence: 1.0
 
 ---
 
+## 2026-05-23 — Sub-fase 2.3 (pass 2) fechada: 10 upstreams + detector v2
+
+- Feito: clonados 8 upstreams restantes (dawn, merchant-api-samples, feedgen, basic-memory, agentshield, ad-factory-agent, higgsfield-skills, higgsfield-cli) com clone raso pinado por SHA via `clone-upstreams.sh`. Rodado `pnpm audit:repo` em todos 10 com output em `12_reports/audits/upstream-pass2/`. Detector evoluiu (v2): reconhece AGPL-3.0 + ignora templates `.env.{template,sample,dist}`. Suíte 71→73 verdes.
+- Resultado: verde. 9/10 sem findings, 1/10 (ad-factory-agent) com 1 crítico real (sem LICENSE). 2 reclassificações em `REPO_SELECTION.md`: basic-memory (AGPL-3.0 → referência apenas), ad-factory-agent (UNKNOWN → não copiar). 7 `⚠ verificar` resolvidas.
+- Próximo: aceitar ADR-0011 (feedgen sidecar), real run dos 3 agentes LLM quando key for atualizada, depois N13 (5º agente vs Sub-fase 2.6).
+
 ## 2026-05-23 — 4º agente real entregue: `@cao/memory-context`
 
 - Feito: implementado `@cao/memory-context` (read-only context brief; lê facts + working + audit; output: brandVoice + hardConstraints + recentSignals + knownGaps + recommendation + confidence). 6 unit tests com fakeComplete. CLI `pnpm context:brief --task="..." [--tenant=...]`. Padrão DX consolidado: 4 agentes reais.

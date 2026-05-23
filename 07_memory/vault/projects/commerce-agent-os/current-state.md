@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T19:25:00Z
+updated_at: 2026-05-23T22:40:00Z
 tags: [current-state, status]
 source: mixed
 confidence: 1.0
@@ -23,9 +23,9 @@ confidence: 1.0
 | | |
 |---|---|
 | Macro-fase | 2 — Implementação |
-| Sub-fase | 2.5 em curso (4 de 17 agentes reais) |
-| Último marco | 4º agente real implementado: `@cao/memory-context` — read-only, monta context briefs. **71 testes verdes**. |
-| Próximo marco técnico | Real run dos 3 agentes LLM (curate + context + synthesize) — depende **só** de atualizar `.env.local` com key nova |
+| Sub-fase | 2.3 **concluída** (10/10 upstreams) + 2.5 em curso (4 de 17 agentes reais) |
+| Último marco | **Sub-fase 2.3 fechada de verdade** — 10 upstreams clonados + auditados; 2 reclassificações de licença (basic-memory AGPL-3.0, ad-factory-agent UNKNOWN) |
+| Próximo marco técnico | Real run dos 3 agentes LLM (depende de `.env.local` com key nova) — OU 5º agente / Sub-fase 2.6 |
 
 ## Verde
 
@@ -34,11 +34,12 @@ confidence: 1.0
 - **`repo-auditor` é o 1º agente real**, executável via `pnpm audit:repo <path>`, modo determinístico (sem `ANTHROPIC_API_KEY`).
 - `.env.example`, `SETUP_LOCAL.md`, `COMMANDS.md`, `clone-upstreams.sh` populados.
 - **2 upstreams clonados + auditados** (`langgraph`, `shopify-app-template-react-router`).
-- **Suíte 71 testes verdes** em 11 arquivos.
-- **4 agentes reais** (4 de 17): `repo-auditor` (determinístico) + `audit-synthesizer` (LLM) + `learning-memory-curation` (LLM) + `memory-context` (LLM read-only).
+- **Suíte 73 testes verdes** em 11 arquivos (detector v2: AGPL + env templates).
+- **4 agentes reais** (4 de 17): `repo-auditor` (det.) + `audit-synthesizer` + `learning-memory-curation` + `memory-context` (LLM).
+- **10 upstreams clonados + auditados** (Sub-fase 2.3 ✅). Licenças: 7 MIT, 2 Apache-2.0, 1 AGPL-3.0, 1 UNKNOWN (com finding crítico).
 - Audit log de tenant escrito por `@cao/runtime` em `07_memory/vault/_test/audit/`.
-- **Pre-commit secret-scan ativo** (gitleaks 8.30.1) — bloqueia secrets antes do push.
-- DX consolidado: 4 comandos shape `pnpm <verb>:<noun> [args]` para invocar agentes.
+- Pre-commit secret-scan ativo (gitleaks 8.30.1).
+- DX: 4 comandos `pnpm <verb>:<noun>` + `bash 10_ops/scripts/clone-upstreams.sh`.
 - CI no GitHub Actions; branch protection em `main`; tag `v0.1.0-architecture-baseline`.
 - 8 ADRs aceitos.
 - Cérebro operacional v1 multi-operador estruturado.
@@ -53,6 +54,6 @@ confidence: 1.0
 
 ## Resumo em 1 linha
 
-> 4 agentes reais implementados, pre-commit com secret-scan ativo, 71 testes verdes — único bloqueio é atualizar `.env.local` com a key nova rotacionada (agentes LLM retornam 401 com a key revogada que ainda está no arquivo).
+> Sub-fase 2.3 fechada (10 upstreams auditados, 2 reclassificações de licença); 4 agentes reais; 73 testes verdes; único bloqueio operacional é atualizar `.env.local` com a key nova rotacionada.
 
 Detalhe em [blockers-and-risks.md](blockers-and-risks.md).

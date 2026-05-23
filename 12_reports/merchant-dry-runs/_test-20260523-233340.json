@@ -1,0 +1,113 @@
+{
+  "generatedAt": "2026-05-23T23:33:40.478Z",
+  "tenantId": "_test",
+  "summary": {
+    "total": 3,
+    "ok": 2,
+    "fail": 1,
+    "warnings": 5
+  },
+  "rows": [
+    {
+      "row": {
+        "id": "online:en:US:classic-cotton-tee",
+        "channel": "online",
+        "contentLanguage": "en",
+        "feedLabel": "US",
+        "offerId": "classic-cotton-tee",
+        "title": "Classic Cotton Tee",
+        "description": "Soft 100% cotton t-shirt. Pre-shrunk. Regular fit.",
+        "link": "https://acme.myshopify.com/products/classic-cotton-tee",
+        "imageLink": "https://cdn.acme.test/products/classic-cotton-tee.jpg",
+        "availability": "in_stock",
+        "price": {
+          "amount": "29.90",
+          "currencyCode": "USD"
+        },
+        "brand": "Acme Apparel",
+        "gtin": "0012345678905",
+        "mpn": "TEE-CLASS-BLK-M",
+        "googleProductCategory": null,
+        "productTypes": [
+          "T-Shirts"
+        ]
+      },
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "warnings": []
+    },
+    {
+      "row": {
+        "id": "online:en:US:minimal-canvas-tote",
+        "channel": "online",
+        "contentLanguage": "en",
+        "feedLabel": "US",
+        "offerId": "minimal-canvas-tote",
+        "title": "Minimal Canvas Tote",
+        "description": "Heavy canvas tote bag with reinforced handles.",
+        "link": "https://acme.myshopify.com/products/minimal-canvas-tote",
+        "imageLink": "https://cdn.acme.test/products/minimal-canvas-tote.jpg",
+        "availability": "in_stock",
+        "price": {
+          "amount": "19.50",
+          "currencyCode": "USD"
+        },
+        "brand": "Acme Goods",
+        "gtin": null,
+        "mpn": "TOTE-CNV-NAT",
+        "googleProductCategory": null,
+        "productTypes": [
+          "Bags"
+        ]
+      },
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "warnings": []
+    },
+    {
+      "row": {
+        "id": "online:en:US:limited-edition-sticker-pack",
+        "channel": "online",
+        "contentLanguage": "en",
+        "feedLabel": "US",
+        "offerId": "limited-edition-sticker-pack",
+        "title": "Limited Edition Sticker Pack",
+        "description": "Limited Edition Sticker Pack",
+        "link": "https://acme.myshopify.com/products/limited-edition-sticker-pack",
+        "imageLink": "https://acme.myshopify.com/products/limited-edition-sticker-pack.jpg",
+        "availability": "out_of_stock",
+        "price": {
+          "amount": "0.00",
+          "currencyCode": "USD"
+        },
+        "brand": null,
+        "gtin": null,
+        "mpn": null,
+        "googleProductCategory": null,
+        "productTypes": [
+          "Accessories"
+        ]
+      },
+      "validation": {
+        "ok": false,
+        "errors": [
+          {
+            "path": "price.amount",
+            "message": "amount deve ser > 0 (Google Merchant rejeita 0)"
+          }
+        ]
+      },
+      "warnings": [
+        "descrição derivada do title (descriptionHtml ausente)",
+        "imageLink vazio (Google Merchant exige) — vai falhar validação",
+        "imageLink placeholder gerado a partir do handle",
+        "availability derivada do status Shopify (DRAFT)",
+        "price ausente no produto — usou defaultPrice"
+      ]
+    }
+  ]
+}

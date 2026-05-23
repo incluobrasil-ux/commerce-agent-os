@@ -54,6 +54,36 @@ importers:
         specifier: ^3
         version: 3.25.76
 
+  03_agents/catalog-feed-ops:
+    dependencies:
+      '@cao/core':
+        specifier: workspace:*
+        version: link:../../06_packages/core
+      '@cao/integration-google-merchant':
+        specifier: workspace:*
+        version: link:../../05_integrations/google-merchant
+      '@cao/integration-shopify':
+        specifier: workspace:*
+        version: link:../../05_integrations/shopify
+      '@cao/llm':
+        specifier: workspace:*
+        version: link:../../06_packages/llm
+      '@cao/memory':
+        specifier: workspace:*
+        version: link:../../06_packages/memory
+      '@cao/observability':
+        specifier: workspace:*
+        version: link:../../06_packages/observability
+      '@cao/product-feed-seo':
+        specifier: workspace:*
+        version: link:../product-feed-seo
+      '@cao/runtime':
+        specifier: workspace:*
+        version: link:../../06_packages/runtime
+      zod:
+        specifier: ^3
+        version: 3.25.76
+
   03_agents/learning-memory-curation:
     dependencies:
       '@cao/core':
@@ -76,6 +106,27 @@ importers:
         version: 3.25.76
 
   03_agents/memory-context:
+    dependencies:
+      '@cao/core':
+        specifier: workspace:*
+        version: link:../../06_packages/core
+      '@cao/llm':
+        specifier: workspace:*
+        version: link:../../06_packages/llm
+      '@cao/memory':
+        specifier: workspace:*
+        version: link:../../06_packages/memory
+      '@cao/observability':
+        specifier: workspace:*
+        version: link:../../06_packages/observability
+      '@cao/runtime':
+        specifier: workspace:*
+        version: link:../../06_packages/runtime
+      zod:
+        specifier: ^3
+        version: 3.25.76
+
+  03_agents/product-feed-seo:
     dependencies:
       '@cao/core':
         specifier: workspace:*
@@ -126,6 +177,9 @@ importers:
       '@cao/shared-types':
         specifier: workspace:*
         version: link:../../06_packages/shared-types
+      zod:
+        specifier: ^3
+        version: 3.25.76
 
   05_integrations/higgsfield:
     dependencies:

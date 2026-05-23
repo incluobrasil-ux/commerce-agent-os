@@ -115,7 +115,11 @@ importers:
 
   04_apps/review-service: {}
 
-  04_apps/shopify-admin-app: {}
+  04_apps/shopify-admin-app:
+    dependencies:
+      '@cao/integration-shopify':
+        specifier: workspace:*
+        version: link:../../05_integrations/shopify
 
   05_integrations/google-merchant:
     dependencies:

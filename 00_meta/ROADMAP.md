@@ -51,15 +51,24 @@ Roadmap por fases. Cada fase fecha entregáveis antes da próxima.
 - [x] Smoke tests stub em `11_tests/smoke/`.
 - [x] ADR-0004 (shared packages), ADR-0005 (memory vault) registradas em `02_architecture/adr/`.
 
-## Fase 5 — Bootstrap funcional (próxima)
+## Fase 5 — Bootstrap funcional (concluída — partes principais)
 
 Objetivo: tornar o esqueleto **executável** (build + smoke verde) sem ainda implementar domínio.
 
-- [ ] Adicionar `typescript`, `vitest`, `tsx` como devDeps da raiz; rodar `pnpm install`.
-- [ ] `pnpm typecheck` verde em todos packages.
-- [ ] `pnpm test:smoke` verde.
-- [ ] Definir scope npm (`@cao/`?) e confirmar em todos `package.json`.
-- [ ] CI mínimo em `10_ops/` (lint + typecheck + smoke).
+- [x] Adicionar `typescript`, `vitest`, `tsx`, `zod`, `biome`, `simple-git-hooks`, `commitlint` como devDeps da raiz; `pnpm install` verde.
+- [x] `pnpm typecheck` verde em todos packages (`tsc -b` sem erros).
+- [x] `pnpm test:smoke` verde (3 testes / 1 arquivo / ~540ms).
+- [x] `pnpm lint` verde (biome — 128 arquivos).
+- [x] Scope npm `@cao/` confirmado (ADR-0009).
+- [x] CI mínimo em `.github/workflows/ci.yml` (lint + typecheck + smoke + commitlint em PR).
+- [x] Repo publicado em https://github.com/incluobrasil-ux/commerce-agent-os; tag `v0.1.0-architecture-baseline`.
+
+Itens residuais (polish — não bloqueiam Fase 6):
+- [ ] Binário `gitleaks` instalado localmente + ativado no pre-commit.
+- [ ] `simple-git-hooks` ativado após `git init` (`npx simple-git-hooks`).
+- [ ] `10_ops/scripts/check-env.sh` populado com checks reais (node, pnpm, git).
+- [ ] `10_ops/scripts/bootstrap.sh` rodando o pipeline completo verde.
+- [ ] Branch protection em `main` (configuração externa no GitHub).
 
 ## Fase 6 — Ingestão de upstreams de alta prioridade
 

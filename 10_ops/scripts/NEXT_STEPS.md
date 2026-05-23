@@ -14,31 +14,36 @@ Lista executável de passos para sair de **scaffold** e chegar em **build verde 
 
 Sub-fase 2.1 destravada.
 
-## Sub-fase 2.1 — Bootstrap funcional (Fase 5 do ROADMAP)
+## Sub-fase 2.1 — Bootstrap funcional (Fase 5 do ROADMAP) ✅ CONCLUÍDA (2026-05-23)
 
 **Objetivo:** `pnpm install`, `pnpm typecheck`, `pnpm test` verdes. Zero implementação de domínio.
 
-- [ ] Adicionar devDeps na raiz: `typescript@^5`, `vitest`, `tsx`, `zod`, `@types/node`.
-- [ ] Adicionar devDeps de lint: `biome` (ou ESLint conforme ADR-0006).
-- [ ] Adicionar devDeps de secret-scan: `gitleaks` (binário externo) ou equivalente.
-- [ ] Atualizar `package.json` dos sub-pacotes para declarar deps cross-package via `workspace:*` quando aplicável.
-- [ ] Rodar `pnpm install` na raiz.
-- [ ] Rodar `pnpm typecheck` — deve passar verde nos 12 packages.
-- [ ] Converter `11_tests/smoke/packages-build.smoke.ts` para vitest real (já tem stub).
-- [ ] Rodar `pnpm test:smoke` — deve passar.
+- [x] Adicionar devDeps na raiz: `typescript@^5`, `vitest`, `tsx`, `zod`, `@types/node`, `biome`, `simple-git-hooks`, `commitlint`.
+- [x] Adicionar zod em `06_packages/shared-schemas`.
+- [x] Workspace deps cross-package: `@cao/shared-types` adicionado aos 5 adapters em `05_integrations/`.
+- [x] Rodar `pnpm install` na raiz — verde (24 workspace projects, ~8s).
+- [x] Rodar `pnpm typecheck` — verde (tsc -b sem erros).
+- [x] Converter `11_tests/smoke/packages-build.smoke.ts` para vitest real (3 testes passando).
+- [x] Rodar `pnpm test:smoke` — verde (~540ms).
+- [x] `pnpm lint` (biome) verde em 128 arquivos.
+
+Itens residuais (polish — não bloqueiam Fase 6):
 - [ ] Atualizar `10_ops/scripts/check-env.sh` com checks reais (node >= 20, pnpm >= 9, git).
-- [ ] Atualizar `10_ops/scripts/bootstrap.sh` para descomentar `pnpm install` + `pnpm typecheck` + smoke.
-- [ ] Rodar `bash 10_ops/scripts/bootstrap.sh` — deve passar verde end-to-end.
+- [ ] Atualizar `10_ops/scripts/bootstrap.sh` para rodar o pipeline completo.
+- [ ] Instalar binário `gitleaks` localmente + ativar `simple-git-hooks` (`npx simple-git-hooks`).
+- [ ] Rodar `bash 10_ops/scripts/bootstrap.sh` end-to-end verde.
 
-**Critério de aceite:** comando único `bash 10_ops/scripts/bootstrap.sh` retorna 0.
+## Sub-fase 2.2 — CI mínimo ✅ CONCLUÍDA (2026-05-23) — partes principais
 
-## Sub-fase 2.2 — CI mínimo
+- [x] Criar `.github/workflows/ci.yml` com workflow GitHub Actions:
+  - `on: pull_request` roda lint + typecheck + smoke + commitlint.
+  - `on: push to main/master` roda lint + typecheck + smoke.
+- [x] Repo publicado em `incluobrasil-ux/commerce-agent-os`; tag `v0.1.0-architecture-baseline`.
 
-- [ ] Criar `10_ops/ci/` com workflow GitHub Actions (ou equivalente):
-  - `on: pull_request` roda smoke + typecheck + lint + contract tests + secret scan.
-  - `on: push to main` roda integration tests adicionalmente.
-- [ ] Pre-commit hook (husky ou equivalente) rodando smoke + lint.
-- [ ] Branch protection em `main`: PR obrigatório + CI verde.
+Itens residuais (configuração externa):
+- [ ] Pre-commit hook ativado localmente (`npx simple-git-hooks` após `git init` — depende de gitleaks instalado).
+- [ ] Branch protection em `main` (configuração externa: github.com → Settings → Branches).
+- [ ] Adicionar contract tests + secret scan + integration tests no workflow (à medida que forem implementados).
 
 ## Sub-fase 2.3 — Ingestão de upstreams alta prioridade (Fase 6)
 

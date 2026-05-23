@@ -95,6 +95,31 @@ describe('auditRepo', () => {
     expect(r.findings.some((f) => f.file.endsWith('.env.example'))).toBe(false);
   });
 
+  it('ignora templates .env.{template,sample,dist} além de .env.example', async () => {
+    await fs.writeFile(join(tmp, 'LICENSE'), 'MIT License');
+    await fs.writeFile(join(tmp, '.gitignore'), 'node_modules\n');
+    await fs.writeFile(join(tmp, '.env.template'), 'KEY=');
+    await fs.writeFile(join(tmp, '.env.sample'), 'KEY=');
+    await fs.writeFile(join(tmp, '.env.dist'), 'KEY=');
+
+    const r = await auditRepo({ repoPath: tmp, profile: 'security' });
+    expect(r.findings.some((f) => f.category === 'security' && f.file.includes('.env'))).toBe(
+      false,
+    );
+  });
+
+  it('detecta AGPL-3.0 (cobre basic-memory tipo)', async () => {
+    await fs.writeFile(
+      join(tmp, 'LICENSE'),
+      '                    GNU AFFERO GENERAL PUBLIC LICENSE\n                       Version 3, 19 November 2007\n',
+    );
+    await fs.writeFile(join(tmp, '.gitignore'), 'node_modules\n');
+
+    const r = await auditRepo({ repoPath: tmp, profile: 'license' });
+    expect(r.license).toBe('AGPL-3.0');
+    expect(r.findings.find((f) => f.category === 'license')).toBeUndefined();
+  });
+
   it('reporta warning quando .gitignore está ausente', async () => {
     await fs.writeFile(join(tmp, 'LICENSE'), 'MIT License');
 

@@ -60,6 +60,7 @@ const SPDX_PATTERNS: Array<{ id: string; allOf: string[] }> = [
     allOf: ['BSD 3-Clause', 'Redistribution and use in source and binary'],
   },
   { id: 'BSD-2-Clause', allOf: ['BSD 2-Clause'] },
+  { id: 'AGPL-3.0', allOf: ['GNU AFFERO GENERAL PUBLIC LICENSE', 'Version 3'] },
   { id: 'GPL-3.0', allOf: ['GNU GENERAL PUBLIC LICENSE', 'Version 3'] },
   { id: 'GPL-2.0', allOf: ['GNU GENERAL PUBLIC LICENSE', 'Version 2'] },
   { id: 'ISC', allOf: ['ISC License'] },
@@ -221,7 +222,11 @@ async function scanSecurity(repoPath: string): Promise<SecuritySummary> {
   const findings: Finding[] = [];
   const tree = await walk(repoPath);
 
-  const envFiles = tree.filter((f) => /(^|\/)\.env(\.|$)/.test(f) && !/\.env\.example$/.test(f));
+  // .env files committed são críticos, EXCETO templates conhecidos.
+  const ENV_TEMPLATE_SUFFIXES = /\.env\.(example|template|sample|dist)$/;
+  const envFiles = tree.filter(
+    (f) => /(^|\/)\.env(\.|$)/.test(f) && !ENV_TEMPLATE_SUFFIXES.test(f),
+  );
   for (const f of envFiles) {
     findings.push({
       category: 'security',

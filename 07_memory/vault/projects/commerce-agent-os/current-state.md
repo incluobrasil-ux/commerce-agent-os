@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T16:10:00Z
+updated_at: 2026-05-23T16:30:00Z
 tags: [current-state, status]
 source: mixed
 confidence: 1.0
@@ -42,7 +42,7 @@ confidence: 1.0
 
 - **B1** — `ANTHROPIC_API_KEY` não confirmada em dev → impede agente invocar LLM real.
 - **B2** — Nenhum upstream clonado em `01_upstreams/` → bloqueia auditoria de premissas.
-- **B3** — ADR-0007 (runtime TS via LangGraph JS) não aceito formalmente.
+- ~~B3~~ — ✅ ADR-0007 aceito 2026-05-23.
 - **B4** — Trabalho local (Sub-fase 2.2 + repo-auditor + cérebro + docs) **não commitado / não pushado**.
 
 Detalhe em [blockers-and-risks.md](blockers-and-risks.md).

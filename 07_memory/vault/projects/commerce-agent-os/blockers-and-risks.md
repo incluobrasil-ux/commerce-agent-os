@@ -24,7 +24,7 @@ Itens que **impedem** uma ação concreta agora.
 |---|---|---|---|---|---|
 | B1 | `ANTHROPIC_API_KEY` não confirmada em dev | impede agente invocar LLM real (N5). Não bloqueia `repo-auditor` determinístico. | obter key + adicionar em `.env.local` (não commitar) | ops | aberto |
 | B2 | Nenhum upstream clonado em `01_upstreams/` | impede usar LangGraph e templates Shopify; impede avaliar premissas dos audits originais | clonar `langgraph` + `shopify-app-template` (mínimo) + rodar `pnpm audit:repo` | dev | aberto |
-| B3 | ADR-0007 (runtime alvo TS vs Python) não decidido | bloqueia formalmente `@cao/runtime` sobre LangGraph | aceitar default proposto (TS via LangGraph JS) | tech lead | aberto |
+| B3 | ~~ADR-0007 (runtime alvo TS vs Python) não decidido~~ | — | — | tech lead | ✅ **resolvido** 2026-05-23 — ADR-0007 aceito (TS host + LangGraph JS como referência) |
 | B4 | Trabalho local (Sub-fase 2.2 + repo-auditor + cérebro v1 + setup docs) não commitado | dispersa estado entre local e remoto; impede outro operador retomar | criar branch `feat/core-runtime-and-first-agent`, commit, PR | dev | aberto |
 
 ---

@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T00:00:00Z
+updated_at: 2026-05-23T16:30:00Z
 tags: [decisions, adr]
 source: human:incluobrasil
 confidence: 1.0
@@ -26,6 +26,7 @@ confidence: 1.0
 | [ADR-0004](../../../../02_architecture/adr/ADR-0004-shared-packages.md) | Packages compartilhados | inicial | shared-types/schemas/config |
 | [ADR-0005](../../../../02_architecture/adr/ADR-0005-memory-vault.md) | Layout do vault de memória | inicial | `07_memory/vault/` markdown-first |
 | [ADR-0006](../../../../02_architecture/adr/ADR-0006-qa-stack.md) | Stack de QA | 2026-05-23 | vitest + biome + gitleaks + zod + commitlint |
+| [ADR-0007](../../../../02_architecture/adr/ADR-0007-agent-runtime.md) | Runtime alvo dos agentes | 2026-05-23 | TS host; impl própria + LangGraph JS como referência |
 | [ADR-0009](../../../../02_architecture/adr/ADR-0009-package-scope.md) | Scope npm | 2026-05-23 | `@cao/` confirmado |
 | [ADR-0017](../../../../02_architecture/adr/ADR-0017-commit-conventions.md) | Convenção de commits | 2026-05-23 | Conventional Commits 1.0.0 |
 
@@ -35,7 +36,6 @@ Ordem = ordem de necessidade na macro-fase 2.
 
 | # | Tópico | Default proposto | Bloqueia | Quem decide |
 |---|---|---|---|---|
-| ADR-0007 | Runtime alvo de agentes (TS vs Python) | TS via LangGraph JS | Fase 7 (`@cao/runtime` real) | tech lead |
 | ADR-0008 | Worker queue | BullMQ + Redis | Fases 8–11 (apps headless) | tech lead |
 | ADR-0010 | DB de aplicação | Postgres prod / SQLite dev | Fase 8 produção | tech lead |
 | ADR-0011 | Estratégia para `feedgen` (Python) | Port TS + sidecar opcional | Fase 9 (feed-service) | tech lead |
@@ -50,7 +50,7 @@ Ordem = ordem de necessidade na macro-fase 2.
 | Área | Decidido | Aberto |
 |---|---|---|
 | Layout / estrutura | ADR-0001, 0002, 0009 | — |
-| Agentes / runtime | ADR-0003 | **ADR-0007** |
+| Agentes / runtime | ADR-0003, **ADR-0007** | — |
 | Packages | ADR-0004, 0009 | — |
 | Memória | ADR-0005 | — |
 | QA / lint / commits | ADR-0006, 0017 | — |

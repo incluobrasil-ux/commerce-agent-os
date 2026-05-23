@@ -75,6 +75,27 @@ importers:
         specifier: ^3
         version: 3.25.76
 
+  03_agents/memory-context:
+    dependencies:
+      '@cao/core':
+        specifier: workspace:*
+        version: link:../../06_packages/core
+      '@cao/llm':
+        specifier: workspace:*
+        version: link:../../06_packages/llm
+      '@cao/memory':
+        specifier: workspace:*
+        version: link:../../06_packages/memory
+      '@cao/observability':
+        specifier: workspace:*
+        version: link:../../06_packages/observability
+      '@cao/runtime':
+        specifier: workspace:*
+        version: link:../../06_packages/runtime
+      zod:
+        specifier: ^3
+        version: 3.25.76
+
   03_agents/repo-auditor:
     dependencies:
       '@cao/core':

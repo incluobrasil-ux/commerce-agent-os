@@ -19,6 +19,8 @@ Comandos principais do projeto. Tudo via `pnpm` na raiz. Cobertura completa do d
 | `pnpm format` | `biome format --write .` — aplica formatação. | n/a |
 | `pnpm test` | `vitest run` — toda a suíte (unit + smoke). | sim |
 | `pnpm test:smoke` | só `11_tests/smoke/` — rápido (~1s). | sim (pre-commit) |
+| `pnpm secret-scan` | `gitleaks protect --staged` — verifica apenas o que está staged. | sim (pre-commit) |
+| `pnpm secret-scan:full` | `gitleaks detect` — varre todo o working tree. | uso pontual |
 | `pnpm commitlint` | Valida mensagens de commit conforme Conventional Commits (ADR-0017). | sim em PR |
 
 ## Build
@@ -34,24 +36,22 @@ Comandos principais do projeto. Tudo via `pnpm` na raiz. Cobertura completa do d
 | Comando | O que faz |
 |---|---|
 | `pnpm audit:repo <path> [--profile=full]` | Roda `repo-auditor` em `<path>`. Profiles: `license` / `security` / `architecture` / `full`. Output: `12_reports/audits/repo-auditor/<repo>-<timestamp>.md`. Exit 0 = sem críticos, 1 = críticos, 2 = erro de uso. |
+| `pnpm synthesize:audit <audit.md> [--tenant=<id>]` | Roda `audit-synthesizer` — Claude lê o markdown do `audit:repo` e produz síntese executiva. Output: `<audit.md>.synthesis.md` + audit log em `07_memory/vault/<tenant>/audit/`. Exige `ANTHROPIC_API_KEY` em `.env.local`. |
 
 Exemplos:
 
 ```bash
-# Auditar o próprio projeto
+# Auditor determinístico (sem credencial)
 pnpm audit:repo .
+pnpm audit:repo . --profile=license          # só licença, rápido
+pnpm audit:repo 01_upstreams/langgraph       # auditar upstream clonado
+pnpm audit:repo . --out=/tmp/audits          # saída custom
 
-# Auditar só licença (rápido)
-pnpm audit:repo . --profile=license
-
-# Auditar um upstream clonado
-pnpm audit:repo 01_upstreams/langgraph --profile=full
-
-# Saída em diretório customizado
-pnpm audit:repo . --out=/tmp/audits
+# Sintetizar via LLM (precisa key)
+pnpm synthesize:audit 12_reports/audits/repo-auditor/commerce-agent-os-*.md
 ```
 
-`repo-auditor` é **determinístico** — não exige LLM nem chave de API.
+`repo-auditor` é **determinístico** — não exige LLM. `audit-synthesizer` chama Claude Sonnet 4.6 (~$0.005/run).
 
 ## Estrutura do repo
 

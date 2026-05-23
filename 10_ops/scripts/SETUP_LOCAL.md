@@ -4,13 +4,16 @@ Guia mínimo para clonar e rodar este repo em outro PC. ≤ 5 min do clone ao pr
 
 ## Pré-requisitos
 
-| Ferramenta | Versão mínima | Verificar |
-|---|---|---|
-| Node.js | 20 | `node --version` |
-| pnpm | 9 | `pnpm --version` (ou `corepack enable && corepack prepare pnpm@9 --activate`) |
-| Git | qualquer recente | `git --version` |
+| Ferramenta | Versão mínima | Verificar | Instalar |
+|---|---|---|---|
+| Node.js | 20 | `node --version` | nvm / volta / fnm |
+| pnpm | 9 | `pnpm --version` | `npm i -g pnpm@9` ou `corepack enable` |
+| Git | qualquer recente | `git --version` | |
+| gitleaks | 8+ | `gitleaks version` | Windows: `winget install gitleaks` · macOS: `brew install gitleaks` · Linux: `scoop install gitleaks` ou binário oficial |
 
 Plataformas testadas: **Windows 11** (PowerShell), **macOS**, **Linux**.
+
+**Atenção Windows + winget:** o binário fica em `%LOCALAPPDATA%\Microsoft\WinGet\Links\`. Esse path já entra no PATH automaticamente, mas só em **terminais abertos depois da instalação** — reabra o terminal/IDE se `gitleaks version` não funcionar logo após `winget install`.
 
 ## Passo a passo
 
@@ -22,18 +25,29 @@ cd commerce-agent-os
 # 2. Instalar deps (24+ workspaces)
 pnpm install
 
-# 3. Configurar variáveis (opcional para o smoke; obrigatório para LLM)
+# 3. Ativar git hooks (pre-commit: lint + smoke + secret-scan; commit-msg: commitlint)
+npx simple-git-hooks
+
+# 4. (Opcional) Clonar upstreams pra desbloquear auditoria + Shopify dev
+bash 10_ops/scripts/clone-upstreams.sh
+
+# 5. Configurar variáveis (opcional para validação básica; obrigatório para LLM)
 cp .env.example .env.local
 # editar .env.local — preencher só o que for usar
 
-# 4. Validar
+# 6. Validar baseline
 pnpm typecheck     # tsc -b — zero erros
 pnpm lint          # biome — sem warnings
-pnpm test:smoke    # 5 testes (build + repo-auditor)
+pnpm test          # vitest — toda a suíte verde
+pnpm test:smoke    # subset rápido (~0.5s)
 
-# 5. Rodar primeiro agente real (determinístico, sem LLM)
+# 7. Primeiro agente real determinístico (sem credencial)
 pnpm audit:repo .
-# → relatório em 12_reports/audits/repo-auditor/<repo>-<timestamp>.md
+# → 12_reports/audits/repo-auditor/<repo>-<timestamp>.md
+
+# 8. Primeiro agente LLM (precisa ANTHROPIC_API_KEY em .env.local)
+pnpm synthesize:audit 12_reports/audits/repo-auditor/<arquivo>.md
+# → <arquivo>.synthesis.md + audit log em 07_memory/vault/_test/audit/
 ```
 
 ## O que esperar

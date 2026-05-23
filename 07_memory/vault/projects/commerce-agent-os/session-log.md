@@ -25,6 +25,12 @@ confidence: 1.0
 
 ---
 
+## 2026-05-23 — Sub-fase 2.6 caminho mínimo: Shopify Admin GraphQL + OAuth helpers
+
+- Feito: criado `05_integrations/shopify/client/admin-graphql.ts` (`AdminGraphQLClient` + `listProducts()` com API v2025-01) + `oauth/index.ts` (helpers puros `buildAuthorizeUrl` + `exchangeCodeForToken` + `isValidShopDomain`) + CLI `04_apps/shopify-admin-app/scripts/list-products.ts`. Script root `pnpm shopify:list-products`. `.env.example` documenta CAMINHO 1 (Custom App) vs CAMINHO 2 (OAuth Partners). 15 testes novos (suíte 81 → **96**). Smoke real executado: SKIPPED elegante (sem credenciais).
+- Resultado: verde. Demo a 1 ação manual de distância (criar custom app em dev store). B6 novo: credenciais Shopify ausentes em `.env.local`.
+- Próximo: N15 — usuário cria dev store + custom app + atualiza `.env.local` → roda `pnpm shopify:list-products` → primeira demo mostrável a stakeholder.
+
 ## 2026-05-23 — @cao/llm: fallback noop + pnpm llm:smoke + B1 reaberto com evidência
 
 - Feito: adicionado `makeNoopComplete()` + `tryMakeAnthropicComplete()` em `@cao/llm` (fallback explícito, nunca lança). Smoke isolado em `06_packages/llm/scripts/smoke.ts` (sem key = SKIPPED exit 0; com key inválida = mensagem clara exit 1; sucesso = imprime custo+tokens+latência). Script `pnpm llm:smoke`. +4 testes (suíte 73 → 81 verdes).

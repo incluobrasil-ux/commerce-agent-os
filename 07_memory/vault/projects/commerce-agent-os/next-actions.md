@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T22:58:00Z
+updated_at: 2026-05-23T23:15:00Z
 tags: [next-actions]
 source: mixed
 confidence: 1.0
@@ -26,6 +26,7 @@ confidence: 1.0
 - ~~Sub-fase 2.3 (pass 2)~~ — **10/10 upstreams clonados + auditados** via `clone-upstreams.sh` e `pnpm audit:repo` → `12_reports/audits/upstream-pass2/`. Detector v2 (AGPL + env templates). Suíte 73 verdes.
 - ~~REPO_SELECTION.md~~ — atualizado com licenças confirmadas e 2 reclassificações (basic-memory → referência apenas; ad-factory-agent → não copiar).
 - ~~@cao/llm fallback + smoke~~ — `makeNoopComplete()` + `tryMakeAnthropicComplete()` + `pnpm llm:smoke`. 4 testes novos (suíte **81 verdes**). Smoke executado: detectou 401 com a key antiga (mensagem clara: "key inválida ou revogada").
+- ~~Sub-fase 2.6 caminho mínimo~~ — `@cao/integration-shopify` com `AdminGraphQLClient` + `listProducts()` + OAuth helpers. `pnpm shopify:list-products` rodou em SKIPPED limpo. Suíte 81 → **96 verdes** (+15 cobrindo Shopify).
 
 ## N11 — Real run dos 3 agentes LLM (bloqueio único na sessão)
 
@@ -38,6 +39,13 @@ confidence: 1.0
 - **Pré-requisito:** **só** atualizar `.env.local` (a chave antiga está revogada; código + agentes + testes todos verdes localmente).
 - **Resultado esperado:** 3 outputs reais em `12_reports/` + `07_memory/vault/_test/facts/` + audit log atualizado. Custo estimado: < $0.05 total.
 - **Quem puxa:** ops (atualizar .env.local) → dev (validar)
+
+## N15 — Conectar Shopify dev store e rodar real (Sub-fase 2.6 demo)
+
+- **Ação:** (a) criar dev store em https://partners.shopify.com (gratuito), (b) Admin → Settings → Apps and sales channels → Develop apps → Create app, (c) Configure Admin API scopes → marcar `read_products` → Save, (d) Install app → Reveal token, (e) preencher `SHOPIFY_SHOP` + `SHOPIFY_ADMIN_TOKEN` em `.env.local`.
+- **Pré-requisito:** conta Shopify Partners (gratuito).
+- **Resultado esperado:** `pnpm shopify:list-products` lista produtos do dev store (Shopify cria 5 produtos default em dev stores novas). **Primeira demo mostrável a stakeholder.**
+- **Quem puxa:** ops
 
 ## N13a — Aceitar ADR-0011 (estratégia para `feedgen` Python)
 

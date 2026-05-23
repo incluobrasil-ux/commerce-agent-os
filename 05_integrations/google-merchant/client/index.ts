@@ -2,12 +2,12 @@
 // Implementação real na Fase 9.
 
 import type {
-  TenantId,
   GMCAccountId,
+  GMCDestination,
   GMCProduct,
   GMCProductId,
   GMCProductStatus,
-  GMCDestination,
+  TenantId,
 } from '../types/index.js';
 
 export interface GMCAccountInfo {

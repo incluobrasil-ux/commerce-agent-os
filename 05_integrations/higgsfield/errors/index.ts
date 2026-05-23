@@ -18,7 +18,10 @@ export class SkillNotFound extends Error {
 
 export class SkillManifestInvalid extends Error {
   readonly code = 'HIGGSFIELD_MANIFEST_INVALID' as const;
-  constructor(public readonly skillId: string, message: string) {
+  constructor(
+    public readonly skillId: string,
+    message: string,
+  ) {
     super(`Skill ${skillId} manifest invalid: ${message}`);
     this.name = 'SkillManifestInvalid';
   }
@@ -51,7 +54,9 @@ export class SkillBudgetExceeded extends Error {
 export class HiggsfieldCliMissing extends Error {
   readonly code = 'HIGGSFIELD_CLI_MISSING' as const;
   constructor() {
-    super('Higgsfield CLI binary not found on PATH; install with `npm i -g @higgsfield/cli` (confirmar pacote)');
+    super(
+      'Higgsfield CLI binary not found on PATH; install with `npm i -g @higgsfield/cli` (confirmar pacote)',
+    );
     this.name = 'HiggsfieldCliMissing';
   }
 }

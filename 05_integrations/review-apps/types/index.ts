@@ -4,22 +4,16 @@ import type { TenantId } from '@cao/shared-types';
 
 export type { TenantId };
 
-export type ProviderName =
-  | 'judge-me'
-  | 'shopify-native'
-  | 'yotpo'
-  | 'loox'
-  | 'stamped'
-  | 'okendo';
+export type ProviderName = 'judge-me' | 'shopify-native' | 'yotpo' | 'loox' | 'stamped' | 'okendo';
 
 // ReviewId formato: "<provider>:<external_id>", ex.: "judge-me:r-1077"
 export type ReviewId = string & { readonly __brand: 'ReviewId' };
-export type ProductRef = string & { readonly __brand: 'ProductRef' };  // refere SKU ou produto Shopify
+export type ProductRef = string & { readonly __brand: 'ProductRef' }; // refere SKU ou produto Shopify
 
 export interface ReviewAuthor {
   // PII — scrub aplicado por @cao/guardrails antes de sair do adapter.
   displayName: string | null;
-  email: string | null;        // sempre null em outputs públicos
+  email: string | null; // sempre null em outputs públicos
   verifiedPurchase: boolean | null;
 }
 
@@ -31,22 +25,22 @@ export interface ReviewMedia {
 
 export interface ReviewResponse {
   body: string;
-  postedAt: string;            // ISO 8601
-  postedBy: string;            // "owner" | author identifier
+  postedAt: string; // ISO 8601
+  postedBy: string; // "owner" | author identifier
 }
 
 export interface Review {
   id: ReviewId;
   provider: ProviderName;
   tenant: TenantId;
-  productRef: ProductRef;      // referência cruzada com Shopify ProductId
-  rating: number;              // 1.0–5.0
+  productRef: ProductRef; // referência cruzada com Shopify ProductId
+  rating: number; // 1.0–5.0
   title: string | null;
   body: string;
-  language: string;            // ISO 639-1
+  language: string; // ISO 639-1
   author: ReviewAuthor;
   media: ReviewMedia[];
-  createdAt: string;           // ISO 8601 UTC
+  createdAt: string; // ISO 8601 UTC
   updatedAt: string | null;
   response: ReviewResponse | null;
   // Campos derivados (preenchidos pelo serviço, não pelo provider):

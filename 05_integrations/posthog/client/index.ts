@@ -1,12 +1,7 @@
 // posthog/client/index.ts — contratos do client.
 
 import type { TenantId } from '@cao/shared-types';
-import type {
-  CaptureInput,
-  Identity,
-  FlagPayload,
-  HogQLResult,
-} from '../types/index.js';
+import type { CaptureInput, FlagPayload, HogQLResult, Identity } from '../types/index.js';
 
 export interface PostHogClient {
   capture(input: CaptureInput): void;

@@ -7,7 +7,7 @@ import type { TenantId } from '@cao/shared-types';
 export type { TenantId };
 
 // ===== Branded IDs (sempre derivados de GID `gid://shopify/<Resource>/<id>`) =====
-export type ShopifyShopDomain = string & { readonly __brand: 'ShopifyShopDomain' };  // "acme.myshopify.com"
+export type ShopifyShopDomain = string & { readonly __brand: 'ShopifyShopDomain' }; // "acme.myshopify.com"
 export type ShopifyProductId = string & { readonly __brand: 'ShopifyProductId' };
 export type ShopifyVariantId = string & { readonly __brand: 'ShopifyVariantId' };
 export type ShopifyCollectionId = string & { readonly __brand: 'ShopifyCollectionId' };
@@ -19,7 +19,7 @@ export type ShopifyThemeId = string & { readonly __brand: 'ShopifyThemeId' };
 
 // ===== Money =====
 export interface Money {
-  amount: string;       // string para preservar precisão (Shopify retorna string)
+  amount: string; // string para preservar precisão (Shopify retorna string)
   currencyCode: string; // ISO 4217
 }
 
@@ -34,7 +34,7 @@ export interface ShopifyProduct {
   productType: string | null;
   tags: string[];
   variants: ShopifyVariant[];
-  updatedAt: string;    // ISO 8601
+  updatedAt: string; // ISO 8601
 }
 
 export interface ShopifyVariant {
@@ -58,7 +58,7 @@ export interface ShopifyCollection {
 
 export interface ShopifyOrder {
   id: ShopifyOrderId;
-  name: string;             // "#1001"
+  name: string; // "#1001"
   totalPrice: Money;
   financialStatus: string;
   fulfillmentStatus: string | null;
@@ -67,7 +67,7 @@ export interface ShopifyOrder {
 
 export interface ShopifyCustomer {
   id: ShopifyCustomerId;
-  email: string | null;     // PII — passa por scrub antes de uso fora do adapter
+  email: string | null; // PII — passa por scrub antes de uso fora do adapter
   firstName: string | null;
   lastName: string | null;
   numberOfOrders: number;

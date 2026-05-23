@@ -10,7 +10,10 @@ export class PostHogConfigError extends Error {
 
 export class PostHogTaxonomyError extends Error {
   readonly code = 'POSTHOG_TAXONOMY' as const;
-  constructor(public readonly event: string, message: string) {
+  constructor(
+    public readonly event: string,
+    message: string,
+  ) {
     super(`Event '${event}': ${message}`);
     this.name = 'PostHogTaxonomyError';
   }

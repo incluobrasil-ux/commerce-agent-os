@@ -4,7 +4,11 @@ import type { ProviderName } from '../types/index.js';
 
 export class ReviewsAuthError extends Error {
   readonly code = 'REVIEWS_AUTH' as const;
-  constructor(public readonly provider: ProviderName, message: string, cause?: unknown) {
+  constructor(
+    public readonly provider: ProviderName,
+    message: string,
+    cause?: unknown,
+  ) {
     super(`[${provider}] ${message}`, { cause });
     this.name = 'ReviewsAuthError';
   }
@@ -36,7 +40,11 @@ export class ReviewsResourceNotFound extends Error {
 
 export class ReviewsProviderUnavailable extends Error {
   readonly code = 'REVIEWS_PROVIDER_UNAVAILABLE' as const;
-  constructor(public readonly provider: ProviderName, message: string, cause?: unknown) {
+  constructor(
+    public readonly provider: ProviderName,
+    message: string,
+    cause?: unknown,
+  ) {
     super(`[${provider}] unavailable: ${message}`, { cause });
     this.name = 'ReviewsProviderUnavailable';
   }
@@ -52,7 +60,11 @@ export class ReviewsWebhookSignatureError extends Error {
 
 export class ReviewsReplyForbidden extends Error {
   readonly code = 'REVIEWS_REPLY_FORBIDDEN' as const;
-  constructor(public readonly provider: ProviderName, public readonly reviewId: string, public readonly reason: string) {
+  constructor(
+    public readonly provider: ProviderName,
+    public readonly reviewId: string,
+    public readonly reason: string,
+  ) {
     super(`[${provider}] cannot reply to ${reviewId}: ${reason}`);
     this.name = 'ReviewsReplyForbidden';
   }
@@ -60,7 +72,10 @@ export class ReviewsReplyForbidden extends Error {
 
 export class ReviewsModerationConflict extends Error {
   readonly code = 'REVIEWS_MODERATION_CONFLICT' as const;
-  constructor(public readonly provider: ProviderName, public readonly reviewId: string) {
+  constructor(
+    public readonly provider: ProviderName,
+    public readonly reviewId: string,
+  ) {
     super(`[${provider}] review ${reviewId} moderated or deleted`);
     this.name = 'ReviewsModerationConflict';
   }

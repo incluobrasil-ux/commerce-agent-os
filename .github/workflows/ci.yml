@@ -1,0 +1,52 @@
+# CI mínimo — sub-fase 2.2 do 10_ops/scripts/NEXT_STEPS.md
+# Roda em PR e em push para main: lint + typecheck + smoke.
+# Não inclui integration/e2e/performance ainda — virão em fases posteriores.
+
+name: CI
+
+on:
+  pull_request:
+    branches: [main, master]
+  push:
+    branches: [main, master]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: lint + typecheck + smoke
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # commitlint precisa do histórico
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.0.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Smoke tests
+        run: pnpm test:smoke
+
+      # commitlint só faz sentido em pull_request (avalia commits desde o base).
+      - name: Commit messages (PR only)
+        if: github.event_name == 'pull_request'
+        run: pnpm commitlint

@@ -19,9 +19,7 @@ describe('packages-build smoke', () => {
   });
 
   it('shared-types compila e é importável', async () => {
-    await expect(
-      import('../../06_packages/shared-types/src/index.ts'),
-    ).resolves.toBeDefined();
+    await expect(import('../../06_packages/shared-types/src/index.ts')).resolves.toBeDefined();
   });
 
   it('integration-shopify errors expõe ShopifyAuthError com code estável', async () => {

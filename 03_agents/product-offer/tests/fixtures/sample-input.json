@@ -7,10 +7,7 @@
   "constraints": {
     "margin_min": 0.45,
     "price_band": { "min": 130, "max": 180 },
-    "brand_rules": [
-      "Não usar 'best ever'",
-      "Tom direto e técnico, não emocional"
-    ]
+    "brand_rules": ["Não usar 'best ever'", "Tom direto e técnico, não emocional"]
   },
   "context_ref": "memory://acme-myshopify-com/working/market/trail-running-shoes-2026-05-20.md"
 }

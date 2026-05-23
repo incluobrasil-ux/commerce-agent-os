@@ -2,10 +2,10 @@
 
 import type { TenantId } from '@cao/shared-types';
 import type {
-  SkillId,
-  SkillManifest,
   SkillExecutionInput,
   SkillExecutionResult,
+  SkillId,
+  SkillManifest,
 } from '../types/index.js';
 
 export interface HiggsfieldClient {

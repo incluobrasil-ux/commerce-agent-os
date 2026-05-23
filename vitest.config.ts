@@ -17,13 +17,7 @@ export default defineConfig({
       '11_tests/e2e/**/*.e2e.{test,spec}.{js,ts}',
       '11_tests/performance/**/*.perf.{test,spec}.{js,ts}',
     ],
-    exclude: [
-      '**/node_modules/**',
-      '**/dist/**',
-      '01_upstreams/**',
-      '08_data/**',
-      '12_reports/**',
-    ],
+    exclude: ['**/node_modules/**', '**/dist/**', '01_upstreams/**', '08_data/**', '12_reports/**'],
     // Smoke deve rodar < 30s sem rede (STACK_RULES §7).
     testTimeout: 30_000,
     hookTimeout: 10_000,

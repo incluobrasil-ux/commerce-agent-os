@@ -12,10 +12,10 @@ export type SkillId = string & { readonly __brand: 'SkillId' };
 export interface SkillManifest {
   id: SkillId;
   description: string;
-  inputsSchema: unknown;   // JSON Schema ou zod-like; confirmar
+  inputsSchema: unknown; // JSON Schema ou zod-like; confirmar
   outputSchema: unknown;
   tags: string[];
-  runtime: 'js' | 'python' | 'unknown';  // confirmar
+  runtime: 'js' | 'python' | 'unknown'; // confirmar
   modelDefault?: string;
 }
 

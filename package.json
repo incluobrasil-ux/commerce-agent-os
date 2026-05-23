@@ -12,6 +12,7 @@
     "test:smoke": "vitest run 11_tests/smoke",
     "audit:repo": "tsx 03_agents/repo-auditor/src/cli.ts",
     "synthesize:audit": "tsx --env-file=.env.local 03_agents/audit-synthesizer/src/cli.ts",
+    "curate:memory": "tsx --env-file=.env.local 03_agents/learning-memory-curation/src/cli.ts",
     "secret-scan": "gitleaks protect --staged --no-banner --redact",
     "secret-scan:full": "gitleaks detect --no-banner --redact",
     "lint": "biome check .",

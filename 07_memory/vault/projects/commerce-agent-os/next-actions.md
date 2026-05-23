@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T16:55:00Z
+updated_at: 2026-05-23T19:25:00Z
 tags: [next-actions]
 source: mixed
 confidence: 1.0
@@ -20,34 +20,35 @@ confidence: 1.0
 
 ## ✅ Concluídos nesta sessão
 
-- ~~N1~~ — PR `feat/core-runtime-and-first-agent` aberta.
-- ~~N2~~ — `ANTHROPIC_API_KEY` em `.env.local`.
-- ~~N3~~ — ADR-0007 aceito.
-- ~~N4~~ — 2 upstreams clonados + auditados.
-- ~~N5~~ — LLM end-to-end (`@cao/audit-synthesizer`, 2 chamadas Claude reais).
-- ~~N6~~ — Run-summary `2026-05-23-agent-run-llm-first-real-calls.md`.
-- ~~N7~~ — gitleaks 8.30.1 instalado + integrado ao pre-commit + validado (private key fake bloqueia).
-- ~~N8~~ — `ANTHROPIC_API_KEY` rotacionada (antiga revogada, nova em `.env.local`).
-- ~~N9~~ — **Decisão:** Sub-fase 2.5 (mais agentes) priorizada.
+- ~~N1–N9~~ — bootstrap completo, ADRs, upstreams, 1ª chamada LLM.
+- ~~N10~~ — `@cao/learning-memory-curation` implementado + 6 unit tests.
+- ~~N12~~ — `@cao/memory-context` implementado + 6 unit tests (4º agente).
 
-## N10 — Implementar `learning-memory-curation` (próximo agente real)
+## N11 — Real run dos 3 agentes LLM (bloqueio único na sessão)
 
-- **Ação:** seguindo padrão `audit-synthesizer`: package `@cao/learning-memory-curation`, agente que lê `<tenant>/audit/` + `<tenant>/working/` e promove findings de alta confiança para `<tenant>/facts/<slug>.md` com frontmatter (created_at, confidence, source, tags). LLM decide o que promover; humano valida via PR review do diff em `facts/`.
-- **Pré-requisito:** key válida em `.env.local`; pelo menos 1 tenant com audit log (já temos `_test/audit/2026-05-23.md`).
-- **Resultado esperado:** 1 execução real produz arquivos em `_test/facts/` + audit log atualizado. Suíte ≥ 64 verdes (5 unit + 1 smoke novos).
-- **Quem puxa:** dev (eu)
+- **Ação:** atualizar `.env.local` com a key nova rotacionada; rodar pipeline de validação:
+  ```bash
+  pnpm synthesize:audit 12_reports/audits/repo-auditor/langgraph-*.md
+  pnpm curate:memory --tenant=_test
+  pnpm context:brief --task="optimize Q2 catalog titles" --tenant=_test
+  ```
+- **Pré-requisito:** **só** atualizar `.env.local` (a chave antiga está revogada; código + agentes + testes todos verdes localmente).
+- **Resultado esperado:** 3 outputs reais em `12_reports/` + `07_memory/vault/_test/facts/` + audit log atualizado. Custo estimado: < $0.05 total.
+- **Quem puxa:** ops (atualizar .env.local) → dev (validar)
 
-## N11 — Resumir N10 em run-summary
+## N13 — Decidir 5º agente OU pivotar para Sub-fase 2.6
 
-- **Ação:** padrão estabelecido — `run-summaries/<date>-agent-run-learning-memory-curation-*.md` + linha em `index.md`.
-- **Pré-requisito:** N10 entregue.
-- **Quem puxa:** quem fez N10
+- **Ação:** decisão de produto. Opções:
+  - **Continuar 2.5:** próximos candidatos no catálogo de 17 agentes — `competitor-benchmark` (requer fetcher), `governance-risk-qa` (requer policies), `product-offer` (requer dados de produto).
+  - **Pivotar 2.6 (Shopify connect):** OAuth + 1 webhook + 1 produto lido. Requer dev store + ADR-0008 (queue) + ADR-0010 (DB).
+- **Pré-requisito:** N11 validado (todos os 3 agentes LLM rodando real).
+- **Quem puxa:** tech lead + produto
 
-## N12 — Próximo agente: `memory-context` ou `competitor-benchmark`
+## N14 — Polish CI: rodar smoke + lint + commitlint em PR (já existe; validar com este PR)
 
-- **Ação:** segundo agente da Sub-fase 2.5. `memory-context` (read-only, builds context briefs) é o caminho mais curto; `competitor-benchmark` é mais valioso mas precisa de fixtures de input.
-- **Pré-requisito:** N10 mergeado.
-- **Quem puxa:** dev
+- **Ação:** verificar que CI atualmente roda no PR e cobre os novos pacotes (4 agentes adicionados). Se faltar gitleaks no CI, adicionar.
+- **Pré-requisito:** PR `feat/core-runtime-and-first-agent` aberta no GitHub (já).
+- **Quem puxa:** ops
 
 ---
 

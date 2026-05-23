@@ -39,7 +39,34 @@ confidence: 1.0
 
 ## Entradas (mais recentes no topo)
 
-## 2026-05-23 17:15 UTC — Sub-fase 2.5 iniciada; aguarda .env.local update para real run
+## 2026-05-23 19:25 UTC — 4 agentes implementados; bloqueio único: atualizar .env.local
+
+- **Operador:** claude-opus-4-7
+- **Máquina/contexto:** Windows 11, VSCode + Claude Code (sandbox bash)
+- **Branch / WIP:** `feat/core-runtime-and-first-agent` — 16 commits ahead origin/main (último commit pendente de push: brain v3).
+- **O que foi feito:**
+  - Implementado `@cao/memory-context` (4º agente real, read-only).
+  - 6 testes novos. **Suíte: 65 → 71 verdes.**
+  - Script `pnpm context:brief --task="..." [--tenant=...]` no root.
+  - Tentei real run de `pnpm curate:memory --tenant=_test` 2x — retorna 401 (key em `.env.local` é a antiga revogada).
+- **Estado atual:** 🟡 — todos os 4 agentes prontos e testados com mocks; **3 dos 4 dependem de key Anthropic válida** para real run.
+- **Próximo passo (próximo operador, ~3 min):**
+  1. Editar `.env.local`: substituir a linha `ANTHROPIC_API_KEY=sk-ant-api03-ApIS...` (revogada) pela key nova rotacionada.
+  2. Validar com pipeline em sequência:
+     ```bash
+     pnpm synthesize:audit 12_reports/audits/repo-auditor/langgraph-*.md && \
+       pnpm curate:memory --tenant=_test && \
+       pnpm context:brief --task="optimize Q2 catalog titles" --tenant=_test
+     ```
+  3. Inspecionar outputs:
+     - `12_reports/audits/repo-auditor/*.synthesis.md`
+     - `07_memory/vault/_test/facts/*.md`
+     - `12_reports/context-briefs/_test-*.md`
+     - audit log: `07_memory/vault/_test/audit/2026-05-23.md`
+  4. Criar run-summary final: `2026-05-23-agent-run-three-llm-pipeline.md`.
+  5. Decidir N13 (5º agente OU pivotar Sub-fase 2.6).
+- **Bloqueio:** atualização manual de `.env.local`.
+- **Refs:** [next-actions.md](next-actions.md) N11/N13, agentes em [`03_agents/`](../../../../03_agents/).
 
 - **Operador:** incluobrasil + claude-opus-4-7
 - **Máquina/contexto:** Windows 11, VSCode + Claude Code

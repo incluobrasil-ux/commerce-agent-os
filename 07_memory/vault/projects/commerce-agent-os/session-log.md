@@ -25,6 +25,12 @@ confidence: 1.0
 
 ---
 
+## 2026-05-23 — 4º agente real entregue: `@cao/memory-context`
+
+- Feito: implementado `@cao/memory-context` (read-only context brief; lê facts + working + audit; output: brandVoice + hardConstraints + recentSignals + knownGaps + recommendation + confidence). 6 unit tests com fakeComplete. CLI `pnpm context:brief --task="..." [--tenant=...]`. Padrão DX consolidado: 4 agentes reais.
+- Resultado: verde. **71 testes verdes**. Real runs dos 3 agentes LLM ainda dependem de `.env.local` ter a key NOVA — atualmente 401 (key antiga, revogada).
+- Próximo: aguardar atualização de `.env.local` → pipeline de validação em 3 comandos → decidir 5º agente vs pivotar Sub-fase 2.6.
+
 ## 2026-05-23 — Sub-fase 2.5 iniciada + B5 fechado (gitleaks ativo)
 
 - Feito: integrado gitleaks 8.30.1 (winget) ao pre-commit (`pnpm secret-scan` rodando `gitleaks protect --staged`). Validado com private key fake (exit 1). Implementado `@cao/learning-memory-curation` (3º agente real) — package + agent definition + CLI (`pnpm curate:memory [--tenant=<id>] [--dry-run]`) + 6 testes verdes. Suíte: 59 → 65. Brain refletindo: B1/B5 ✅ fechados, B4 ✅ todos os commits pushados, N7/N8 risca, Sub-fase 2.5 oficialmente em curso.

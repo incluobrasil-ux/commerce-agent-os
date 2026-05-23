@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T17:15:00Z
+updated_at: 2026-05-23T19:25:00Z
 tags: [index, run-summaries]
 source: mixed
 confidence: 1.0
@@ -24,6 +24,7 @@ Marcos de implementação (sub-fase concluída, primeiro deploy, OAuth funcionan
 
 | Data | Título | Resultado | Arquivo |
 |---|---|---|---|
+| 2026-05-23 | 4º agente real: `memory-context` (read-only context brief) | 🟢 | [2026-05-23-impl-milestone-fourth-agent-memory-context.md](2026-05-23-impl-milestone-fourth-agent-memory-context.md) |
 | 2026-05-23 | Sub-fase 2.5 iniciada: 3º agente real + secret scan ativo | 🟢 | [2026-05-23-impl-milestone-third-agent-and-gitleaks.md](2026-05-23-impl-milestone-third-agent-and-gitleaks.md) |
 | 2026-05-23 | Macro-fase 1 (setup/scaffold) concluída | 🟢 | [2026-05-23-impl-milestone-phase-1-setup-complete.md](2026-05-23-impl-milestone-phase-1-setup-complete.md) |
 

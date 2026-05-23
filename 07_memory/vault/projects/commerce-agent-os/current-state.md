@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T17:15:00Z
+updated_at: 2026-05-23T19:25:00Z
 tags: [current-state, status]
 source: mixed
 confidence: 1.0
@@ -23,9 +23,9 @@ confidence: 1.0
 | | |
 |---|---|
 | Macro-fase | 2 — Implementação |
-| Sub-fase | 2.5 em curso (mais agentes reais) |
-| Último marco | 3º agente real entregue: `@cao/learning-memory-curation` — implementado + 65 testes verdes. Real run pendente da key nova em `.env.local`. |
-| Próximo marco técnico | Real run do `learning-memory-curation` → 4º agente (`memory-context` ou `competitor-benchmark`) |
+| Sub-fase | 2.5 em curso (4 de 17 agentes reais) |
+| Último marco | 4º agente real implementado: `@cao/memory-context` — read-only, monta context briefs. **71 testes verdes**. |
+| Próximo marco técnico | Real run dos 3 agentes LLM (curate + context + synthesize) — depende **só** de atualizar `.env.local` com key nova |
 
 ## Verde
 
@@ -34,10 +34,11 @@ confidence: 1.0
 - **`repo-auditor` é o 1º agente real**, executável via `pnpm audit:repo <path>`, modo determinístico (sem `ANTHROPIC_API_KEY`).
 - `.env.example`, `SETUP_LOCAL.md`, `COMMANDS.md`, `clone-upstreams.sh` populados.
 - **2 upstreams clonados + auditados** (`langgraph`, `shopify-app-template-react-router`).
-- **Suíte 65 testes verdes** em 10 arquivos.
-- **3 agentes reais:** `repo-auditor` (determinístico) + `audit-synthesizer` (LLM) + `learning-memory-curation` (LLM, real run pendente).
+- **Suíte 71 testes verdes** em 11 arquivos.
+- **4 agentes reais** (4 de 17): `repo-auditor` (determinístico) + `audit-synthesizer` (LLM) + `learning-memory-curation` (LLM) + `memory-context` (LLM read-only).
 - Audit log de tenant escrito por `@cao/runtime` em `07_memory/vault/_test/audit/`.
 - **Pre-commit secret-scan ativo** (gitleaks 8.30.1) — bloqueia secrets antes do push.
+- DX consolidado: 4 comandos shape `pnpm <verb>:<noun> [args]` para invocar agentes.
 - CI no GitHub Actions; branch protection em `main`; tag `v0.1.0-architecture-baseline`.
 - 8 ADRs aceitos.
 - Cérebro operacional v1 multi-operador estruturado.
@@ -52,6 +53,6 @@ confidence: 1.0
 
 ## Resumo em 1 linha
 
-> 3 agentes reais implementados, pre-commit com secret-scan ativo, 65 testes verdes — falta atualizar `.env.local` com nova key e rodar `pnpm curate:memory` real.
+> 4 agentes reais implementados, pre-commit com secret-scan ativo, 71 testes verdes — único bloqueio é atualizar `.env.local` com a key nova rotacionada (agentes LLM retornam 401 com a key revogada que ainda está no arquivo).
 
 Detalhe em [blockers-and-risks.md](blockers-and-risks.md).

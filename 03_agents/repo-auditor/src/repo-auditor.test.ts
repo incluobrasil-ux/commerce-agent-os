@@ -31,6 +31,31 @@ describe('auditRepo', () => {
     expect(r.findings.find((f) => f.category === 'license')).toBeUndefined();
   });
 
+  it('detecta MIT pela cláusula canônica mesmo sem header "MIT License"', async () => {
+    const mitBody =
+      'Copyright 2025 Acme\n\nPermission is hereby granted, free of charge, to any person ' +
+      'obtaining a copy of this software without restriction.\n\n' +
+      'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.';
+    await fs.writeFile(join(tmp, 'LICENSE.md'), mitBody);
+    await fs.writeFile(join(tmp, 'README.md'), '# test');
+    await fs.writeFile(join(tmp, '.gitignore'), 'node_modules\n');
+
+    const r = await auditRepo({ repoPath: tmp, profile: 'license' });
+    expect(r.license).toBe('MIT');
+    expect(r.findings.find((f) => f.category === 'license')).toBeUndefined();
+  });
+
+  it('reporta warning quando LICENSE existe mas SPDX é desconhecido', async () => {
+    await fs.writeFile(join(tmp, 'LICENSE'), 'Custom proprietary terms apply.');
+    await fs.writeFile(join(tmp, 'README.md'), '# test');
+    await fs.writeFile(join(tmp, '.gitignore'), 'node_modules\n');
+
+    const r = await auditRepo({ repoPath: tmp, profile: 'license' });
+    expect(r.license).toBe('UNKNOWN');
+    const lf = r.findings.find((f) => f.category === 'license');
+    expect(lf?.severity).toBe('warning');
+  });
+
   it('reporta finding crítico quando não há LICENSE', async () => {
     await fs.writeFile(join(tmp, 'README.md'), '# test');
     await fs.writeFile(join(tmp, '.gitignore'), 'node_modules\n');

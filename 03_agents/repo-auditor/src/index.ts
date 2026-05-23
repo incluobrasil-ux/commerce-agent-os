@@ -41,14 +41,28 @@ export interface AuditOptions {
   profile?: AuditProfile;
 }
 
-const SPDX_KEYWORDS: Array<{ id: string; needles: string[] }> = [
-  { id: 'MIT', needles: ['MIT License'] },
-  { id: 'Apache-2.0', needles: ['Apache License', 'Version 2.0'] },
-  { id: 'BSD-3-Clause', needles: ['BSD 3-Clause', 'Redistribution and use in source and binary'] },
-  { id: 'BSD-2-Clause', needles: ['BSD 2-Clause'] },
-  { id: 'GPL-3.0', needles: ['GNU GENERAL PUBLIC LICENSE', 'Version 3'] },
-  { id: 'GPL-2.0', needles: ['GNU GENERAL PUBLIC LICENSE', 'Version 2'] },
-  { id: 'ISC', needles: ['ISC License'] },
+// Cada entrada é uma alternativa: { spdx, allOf: [ ...substrings que precisam estar TODAS presentes ] }.
+// A primeira entrada que casar vence — ordem importa.
+const SPDX_PATTERNS: Array<{ id: string; allOf: string[] }> = [
+  { id: 'MIT', allOf: ['MIT License'] },
+  // MIT também detectado pela cláusula canônica (cobre LICENSE files que não dizem "MIT License" no topo)
+  {
+    id: 'MIT',
+    allOf: [
+      'Permission is hereby granted, free of charge',
+      'without restriction',
+      'THE SOFTWARE IS PROVIDED "AS IS"',
+    ],
+  },
+  { id: 'Apache-2.0', allOf: ['Apache License', 'Version 2.0'] },
+  {
+    id: 'BSD-3-Clause',
+    allOf: ['BSD 3-Clause', 'Redistribution and use in source and binary'],
+  },
+  { id: 'BSD-2-Clause', allOf: ['BSD 2-Clause'] },
+  { id: 'GPL-3.0', allOf: ['GNU GENERAL PUBLIC LICENSE', 'Version 3'] },
+  { id: 'GPL-2.0', allOf: ['GNU GENERAL PUBLIC LICENSE', 'Version 2'] },
+  { id: 'ISC', allOf: ['ISC License'] },
 ];
 
 const SKIP_DIRS = new Set([
@@ -148,6 +162,19 @@ async function detectLicense(repoPath: string): Promise<LicenseDetection> {
     try {
       const content = await fs.readFile(p, 'utf8');
       const spdx = matchSpdx(content);
+      if (spdx === 'UNKNOWN') {
+        return {
+          spdx,
+          finding: {
+            category: 'license',
+            severity: 'warning',
+            file: name,
+            line: 0,
+            recommendation:
+              'Arquivo de licença presente mas SPDX não identificado pelos padrões atuais. Revisar manualmente e, se for licença comum, adicionar pattern em SPDX_PATTERNS.',
+          },
+        };
+      }
       return { spdx };
     } catch {
       // continue
@@ -178,8 +205,8 @@ async function detectLicense(repoPath: string): Promise<LicenseDetection> {
 }
 
 function matchSpdx(text: string): string {
-  for (const { id, needles } of SPDX_KEYWORDS) {
-    if (needles.every((n) => text.includes(n))) return id;
+  for (const { id, allOf } of SPDX_PATTERNS) {
+    if (allOf.every((n) => text.includes(n))) return id;
   }
   return 'UNKNOWN';
 }

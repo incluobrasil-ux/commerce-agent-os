@@ -1,19 +1,28 @@
 # Current project status
 
-**Data:** 2026-05-23
+**Data:** 2026-05-23 (atualizado após Sub-fase 2.2 + repo-auditor entregue)
 **Branch:** `main`
-**Tag de referência:** `v0.1.0-architecture-baseline`
+**Tag de referência:** `v0.1.0-architecture-baseline` (pré-Sub-fase 2.2)
 **Repo:** https://github.com/incluobrasil-ux/commerce-agent-os
 
 ## Resumo executivo
 
-`commerce-agent-os` está em **baseline arquitetural estável**. Todas as decisões estruturais foram tomadas (8 ADRs aceitos), todas as áreas do domínio estão documentadas (17 agentes, 7 apps, 7 integrações, 12 packages) com contratos TypeScript e fixtures de teste. O build local roda verde (`pnpm install + typecheck + lint + smoke`) e CI no GitHub Actions valida cada PR.
+`commerce-agent-os` saiu de "baseline arquitetural" para **baseline com primeiro fluxo real funcionando**.
 
-**Nada de lógica de negócio foi implementado.** Os arquivos `.ts` de domínio são `export {}` ou apenas tipos. Nenhum agente executa, nenhuma loja Shopify está conectada, nenhuma chamada LLM é feita.
+O que mudou desde a tag `v0.1.0-architecture-baseline`:
+- **Núcleo `@cao/*` mínimo implementado** (core, llm, memory, guardrails, observability, runtime) com 41 testes verdes.
+- **`repo-auditor` é o primeiro agente real**, executável com `pnpm audit:repo <path>` — gera markdown em `12_reports/audits/repo-auditor/`. Modo determinístico (sem LLM) → roda em qualquer clone do repo sem credencial.
+- **Cérebro operacional v1** estruturado em `07_memory/vault/projects/commerce-agent-os/` para uso multi-operador via GitHub.
+- Suíte completa: **52 testes verdes** (8 arquivos / ~1.6s).
 
-O projeto é hoje um **briefing técnico executável**: alguém clona, `pnpm install`, e tem prova viva de que a planta está consistente. Não é um produto.
+O que ainda **não foi feito:**
+- Nenhum agente roda contra LLM real (Anthropic) — `@cao/llm` está pronto mas não é invocado em produção.
+- Nenhuma loja Shopify conectada.
+- Nenhum upstream clonado em `01_upstreams/`.
 
-A próxima sub-fase concreta (2.3 — ingestão de upstreams) é puramente operacional, baixo risco, destrava a Sub-fase 2.4 onde a implementação real começa.
+Resultado prático: o repo passa de "briefing técnico executável" para **plataforma com 1 agente real**. Quem clona pode `pnpm install` + `pnpm audit:repo .` e ter saída real em ≤ 5 min.
+
+Próximo bloco crítico: aceitar ADR-0007 + clonar upstreams + hookar LLM no runtime.
 
 ## Entregáveis concluídos
 
@@ -44,11 +53,34 @@ A próxima sub-fase concreta (2.3 — ingestão de upstreams) é puramente opera
 - Vault template em `07_memory/vault/_template/`.
 
 ### Bootstrap funcional
-- `pnpm install` verde (24 workspace projects, devDeps pinadas).
+- `pnpm install` verde (24+ workspace projects, devDeps pinadas).
 - `pnpm typecheck` verde (tsc -b sem erros).
-- `pnpm lint` verde (biome — 128 arquivos).
-- `pnpm test:smoke` verde (3 testes / 1 arquivo / ~540ms).
+- `pnpm lint` verde (biome — 154 arquivos).
+- `pnpm test:smoke` verde (5 testes / 2 arquivos / ~0.5s).
+- `pnpm test` verde — **52 testes / 8 arquivos / ~1.6s**.
 - CI workflow em `.github/workflows/ci.yml` rodando lint + typecheck + smoke + commitlint.
+
+### Núcleo `@cao/*` mínimo (Sub-fase 2.2)
+- `@cao/core` — `BaseError`, `Result`, `Clock` (System+Fake), `IdGenerator`, `retry()`.
+- `@cao/observability` — `ObservabilityProvider`, `ConsoleProvider`, `SilentProvider`.
+- `@cao/guardrails` — `validate(zod)`, `detectPII`/`redactPII`, `detectSecrets`/`scanWith`.
+- `@cao/memory` — `Memory` class com CRUD markdown + isolamento estrito por tenant.
+- `@cao/llm` — `CompleteFn` interface + `makeAnthropicComplete()` factory + tabela de custo Claude (Opus 4.7, Sonnet 4.6, Haiku 4.5).
+- `@cao/runtime` — `defineAgent` + `runAgent` (validate input → prompt → LLM → parseOutput → validate output → audit log).
+- 41 testes unitários cobrindo todos.
+
+### Primeiro agente real: `repo-auditor`
+- Auditor determinístico de repositórios locais (`@cao/repo-auditor`).
+- 3 perfis: `license` (só licença), `security` (+ .env/.gitignore), `architecture` (+ README/lang/structure), `full` (todos).
+- Output: markdown em `12_reports/audits/repo-auditor/<repo>-<timestamp>.md` + JSON-shape em código.
+- Comando único: `pnpm audit:repo <path> [--profile=full]`. Exit 0 sem críticos, 1 com críticos, 2 erro de uso.
+- 9 testes unitários + 2 smoke (rodando contra o próprio projeto).
+- **Roda sem `ANTHROPIC_API_KEY`** — LLM synthesis fica como upgrade opcional futuro.
+
+### Cérebro operacional (`07_memory/vault/projects/commerce-agent-os/`)
+- Sistema de memória ativa para uso multi-operador via GitHub.
+- 13 arquivos curados: `project-home`, `current-state`, `ops-brief`, `workstreams`, `next-actions`, `operational-priorities`, `blockers-and-risks`, `decision-index`, `source-of-truth`, `sync-protocol`, `session-log`, `handoff-log`, `run-summaries/`.
+- 4 resumos curados de execução já populados (3 historic + 1 do primeiro run real do `repo-auditor` — pendente).
 
 ### Operacional
 - `10_ops/security/security-checklist.md` com ~50 itens em 11 categorias.
@@ -65,18 +97,19 @@ A próxima sub-fase concreta (2.3 — ingestão de upstreams) é puramente opera
 
 ### Bloqueios para próximas sub-fases
 
-| Lacuna | Bloqueia | Sub-fase |
-|---|---|---|
-| Nenhum upstream clonado em `01_upstreams/` | validação de premissas (higgsfield, agentshield, feedgen, template Shopify) | 2.3 |
-| `@cao/runtime` não implementado | execução de qualquer agente | 2.4 |
-| `@cao/memory` não implementado | persistência de estado de agente | 2.4 |
-| `@cao/guardrails` não implementado | validação/sanitização em runtime | 2.4 |
-| `@cao/llm` não implementado | chamada de modelo (Anthropic/Gemini) | 2.4 |
-| `@cao/observability` não implementado | instrumentação PostHog real | 2.4 / 2.8 |
-| Shopify Partners + dev store não configurados | conexão Shopify | 2.6 |
-| Conta Google Cloud + Merchant Center não criada | feed Google | 2.7 |
-| Projeto PostHog não criado + API keys ausentes | analytics | 2.8 |
-| Provider de reviews não confirmado (Judge.me proposto) | reviews-ops | 2.9 |
+| Lacuna | Bloqueia | Sub-fase | Status |
+|---|---|---|---|
+| Nenhum upstream clonado em `01_upstreams/` | validação de premissas (higgsfield, agentshield, feedgen, template Shopify) | 2.3 | aberto |
+| `@cao/runtime` não implementado | execução de qualquer agente | 2.4 | ✅ **resolvido** (Sub-fase 2.2) |
+| `@cao/memory` não implementado | persistência de estado de agente | 2.4 | ✅ **resolvido** |
+| `@cao/guardrails` não implementado | validação/sanitização em runtime | 2.4 | ✅ **resolvido** |
+| `@cao/llm` não implementado | chamada de modelo (Anthropic/Gemini) | 2.4 | ✅ **resolvido** (cliente pronto; chamada real depende de API key) |
+| `@cao/observability` não implementado | instrumentação PostHog real | 2.4 / 2.8 | ✅ **resolvido** (ConsoleProvider; PostHog real fica para 2.8) |
+| `ANTHROPIC_API_KEY` não confirmada em dev | invocar agentes contra LLM real | 2.4 → 2.5 | aberto |
+| Shopify Partners + dev store não configurados | conexão Shopify | 2.6 | aberto |
+| Conta Google Cloud + Merchant Center não criada | feed Google | 2.7 | aberto |
+| Projeto PostHog não criado + API keys ausentes | analytics | 2.8 | aberto |
+| Provider de reviews não confirmado (Judge.me proposto) | reviews-ops | 2.9 | aberto |
 
 ### Decisões ainda em queue (não bloqueiam imediatamente)
 
@@ -105,23 +138,31 @@ A próxima sub-fase concreta (2.3 — ingestão de upstreams) é puramente opera
 - Override humano em `block` (governance) não modelado no admin-app.
 - Política de retenção de `07_memory/` + logs PostHog não definida (afeta LGPD/GDPR).
 
-## Próxima sub-fase
+## Próximas sub-fases
 
-**Sub-fase 2.3 — ingestão de upstreams de alta prioridade.**
+### Sub-fase 2.3 — ingestão de upstreams de alta prioridade
 
 Objetivo: popular `01_upstreams/` com 10 upstreams chave (langgraph, shopify-app-template-react-router, dawn, merchant-api-samples, feedgen, basic-memory, agentshield, ad-factory-agent, higgsfield-skills, higgsfield-cli) seguindo a política do ADR-0002 (read-only).
 
-Tipo de trabalho: **operacional**, baixo risco arquitetural. Cada upstream é decidido entre submodule, clone raso, ou referência via SDK (conforme ADR-0002).
+Tipo de trabalho: **operacional**, baixo risco arquitetural. **Agora destravado:** `repo-auditor` está pronto para rodar em cada upstream clonado.
 
 Critérios de aceite:
 - 10 upstreams presentes em `01_upstreams/`.
-- `repo-auditor` rodado (manualmente, por humano) em cada um — licença + secret scan + findings em `12_reports/audits/upstream-pass2/`.
+- `pnpm audit:repo 01_upstreams/<repo> --profile=full` rodado em cada um.
 - `00_meta/REPO_SELECTION.md` atualizado removendo flags `⚠ verificar` resolvidas.
-- Premissas confirmadas/derrubadas (schema real de skill em higgsfield; stack do template Shopify; heurísticas de feedgen).
 
-Tempo estimado: 1 semana (operacional).
+### Sub-fase 2.4 — LLM integration end-to-end
 
-Detalhe em [`10_ops/scripts/NEXT_STEPS.md`](../../10_ops/scripts/NEXT_STEPS.md) seção 2.3.
+Pré-requisito: `ANTHROPIC_API_KEY` confirmada + ADR-0007 aceito.
+
+Objetivo: ligar `@cao/runtime` à chamada Anthropic real através de `repo-auditor` ou novo agente.
+
+Critérios de aceite:
+- 1 agente invocado com LLM real produzindo output validado.
+- Audit log escrito em vault de tenant.
+- Custo registrado via `@cao/observability`.
+
+Detalhe em [`10_ops/scripts/NEXT_STEPS.md`](../../10_ops/scripts/NEXT_STEPS.md) e nas próximas ações do cérebro: [`07_memory/vault/projects/commerce-agent-os/next-actions.md`](../../07_memory/vault/projects/commerce-agent-os/next-actions.md).
 
 ## Risco principal atual
 

@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T16:55:00Z
+updated_at: 2026-05-23T17:15:00Z
 tags: [current-state, status]
 source: mixed
 confidence: 1.0
@@ -23,9 +23,9 @@ confidence: 1.0
 | | |
 |---|---|
 | Macro-fase | 2 — Implementação |
-| Sub-fase | 2.4 concluída (LLM end-to-end) → 2.5 ou 2.6 (a decidir) |
-| Último marco | **2 chamadas LLM reais via `@cao/runtime`** — `audit-synthesizer` sintetizou langgraph + shopify-app-template ($0.0099 total) |
-| Próximo marco técnico | Sub-fase 2.6 (Shopify OAuth + 1 produto) OU 2.5 (mais agentes reais / observability PostHog) |
+| Sub-fase | 2.5 em curso (mais agentes reais) |
+| Último marco | 3º agente real entregue: `@cao/learning-memory-curation` — implementado + 65 testes verdes. Real run pendente da key nova em `.env.local`. |
+| Próximo marco técnico | Real run do `learning-memory-curation` → 4º agente (`memory-context` ou `competitor-benchmark`) |
 
 ## Verde
 
@@ -34,23 +34,24 @@ confidence: 1.0
 - **`repo-auditor` é o 1º agente real**, executável via `pnpm audit:repo <path>`, modo determinístico (sem `ANTHROPIC_API_KEY`).
 - `.env.example`, `SETUP_LOCAL.md`, `COMMANDS.md`, `clone-upstreams.sh` populados.
 - **2 upstreams clonados + auditados** (`langgraph`, `shopify-app-template-react-router`).
-- **Suíte 59 testes verdes** em 9 arquivos (5 novos cobrindo `audit-synthesizer`).
-- **2 agentes reais funcionando:** `repo-auditor` (determinístico) + `audit-synthesizer` (LLM real via Claude Sonnet 4.6).
+- **Suíte 65 testes verdes** em 10 arquivos.
+- **3 agentes reais:** `repo-auditor` (determinístico) + `audit-synthesizer` (LLM) + `learning-memory-curation` (LLM, real run pendente).
 - Audit log de tenant escrito por `@cao/runtime` em `07_memory/vault/_test/audit/`.
+- **Pre-commit secret-scan ativo** (gitleaks 8.30.1) — bloqueia secrets antes do push.
 - CI no GitHub Actions; branch protection em `main`; tag `v0.1.0-architecture-baseline`.
 - 8 ADRs aceitos.
 - Cérebro operacional v1 multi-operador estruturado.
 
 ## Bloqueado
 
-- ~~B1~~ — ✅ key utilizada com sucesso (2 chamadas reais). ⚠ **rotacionar** — apareceu em chat.
-- ~~B2~~ — ✅ 2 upstreams clonados + auditados + sintetizados.
-- ~~B3~~ — ✅ ADR-0007 aceito.
-- **B4** — N5 + run-summary pendentes de commit + push.
-- **B5** — `gitleaks` binário não instalado localmente.
+- ~~B1~~ — ✅ key rotacionada. ⚠ `.env.local` precisa ser atualizada manualmente com a nova key (a antiga ainda está lá; usar `pnpm curate:memory` retorna 401 até trocar).
+- ~~B2~~ — ✅ resolvido.
+- ~~B3~~ — ✅ resolvido.
+- ~~B4~~ — ✅ todos os blocos commitados + pushados (8 commits totais em `feat/core-runtime-and-first-agent`).
+- ~~B5~~ — ✅ gitleaks 8.30.1 ativo no pre-commit (validado com private key fake).
 
 ## Resumo em 1 linha
 
-> 2 agentes reais (1 deterministic + 1 LLM), 2 chamadas Claude reais executadas e auditadas, suíte 59 testes verdes — falta commit/push do N5 e rotacionar key.
+> 3 agentes reais implementados, pre-commit com secret-scan ativo, 65 testes verdes — falta atualizar `.env.local` com nova key e rodar `pnpm curate:memory` real.
 
 Detalhe em [blockers-and-risks.md](blockers-and-risks.md).

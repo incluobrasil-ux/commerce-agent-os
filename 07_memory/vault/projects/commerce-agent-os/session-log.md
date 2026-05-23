@@ -25,6 +25,12 @@ confidence: 1.0
 
 ---
 
+## 2026-05-23 — Sub-fase 2.5 iniciada + B5 fechado (gitleaks ativo)
+
+- Feito: integrado gitleaks 8.30.1 (winget) ao pre-commit (`pnpm secret-scan` rodando `gitleaks protect --staged`). Validado com private key fake (exit 1). Implementado `@cao/learning-memory-curation` (3º agente real) — package + agent definition + CLI (`pnpm curate:memory [--tenant=<id>] [--dry-run]`) + 6 testes verdes. Suíte: 59 → 65. Brain refletindo: B1/B5 ✅ fechados, B4 ✅ todos os commits pushados, N7/N8 risca, Sub-fase 2.5 oficialmente em curso.
+- Resultado: verde local. ⚠ real run de `curate:memory` pendente — `.env.local` ainda tem a key antiga (revogada); usuário precisa atualizar.
+- Próximo: usuário atualiza `.env.local` → `pnpm curate:memory --tenant=_test` → run-summary final. Depois N12 (4º agente, `memory-context` proposto).
+
 ## 2026-05-23 — N5 entregue: PRIMEIRA CHAMADA LLM REAL DO SISTEMA
 
 - Feito: criado `@cao/audit-synthesizer` (package + agent definition + CLI + 5 unit tests). Script `pnpm synthesize:audit` no root usa `tsx --env-file=.env.local`. Rodadas 2 chamadas reais ao Claude Sonnet 4.6 (langgraph + shopify-app-template syntheses); audit log gravado em `07_memory/vault/_test/audit/2026-05-23.md`. Suíte: 54 → **59 testes verdes**.

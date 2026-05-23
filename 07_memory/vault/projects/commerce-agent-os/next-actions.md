@@ -21,33 +21,33 @@ confidence: 1.0
 ## ✅ Concluídos nesta sessão
 
 - ~~N1~~ — PR `feat/core-runtime-and-first-agent` aberta.
-- ~~N2~~ — `ANTHROPIC_API_KEY` em `.env.local` (⚠ rotacionar).
+- ~~N2~~ — `ANTHROPIC_API_KEY` em `.env.local`.
 - ~~N3~~ — ADR-0007 aceito.
-- ~~N4~~ — 2 upstreams clonados + auditados (ambos MIT).
-- ~~N5~~ — **LLM end-to-end** — `@cao/audit-synthesizer` criado; 2 chamadas Claude reais ($0.0099, 1557 tokens, audit log em tenant).
-- ~~N6~~ — Run-summary `2026-05-23-agent-run-llm-first-real-calls.md` criado.
+- ~~N4~~ — 2 upstreams clonados + auditados.
+- ~~N5~~ — LLM end-to-end (`@cao/audit-synthesizer`, 2 chamadas Claude reais).
+- ~~N6~~ — Run-summary `2026-05-23-agent-run-llm-first-real-calls.md`.
+- ~~N7~~ — gitleaks 8.30.1 instalado + integrado ao pre-commit + validado (private key fake bloqueia).
+- ~~N8~~ — `ANTHROPIC_API_KEY` rotacionada (antiga revogada, nova em `.env.local`).
+- ~~N9~~ — **Decisão:** Sub-fase 2.5 (mais agentes) priorizada.
 
-## N7 — Instalar binário `gitleaks`
+## N10 — Implementar `learning-memory-curation` (próximo agente real)
 
-- **Ação:** `winget install gitleaks` (Windows) ou `scoop install gitleaks` ou `brew install gitleaks` (mac). `simple-git-hooks` já está ativo. Validar com `gitleaks --version`.
-- **Pré-requisito:** acesso administrativo OS.
-- **Resultado esperado:** secret scan ativo no pre-commit; B5 fechado.
-- **Quem puxa:** ops
+- **Ação:** seguindo padrão `audit-synthesizer`: package `@cao/learning-memory-curation`, agente que lê `<tenant>/audit/` + `<tenant>/working/` e promove findings de alta confiança para `<tenant>/facts/<slug>.md` com frontmatter (created_at, confidence, source, tags). LLM decide o que promover; humano valida via PR review do diff em `facts/`.
+- **Pré-requisito:** key válida em `.env.local`; pelo menos 1 tenant com audit log (já temos `_test/audit/2026-05-23.md`).
+- **Resultado esperado:** 1 execução real produz arquivos em `_test/facts/` + audit log atualizado. Suíte ≥ 64 verdes (5 unit + 1 smoke novos).
+- **Quem puxa:** dev (eu)
 
-## N8 — Rotacionar `ANTHROPIC_API_KEY`
+## N11 — Resumir N10 em run-summary
 
-- **Ação:** console Anthropic → criar nova key → revogar a antiga (`sk-ant-api03-ApIS...`). Atualizar `.env.local`.
-- **Pré-requisito:** acesso ao console.
-- **Resultado esperado:** key antiga inválida; key nova funcional; `pnpm synthesize:audit ...` continua verde.
-- **Quem puxa:** ops
+- **Ação:** padrão estabelecido — `run-summaries/<date>-agent-run-learning-memory-curation-*.md` + linha em `index.md`.
+- **Pré-requisito:** N10 entregue.
+- **Quem puxa:** quem fez N10
 
-## N9 — Decidir próximo bloco: 2.5 (mais agentes) vs 2.6 (Shopify OAuth)
+## N12 — Próximo agente: `memory-context` ou `competitor-benchmark`
 
-- **Ação:** decisão de produto/escopo. Opções:
-  - **2.5:** mais agentes reais usando o padrão `audit-synthesizer` (ex.: `learning-memory-curation`, `competitor-benchmark`). Continua sem credencial externa.
-  - **2.6:** começar Shopify connect — depende de Partners account + dev store + ADR-0008 (queue) + ADR-0010 (DB).
-- **Resultado esperado:** ADR de roadmap atualizado; próxima sub-fase formalmente iniciada.
-- **Quem puxa:** tech lead + produto
+- **Ação:** segundo agente da Sub-fase 2.5. `memory-context` (read-only, builds context briefs) é o caminho mais curto; `competitor-benchmark` é mais valioso mas precisa de fixtures de input.
+- **Pré-requisito:** N10 mergeado.
+- **Quem puxa:** dev
 
 ---
 

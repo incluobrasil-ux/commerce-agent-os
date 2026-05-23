@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T16:55:00Z
+updated_at: 2026-05-23T17:15:00Z
 tags: [brief, status]
 source: mixed
 confidence: 1.0
@@ -31,9 +31,11 @@ Legenda: 🟢 funciona / 🟡 parcial / 🔴 não funciona / ⚪ não iniciado.
 | `@cao/llm` | 🟢 | **2 chamadas Anthropic reais validadas** ($0.0099 total) |
 | `@cao/runtime` | 🟢 | fluxo completo invocado em produção via `audit-synthesizer` — audit log + cost + observability OK |
 | `@cao/repo-auditor` | 🟢 | 1º agente real (determinístico) |
-| `@cao/audit-synthesizer` | 🟢 | **2º agente real (LLM)** — `pnpm synthesize:audit <path>` |
+| `@cao/audit-synthesizer` | 🟢 | 2º agente real (LLM) — `pnpm synthesize:audit <path>` |
+| `@cao/learning-memory-curation` | 🟡 | **3º agente real (LLM)** — `pnpm curate:memory`. Tests OK; real run pendente da key nova em `.env.local`. |
 | Outros `@cao/*` (stubs) | 🟡 | placeholders ainda |
-| Outros agentes (15 declarativos) | 🔴 | só schema; nenhum executável |
+| Outros agentes (14 declarativos) | 🔴 | só schema; nenhum executável |
+| Pre-commit secret scan | 🟢 | gitleaks 8.30.1 integrado |
 | Apps (`04_apps/`) | 🔴 | scaffolds, sem código real |
 | Integrações (`05_integrations/`) | 🔴 | contratos + adapters stub |
 | Upstreams (`01_upstreams/`) | 🟡 | 2/10 clonados (langgraph + shopify-app-template, ambos MIT). Outros 8 sob demanda. |
@@ -56,12 +58,13 @@ Quem precisa de divisão por trilha → [workstreams.md](workstreams.md).
 - 2026-05-23 — `.env.example`, `SETUP_LOCAL.md`, `COMMANDS.md` prontos para clone em outro PC.
 - 2026-05-23 — ADR-0007 aceito. 2 upstreams clonados + auditados. Suíte 54 verdes ([summary](run-summaries/2026-05-23-agent-run-repo-auditor-2-upstreams.md)).
 - 2026-05-23 — **`audit-synthesizer` é o 2º agente real — primeira chamada LLM ao Claude validada** ($0.0099, 2 execuções, audit log gravado). Suíte 59 verdes ([summary](run-summaries/2026-05-23-agent-run-llm-first-real-calls.md)).
+- 2026-05-23 — Sub-fase 2.5 iniciada. `@cao/learning-memory-curation` implementado + testado (3º agente). Pre-commit ganhou secret-scan (gitleaks). Suíte 65 verdes.
 
 ## Próximos 3 focos
 
-1. **Rotacionar `ANTHROPIC_API_KEY`** (compartilhada em chat) + instalar `gitleaks` binário (N7+N8).
-2. **Decidir entre Sub-fase 2.5 (escalar agentes) vs 2.6 (Shopify OAuth)** — N9.
-3. **Mergear PR** `feat/core-runtime-and-first-agent` no GitHub quando review aprovada.
+1. **Atualizar `.env.local` com a key nova** (a antiga foi revogada mas o arquivo ainda tem o valor antigo) → rodar `pnpm curate:memory --tenant=_test` → fechar real run do 3º agente.
+2. **Implementar 4º agente** (N12 — `memory-context` é o caminho mais curto, ler-only).
+3. **Mergear PR** `feat/core-runtime-and-first-agent` quando review aprovada.
 
 ## Critério para "Sub-fase 2.3 concluída"
 

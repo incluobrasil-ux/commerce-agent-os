@@ -22,11 +22,11 @@ Itens que **impedem** uma ação concreta agora.
 
 | # | Bloqueio | Impacto | Mitigação | Dono sugerido | Status |
 |---|---|---|---|---|---|
-| B1 | ~~`ANTHROPIC_API_KEY` não confirmada em dev~~ | — | — | ops | ✅ **resolvido** 2026-05-23 — key em `.env.local` (gitignored). ⚠ key apareceu em chat log; **rotacionar** após primeira execução N5 |
+| B1 | ~~`ANTHROPIC_API_KEY` não confirmada em dev~~ | — | — | ops | ✅ **resolvido** 2026-05-23 — key em `.env.local` (gitignored). Key antiga (compartilhada em chat) **rotacionada e revogada** 2026-05-23; nova key em `.env.local` |
 | B2 | ~~Nenhum upstream clonado em `01_upstreams/`~~ | — | — | dev | ✅ **resolvido** 2026-05-23 — `langgraph` + `shopify-app-template-react-router` clonados via `clone-upstreams.sh`, auditados, ambos MIT |
 | B3 | ~~ADR-0007 (runtime alvo TS vs Python) não decidido~~ | — | — | tech lead | ✅ **resolvido** 2026-05-23 — ADR-0007 aceito (TS host + LangGraph JS como referência) |
 | B4 | Trabalho local (núcleo + cérebro + repo-auditor + N4 + detector fix) não commitado em parte | dispersa estado entre local e remoto | commitar pacote final na branch `feat/core-runtime-and-first-agent` + push | dev | parcialmente resolvido (6 commits pushados; falta N4 commit) |
-| B5 | `gitleaks` binário não instalado localmente | secret scan no pre-commit não roda; risco de commit acidental de chave | `winget install gitleaks` (Windows) ou `scoop install gitleaks` | ops | aguardando |
+| B5 | ~~`gitleaks` binário não instalado~~ | — | — | ops | ✅ **resolvido** 2026-05-23 — gitleaks 8.30.1 instalado via winget; integrado ao pre-commit (`pnpm secret-scan`); validado com private key fake (exit 1) |
 
 ---
 

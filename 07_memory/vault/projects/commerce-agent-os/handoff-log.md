@@ -39,6 +39,25 @@ confidence: 1.0
 
 ## Entradas (mais recentes no topo)
 
+## 2026-05-23 17:15 UTC — Sub-fase 2.5 iniciada; aguarda .env.local update para real run
+
+- **Operador:** incluobrasil + claude-opus-4-7
+- **Máquina/contexto:** Windows 11, VSCode + Claude Code
+- **Branch / WIP:** `feat/core-runtime-and-first-agent` — todos os commits pushados (8 commits ahead de main). Working tree limpo após commit do brain.
+- **O que foi feito:**
+  - Gitleaks 8.30.1 instalado (winget) + integrado ao pre-commit (`pnpm secret-scan`).
+  - 3º agente real: `@cao/learning-memory-curation` (package + agent + CLI + 6 testes). Suíte 59→65.
+  - Brain reflete: B1/B5/B4 fechados, N7/N8/N9 risca, Sub-fase 2.5 em curso.
+- **Estado atual:** 🟡 — código pronto e validado com mocks; **real run depende de `.env.local` ter a key NOVA**. A key atual no arquivo é a antiga (revogada).
+- **Próximo passo (próximo operador):**
+  1. Editar `.env.local` substituindo a linha `ANTHROPIC_API_KEY=sk-ant-api03-ApIS...` pela key nova rotacionada.
+  2. Rodar: `pnpm curate:memory --tenant=_test`
+  3. Verificar output em `07_memory/vault/_test/facts/` + audit log atualizado.
+  4. Criar run-summary final: `run-summaries/<date>-agent-run-learning-memory-curation-first-real.md`.
+  5. Depois: começar N12 (4º agente — `memory-context` proposto).
+- **Bloqueio:** atualização manual de `.env.local`.
+- **Refs:** [next-actions.md](next-actions.md) N10/N11/N12, [03_agents/learning-memory-curation/](../../../../03_agents/learning-memory-curation/).
+
 ## 2026-05-23 16:10 UTC — Repo pronto para clone + equipe (A/B/C/D verdes); falta commit
 
 - **Operador:** incluobrasil

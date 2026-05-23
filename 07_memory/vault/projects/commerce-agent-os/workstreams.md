@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T16:55:00Z
+updated_at: 2026-05-23T17:15:00Z
 tags: [workstreams, parallel-tracks]
 source: mixed
 confidence: 1.0
@@ -38,13 +38,13 @@ confidence: 1.0
 
 | | |
 |---|---|
-| Status | 🟢 (2 agentes reais entregues; LLM end-to-end validado) |
+| Status | 🟢 (3 agentes reais; Sub-fase 2.5 em curso) |
 | Escopo | 17 agentes declarativos virando executáveis. |
-| Último marco | **2 chamadas Claude reais via `audit-synthesizer`** ($0.0099 total). Audit log de tenant escrito automaticamente. |
-| Próximo marco | Decidir entre escalar agentes existentes (Sub-fase 2.5) ou Shopify connect (Sub-fase 2.6) — ver N9 |
-| Dono sugerido | dev (impl) + tech lead (decisão de escopo) |
-| Depende de | — |
-| Itens ativos | N9 (decisão), depois N+ implementação |
+| Último marco | `@cao/learning-memory-curation` implementado + 65 testes verdes. Real run pendente da key nova em `.env.local`. |
+| Próximo marco | Real run do `learning-memory-curation` → 4º agente (`memory-context`) |
+| Dono sugerido | dev |
+| Depende de | usuário atualizar `.env.local` |
+| Itens ativos | N10 (real run pendente), N12 (próximo agente) |
 | Refs | [03_agents/repo-auditor/](../../../../03_agents/repo-auditor/), [`2026-05-23-agent-run-repo-auditor-self-audit.md`](run-summaries/2026-05-23-agent-run-repo-auditor-self-audit.md) |
 
 ## W3 — Shopify connect

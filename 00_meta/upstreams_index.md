@@ -6,12 +6,22 @@ Repositórios externos previamente estudados. Read-only em `01_upstreams/`. Cont
 
 ## Clonados localmente (com licença confirmada via `repo-auditor`)
 
-| # | Nome | Pin SHA | Licença | Auditado em |
-|---|---|---|---|---|
-| 1 | `langgraph` | `d1e2ff05` | MIT | 2026-05-23 |
-| 9 | `shopify-app-template-react-router` | `5a0017b0` | MIT | 2026-05-23 |
+**Sub-fase 2.3 concluída** — 10 upstreams prioritários auditados. Relatórios em [`../12_reports/audits/upstream-pass2/`](../12_reports/audits/upstream-pass2/).
 
-Outros 18 upstreams ainda não clonados — adicionar ao script `10_ops/scripts/clone-upstreams.sh` quando necessários.
+| # | Nome | Pin SHA | Licença | Findings | Notas |
+|---|---|---|---|---|---|
+| 1 | `langgraph` | `d1e2ff05` | MIT | 0 | runtime ref (Python + libs/langgraph-js/) |
+| 8 | `dawn` | `9ccdacf8` | MIT | 0 | Shopify theme ref |
+| 9 | `shopify-app-template-react-router` | `5a0017b0` | MIT | 0 | base do admin app |
+| 10 | `merchant-api-samples` | `371468ac` | Apache-2.0 | 0 | integração GMC |
+| 11 | `feedgen` | `cf264a5f` | Apache-2.0 | 0 | feed Python (ADR-0011 pendente) |
+| 7 | `basic-memory` | `a7e2368f` | **AGPL-3.0** | 0 | ⚠ copyleft forte — só ref conceitual |
+| 5 | `agentshield` | `25d91f00` | MIT | 0 | base de `@cao/guardrails` |
+| 17 | `ad-factory-agent` | `8596feeb` | **UNKNOWN** | 1🔴 | ⚠ sem LICENSE — só estudo, não copiar |
+| 19 | `higgsfield-skills` | `5af02582` | MIT | 0 | skills genéricas |
+| 20 | `higgsfield-cli` | `46cc997c` | MIT | 0 | CLI de skills |
+
+Outros 10 upstreams (do catálogo de 20) ainda não clonados — adicionar ao script `10_ops/scripts/clone-upstreams.sh` quando suas sub-fases chegarem.
 
 ## Catálogo de referência (20 upstreams classificados)
 

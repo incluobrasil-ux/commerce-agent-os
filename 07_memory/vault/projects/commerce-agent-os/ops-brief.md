@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T16:40:00Z
+updated_at: 2026-05-23T16:55:00Z
 tags: [brief, status]
 source: mixed
 confidence: 1.0
@@ -28,11 +28,12 @@ Legenda: 🟢 funciona / 🟡 parcial / 🔴 não funciona / ⚪ não iniciado.
 | `@cao/observability` | 🟢 | console + silent providers + audit hook |
 | `@cao/guardrails` | 🟢 | validate(zod) + PII + secrets |
 | `@cao/memory` | 🟢 | CRUD markdown com isolamento por tenant |
-| `@cao/llm` | 🟡 | cliente + custo prontos; sem chamada real (falta API key) |
-| `@cao/runtime` | 🟡 | `defineAgent` + `runAgent` prontos; ainda não acoplado a agente em runtime real |
-| `@cao/repo-auditor` | 🟢 | **1º agente real** — determinístico, sem LLM, comando único `pnpm audit:repo` |
+| `@cao/llm` | 🟢 | **2 chamadas Anthropic reais validadas** ($0.0099 total) |
+| `@cao/runtime` | 🟢 | fluxo completo invocado em produção via `audit-synthesizer` — audit log + cost + observability OK |
+| `@cao/repo-auditor` | 🟢 | 1º agente real (determinístico) |
+| `@cao/audit-synthesizer` | 🟢 | **2º agente real (LLM)** — `pnpm synthesize:audit <path>` |
 | Outros `@cao/*` (stubs) | 🟡 | placeholders ainda |
-| Outros agentes (16 declarativos) | 🔴 | só schema; nenhum executável |
+| Outros agentes (15 declarativos) | 🔴 | só schema; nenhum executável |
 | Apps (`04_apps/`) | 🔴 | scaffolds, sem código real |
 | Integrações (`05_integrations/`) | 🔴 | contratos + adapters stub |
 | Upstreams (`01_upstreams/`) | 🟡 | 2/10 clonados (langgraph + shopify-app-template, ambos MIT). Outros 8 sob demanda. |
@@ -53,12 +54,14 @@ Quem precisa de divisão por trilha → [workstreams.md](workstreams.md).
 - 2026-05-23 — Cérebro operacional v1 (multi-operador) estruturado.
 - 2026-05-23 — **`repo-auditor` é o 1º agente real funcional** ([summary](run-summaries/2026-05-23-agent-run-repo-auditor-self-audit.md)). Suíte sobe para 52 testes verdes.
 - 2026-05-23 — `.env.example`, `SETUP_LOCAL.md`, `COMMANDS.md` prontos para clone em outro PC.
+- 2026-05-23 — ADR-0007 aceito. 2 upstreams clonados + auditados. Suíte 54 verdes ([summary](run-summaries/2026-05-23-agent-run-repo-auditor-2-upstreams.md)).
+- 2026-05-23 — **`audit-synthesizer` é o 2º agente real — primeira chamada LLM ao Claude validada** ($0.0099, 2 execuções, audit log gravado). Suíte 59 verdes ([summary](run-summaries/2026-05-23-agent-run-llm-first-real-calls.md)).
 
 ## Próximos 3 focos
 
-1. **W1 finalizar:** commitar Sub-fase 2.2 + repo-auditor + cérebro + docs em branch único → PR → merge em `main`.
-2. **W2 evoluir:** ligar `repo-auditor` (ou novo agente) ao LLM real via `@cao/runtime` (depende de `ANTHROPIC_API_KEY` + ADR-0007).
-3. **Sub-fase 2.3:** clonar `langgraph` + `shopify-app-template` em `01_upstreams/` e rodar `pnpm audit:repo` em cada um.
+1. **Rotacionar `ANTHROPIC_API_KEY`** (compartilhada em chat) + instalar `gitleaks` binário (N7+N8).
+2. **Decidir entre Sub-fase 2.5 (escalar agentes) vs 2.6 (Shopify OAuth)** — N9.
+3. **Mergear PR** `feat/core-runtime-and-first-agent` no GitHub quando review aprovada.
 
 ## Critério para "Sub-fase 2.3 concluída"
 

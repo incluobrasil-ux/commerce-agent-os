@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T16:40:00Z
+updated_at: 2026-05-23T16:55:00Z
 tags: [current-state, status]
 source: mixed
 confidence: 1.0
@@ -23,33 +23,34 @@ confidence: 1.0
 | | |
 |---|---|
 | Macro-fase | 2 — Implementação |
-| Sub-fase | 2.3 parcial concluída (2/10 upstreams) → 2.4 (LLM end-to-end) |
-| Último marco | `langgraph` + `shopify-app-template-react-router` clonados e auditados — ambos MIT |
-| Próximo marco técnico | LLM real invocado por agente via `@cao/runtime` (Sub-fase 2.4) |
+| Sub-fase | 2.4 concluída (LLM end-to-end) → 2.5 ou 2.6 (a decidir) |
+| Último marco | **2 chamadas LLM reais via `@cao/runtime`** — `audit-synthesizer` sintetizou langgraph + shopify-app-template ($0.0099 total) |
+| Próximo marco técnico | Sub-fase 2.6 (Shopify OAuth + 1 produto) OU 2.5 (mais agentes reais / observability PostHog) |
 
 ## Verde
 
 - `pnpm install / typecheck / lint / test / test:smoke` — todos OK.
 - 6 packages `@cao/*` implementados com testes (core, llm, memory, guardrails, observability, runtime).
 - **`repo-auditor` é o 1º agente real**, executável via `pnpm audit:repo <path>`, modo determinístico (sem `ANTHROPIC_API_KEY`).
-- Suíte completa: **52 testes em ~1.6s** (8 arquivos).
 - `.env.example`, `SETUP_LOCAL.md`, `COMMANDS.md`, `clone-upstreams.sh` populados.
 - **2 upstreams clonados + auditados** (`langgraph`, `shopify-app-template-react-router`).
-- **Suíte 54 testes verdes** (detector de licença melhorou — reconhece MIT canônico).
+- **Suíte 59 testes verdes** em 9 arquivos (5 novos cobrindo `audit-synthesizer`).
+- **2 agentes reais funcionando:** `repo-auditor` (determinístico) + `audit-synthesizer` (LLM real via Claude Sonnet 4.6).
+- Audit log de tenant escrito por `@cao/runtime` em `07_memory/vault/_test/audit/`.
 - CI no GitHub Actions; branch protection em `main`; tag `v0.1.0-architecture-baseline`.
 - 8 ADRs aceitos.
 - Cérebro operacional v1 multi-operador estruturado.
 
 ## Bloqueado
 
-- ~~B1~~ — ✅ `ANTHROPIC_API_KEY` em `.env.local` 2026-05-23 (rotacionar — apareceu em chat log).
-- ~~B2~~ — ✅ 2 upstreams clonados 2026-05-23.
-- ~~B3~~ — ✅ ADR-0007 aceito 2026-05-23.
-- **B4** — N4 + correção do detector pendentes de commit + push.
-- **B5 (novo)** — `gitleaks` binário não instalado localmente (pre-commit hooks ativos mas sem secret scan).
-
-Detalhe em [blockers-and-risks.md](blockers-and-risks.md).
+- ~~B1~~ — ✅ key utilizada com sucesso (2 chamadas reais). ⚠ **rotacionar** — apareceu em chat.
+- ~~B2~~ — ✅ 2 upstreams clonados + auditados + sintetizados.
+- ~~B3~~ — ✅ ADR-0007 aceito.
+- **B4** — N5 + run-summary pendentes de commit + push.
+- **B5** — `gitleaks` binário não instalado localmente.
 
 ## Resumo em 1 linha
 
-> Repo clonável e roda 1º agente real em ≤ 5 min sem credencial; falta commit/push + chave Anthropic para LLM end-to-end.
+> 2 agentes reais (1 deterministic + 1 LLM), 2 chamadas Claude reais executadas e auditadas, suíte 59 testes verdes — falta commit/push do N5 e rotacionar key.
+
+Detalhe em [blockers-and-risks.md](blockers-and-risks.md).

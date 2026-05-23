@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T16:40:00Z
+updated_at: 2026-05-23T16:55:00Z
 tags: [next-actions]
 source: mixed
 confidence: 1.0
@@ -20,31 +20,34 @@ confidence: 1.0
 
 ## ✅ Concluídos nesta sessão
 
-- ~~N1 — Commitar Sub-fase 2.2 + repo-auditor + brain~~ (PR `feat/core-runtime-and-first-agent` aberta).
-- ~~N2 — `ANTHROPIC_API_KEY` em `.env.local`~~ (⚠ rotacionar — apareceu em chat).
-- ~~N3 — ADR-0007 aceito~~.
-- ~~N4 — 2 upstreams clonados + auditados~~ (langgraph + shopify-app-template-react-router, ambos MIT).
+- ~~N1~~ — PR `feat/core-runtime-and-first-agent` aberta.
+- ~~N2~~ — `ANTHROPIC_API_KEY` em `.env.local` (⚠ rotacionar).
+- ~~N3~~ — ADR-0007 aceito.
+- ~~N4~~ — 2 upstreams clonados + auditados (ambos MIT).
+- ~~N5~~ — **LLM end-to-end** — `@cao/audit-synthesizer` criado; 2 chamadas Claude reais ($0.0099, 1557 tokens, audit log em tenant).
+- ~~N6~~ — Run-summary `2026-05-23-agent-run-llm-first-real-calls.md` criado.
 
-## N5 — LLM end-to-end via `@cao/runtime`
+## N7 — Instalar binário `gitleaks`
 
-- **Ação:** acoplar `repo-auditor` (ou novo agente `summary-curator`) a `runAgent()` usando `makeAnthropicComplete()` — input → prompt → LLM → output validado por zod → audit log.
-- **Pré-requisito:** N1, N2, N3.
-- **Resultado esperado:** 1 execução real escreve audit em vault de tenant + custo registrado via `@cao/observability`. Smoke gateado por env var (skip quando ausente).
-- **Quem puxa:** dev
-
-## N6 — Resumir N4 e N5 em `run-summaries/`
-
-- **Ação:** quando N4 e N5 entregarem, criar resumos curados em `run-summaries/<date>-<kind>-<slug>.md` seguindo [_template.md](run-summaries/_template.md) + linha em [index.md](run-summaries/index.md).
-- **Pré-requisito:** N4 e/ou N5 entregues.
-- **Resultado esperado:** índice de resumos cresce; cérebro reflete execuções reais.
-- **Quem puxa:** quem fez N4/N5
-
-## N7 — Instalar binário `gitleaks` (hooks já ativos)
-
-- **Ação:** `winget install gitleaks` (Windows) ou `scoop install gitleaks` ou `brew install gitleaks` (mac). `simple-git-hooks` já está ativo (rodou `npx simple-git-hooks`). Validar com `gitleaks --version` + fazer 1 commit com fake secret em test fixture para garantir que bloqueia.
+- **Ação:** `winget install gitleaks` (Windows) ou `scoop install gitleaks` ou `brew install gitleaks` (mac). `simple-git-hooks` já está ativo. Validar com `gitleaks --version`.
 - **Pré-requisito:** acesso administrativo OS.
 - **Resultado esperado:** secret scan ativo no pre-commit; B5 fechado.
 - **Quem puxa:** ops
+
+## N8 — Rotacionar `ANTHROPIC_API_KEY`
+
+- **Ação:** console Anthropic → criar nova key → revogar a antiga (`sk-ant-api03-ApIS...`). Atualizar `.env.local`.
+- **Pré-requisito:** acesso ao console.
+- **Resultado esperado:** key antiga inválida; key nova funcional; `pnpm synthesize:audit ...` continua verde.
+- **Quem puxa:** ops
+
+## N9 — Decidir próximo bloco: 2.5 (mais agentes) vs 2.6 (Shopify OAuth)
+
+- **Ação:** decisão de produto/escopo. Opções:
+  - **2.5:** mais agentes reais usando o padrão `audit-synthesizer` (ex.: `learning-memory-curation`, `competitor-benchmark`). Continua sem credencial externa.
+  - **2.6:** começar Shopify connect — depende de Partners account + dev store + ADR-0008 (queue) + ADR-0010 (DB).
+- **Resultado esperado:** ADR de roadmap atualizado; próxima sub-fase formalmente iniciada.
+- **Quem puxa:** tech lead + produto
 
 ---
 

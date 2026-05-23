@@ -25,6 +25,12 @@ confidence: 1.0
 
 ---
 
+## 2026-05-23 — N5 entregue: PRIMEIRA CHAMADA LLM REAL DO SISTEMA
+
+- Feito: criado `@cao/audit-synthesizer` (package + agent definition + CLI + 5 unit tests). Script `pnpm synthesize:audit` no root usa `tsx --env-file=.env.local`. Rodadas 2 chamadas reais ao Claude Sonnet 4.6 (langgraph + shopify-app-template syntheses); audit log gravado em `07_memory/vault/_test/audit/2026-05-23.md`. Suíte: 54 → **59 testes verdes**.
+- Resultado: verde. Custo total $0.0099 (1557 tokens). Sub-fase 2.4 atendida. `@cao/llm` + `@cao/runtime` + `@cao/memory` + `@cao/observability` todos validados em produção. ⚠ key compartilhada em chat — N8 pendente (rotacionar).
+- Próximo: commit + push do bloco N5. Depois decidir N9 (Sub-fase 2.5 vs 2.6).
+
 ## 2026-05-23 — N4 entregue: 2 upstreams + detector evoluído + ADR-0007
 
 - Feito: clone-upstreams.sh + clone raso pinado de langgraph + shopify-app-template; `pnpm audit:repo` em ambos; detector evoluiu (`SPDX_PATTERNS` com matchers alternativos, 2 testes novos). ADR-0007 aceito. PR `feat/core-runtime-and-first-agent` empurrada. simple-git-hooks ativo. Cérebro reflete B1/B2/B3 resolvidos.

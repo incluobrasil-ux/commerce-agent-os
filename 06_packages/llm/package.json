@@ -15,5 +15,9 @@
   "scripts": {
     "build": "tsc -b",
     "clean": "rm -rf dist .tsbuildinfo"
+  },
+  "dependencies": {
+    "@cao/core": "workspace:*",
+    "@anthropic-ai/sdk": "^0.30.0"
   }
 }

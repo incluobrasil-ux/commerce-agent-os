@@ -10,6 +10,7 @@
     "typecheck": "tsc -b",
     "test": "vitest run",
     "test:smoke": "vitest run 11_tests/smoke",
+    "audit:repo": "tsx 03_agents/repo-auditor/src/cli.ts",
     "lint": "biome check .",
     "format": "biome format --write .",
     "commitlint": "commitlint --from=origin/main || true",

@@ -25,6 +25,12 @@ confidence: 1.0
 
 ---
 
+## 2026-05-23 — @cao/llm: fallback noop + pnpm llm:smoke + B1 reaberto com evidência
+
+- Feito: adicionado `makeNoopComplete()` + `tryMakeAnthropicComplete()` em `@cao/llm` (fallback explícito, nunca lança). Smoke isolado em `06_packages/llm/scripts/smoke.ts` (sem key = SKIPPED exit 0; com key inválida = mensagem clara exit 1; sucesso = imprime custo+tokens+latência). Script `pnpm llm:smoke`. +4 testes (suíte 73 → 81 verdes).
+- Resultado: verde local. Smoke real executado e detectou 401 (key antiga ainda em .env.local). B1 reaberto com timestamp e mensagem específica.
+- Próximo: atualizar .env.local com key nova → pipeline `pnpm llm:smoke && synthesize:audit && curate:memory && context:brief` valida tudo de uma vez.
+
 ## 2026-05-23 — Sub-fase 2.3 (pass 2) fechada: 10 upstreams + detector v2
 
 - Feito: clonados 8 upstreams restantes (dawn, merchant-api-samples, feedgen, basic-memory, agentshield, ad-factory-agent, higgsfield-skills, higgsfield-cli) com clone raso pinado por SHA via `clone-upstreams.sh`. Rodado `pnpm audit:repo` em todos 10 com output em `12_reports/audits/upstream-pass2/`. Detector evoluiu (v2): reconhece AGPL-3.0 + ignora templates `.env.{template,sample,dist}`. Suíte 71→73 verdes.

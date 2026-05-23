@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T22:40:00Z
+updated_at: 2026-05-23T22:58:00Z
 tags: [blockers, risks]
 source: human:incluobrasil
 confidence: 1.0
@@ -22,7 +22,7 @@ Itens que **impedem** uma ação concreta agora.
 
 | # | Bloqueio | Impacto | Mitigação | Dono sugerido | Status |
 |---|---|---|---|---|---|
-| B1 | ~~`ANTHROPIC_API_KEY` não confirmada em dev~~ | — | — | ops | ✅ **resolvido** 2026-05-23 — key em `.env.local` (gitignored). Key antiga (compartilhada em chat) **rotacionada e revogada** 2026-05-23; nova key em `.env.local` |
+| B1 | `.env.local` ainda contém a key antiga revogada | impede invocar agentes LLM em produção (401); `pnpm llm:smoke` confirma | atualizar `.env.local` com a nova key rotacionada (manual; não compartilhar em chat) | ops | **reaberto** — key antiga ainda no arquivo (`pnpm llm:smoke` retornou 401 em 2026-05-23 22:58 UTC) |
 | B2 | ~~Nenhum upstream clonado em `01_upstreams/`~~ | — | — | dev | ✅ **resolvido + ampliado** 2026-05-23 — **10/10 upstreams prioritários** clonados via `clone-upstreams.sh` e auditados ([upstream-pass2](../../../../12_reports/audits/upstream-pass2/)). Achados: 7 MIT, 2 Apache, 1 AGPL (basic-memory — reclassificar), 1 UNKNOWN (ad-factory-agent — só estudo) |
 | B3 | ~~ADR-0007 (runtime alvo TS vs Python) não decidido~~ | — | — | tech lead | ✅ **resolvido** 2026-05-23 — ADR-0007 aceito (TS host + LangGraph JS como referência) |
 | B4 | Trabalho local (núcleo + cérebro + repo-auditor + N4 + detector fix) não commitado em parte | dispersa estado entre local e remoto | commitar pacote final na branch `feat/core-runtime-and-first-agent` + push | dev | parcialmente resolvido (6 commits pushados; falta N4 commit) |

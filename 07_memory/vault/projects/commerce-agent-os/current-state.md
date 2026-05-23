@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T22:40:00Z
+updated_at: 2026-05-23T22:58:00Z
 tags: [current-state, status]
 source: mixed
 confidence: 1.0
@@ -34,7 +34,8 @@ confidence: 1.0
 - **`repo-auditor` é o 1º agente real**, executável via `pnpm audit:repo <path>`, modo determinístico (sem `ANTHROPIC_API_KEY`).
 - `.env.example`, `SETUP_LOCAL.md`, `COMMANDS.md`, `clone-upstreams.sh` populados.
 - **2 upstreams clonados + auditados** (`langgraph`, `shopify-app-template-react-router`).
-- **Suíte 73 testes verdes** em 11 arquivos (detector v2: AGPL + env templates).
+- **Suíte 81 testes verdes** em 12 arquivos (+ `noop-client` com 4 testes; `@cao/llm` ganha fallback explícito).
+- **`pnpm llm:smoke`** — smoke isolado de LLM em 1 comando; reporta SKIPPED (sem key) ou OK + custo/latência (com key).
 - **4 agentes reais** (4 de 17): `repo-auditor` (det.) + `audit-synthesizer` + `learning-memory-curation` + `memory-context` (LLM).
 - **10 upstreams clonados + auditados** (Sub-fase 2.3 ✅). Licenças: 7 MIT, 2 Apache-2.0, 1 AGPL-3.0, 1 UNKNOWN (com finding crítico).
 - Audit log de tenant escrito por `@cao/runtime` em `07_memory/vault/_test/audit/`.

@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T22:40:00Z
+updated_at: 2026-05-23T22:58:00Z
 tags: [next-actions]
 source: mixed
 confidence: 1.0
@@ -25,6 +25,7 @@ confidence: 1.0
 - ~~N12~~ — `@cao/memory-context` (4º agente).
 - ~~Sub-fase 2.3 (pass 2)~~ — **10/10 upstreams clonados + auditados** via `clone-upstreams.sh` e `pnpm audit:repo` → `12_reports/audits/upstream-pass2/`. Detector v2 (AGPL + env templates). Suíte 73 verdes.
 - ~~REPO_SELECTION.md~~ — atualizado com licenças confirmadas e 2 reclassificações (basic-memory → referência apenas; ad-factory-agent → não copiar).
+- ~~@cao/llm fallback + smoke~~ — `makeNoopComplete()` + `tryMakeAnthropicComplete()` + `pnpm llm:smoke`. 4 testes novos (suíte **81 verdes**). Smoke executado: detectou 401 com a key antiga (mensagem clara: "key inválida ou revogada").
 
 ## N11 — Real run dos 3 agentes LLM (bloqueio único na sessão)
 

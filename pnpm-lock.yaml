@@ -56,6 +56,9 @@ importers:
 
   03_agents/catalog-feed-ops:
     dependencies:
+      '@cao/brain-bridge':
+        specifier: workspace:*
+        version: link:../../06_packages/brain-bridge
       '@cao/core':
         specifier: workspace:*
         version: link:../../06_packages/core
@@ -149,6 +152,9 @@ importers:
 
   03_agents/repo-auditor:
     dependencies:
+      '@cao/brain-bridge':
+        specifier: workspace:*
+        version: link:../../06_packages/brain-bridge
       '@cao/core':
         specifier: workspace:*
         version: link:../../06_packages/core
@@ -204,6 +210,15 @@ importers:
       '@cao/shared-types':
         specifier: workspace:*
         version: link:../../06_packages/shared-types
+
+  06_packages/brain-bridge:
+    dependencies:
+      '@cao/core':
+        specifier: workspace:*
+        version: link:../core
+      zod:
+        specifier: ^3
+        version: 3.25.76
 
   06_packages/config: {}
 

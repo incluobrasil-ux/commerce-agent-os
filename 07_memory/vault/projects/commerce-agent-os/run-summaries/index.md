@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-24T00:10:00.000Z
+updated_at: 2026-05-24T00:30:00.000Z
 tags: [index, run-summaries]
 source: mixed
 confidence: 1.0
@@ -24,6 +24,7 @@ Marcos de implementação (sub-fase concluída, primeiro deploy, OAuth funcionan
 
 | Data | Título | Resultado | Arquivo |
 |---|---|---|---|
+| 2026-05-24 | **Repo fechado para equipe** — `pnpm doctor` valida 10 checks; docs harmonizados (README+SETUP+COMMANDS) | 🟢 | [2026-05-24-impl-milestone-team-ready.md](2026-05-24-impl-milestone-team-ready.md) |
 | 2026-05-24 | `@cao/brain-bridge` — ponte mínima execução→cérebro (`--capture` + `pnpm ops:capture`; 126 verdes) | 🟢 | [2026-05-24-impl-milestone-brain-bridge.md](2026-05-24-impl-milestone-brain-bridge.md) |
 | 2026-05-23 | Sub-fase 2.7 — Merchant dry-run end-to-end funcional (pipeline Shopify→SEO→Merchant; 114 testes verdes) | 🟢 | [2026-05-23-impl-milestone-merchant-dry-run.md](2026-05-23-impl-milestone-merchant-dry-run.md) |
 | 2026-05-23 | Sub-fase 2.6 — caminho mínimo Shopify (admin client + OAuth helpers + CLI; 96 testes verdes) | 🟢 | [2026-05-23-impl-milestone-shopify-minimal.md](2026-05-23-impl-milestone-shopify-minimal.md) |

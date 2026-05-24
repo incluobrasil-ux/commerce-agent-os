@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-24T00:10:00.000Z
+updated_at: 2026-05-24T00:30:00.000Z
 tags: [current-state, status]
 source: mixed
 confidence: 1.0
@@ -37,6 +37,7 @@ confidence: 1.0
 - **Suíte 126 testes verdes** em 18 arquivos (+ 10 cobrindo `@cao/brain-bridge.captureRun` + 2 ajustes).
 - **Cérebro ganha `captureRun()`** (`@cao/brain-bridge`): após execução relevante, gera run-summary curto, atualiza index, bumps current-state, opcional append em next-actions/priorities/blockers/session-log.
 - **`pnpm ops:capture <input.json>`** standalone + **`--capture` integrado** em `audit:repo` e `feed:dry-run` (outros CLIs ficam via `ops:capture` manual).
+- **`pnpm doctor`** — verificação cross-platform única (Node/pnpm/git/install/typecheck/lint/smoke/.env.local/gitleaks/cérebro). 10/10 🟢 local. **Repo fechado para uso da equipe.**
 - **6 agentes reais** (era 4): + `product-feed-seo` (LLM SEO) + `catalog-feed-ops` (orquestrador CLI).
 - **`pnpm llm:smoke`** — smoke LLM isolado.
 - **`pnpm shopify:list-products [--first=N]`** — Sub-fase 2.6.

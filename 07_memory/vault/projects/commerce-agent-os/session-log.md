@@ -25,6 +25,12 @@ confidence: 1.0
 
 ---
 
+## 2026-05-24 — Repo fechado para equipe: pnpm doctor + 4 docs harmonizados
+
+- Feito: novo `pnpm doctor` (10_ops/scripts/doctor.ts) — verificação cross-platform TS com 10 checks (node, pnpm, git, install, typecheck, lint, smoke, .env.local, gitleaks, cérebro). Mensagens com hint de fix. README + SETUP_LOCAL + COMMANDS harmonizados: doctor é a primeira ação em qualquer clone novo.
+- Resultado: verde. `pnpm doctor` 10/10 🟢 local. DoR de "outra pessoa pode clonar/install/validate/entender em < 1 min" atendido.
+- Próximo: outro operador clonar em outro PC e validar fluxo end-to-end; capturar fricções via `--capture` se houver.
+
 ## 2026-05-24 — Brain bridge: capture function + ops:capture CLI + --capture em 2 CLIs
 
 - Feito: criado `@cao/brain-bridge` com `captureRun()` (cria summary + atualiza index + bumps current-state + opcional append em next-actions/priorities/blockers/session-log). CLI standalone `pnpm ops:capture <input.json>`. Flag `--capture` integrada em `audit:repo` e `feed:dry-run`. 10 testes novos (tmp dir setup completo). Suíte 124 → **126 verdes**.

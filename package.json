@@ -18,6 +18,7 @@
     "shopify:list-products": "tsx --env-file=.env.local 04_apps/shopify-admin-app/scripts/list-products.ts",
     "feed:dry-run": "tsx --env-file=.env.local 03_agents/catalog-feed-ops/src/cli.ts",
     "ops:capture": "tsx 06_packages/brain-bridge/scripts/capture-cli.ts",
+    "doctor": "tsx 10_ops/scripts/doctor.ts",
     "secret-scan": "gitleaks protect --staged --no-banner --redact",
     "secret-scan:full": "gitleaks detect --no-banner --redact",
     "lint": "biome check .",

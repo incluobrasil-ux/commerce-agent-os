@@ -2,6 +2,8 @@
 
 Guia mínimo para clonar e rodar este repo em outro PC. ≤ 5 min do clone ao primeiro `audit:repo` real.
 
+> **TL;DR:** `git clone && cd && pnpm install && pnpm doctor` — se tudo verde, está pronto.
+
 ## Pré-requisitos
 
 | Ferramenta | Versão mínima | Verificar | Instalar |
@@ -15,45 +17,60 @@ Plataformas testadas: **Windows 11** (PowerShell), **macOS**, **Linux**.
 
 **Atenção Windows + winget:** o binário fica em `%LOCALAPPDATA%\Microsoft\WinGet\Links\`. Esse path já entra no PATH automaticamente, mas só em **terminais abertos depois da instalação** — reabra o terminal/IDE se `gitleaks version` não funcionar logo após `winget install`.
 
-## Passo a passo
+## Passo a passo (mínimo)
 
 ```bash
-# 1. Clonar
+# 1. Clonar + instalar
 git clone https://github.com/incluobrasil-ux/commerce-agent-os.git
 cd commerce-agent-os
-
-# 2. Instalar deps (24+ workspaces)
 pnpm install
 
+# 2. Verificação única — checa node, pnpm, git, node_modules, typecheck,
+#    lint, smoke, .env.local, gitleaks, cérebro
+pnpm doctor
+
+# Se tudo verde: pronto. Primeiro agente real (zero credencial):
+pnpm audit:repo .
+```
+
+## Passo a passo (completo, se quiser ir até LLM real)
+
+```bash
 # 3. Ativar git hooks (pre-commit: lint + smoke + secret-scan; commit-msg: commitlint)
 npx simple-git-hooks
 
-# 4. (Opcional) Clonar upstreams pra desbloquear auditoria + Shopify dev
-bash 10_ops/scripts/clone-upstreams.sh
-
-# 5. Configurar variáveis (opcional para validação básica; obrigatório para LLM)
+# 4. Configurar variáveis (só pra LLM/Shopify/Merchant)
 cp .env.example .env.local
 # editar .env.local — preencher só o que for usar
 
-# 6. Validar baseline
-pnpm typecheck     # tsc -b — zero erros
-pnpm lint          # biome — sem warnings
-pnpm test          # vitest — toda a suíte verde
-pnpm test:smoke    # subset rápido (~0.5s)
+# 5. (Opcional) Clonar upstreams (langgraph, shopify-app-template, etc.)
+bash 10_ops/scripts/clone-upstreams.sh
 
-# 7. Primeiro agente real determinístico (sem credencial)
-pnpm audit:repo .
-# → 12_reports/audits/repo-auditor/<repo>-<timestamp>.md
+# 6. Smoke LLM (precisa ANTHROPIC_API_KEY)
+pnpm llm:smoke
+# → SKIPPED limpo sem key; OK + custo com key.
 
-# 8. Primeiro agente LLM (precisa ANTHROPIC_API_KEY em .env.local)
-pnpm synthesize:audit 12_reports/audits/repo-auditor/<arquivo>.md
-# → <arquivo>.synthesis.md + audit log em 07_memory/vault/_test/audit/
+# 7. Pipeline Merchant dry-run (fixture, sem credencial)
+pnpm feed:dry-run
+# → 12_reports/merchant-dry-runs/<tenant>-<timestamp>.{md,json}
 ```
 
-## O que esperar
+## O que `pnpm doctor` checa
 
-- **Após passo 4:** typecheck/lint/smoke todos verdes. **Esse é o critério mínimo** de ambiente saudável.
-- **Após passo 5:** arquivo markdown gerado em `12_reports/audits/repo-auditor/`. Exit code 0 (sem findings críticos no próprio projeto).
+| Check | Pré-req | Status esperado |
+|---|---|---|
+| `node` ≥ 20 | OS | 🟢 |
+| `pnpm` ≥ 9 | OS | 🟢 |
+| `git` | OS | 🟢 |
+| `node_modules` | `pnpm install` | 🟢 |
+| `typecheck` | install | 🟢 |
+| `lint` | install | 🟢 |
+| `test:smoke` | install | 🟢 |
+| `.env.local` | manual | 🟢 ou 🟡 (opcional p/ baseline) |
+| `gitleaks` | OS install | 🟢 ou 🟡 (opcional p/ baseline) |
+| Cérebro presente | git clone | 🟢 |
+
+Tudo 🟢: pronto pra qualquer comando. Algum 🔴: bloqueio real, mensagem dá o fix.
 
 ## Variáveis de ambiente
 

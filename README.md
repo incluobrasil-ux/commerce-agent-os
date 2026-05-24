@@ -73,30 +73,27 @@ Isso significa:
 
 ## Como rodar localmente
 
-Requisitos:
-- Node ≥ 20
-- pnpm ≥ 9 (`npm install -g pnpm@9` ou `corepack enable && corepack prepare pnpm@9 --activate`)
-- Git
+Requisitos: **Node ≥ 20**, **pnpm ≥ 9**, **Git**.
 
 ```bash
 git clone https://github.com/incluobrasil-ux/commerce-agent-os.git
 cd commerce-agent-os
 pnpm install
-
-# Validar baseline (sem credenciais)
-pnpm typecheck    # tsc -b — verde
-pnpm lint         # biome 154 arquivos — verde
-pnpm test:smoke   # 5 testes — verde
-pnpm test         # 52 testes — verde
-
-# Rodar primeiro agente real (também sem credenciais)
-pnpm audit:repo .
-# → 12_reports/audits/repo-auditor/commerce-agent-os-<timestamp>.md
+pnpm doctor
 ```
 
-Detalhe completo (variáveis de ambiente, troubleshooting): [`10_ops/scripts/SETUP_LOCAL.md`](./10_ops/scripts/SETUP_LOCAL.md).
-Lista completa de comandos: [`10_ops/scripts/COMMANDS.md`](./10_ops/scripts/COMMANDS.md).
-Variáveis: [`.env.example`](./.env.example) — copiar para `.env.local` quando ativar agentes contra LLM real ou integrações externas.
+`pnpm doctor` é o comando único de verificação — checa Node/pnpm/git, install, typecheck, lint, smoke, `.env.local`, gitleaks, cérebro. Se tudo verde, está pronto.
+
+Próximo passo (zero credencial):
+
+```bash
+pnpm audit:repo .       # 1º agente real determinístico
+pnpm feed:dry-run       # pipeline Merchant com fixture
+```
+
+Detalhe + setup completo + troubleshooting: [`10_ops/scripts/SETUP_LOCAL.md`](./10_ops/scripts/SETUP_LOCAL.md).
+Todos os comandos: [`10_ops/scripts/COMMANDS.md`](./10_ops/scripts/COMMANDS.md).
+Variáveis de ambiente: [`.env.example`](./.env.example) (copiar para `.env.local` quando ativar LLM/Shopify/Merchant).
 
 ## Como navegar a documentação
 

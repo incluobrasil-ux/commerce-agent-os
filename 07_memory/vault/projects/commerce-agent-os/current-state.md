@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T23:40:00Z
+updated_at: 2026-05-24T00:10:00.000Z
 tags: [current-state, status]
 source: mixed
 confidence: 1.0
@@ -34,7 +34,9 @@ confidence: 1.0
 - **`repo-auditor` é o 1º agente real**, executável via `pnpm audit:repo <path>`, modo determinístico (sem `ANTHROPIC_API_KEY`).
 - `.env.example`, `SETUP_LOCAL.md`, `COMMANDS.md`, `clone-upstreams.sh` populados.
 - **2 upstreams clonados + auditados** (`langgraph`, `shopify-app-template-react-router`).
-- **Suíte 114 testes verdes** em 17 arquivos (+ 11 cobrindo Merchant feed-row/dry-run + 5 cobrindo product-feed-seo + 2 ajustes em outros).
+- **Suíte 126 testes verdes** em 18 arquivos (+ 10 cobrindo `@cao/brain-bridge.captureRun` + 2 ajustes).
+- **Cérebro ganha `captureRun()`** (`@cao/brain-bridge`): após execução relevante, gera run-summary curto, atualiza index, bumps current-state, opcional append em next-actions/priorities/blockers/session-log.
+- **`pnpm ops:capture <input.json>`** standalone + **`--capture` integrado** em `audit:repo` e `feed:dry-run` (outros CLIs ficam via `ops:capture` manual).
 - **6 agentes reais** (era 4): + `product-feed-seo` (LLM SEO) + `catalog-feed-ops` (orquestrador CLI).
 - **`pnpm llm:smoke`** — smoke LLM isolado.
 - **`pnpm shopify:list-products [--first=N]`** — Sub-fase 2.6.

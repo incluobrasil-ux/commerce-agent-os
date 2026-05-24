@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T23:40:00Z
+updated_at: 2026-05-24T00:10:00.000Z
 tags: [next-actions]
 source: mixed
 confidence: 1.0
@@ -28,6 +28,7 @@ confidence: 1.0
 - ~~@cao/llm fallback + smoke~~ — `makeNoopComplete()` + `tryMakeAnthropicComplete()` + `pnpm llm:smoke`. 4 testes novos (suíte **81 verdes**). Smoke executado: detectou 401 com a key antiga (mensagem clara: "key inválida ou revogada").
 - ~~Sub-fase 2.6 caminho mínimo~~ — `@cao/integration-shopify` com `AdminGraphQLClient` + `listProducts()` + OAuth helpers. `pnpm shopify:list-products` rodou em SKIPPED limpo. Suíte 81 → **96 verdes** (+15 cobrindo Shopify).
 - ~~Sub-fase 2.7 dry-run Merchant~~ — `@cao/integration-google-merchant` (feed-row schema + transformer + validator + dry-run writer) + `@cao/product-feed-seo` (agente LLM) + `@cao/catalog-feed-ops` (CLI orquestrador). `pnpm feed:dry-run` rodou real com fixture, gerou 2 OK / 1 fail / 5 warnings. Suíte 96 → **114 verdes** (+18).
+- ~~Brain bridge~~ — `@cao/brain-bridge.captureRun()` + `pnpm ops:capture <input.json>` + `--capture` em `audit:repo` e `feed:dry-run`. Validado real (4 arquivos atualizados por capture). 2 bugs descobertos no markdown-utils e corrigidos. Suíte 114 → **126 verdes** (+12).
 
 ## N11 — Real run dos 3 agentes LLM (bloqueio único na sessão)
 

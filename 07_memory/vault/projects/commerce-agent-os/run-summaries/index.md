@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T23:40:00Z
+updated_at: 2026-05-24T00:10:00.000Z
 tags: [index, run-summaries]
 source: mixed
 confidence: 1.0
@@ -24,6 +24,7 @@ Marcos de implementação (sub-fase concluída, primeiro deploy, OAuth funcionan
 
 | Data | Título | Resultado | Arquivo |
 |---|---|---|---|
+| 2026-05-24 | `@cao/brain-bridge` — ponte mínima execução→cérebro (`--capture` + `pnpm ops:capture`; 126 verdes) | 🟢 | [2026-05-24-impl-milestone-brain-bridge.md](2026-05-24-impl-milestone-brain-bridge.md) |
 | 2026-05-23 | Sub-fase 2.7 — Merchant dry-run end-to-end funcional (pipeline Shopify→SEO→Merchant; 114 testes verdes) | 🟢 | [2026-05-23-impl-milestone-merchant-dry-run.md](2026-05-23-impl-milestone-merchant-dry-run.md) |
 | 2026-05-23 | Sub-fase 2.6 — caminho mínimo Shopify (admin client + OAuth helpers + CLI; 96 testes verdes) | 🟢 | [2026-05-23-impl-milestone-shopify-minimal.md](2026-05-23-impl-milestone-shopify-minimal.md) |
 | 2026-05-23 | `@cao/llm` ganha noop fallback + `pnpm llm:smoke` (81 testes verdes) | 🟢 | [2026-05-23-impl-milestone-llm-fallback-and-smoke.md](2026-05-23-impl-milestone-llm-fallback-and-smoke.md) |
@@ -45,6 +46,7 @@ Resultado de auditoria (manual ou via agente).
 
 | Data | Título | Resultado | Arquivo |
 |---|---|---|---|
+| 2026-05-23 | Audit commerce-agent-os (profile=license) | 🟢 | [2026-05-23-audit-repo-auditor-commerce-agent-os.md](2026-05-23-audit-repo-auditor-commerce-agent-os.md) |
 | 2026-05-23 | Sub-fase 2.3 — pass 2: 10 upstreams auditados (2 reclassificações de licença) | 🟡 | [2026-05-23-audit-upstream-pass2-ten-repos.md](2026-05-23-audit-upstream-pass2-ten-repos.md) |
 | 2026-05-23 | Auditoria de gaps da Macro-fase 1 (31 gaps em 4 severidades) | 🟡 | [2026-05-23-audit-phase-1-gap-analysis.md](2026-05-23-audit-phase-1-gap-analysis.md) |
 
@@ -54,6 +56,7 @@ Execuções de agentes em runtime real.
 
 | Data | Título | Resultado | Arquivo |
 |---|---|---|---|
+| 2026-05-24 | Merchant dry-run (fixture, 3 prod, tenant=_test) | 🔴 | [2026-05-24-agent-run-feed-dry-run--test-fixture.md](2026-05-24-agent-run-feed-dry-run--test-fixture.md) |
 | 2026-05-23 | **Primeiras chamadas LLM reais (`audit-synthesizer` × 2)** | 🟢 | [2026-05-23-agent-run-llm-first-real-calls.md](2026-05-23-agent-run-llm-first-real-calls.md) |
 | 2026-05-23 | `repo-auditor` em 2 upstreams (langgraph + shopify-app-template) | 🟢 | [2026-05-23-agent-run-repo-auditor-2-upstreams.md](2026-05-23-agent-run-repo-auditor-2-upstreams.md) |
 | 2026-05-23 | Primeira execução real do `repo-auditor` (self-audit) | 🟢 | [2026-05-23-agent-run-repo-auditor-self-audit.md](2026-05-23-agent-run-repo-auditor-self-audit.md) |

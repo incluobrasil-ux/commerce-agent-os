@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T00:00:00Z
+updated_at: 2026-05-24T00:05:00.000Z
 tags: [log, sessions]
 source: human:incluobrasil
 confidence: 1.0
@@ -24,6 +24,12 @@ confidence: 1.0
 ```
 
 ---
+
+## 2026-05-24 — Brain bridge: capture function + ops:capture CLI + --capture em 2 CLIs
+
+- Feito: criado `@cao/brain-bridge` com `captureRun()` (cria summary + atualiza index + bumps current-state + opcional append em next-actions/priorities/blockers/session-log). CLI standalone `pnpm ops:capture <input.json>`. Flag `--capture` integrada em `audit:repo` e `feed:dry-run`. 10 testes novos (tmp dir setup completo). Suíte 124 → **126 verdes**.
+- Resultado: verde. 2 chamadas reais validadas (audit:repo --capture e feed:dry-run --capture geraram 4 arquivos atualizados cada). 2 bugs no markdown-utils descobertos pelo run real e corrigidos: (1) `insertAfterAnchor` ignorava prosa entre heading e tabela; (2) `sessionLogLine` regex pegava o `---` do frontmatter. Brain bridge agora robusto contra ambos.
+- Próximo: usar `--capture` rotineiramente; quando precisar capturar de outro contexto, rodar `pnpm ops:capture <input.json>` manualmente.
 
 ## 2026-05-23 — Sub-fase 2.7: pipeline Merchant dry-run end-to-end funcional
 

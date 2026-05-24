@@ -17,6 +17,7 @@
 //   --content-language=<lang>  (default: en)
 
 import { resolve } from 'node:path';
+import { captureRun } from '@cao/brain-bridge';
 import { type ShopifyProductInput, writeDryRunReport } from '@cao/integration-google-merchant';
 import { AdminGraphQLClient, isValidShopDomain, listProducts } from '@cao/integration-shopify';
 import { makeAnthropicComplete, tryMakeAnthropicComplete } from '@cao/llm';
@@ -33,6 +34,7 @@ interface CliArgs {
   shopDomain: string;
   feedLabel: string;
   contentLanguage: string;
+  capture: boolean;
 }
 
 function parseArgs(argv: string[]): CliArgs {
@@ -44,6 +46,7 @@ function parseArgs(argv: string[]): CliArgs {
     shopDomain: process.env.SHOPIFY_SHOP?.trim() ?? 'acme.myshopify.com',
     feedLabel: 'US',
     contentLanguage: 'en',
+    capture: false,
   };
   for (const a of argv.slice(2)) {
     if (a.startsWith('--source=')) {
@@ -62,6 +65,8 @@ function parseArgs(argv: string[]): CliArgs {
       args.feedLabel = a.slice('--feed-label='.length);
     } else if (a.startsWith('--content-language=')) {
       args.contentLanguage = a.slice('--content-language='.length);
+    } else if (a === '--capture') {
+      args.capture = true;
     } else if (a.startsWith('--')) {
       fail(`Flag desconhecida: ${a}`);
     } else {
@@ -165,6 +170,45 @@ async function main(): Promise<void> {
   lines.push(`[feed:dry-run] report: ${report.markdownPath}`);
   lines.push(`[feed:dry-run] json:   ${report.jsonPath}`);
   process.stdout.write(`${lines.join('\n')}\n`);
+
+  if (args.capture) {
+    const overall = report.failCount > 0 ? 'red' : report.warningCount > 0 ? 'yellow' : 'green';
+    const slugTenant = args.tenant.replace(/[^a-z0-9-]/gi, '-').toLowerCase();
+    const cap = await captureRun({
+      kind: 'agent-run',
+      slug: `feed-dry-run-${slugTenant}-${sourceUsed}`.slice(0, 60),
+      result: overall,
+      title: `Merchant dry-run (${sourceUsed}, ${products.length} prod, tenant=${args.tenant})`,
+      source: 'agent:catalog-feed-ops',
+      tags: ['merchant', 'dry-run', 'feed', overall],
+      body: {
+        context: `pnpm feed:dry-run --source=${sourceUsed}${args.seo ? ' --seo' : ''} carregou ${products.length} produto(s) e gerou relatório.`,
+        whatHappened: [
+          `Fonte: ${sourceUsed} (${products.length} produto(s)).`,
+          args.seo
+            ? `SEO via Claude aplicado (custo $${pipelineResult.totalSeoCostUsd.toFixed(6)}).`
+            : 'SEO desativado.',
+          `Validação: ${report.okCount} OK / ${report.failCount} fail / ${report.warningCount} warnings.`,
+        ],
+        findings: pipelineResult.rows
+          .filter((r) => !r.validation.ok)
+          .map(
+            (r) =>
+              `[fail] ${r.row.offerId}: ${r.validation.errors.map((e) => `${e.path}: ${e.message}`).join('; ')}`,
+          ),
+        impact:
+          report.failCount > 0
+            ? `${report.failCount} row(s) bloqueada(s) — corrigir antes de upload real.`
+            : 'Pipeline pronta para upload real (depende de credenciais Google + cliente HTTP Merchant).',
+        references: [report.markdownPath, report.jsonPath],
+      },
+      sessionLogLine: `feed:dry-run (${sourceUsed}, ${args.tenant}): ${report.okCount} ok / ${report.failCount} fail / ${report.warningCount} warnings.`,
+    });
+    process.stdout.write(`[feed:dry-run] capture → ${cap.summaryPath}\n`);
+    process.stdout.write(
+      `[feed:dry-run] capture: ${cap.filesUpdated.length} arquivo(s) do cérebro atualizado(s)\n`,
+    );
+  }
 
   // Exit 1 se houver row com fail — útil em CI futuro
   if (report.failCount > 0) process.exit(1);

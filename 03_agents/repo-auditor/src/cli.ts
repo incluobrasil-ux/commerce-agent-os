@@ -4,12 +4,14 @@
 
 import { promises as fs } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
+import { captureRun } from '@cao/brain-bridge';
 import { type AuditProfile, type AuditResult, RepoNotFound, auditRepo } from './index.js';
 
 interface CliArgs {
   repoPath: string;
   profile: AuditProfile;
   outDir: string;
+  capture: boolean;
 }
 
 const VALID_PROFILES: AuditProfile[] = ['license', 'security', 'architecture', 'full'];
@@ -19,6 +21,7 @@ function parseArgs(argv: string[]): CliArgs {
   let repoPath: string | undefined;
   let profile: AuditProfile = 'full';
   let outDir = resolve(process.cwd(), '12_reports/audits/repo-auditor');
+  let capture = false;
 
   for (const a of args) {
     if (a.startsWith('--profile=')) {
@@ -29,6 +32,8 @@ function parseArgs(argv: string[]): CliArgs {
       profile = p;
     } else if (a.startsWith('--out=')) {
       outDir = resolve(a.slice('--out='.length));
+    } else if (a === '--capture') {
+      capture = true;
     } else if (a.startsWith('--')) {
       fail(`Flag desconhecida: ${a}`);
     } else if (!repoPath) {
@@ -40,11 +45,11 @@ function parseArgs(argv: string[]): CliArgs {
 
   if (!repoPath) {
     fail(
-      'Uso: repo-auditor <repo-path> [--profile=full|license|security|architecture] [--out=<dir>]',
+      'Uso: repo-auditor <repo-path> [--profile=full|license|security|architecture] [--out=<dir>] [--capture]',
     );
   }
 
-  return { repoPath, profile, outDir };
+  return { repoPath, profile, outDir, capture };
 }
 
 function fail(msg: string): never {
@@ -61,7 +66,7 @@ function timestamp(d: Date): string {
 }
 
 async function main(): Promise<void> {
-  const { repoPath, profile, outDir } = parseArgs(process.argv);
+  const { repoPath, profile, outDir, capture } = parseArgs(process.argv);
 
   let result: AuditResult;
   try {
@@ -87,6 +92,38 @@ async function main(): Promise<void> {
     `[repo-auditor] report: ${outPath}`,
   ];
   process.stdout.write(`${lines.join('\n')}\n`);
+
+  if (capture) {
+    const overall = critical > 0 ? 'red' : warning > 0 ? 'yellow' : 'green';
+    const slugRepo = result.repoName.replace(/[^a-z0-9-]/gi, '-').toLowerCase();
+    const cap = await captureRun({
+      kind: 'audit',
+      slug: `repo-auditor-${slugRepo}`.slice(0, 60),
+      result: overall,
+      title: `Audit ${result.repoName} (profile=${profile})`,
+      source: 'agent:repo-auditor',
+      tags: ['repo-auditor', 'audit', overall],
+      body: {
+        context: `repo-auditor rodou em ${repoPath} (profile ${profile}). license=${result.license}.`,
+        whatHappened: result.report.summary,
+        findings: result.findings.map(
+          (f) => `[${f.severity}] ${f.category} (${f.file}): ${f.recommendation}`,
+        ),
+        impact:
+          critical > 0
+            ? `${critical} finding(s) crítico(s) — bloqueio identificado para uso de ${result.repoName}.`
+            : warning > 0
+              ? `${warning} warning(s) — acompanhar.`
+              : 'Sem findings — ok para uso conforme política.',
+        references: [outPath],
+      },
+      sessionLogLine: `repo-auditor em ${result.repoName}: license=${result.license}, ${critical} crítico(s) / ${warning} warning(s).`,
+    });
+    process.stdout.write(`[repo-auditor] capture → ${cap.summaryPath}\n`);
+    process.stdout.write(
+      `[repo-auditor] capture: ${cap.filesUpdated.length} arquivo(s) do cérebro atualizado(s)\n`,
+    );
+  }
 
   process.exit(critical > 0 ? 1 : 0);
 }

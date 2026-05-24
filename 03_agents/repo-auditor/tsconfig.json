@@ -6,5 +6,5 @@
     "composite": true
   },
   "include": ["src/**/*"],
-  "references": [{ "path": "../../06_packages/core" }]
+  "references": [{ "path": "../../06_packages/core" }, { "path": "../../06_packages/brain-bridge" }]
 }

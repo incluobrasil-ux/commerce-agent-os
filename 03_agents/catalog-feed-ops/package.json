@@ -20,6 +20,7 @@
     "clean": "rm -rf dist .tsbuildinfo"
   },
   "dependencies": {
+    "@cao/brain-bridge": "workspace:*",
     "@cao/core": "workspace:*",
     "@cao/integration-google-merchant": "workspace:*",
     "@cao/integration-shopify": "workspace:*",

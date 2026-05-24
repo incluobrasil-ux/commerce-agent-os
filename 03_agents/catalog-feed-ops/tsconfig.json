@@ -8,6 +8,7 @@
   "include": ["src/**/*"],
   "references": [
     { "path": "../../06_packages/core" },
+    { "path": "../../06_packages/brain-bridge" },
     { "path": "../../06_packages/llm" },
     { "path": "../../06_packages/memory" },
     { "path": "../../06_packages/observability" },

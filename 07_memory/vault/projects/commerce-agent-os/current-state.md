@@ -23,9 +23,9 @@ confidence: 1.0
 | | |
 |---|---|
 | Macro-fase | 2 — Implementação |
-| Sub-fase | 2.5 ✅ + 2.6 ✅ + 2.7 ✅ + 2.8 ✅ + N26 ✅ + **N20.1 ✅ scorer evoluído** |
-| Último marco (2026-05-25) | **N20.1 — Scorer evolui com 3 regras vindas do N26:** (1) `title:no-brand` always-on, (2) `description:truncated` (low) suprime falsos positivos com `...`, (3) GMC category override (`3793 Educational Toys` → gtin low ao invés de medium) + transformer aceita `gmcCategoryByProductType` + `defaultGmcCategoryId`. Re-run no snapshot Incluo: score **81.9 → 93.2** (medium findings 100→0). **251 testes verdes em 34 arquivos** (+10 vs anterior). |
-| Próximo marco técnico | **N21 (pipeline LLM real)** assim que `ANTHROPIC_API_KEY` for atualizada em `.env.local` (B1 confirmado: key revogada via `pnpm llm:smoke`). Alternativa: **N24** (handoff via Memória) ou ampliar `GMC_CATEGORY_OVERRIDES` com mais categorias. Detalhe em [next-actions.md](next-actions.md). |
+| Sub-fase | 2.5 ✅ + 2.6 ✅ + 2.7 ✅ + 2.8 ✅ + N26 ✅ + N20.1 ✅ + **2.9 ✅ multi-tenant/multi-store hardening** |
+| Último marco (2026-05-25) | **Multi-tenant hardening base técnica:** 7 branded types em shared-types; helpers `assertTenantContext`/`assertTenantStoreContext`/`buildContextBundle`/`slugifyShopDomain` em `@cao/core`; `Memory.storeId` opcional (path tenants/<t>/stores/<s>/); `AgentContext.storeId`; `captureRun` resolve brainDir dinamicamente (4 níveis); `merchant:audit` é pilot com `--store=<id>`. Pilot validado real: report + capture isolados em `tenants/incluo-tenant/stores/incluo/`. **309 testes em 36 arquivos** (+58); smoke 5→17 (+12 isolamento). |
+| Próximo marco técnico | **Migrar 5 agentes restantes para `--store=<id>`** seguindo pattern do `merchant:audit` (merchant-compliance, product-offer, marketing-director, creative-copy-assets, design-ux-localization). Ou **N21** (pipeline LLM real) após user rotacionar key Anthropic atual (instalada nesta sessão; recomendado rotar pós-chat). Detalhe em [next-actions.md](next-actions.md). |
 
 ## Verde
 
@@ -56,6 +56,6 @@ confidence: 1.0
 
 ## Resumo em 1 linha
 
-> N20.1 ✅ — scorer evoluído com 3 regras vindas do N26 real-catalog. Score Incluo subiu 81.9 → 93.2; medium findings 100 → 0; 100% dos SKUs prontos para submissão (exceto 1 yellow = SKU operacional com price=0 esperando N26.a). **251 testes verdes**. Próximo: N21 (pipeline LLM real) bloqueado por B1 (Anthropic key revogada).
+> Multi-tenant/multi-store hardening ✅ — Memory + brain-bridge + runtime + agente pilot todos store-scoped quando passado `--store=<id>`; 12 smoke testes de isolamento; pilot real em `incluo-tenant/stores/incluo/` validado end-to-end. **309 testes verdes**, suíte completa sem regressão. Próximo: migrar próximos 5 agentes para o mesmo pattern.
 
 Detalhe em [blockers-and-risks.md](blockers-and-risks.md).

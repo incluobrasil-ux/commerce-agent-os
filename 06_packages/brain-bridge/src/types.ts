@@ -69,6 +69,15 @@ export const captureInputSchema = z.object({
   appendPriorities: z.array(appendPrioritySchema).max(5).optional(),
   appendBlockers: z.array(appendBlockerSchema).max(5).optional(),
 
+  // Contexto multi-tenant / multi-store — resolve brainDir dinamicamente quando
+  // brainDir explícito não é passado. Regras:
+  //   - sem tenantId + sem brainDir  → DEFAULT_BRAIN_DIR (project brain, compat).
+  //   - tenantId presente            → 07_memory/vault/tenants/<tenantId>/.
+  //   - tenantId + storeId presentes → 07_memory/vault/tenants/<tenantId>/stores/<storeId>/.
+  //   - brainDir explícito           → wins sobre tudo (override manual).
+  tenantId: z.string().min(1).optional(),
+  storeId: z.string().min(1).optional(),
+
   // Sobrescritas
   brainDir: z.string().optional(),
   now: z.date().optional(),

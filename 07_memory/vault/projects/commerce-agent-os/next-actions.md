@@ -47,7 +47,16 @@ Análise consolidada com proposta de write por pillar (preserva o trabalho): [`1
 
 ## Prioridade imediata — escolher próximo bloco
 
-### Opção A — **N21**: Pipeline LLM real end-to-end
+### ✅ Multi-tenant hardening 2.9 concluído (2026-05-25)
+
+- 7 layers implementadas (shared-types/core/memory/runtime/brain-bridge/merchant:audit pilot/smoke isolation tests).
+- Detalhe completo em [run-summary 2026-05-25-impl-milestone-multi-tenant-hardening](run-summaries/2026-05-25-impl-milestone-multi-tenant-hardening.md).
+
+### Opção A — **Migrar próximos 5 agentes para `--store=<id>`** (~30min cada, baixo risco)
+
+Pattern estabelecido em `audit-cli.ts`. Repetir nos: `merchant-compliance`, `product-offer`, `marketing-director`, `creative-copy-assets`, `design-ux-localization`. Adoção incremental — não precisa fazer tudo numa rodada.
+
+### Opção B — **N21**: Pipeline LLM real end-to-end
 
 Encadear Marketing → Criativo → Vitrine → Catálogo → Produtos → Merchant com dados reais Incluo, key Anthropic já presente em `.env.local`. Custo estimado: < $0.30/loop. Retorno: outputs reais salvos em vault para uso operacional.
 ```bash

@@ -24,6 +24,7 @@ Marcos de implementação (sub-fase concluída, primeiro deploy, OAuth funcionan
 
 | Data | Título | Resultado | Arquivo |
 |---|---|---|---|
+| 2026-05-25 | **Multi-tenant/multi-store hardening** — branded types + helpers + Memory/brain storeId + merchant:audit pilot; 309 verdes (+58); smoke 17 | 🟢 | [2026-05-25-impl-milestone-multi-tenant-hardening.md](2026-05-25-impl-milestone-multi-tenant-hardening.md) |
 | 2026-05-25 | **Sub-fase 2.8 Merchant audit MVP** — score por SKU + findings + remediações; 241 testes verdes | 🟢 | [2026-05-25-impl-milestone-merchant-audit-mvp.md](2026-05-25-impl-milestone-merchant-audit-mvp.md) |
 | 2026-05-25 | **Bloco B completo** — 4 agentes novos (marketing/creative/design/traffic); 228 testes verdes | 🟢 | [2026-05-25-impl-milestone-four-new-agents.md](2026-05-25-impl-milestone-four-new-agents.md) |
 | 2026-05-24 | **Repo fechado para equipe** — `pnpm doctor` valida 10 checks; docs harmonizados (README+SETUP+COMMANDS) | 🟢 | [2026-05-24-impl-milestone-team-ready.md](2026-05-24-impl-milestone-team-ready.md) |

@@ -34,7 +34,39 @@ export interface CaptureOutput {
   filesUpdated: string[];
 }
 
+/**
+ * Brain dir do projeto (canonical dev brain). Usado quando nenhum tenantId
+ * é passado — preserva o comportamento legado para devs e CIs.
+ */
 const DEFAULT_BRAIN_DIR = '07_memory/vault/projects/commerce-agent-os';
+
+/**
+ * Resolve o brainDir de uma captura. Ordem de precedência:
+ *   1. `brainDir` explícito (override absoluto).
+ *   2. `tenantId` + `storeId` → `<repoRoot>/07_memory/vault/tenants/<t>/stores/<s>/`.
+ *   3. `tenantId` apenas      → `<repoRoot>/07_memory/vault/tenants/<t>/`.
+ *   4. fallback               → `<repoRoot>/07_memory/vault/projects/commerce-agent-os/`.
+ *
+ * Multi-tenant safety: captureRun para tenant A nunca escreve em tenant B
+ * porque o path é resolvido a partir do tenantId passado explicitamente.
+ */
+export function resolveBrainDir(
+  repoRoot: string,
+  input: {
+    brainDir?: string | undefined;
+    tenantId?: string | undefined;
+    storeId?: string | undefined;
+  },
+): string {
+  if (input.brainDir) return input.brainDir;
+  if (input.tenantId && input.storeId) {
+    return resolve(repoRoot, '07_memory/vault/tenants', input.tenantId, 'stores', input.storeId);
+  }
+  if (input.tenantId) {
+    return resolve(repoRoot, '07_memory/vault/tenants', input.tenantId);
+  }
+  return resolve(repoRoot, DEFAULT_BRAIN_DIR);
+}
 
 const RESULT_EMOJI: Record<CaptureResult, string> = {
   green: '🟢',
@@ -162,7 +194,7 @@ export async function captureRun(rawInput: unknown): Promise<CaptureOutput> {
   const input = parse.data;
   const now = input.now ?? new Date();
   const repoRoot = resolve(process.cwd());
-  const brainDir = input.brainDir ?? resolve(repoRoot, DEFAULT_BRAIN_DIR);
+  const brainDir = resolveBrainDir(repoRoot, input);
 
   const summaryDir = join(brainDir, 'run-summaries');
   const summaryFile = `${isoDate(now)}-${input.kind}-${input.slug}.md`;

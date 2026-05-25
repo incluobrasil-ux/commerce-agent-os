@@ -1,8 +1,8 @@
 import { promises as fs } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
-import { CaptureError, captureRun } from './capture.js';
+import { CaptureError, captureRun, resolveBrainDir } from './capture.js';
 import { bumpUpdatedAt, insertAfterAnchor } from './markdown-utils.js';
 
 let tmp = '';
@@ -287,6 +287,111 @@ describe('captureRun', () => {
     const index = await fs.readFile(join(tmp, 'run-summaries/index.md'), 'utf8');
     const matches = index.match(/Sample test run/g) ?? [];
     expect(matches.length).toBe(2);
+  });
+});
+
+describe('resolveBrainDir — multi-tenant isolation', () => {
+  const repo = '/repo';
+
+  it('brainDir explícito tem precedência sobre tudo', () => {
+    const r = resolveBrainDir(repo, {
+      brainDir: '/custom/path',
+      tenantId: 't1',
+      storeId: 's1',
+    });
+    expect(r).toBe('/custom/path');
+  });
+
+  it('sem tenantId nem brainDir → fallback project brain (compat)', () => {
+    const r = resolveBrainDir(repo, {});
+    expect(r).toBe(resolve(repo, '07_memory/vault/projects/commerce-agent-os'));
+  });
+
+  it('tenantId apenas → vault/tenants/<t>/', () => {
+    const r = resolveBrainDir(repo, { tenantId: 'incluo' });
+    expect(r).toBe(resolve(repo, '07_memory/vault/tenants/incluo'));
+  });
+
+  it('tenantId + storeId → vault/tenants/<t>/stores/<s>/', () => {
+    const r = resolveBrainDir(repo, { tenantId: 'acme', storeId: 'br-store' });
+    expect(r).toBe(resolve(repo, '07_memory/vault/tenants/acme/stores/br-store'));
+  });
+
+  it('tenants diferentes resolvem para paths distintos (isolamento)', () => {
+    const rA = resolveBrainDir(repo, { tenantId: 'tenant-a' });
+    const rB = resolveBrainDir(repo, { tenantId: 'tenant-b' });
+    expect(rA).not.toBe(rB);
+  });
+
+  it('mesmo tenant, stores diferentes → paths distintos', () => {
+    const rA = resolveBrainDir(repo, { tenantId: 't1', storeId: 'sA' });
+    const rB = resolveBrainDir(repo, { tenantId: 't1', storeId: 'sB' });
+    expect(rA).not.toBe(rB);
+  });
+
+  it('storeId sem tenantId é ignorado (incoerente; cai no fallback)', () => {
+    const r = resolveBrainDir(repo, { storeId: 'orphan' });
+    expect(r).toBe(resolve(repo, '07_memory/vault/projects/commerce-agent-os'));
+  });
+});
+
+describe('captureRun com tenant/store dirige escrita para path correto', () => {
+  let cwdBackup: string;
+  let tmpRoot: string;
+  let tenantBrain: string;
+
+  beforeEach(async () => {
+    tmpRoot = await fs.mkdtemp(join(tmpdir(), 'capture-tenant-test-'));
+    tenantBrain = join(tmpRoot, '07_memory/vault/tenants/acme/stores/store-a');
+    // setup mínimo: só o que captureRun precisa para o caminho feliz
+    await fs.mkdir(join(tenantBrain, 'run-summaries'), { recursive: true });
+    await fs.writeFile(
+      join(tenantBrain, 'run-summaries/index.md'),
+      [
+        '---',
+        'updated_at: 2026-05-01T00:00:00Z',
+        '---',
+        '',
+        '# Run Summaries — Index',
+        '',
+        '## Agent runs',
+        '',
+        '| Data | Título | Resultado | Arquivo |',
+        '|---|---|---|---|',
+        '',
+      ].join('\n'),
+      'utf8',
+    );
+    cwdBackup = process.cwd();
+    process.chdir(tmpRoot);
+  });
+
+  afterEach(async () => {
+    process.chdir(cwdBackup);
+    await fs.rm(tmpRoot, { recursive: true, force: true });
+  });
+
+  it('tenantId+storeId → summary fica em tenants/acme/stores/store-a/', async () => {
+    const r = await captureRun({
+      kind: 'agent-run' as const,
+      slug: 'pilot-run',
+      result: 'green' as const,
+      title: 'Pilot tenant scoped',
+      source: 'agent:pilot',
+      tags: ['pilot'],
+      body: {
+        context: 'Validação que captureRun escreve no path tenant-scoped.',
+        whatHappened: ['Run aconteceu.'],
+        findings: [],
+        impact: 'Apenas teste de isolamento.',
+        references: [],
+      },
+      now: new Date('2026-05-25T12:00:00Z'),
+      tenantId: 'acme',
+      storeId: 'store-a',
+    });
+    expect(r.summaryPath).toContain(join('tenants', 'acme', 'stores', 'store-a'));
+    expect(r.summaryPath).toMatch(/2026-05-25-agent-run-pilot-run\.md$/);
   });
 });
 

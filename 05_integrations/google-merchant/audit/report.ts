@@ -10,6 +10,8 @@ export interface AuditReportInput {
   source: 'fixture' | 'json' | 'csv' | 'shopify';
   rowScores: RowScore[];
   summary: AuditSummary;
+  /** Identificador opcional de loja Shopify. Quando presente, reports vão para path store-scoped. */
+  storeId?: string;
   outDir?: string;
 }
 
@@ -41,9 +43,22 @@ function timestamp(d: Date): string {
 
 export async function writeAuditReport(input: AuditReportInput): Promise<AuditReportResult> {
   const repoRoot = resolve(process.cwd());
-  const outDir = input.outDir ?? resolve(repoRoot, '12_reports/merchant-audits');
+  // Multi-tenant safety: reports tenant/store-scoped quando ambos presentes.
+  //   - tenant + store → 12_reports/merchant-audits/<tenant>/stores/<store>/
+  //   - tenant apenas  → 12_reports/merchant-audits/<tenant>/
+  //   - sem tenant     → 12_reports/merchant-audits/   (compat com _test, _demo)
+  const baseReportDir = resolve(repoRoot, '12_reports/merchant-audits');
+  const outDir =
+    input.outDir ??
+    (input.storeId
+      ? resolve(baseReportDir, input.tenantId, 'stores', input.storeId)
+      : input.tenantId && input.tenantId !== '_test' && input.tenantId !== '_demo'
+        ? resolve(baseReportDir, input.tenantId)
+        : baseReportDir);
   const ts = timestamp(new Date());
-  const baseName = `${input.tenantId}-${input.source}-${ts}`;
+  const baseName = input.storeId
+    ? `${input.source}-${ts}`
+    : `${input.tenantId}-${input.source}-${ts}`;
   const jsonPath = join(outDir, `${baseName}.json`);
   const markdownPath = join(outDir, `${baseName}.md`);
 

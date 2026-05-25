@@ -25,6 +25,12 @@ confidence: 1.0
 
 ---
 
+## 2026-05-25 — Multi-tenant/multi-store hardening (base técnica + pilot)
+
+- Feito: 7 layers implementadas. (1) shared-types ganha 7 branded types canônicos (TenantId, StoreId, InstallationId, ShopDomain, RunId, ArtifactId, AgentName). (2) @cao/core ganha context.ts com assertTenantContext, assertTenantStoreContext, validateStoreBelongsToTenant, buildContextBundle, slugifyShopDomain, isGlobalContext. (3) Memory aceita storeId opcional, path vira tenants/<t>/stores/<s>/. (4) AgentContext + RunOptions ganham storeId opcional; observability events propagam store_id. (5) brain-bridge captureRun aceita tenantId+storeId, nova resolveBrainDir() com 4 níveis de precedência. (6) merchant:audit pilot com --store=<id>, assertion explícita, paths store-scoped em reports e capture. (7) 12 smoke testes novos em 11_tests/smoke/multi-tenant-isolation.smoke.ts. Pilot real validado: pnpm merchant:audit --tenant=incluo-tenant --store=incluo escreve em 12_reports/merchant-audits/incluo-tenant/stores/incluo/ e brain em 07_memory/vault/tenants/incluo-tenant/stores/incluo/.
+- Resultado: green. Suíte 251 → **309 verdes em 36 arquivos** (+58). Smoke 5 → 17 (+12 isolamento). Typecheck OK, lint OK. Backward compat 100% (params novos opcionais; _test/_demo seguem path legado).
+- Próximo: migrar 5 agentes restantes (merchant-compliance, product-offer, marketing-director, creative-copy-assets, design-ux-localization) para mesmo pattern. Cada um ~30min, baixo risco. Alternativa: N21 (pipeline LLM real).
+
 ## 2026-05-25 — N20.1: scorer evoluído com 3 regras vindas do N26 + re-run Incluo
 
 - Feito: scorer ganhou 3 evoluções derivadas direto dos gaps surfaceados pelo run real N26. (1) `title:no-brand` agora dispara sempre que brand está em vendor e ausente do título, independente de comprimento. (2) `description:truncated` (low) substitui `description:too-short` quando description termina em "..." ou "…" — evita falso positivo quando MCP search_products trunca conteúdo. (3) GMC_CATEGORY_OVERRIDES: para `3793` (Toys & Games > Educational Toys), `gtin:missing` rebaixa de medium para low. Transformer aceita `gmcCategoryByProductType` + `defaultGmcCategoryId`. CLI: `--gmc-default=<id>` + `--gmc-mapping=<file>`. +7 testes scorer + 3 transformer (suíte 241 → **251 verdes**). 

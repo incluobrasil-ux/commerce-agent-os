@@ -13,6 +13,8 @@
 //   --file=path                     (obrigatório com --source=json)
 //   --first=N                       (default: 50; máx 500)
 //   --tenant=<id>                   (default: _test)
+//   --store=<id>                    (opcional; quando presente: assertTenantStoreContext + paths
+//                                    tenant/store-scoped em vault e reports)
 //   --shop-domain=<domain>          (default: $SHOPIFY_SHOP)
 //   --feed-label=<label>            (default: US)
 //   --content-language=<lang>       (default: en)
@@ -23,6 +25,7 @@
 import { promises as fs } from 'node:fs';
 import { resolve } from 'node:path';
 import { captureRun } from '@cao/brain-bridge';
+import { assertTenantContext, assertTenantStoreContext, slugifyShopDomain } from '@cao/core';
 import {
   type ShopifyProductInput,
   productToFeedRow,
@@ -39,6 +42,7 @@ interface CliArgs {
   file: string;
   first: number;
   tenant: string;
+  store: string;
   shopDomain: string;
   feedLabel: string;
   contentLanguage: string;
@@ -53,6 +57,7 @@ function parseArgs(argv: string[]): CliArgs {
     file: '',
     first: 50,
     tenant: '_test',
+    store: '',
     shopDomain: process.env.SHOPIFY_SHOP?.trim() ?? 'acme.myshopify.com',
     feedLabel: 'US',
     contentLanguage: 'en',
@@ -73,6 +78,8 @@ function parseArgs(argv: string[]): CliArgs {
       args.first = Math.min(Math.max(Number.parseInt(a.slice('--first='.length), 10), 1), 500);
     } else if (a.startsWith('--tenant=')) {
       args.tenant = a.slice('--tenant='.length);
+    } else if (a.startsWith('--store=')) {
+      args.store = a.slice('--store='.length);
     } else if (a.startsWith('--shop-domain=')) {
       args.shopDomain = a.slice('--shop-domain='.length);
     } else if (a.startsWith('--feed-label=')) {
@@ -171,6 +178,22 @@ async function loadProducts(args: CliArgs): Promise<{
 async function main(): Promise<void> {
   const args = parseArgs(process.argv);
 
+  // Multi-tenant safety: tenant é sempre exigido; store é opcional mas, quando
+  // presente, ativa o caminho tenant+store-scoped. Falha cedo se inconsistente.
+  if (args.store) {
+    assertTenantStoreContext({ tenantId: args.tenant, storeId: args.store }, 'merchant:audit');
+  } else {
+    assertTenantContext({ tenantId: args.tenant }, 'merchant:audit');
+  }
+
+  // Quando --store ausente mas --shop-domain customizado e --source=shopify,
+  // derivar storeId do domain (hint, não obriga). Não sobrescreve --store explícito.
+  const effectiveStore: string =
+    args.store ||
+    (args.source === 'shopify' && args.shopDomain && args.shopDomain !== 'acme.myshopify.com'
+      ? slugifyShopDomain(args.shopDomain)
+      : '');
+
   const { products, sourceUsed } = await loadProducts(args);
   process.stdout.write(
     `[merchant:audit] carregados ${products.length} produto(s) via ${sourceUsed}\n`,
@@ -223,6 +246,7 @@ async function main(): Promise<void> {
     source: sourceUsed,
     rowScores,
     summary,
+    ...(effectiveStore ? { storeId: effectiveStore } : {}),
   });
 
   process.stdout.write(
@@ -242,17 +266,31 @@ async function main(): Promise<void> {
     const overall: 'green' | 'yellow' | 'red' =
       summary.redCount > 0 ? 'red' : summary.yellowCount > summary.greenCount ? 'yellow' : 'green';
     const slugTenant = args.tenant.replace(/[^a-z0-9-]/gi, '-').toLowerCase();
+    const slugStore = effectiveStore
+      ? effectiveStore.replace(/[^a-z0-9-]/gi, '-').toLowerCase()
+      : '';
+    // Slug do summary: inclui store quando presente para evitar colisão entre
+    // múltiplas lojas do mesmo tenant na mesma data.
+    const captureSlug = slugStore
+      ? `merchant-audit-${slugTenant}-${slugStore}-${sourceUsed}`
+      : `merchant-audit-${slugTenant}-${sourceUsed}`;
+    const titleScope = effectiveStore
+      ? `tenant=${args.tenant}/store=${effectiveStore}`
+      : `tenant=${args.tenant}`;
     const cap = await captureRun({
       kind: 'audit',
-      slug: `merchant-audit-${slugTenant}-${sourceUsed}`.slice(0, 60),
+      slug: captureSlug.slice(0, 60),
       result: overall,
-      title: `Merchant audit (${sourceUsed}, ${products.length} SKUs, tenant=${args.tenant})`,
+      title: `Merchant audit (${sourceUsed}, ${products.length} SKUs, ${titleScope})`,
       source: 'agent:catalog-feed-ops',
-      tags: ['merchant', 'audit', 'catalog', overall],
+      tags: effectiveStore
+        ? ['merchant', 'audit', 'catalog', 'store-scoped', overall]
+        : ['merchant', 'audit', 'catalog', overall],
       body: {
-        context: `pnpm merchant:audit --source=${sourceUsed} avaliou ${products.length} SKUs.`,
+        context: `pnpm merchant:audit --source=${sourceUsed} avaliou ${products.length} SKUs em ${titleScope}.`,
         whatHappened: [
           `Fonte: ${sourceUsed} (${products.length} SKUs).`,
+          `Escopo: ${titleScope}.`,
           `Score médio: ${summary.averageScore}/100.`,
           `Distribuição: 🟢 ${summary.greenCount} · 🟡 ${summary.yellowCount} · 🔴 ${summary.redCount}.`,
           `Findings: ${summary.bySeverity.critical} crit / ${summary.bySeverity.high} high / ${summary.bySeverity.medium} med / ${summary.bySeverity.low} low.`,
@@ -266,7 +304,9 @@ async function main(): Promise<void> {
             : `${summary.greenCount}/${summary.totalRows} SKU(s) prontos para submissão.`,
         references: [report.markdownPath, report.jsonPath],
       },
-      sessionLogLine: `merchant:audit (${sourceUsed}, ${args.tenant}): score médio ${summary.averageScore} — ${summary.redCount} red, ${summary.yellowCount} yellow, ${summary.greenCount} green.`,
+      sessionLogLine: `merchant:audit (${sourceUsed}, ${titleScope}): score médio ${summary.averageScore} — ${summary.redCount} red, ${summary.yellowCount} yellow, ${summary.greenCount} green.`,
+      tenantId: args.tenant,
+      ...(effectiveStore ? { storeId: effectiveStore } : {}),
     });
     process.stdout.write(`[merchant:audit] capture → ${cap.summaryPath}\n`);
   }

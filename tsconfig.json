@@ -30,6 +30,7 @@
     { "path": "./03_agents/product-feed-seo" },
     { "path": "./03_agents/catalog-feed-ops" },
     { "path": "./03_agents/orchestrator-master" },
-    { "path": "./03_agents/market-intelligence" }
+    { "path": "./03_agents/market-intelligence" },
+    { "path": "./03_agents/competitor-benchmark" }
   ]
 }

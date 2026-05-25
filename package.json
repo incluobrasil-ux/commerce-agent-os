@@ -27,6 +27,7 @@
     "visual:asset": "tsx --env-file=.env.local 03_agents/visual-asset-ops/src/cli.ts",
     "journey:map": "tsx --env-file=.env.local 03_agents/customer-journey-ops/src/cli.ts",
     "ads:plan": "tsx --env-file=.env.local 03_agents/ads-launchpad/src/cli.ts",
+    "finance:radar": "tsx --env-file=.env.local 03_agents/finance-margin-radar/src/cli.ts",
     "ops:capture": "tsx 06_packages/brain-bridge/scripts/capture-cli.ts",
     "doctor": "tsx 10_ops/scripts/doctor.ts",
     "secret-scan": "gitleaks protect --staged --no-banner --redact",

@@ -16,6 +16,8 @@
 //   --shop-domain=<domain>          (default: $SHOPIFY_SHOP)
 //   --feed-label=<label>            (default: US)
 //   --content-language=<lang>       (default: en)
+//   --gmc-default=<id>              (GMC category ID fallback; ex.: 3793)
+//   --gmc-mapping=<path>            (JSON map productType -> GMC ID)
 //   --capture                       (registra run no cérebro)
 
 import { promises as fs } from 'node:fs';
@@ -40,6 +42,8 @@ interface CliArgs {
   shopDomain: string;
   feedLabel: string;
   contentLanguage: string;
+  gmcDefault: string;
+  gmcMappingFile: string;
   capture: boolean;
 }
 
@@ -52,6 +56,8 @@ function parseArgs(argv: string[]): CliArgs {
     shopDomain: process.env.SHOPIFY_SHOP?.trim() ?? 'acme.myshopify.com',
     feedLabel: 'US',
     contentLanguage: 'en',
+    gmcDefault: '',
+    gmcMappingFile: '',
     capture: false,
   };
   for (const a of argv.slice(2)) {
@@ -73,6 +79,10 @@ function parseArgs(argv: string[]): CliArgs {
       args.feedLabel = a.slice('--feed-label='.length);
     } else if (a.startsWith('--content-language=')) {
       args.contentLanguage = a.slice('--content-language='.length);
+    } else if (a.startsWith('--gmc-default=')) {
+      args.gmcDefault = a.slice('--gmc-default='.length);
+    } else if (a.startsWith('--gmc-mapping=')) {
+      args.gmcMappingFile = a.slice('--gmc-mapping='.length);
     } else if (a === '--capture') {
       args.capture = true;
     } else if (a.startsWith('--')) {
@@ -171,12 +181,33 @@ async function main(): Promise<void> {
     process.exit(0);
   }
 
+  // Mapping productType -> GMC category ID (opcional, vindo de --gmc-mapping=<file>)
+  let gmcCategoryByProductType: Record<string, string> | undefined;
+  if (args.gmcMappingFile) {
+    try {
+      const txt = await fs.readFile(resolve(process.cwd(), args.gmcMappingFile), 'utf-8');
+      const parsed = JSON.parse(txt) as Record<string, string>;
+      gmcCategoryByProductType = parsed;
+      process.stdout.write(
+        `[merchant:audit] gmc-mapping carregado: ${Object.keys(parsed).length} entradas\n`,
+      );
+    } catch (e) {
+      fail(
+        `Falha lendo --gmc-mapping=${args.gmcMappingFile}: ${
+          e instanceof Error ? e.message : String(e)
+        }`,
+      );
+    }
+  }
+
   const transformOpts = {
     shopDomain: args.shopDomain,
     contentLanguage: args.contentLanguage,
     feedLabel: args.feedLabel,
     defaultAvailability: 'in_stock' as const,
     defaultPrice: { amount: '0.00', currencyCode: 'USD' },
+    ...(gmcCategoryByProductType ? { gmcCategoryByProductType } : {}),
+    ...(args.gmcDefault ? { defaultGmcCategoryId: args.gmcDefault } : {}),
   };
 
   const rowScores = products.map((p) => {

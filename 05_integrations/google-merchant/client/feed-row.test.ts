@@ -46,6 +46,28 @@ describe('productToFeedRow', () => {
     expect(r.warnings.some((w) => w.includes('descrição derivada'))).toBe(true);
   });
 
+  it('gmcCategoryByProductType preenche googleProductCategory quando productType bate', () => {
+    const r = productToFeedRow(baseProduct, {
+      ...baseOpts,
+      gmcCategoryByProductType: { Apparel: '1604' },
+    });
+    expect(r.row.googleProductCategory).toBe('1604');
+  });
+
+  it('defaultGmcCategoryId usado como fallback quando productType não bate no mapping', () => {
+    const r = productToFeedRow(baseProduct, {
+      ...baseOpts,
+      gmcCategoryByProductType: { Electronics: '222' },
+      defaultGmcCategoryId: '3793',
+    });
+    expect(r.row.googleProductCategory).toBe('3793');
+  });
+
+  it('googleProductCategory null quando sem mapping nem default (preserva comportamento)', () => {
+    const r = productToFeedRow(baseProduct, baseOpts);
+    expect(r.row.googleProductCategory).toBeNull();
+  });
+
   it('derive availability do status quando product não traz', () => {
     const r = productToFeedRow(
       { ...baseProduct, availability: undefined, status: 'ARCHIVED' },

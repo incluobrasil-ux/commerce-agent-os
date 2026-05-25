@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-25T23:00:00.000Z
+updated_at: 2026-05-25T23:30:00.000Z
 tags: [next-actions]
 source: mixed
 confidence: 1.0
@@ -58,14 +58,13 @@ pnpm design:ux --scope=product --name=... --capture
 pnpm feed:dry-run --source=fixture --seo --capture
 ```
 
-### Opção B — **N20.1**: Evoluir scorer (sem creds, dev puro)
+### ~~Opção B — N20.1: Evoluir scorer~~ ✅ **concluído 2026-05-25**
 
-Aplicar os gaps descobertos no N26 ao scorer:
-- **Presets por categoria:** Brinquedos educacionais → GTIN opcional (rebaixar de medium para low); Eletrônicos → GTIN critical.
-- **Ajustes de threshold:** `title:no-brand` dispara quando `vendor` está populado E brand não está no início, independente de comprimento.
-- **Source-aware truncation:** quando description termina em `...`, suprimir `description:too-short` ou marcar `unknown`.
-- **Mapping productType → GMC ID:** embarcar como lookup no scorer (47→3793, 3→5872 confirmados para Incluo) para evitar `googleProductCategory:missing` quando productType é conhecido.
-- Critério: 4-6 regras novas + testes + re-rodar `pnpm merchant:audit` contra o snapshot Incluo para validar redução de falsos positivos.
+- 3 regras aplicadas no scorer: `title:no-brand` always-on, `description:truncated` (low) suprimindo falsos positivos, GMC_CATEGORY_OVERRIDES (3793 → gtin low).
+- Transformer ganhou `gmcCategoryByProductType` + `defaultGmcCategoryId`; CLI ganhou `--gmc-default=<id>` + `--gmc-mapping=<file>`.
+- +10 testes (241 → 251 verdes).
+- Re-run Incluo validou: **score 81.9 → 93.2**, medium 100 → 0, 0 red.
+- Detalhe em [run-summary 2026-05-25](run-summaries/2026-05-25-audit-merchant-audit-incluo-json.md) seção "Re-run pós N20.1".
 
 ### Opção C — **N24**: Handoff entre agentes via Memória
 

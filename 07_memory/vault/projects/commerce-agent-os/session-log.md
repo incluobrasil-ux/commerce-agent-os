@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-25T22:10:16.504Z
+updated_at: 2026-05-25T22:39:42.887Z
 tags: [log, sessions]
 source: human:incluobrasil
 confidence: 1.0
@@ -24,6 +24,17 @@ confidence: 1.0
 ```
 
 ---
+
+## 2026-05-25 — N20.1: scorer evoluído com 3 regras vindas do N26 + re-run Incluo
+
+- Feito: scorer ganhou 3 evoluções derivadas direto dos gaps surfaceados pelo run real N26. (1) `title:no-brand` agora dispara sempre que brand está em vendor e ausente do título, independente de comprimento. (2) `description:truncated` (low) substitui `description:too-short` quando description termina em "..." ou "…" — evita falso positivo quando MCP search_products trunca conteúdo. (3) GMC_CATEGORY_OVERRIDES: para `3793` (Toys & Games > Educational Toys), `gtin:missing` rebaixa de medium para low. Transformer aceita `gmcCategoryByProductType` + `defaultGmcCategoryId`. CLI: `--gmc-default=<id>` + `--gmc-mapping=<file>`. +7 testes scorer + 3 transformer (suíte 241 → **251 verdes**). 
+- Resultado: green. Re-run no mesmo snapshot Incluo com `--gmc-default=3793` validou as evoluções: **score 81.9 → 93.2** (Δ+11.3), medium findings 100 → 0, 0 red restantes nas regras semânticas. O único SKU yellow é o que ainda tem price=0 (problema operacional real, não ruído de scorer).
+- Próximo: N21 (pipeline LLM real) bloqueado por B1 (Anthropic key revogada em `.env.local`, confirmado via `pnpm llm:smoke` 401). N24 (handoff entre agentes via Memória) ou ampliar presets para mais categorias GMC ficam como alternativas dev-puras.
+
+## 2026-05-25 — Merchant audit (json, 50 SKUs, tenant=incluo) — pré-N20.1 run
+
+- merchant:audit (json, incluo) com scorer original: score 81.9 — 1 red, 0 yellow, 49 green. (Auto-capture inicial — pré-N20.1.)
+- Resultado: yellow no agregado; ver run-summary `run-summaries/2026-05-25-audit-merchant-audit-incluo-json.md` (versão consolidada com Run 2 N20.1 anexada).
 
 ## 2026-05-25 — N26 follow-up: 4 reads MCP completos + análise consolidada (writes diferidos)
 

@@ -68,6 +68,19 @@ const PLACEHOLDER_IMAGE_HINTS = [
   // padrão gerado pelo transformer quando imageUrl ausente
 ];
 
+/**
+ * GMC category overrides — ajustes de severidade por categoria GMC.
+ * Para categorias onde GTIN é frequentemente indisponível (ex.: brinquedos
+ * educacionais artesanais), rebaixar severity de `gtin:missing` evita
+ * falsos positivos uniformes que afundam o score do catálogo inteiro.
+ *
+ * Descoberto no N26 (audit real Incluo, 2026-05-25): 50/50 SKUs sem GTIN
+ * em catálogo de brinquedos sensoriais — `medium` global penalizava demais.
+ */
+const GMC_CATEGORY_OVERRIDES: Record<string, { gtinSeverity?: Severity }> = {
+  '3793': { gtinSeverity: 'low' }, // Toys & Games > Toys > Educational Toys
+};
+
 export interface ScoreInput {
   row: FeedRow;
   validation: ValidationResult;
@@ -255,11 +268,17 @@ function semanticChecks(row: FeedRow): Finding[] {
     });
   }
 
-  // Missing GTIN
+  // Missing GTIN — severity ajustável por categoria GMC. Gap descoberto no N26
+  // (audit real Incluo): brinquedos educacionais raramente têm GTIN, tratar como
+  // medium uniforme afunda o score injustamente.
   if (!row.gtin || row.gtin.trim() === '') {
+    const override = row.googleProductCategory
+      ? GMC_CATEGORY_OVERRIDES[row.googleProductCategory]
+      : undefined;
+    const severity: Severity = override?.gtinSeverity ?? 'medium';
     out.push({
       code: 'gtin:missing',
-      severity: 'medium',
+      severity,
       field: 'gtin',
       message:
         'GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.',
@@ -286,25 +305,16 @@ function semanticChecks(row: FeedRow): Finding[] {
       severity: 'medium',
       field: 'googleProductCategory',
       message: 'googleProductCategory ausente — taxonomia GMC ajuda matching e CPC.',
-      remediation: 'Mapear productType Shopify → Google Product Taxonomy (ex.: 212, 5181, ...).',
+      remediation:
+        'Mapear productType Shopify → Google Product Taxonomy via `gmcCategoryByProductType` ou ' +
+        'setar `defaultGmcCategoryId` no TransformOptions.',
     });
   }
 
-  // Title quality
-  const titleLen = row.title.length;
-  if (titleLen < 20) {
-    out.push({
-      code: 'title:too-short',
-      severity: 'medium',
-      field: 'title',
-      message: `Title curto (${titleLen} chars) — GMC favorece títulos de 70-150 chars informativos.`,
-      remediation: 'Expandir título: marca + nome + atributo chave (cor/tamanho/material).',
-    });
-  } else if (
-    titleLen > 70 &&
-    row.brand &&
-    !row.title.toLowerCase().includes(row.brand.toLowerCase())
-  ) {
+  // Title:no-brand — fires sempre que brand está populado mas não aparece no título.
+  // (Era condicionado a titleLen > 70; gap descoberto no N26 — títulos curtos também
+  // se beneficiam de prefixar com brand para recall + matching GMC.)
+  if (row.brand && !row.title.toLowerCase().includes(row.brand.toLowerCase())) {
     out.push({
       code: 'title:no-brand',
       severity: 'low',
@@ -314,16 +324,42 @@ function semanticChecks(row: FeedRow): Finding[] {
     });
   }
 
-  // Description quality
-  const descLen = row.description.length;
-  if (descLen < 100) {
+  // Title quality (length)
+  const titleLen = row.title.length;
+  if (titleLen < 20) {
     out.push({
-      code: 'description:too-short',
+      code: 'title:too-short',
       severity: 'medium',
-      field: 'description',
-      message: `Description curta (${descLen} chars) — thin content penaliza.`,
-      remediation: 'Mínimo recomendado: 200-500 chars com specs, uso e diferencial.',
+      field: 'title',
+      message: `Title curto (${titleLen} chars) — GMC favorece títulos de 70-150 chars informativos.`,
+      remediation: 'Expandir título: marca + nome + atributo chave (cor/tamanho/material).',
     });
+  }
+
+  // Description quality — descoberto no N26 que MCP search_products retorna
+  // descrições truncadas em "...". Não penalizar como thin content; flagar como
+  // `description:truncated` (low) para verificação manual.
+  const descLen = row.description.length;
+  const isTruncated = row.description.endsWith('...') || row.description.endsWith('…');
+  if (descLen < 100) {
+    if (isTruncated) {
+      out.push({
+        code: 'description:truncated',
+        severity: 'low',
+        field: 'description',
+        message: `Description curta (${descLen} chars) e termina em "..." — provavelmente truncada na fonte.`,
+        remediation:
+          'Conteúdo real pode estar OK no Shopify. Verificar via admin antes de assumir thin content.',
+      });
+    } else {
+      out.push({
+        code: 'description:too-short',
+        severity: 'medium',
+        field: 'description',
+        message: `Description curta (${descLen} chars) — thin content penaliza.`,
+        remediation: 'Mínimo recomendado: 200-500 chars com specs, uso e diferencial.',
+      });
+    }
   }
 
   // High-risk keywords in title/description

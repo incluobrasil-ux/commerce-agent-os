@@ -9,7 +9,8 @@ function makeRow(overrides: Partial<FeedRow> = {}): FeedRow {
     contentLanguage: 'en',
     feedLabel: 'US',
     offerId: 'test-offer',
-    title: 'Classic Cotton Tee — Heavyweight 100% Organic',
+    // Brand "Acme" prefix incluído para passar a regra title:no-brand (sempre-on).
+    title: 'Acme Classic Cotton Tee — Heavyweight 100% Organic',
     description:
       '100% organic cotton t-shirt. Pre-shrunk, reinforced stitch at shoulders and hem. ' +
       'Pigment dyed for soft hand-feel. Available in 4 colors. Sized M to XL. Made in Brazil.',
@@ -140,6 +141,77 @@ describe('scoreRow', () => {
       warnings: ['imageLink placeholder gerado a partir do handle'],
     });
     expect(rRed.band).toBe('red');
+  });
+
+  // ===== N20.1 — regras evolutivas vindas do run real Incluo (N26) =====
+
+  it('title:no-brand fires regardless of title length when brand absent', () => {
+    const r = scoreRow({
+      row: makeRow({ title: 'Curto', brand: 'Acme' }),
+      validation: okValidation,
+      warnings: [],
+    });
+    // Mesmo com title curto (< 70 chars), regra title:no-brand dispara.
+    expect(r.findings.some((f) => f.code === 'title:no-brand')).toBe(true);
+  });
+
+  it('title:no-brand NÃO fires quando brand está no título', () => {
+    const r = scoreRow({
+      row: makeRow({ title: 'Acme Pequeno Tee', brand: 'Acme' }),
+      validation: okValidation,
+      warnings: [],
+    });
+    expect(r.findings.some((f) => f.code === 'title:no-brand')).toBe(false);
+  });
+
+  it('description terminando em "..." gera description:truncated (low), não description:too-short', () => {
+    const r = scoreRow({
+      row: makeRow({ description: 'Short desc...' }),
+      validation: okValidation,
+      warnings: [],
+    });
+    expect(r.findings.some((f) => f.code === 'description:truncated')).toBe(true);
+    expect(r.findings.some((f) => f.code === 'description:too-short')).toBe(false);
+    expect(r.findings.find((f) => f.code === 'description:truncated')?.severity).toBe('low');
+  });
+
+  it('description terminando em "…" (single char) também trata como truncated', () => {
+    const r = scoreRow({
+      row: makeRow({ description: 'Short with ellipsis…' }),
+      validation: okValidation,
+      warnings: [],
+    });
+    expect(r.findings.some((f) => f.code === 'description:truncated')).toBe(true);
+  });
+
+  it('gtin:missing é low quando googleProductCategory = 3793 (Educational Toys)', () => {
+    const r = scoreRow({
+      row: makeRow({ gtin: null, googleProductCategory: '3793' }),
+      validation: okValidation,
+      warnings: [],
+    });
+    const gtinFinding = r.findings.find((f) => f.code === 'gtin:missing');
+    expect(gtinFinding?.severity).toBe('low');
+  });
+
+  it('gtin:missing é medium quando googleProductCategory diferente', () => {
+    const r = scoreRow({
+      row: makeRow({ gtin: null, googleProductCategory: '5872' }),
+      validation: okValidation,
+      warnings: [],
+    });
+    const gtinFinding = r.findings.find((f) => f.code === 'gtin:missing');
+    expect(gtinFinding?.severity).toBe('medium');
+  });
+
+  it('gtin:missing é medium quando googleProductCategory ausente (default behavior preserved)', () => {
+    const r = scoreRow({
+      row: makeRow({ gtin: null, googleProductCategory: null }),
+      validation: okValidation,
+      warnings: [],
+    });
+    const gtinFinding = r.findings.find((f) => f.code === 'gtin:missing');
+    expect(gtinFinding?.severity).toBe('medium');
   });
 });
 

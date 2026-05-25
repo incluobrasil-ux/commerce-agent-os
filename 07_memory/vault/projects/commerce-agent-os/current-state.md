@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-25T22:10:16.504Z
+updated_at: 2026-05-25T22:39:42.887Z
 tags: [current-state, status]
 source: mixed
 confidence: 1.0
@@ -23,9 +23,9 @@ confidence: 1.0
 | | |
 |---|---|
 | Macro-fase | 2 — Implementação |
-| Sub-fase | 2.5 ✅ Bloco A+B + 2.6 ✅ + 2.7 ✅ + 2.8 ✅ Merchant audit MVP + **N26 ✅ audit real Incluo** |
-| Último marco (2026-05-25) | **N26 — Audit real do catálogo Incluo** via MCP Shopify (50 SKUs, score médio **81.9/100**, 49🟢/0🟡/1🔴). 4 follow-ups operacionais (N26.a-d) + 3 gaps de regra para N20.1. Detalhe em [run-summary](run-summaries/2026-05-25-audit-merchant-audit-incluo-json.md). **241 testes verdes** (nenhum código novo nesta rodada). |
-| Próximo marco técnico | **Escolher entre N21 (pipeline LLM real) / N20.1 (scorer com presets) / N24 (handoff entre agentes)** — N26.a-d diferidos (decisão do operador: fixar manual no admin Shopify quando voltar à operação). Detalhe em [next-actions.md](next-actions.md). |
+| Sub-fase | 2.5 ✅ + 2.6 ✅ + 2.7 ✅ + 2.8 ✅ + N26 ✅ + **N20.1 ✅ scorer evoluído** |
+| Último marco (2026-05-25) | **N20.1 — Scorer evolui com 3 regras vindas do N26:** (1) `title:no-brand` always-on, (2) `description:truncated` (low) suprime falsos positivos com `...`, (3) GMC category override (`3793 Educational Toys` → gtin low ao invés de medium) + transformer aceita `gmcCategoryByProductType` + `defaultGmcCategoryId`. Re-run no snapshot Incluo: score **81.9 → 93.2** (medium findings 100→0). **251 testes verdes em 34 arquivos** (+10 vs anterior). |
+| Próximo marco técnico | **N21 (pipeline LLM real)** assim que `ANTHROPIC_API_KEY` for atualizada em `.env.local` (B1 confirmado: key revogada via `pnpm llm:smoke`). Alternativa: **N24** (handoff via Memória) ou ampliar `GMC_CATEGORY_OVERRIDES` com mais categorias. Detalhe em [next-actions.md](next-actions.md). |
 
 ## Verde
 
@@ -56,6 +56,6 @@ confidence: 1.0
 
 ## Resumo em 1 linha
 
-> 20/22 agentes reais + Merchant audit MVP rodado em catálogo real Incluo (50 SKUs, score 81.9/100, 1 SKU red acionável + 4 follow-ups). 241 testes verdes. Próximo: executar N26.a-d (ops) e N20.1 (dev: presets de regra por categoria).
+> N20.1 ✅ — scorer evoluído com 3 regras vindas do N26 real-catalog. Score Incluo subiu 81.9 → 93.2; medium findings 100 → 0; 100% dos SKUs prontos para submissão (exceto 1 yellow = SKU operacional com price=0 esperando N26.a). **251 testes verdes**. Próximo: N21 (pipeline LLM real) bloqueado por B1 (Anthropic key revogada).
 
 Detalhe em [blockers-and-risks.md](blockers-and-risks.md).

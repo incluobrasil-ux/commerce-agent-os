@@ -96,6 +96,17 @@ export interface TransformOptions {
   defaultPrice?: Money;
   /** URL placeholder de imagem quando produto não tem. */
   defaultImageUrl?: string;
+  /**
+   * Map de productType (string exato Shopify) → GMC category ID (string).
+   * Quando o productType do produto bate, googleProductCategory é preenchido
+   * com o ID correspondente, evitando o finding `googleProductCategory:missing`.
+   */
+  gmcCategoryByProductType?: Record<string, string>;
+  /**
+   * Fallback GMC category ID quando productType não está no mapping (ou ausente).
+   * Útil para catálogos majoritariamente em uma única categoria.
+   */
+  defaultGmcCategoryId?: string;
 }
 
 export interface TransformResult {
@@ -153,6 +164,14 @@ export function productToFeedRow(
     );
   }
 
+  let googleProductCategory: string | null = null;
+  if (opts.gmcCategoryByProductType && product.productType) {
+    googleProductCategory = opts.gmcCategoryByProductType[product.productType] ?? null;
+  }
+  if (!googleProductCategory && opts.defaultGmcCategoryId) {
+    googleProductCategory = opts.defaultGmcCategoryId;
+  }
+
   const row: FeedRow = {
     id: id as GMCProductId,
     channel,
@@ -168,7 +187,7 @@ export function productToFeedRow(
     brand: product.vendor ?? null,
     gtin: product.gtin ?? null,
     mpn: product.mpn ?? null,
-    googleProductCategory: null,
+    googleProductCategory,
     productTypes: product.productType ? [product.productType] : [],
   };
 

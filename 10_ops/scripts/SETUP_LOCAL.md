@@ -74,19 +74,43 @@ Tudo 🟢: pronto pra qualquer comando. Algum 🔴: bloqueio real, mensagem dá 
 
 ## Variáveis de ambiente
 
-`repo-auditor` **não exige** nenhuma chave para rodar. É determinístico.
+Agentes determinísticos (`repo-auditor`, `merchant:audit`, `feed:dry-run` com fixture) **não exigem** nenhuma chave.
 
-Variáveis listadas em [`.env.example`](../../.env.example) só ficam necessárias quando:
+Variáveis em [`.env.example`](../../.env.example) só ficam necessárias quando:
 
 | Variável | Necessária para |
 |---|---|
-| `ANTHROPIC_API_KEY` | invocar qualquer agente via `@cao/runtime` (futuro — quando integrarmos LLM no fluxo) |
-| `SHOPIFY_API_KEY` / `SHOPIFY_API_SECRET` | Fase 8 (Shopify connect) |
-| `GOOGLE_OAUTH_*` | Fase 9 (merchant feed) |
-| `POSTHOG_API_KEY` | Fase 10 (analytics) |
-| `HIGGSFIELD_API_KEY` | Fase 11 (creative ops) |
+| `ANTHROPIC_API_KEY` | qualquer agente LLM (17 agentes: marketing/creative/design/traffic/product-offer/compliance/etc.) |
+| `SHOPIFY_SHOP` + `SHOPIFY_ADMIN_TOKEN` | `pnpm shopify:list-products` e `--source=shopify` em audit/feed |
+| `SHOPIFY_API_KEY` / `SHOPIFY_API_SECRET` | OAuth Public App (Fase 8+) |
+| `GOOGLE_OAUTH_*` | upload real GMC (Fase 9) — não bloqueia dry-run |
+| `POSTHOG_API_KEY` | analytics (Fase 10) |
+| `HIGGSFIELD_API_KEY` | creative ops (Fase 11) |
 
-Nunca commitar `.env.local`. O `.gitignore` cobre `.env*`.
+Nunca commitar `.env.local`. `.gitignore` cobre `.env*`.
+
+## Multi-tenant / multi-store
+
+O repo suporta isolamento tenant/store por filesystem. Cada agente aceita:
+
+- `--tenant=<id>` — obrigatório quando operar para uma org real (default `_test` para dev).
+- `--store=<id>` — opcional, ativa caminho store-scoped (paths `tenants/<t>/stores/<s>/`).
+
+Onde a memória vai:
+
+| Escopo | Path | Quando |
+|---|---|---|
+| **Global / dev** | `07_memory/vault/projects/commerce-agent-os/` | runs sem tenant; `_test`, `_demo` |
+| **Tenant-level** | `07_memory/vault/tenants/<tenantId>/` | operação cross-store da organização |
+| **Store-level** | `07_memory/vault/tenants/<tenantId>/stores/<storeId>/` | operação de uma loja específica |
+
+**Para evitar misturar contexto entre lojas:** sempre passe `--tenant` e (quando aplicável) `--store` explicitamente. Não confie em defaults. Não compartilhe `.env.local` entre lojas.
+
+Pilot completo (merchant:audit) em [COMMANDS.md](./COMMANDS.md) seção "Multi-tenant / multi-store". 5 agentes ainda não migrados — ver [PROJECT_STATUS.md](../../00_meta/PROJECT_STATUS.md).
+
+## Setup local do operador (não é parte do repo)
+
+- **`.agents/` e `skills-lock.json`** ficam gitignored. Se você usar `caveman` ou outro skill manager local, esses arquivos aparecem na sua working tree mas não vão pro repo. Configure no seu PC sem afetar o time.
 
 ## Problemas comuns
 
@@ -103,9 +127,11 @@ Nunca commitar `.env.local`. O `.gitignore` cobre `.env*`.
 
 Depois do setup verde:
 
-1. Ler [`07_memory/vault/projects/commerce-agent-os/project-home.md`](../../07_memory/vault/projects/commerce-agent-os/project-home.md) — entrada do cérebro operacional.
-2. Ler [`07_memory/vault/projects/commerce-agent-os/current-state.md`](../../07_memory/vault/projects/commerce-agent-os/current-state.md) — estado atual.
+1. Ler [`00_meta/PROJECT_STATUS.md`](../../00_meta/PROJECT_STATUS.md) — **fonte única do estado real** (1 página).
+2. Ler [`07_memory/vault/projects/commerce-agent-os/current-state.md`](../../07_memory/vault/projects/commerce-agent-os/current-state.md) — estado operacional detalhado.
 3. Ler [`07_memory/vault/projects/commerce-agent-os/next-actions.md`](../../07_memory/vault/projects/commerce-agent-os/next-actions.md) — o que puxar.
 4. Antes de puxar item: [`07_memory/vault/projects/commerce-agent-os/sync-protocol.md`](../../07_memory/vault/projects/commerce-agent-os/sync-protocol.md).
 
 Lista completa de comandos: [`COMMANDS.md`](./COMMANDS.md).
+
+Para abrir o cérebro no Obsidian: `File → Open vault → 07_memory/vault/`. Pasta `_template/` tem exemplo; `projects/commerce-agent-os/` é o cérebro de desenvolvimento; `tenants/<id>/` aparece quando você rodar agentes com `--tenant=<id>`.

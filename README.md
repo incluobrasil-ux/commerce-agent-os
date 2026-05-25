@@ -2,23 +2,33 @@
 
 Sistema operacional de **agentes especializados** para lojistas Shopify — automação de catálogo, feed Google Merchant, marketing, reviews e analytics, sob runtime + memória + guardrails comuns.
 
-> ⚙️ **Estado do projeto (2026-05-25):** núcleo `@cao/*` + **20 agentes reais executáveis** (de 22 catalogados). Pipeline Merchant dry-run end-to-end funciona local com fixture. **Ainda não é produto** — falta conectar credenciais externas (Anthropic, Shopify, GMC) para runs reais.
+> ⚙️ **Estado do projeto (2026-05-25):** núcleo `@cao/*` + **20 agentes reais executáveis** (de 22 catalogados) + **multi-tenant/multi-store hardening** (base técnica completa; pilot validado em `merchant:audit`). **Suíte: 309 testes em 36 arquivos.** Pipeline Merchant audit + dry-run end-to-end funciona local com fixture/JSON. **Não é produto** — runs reais Shopify/Anthropic/GMC dependem de credenciais externas.
 >
 > O que há hoje:
-> - **20 agentes REAL_EXECUTABLE** com CLI thin (`pnpm <verbo>:<noun>`), zod schemas, testes reais e graceful `SKIPPED` quando credencial ausente. Catálogo abaixo.
-> - **6 packages `@cao/*`** (core, llm, memory, guardrails, observability, runtime) + brain-bridge + 5 integrations (shopify, google-merchant, review-apps, higgsfield, posthog).
-> - **Pipeline Merchant dry-run:** `pnpm feed:dry-run` transforma produto (fixture ou Shopify) → valida zod → escreve relatório em `12_reports/merchant-dry-runs/`. **100% local sem credenciais.**
-> - **Cérebro operacional multi-operador** em `07_memory/vault/projects/commerce-agent-os/` (current-state, next-actions, workstreams, run-summaries, etc.) com `--capture` integrado.
-> - **`pnpm doctor`** — 10 checks cross-platform que validam onboarding em outro PC em < 1 min.
-> - Suíte: **228 testes verdes em 33 arquivos**. CI ativo. Branch protection em `main`. 8 ADRs aceitos.
+> - **20 agentes REAL_EXECUTABLE** com CLI thin (`pnpm <verbo>:<noun>`), zod schemas, testes reais e graceful `SKIPPED` quando credencial ausente.
+> - **Merchant audit determinístico** (`pnpm merchant:audit`) com score 0-100 por SKU + findings categorizados (critical/high/medium/low) + remediação concreta + ranking. Aceita JSON local, fixture interna ou Shopify.
+> - **Multi-tenant / multi-store**: `--tenant=<id>` + `--store=<id>` opcional → paths isolados em `tenants/<t>/[stores/<s>/]`. 12 smoke testes de isolamento. Helpers `assertTenantContext`/`assertTenantStoreContext` em `@cao/core`.
+> - **6 packages `@cao/*`** + brain-bridge + 5 integrations (shopify, google-merchant, review-apps, higgsfield, posthog).
+> - **`pnpm doctor`** — 10 checks cross-platform validam onboarding em outro PC em < 1 min.
+> - Cérebro operacional em `07_memory/vault/` (dev brain `projects/commerce-agent-os/`, operacional `tenants/<id>/[stores/<id>/]`).
+> - CI ativo, branch protection em `main`, 8 ADRs aceitos.
 >
-> O que **ainda não** há: instalação Shopify real, chamadas LLM em produção (key precisa ser ativada), upload Google Merchant real (apenas dry-run).
+> O que **ainda não** há: instalação Shopify pública (OAuth), chamadas LLM em produção (key configurada por operador), upload Google Merchant real (só dry-run + audit determinístico).
 >
-> Tag de referência: [`v0.1.0-architecture-baseline`](https://github.com/incluobrasil-ux/commerce-agent-os/releases/tag/v0.1.0-architecture-baseline) (snapshot pré-agentes; histórico).
+> Tag de referência: [`v0.1.0-architecture-baseline`](https://github.com/incluobrasil-ux/commerce-agent-os/releases/tag/v0.1.0-architecture-baseline) (snapshot pré-agentes).
 
 ## Em uma frase
 
-Você está olhando para um monorepo Shopify-agents com **20 agentes executáveis** e pipeline Merchant dry-run funcionando local. Clone → `pnpm install` → `pnpm doctor` → `pnpm feed:dry-run` em ≤ 5 min, **sem credenciais externas**.
+Monorepo Shopify-agents com **20 agentes executáveis**, **multi-tenant/multi-store**, pipeline Merchant audit/dry-run local. Clone → `pnpm install` → `pnpm doctor` → `pnpm merchant:audit --source=fixture` em ≤ 5 min, **sem credenciais externas**.
+
+## Para a equipe: estado real + comandos
+
+| Quero saber… | Vá para |
+|---|---|
+| **estado real, parcial vs funcional, bloqueios** | [00_meta/PROJECT_STATUS.md](./00_meta/PROJECT_STATUS.md) |
+| **como clonar, instalar, validar (≤ 5 min)** | [10_ops/scripts/SETUP_LOCAL.md](./10_ops/scripts/SETUP_LOCAL.md) |
+| **lista completa de comandos + multi-tenant** | [10_ops/scripts/COMMANDS.md](./10_ops/scripts/COMMANDS.md) |
+| **o que puxar agora** | [07_memory/vault/projects/commerce-agent-os/next-actions.md](./07_memory/vault/projects/commerce-agent-os/next-actions.md) |
 
 ## Agentes disponíveis
 

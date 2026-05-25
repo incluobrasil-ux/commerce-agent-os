@@ -33,6 +33,30 @@ importers:
         specifier: ^2
         version: 2.1.9(@types/node@20.19.41)
 
+  03_agents/ads-launchpad:
+    dependencies:
+      '@cao/brain-bridge':
+        specifier: workspace:*
+        version: link:../../06_packages/brain-bridge
+      '@cao/core':
+        specifier: workspace:*
+        version: link:../../06_packages/core
+      '@cao/llm':
+        specifier: workspace:*
+        version: link:../../06_packages/llm
+      '@cao/memory':
+        specifier: workspace:*
+        version: link:../../06_packages/memory
+      '@cao/observability':
+        specifier: workspace:*
+        version: link:../../06_packages/observability
+      '@cao/runtime':
+        specifier: workspace:*
+        version: link:../../06_packages/runtime
+      zod:
+        specifier: ^3
+        version: 3.25.76
+
   03_agents/audit-synthesizer:
     dependencies:
       '@cao/core':
@@ -88,6 +112,78 @@ importers:
         version: 3.25.76
 
   03_agents/competitor-benchmark:
+    dependencies:
+      '@cao/brain-bridge':
+        specifier: workspace:*
+        version: link:../../06_packages/brain-bridge
+      '@cao/core':
+        specifier: workspace:*
+        version: link:../../06_packages/core
+      '@cao/llm':
+        specifier: workspace:*
+        version: link:../../06_packages/llm
+      '@cao/memory':
+        specifier: workspace:*
+        version: link:../../06_packages/memory
+      '@cao/observability':
+        specifier: workspace:*
+        version: link:../../06_packages/observability
+      '@cao/runtime':
+        specifier: workspace:*
+        version: link:../../06_packages/runtime
+      zod:
+        specifier: ^3
+        version: 3.25.76
+
+  03_agents/customer-journey-ops:
+    dependencies:
+      '@cao/brain-bridge':
+        specifier: workspace:*
+        version: link:../../06_packages/brain-bridge
+      '@cao/core':
+        specifier: workspace:*
+        version: link:../../06_packages/core
+      '@cao/llm':
+        specifier: workspace:*
+        version: link:../../06_packages/llm
+      '@cao/memory':
+        specifier: workspace:*
+        version: link:../../06_packages/memory
+      '@cao/observability':
+        specifier: workspace:*
+        version: link:../../06_packages/observability
+      '@cao/runtime':
+        specifier: workspace:*
+        version: link:../../06_packages/runtime
+      zod:
+        specifier: ^3
+        version: 3.25.76
+
+  03_agents/finance-margin-radar:
+    dependencies:
+      '@cao/brain-bridge':
+        specifier: workspace:*
+        version: link:../../06_packages/brain-bridge
+      '@cao/core':
+        specifier: workspace:*
+        version: link:../../06_packages/core
+      '@cao/llm':
+        specifier: workspace:*
+        version: link:../../06_packages/llm
+      '@cao/memory':
+        specifier: workspace:*
+        version: link:../../06_packages/memory
+      '@cao/observability':
+        specifier: workspace:*
+        version: link:../../06_packages/observability
+      '@cao/runtime':
+        specifier: workspace:*
+        version: link:../../06_packages/runtime
+      zod:
+        specifier: ^3
+        version: 3.25.76
+
+  03_agents/governance-risk-qa:
     dependencies:
       '@cao/brain-bridge':
         specifier: workspace:*
@@ -177,6 +273,30 @@ importers:
         specifier: ^3
         version: 3.25.76
 
+  03_agents/merchant-compliance:
+    dependencies:
+      '@cao/brain-bridge':
+        specifier: workspace:*
+        version: link:../../06_packages/brain-bridge
+      '@cao/core':
+        specifier: workspace:*
+        version: link:../../06_packages/core
+      '@cao/llm':
+        specifier: workspace:*
+        version: link:../../06_packages/llm
+      '@cao/memory':
+        specifier: workspace:*
+        version: link:../../06_packages/memory
+      '@cao/observability':
+        specifier: workspace:*
+        version: link:../../06_packages/observability
+      '@cao/runtime':
+        specifier: workspace:*
+        version: link:../../06_packages/runtime
+      zod:
+        specifier: ^3
+        version: 3.25.76
+
   03_agents/orchestrator-master:
     dependencies:
       '@cao/brain-bridge':
@@ -222,6 +342,30 @@ importers:
         specifier: ^3
         version: 3.25.76
 
+  03_agents/product-offer:
+    dependencies:
+      '@cao/brain-bridge':
+        specifier: workspace:*
+        version: link:../../06_packages/brain-bridge
+      '@cao/core':
+        specifier: workspace:*
+        version: link:../../06_packages/core
+      '@cao/llm':
+        specifier: workspace:*
+        version: link:../../06_packages/llm
+      '@cao/memory':
+        specifier: workspace:*
+        version: link:../../06_packages/memory
+      '@cao/observability':
+        specifier: workspace:*
+        version: link:../../06_packages/observability
+      '@cao/runtime':
+        specifier: workspace:*
+        version: link:../../06_packages/runtime
+      zod:
+        specifier: ^3
+        version: 3.25.76
+
   03_agents/repo-auditor:
     dependencies:
       '@cao/brain-bridge':
@@ -230,6 +374,54 @@ importers:
       '@cao/core':
         specifier: workspace:*
         version: link:../../06_packages/core
+      zod:
+        specifier: ^3
+        version: 3.25.76
+
+  03_agents/reviews-ops:
+    dependencies:
+      '@cao/brain-bridge':
+        specifier: workspace:*
+        version: link:../../06_packages/brain-bridge
+      '@cao/core':
+        specifier: workspace:*
+        version: link:../../06_packages/core
+      '@cao/llm':
+        specifier: workspace:*
+        version: link:../../06_packages/llm
+      '@cao/memory':
+        specifier: workspace:*
+        version: link:../../06_packages/memory
+      '@cao/observability':
+        specifier: workspace:*
+        version: link:../../06_packages/observability
+      '@cao/runtime':
+        specifier: workspace:*
+        version: link:../../06_packages/runtime
+      zod:
+        specifier: ^3
+        version: 3.25.76
+
+  03_agents/visual-asset-ops:
+    dependencies:
+      '@cao/brain-bridge':
+        specifier: workspace:*
+        version: link:../../06_packages/brain-bridge
+      '@cao/core':
+        specifier: workspace:*
+        version: link:../../06_packages/core
+      '@cao/llm':
+        specifier: workspace:*
+        version: link:../../06_packages/llm
+      '@cao/memory':
+        specifier: workspace:*
+        version: link:../../06_packages/memory
+      '@cao/observability':
+        specifier: workspace:*
+        version: link:../../06_packages/observability
+      '@cao/runtime':
+        specifier: workspace:*
+        version: link:../../06_packages/runtime
       zod:
         specifier: ^3
         version: 3.25.76

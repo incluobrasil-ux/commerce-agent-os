@@ -36,6 +36,7 @@
     { "path": "./03_agents/product-offer" },
     { "path": "./03_agents/merchant-compliance" },
     { "path": "./03_agents/governance-risk-qa" },
-    { "path": "./03_agents/visual-asset-ops" }
+    { "path": "./03_agents/visual-asset-ops" },
+    { "path": "./03_agents/customer-journey-ops" }
   ]
 }

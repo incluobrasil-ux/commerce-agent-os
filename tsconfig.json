@@ -34,6 +34,7 @@
     { "path": "./03_agents/competitor-benchmark" },
     { "path": "./03_agents/reviews-ops" },
     { "path": "./03_agents/product-offer" },
-    { "path": "./03_agents/merchant-compliance" }
+    { "path": "./03_agents/merchant-compliance" },
+    { "path": "./03_agents/governance-risk-qa" }
   ]
 }

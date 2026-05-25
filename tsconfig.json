@@ -32,6 +32,7 @@
     { "path": "./03_agents/orchestrator-master" },
     { "path": "./03_agents/market-intelligence" },
     { "path": "./03_agents/competitor-benchmark" },
-    { "path": "./03_agents/reviews-ops" }
+    { "path": "./03_agents/reviews-ops" },
+    { "path": "./03_agents/product-offer" }
   ]
 }

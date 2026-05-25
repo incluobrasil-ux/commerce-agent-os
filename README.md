@@ -2,22 +2,52 @@
 
 Sistema operacional de **agentes especializados** para lojistas Shopify — automação de catálogo, feed Google Merchant, marketing, reviews e analytics, sob runtime + memória + guardrails comuns.
 
-> ⚙️ **Estado do projeto:** baseline arquitetural + núcleo `@cao/*` mínimo + **primeiro agente real funcional** (`repo-auditor`). **Ainda não é produto.**
+> ⚙️ **Estado do projeto (2026-05-25):** núcleo `@cao/*` + **20 agentes reais executáveis** (de 22 catalogados). Pipeline Merchant dry-run end-to-end funciona local com fixture. **Ainda não é produto** — falta conectar credenciais externas (Anthropic, Shopify, GMC) para runs reais.
 >
 > O que há hoje:
-> - 17 agentes + 7 apps + 7 integrações + 13 packages declarados.
-> - **Núcleo executável:** 6 packages `@cao/*` (core, llm, memory, guardrails, observability, runtime) com 41 testes verdes.
-> - **1 agente real:** `repo-auditor` — `pnpm audit:repo <path>` produz relatório markdown em `12_reports/audits/repo-auditor/`. Modo determinístico, **sem credenciais externas**.
-> - Suíte completa: **52 testes verdes**. CI ativo. Branch protection em `main`.
-> - Cérebro operacional multi-operador em `07_memory/vault/projects/commerce-agent-os/`.
+> - **20 agentes REAL_EXECUTABLE** com CLI thin (`pnpm <verbo>:<noun>`), zod schemas, testes reais e graceful `SKIPPED` quando credencial ausente. Catálogo abaixo.
+> - **6 packages `@cao/*`** (core, llm, memory, guardrails, observability, runtime) + brain-bridge + 5 integrations (shopify, google-merchant, review-apps, higgsfield, posthog).
+> - **Pipeline Merchant dry-run:** `pnpm feed:dry-run` transforma produto (fixture ou Shopify) → valida zod → escreve relatório em `12_reports/merchant-dry-runs/`. **100% local sem credenciais.**
+> - **Cérebro operacional multi-operador** em `07_memory/vault/projects/commerce-agent-os/` (current-state, next-actions, workstreams, run-summaries, etc.) com `--capture` integrado.
+> - **`pnpm doctor`** — 10 checks cross-platform que validam onboarding em outro PC em < 1 min.
+> - Suíte: **228 testes verdes em 33 arquivos**. CI ativo. Branch protection em `main`. 8 ADRs aceitos.
 >
-> O que **ainda não** há: integração Shopify real, chamada LLM em produção, upstreams clonados, deploy.
+> O que **ainda não** há: instalação Shopify real, chamadas LLM em produção (key precisa ser ativada), upload Google Merchant real (apenas dry-run).
 >
-> Tag de referência: [`v0.1.0-architecture-baseline`](https://github.com/incluobrasil-ux/commerce-agent-os/releases/tag/v0.1.0-architecture-baseline) (pré-Sub-fase 2.2).
+> Tag de referência: [`v0.1.0-architecture-baseline`](https://github.com/incluobrasil-ux/commerce-agent-os/releases/tag/v0.1.0-architecture-baseline) (snapshot pré-agentes; histórico).
 
 ## Em uma frase
 
-Você está olhando para a **planta arquitetural** de um produto Shopify-agents, com **núcleo executável e 1 agente real funcionando**. Clone → `pnpm install` → `pnpm audit:repo .` em ≤ 5 min, sem credenciais externas.
+Você está olhando para um monorepo Shopify-agents com **20 agentes executáveis** e pipeline Merchant dry-run funcionando local. Clone → `pnpm install` → `pnpm doctor` → `pnpm feed:dry-run` em ≤ 5 min, **sem credenciais externas**.
+
+## Agentes disponíveis
+
+22 agentes catalogados; 20 com CLI real, 1 library-only (`product-feed-seo`), 1 stub (`analytics-optimization`).
+
+| Tier | Agente | Comando | Output |
+|---|---|---|---|
+| 0 | `orchestrator-master` | `pnpm orchestrate:master` | Plano de execução |
+| 1 | `market-intelligence` | `pnpm market:intelligence` | Inteligência de mercado |
+| 1 | `competitor-benchmark` | `pnpm competitor:benchmark` | Benchmark competitivo |
+| 1 | `reviews-ops` | `pnpm reviews:ops` | Voice-of-customer (temas/dores) |
+| 1 | `catalog-feed-ops` | `pnpm feed:dry-run` | Pipeline Merchant dry-run |
+| 2 | `product-offer` | `pnpm product:offer` | Hero + value props + bundles |
+| 2 | `merchant-compliance` | `pnpm merchant:compliance` | Risco legal/PII em conteúdo |
+| 2 | `marketing-director` | `pnpm marketing:plan` | Plano de marketing (iniciativas) |
+| 2 | `creative-copy-assets` | `pnpm creative:assets` | Copy variantes + visual brief |
+| 2 | `design-ux-localization` | `pnpm design:ux` | PDP blueprint + locale copy |
+| 2 | `traffic-campaigns` | `pnpm traffic:plan` | Dry-run media plan |
+| 2 | `customer-journey-ops` | `pnpm journey:map` | Mapa de jornada do cliente |
+| 2 | `finance-margin-radar` | `pnpm finance:radar` | Radar de margem |
+| 2 | `ads-launchpad` | `pnpm ads:plan` | Plano tático de anúncio |
+| 2 | `audit-synthesizer` | `pnpm synthesize:audit` | Síntese de auditoria |
+| 2 | `learning-memory-curation` | `pnpm curate:memory` | Curadoria de memória |
+| 2 | `memory-context` | `pnpm context:brief` | Context brief para tarefa |
+| 2 | `visual-asset-ops` | `pnpm visual:asset` | Brief visual (shot list) |
+| 3 | `governance-risk-qa` | `pnpm governance:qa` | Verdict (pass/warn/block) |
+| 3 | `repo-auditor` | `pnpm audit:repo <path>` | Audit determinístico de repo |
+| — | `product-feed-seo` | _(library; via `catalog-feed-ops`)_ | SEO otimizado de produtos |
+| — | `analytics-optimization` | _(não scaffoldado)_ | _Pendente_ |
 
 ## O que este projeto é
 
@@ -42,21 +72,20 @@ Para esses casos, consulte [Cenários em `current-project-status.md`](./12_repor
 
 ## Status atual
 
-| Macro-fase | Status | Detalhe |
+| Macro-fase / Sub-fase | Status | Detalhe |
 |---|---|---|
-| Fase 0 — scaffold inicial | ✅ | 13 dirs raiz + arquivos-base + 12 prompts |
-| Fase 1 — repo audit (20 upstreams) | ✅ | `00_meta/REPO_SELECTION.md` + 20 audits |
-| Fase 2 — arquitetura | ✅ | 5 ADRs estruturais + 6 integration maps |
-| Fase 3a/b — scaffold técnico | ✅ | 17 agentes + 7 apps + 7 integrações + 12 packages |
-| Fase 4 — fundação operacional | ✅ | UPPERCASE docs + shared packages + vault template |
-| Sub-fase 2.0 — ADRs operacionais | ✅ | ADR-0006, 0009, 0017 aceitos |
-| Sub-fase 2.1 — bootstrap funcional | ✅ | `pnpm install + typecheck + lint + smoke` verdes |
-| Sub-fase 2.2 — núcleo `@cao/*` + CI | ✅ | 6 packages com 41 testes; CI ativo |
-| Sub-fase 2.2.1 — primeiro agente real (`repo-auditor`) | ✅ | `pnpm audit:repo <path>` → markdown real em `12_reports/` |
-| Sub-fase 2.2.2 — cérebro operacional multi-operador | ✅ | `07_memory/vault/projects/commerce-agent-os/` estruturado |
-| **Sub-fase 2.3 — ingestão de upstreams** | 🔴 **próxima** | `01_upstreams/` vazio; `repo-auditor` pronto para auditar cada clone |
-| Sub-fase 2.4 — LLM end-to-end | 🔴 pendente | `@cao/llm` pronto; falta `ANTHROPIC_API_KEY` confirmada |
-| Sub-fases 2.5–2.11 | 🔴 pendentes | Shopify, feed, analytics, reviews, marketing, release v1 |
+| Fase 0–1 — scaffold + audit upstreams | ✅ | 13 dirs + 10 upstreams clonados/auditados |
+| Fase 2 — arquitetura | ✅ | 8 ADRs + integration maps |
+| Fase 3a/b — scaffold técnico | ✅ | 22 agentes + 7 apps + 7 integrações + 14 packages |
+| Sub-fase 2.1 — bootstrap funcional | ✅ | install + typecheck + lint + smoke verdes |
+| Sub-fase 2.2 — núcleo `@cao/*` + CI | ✅ | 6 packages com testes; CI ativo |
+| Sub-fase 2.3 — upstreams clonados | ✅ | 10 upstreams auditados via `repo-auditor` |
+| Sub-fase 2.5 — agentes (Bloco A+B) | ✅ | **20/22 agentes REAL_EXECUTABLE** (2026-05-25) |
+| Sub-fase 2.6 — Shopify minimal | ✅ | Admin client + OAuth helpers + CLI (SKIPPED sem creds) |
+| Sub-fase 2.7 — Merchant dry-run | ✅ | `pnpm feed:dry-run` 100% local com fixture |
+| Sub-fase 2.4 — LLM end-to-end real | 🟡 | código pronto; **falta ativar `ANTHROPIC_API_KEY` em `.env.local`** |
+| Sub-fase 2.8 — Shopify dev store real | 🔴 | depende de criar custom app em Partners (~3 min) |
+| Sub-fase 2.9 — GMC upload real | 🔴 | depende de creds Google Merchant (não bloqueia dry-run) |
 
 Detalhe completo: [`12_reports/releases/current-project-status.md`](./12_reports/releases/current-project-status.md) e [`12_reports/releases/phase-1-setup-summary.md`](./12_reports/releases/phase-1-setup-summary.md).
 
@@ -84,12 +113,27 @@ pnpm doctor
 
 `pnpm doctor` é o comando único de verificação — checa Node/pnpm/git, install, typecheck, lint, smoke, `.env.local`, gitleaks, cérebro. Se tudo verde, está pronto.
 
-Próximo passo (zero credencial):
+Próximos passos (zero credencial):
 
 ```bash
-pnpm audit:repo .       # 1º agente real determinístico
-pnpm feed:dry-run       # pipeline Merchant com fixture
+pnpm audit:repo .                          # audit determinístico do repo
+pnpm feed:dry-run                          # pipeline Merchant com fixture
+pnpm test                                  # 228 testes em ~3s
 ```
+
+Para usar agentes LLM (precisa Anthropic key em `.env.local`):
+
+```bash
+pnpm marketing:plan --horizon="Q3 2026" --objective="..." --voice="..." --budget=50000
+pnpm creative:assets --campaign="..." --theme="..." --audience="..." --voice="..." \
+  --offer="..." --channel=meta-ads --format=feed-image --locale=pt-BR
+pnpm design:ux --scope=product --name="..." --summary="..." --style="..." \
+  --market=pt-BR:BRL:BR --market=en-US:USD:US
+pnpm traffic:plan --campaign="..." --product="..." --total-budget=10000 \
+  --daily-cap=400 --cpa-target=35 --channel=meta-ads --channel=google-ads
+```
+
+Sem a key todos saem `SKIPPED` graciosamente, sem quebrar.
 
 Detalhe + setup completo + troubleshooting: [`10_ops/scripts/SETUP_LOCAL.md`](./10_ops/scripts/SETUP_LOCAL.md).
 Todos os comandos: [`10_ops/scripts/COMMANDS.md`](./10_ops/scripts/COMMANDS.md).

@@ -38,14 +38,14 @@ confidence: 1.0
 
 | | |
 |---|---|
-| Status | 🟢 (4 agentes reais; Sub-fase 2.5 com velocidade estabelecida) |
-| Escopo | 17 agentes declarativos virando executáveis. |
-| Último marco | `@cao/memory-context` (4º agente) implementado + 71 testes verdes. |
-| Próximo marco | Real runs dos 3 agentes LLM (após `.env.local` atualizada) → 5º agente OU pivotar para Sub-fase 2.6 |
+| Status | 🟢 (**20 agentes reais** de 22; Bloco A+B completos 2026-05-25) |
+| Escopo | 22 agentes declarativos virando executáveis. |
+| Último marco | **Sub-fase 2.5 Bloco B fechado** — `marketing-director`, `creative-copy-assets`, `design-ux-localization`, `traffic-campaigns` (228 testes verdes). |
+| Próximo marco | (a) real runs LLM após `.env.local` atualizada **ou** (b) enhance Merchant MVP (score/findings por SKU). |
 | Dono sugerido | dev |
-| Depende de | usuário atualizar `.env.local` com key nova |
-| Itens ativos | N10/N11 (real runs pendentes), N13 (decisão: continuar 2.5 ou pivotar) |
-| Refs | [03_agents/repo-auditor/](../../../../03_agents/repo-auditor/), [`2026-05-23-agent-run-repo-auditor-self-audit.md`](run-summaries/2026-05-23-agent-run-repo-auditor-self-audit.md) |
+| Depende de | usuário atualizar `.env.local` com key nova **para runs reais**; nada para desenvolvimento. |
+| Itens ativos | N20 (Phase 4 Merchant enhancement), N11 (real runs LLM pendentes) |
+| Refs | [03_agents/](../../../../03_agents/), [`2026-05-25-impl-milestone-four-new-agents.md`](run-summaries/2026-05-25-impl-milestone-four-new-agents.md) |
 
 ## W3 — Shopify connect
 

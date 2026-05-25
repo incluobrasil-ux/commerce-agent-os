@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-24T00:05:00.000Z
+updated_at: 2026-05-25T17:25:00.000Z
 tags: [log, sessions]
 source: human:incluobrasil
 confidence: 1.0
@@ -24,6 +24,12 @@ confidence: 1.0
 ```
 
 ---
+
+## 2026-05-25 — Sub-fase 2.5 Bloco B fechado: 4 agentes novos (marketing/creative/design/traffic)
+
+- Feito: auditoria do estado real revelou 16 agentes REAL_EXECUTABLE (não 4-6 como brain reportava). Implementados os 4 últimos do Bloco B prioritário: `marketing-director` (`pnpm marketing:plan`), `creative-copy-assets` (`pnpm creative:assets`), `design-ux-localization` (`pnpm design:ux`), `traffic-campaigns` (`pnpm traffic:plan`). Todos seguindo padrão `defineAgent + zod + runAgent + --capture`. Pastas já tinham AGENT.md declarativo — alinhei a implementação com a missão original. Wired em root tsconfig + package.json.
+- Resultado: verde. Suíte 202 → **228 testes em 33 arquivos**. Typecheck, lint, smoke, doctor todos OK. **20/22 agentes** agora REAL_EXECUTABLE. Brain (current-state, workstreams, next-actions, run-summaries) atualizado para refletir reality. README atualizado removendo claim stale "1 agente real".
+- Próximo: N20 — enhance Merchant MVP (audit por SKU, scoring, remediações detalhadas). Sem dependência externa.
 
 ## 2026-05-24 — Repo fechado para equipe: pnpm doctor + 4 docs harmonizados
 

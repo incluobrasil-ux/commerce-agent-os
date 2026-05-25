@@ -28,6 +28,7 @@
     { "path": "./03_agents/learning-memory-curation" },
     { "path": "./03_agents/memory-context" },
     { "path": "./03_agents/product-feed-seo" },
-    { "path": "./03_agents/catalog-feed-ops" }
+    { "path": "./03_agents/catalog-feed-ops" },
+    { "path": "./03_agents/orchestrator-master" }
   ]
 }

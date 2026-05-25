@@ -28,6 +28,17 @@
     { "path": "./03_agents/learning-memory-curation" },
     { "path": "./03_agents/memory-context" },
     { "path": "./03_agents/product-feed-seo" },
-    { "path": "./03_agents/catalog-feed-ops" }
+    { "path": "./03_agents/catalog-feed-ops" },
+    { "path": "./03_agents/orchestrator-master" },
+    { "path": "./03_agents/market-intelligence" },
+    { "path": "./03_agents/competitor-benchmark" },
+    { "path": "./03_agents/reviews-ops" },
+    { "path": "./03_agents/product-offer" },
+    { "path": "./03_agents/merchant-compliance" },
+    { "path": "./03_agents/governance-risk-qa" },
+    { "path": "./03_agents/visual-asset-ops" },
+    { "path": "./03_agents/customer-journey-ops" },
+    { "path": "./03_agents/ads-launchpad" },
+    { "path": "./03_agents/finance-margin-radar" }
   ]
 }

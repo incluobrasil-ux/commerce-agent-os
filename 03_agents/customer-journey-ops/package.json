@@ -1,0 +1,31 @@
+{
+  "name": "@cao/customer-journey-ops",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Mapeia jornada do cliente (awareness→retention), identifica frictions e propõe ações priorizadas.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "customer-journey-ops": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rm -rf dist .tsbuildinfo"
+  },
+  "dependencies": {
+    "@cao/brain-bridge": "workspace:*",
+    "@cao/core": "workspace:*",
+    "@cao/llm": "workspace:*",
+    "@cao/memory": "workspace:*",
+    "@cao/observability": "workspace:*",
+    "@cao/runtime": "workspace:*",
+    "zod": "^3"
+  }
+}

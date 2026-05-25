@@ -38,6 +38,7 @@
     { "path": "./03_agents/governance-risk-qa" },
     { "path": "./03_agents/visual-asset-ops" },
     { "path": "./03_agents/customer-journey-ops" },
-    { "path": "./03_agents/ads-launchpad" }
+    { "path": "./03_agents/ads-launchpad" },
+    { "path": "./03_agents/finance-margin-radar" }
   ]
 }

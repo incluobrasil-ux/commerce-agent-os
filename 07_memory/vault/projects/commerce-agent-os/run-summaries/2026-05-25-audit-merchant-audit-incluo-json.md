@@ -50,10 +50,11 @@ Primeiro confronto do scorer determinístico (`pnpm merchant:audit`) com catálo
 
 ## Ações geradas
 
-- [ ] **N26.a** (ops): corrigir price = 0 no SKU `contas-madeira-montessori-animais-frutas-coordenac` no admin Shopify.
-- [ ] **N26.b** (produto): decidir política GTIN para o catálogo Incluo (mapear via barcode OU `identifier_exists=false`).
-- [ ] **N26.c** (produto): mapear productType Shopify → Google Product Taxonomy (6-8 productTypes ativos).
-- [ ] **N26.d** (ops): rodar bulk edit no Shopify adicionando "Incluo" no início de títulos > 70 chars que não mencionam a marca.
+- [ ] **N26.a-d**: ver análise consolidada com reads MCP completos + propostas de write em [`12_reports/merchant-audits/incluo-n26-followup-analysis.md`](../../../../12_reports/merchant-audits/incluo-n26-followup-analysis.md). Inclui:
+  - N26.a: SKU red diagnosticado (single variant `Animal 24PCS`, price=0, descrição rica). Esperando decisão de preço.
+  - N26.b: 0/50 SKUs com barcode populado — recomendação `identifier_exists=false` global.
+  - N26.c: 35 productTypes consolidados em 2 buckets GMC (47→3793 Educational Toys, 3→5872 Massagers).
+  - N26.d: 21 títulos before/after listados; decisão entre bulk MCP vs Shopify admin.
 - [ ] **N20.1** (dev): scorer ganha presets por categoria + threshold ajustável + flag de "dado truncado" — ver [next-actions.md](../next-actions.md#n201).
 - [ ] Re-rodar `pnpm merchant:audit --source=json --file=08_data/fixtures/incluo-catalog-real.json --tenant=incluo` após N26.a + N26.d para medir delta.
 

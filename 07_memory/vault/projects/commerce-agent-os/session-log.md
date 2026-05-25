@@ -25,6 +25,12 @@ confidence: 1.0
 
 ---
 
+## 2026-05-25 — N26 follow-up: 4 reads MCP completos + análise consolidada (writes diferidos)
+
+- Feito: 4 reads N26.a/b/c/d via MCP Shopify + análise local. (a) red SKU diagnosticado: single variant `Animal 24PCS`, R$ 0,00, descrição rica de 3.5k chars, 35 unidades — apenas preço esquecido. (b) confirmado 0/50 SKUs com barcode → política recomendada `identifier_exists=false` global. (c) 35 productTypes consolidam em 2 buckets GMC (47→3793 Educational Toys, 3→5872 Massagers). (d) 21 títulos before/after listados. Documento operacional consolidado em `12_reports/merchant-audits/incluo-n26-followup-analysis.md`.
+- Resultado: sistema validado end-to-end com catálogo real. Operador decidiu diferir os 4 writes (vai corrigir manual no admin Shopify quando voltar à operação). Brain atualizado.
+- Próximo: escolher próximo bloco — N21 (pipeline LLM real, key já em .env.local), N20.1 (evoluir scorer com presets de categoria) ou N24 (handoff entre agentes via Memória).
+
 ## 2026-05-25 — N26: Merchant audit em catálogo real Incluo (50 SKUs)
 
 - Feito: catálogo Incluo (50 SKUs reais via MCP Shopify) convertido para JSON em `08_data/fixtures/incluo-catalog-real.json`; rodado `pnpm merchant:audit --source=json --tenant=incluo --capture`. Auto-capture criou run-summary + bumpou current-state. Versão enriquecida do summary criada manualmente com interpretação dos achados.

@@ -25,7 +25,7 @@ confidence: 1.0
 | Macro-fase | 2 — Implementação |
 | Sub-fase | 2.5 ✅ Bloco A+B + 2.6 ✅ + 2.7 ✅ + 2.8 ✅ Merchant audit MVP + **N26 ✅ audit real Incluo** |
 | Último marco (2026-05-25) | **N26 — Audit real do catálogo Incluo** via MCP Shopify (50 SKUs, score médio **81.9/100**, 49🟢/0🟡/1🔴). 4 follow-ups operacionais (N26.a-d) + 3 gaps de regra para N20.1. Detalhe em [run-summary](run-summaries/2026-05-25-audit-merchant-audit-incluo-json.md). **241 testes verdes** (nenhum código novo nesta rodada). |
-| Próximo marco técnico | **N26.a-d** — follow-ups acionáveis do audit Incluo (corrigir price=0 / decisão GTIN / mapping GMC taxonomy / bulk title brand). Depois N20.1 (presets do scorer) + N21 (pipeline LLM real). Detalhe em [next-actions.md](next-actions.md). |
+| Próximo marco técnico | **Escolher entre N21 (pipeline LLM real) / N20.1 (scorer com presets) / N24 (handoff entre agentes)** — N26.a-d diferidos (decisão do operador: fixar manual no admin Shopify quando voltar à operação). Detalhe em [next-actions.md](next-actions.md). |
 
 ## Verde
 

@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-25T22:30:00.000Z
+updated_at: 2026-05-25T23:00:00.000Z
 tags: [next-actions]
 source: mixed
 confidence: 1.0
@@ -32,44 +32,44 @@ confidence: 1.0
 - **Gaps de regra do scorer descobertos:** descrição truncada via MCP; threshold de `title:no-brand` baixo demais; `gtin:missing` não diferencia categoria (confirma necessidade de N20.1).
 - **Detalhe completo:** [run-summary 2026-05-25-audit-merchant-audit-incluo-json](run-summaries/2026-05-25-audit-merchant-audit-incluo-json.md).
 
-## Prioridade imediata — N26 follow-ups
+## ~~N26 follow-ups~~ — diferidos pelo operador (2026-05-25)
 
-Quatro ações imediatas geradas pelo audit acima, divididas por quem puxa:
+Decisão: o sistema mostrou-se funcional (end-to-end real-catalog audit OK). Operador opta por **não tocar na loja agora**; N26.a-d ficam diferidos para quando voltar à operação Shopify.
 
-| # | Ação | Quem | Esforço |
-|---|---|---|---|
-| **N26.a** | Corrigir price = 0 no SKU `contas-madeira-montessori-animais-frutas-coordenac` (Shopify admin) | ops | 2 min |
-| **N26.b** | Decidir política GTIN: mapear via `variant.barcode` OU `identifier_exists=false` para o catálogo | produto | decisão |
-| **N26.c** | Mapear productType Shopify → Google Product Taxonomy (6-8 productTypes ativos da Incluo) | produto + dev | 1-2 h |
-| **N26.d** | Bulk edit no Shopify: adicionar "Incluo" no início dos 21 títulos > 70 chars sem brand | ops | 30 min |
+| # | Ação | Status |
+|---|---|---|
+| **N26.a** | Corrigir price = 0 no SKU `contas-madeira-montessori-animais-frutas-coordenac` | 🔵 manual no admin (operador) |
+| **N26.b** | Política GTIN (`identifier_exists=false` global) | 🔵 decisão pendente |
+| **N26.c** | Mapping productType → GMC taxonomy (47→3793, 3→5872) | 🔵 decisão pendente |
+| **N26.d** | Brand prefix nos 21 títulos > 70 chars | 🔵 quando convier |
 
-Após N26.a + N26.d, re-rodar audit para medir delta. Esperado: score médio ≥ 90, 0 red.
+Análise consolidada com proposta de write por pillar (preserva o trabalho): [`12_reports/merchant-audits/incluo-n26-followup-analysis.md`](../../../../12_reports/merchant-audits/incluo-n26-followup-analysis.md). Pronta para puxar a qualquer momento.
 
-## Sequência recomendada após N26
+## Prioridade imediata — escolher próximo bloco
 
-1. **N21 — Ativar `ANTHROPIC_API_KEY` e ligar o pipeline real.**
-   Encadear Marketing → Criativo → Vitrine → Catálogo → Produtos → Merchant com dados reais. Custo total estimado por loop < $0.30.
-   ```bash
-   pnpm marketing:plan ... --capture
-   pnpm creative:assets ... --capture
-   pnpm design:ux ... --capture
-   pnpm feed:dry-run --source=shopify --seo --first=5 --capture
-   pnpm merchant:audit --source=shopify --tenant=<loja> --capture
-   ```
-   Pré-requisito: key Anthropic em `.env.local` (5 min em https://console.anthropic.com/settings/keys).
+### Opção A — **N21**: Pipeline LLM real end-to-end
 
-2. **N20.1 — Evoluir o audit por categoria + ajustes vindos do run real Incluo.** O scorer hoje aplica regras genéricas. Adicionar presets:
-   - **Eletrônicos:** exigir `gtin` + `manufacturer` (identifier_exists=true).
-   - **Moda:** exigir `size` + `color` + `age_group`.
-   - **Brinquedos educacionais/sensoriais (Incluo):** GTIN opcional (rebaixar para `low`), `age_group` mandatório.
-   - **PT-BR:** ampliar lista de keywords de risco (português) e disclaimers obrigatórios (LGPD, claims de saúde, escassez falsa).
-   - **Ajustes de threshold:** `title:no-brand` deve disparar quando `vendor` está populado E brand não está no início, independente de título > 70 chars.
-   - **Source-aware:** quando `--source=json` com descrição truncada (heurística: termina em "..."), suprimir `description:too-short` ou marcar como `unknown`.
-   Critério: cada categoria → 1 preset com 3-6 regras novas + testes.
+Encadear Marketing → Criativo → Vitrine → Catálogo → Produtos → Merchant com dados reais Incluo, key Anthropic já presente em `.env.local`. Custo estimado: < $0.30/loop. Retorno: outputs reais salvos em vault para uso operacional.
+```bash
+pnpm llm:smoke                                              # pre-flight ~$0.001
+pnpm marketing:plan --horizon=... --objective=... --capture
+pnpm creative:assets --campaign=... --capture
+pnpm design:ux --scope=product --name=... --capture
+pnpm feed:dry-run --source=fixture --seo --capture
+```
 
-3. **N24 — Handoff entre agentes via Memória.**
-   Usar `memory-context` (Memória) para passar context bundle automático entre Marketing → Criativo → Vitrine, evitando que o operador re-passe brief 3 vezes. Reduz retrabalho e custo de tokens (context já curado).
-   Pré-requisito: N21 validado.
+### Opção B — **N20.1**: Evoluir scorer (sem creds, dev puro)
+
+Aplicar os gaps descobertos no N26 ao scorer:
+- **Presets por categoria:** Brinquedos educacionais → GTIN opcional (rebaixar de medium para low); Eletrônicos → GTIN critical.
+- **Ajustes de threshold:** `title:no-brand` dispara quando `vendor` está populado E brand não está no início, independente de comprimento.
+- **Source-aware truncation:** quando description termina em `...`, suprimir `description:too-short` ou marcar `unknown`.
+- **Mapping productType → GMC ID:** embarcar como lookup no scorer (47→3793, 3→5872 confirmados para Incluo) para evitar `googleProductCategory:missing` quando productType é conhecido.
+- Critério: 4-6 regras novas + testes + re-rodar `pnpm merchant:audit` contra o snapshot Incluo para validar redução de falsos positivos.
+
+### Opção C — **N24**: Handoff entre agentes via Memória
+
+Usar `memory-context` (Memória) para passar context bundle automático entre Marketing → Criativo → Vitrine. Reduz retrabalho do operador e custo de tokens. Pré-requisito: N21 validado primeiro.
 
 ## Bloqueios externos (separados — não bloqueiam desenvolvimento)
 

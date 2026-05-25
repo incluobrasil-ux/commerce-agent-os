@@ -5,5 +5,5 @@
     "rootDir": ".",
     "composite": true
   },
-  "include": ["client/**/*.ts", "types/**/*.ts", "errors/**/*.ts", "index.ts"]
+  "include": ["client/**/*.ts", "audit/**/*.ts", "types/**/*.ts", "errors/**/*.ts", "index.ts"]
 }

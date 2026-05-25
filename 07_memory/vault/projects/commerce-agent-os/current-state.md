@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-25T17:15:00.000Z
+updated_at: 2026-05-25T18:10:00.000Z
 tags: [current-state, status]
 source: mixed
 confidence: 1.0
@@ -23,9 +23,9 @@ confidence: 1.0
 | | |
 |---|---|
 | Macro-fase | 2 — Implementação |
-| Sub-fase | 2.5 ✅ Bloco A+B completos (20/22 agentes reais) + 2.6 ✅ + 2.7 ✅ |
-| Último marco (2026-05-25) | **4 agentes Bloco B implementados** — `marketing-director`, `creative-copy-assets`, `design-ux-localization`, `traffic-campaigns`. Suíte saltou 202 → **228 testes verdes em 33 arquivos**. Lint OK, doctor verde. |
-| Próximo marco técnico | Phase 4 — enhance Merchant MVP (score por SKU, findings detalhados) **OU** conectar `.env.local` (Anthropic + Shopify) para runs reais end-to-end. |
+| Sub-fase | 2.5 ✅ Bloco A+B + 2.6 ✅ + 2.7 ✅ + **2.8 ✅ Merchant audit MVP** |
+| Último marco (2026-05-25) | **Merchant MVP útil de verdade** — `pnpm merchant:audit --source=json --file=<path>` produz relatório SKU-level com score 0-100, findings categorizados (critical/high/medium/low), remediações concretas. Determinístico (sem LLM). Validado em fixture de 5 SKUs: score médio 37.4, 6 critical/2 high/17 medium/7 low findings, exit 1 se há red SKU. **241 testes verdes em 34 arquivos** (+13 do scorer). |
+| Próximo marco técnico | Conectar `.env.local` (Anthropic + Shopify) para runs reais LLM + Shopify real. OU evoluir audit (mais regras, presets por categoria, GMC API real). |
 
 ## Verde
 
@@ -36,7 +36,8 @@ confidence: 1.0
   - **Outros (9):** repo-auditor · audit-synthesizer · learning-memory-curation · memory-context · catalog-feed-ops · customer-journey-ops · finance-margin-radar · visual-asset-ops · ads-launchpad
   - **Library-only:** product-feed-seo (usado por catalog-feed-ops)
   - **STUB sem demanda:** analytics-optimization (não scaffoldado)
-- **22 comandos `pnpm <verbo>:<noun>`** registrados em [package.json](../../../../package.json).
+- **23 comandos `pnpm <verbo>:<noun>`** registrados em [package.json](../../../../package.json).
+- **`pnpm merchant:audit [--source=fixture|json|shopify]`** — audit catalog-level determinístico: score por SKU + findings classificados + remediações. **100% local sem LLM, sem credenciais.** Relatório em `12_reports/merchant-audits/`.
 - **6 packages `@cao/*`** + 5 integrations + brain-bridge funcionando.
 - `repo-auditor` modo determinístico (sem credenciais).
 - `pnpm feed:dry-run` — pipeline Merchant completo, 100% local com fixture, gera relatório em `12_reports/merchant-dry-runs/`.
@@ -55,6 +56,6 @@ confidence: 1.0
 
 ## Resumo em 1 linha
 
-> Sub-fase 2.5 ✅ Bloco A+B completo (**20/22 agentes reais**, 228 testes verdes); pipeline `Shopify → SEO → Merchant` 100% local com fixture; bloqueios externos B1/B6/B7 são apenas para runs reais end-to-end, **não travam desenvolvimento**.
+> Sub-fase 2.5 ✅ + **2.8 ✅ Merchant audit MVP** — 20/22 agentes reais, **241 testes verdes**, `pnpm merchant:audit` gera score+remediações por SKU sem LLM/creds; bloqueios externos B1/B6/B7 são apenas para runs reais end-to-end, **não travam desenvolvimento**.
 
 Detalhe em [blockers-and-risks.md](blockers-and-risks.md).

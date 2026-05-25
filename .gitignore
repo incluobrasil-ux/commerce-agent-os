@@ -31,6 +31,11 @@ Thumbs.db
 # vive em .obsidian.template/ (versionada como referência).
 .obsidian/
 
+# Caveman skills (npx skills add fallback dumps aqui quando claude CLI
+# não está no PATH). Per-repo install local; não versionar.
+.agents/
+skills-lock.json
+
 # Coverage / cache
 coverage/
 .cache/

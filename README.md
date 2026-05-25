@@ -46,6 +46,7 @@ Você está olhando para um monorepo Shopify-agents com **20 agentes executávei
 | 2 | `visual-asset-ops` | `pnpm visual:asset` | Brief visual (shot list) |
 | 3 | `governance-risk-qa` | `pnpm governance:qa` | Verdict (pass/warn/block) |
 | 3 | `repo-auditor` | `pnpm audit:repo <path>` | Audit determinístico de repo |
+| 3 | _(catalog-feed-ops)_ | `pnpm merchant:audit` | **Score+findings+remediações por SKU (determinístico)** |
 | — | `product-feed-seo` | _(library; via `catalog-feed-ops`)_ | SEO otimizado de produtos |
 | — | `analytics-optimization` | _(não scaffoldado)_ | _Pendente_ |
 
@@ -118,8 +119,17 @@ Próximos passos (zero credencial):
 ```bash
 pnpm audit:repo .                          # audit determinístico do repo
 pnpm feed:dry-run                          # pipeline Merchant com fixture
-pnpm test                                  # 228 testes em ~3s
+pnpm merchant:audit --source=fixture       # score por SKU + findings + remediações
+pnpm merchant:audit --source=json --file=08_data/fixtures/catalog-sample.json
+pnpm test                                  # 241 testes em ~3s
 ```
+
+`pnpm merchant:audit` lê produtos (fixture/JSON/Shopify), valida com `feedRowSchema` + aplica regras semânticas (brand/GTIN/category, title/description length, high-risk keywords) e gera relatório operacional em `12_reports/merchant-audits/` com:
+- score 0-100 por SKU + band 🟢🟡🔴
+- findings categorizados (critical/high/medium/low)
+- remediação concreta por finding
+- ranking de SKUs (piores primeiro)
+- exit 1 quando há SKU red (útil para CI gate)
 
 Para usar agentes LLM (precisa Anthropic key em `.env.local`):
 

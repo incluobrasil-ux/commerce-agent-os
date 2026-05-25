@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-25T17:25:00.000Z
+updated_at: 2026-05-25T18:10:00.000Z
 tags: [log, sessions]
 source: human:incluobrasil
 confidence: 1.0
@@ -24,6 +24,12 @@ confidence: 1.0
 ```
 
 ---
+
+## 2026-05-25 — Sub-fase 2.8: Merchant audit MVP (score + findings + remediações por SKU)
+
+- Feito: módulo `05_integrations/google-merchant/audit/` com `scorer.ts` (pure functions: scoreRow + summarizeAudit; severidades critical/high/medium/low; penalidades 40/20/8/3; bands green/yellow/red) + `report.ts` (writer markdown+JSON em `12_reports/merchant-audits/` com summary, ranking de SKUs, detalhe dos 10 piores com remediação por finding). Novo CLI `pnpm merchant:audit [--source=fixture|json|shopify] [--file=path] [--tenant] [--capture]`. Exit 1 se há SKU red. Fixture `08_data/fixtures/catalog-sample.json` com 5 SKUs deliberadamente variados. 13 testes novos em `scorer.test.ts`.
+- Resultado: verde. Suíte 228 → **241 testes em 34 arquivos**. Lint OK, typecheck OK. Run real validado em fixture: score médio 37.4, distribuição 1🟢/1🟡/3🔴, 6 critical / 2 high / 17 medium / 7 low findings. Relatório útil para operador humano.
+- Próximo: rodar audit em catálogo real (depende de Shopify dev store ou export JSON) + opcional evolução de regras (presets por categoria, mais keywords PT-BR).
 
 ## 2026-05-25 — Sub-fase 2.5 Bloco B fechado: 4 agentes novos (marketing/creative/design/traffic)
 

@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-25T17:20:00.000Z
+updated_at: 2026-05-25T18:10:00.000Z
 tags: [next-actions]
 source: mixed
 confidence: 1.0
@@ -23,17 +23,26 @@ confidence: 1.0
 - ~~N1–N18~~ — bootstrap, ADRs, 16 agentes reais, brain bridge, doctor, team-ready.
 - ~~N19 (2026-05-25)~~ — **Bloco B 2.5 fechado**: `marketing-director`, `creative-copy-assets`, `design-ux-localization`, `traffic-campaigns` implementados. 20/22 agentes reais. **228 testes verdes em 33 arquivos**. Detalhe em [run-summaries/2026-05-25-impl-milestone-four-new-agents.md](run-summaries/2026-05-25-impl-milestone-four-new-agents.md).
 
-## N20 — Enhance Merchant MVP (Phase 4) — **agora**
+## ~~N20~~ ✅ Merchant audit MVP (Phase 4) — **concluído 2026-05-25**
 
-- **Ação:** auditar `merchant-compliance` + `catalog-feed-ops` + `@cao/integration-google-merchant`. Se ainda não tiver, adicionar:
-  - modo `merchant:audit` que aceita JSON/CSV/fixture local de catálogo
-  - scoring por SKU (0–100 ou red/yellow/green)
-  - findings classificados por severidade (critical / high / medium / low)
-  - remediações concretas por finding
-  - relatório markdown operacional em `12_reports/merchant-audits/`
-- **Pré-requisito:** nenhum (input local; sem Shopify/GMC creds).
-- **Resultado esperado:** rodar `pnpm merchant:audit --source=fixture` produz relatório útil para operador humano decidir o que corrigir antes de submeter ao Merchant.
-- **Quem puxa:** dev
+- **Entrega:** `pnpm merchant:audit [--source=fixture|json|shopify] [--file=path]` produz score 0-100 por SKU, findings categorizados por severidade (critical/high/medium/low), remediações concretas e ranking dos piores. Output em `12_reports/merchant-audits/` (markdown + JSON). Determinístico (sem LLM). Exit 1 se há SKU red — útil para gate CI.
+- **Módulos:** `05_integrations/google-merchant/audit/scorer.ts` (pure functions) + `audit/report.ts` (writer) + `03_agents/catalog-feed-ops/src/audit-cli.ts` (CLI). +13 testes (241 total verdes).
+- **Validado:** fixture de 5 SKUs deliberadamente quebrada produziu score médio 37.4, 6 critical / 17 medium findings, ranking ordenado por pior score.
+- **Próximo (N20.1):** expandir regras conforme operação real revelar gaps (presets por categoria, mais keywords de risco, validação multi-mercado).
+
+## N26 — Real Merchant audit em catálogo real
+
+- **Ação:** quando tiver export Shopify (ou conectar via creds), rodar:
+  ```bash
+  pnpm merchant:audit --source=shopify --first=100 --tenant=<loja> --capture
+  ```
+  ou export local:
+  ```bash
+  pnpm merchant:audit --source=json --file=<export.json> --tenant=<loja> --capture
+  ```
+- **Pré-requisito:** Shopify dev store + admin token OU export JSON de produtos.
+- **Resultado esperado:** relatório operacional do catálogo real, lista priorizada do que corrigir antes de submeter ao GMC.
+- **Quem puxa:** ops + produto
 
 ## N21 — Real runs LLM (destrava demos)
 

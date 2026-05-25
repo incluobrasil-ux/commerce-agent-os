@@ -1,0 +1,32 @@
+# Enforce LF for all text files regardless of platform.
+#
+# Sem isso: clone/checkout no Windows converte para CRLF (core.autocrlf=true),
+# biome reclama no lint, e a cada `pnpm exec biome check --write .` o operador
+# gera mudanças "fantasma" só de line-endings.
+#
+# `text=auto` detecta arquivos texto automaticamente; `eol=lf` força LF na
+# working tree em qualquer SO. Binários (imagens, PDFs etc.) seguem flagged
+# como `binary` para nunca passarem pela normalização de EOL.
+
+* text=auto eol=lf
+
+# Binários — nunca normalizar EOL
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.ico   binary
+*.pdf   binary
+*.zip   binary
+*.gz    binary
+*.tar   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.eot   binary
+
+# Lockfiles e arquivos sensíveis a diff line-by-line
+pnpm-lock.yaml  text eol=lf
+package-lock.json text eol=lf
+yarn.lock       text eol=lf

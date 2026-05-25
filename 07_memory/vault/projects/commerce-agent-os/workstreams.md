@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T19:25:00Z
+updated_at: 2026-05-25T18:40:00Z
 tags: [workstreams, parallel-tracks]
 source: mixed
 confidence: 1.0
@@ -38,14 +38,14 @@ confidence: 1.0
 
 | | |
 |---|---|
-| Status | 🟢 (**20 agentes reais** de 22; Bloco A+B completos 2026-05-25) |
+| Status | 🟢 (**20 agentes reais** de 22; Bloco A+B + Merchant audit MVP em 2026-05-25) |
 | Escopo | 22 agentes declarativos virando executáveis. |
-| Último marco | **Sub-fase 2.5 Bloco B fechado** — `marketing-director`, `creative-copy-assets`, `design-ux-localization`, `traffic-campaigns` (228 testes verdes). |
-| Próximo marco | (a) real runs LLM após `.env.local` atualizada **ou** (b) enhance Merchant MVP (score/findings por SKU). |
-| Dono sugerido | dev |
-| Depende de | usuário atualizar `.env.local` com key nova **para runs reais**; nada para desenvolvimento. |
-| Itens ativos | N20 (Phase 4 Merchant enhancement), N11 (real runs LLM pendentes) |
-| Refs | [03_agents/](../../../../03_agents/), [`2026-05-25-impl-milestone-four-new-agents.md`](run-summaries/2026-05-25-impl-milestone-four-new-agents.md) |
+| Último marco | **Merchant audit MVP** — `pnpm merchant:audit` produz score por SKU + findings categorizados + remediações (determinístico, 241 testes verdes). |
+| Próximo marco | **N26** — rodar Merchant audit em catálogo Shopify real (Catálogo); depois **N21** ligar pipeline LLM Marketing → Criativo → Vitrine → Catálogo → Produtos → Merchant. |
+| Dono sugerido | dev + ops (creds) |
+| Depende de | Shopify dev store + token (N26); ANTHROPIC_API_KEY (N21). Nada para desenvolvimento. |
+| Itens ativos | N26 (prioridade imediata), N21, N20.1, N24 — ver [next-actions.md](next-actions.md). |
+| Refs | [03_agents/](../../../../03_agents/), [`2026-05-25-impl-milestone-merchant-audit-mvp.md`](run-summaries/2026-05-25-impl-milestone-merchant-audit-mvp.md), [`2026-05-25-impl-milestone-four-new-agents.md`](run-summaries/2026-05-25-impl-milestone-four-new-agents.md) |
 
 ## W3 — Shopify connect
 

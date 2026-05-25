@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-25T18:10:00.000Z
+updated_at: 2026-05-25T22:10:16.504Z
 tags: [current-state, status]
 source: mixed
 confidence: 1.0
@@ -23,9 +23,9 @@ confidence: 1.0
 | | |
 |---|---|
 | Macro-fase | 2 — Implementação |
-| Sub-fase | 2.5 ✅ Bloco A+B + 2.6 ✅ + 2.7 ✅ + **2.8 ✅ Merchant audit MVP** |
-| Último marco (2026-05-25) | **Merchant MVP útil de verdade** — `pnpm merchant:audit --source=json --file=<path>` produz relatório SKU-level com score 0-100, findings categorizados (critical/high/medium/low), remediações concretas. Determinístico (sem LLM). Validado em fixture de 5 SKUs: score médio 37.4, 6 critical/2 high/17 medium/7 low findings, exit 1 se há red SKU. **241 testes verdes em 34 arquivos** (+13 do scorer). |
-| Próximo marco técnico | Conectar `.env.local` (Anthropic + Shopify) para runs reais LLM + Shopify real. OU evoluir audit (mais regras, presets por categoria, GMC API real). |
+| Sub-fase | 2.5 ✅ Bloco A+B + 2.6 ✅ + 2.7 ✅ + 2.8 ✅ Merchant audit MVP + **N26 ✅ audit real Incluo** |
+| Último marco (2026-05-25) | **N26 — Audit real do catálogo Incluo** via MCP Shopify (50 SKUs, score médio **81.9/100**, 49🟢/0🟡/1🔴). 4 follow-ups operacionais (N26.a-d) + 3 gaps de regra para N20.1. Detalhe em [run-summary](run-summaries/2026-05-25-audit-merchant-audit-incluo-json.md). **241 testes verdes** (nenhum código novo nesta rodada). |
+| Próximo marco técnico | **N26.a-d** — follow-ups acionáveis do audit Incluo (corrigir price=0 / decisão GTIN / mapping GMC taxonomy / bulk title brand). Depois N20.1 (presets do scorer) + N21 (pipeline LLM real). Detalhe em [next-actions.md](next-actions.md). |
 
 ## Verde
 
@@ -56,6 +56,6 @@ confidence: 1.0
 
 ## Resumo em 1 linha
 
-> Sub-fase 2.5 ✅ + **2.8 ✅ Merchant audit MVP** — 20/22 agentes reais, **241 testes verdes**, `pnpm merchant:audit` gera score+remediações por SKU sem LLM/creds; bloqueios externos B1/B6/B7 são apenas para runs reais end-to-end, **não travam desenvolvimento**.
+> 20/22 agentes reais + Merchant audit MVP rodado em catálogo real Incluo (50 SKUs, score 81.9/100, 1 SKU red acionável + 4 follow-ups). 241 testes verdes. Próximo: executar N26.a-d (ops) e N20.1 (dev: presets de regra por categoria).
 
 Detalhe em [blockers-and-risks.md](blockers-and-risks.md).

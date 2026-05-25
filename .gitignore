@@ -36,6 +36,12 @@ Thumbs.db
 .agents/
 skills-lock.json
 
+# Catálogo snapshots reais (puxados via MCP/Shopify). Reproduzíveis a
+# qualquer momento; não versionar dump consolidado de catálogo público.
+# A fixture sintética catalog-sample.json continua versionada como exemplo.
+08_data/fixtures/incluo-*.json
+08_data/fixtures/*-catalog-real.json
+
 # Coverage / cache
 coverage/
 .cache/

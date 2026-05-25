@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-25T18:10:00Z
+updated_at: 2026-05-25T22:10:16.504Z
 tags: [index, run-summaries]
 source: mixed
 confidence: 1.0
@@ -49,6 +49,7 @@ Resultado de auditoria (manual ou via agente).
 
 | Data | Título | Resultado | Arquivo |
 |---|---|---|---|
+| 2026-05-25 | Merchant audit (json, 50 SKUs, tenant=incluo) | 🔴 | [2026-05-25-audit-merchant-audit-incluo-json.md](2026-05-25-audit-merchant-audit-incluo-json.md) |
 | 2026-05-23 | Audit commerce-agent-os (profile=license) | 🟢 | [2026-05-23-audit-repo-auditor-commerce-agent-os.md](2026-05-23-audit-repo-auditor-commerce-agent-os.md) |
 | 2026-05-23 | Sub-fase 2.3 — pass 2: 10 upstreams auditados (2 reclassificações de licença) | 🟡 | [2026-05-23-audit-upstream-pass2-ten-repos.md](2026-05-23-audit-upstream-pass2-ten-repos.md) |
 | 2026-05-23 | Auditoria de gaps da Macro-fase 1 (31 gaps em 4 severidades) | 🟡 | [2026-05-23-audit-phase-1-gap-analysis.md](2026-05-23-audit-phase-1-gap-analysis.md) |

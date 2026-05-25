@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-25T18:10:00.000Z
+updated_at: 2026-05-25T22:10:16.504Z
 tags: [log, sessions]
 source: human:incluobrasil
 confidence: 1.0
@@ -24,6 +24,12 @@ confidence: 1.0
 ```
 
 ---
+
+## 2026-05-25 — N26: Merchant audit em catálogo real Incluo (50 SKUs)
+
+- Feito: catálogo Incluo (50 SKUs reais via MCP Shopify) convertido para JSON em `08_data/fixtures/incluo-catalog-real.json`; rodado `pnpm merchant:audit --source=json --tenant=incluo --capture`. Auto-capture criou run-summary + bumpou current-state. Versão enriquecida do summary criada manualmente com interpretação dos achados.
+- Resultado: score médio 81.9 (catálogo saudável vs fixture sintética 37.4). 49🟢/0🟡/1🔴. 1 critical real (SKU contas-madeira-montessori com price=0), 50/50 sem GTIN, 50/50 sem googleProductCategory, 21/50 títulos sem brand "Incluo".
+- Próximo: N26.a-d (ops/produto) + N20.1 (dev: scorer ganha presets por categoria, threshold de brand, source-aware truncation handling).
 
 ## 2026-05-25 — Sub-fase 2.8: Merchant audit MVP (score + findings + remediações por SKU)
 

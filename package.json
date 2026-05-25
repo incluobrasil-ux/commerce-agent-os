@@ -21,6 +21,7 @@
     "market:intelligence": "tsx --env-file=.env.local 03_agents/market-intelligence/src/cli.ts",
     "competitor:benchmark": "tsx --env-file=.env.local 03_agents/competitor-benchmark/src/cli.ts",
     "reviews:ops": "tsx --env-file=.env.local 03_agents/reviews-ops/src/cli.ts",
+    "product:offer": "tsx --env-file=.env.local 03_agents/product-offer/src/cli.ts",
     "ops:capture": "tsx 06_packages/brain-bridge/scripts/capture-cli.ts",
     "doctor": "tsx 10_ops/scripts/doctor.ts",
     "secret-scan": "gitleaks protect --staged --no-banner --redact",

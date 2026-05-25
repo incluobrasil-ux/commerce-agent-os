@@ -1,0 +1,30 @@
+{
+  "name": "@cao/learning-memory-curation",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Agente que lê audit log + working memory de um tenant e promove findings estáveis para facts/.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "learning-memory-curation": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rm -rf dist .tsbuildinfo"
+  },
+  "dependencies": {
+    "@cao/core": "workspace:*",
+    "@cao/llm": "workspace:*",
+    "@cao/memory": "workspace:*",
+    "@cao/observability": "workspace:*",
+    "@cao/runtime": "workspace:*",
+    "zod": "^3"
+  }
+}

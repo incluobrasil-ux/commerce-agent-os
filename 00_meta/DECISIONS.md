@@ -40,6 +40,7 @@ Numeração: **4 dígitos zero-padded** (ADR-0001, não ADR-1).
 | [ADR-0004](../02_architecture/adr/ADR-0004-shared-packages.md) | Packages compartilhados | aceita | `shared-types`, `shared-schemas`, `shared-config` vs `core`/`config` |
 | [ADR-0005](../02_architecture/adr/ADR-0005-memory-vault.md) | Layout do vault de memória | aceita | `07_memory/vault/<tenant>/...` markdown-first |
 | [ADR-0006](../02_architecture/adr/ADR-0006-qa-stack.md) | Stack de QA (testes + lint + secret-scan + zod) | aceita | vitest + biome + gitleaks + zod + commitlint + simple-git-hooks |
+| [ADR-0007](../02_architecture/adr/ADR-0007-agent-runtime.md) | Runtime alvo dos agentes | aceita | TS host; impl própria + LangGraph JS como referência de design |
 | [ADR-0009](../02_architecture/adr/ADR-0009-package-scope.md) | Scope npm dos pacotes internos | aceita | `@cao/` confirmado + convenções de subname |
 | [ADR-0017](../02_architecture/adr/ADR-0017-commit-conventions.md) | Convenção de commits | aceita | Conventional Commits 1.0.0 + tipos + scopes + commitlint |
 
@@ -49,7 +50,6 @@ Tabela com proposta default e o que cada um bloqueia. **Ordem sugerida** = ordem
 
 | # | Tópico | Default proposto | Bloqueia |
 |---|---|---|---|
-| ADR-0007 | Runtime alvo de agentes (TS vs Python) | TS via LangGraph JS | Fase 7 (`@cao/runtime`) |
 | ADR-0008 | Worker queue | BullMQ + Redis | Fases 8–11 (todos os apps headless) |
 | ADR-0010 | DB de aplicação | Postgres compartilhado para prod; SQLite local em dev | Fase 8 prod (release) |
 | ADR-0011 | Estratégia para `feedgen` (Python) | Port TS de heurísticas; sidecar opcional para parte complexa | Fase 9 (feed-service) |
@@ -59,7 +59,7 @@ Tabela com proposta default e o que cada um bloqueia. **Ordem sugerida** = ordem
 | ADR-0015 | Object storage | a definir entre S3/R2/GCS | Fase 11 (creative em escala) |
 | ADR-0016 | Secret manager para prod | a definir entre Doppler / AWS SM / outro | Fase 12 (release v1) |
 
-> ADR-0006, 0009, 0017 saíram da queue — **aceitos** em 2026-05-23. Ver índice acima.
+> ADR-0006, 0009, 0017 e ADR-0007 saíram da queue — **aceitos** em 2026-05-23. Ver índice acima.
 
 **Default não é decisão.** É proposta racional baseada no audit + research. Cada um vira ADR com o status `aceita` apenas com confirmação consciente.
 

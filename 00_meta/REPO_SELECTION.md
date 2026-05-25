@@ -2,7 +2,7 @@
 
 Auditoria dos 20 repositórios previamente estudados. Datado 2026-05-23.
 
-**Status atual:** nenhum repositório foi clonado localmente em `01_upstreams/`. Todas as classificações abaixo são baseadas em conhecimento público estável e devem ser **verificadas ao clonar**. Itens em dúvida estão marcados com `⚠ verificar`.
+**Status atual (atualizado 2026-05-23):** Sub-fase 2.3 **concluída** — **10 dos 20 upstreams clonados** em `01_upstreams/` (gitignored, cada operador roda `bash 10_ops/scripts/clone-upstreams.sh`) e auditados via `pnpm audit:repo`. Resultados consolidados na seção "Audit pass 2" abaixo. Outros 10 (#2, #3, #4, #6, #12–#16, #18) seguem sem clone até suas sub-fases chegarem.
 
 ## Legenda
 
@@ -48,16 +48,29 @@ Auditoria dos 20 repositórios previamente estudados. Datado 2026-05-23.
 
 ## Decisão sobre clones
 
-Pendência operacional: definir mecanismo de ingestão para `01_upstreams/`.
-- Opção A: `git submodule` — atualizações controladas, requer git init local.
-- Opção B: `git subtree` — histórico inline, mais simples para colaboradores.
-- Opção C: clone raso sem rastreio (read-only verdadeiro).
+**Resolvida 2026-05-23:** **Opção C (clone raso) para todos**, gitignored, com SHA pinado em `10_ops/scripts/clone-upstreams.sh`. Atualização = editar SHA + re-clonar manualmente. ADR-0002 cobre.
 
-Recomendação preliminar: **opção C para referências, opção A para upstreams de base operacional** (#1, #8, #9, #19). Aguardando decisão.
+## Audit pass 2 — resultados (Sub-fase 2.3)
 
-## Pendências
+Relatórios reais em [`../12_reports/audits/upstream-pass2/`](../12_reports/audits/upstream-pass2/). Tamanho do clone raso entre parênteses.
 
-- Verificar in-loco os 6 repos marcados `⚠ verificar` ao clonar.
-- Confirmar licenças (especialmente #14, #16, #17).
-- Confirmar se PostHog será SaaS (cloud) ou self-hosted — afeta #18.
-- Decidir se feedgen (#11) será portado para TS ou consumido via subprocesso Python.
+| # | Repositório | Pin SHA | Licença | Findings | Observação pós-audit |
+|---|---|---|---|---|---|
+| 1 | langchain-ai/langgraph (17M) | `d1e2ff05` | MIT ✅ | 0 | Python primário; TS em `libs/langgraph-js/`. Bom como referência de design (ADR-0007). |
+| 5 | affaan-m/agentshield (5.3M) | `25d91f00` | MIT ✅ | 0 | Confirmada licença. Adotar como base de `@cao/guardrails`. Flag `⚠ verificar` resolvida. |
+| 7 | basicmachines-co/basic-memory (12M) | `a7e2368f` | **AGPL-3.0** ⚠ | 0 | **Copyleft forte.** Seguro como referência conceitual; **NÃO importar código** sem deliberação (releases derivados precisariam ser AGPL). Reclassificar de "base operacional" para "**referência**". |
+| 8 | Shopify/dawn (6.2M) | `9ccdacf8` | MIT ✅ | 0 | OK como referência de tema. |
+| 9 | Shopify/shopify-app-template-react-router (323K) | `5a0017b0` | MIT ✅ | 0 | Confirmada base para Sub-fase 2.6. |
+| 10 | google/merchant-api-samples (4.7M) | `371468ac` | Apache-2.0 ✅ | 0 | OK; license confirmada. |
+| 11 | google-marketing-solutions/feedgen (4.4M) | `cf264a5f` | Apache-2.0 ✅ | 0 | Python. ADR-0011 (sidecar vs port) ainda pendente. |
+| 17 | agency-ai-solutions/ad-factory-agent (1.3M) | `8596feeb` | **UNKNOWN** 🔴 | 1 crítico | **Sem LICENSE file** → "all rights reserved" por default. **Reclassificar para "referência apenas — não copiar"**. Reabrir #17 com o autor antes de adotar como base operacional. |
+| 19 | higgsfield-ai/skills (585K) | `5af02582` | MIT ✅ | 0 | Confirmado. |
+| 20 | higgsfield-ai/cli (514K) | `46cc997c` | MIT ✅ | 0 (1 warning: sem .gitignore — só afeta o próprio repo deles) |
+
+## Pendências (atualizado pós-Sub-fase 2.3)
+
+- ✅ **Resolvidas:** licenças de #5, #7, #9, #10, #11, #19, #20 confirmadas. ⚠ verificar removido onde aplicável.
+- 🔴 **Pendente decisão:** reclassificação de #7 (AGPL — "referência" em vez de "base operacional") e #17 (UNKNOWN — "referência apenas"). Tratar como mudança de roadmap; precisa de ADR se mudar plano de adoção.
+- 🟡 Confirmar PostHog SaaS vs self-hosted — afeta #18 (ainda não clonado).
+- 🟡 ADR-0011: estratégia para `feedgen` (#11) Python — sidecar vs port TS.
+- ⚪ Audit de #14, #16 quando entrarem em alguma sub-fase (ainda baixa prioridade).

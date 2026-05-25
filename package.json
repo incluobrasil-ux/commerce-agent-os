@@ -10,6 +10,17 @@
     "typecheck": "tsc -b",
     "test": "vitest run",
     "test:smoke": "vitest run 11_tests/smoke",
+    "audit:repo": "tsx 03_agents/repo-auditor/src/cli.ts",
+    "synthesize:audit": "tsx --env-file=.env.local 03_agents/audit-synthesizer/src/cli.ts",
+    "curate:memory": "tsx --env-file=.env.local 03_agents/learning-memory-curation/src/cli.ts",
+    "context:brief": "tsx --env-file=.env.local 03_agents/memory-context/src/cli.ts",
+    "llm:smoke": "tsx --env-file=.env.local 06_packages/llm/scripts/smoke.ts",
+    "shopify:list-products": "tsx --env-file=.env.local 04_apps/shopify-admin-app/scripts/list-products.ts",
+    "feed:dry-run": "tsx --env-file=.env.local 03_agents/catalog-feed-ops/src/cli.ts",
+    "ops:capture": "tsx 06_packages/brain-bridge/scripts/capture-cli.ts",
+    "doctor": "tsx 10_ops/scripts/doctor.ts",
+    "secret-scan": "gitleaks protect --staged --no-banner --redact",
+    "secret-scan:full": "gitleaks detect --no-banner --redact",
     "lint": "biome check .",
     "format": "biome format --write .",
     "commitlint": "commitlint --from=origin/main || true",
@@ -29,7 +40,7 @@
     "@commitlint/config-conventional": "^19"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint && pnpm test:smoke",
+    "pre-commit": "pnpm lint && pnpm test:smoke && pnpm secret-scan",
     "commit-msg": "pnpm commitlint"
   }
 }

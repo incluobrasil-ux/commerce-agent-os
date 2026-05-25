@@ -10,5 +10,8 @@
     "typecheck": "tsc --noEmit",
     "lint": "echo \"placeholder: lint\"",
     "test": "echo \"placeholder: test\""
+  },
+  "dependencies": {
+    "@cao/integration-shopify": "workspace:*"
   }
 }

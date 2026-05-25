@@ -1,0 +1,34 @@
+{
+  "name": "@cao/catalog-feed-ops",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Orquestra pipeline catalog → feed → validação → dry-run Merchant.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "catalog-feed-ops": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rm -rf dist .tsbuildinfo"
+  },
+  "dependencies": {
+    "@cao/brain-bridge": "workspace:*",
+    "@cao/core": "workspace:*",
+    "@cao/integration-google-merchant": "workspace:*",
+    "@cao/integration-shopify": "workspace:*",
+    "@cao/llm": "workspace:*",
+    "@cao/memory": "workspace:*",
+    "@cao/observability": "workspace:*",
+    "@cao/product-feed-seo": "workspace:*",
+    "@cao/runtime": "workspace:*",
+    "zod": "^3"
+  }
+}

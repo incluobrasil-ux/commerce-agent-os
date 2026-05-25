@@ -1,8 +1,29 @@
 # Índice de upstreams
 
-Repositórios externos previamente estudados. Read-only em `01_upstreams/`.
+Repositórios externos previamente estudados. Read-only em `01_upstreams/`. Conteúdo **não** entra no monorepo — cada operador clona via `bash 10_ops/scripts/clone-upstreams.sh`.
 
-> Classificação completa (papel, prioridade, risco) em [REPO_SELECTION.md](./REPO_SELECTION.md). Audits detalhados em [../02_architecture/repo-audits/](../02_architecture/repo-audits/).
+> Classificação completa (papel, prioridade, risco) em [REPO_SELECTION.md](./REPO_SELECTION.md). Audits detalhados em [../02_architecture/repo-audits/](../02_architecture/repo-audits/). Auditorias automáticas (via `pnpm audit:repo`): [`../12_reports/audits/repo-auditor/`](../12_reports/audits/repo-auditor/).
+
+## Clonados localmente (com licença confirmada via `repo-auditor`)
+
+**Sub-fase 2.3 concluída** — 10 upstreams prioritários auditados. Relatórios em [`../12_reports/audits/upstream-pass2/`](../12_reports/audits/upstream-pass2/).
+
+| # | Nome | Pin SHA | Licença | Findings | Notas |
+|---|---|---|---|---|---|
+| 1 | `langgraph` | `d1e2ff05` | MIT | 0 | runtime ref (Python + libs/langgraph-js/) |
+| 8 | `dawn` | `9ccdacf8` | MIT | 0 | Shopify theme ref |
+| 9 | `shopify-app-template-react-router` | `5a0017b0` | MIT | 0 | base do admin app |
+| 10 | `merchant-api-samples` | `371468ac` | Apache-2.0 | 0 | integração GMC |
+| 11 | `feedgen` | `cf264a5f` | Apache-2.0 | 0 | feed Python (ADR-0011 pendente) |
+| 7 | `basic-memory` | `a7e2368f` | **AGPL-3.0** | 0 | ⚠ copyleft forte — só ref conceitual |
+| 5 | `agentshield` | `25d91f00` | MIT | 0 | base de `@cao/guardrails` |
+| 17 | `ad-factory-agent` | `8596feeb` | **UNKNOWN** | 1🔴 | ⚠ sem LICENSE — só estudo, não copiar |
+| 19 | `higgsfield-skills` | `5af02582` | MIT | 0 | skills genéricas |
+| 20 | `higgsfield-cli` | `46cc997c` | MIT | 0 | CLI de skills |
+
+Outros 10 upstreams (do catálogo de 20) ainda não clonados — adicionar ao script `10_ops/scripts/clone-upstreams.sh` quando suas sub-fases chegarem.
+
+## Catálogo de referência (20 upstreams classificados)
 
 | # | Repositório | Categoria | Uso esperado |
 |---|---|---|---|

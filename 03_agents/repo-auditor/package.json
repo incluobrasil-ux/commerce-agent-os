@@ -1,0 +1,27 @@
+{
+  "name": "@cao/repo-auditor",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Audita repositórios locais e produz relatório markdown em 12_reports/audits/.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "repo-auditor": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rm -rf dist .tsbuildinfo"
+  },
+  "dependencies": {
+    "@cao/brain-bridge": "workspace:*",
+    "@cao/core": "workspace:*",
+    "zod": "^3"
+  }
+}

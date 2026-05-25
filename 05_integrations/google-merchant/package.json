@@ -29,6 +29,7 @@
     "clean": "rm -rf dist .tsbuildinfo"
   },
   "dependencies": {
-    "@cao/shared-types": "workspace:*"
+    "@cao/shared-types": "workspace:*",
+    "zod": "^3"
   }
 }

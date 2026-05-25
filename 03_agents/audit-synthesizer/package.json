@@ -1,0 +1,30 @@
+{
+  "name": "@cao/audit-synthesizer",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Agente que lê relatórios do repo-auditor e gera síntese executiva via Claude.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "audit-synthesizer": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rm -rf dist .tsbuildinfo"
+  },
+  "dependencies": {
+    "@cao/core": "workspace:*",
+    "@cao/llm": "workspace:*",
+    "@cao/memory": "workspace:*",
+    "@cao/observability": "workspace:*",
+    "@cao/runtime": "workspace:*",
+    "zod": "^3"
+  }
+}

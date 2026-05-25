@@ -2,15 +2,22 @@
 
 Sistema operacional de **agentes especializados** para lojistas Shopify — automação de catálogo, feed Google Merchant, marketing, reviews e analytics, sob runtime + memória + guardrails comuns.
 
-> ⚠️ **Estado do projeto:** baseline arquitetural estável em `main`. **Não é um produto funcional.**
+> ⚙️ **Estado do projeto:** baseline arquitetural + núcleo `@cao/*` mínimo + **primeiro agente real funcional** (`repo-auditor`). **Ainda não é produto.**
 >
-> O que há hoje: 17 agentes + 7 apps + 7 integrações + 12 packages **declarados** em contratos TypeScript e documentação. Build verde (typecheck + smoke). **Zero lógica de negócio implementada.** Nenhum agente roda end-to-end; nenhuma loja Shopify está conectada.
+> O que há hoje:
+> - 17 agentes + 7 apps + 7 integrações + 13 packages declarados.
+> - **Núcleo executável:** 6 packages `@cao/*` (core, llm, memory, guardrails, observability, runtime) com 41 testes verdes.
+> - **1 agente real:** `repo-auditor` — `pnpm audit:repo <path>` produz relatório markdown em `12_reports/audits/repo-auditor/`. Modo determinístico, **sem credenciais externas**.
+> - Suíte completa: **52 testes verdes**. CI ativo. Branch protection em `main`.
+> - Cérebro operacional multi-operador em `07_memory/vault/projects/commerce-agent-os/`.
 >
-> Tag de referência: [`v0.1.0-architecture-baseline`](https://github.com/incluobrasil-ux/commerce-agent-os/releases/tag/v0.1.0-architecture-baseline).
+> O que **ainda não** há: integração Shopify real, chamada LLM em produção, upstreams clonados, deploy.
+>
+> Tag de referência: [`v0.1.0-architecture-baseline`](https://github.com/incluobrasil-ux/commerce-agent-os/releases/tag/v0.1.0-architecture-baseline) (pré-Sub-fase 2.2).
 
 ## Em uma frase
 
-Você está olhando para a **planta arquitetural** de um produto que ainda não foi construído — pronta para receber implementação. Útil hoje como briefing técnico, prova de pensamento estratégico, e base de partida para desenvolvimento.
+Você está olhando para a **planta arquitetural** de um produto Shopify-agents, com **núcleo executável e 1 agente real funcionando**. Clone → `pnpm install` → `pnpm audit:repo .` em ≤ 5 min, sem credenciais externas.
 
 ## O que este projeto é
 
@@ -40,14 +47,16 @@ Para esses casos, consulte [Cenários em `current-project-status.md`](./12_repor
 | Fase 0 — scaffold inicial | ✅ | 13 dirs raiz + arquivos-base + 12 prompts |
 | Fase 1 — repo audit (20 upstreams) | ✅ | `00_meta/REPO_SELECTION.md` + 20 audits |
 | Fase 2 — arquitetura | ✅ | 5 ADRs estruturais + 6 integration maps |
-| Fase 3a/b — scaffold técnico (agentes/apps/integrações) | ✅ | 17 agentes + 7 apps + 7 integrações + 12 packages |
+| Fase 3a/b — scaffold técnico | ✅ | 17 agentes + 7 apps + 7 integrações + 12 packages |
 | Fase 4 — fundação operacional | ✅ | UPPERCASE docs + shared packages + vault template |
-| Sub-fase 2.0 — ADRs operacionais (QA, scope, commits) | ✅ | ADR-0006, 0009, 0017 aceitos |
-| Sub-fase 2.1 — bootstrap funcional | ✅ | `pnpm install + typecheck + smoke` verdes |
-| Sub-fase 2.2 — CI mínimo | ✅ | `.github/workflows/ci.yml` ativo |
-| **Sub-fase 2.3 — ingestão de upstreams** | 🔴 **próxima** | `01_upstreams/` ainda vazio |
-| Sub-fase 2.4 — `@cao/runtime` + 1º agente real | 🔴 pendente | implementação real começa aqui |
-| Sub-fases 2.5–2.11 | 🔴 pendentes | Shopify connect, feed, analytics, reviews, marketing, release v1 |
+| Sub-fase 2.0 — ADRs operacionais | ✅ | ADR-0006, 0009, 0017 aceitos |
+| Sub-fase 2.1 — bootstrap funcional | ✅ | `pnpm install + typecheck + lint + smoke` verdes |
+| Sub-fase 2.2 — núcleo `@cao/*` + CI | ✅ | 6 packages com 41 testes; CI ativo |
+| Sub-fase 2.2.1 — primeiro agente real (`repo-auditor`) | ✅ | `pnpm audit:repo <path>` → markdown real em `12_reports/` |
+| Sub-fase 2.2.2 — cérebro operacional multi-operador | ✅ | `07_memory/vault/projects/commerce-agent-os/` estruturado |
+| **Sub-fase 2.3 — ingestão de upstreams** | 🔴 **próxima** | `01_upstreams/` vazio; `repo-auditor` pronto para auditar cada clone |
+| Sub-fase 2.4 — LLM end-to-end | 🔴 pendente | `@cao/llm` pronto; falta `ANTHROPIC_API_KEY` confirmada |
+| Sub-fases 2.5–2.11 | 🔴 pendentes | Shopify, feed, analytics, reviews, marketing, release v1 |
 
 Detalhe completo: [`12_reports/releases/current-project-status.md`](./12_reports/releases/current-project-status.md) e [`12_reports/releases/phase-1-setup-summary.md`](./12_reports/releases/phase-1-setup-summary.md).
 
@@ -64,23 +73,44 @@ Isso significa:
 
 ## Como rodar localmente
 
-Requisitos:
-- Node ≥ 20
-- pnpm ≥ 9 (instale via `npm install -g pnpm@9` ou corepack)
-- Git
+Requisitos: **Node ≥ 20**, **pnpm ≥ 9**, **Git**.
 
 ```bash
 git clone https://github.com/incluobrasil-ux/commerce-agent-os.git
 cd commerce-agent-os
 pnpm install
-pnpm typecheck   # tsc -b — deve retornar verde
-pnpm lint        # biome — deve retornar verde
-pnpm test:smoke  # vitest — 3 testes passando
+pnpm doctor
 ```
 
-O que você verá ao rodar: **nada acontecendo no domínio.** O build apenas confirma que a planta está consistente. Os 17 agentes, 7 apps e 7 integrações têm contratos válidos mas nenhuma implementação.
+`pnpm doctor` é o comando único de verificação — checa Node/pnpm/git, install, typecheck, lint, smoke, `.env.local`, gitleaks, cérebro. Se tudo verde, está pronto.
+
+Próximo passo (zero credencial):
+
+```bash
+pnpm audit:repo .       # 1º agente real determinístico
+pnpm feed:dry-run       # pipeline Merchant com fixture
+```
+
+Detalhe + setup completo + troubleshooting: [`10_ops/scripts/SETUP_LOCAL.md`](./10_ops/scripts/SETUP_LOCAL.md).
+Todos os comandos: [`10_ops/scripts/COMMANDS.md`](./10_ops/scripts/COMMANDS.md).
+Variáveis de ambiente: [`.env.example`](./.env.example) (copiar para `.env.local` quando ativar LLM/Shopify/Merchant).
 
 ## Como navegar a documentação
+
+**Para uso da equipe** (cérebro operacional):
+
+| Quero... | Vá para |
+|---|---|
+| Onde estamos **agora** | [`07_memory/vault/projects/commerce-agent-os/current-state.md`](./07_memory/vault/projects/commerce-agent-os/current-state.md) |
+| O que puxar nesta sessão | [`07_memory/vault/projects/commerce-agent-os/next-actions.md`](./07_memory/vault/projects/commerce-agent-os/next-actions.md) |
+| Trilhas paralelas + status | [`07_memory/vault/projects/commerce-agent-os/workstreams.md`](./07_memory/vault/projects/commerce-agent-os/workstreams.md) |
+| Protocolo multi-operador | [`07_memory/vault/projects/commerce-agent-os/sync-protocol.md`](./07_memory/vault/projects/commerce-agent-os/sync-protocol.md) |
+| Qual arquivo é autoridade | [`07_memory/vault/projects/commerce-agent-os/source-of-truth.md`](./07_memory/vault/projects/commerce-agent-os/source-of-truth.md) |
+| Entrada do cérebro | [`07_memory/vault/projects/commerce-agent-os/project-home.md`](./07_memory/vault/projects/commerce-agent-os/project-home.md) |
+| Setup local em outro PC | [`10_ops/scripts/SETUP_LOCAL.md`](./10_ops/scripts/SETUP_LOCAL.md) |
+| Lista de comandos | [`10_ops/scripts/COMMANDS.md`](./10_ops/scripts/COMMANDS.md) |
+
+**Para governança e arquitetura** (canônico, mudança via ADR):
 
 | Quero saber... | Vá para |
 |---|---|
@@ -92,10 +122,8 @@ O que você verá ao rodar: **nada acontecendo no domínio.** O build apenas con
 | Upstreams estudados (20 repos) | [`00_meta/REPO_SELECTION.md`](./00_meta/REPO_SELECTION.md) |
 | Layout do monorepo | [`CLAUDE.md`](./CLAUDE.md) |
 | Mapa de domínio + camadas | [`02_architecture/domain-model/project-map.md`](./02_architecture/domain-model/project-map.md) |
-| Como cada integração funciona | [`02_architecture/integrations/`](./02_architecture/integrations/) |
-| Próxima ação concreta | [`10_ops/scripts/NEXT_STEPS.md`](./10_ops/scripts/NEXT_STEPS.md) |
-| Lacunas e riscos | [`12_reports/audits/phase-1-gap-analysis.md`](./12_reports/audits/phase-1-gap-analysis.md) |
-| Estado atual executivo | [`12_reports/releases/current-project-status.md`](./12_reports/releases/current-project-status.md) |
+| Status executivo | [`12_reports/releases/current-project-status.md`](./12_reports/releases/current-project-status.md) |
+| Lacunas e riscos consolidados | [`12_reports/audits/phase-1-gap-analysis.md`](./12_reports/audits/phase-1-gap-analysis.md) |
 
 ## Como colaborar
 
@@ -110,13 +138,16 @@ O que você verá ao rodar: **nada acontecendo no domínio.** O build apenas con
 - **PR:** CI roda automático (lint + typecheck + smoke + commitlint). Verde obrigatório.
 - **ADR para decisões estruturais:** mudou algo arquitetural? Abra ADR em `02_architecture/adr/` com status `proposta` antes de implementar.
 
-### Onde contribuir agora (Sub-fase 2.3)
-[Sub-fase 2.3 do `NEXT_STEPS.md`](./10_ops/scripts/NEXT_STEPS.md) — ingerir 10 upstreams de alta prioridade em `01_upstreams/`. Trabalho operacional, baixo risco arquitetural.
+### Onde contribuir agora
+
+Ver [`07_memory/vault/projects/commerce-agent-os/next-actions.md`](./07_memory/vault/projects/commerce-agent-os/next-actions.md) — N1–N7 com pré-requisito, resultado esperado e papel sugerido. Antes de puxar item, ler [`handoff-log.md`](./07_memory/vault/projects/commerce-agent-os/handoff-log.md) (alguém pode já estar nele) e [`sync-protocol.md`](./07_memory/vault/projects/commerce-agent-os/sync-protocol.md) (convenções multi-operador).
+
+Foco atual: **Sub-fase 2.3** — ingerir 10 upstreams de alta prioridade em `01_upstreams/`. `repo-auditor` está pronto para auditar cada clone (`pnpm audit:repo 01_upstreams/<repo>`).
 
 ### Onde NÃO contribuir agora
-- ❌ Implementação de domínio antes da Sub-fase 2.4 (`@cao/runtime` mínimo). Sem runtime, qualquer código de agente vai precisar ser reescrito.
-- ❌ Integração com Shopify real antes da Sub-fase 2.6.
+- ❌ Integração Shopify real antes da Sub-fase 2.6.
 - ❌ Adicionar dependências externas pesadas sem ADR.
+- ❌ Implementar agente novo antes de ter um upstream relevante clonado (Sub-fase 2.3).
 
 ## Licença
 
@@ -124,6 +155,6 @@ O que você verá ao rodar: **nada acontecendo no domínio.** O build apenas con
 
 ## Manutenção desta linha de base
 
-Esta versão (`v0.1.0-architecture-baseline`) deve ser mantida como **referência canônica** até a Sub-fase 2.4 entregar o primeiro agente rodando end-to-end. A partir daí, `main` evolui em direção a v1.0.0 (Fase 12 — release v1).
+A tag `v0.1.0-architecture-baseline` permanece como **referência canônica de scaffold puro**. A partir da Sub-fase 2.2, `main` evolui com núcleo `@cao/*` + agentes reais; próximo marco taggeado: agente invocando LLM end-to-end (Sub-fase 2.4).
 
 Reportar inconsistências entre documentação e código: abrir issue com label `docs-drift`.

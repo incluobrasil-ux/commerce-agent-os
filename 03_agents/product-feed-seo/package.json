@@ -1,0 +1,27 @@
+{
+  "name": "@cao/product-feed-seo",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Agente que propõe melhorias de title/description para Google Merchant + SEO PDP.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rm -rf dist .tsbuildinfo"
+  },
+  "dependencies": {
+    "@cao/core": "workspace:*",
+    "@cao/llm": "workspace:*",
+    "@cao/memory": "workspace:*",
+    "@cao/observability": "workspace:*",
+    "@cao/runtime": "workspace:*",
+    "zod": "^3"
+  }
+}

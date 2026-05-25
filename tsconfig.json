@@ -29,6 +29,7 @@
     { "path": "./03_agents/memory-context" },
     { "path": "./03_agents/product-feed-seo" },
     { "path": "./03_agents/catalog-feed-ops" },
-    { "path": "./03_agents/orchestrator-master" }
+    { "path": "./03_agents/orchestrator-master" },
+    { "path": "./03_agents/market-intelligence" }
   ]
 }

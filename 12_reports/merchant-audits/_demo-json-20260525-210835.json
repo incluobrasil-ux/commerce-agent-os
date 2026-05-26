@@ -1,0 +1,326 @@
+{
+  "generatedAt": "2026-05-25T21:08:35.628Z",
+  "tenantId": "_demo",
+  "source": "json",
+  "summary": {
+    "totalRows": 5,
+    "averageScore": 37.4,
+    "greenCount": 1,
+    "yellowCount": 1,
+    "redCount": 3,
+    "bySeverity": {
+      "critical": 6,
+      "high": 2,
+      "medium": 17,
+      "low": 7
+    },
+    "topFindings": [
+      {
+        "code": "googleProductCategory:missing",
+        "count": 5,
+        "severity": "medium"
+      },
+      {
+        "code": "gtin:missing",
+        "count": 4,
+        "severity": "medium"
+      },
+      {
+        "code": "mpn:missing",
+        "count": 4,
+        "severity": "low"
+      },
+      {
+        "code": "description:too-short",
+        "count": 4,
+        "severity": "medium"
+      },
+      {
+        "code": "availability:derived-from-status",
+        "count": 3,
+        "severity": "low"
+      },
+      {
+        "code": "imageLink:empty",
+        "count": 2,
+        "severity": "critical"
+      },
+      {
+        "code": "imageLink:generated-placeholder",
+        "count": 2,
+        "severity": "critical"
+      },
+      {
+        "code": "title:too-short",
+        "count": 2,
+        "severity": "medium"
+      }
+    ]
+  },
+  "rowScores": [
+    {
+      "offerId": "classic-cotton-tee",
+      "title": "Acme Classic Cotton Tee — 100% Organic, 4 Colors, M-XL",
+      "score": 92,
+      "band": "green",
+      "findings": [
+        {
+          "code": "googleProductCategory:missing",
+          "severity": "medium",
+          "field": "googleProductCategory",
+          "message": "googleProductCategory ausente — taxonomia GMC ajuda matching e CPC.",
+          "remediation": "Mapear productType Shopify → Google Product Taxonomy (ex.: 212, 5181, ...)."
+        }
+      ]
+    },
+    {
+      "offerId": "tote-no-image",
+      "title": "Canvas Tote",
+      "score": 0,
+      "band": "red",
+      "findings": [
+        {
+          "code": "imageLink:empty",
+          "severity": "critical",
+          "field": "imageLink",
+          "message": "imageLink vazio — Google Merchant exige URL de imagem.",
+          "remediation": "Subir imagem real do produto no Shopify ou configurar defaultImageUrl."
+        },
+        {
+          "code": "imageLink:generated-placeholder",
+          "severity": "critical",
+          "field": "imageLink",
+          "message": "imageLink gerado como placeholder a partir do handle — URL provavelmente não existe.",
+          "remediation": "Produto sem imagem no Shopify; subir imagem real antes de submeter ao GMC."
+        },
+        {
+          "code": "availability:derived-from-status",
+          "severity": "low",
+          "field": "availability",
+          "message": "availability inferida do status Shopify (não do inventário real).",
+          "remediation": "Conectar com inventory_quantity do Shopify para availability fiel."
+        },
+        {
+          "code": "gtin:missing",
+          "severity": "medium",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "mpn:missing",
+          "severity": "low",
+          "field": "mpn",
+          "message": "MPN ausente — quando GTIN também não existe, GMC pode penalizar.",
+          "remediation": "Adicionar SKU/MPN como metafield Shopify."
+        },
+        {
+          "code": "googleProductCategory:missing",
+          "severity": "medium",
+          "field": "googleProductCategory",
+          "message": "googleProductCategory ausente — taxonomia GMC ajuda matching e CPC.",
+          "remediation": "Mapear productType Shopify → Google Product Taxonomy (ex.: 212, 5181, ...)."
+        },
+        {
+          "code": "title:too-short",
+          "severity": "medium",
+          "field": "title",
+          "message": "Title curto (11 chars) — GMC favorece títulos de 70-150 chars informativos.",
+          "remediation": "Expandir título: marca + nome + atributo chave (cor/tamanho/material)."
+        },
+        {
+          "code": "description:too-short",
+          "severity": "medium",
+          "field": "description",
+          "message": "Description curta (16 chars) — thin content penaliza.",
+          "remediation": "Mínimo recomendado: 200-500 chars com specs, uso e diferencial."
+        }
+      ]
+    },
+    {
+      "offerId": "mystery-product",
+      "title": "Best in the world miracle cure tee",
+      "score": 0,
+      "band": "red",
+      "findings": [
+        {
+          "code": "validation:price.amount",
+          "severity": "critical",
+          "field": "price.amount",
+          "message": "amount deve ser > 0 (Google Merchant rejeita 0)",
+          "remediation": "price.amount deve ser > 0 — Google rejeita 0. Sincronizar com Shopify."
+        },
+        {
+          "code": "description:derived-from-title",
+          "severity": "medium",
+          "field": "description",
+          "message": "Description derivada do title — Google penaliza thin content.",
+          "remediation": "Preencher description no Shopify com especificações reais (material, dimensão, uso)."
+        },
+        {
+          "code": "imageLink:empty",
+          "severity": "critical",
+          "field": "imageLink",
+          "message": "imageLink vazio — Google Merchant exige URL de imagem.",
+          "remediation": "Subir imagem real do produto no Shopify ou configurar defaultImageUrl."
+        },
+        {
+          "code": "imageLink:generated-placeholder",
+          "severity": "critical",
+          "field": "imageLink",
+          "message": "imageLink gerado como placeholder a partir do handle — URL provavelmente não existe.",
+          "remediation": "Produto sem imagem no Shopify; subir imagem real antes de submeter ao GMC."
+        },
+        {
+          "code": "availability:derived-from-status",
+          "severity": "low",
+          "field": "availability",
+          "message": "availability inferida do status Shopify (não do inventário real).",
+          "remediation": "Conectar com inventory_quantity do Shopify para availability fiel."
+        },
+        {
+          "code": "price:used-default",
+          "severity": "high",
+          "field": "price",
+          "message": "price preenchido com defaultPrice — não reflete o preço real.",
+          "remediation": "Sincronizar preço via variant.price do Shopify antes de submeter."
+        },
+        {
+          "code": "brand:missing",
+          "severity": "medium",
+          "field": "brand",
+          "message": "brand ausente — GMC trata como item genérico, reduz match para queries de marca.",
+          "remediation": "Preencher Vendor no Shopify ou metafield específico mapeado para brand."
+        },
+        {
+          "code": "gtin:missing",
+          "severity": "medium",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "mpn:missing",
+          "severity": "low",
+          "field": "mpn",
+          "message": "MPN ausente — quando GTIN também não existe, GMC pode penalizar.",
+          "remediation": "Adicionar SKU/MPN como metafield Shopify."
+        },
+        {
+          "code": "googleProductCategory:missing",
+          "severity": "medium",
+          "field": "googleProductCategory",
+          "message": "googleProductCategory ausente — taxonomia GMC ajuda matching e CPC.",
+          "remediation": "Mapear productType Shopify → Google Product Taxonomy (ex.: 212, 5181, ...)."
+        },
+        {
+          "code": "description:too-short",
+          "severity": "medium",
+          "field": "description",
+          "message": "Description curta (34 chars) — thin content penaliza.",
+          "remediation": "Mínimo recomendado: 200-500 chars com specs, uso e diferencial."
+        },
+        {
+          "code": "claim:risk-keyword:cure",
+          "severity": "high",
+          "field": "title/description",
+          "message": "Termo \"cure\" pode disparar revisão por claim sem comprovação.",
+          "remediation": "Remover ou substituir por linguagem comprovável (com dado / spec / certificação)."
+        }
+      ]
+    },
+    {
+      "offerId": "premium-jacket",
+      "title": "Acme Heavyweight Field Jacket — Waxed Cotton",
+      "score": 73,
+      "band": "yellow",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "medium",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "mpn:missing",
+          "severity": "low",
+          "field": "mpn",
+          "message": "MPN ausente — quando GTIN também não existe, GMC pode penalizar.",
+          "remediation": "Adicionar SKU/MPN como metafield Shopify."
+        },
+        {
+          "code": "googleProductCategory:missing",
+          "severity": "medium",
+          "field": "googleProductCategory",
+          "message": "googleProductCategory ausente — taxonomia GMC ajuda matching e CPC.",
+          "remediation": "Mapear productType Shopify → Google Product Taxonomy (ex.: 212, 5181, ...)."
+        },
+        {
+          "code": "description:too-short",
+          "severity": "medium",
+          "field": "description",
+          "message": "Description curta (93 chars) — thin content penaliza.",
+          "remediation": "Mínimo recomendado: 200-500 chars com specs, uso e diferencial."
+        }
+      ]
+    },
+    {
+      "offerId": "free-product",
+      "title": "Free sample",
+      "score": 22,
+      "band": "red",
+      "findings": [
+        {
+          "code": "validation:price.amount",
+          "severity": "critical",
+          "field": "price.amount",
+          "message": "amount deve ser > 0 (Google Merchant rejeita 0)",
+          "remediation": "price.amount deve ser > 0 — Google rejeita 0. Sincronizar com Shopify."
+        },
+        {
+          "code": "availability:derived-from-status",
+          "severity": "low",
+          "field": "availability",
+          "message": "availability inferida do status Shopify (não do inventário real).",
+          "remediation": "Conectar com inventory_quantity do Shopify para availability fiel."
+        },
+        {
+          "code": "gtin:missing",
+          "severity": "medium",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "mpn:missing",
+          "severity": "low",
+          "field": "mpn",
+          "message": "MPN ausente — quando GTIN também não existe, GMC pode penalizar.",
+          "remediation": "Adicionar SKU/MPN como metafield Shopify."
+        },
+        {
+          "code": "googleProductCategory:missing",
+          "severity": "medium",
+          "field": "googleProductCategory",
+          "message": "googleProductCategory ausente — taxonomia GMC ajuda matching e CPC.",
+          "remediation": "Mapear productType Shopify → Google Product Taxonomy (ex.: 212, 5181, ...)."
+        },
+        {
+          "code": "title:too-short",
+          "severity": "medium",
+          "field": "title",
+          "message": "Title curto (11 chars) — GMC favorece títulos de 70-150 chars informativos.",
+          "remediation": "Expandir título: marca + nome + atributo chave (cor/tamanho/material)."
+        },
+        {
+          "code": "description:too-short",
+          "severity": "medium",
+          "field": "description",
+          "message": "Description curta (7 chars) — thin content penaliza.",
+          "remediation": "Mínimo recomendado: 200-500 chars com specs, uso e diferencial."
+        }
+      ]
+    }
+  ]
+}

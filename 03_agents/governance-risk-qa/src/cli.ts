@@ -125,7 +125,7 @@ async function main(): Promise<void> {
     generatedAt,
   });
   await memory.write(relPath, md);
-  const absPath = resolve(repoRoot, '07_memory/vault', args.tenantId, relPath);
+  const absPath = resolve(repoRoot, '07_memory/vault/tenants', args.tenantId, relPath);
 
   const out = result.output;
   process.stdout.write(`[governance:qa] verdict=${out.verdict.toUpperCase()}\n`);
@@ -175,7 +175,7 @@ async function main(): Promise<void> {
           ...out.blockingReasons.map((b) => `[block] ${b}`),
         ],
         impact: `Verdict ${out.verdict} · ${out.riskFlags.length} risk flag(s) · ${out.suggestedFollowups.length} follow-up(s).`,
-        references: [`07_memory/vault/${args.tenantId}/${relPath}`],
+        references: [`07_memory/vault/tenants/${args.tenantId}/${relPath}`],
       },
       sessionLogLine: `governance-qa: ${args.agentName} → ${out.verdict}, ${out.riskFlags.length} risks.`,
     });

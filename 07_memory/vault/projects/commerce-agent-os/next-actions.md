@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-24T00:10:00.000Z
+updated_at: 2026-05-25T23:30:00.000Z
 tags: [next-actions]
 source: mixed
 confidence: 1.0
@@ -12,110 +12,105 @@ confidence: 1.0
 
 **Como usar:** abrir antes de cada sessão (depois de [current-state.md](current-state.md) e [handoff-log.md](handoff-log.md)). Puxar 1 item, executar, registrar em [session-log.md](session-log.md), atualizar daqui.
 
-**Output que gera:** plano operacional imediato (~3–7 ações) que cabe em 5 minutos de leitura.
+**Output que gera:** plano operacional imediato que cabe em 5 minutos de leitura.
 
-**Diferença para [operational-priorities.md](operational-priorities.md):** ali é o pool agrupado em horizontes (agora/próximo/depois); aqui são as ações imediatas em ordem, com critério de aceite.
+**Diferença para [operational-priorities.md](operational-priorities.md):** ali é o pool agrupado em horizontes (agora/próximo/depois); aqui são as ações imediatas em ordem com critério de aceite.
+
+> **Nomes amigáveis** (usados neste arquivo para clareza humana; nomes técnicos permanecem no código):
+> Chefe = `orchestrator-master` · Memória = `memory-context` · Organizador = `learning-memory-curation` · Auditor = `repo-auditor` · Resumidor = `audit-synthesizer` · Mercado = `market-intelligence` · Concorrentes = `competitor-benchmark` · Oferta = `product-offer` · Merchant = `merchant-compliance` · Qualidade = `governance-risk-qa` · Produtos = `product-feed-seo` · Catálogo = `catalog-feed-ops` · Reviews = `reviews-ops` · Marketing = `marketing-director` · Criativo = `creative-copy-assets` · Vitrine = `design-ux-localization` · Tráfego = `traffic-campaigns` · Performance = `analytics-optimization` · Margem = `finance-margin-radar` · Cliente = `customer-journey-ops` · Visual = `visual-asset-ops` · Campanhas = `ads-launchpad`.
 
 ---
 
-## ✅ Concluídos nesta sessão
+## ~~N26~~ ✅ Merchant audit em catálogo real Incluo — **concluído 2026-05-25**
 
-- ~~N1–N9~~ — bootstrap, ADRs, primeira LLM real.
-- ~~N10~~ — `@cao/learning-memory-curation` (3º agente).
-- ~~N12~~ — `@cao/memory-context` (4º agente).
-- ~~Sub-fase 2.3 (pass 2)~~ — **10/10 upstreams clonados + auditados** via `clone-upstreams.sh` e `pnpm audit:repo` → `12_reports/audits/upstream-pass2/`. Detector v2 (AGPL + env templates). Suíte 73 verdes.
-- ~~REPO_SELECTION.md~~ — atualizado com licenças confirmadas e 2 reclassificações (basic-memory → referência apenas; ad-factory-agent → não copiar).
-- ~~@cao/llm fallback + smoke~~ — `makeNoopComplete()` + `tryMakeAnthropicComplete()` + `pnpm llm:smoke`. 4 testes novos (suíte **81 verdes**). Smoke executado: detectou 401 com a key antiga (mensagem clara: "key inválida ou revogada").
-- ~~Sub-fase 2.6 caminho mínimo~~ — `@cao/integration-shopify` com `AdminGraphQLClient` + `listProducts()` + OAuth helpers. `pnpm shopify:list-products` rodou em SKIPPED limpo. Suíte 81 → **96 verdes** (+15 cobrindo Shopify).
-- ~~Sub-fase 2.7 dry-run Merchant~~ — `@cao/integration-google-merchant` (feed-row schema + transformer + validator + dry-run writer) + `@cao/product-feed-seo` (agente LLM) + `@cao/catalog-feed-ops` (CLI orquestrador). `pnpm feed:dry-run` rodou real com fixture, gerou 2 OK / 1 fail / 5 warnings. Suíte 96 → **114 verdes** (+18).
-- ~~Brain bridge~~ — `@cao/brain-bridge.captureRun()` + `pnpm ops:capture <input.json>` + `--capture` em `audit:repo` e `feed:dry-run`. Validado real (4 arquivos atualizados por capture). 2 bugs descobertos no markdown-utils e corrigidos. Suíte 114 → **126 verdes** (+12).
+- **Entrega:** rodado `pnpm merchant:audit --source=json` em snapshot de 50 SKUs reais puxados via MCP Shopify (`08_data/fixtures/incluo-catalog-real.json`). Score médio **81.9/100** (vs 37.4 da fixture sintética), 49🟢 / 0🟡 / 1🔴.
+- **Findings reais (acionáveis no Shopify):**
+  - 🔴 1 SKU com price=0 (`contas-madeira-montessori-animais-frutas-coordenac`)
+  - 🟡 50/50 sem GTIN/UPC/EAN exposto (decisão produto)
+  - 🟡 50/50 sem googleProductCategory (mapping necessário)
+  - 🔵 21/50 títulos longos sem brand "Incluo" no início
+- **Gaps de regra do scorer descobertos:** descrição truncada via MCP; threshold de `title:no-brand` baixo demais; `gtin:missing` não diferencia categoria (confirma necessidade de N20.1).
+- **Detalhe completo:** [run-summary 2026-05-25-audit-merchant-audit-incluo-json](run-summaries/2026-05-25-audit-merchant-audit-incluo-json.md).
 
-## N11 — Real run dos 3 agentes LLM (bloqueio único na sessão)
+## ~~N26 follow-ups~~ — diferidos pelo operador (2026-05-25)
 
-- **Ação:** atualizar `.env.local` com a key nova rotacionada; rodar pipeline de validação:
-  ```bash
-  pnpm synthesize:audit 12_reports/audits/repo-auditor/langgraph-*.md
-  pnpm curate:memory --tenant=_test
-  pnpm context:brief --task="optimize Q2 catalog titles" --tenant=_test
-  ```
-- **Pré-requisito:** **só** atualizar `.env.local` (a chave antiga está revogada; código + agentes + testes todos verdes localmente).
-- **Resultado esperado:** 3 outputs reais em `12_reports/` + `07_memory/vault/_test/facts/` + audit log atualizado. Custo estimado: < $0.05 total.
-- **Quem puxa:** ops (atualizar .env.local) → dev (validar)
+Decisão: o sistema mostrou-se funcional (end-to-end real-catalog audit OK). Operador opta por **não tocar na loja agora**; N26.a-d ficam diferidos para quando voltar à operação Shopify.
 
-## Passos manuais externos pendentes (consolidados — ordem recomendada)
+| # | Ação | Status |
+|---|---|---|
+| **N26.a** | Corrigir price = 0 no SKU `contas-madeira-montessori-animais-frutas-coordenac` | 🔵 manual no admin (operador) |
+| **N26.b** | Política GTIN (`identifier_exists=false` global) | 🔵 decisão pendente |
+| **N26.c** | Mapping productType → GMC taxonomy (47→3793, 3→5872) | 🔵 decisão pendente |
+| **N26.d** | Brand prefix nos 21 títulos > 70 chars | 🔵 quando convier |
 
-Tudo abaixo está atualmente bloqueando demos reais mas **não** trava o desenvolvimento. Quando você quiser ir até produção, faça nesta ordem para encadear o pipeline `Shopify → LLM SEO → Merchant`:
+Análise consolidada com proposta de write por pillar (preserva o trabalho): [`12_reports/merchant-audits/incluo-n26-followup-analysis.md`](../../../../12_reports/merchant-audits/incluo-n26-followup-analysis.md). Pronta para puxar a qualquer momento.
 
-**Passo 1 — Anthropic key (5 min, destrava todos os 6 agentes LLM)**
-- Console: https://console.anthropic.com/settings/keys → criar key.
-- Editar `.env.local` → substituir `ANTHROPIC_API_KEY=...` pela nova.
-- Validar: `pnpm llm:smoke` (deve sair `OK` com custo < $0.001).
+## Prioridade imediata — escolher próximo bloco
 
-**Passo 2 — Shopify dev store + Custom App (~3 min, destrava leitura real)**
-- https://partners.shopify.com → criar conta (gratuito) → criar Development Store (cria 5 produtos default).
-- Admin do store → **Settings** → **Apps and sales channels** → **Develop apps** → **Create app**.
-- **Configure Admin API scopes** → marcar `read_products` → **Save**.
-- **Install app** → **Reveal token once** → copiar.
-- Editar `.env.local`:
-  ```
-  SHOPIFY_SHOP=<sua-loja>.myshopify.com
-  SHOPIFY_ADMIN_TOKEN=shpat_xxxx...
-  ```
-- Validar: `pnpm shopify:list-products` (deve listar 5 produtos default).
+### ✅ Multi-tenant hardening 2.9 concluído (2026-05-25)
 
-**Passo 3 — Pipeline real end-to-end com SEO (depois de 1 + 2)**
+- 7 layers implementadas (shared-types/core/memory/runtime/brain-bridge/merchant:audit pilot/smoke isolation tests).
+- Detalhe completo em [run-summary 2026-05-25-impl-milestone-multi-tenant-hardening](run-summaries/2026-05-25-impl-milestone-multi-tenant-hardening.md).
+
+### ~~Opção A — Migrar 5 agentes~~ ✅ **concluído 2026-05-25**
+
+Os 5 agentes (`merchant-compliance`, `product-offer`, `marketing-director`, `creative-copy-assets`, `design-ux-localization`) ganharam `--store=<id>`, assertion explícita via `assertTenantStoreContext`/`assertTenantContext`, Memory com `storeId`, captureRun com `tenantId+storeId`, absPath e vaultRel store-scoped. Sem regressão: 309 testes verdes mantidos. Agora **6 de 20 agentes** suportam contexto store-level explicito (era 1 — só merchant:audit). Os 14 restantes seguem tenant-only (compat); migração incremental sob demanda.
+
+### Opção B — **N21**: Pipeline LLM real end-to-end
+
+Encadear Marketing → Criativo → Vitrine → Catálogo → Produtos → Merchant com dados reais Incluo, key Anthropic já presente em `.env.local`. Custo estimado: < $0.30/loop. Retorno: outputs reais salvos em vault para uso operacional.
 ```bash
-pnpm feed:dry-run --source=shopify --seo --first=5
+pnpm llm:smoke                                              # pre-flight ~$0.001
+pnpm marketing:plan --horizon=... --objective=... --capture
+pnpm creative:assets --campaign=... --capture
+pnpm design:ux --scope=product --name=... --capture
+pnpm feed:dry-run --source=fixture --seo --capture
 ```
-Output: produtos reais Shopify → Claude otimiza title/description → transforma → valida → escreve relatório em `12_reports/merchant-dry-runs/`. Custo estimado: < $0.05.
 
-**Passo 4 — Google Merchant credenciais (~30–60 min, só quando upload real virar requisito)**
-- https://console.cloud.google.com → criar project → ativar **Content API for Shopping** (Merchant API v2.5).
-- Criar OAuth 2.0 credentials (Web application) ou Service Account.
-- Criar/linkar Merchant Center account em https://merchants.google.com.
-- Editar `.env.local`:
-  ```
-  GOOGLE_OAUTH_CLIENT_ID=...
-  GOOGLE_OAUTH_CLIENT_SECRET=...
-  GOOGLE_MERCHANT_ACCOUNT_ID=123456789
-  ```
-- **Não há comando pra rodar isso ainda** — implementação do cliente HTTP real Merchant fica para próxima sub-fase (não é dry-run).
+### ~~Opção B — N20.1: Evoluir scorer~~ ✅ **concluído 2026-05-25**
+
+- 3 regras aplicadas no scorer: `title:no-brand` always-on, `description:truncated` (low) suprimindo falsos positivos, GMC_CATEGORY_OVERRIDES (3793 → gtin low).
+- Transformer ganhou `gmcCategoryByProductType` + `defaultGmcCategoryId`; CLI ganhou `--gmc-default=<id>` + `--gmc-mapping=<file>`.
+- +10 testes (241 → 251 verdes).
+- Re-run Incluo validou: **score 81.9 → 93.2**, medium 100 → 0, 0 red.
+- Detalhe em [run-summary 2026-05-25](run-summaries/2026-05-25-audit-merchant-audit-incluo-json.md) seção "Re-run pós N20.1".
+
+### Opção C — **N24**: Handoff entre agentes via Memória
+
+Usar `memory-context` (Memória) para passar context bundle automático entre Marketing → Criativo → Vitrine. Reduz retrabalho do operador e custo de tokens. Pré-requisito: N21 validado primeiro.
+
+## Bloqueios externos (separados — não bloqueiam desenvolvimento)
+
+| Bloqueio | Destrava | Esforço |
+|---|---|---|
+| Shopify dev store + admin token | N26 (real audit) + N22 (`shopify:list-products`) | ~3 min em https://partners.shopify.com |
+| `ANTHROPIC_API_KEY` rotacionada | N21 (17 agentes LLM saem do SKIPPED) | 5 min em https://console.anthropic.com/settings/keys |
+| Google Merchant creds | upload real ao GMC (não bloqueia dry-run nem audit local) | 30-60 min |
+
+Detalhe em [blockers-and-risks.md](blockers-and-risks.md).
+
+## Nota operacional
+
+**Caveman** foi instalado em modo `npx skills` fallback (per-repo, não como plugin do Claude Code) porque `claude` CLI não está no PATH local. `.agents/` e `skills-lock.json` já estão gitignored — nada poluiu o repo. **Não é prioridade**: deixar para quando configurar o Claude CLI corretamente (`npm i -g @anthropic-ai/claude-code`).
+
+## Backlog menor (não-prioritário)
+
+- **N23** — Scaffoldar `analytics-optimization` (Performance). Recomendação: deferir até haver tracking PostHog real para consumir.
+- **N25** — Polish CI: validar que pipeline GH Actions passa com os novos agentes (34 arquivos de teste, 241 testes); confirmar `gitleaks` no CI.
 
 ---
 
-## N15 — Conectar Shopify dev store e rodar real (Sub-fase 2.6 demo)
+## ✅ Concluídos recentemente
 
-- **Ação:** (a) criar dev store em https://partners.shopify.com (gratuito), (b) Admin → Settings → Apps and sales channels → Develop apps → Create app, (c) Configure Admin API scopes → marcar `read_products` → Save, (d) Install app → Reveal token, (e) preencher `SHOPIFY_SHOP` + `SHOPIFY_ADMIN_TOKEN` em `.env.local`.
-- **Pré-requisito:** conta Shopify Partners (gratuito).
-- **Resultado esperado:** `pnpm shopify:list-products` lista produtos do dev store (Shopify cria 5 produtos default em dev stores novas). **Primeira demo mostrável a stakeholder.**
-- **Quem puxa:** ops
-
-## N13a — Aceitar ADR-0011 (estratégia para `feedgen` Python)
-
-- **Ação:** agora que `feedgen` foi clonado e auditado (Apache-2.0, 4.4MB, Python puro), decidir entre: (a) port TS de heurísticas; (b) sidecar Python via subprocess; (c) serviço Python separado. Recomendação: **sidecar Python via subprocess** (menor caminho). Criar `02_architecture/adr/ADR-0011-feedgen-strategy.md`, atualizar [decision-index.md](decision-index.md) e `00_meta/DECISIONS.md`.
-- **Pré-requisito:** nenhum (código já disponível).
-- **Resultado esperado:** ADR-0011 sai da queue; Fase 9 (merchant feed) tem caminho técnico claro.
-- **Quem puxa:** tech lead
-
-## N13 — Decidir 5º agente OU pivotar para Sub-fase 2.6
-
-- **Ação:** decisão de produto. Opções:
-  - **Continuar 2.5:** próximos candidatos no catálogo de 17 agentes — `competitor-benchmark` (requer fetcher), `governance-risk-qa` (requer policies), `product-offer` (requer dados de produto).
-  - **Pivotar 2.6 (Shopify connect):** OAuth + 1 webhook + 1 produto lido. Requer dev store + ADR-0008 (queue) + ADR-0010 (DB).
-- **Pré-requisito:** N11 validado (todos os 3 agentes LLM rodando real).
-- **Quem puxa:** tech lead + produto
-
-## N14 — Polish CI: rodar smoke + lint + commitlint em PR (já existe; validar com este PR)
-
-- **Ação:** verificar que CI atualmente roda no PR e cobre os novos pacotes (4 agentes adicionados). Se faltar gitleaks no CI, adicionar.
-- **Pré-requisito:** PR `feat/core-runtime-and-first-agent` aberta no GitHub (já).
-- **Quem puxa:** ops
+- ~~N1–N18~~ — bootstrap, ADRs, 16 agentes reais, brain bridge, doctor, team-ready.
+- ~~N19~~ (2026-05-25) — **Bloco B 2.5 fechado**: Marketing, Criativo, Vitrine, Tráfego implementados. 20/22 agentes reais. 228 testes verdes. [run-summary](run-summaries/2026-05-25-impl-milestone-four-new-agents.md).
+- ~~N20~~ (2026-05-25) — **Merchant audit MVP** (`pnpm merchant:audit`): score 0-100 por SKU + findings categorizados + remediações concretas; determinístico, sem LLM, sem credenciais; +13 testes (241 total). [run-summary](run-summaries/2026-05-25-impl-milestone-merchant-audit-mvp.md).
 
 ---
 
 ## Regras
 
-- Máximo ~7 itens. Se passar, mover excesso para [operational-priorities.md](operational-priorities.md) > `próximo`.
+- Máximo ~7 itens ativos. Excesso → [operational-priorities.md](operational-priorities.md) > `próximo`.
 - Item executado → remover daqui + entrada em [session-log.md](session-log.md) + atualizar [current-state.md](current-state.md)/[ops-brief.md](ops-brief.md) se mudou semáforo.
-- Item que não saiu em 2 sessões consecutivas → reavaliar pré-requisito ou rebaixar para [operational-priorities.md](operational-priorities.md).
-- Antes de puxar, ler [handoff-log.md](handoff-log.md) — alguém pode já estar nesse item.
+- Item que não saiu em 2 sessões → reavaliar pré-requisito ou rebaixar.
+- Antes de puxar, ler [handoff-log.md](handoff-log.md).

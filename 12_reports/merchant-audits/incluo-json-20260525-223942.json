@@ -1,0 +1,1144 @@
+{
+  "generatedAt": "2026-05-25T22:39:42.883Z",
+  "tenantId": "incluo",
+  "source": "json",
+  "summary": {
+    "totalRows": 50,
+    "averageScore": 93.2,
+    "greenCount": 49,
+    "yellowCount": 1,
+    "redCount": 0,
+    "bySeverity": {
+      "critical": 1,
+      "high": 0,
+      "medium": 0,
+      "low": 100
+    },
+    "topFindings": [
+      {
+        "code": "gtin:missing",
+        "count": 50,
+        "severity": "low"
+      },
+      {
+        "code": "title:no-brand",
+        "count": 50,
+        "severity": "low"
+      },
+      {
+        "code": "validation:price.amount",
+        "count": 1,
+        "severity": "critical"
+      }
+    ]
+  },
+  "rowScores": [
+    {
+      "offerId": "12-lados-fidget-cubo-brinquedos-sensoriais-alivia-",
+      "title": "Cubo Fidget 12 Lados - Foco, Conforto Sensorial e Autorregulação",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "cubo-infinito-sensorial-anti-stress-fidget",
+      "title": "Cubo Infinito Sensorial - Foco, Conforto Tátil e Autorregulação",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "fidget-pad-controlador-sensorial-foco",
+      "title": "Fidget Pad Controlador Sensorial - Foco, Conforto Tátil e Autorregulação",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "cubo-fidget-magnetico-botoes-clique",
+      "title": "Cubo Fidget Magnético com Botões de Clique - Suporte ao Foco e Autorregulação Sensorial",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "brinquedo-de-descompressao-criativo-orbita-bola-br",
+      "title": "Órbita Cubo Sensorial Infinito de Plástico - Conforto Tátil e Suporte ao Foco e Concentração",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "bolas-sensoriais-para-bebes-brinquedos-sensoriais-",
+      "title": "Kit 6 Bolas Sensoriais Texturizadas de TPU - Mordedor, Chocalho e Estímulo Tátil para Bebês",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "bolas-magneticas-fidget-silicone-4-texturas",
+      "title": "Bolas Magnéticas Fidget de Silicone com 4 Texturas - Conforto Sensorial e Foco",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "squishy-mochi-morango-slow-rising",
+      "title": "Squishy Mochi Morango Slow Rising - Brinquedo de Apertar",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "1pc-mole-multicolorido-textura-bola-de-gelo-squeez",
+      "title": "Bola Sensorial de Gel Texturizada - Conforto Tátil e Squeeze Macio",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "bola-apertar-expressoes-faciais-borracha",
+      "title": "Bola de Apertar com Expressões Faciais em Borracha Macia - Conforto Sensorial e Autorregulação Emocional",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "1pc-bola-de-massagem-de-amendoim-colorido-pvc-espe",
+      "title": "Bola Massagem Amendoim Texturizada - Alta Redução Tensão Muscular e Estímulo Tátil Profundo",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "fidget-slider-coruja-metal-premium-16-imas",
+      "title": "Fidget Slider Coruja Metal Premium - 16 Ímãs, Rolamento Giratório e Acabamento Antideslizante",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "2-temporizadores-de-ampulheta-smile-de-2-minutos-t",
+      "title": "Ampulheta Sensorial Visual 2-3 min - Estímulo Cognitivo e Foco",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "ampulheta-brilhante-temporizador-relogio-de-areia-",
+      "title": "Ampulhetas Coloridas Kit 6 Tempos - Gestão Visual do Tempo e Organização de Rotinas",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "tapete-do-assoalho-do-enigma-da-espuma-de-eva-para",
+      "title": "Tapete Puzzle EVA Infantil 30x30cm - Macio, Antiderrapante e Isolante Térmico",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "criancas-montessori-brinquedos-fazenda-animal-hist",
+      "title": "Busy Book Fazenda em Feltro - Bilíngue, Motor Fino e Estímulo Sensorial",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "placa-ocupada-montessori-brinquedos-para-crianca-l",
+      "title": "Busy Book Montessori em Feltro - Motor Fino, Sensorial e Bilíngue",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "piscando-varinha-led-varinhas-brilhante-cheer-wand",
+      "title": "Varinha LED Sensorial Multicolorida - 7 Modos de Luz e Estímulo Visual",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "5-10pc-led-voando-seta-foguete-brinquedos-borracha",
+      "title": "Foguete LED com Estilingue - Coordenação Motora e Estímulo Visual",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "busy-board-montessori-bilingue-atividades-aprender",
+      "title": "Busy Board Montessori Mochila - 18 Atividades de Motor Fino e Vida Prática",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "livro-sensorial-preto-branco-bebe-alto-contraste-m",
+      "title": "Livro Sensorial de Pano Alto Contraste - Estímulo Visual e Toque Macio 0-12m",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "flashcards-educativos-bilingues-50-pecas-aprender-",
+      "title": "Flashcards Educativos Bilíngues 50 Peças - Vocabulário Visual PT e EN",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "piramide-impossivel-fidget-sensorial-alivio-estres",
+      "title": "Pirâmide Impossível Fidget 3D - Estímulo Visual e Suporte ao Foco",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "impressao-3d-expandida-sensorial-fidget-estrela-mo",
+      "title": "Fidget Hexágono Sensorial Girando - Estímulo Visual e Tátil 8,7cm",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "tapetes-sensoriais-de-feltro-para-criancas-autista",
+      "title": "Tapetes Sensoriais de Feltro - Estímulo Tátil e Cognitivo 8 peças",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "cubo-de-gelo-mole-brinquedo-fidget-forma-quadrada-",
+      "title": "Cubo Sensorial Silicone - Textura Responsiva e Conforto Tátil",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "montessori-brinquedos-educacao-precoce-criancas-ha",
+      "title": "Quadro Ocupado Montessori Madeira - Motor Fino e Aprendizado Bilíngue",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "fidget-brinquedos-pedra-sensorial-6-pacote-texturi",
+      "title": "Pedras Sensoriais Texturizadas - Conforto Tátil e Suporte ao Foco",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "criancas-memoria-correspondencia-cartoes-loucos-br",
+      "title": "Jogo de Memória Montessori - Cognição e Aprendizado Bilíngue",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "almofada-de-massagem-de-pes-premium-com-placa-de-p",
+      "title": "Tapete Massageador Reflexologia Podal - Pedras Texturizadas Removíveis",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "montessori-ocupado-placa-sensorial-brinquedos-dos-",
+      "title": "Busy Board Montessori LED - Painel Sensorial com Interruptores e Luzes",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "tapete-de-acupressao-sensi-massagem-esteira-traves",
+      "title": "Tapete de Acupressão com Travesseiro - Relaxamento Muscular",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "quebra-cabeca-montessori-7-em-1-magnetico-bilingue",
+      "title": "Quebra-Cabeça Montessori 7 em 1 Magnético - Motor Fino e Alfabetização Bilíngue",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "jogo-pesca-magnetico-madeira-alfabeto-bilingue",
+      "title": "Jogo de Pesca Magnético em Madeira - Alfabeto Bilíngue e Números",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "brinquedo-montessori-classificacao-cores-madeira-e",
+      "title": "Brinquedo Montessori em Madeira - Classificação de Cores e Equilíbrio",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "quadro-branco-magnetico-a4-planejador-rotina",
+      "title": "Quadro Branco Magnético A4 - Planejador Visual de Rotina Diária",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "contas-madeira-montessori-animais-frutas-coordenac",
+      "title": "Contas de Madeira Montessori - Alinhavo Educativo Animais e Frutas",
+      "score": 54,
+      "band": "yellow",
+      "findings": [
+        {
+          "code": "validation:price.amount",
+          "severity": "critical",
+          "field": "price.amount",
+          "message": "amount deve ser > 0 (Google Merchant rejeita 0)",
+          "remediation": "price.amount deve ser > 0 — Google rejeita 0. Sincronizar com Shopify."
+        },
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "quadro-mensagens-led-luminoso-organizacao-visual",
+      "title": "Quadro LED Regravável com Iluminação - Planejador Visual e Comunicação",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "jogo-vestir-roupas-montessori-autonomia-habilidade",
+      "title": "Jogo Montessori de Varal e Roupas - Autonomia e Habilidades Diárias",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "relogio-educativo-montessori-aprendizado-horas",
+      "title": "Relógio Educativo Montessori DIY - Noções de Tempo e Cognição",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "livro-sensorial-feltro-montessori-historias-estimu",
+      "title": "Livro Sensorial de Feltro Montessori - Estímulo Tátil e Histórias Interativas",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "quadro-rotina-recompensas-magnetico-organizacao",
+      "title": "Quadro de Rotina e Recompensas Magnético - Organização e Hábitos",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "quadro-rotina-visual-bilingue-organizacao-infantil",
+      "title": "Quadro de Rotina Visual Reutilizável BPA Free - Organização e Autonomia Infantil",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "jogo-dardo-sensorial-infantil-coordenacao-motora",
+      "title": "Jogo de Dardo Sensorial com Bolas Adesivas - Coordenação Motora e Foco",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "brinquedo-educativo-matematica-contagem-numeros-fe",
+      "title": "Brinquedo Educativo de Matemática em Feltro - Contagem e Estímulo Tátil",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "mordedor-sensorial-silicone-autorregulacao-oral",
+      "title": "Mordedor Sensorial de Silicone Grau Alimentício BPA Free - Kit 3 Peças",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "bola-sensorial-3-em-1-mordedor-chocalho-desenvolvi",
+      "title": "Bola Sensorial 3 em 1 BPA Free - Mordedor, Chocalho e Preensão para Bebês",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "quadro-incentivo-escolar-80-unidades-2400-adesivos",
+      "title": "Quadro de Incentivo Infantil com Adesivos - 80 Quadros + 2400 Adesivos Coloridos",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "colar-sensorial-silicone-pingente-lagrima-autorreg",
+      "title": "Colar Sensorial de Silicone Pingente Lágrima BPA Free - Estímulo Oral e Conforto Tátil",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    },
+    {
+      "offerId": "topper-sensorial-lapis-3-pecas-silicone-foco",
+      "title": "Topper Sensorial para Lápis em Silicone Grau Alimentício - Kit 3 Peças BPA Free",
+      "score": 94,
+      "band": "green",
+      "findings": [
+        {
+          "code": "gtin:missing",
+          "severity": "low",
+          "field": "gtin",
+          "message": "GTIN ausente — categorias com identifier_exists=true (ex.: eletrônicos) podem ser rejeitadas.",
+          "remediation": "Adicionar GTIN/UPC/EAN via metafield Shopify; se não aplicável, marcar identifier_exists=false."
+        },
+        {
+          "code": "title:no-brand",
+          "severity": "low",
+          "field": "title",
+          "message": "Title não contém brand — boa prática inclui no início.",
+          "remediation": "Adicionar \"Incluo\" no início do title."
+        }
+      ]
+    }
+  ]
+}

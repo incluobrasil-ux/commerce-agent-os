@@ -124,7 +124,7 @@ async function main(): Promise<void> {
   );
 
   await memory.write(relPath, md);
-  const absSnapshotPath = resolve(repoRoot, '07_memory/vault', args.tenantId, relPath);
+  const absSnapshotPath = resolve(repoRoot, '07_memory/vault/tenants', args.tenantId, relPath);
 
   const out = result.output;
   process.stdout.write(`[competitor:benchmark] competitor=${args.competitor}\n`);
@@ -160,7 +160,7 @@ async function main(): Promise<void> {
           ...out.watchouts.map((w) => `[watchout] ${w}`),
         ],
         impact: out.positioningSummary,
-        references: [`07_memory/vault/${args.tenantId}/${relPath}`],
+        references: [`07_memory/vault/tenants/${args.tenantId}/${relPath}`],
       },
       sessionLogLine: `competitor-benchmark capturou ${args.competitor}: ${out.strengths.length} forças, ${out.weaknesses.length} fraquezas.`,
     });

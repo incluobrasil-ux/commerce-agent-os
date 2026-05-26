@@ -16,17 +16,45 @@ export interface MemoryConfig {
   vaultRoot: string;
   /** Identificador do tenant (slug seguro). Vira subpasta dentro do vault. */
   tenantId: string;
+  /**
+   * Identificador opcional de store (slug seguro). Quando presente, baseDir
+   * vira `<vaultRoot>/tenants/<tenantId>/stores/<storeId>/`. Ausente:
+   * `<vaultRoot>/tenants/<tenantId>/`.
+   *
+   * Cross-store é impossível por construção: safePath() trava a I/O em baseDir.
+   */
+  storeId?: string;
+}
+
+function isUnsafeSegment(seg: string): boolean {
+  return !seg || /[\\/]/.test(seg) || seg.includes('..');
 }
 
 export class Memory {
-  /** Diretório base do tenant — toda I/O fica contida aqui. */
+  /** Diretório base do tenant (ou tenant/store quando storeId é passado). */
   readonly baseDir: string;
+  /** TenantId desta instância — exposto para diagnóstico/log. */
+  readonly tenantId: string;
+  /** StoreId desta instância (se houver). Undefined indica memory tenant-level. */
+  readonly storeId: string | undefined;
 
   constructor(cfg: MemoryConfig) {
-    if (!cfg.tenantId || /[\\/]/.test(cfg.tenantId) || cfg.tenantId.includes('..')) {
+    if (isUnsafeSegment(cfg.tenantId)) {
       throw new MemoryPathError('Invalid tenantId', { tenantId: cfg.tenantId });
     }
-    this.baseDir = resolve(cfg.vaultRoot, cfg.tenantId);
+    if (cfg.storeId !== undefined && isUnsafeSegment(cfg.storeId)) {
+      throw new MemoryPathError('Invalid storeId', { storeId: cfg.storeId });
+    }
+    this.tenantId = cfg.tenantId;
+    this.storeId = cfg.storeId;
+    // Convenção canônica (alinhada com brain-bridge.resolveBrainDir):
+    //   tenant-level: <vaultRoot>/tenants/<tenantId>/
+    //   store-level:  <vaultRoot>/tenants/<tenantId>/stores/<storeId>/
+    // O segmento `tenants/` é reservado dentro do vault para isolar tenants de
+    // outros namespaces (global/, projects/, _template/, etc.).
+    this.baseDir = cfg.storeId
+      ? resolve(cfg.vaultRoot, 'tenants', cfg.tenantId, 'stores', cfg.storeId)
+      : resolve(cfg.vaultRoot, 'tenants', cfg.tenantId);
   }
 
   /** Resolve um relPath garantindo que fica dentro de baseDir. */

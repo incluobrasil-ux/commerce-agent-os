@@ -1,18 +1,18 @@
 # Commands
 
-Comandos principais do projeto. Tudo via `pnpm` na raiz.
+Comandos principais. Tudo via `pnpm` na raiz. Atualizado: 2026-05-25.
 
 ## Verificação (rodar primeiro em qualquer clone novo)
 
 | Comando | O que faz |
 |---|---|
-| `pnpm doctor` | **Diagnóstico cross-platform.** Checa: node ≥ 20, pnpm ≥ 9, git, `node_modules`, typecheck, lint, test:smoke, `.env.local`, gitleaks, cérebro presente. Exit 0 = baseline OK; exit 1 = bloqueio real (mensagem dá o fix). |
+| `pnpm doctor` | **Diagnóstico cross-platform.** Checa: node ≥ 20, pnpm ≥ 9, git, `node_modules`, typecheck, lint, test:smoke, `.env.local`, gitleaks, cérebro presente. Exit 0 = baseline OK. |
 
 ## Setup / instalação
 
 | Comando | O que faz |
 |---|---|
-| `pnpm install` | Instala deps de todos os workspaces (24+ pacotes). |
+| `pnpm install` | Instala deps de todos os workspaces (28+ pacotes). |
 | `cp .env.example .env.local` | Cria env local. Editar manualmente. |
 | `npx simple-git-hooks` | Ativa pre-commit (lint + smoke + secret-scan) + commit-msg (commitlint). |
 | `bash 10_ops/scripts/clone-upstreams.sh` | (Opcional) Clona 10 upstreams pinados em `01_upstreams/`. |
@@ -25,46 +25,91 @@ Comandos principais do projeto. Tudo via `pnpm` na raiz.
 | `pnpm typecheck` | `tsc -b` em todos os refs do tsconfig raiz. | sim |
 | `pnpm lint` | `biome check .` (lint + format + organize imports). | sim |
 | `pnpm format` | `biome format --write .` — aplica formatação. | n/a |
-| `pnpm test` | `vitest run` — toda a suíte (~126 testes, ~3s). | sim |
-| `pnpm test:smoke` | só `11_tests/smoke/` — rápido. | sim (pre-commit) |
+| `pnpm test` | `vitest run` — toda a suíte (309 testes em 36 arquivos, ~5s). | sim |
+| `pnpm test:smoke` | só `11_tests/smoke/` (17 testes incl. multi-tenant isolation). | sim (pre-commit) |
 | `pnpm secret-scan` | `gitleaks protect --staged` — só staged diff. | sim (pre-commit) |
-| `pnpm secret-scan:full` | `gitleaks detect` — varre tudo. | uso pontual |
 | `pnpm commitlint` | Conventional Commits (ADR-0017). | sim em PR |
-| `pnpm build` | `tsc -b` com emit — só se for publicar pacote. | n/a |
 
 ## Agentes executáveis
 
-| Comando | Credencial | O que faz |
+> **Identificação de contexto (multi-tenant/multi-store):**
+> - `--tenant=<id>` é obrigatório para qualquer agente. Default `_test` (dev local).
+> - `--store=<id>` é opcional. Quando passado, paths de output viram tenant/store-scoped (ver "Multi-tenant" abaixo).
+> - Sem `--store`, agente opera tenant-level (compat com runs anteriores).
+
+### Determinísticos (zero credencial)
+
+| Comando | O que faz |
+|---|---|
+| `pnpm audit:repo <path> [--profile=full] [--capture]` | Auditor de repo (license + security + architecture). |
+| `pnpm feed:dry-run [--source=fixture\|shopify] [--seo] [--first=N] [--capture]` | Pipeline catalog → feed → validação → dry-run report Merchant. |
+| `pnpm merchant:audit [--source=fixture\|json\|shopify] [--file=path] [--tenant=<id>] [--store=<id>] [--gmc-default=<id>] [--gmc-mapping=<file>] [--capture]` | **Audit GMC determinístico com scoring por SKU + findings categorizados + remediação.** Output em `12_reports/merchant-audits/`. Exit 1 se há SKU red. |
+
+### LLM (requerem `ANTHROPIC_API_KEY`)
+
+| Comando | O que faz |
+|---|---|
+| `pnpm llm:smoke` | Smoke isolado (`OK` + custo ~$0.0001). |
+| `pnpm synthesize:audit <audit.md> [--tenant=<id>]` | Sintetiza relatório do `audit:repo` em bullets + risco. |
+| `pnpm curate:memory [--tenant=<id>] [--dry-run]` | Propõe promoções para `<tenant>/facts/`. |
+| `pnpm context:brief --task="..." [--tenant=<id>]` | Context brief read-only para próximo agente. |
+| `pnpm orchestrate:master --goal="..." [--tenant=<id>]` | Plano de execução multi-agente (Tier 0). |
+| `pnpm market:intelligence --niche="..." [--tenant=<id>]` | Inteligência de mercado. |
+| `pnpm competitor:benchmark --competitors="..." [--tenant=<id>]` | Benchmark competitivo. |
+| `pnpm reviews:ops --reviews-file=<path> [--tenant=<id>]` | Voice-of-customer (temas/dores). |
+| `pnpm product:offer --product-name="..." --description="..." --audience="..." --voice="..." [--tenant=<id>]` | Hero + value props + bundles + CTA. |
+| `pnpm merchant:compliance --content-type=copy --content="..." [--tenant=<id>]` | Risco legal/PII em conteúdo. |
+| `pnpm marketing:plan --horizon="..." --objective="..." --voice="..." --budget=N [--tenant=<id>]` | Plano de marketing (iniciativas). |
+| `pnpm creative:assets --campaign="..." --theme="..." --audience="..." --voice="..." --offer="..." --channel=... --format=... --locale=... [--tenant=<id>]` | Copy variantes + visual brief. |
+| `pnpm design:ux --scope=product --name="..." --summary="..." --style="..." --market=pt-BR:BRL:BR [--tenant=<id>]` | PDP blueprint + locale copy + a11y. |
+| `pnpm traffic:plan --campaign="..." --product="..." --total-budget=N --daily-cap=N --cpa-target=N --channel=... [--tenant=<id>]` | Dry-run media plan (canais/audiências/hipóteses). |
+| `pnpm journey:map ... [--tenant=<id>]` | Mapa de jornada do cliente. |
+| `pnpm finance:radar --lines-file=<path> [--tenant=<id>]` | Radar de margem. |
+| `pnpm visual:asset ... [--tenant=<id>]` | Brief visual (shot list). |
+| `pnpm ads:plan ... [--tenant=<id>]` | Plano tático de anúncio. |
+| `pnpm governance:qa --proposal-file=<path> [--tenant=<id>]` | Verdict (pass/warn/block). |
+
+### Shopify (requerem `SHOPIFY_SHOP` + `SHOPIFY_ADMIN_TOKEN`)
+
+| Comando | O que faz |
+|---|---|
+| `pnpm shopify:list-products [--first=N]` | Lista produtos via Admin GraphQL. |
+
+## Multi-tenant / multi-store
+
+| Conceito | Onde mora | Quando usar |
 |---|---|---|
-| `pnpm audit:repo <path> [--profile=full] [--capture]` | nenhuma | Auditor determinístico (license + security + architecture). Output em `12_reports/audits/repo-auditor/`. `--capture` registra no cérebro. |
-| `pnpm llm:smoke` | `ANTHROPIC_API_KEY` opcional | Smoke isolado de LLM — SKIPPED sem key, OK + custo com key. |
-| `pnpm synthesize:audit <audit.md> [--tenant=<id>]` | `ANTHROPIC_API_KEY` | Claude sintetiza relatório do `audit:repo` em bullets + risco. |
-| `pnpm curate:memory [--tenant=<id>] [--dry-run]` | `ANTHROPIC_API_KEY` | Lê audit log + working/ e propõe promoções para `<tenant>/facts/`. |
-| `pnpm context:brief --task="<descrição>" [--tenant=<id>]` | `ANTHROPIC_API_KEY` | Read-only: monta context brief de um tenant para próximo agente usar. |
-| `pnpm shopify:list-products [--first=N]` | `SHOPIFY_SHOP` + `SHOPIFY_ADMIN_TOKEN` | Lista produtos via Admin GraphQL (Custom App token). |
-| `pnpm feed:dry-run [--source=fixture\|shopify] [--seo] [--first=N] [--capture]` | nenhuma p/ fixture; Shopify+Anthropic opcional | Pipeline catalog → feed → validação → dry-run report Merchant. Zero upload real. |
+| **Global** (sem tenant) | `07_memory/vault/projects/commerce-agent-os/` | dev brain canônico; runs sem tenant; `_test`/`_demo` |
+| **Tenant-level** | `07_memory/vault/tenants/<tenantId>/` | operação da organização (cross-store) |
+| **Store-level** | `07_memory/vault/tenants/<tenantId>/stores/<storeId>/` | operação específica de uma loja Shopify |
+
+| Caso | Comando exemplo |
+|---|---|
+| Tenant-only (cross-store) | `pnpm merchant:audit --source=fixture --tenant=acme-corp --capture` |
+| Tenant + store específica | `pnpm merchant:audit --source=json --file=<path> --tenant=acme-corp --store=acme-br --capture` |
+| Dev local (sem tenant real) | `pnpm merchant:audit --source=fixture` _(default tenant `_test`)_ |
+
+**Como evitar misturar contexto entre lojas:**
+1. **Sempre passar `--tenant=<id>` explicitamente** quando rodar para uma loja real (nunca confiar em default).
+2. **Passar `--store=<id>` se a operação é específica daquela loja.** Sem ele, captura vai para tenant-level (cross-store).
+3. **Não copiar arquivos entre `tenants/<X>/` e `tenants/<Y>/` no filesystem** sem motivo claro — isolamento é por filesystem.
+4. **Não compartilhar `.env.local`** com creds de loja A para rodar em loja B.
 
 ## Cérebro operacional
 
 | Comando | O que faz |
 |---|---|
-| `pnpm ops:capture <input.json>` | Captura execução no cérebro (run-summary + index + session-log + opcional next-actions/priorities/blockers). Aceita JSON conforme schema em `06_packages/brain-bridge/src/types.ts`. |
+| `pnpm ops:capture <input.json>` | Captura execução no cérebro standalone. Aceita JSON conforme `06_packages/brain-bridge/src/types.ts`. Aceita `tenantId` + `storeId` no JSON para roteamento. |
 
 ## Estrutura do repo
 
 | Comando | O que faz |
 |---|---|
 | `bash 10_ops/scripts/validate-structure.sh` | Verifica as 13 pastas raiz numeradas. |
-| `bash 10_ops/scripts/check-env.sh` | Stub. |
-| `bash 10_ops/scripts/bootstrap.sh` | Stub. |
 
 ## Git / commits
 
-| Comando | O que faz |
-|---|---|
-| `git commit -m "feat(scope): ..."` | Conventional Commits 1.0.0 obrigatório. Tipos: `feat` `fix` `docs` `chore` `refactor` `test` `build` `ci` `perf` `style`. |
-
-CI roda em PR: lint + typecheck + smoke + commitlint. Verde obrigatório.
+Conventional Commits 1.0.0 obrigatório. Tipos: `feat` `fix` `docs` `chore` `refactor` `test` `build` `ci` `perf` `style`. CI roda em PR: lint + typecheck + smoke + commitlint.
 
 ## Tabela rápida
 
@@ -74,9 +119,9 @@ CI roda em PR: lint + typecheck + smoke + commitlint. Verde obrigatório.
 | validar mudança antes de commit | `pnpm doctor` (cobre typecheck + lint + smoke) |
 | rodar suíte completa | `pnpm test` |
 | primeiro agente real (zero credencial) | `pnpm audit:repo .` |
-| primeiro pipeline Merchant (zero credencial) | `pnpm feed:dry-run` |
+| primeiro merchant audit (zero credencial) | `pnpm merchant:audit --source=fixture` |
+| primeiro merchant audit em catálogo real (JSON) | `pnpm merchant:audit --source=json --file=<path> --tenant=<id> --store=<id> --gmc-default=3793 --capture` |
 | primeiro LLM call real | `pnpm llm:smoke` (precisa `ANTHROPIC_API_KEY`) |
-| ver onde estamos | abrir `07_memory/vault/projects/commerce-agent-os/current-state.md` |
+| ver onde estamos | abrir `00_meta/PROJECT_STATUS.md` ou `07_memory/vault/projects/commerce-agent-os/current-state.md` |
 | ver o que puxar | abrir `07_memory/vault/projects/commerce-agent-os/next-actions.md` |
 | ver passagem de bastão | abrir `07_memory/vault/projects/commerce-agent-os/handoff-log.md` |
-| ler protocolo multi-operador | abrir `07_memory/vault/projects/commerce-agent-os/sync-protocol.md` |

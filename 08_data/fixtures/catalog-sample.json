@@ -1,0 +1,49 @@
+[
+  {
+    "handle": "classic-cotton-tee",
+    "title": "Acme Classic Cotton Tee — 100% Organic, 4 Colors, M-XL",
+    "status": "ACTIVE",
+    "descriptionHtml": "<p>Heavyweight 100% organic cotton t-shirt. Pre-shrunk. Reinforced stitching at shoulders and hem. Pigment dyed for soft hand-feel. Sized M to XL.</p>",
+    "vendor": "Acme Apparel",
+    "productType": "T-Shirts",
+    "price": { "amount": "29.90", "currencyCode": "USD" },
+    "imageUrl": "https://cdn.acme.test/products/classic-cotton-tee.jpg",
+    "availability": "in_stock",
+    "gtin": "0012345678905",
+    "mpn": "TEE-CLASS-BLK-M"
+  },
+  {
+    "handle": "tote-no-image",
+    "title": "Canvas Tote",
+    "status": "ACTIVE",
+    "descriptionHtml": "<p>Canvas tote bag.</p>",
+    "vendor": "Acme Goods",
+    "productType": "Bags",
+    "price": { "amount": "19.90", "currencyCode": "USD" }
+  },
+  {
+    "handle": "mystery-product",
+    "title": "Best in the world miracle cure tee",
+    "status": "ACTIVE"
+  },
+  {
+    "handle": "premium-jacket",
+    "title": "Acme Heavyweight Field Jacket — Waxed Cotton",
+    "status": "ACTIVE",
+    "descriptionHtml": "<p>Waxed cotton field jacket inspired by British country tradition. Brass hardware, fully lined.</p>",
+    "vendor": "Acme Outerwear",
+    "productType": "Jackets",
+    "price": { "amount": "289.00", "currencyCode": "USD" },
+    "imageUrl": "https://cdn.acme.test/products/field-jacket.jpg",
+    "availability": "in_stock"
+  },
+  {
+    "handle": "free-product",
+    "title": "Free sample",
+    "status": "ACTIVE",
+    "descriptionHtml": "<p>Sample.</p>",
+    "vendor": "Acme",
+    "price": { "amount": "0.00", "currencyCode": "USD" },
+    "imageUrl": "https://cdn.acme.test/products/sample.jpg"
+  }
+]

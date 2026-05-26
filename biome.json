@@ -1,7 +1,15 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.9.0/schema.json",
   "files": {
-    "ignore": ["node_modules", "dist", "*.tsbuildinfo", "01_upstreams", "08_data", "12_reports"]
+    "ignore": [
+      "node_modules",
+      "dist",
+      "*.tsbuildinfo",
+      "01_upstreams",
+      "08_data",
+      "12_reports",
+      ".obsidian"
+    ]
   },
   "formatter": {
     "enabled": true,

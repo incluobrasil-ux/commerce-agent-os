@@ -167,7 +167,7 @@ async function main(): Promise<void> {
     label,
   });
   await memory.write(relPath, md);
-  const absPath = resolve(repoRoot, '07_memory/vault', args.tenantId, relPath);
+  const absPath = resolve(repoRoot, '07_memory/vault/tenants', args.tenantId, relPath);
 
   const out = result.output;
   process.stdout.write(
@@ -218,7 +218,7 @@ async function main(): Promise<void> {
           ...out.risksAndWatchouts.map((r) => `[risk] ${r}`),
         ],
         impact: `${out.marginAnalysis.length} margens analisadas · ${out.pricingMoves.length} pricing moves · ${out.recommendedExperiments.length} experimentos.`,
-        references: [`07_memory/vault/${args.tenantId}/${relPath}`],
+        references: [`07_memory/vault/tenants/${args.tenantId}/${relPath}`],
       },
       sessionLogLine: `finance-margin-radar: ${label} → ${out.overallHealth}, ${out.marginAnalysis.length} lines.`,
     });

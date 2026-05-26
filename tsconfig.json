@@ -39,6 +39,10 @@
     { "path": "./03_agents/visual-asset-ops" },
     { "path": "./03_agents/customer-journey-ops" },
     { "path": "./03_agents/ads-launchpad" },
-    { "path": "./03_agents/finance-margin-radar" }
+    { "path": "./03_agents/finance-margin-radar" },
+    { "path": "./03_agents/marketing-director" },
+    { "path": "./03_agents/creative-copy-assets" },
+    { "path": "./03_agents/design-ux-localization" },
+    { "path": "./03_agents/traffic-campaigns" }
   ]
 }

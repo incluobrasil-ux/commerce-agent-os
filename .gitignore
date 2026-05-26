@@ -27,6 +27,21 @@ Thumbs.db
 !.vscode/settings.json
 .idea/
 
+# Obsidian — cada operador configura o próprio vault. Config recomendada
+# vive em .obsidian.template/ (versionada como referência).
+.obsidian/
+
+# Caveman skills (npx skills add fallback dumps aqui quando claude CLI
+# não está no PATH). Per-repo install local; não versionar.
+.agents/
+skills-lock.json
+
+# Catálogo snapshots reais (puxados via MCP/Shopify). Reproduzíveis a
+# qualquer momento; não versionar dump consolidado de catálogo público.
+# A fixture sintética catalog-sample.json continua versionada como exemplo.
+08_data/fixtures/incluo-*.json
+08_data/fixtures/*-catalog-real.json
+
 # Coverage / cache
 coverage/
 .cache/
@@ -43,3 +58,10 @@ coverage/
 07_memory/vault/*/
 !07_memory/vault/_template/
 !07_memory/vault/projects/
+
+.obsidian/
+12_reports/team-onboarding.html
+12_reports/team-onboarding.pdf
+**/node_modules/
+**/dist/
+**/*.tsbuildinfo

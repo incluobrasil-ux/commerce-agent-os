@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-24T00:30:00.000Z
+updated_at: 2026-05-25T22:39:42.887Z
 tags: [index, run-summaries]
 source: mixed
 confidence: 1.0
@@ -24,6 +24,10 @@ Marcos de implementação (sub-fase concluída, primeiro deploy, OAuth funcionan
 
 | Data | Título | Resultado | Arquivo |
 |---|---|---|---|
+| 2026-05-26 | **N21 — pipeline LLM real Incluo** (4/5 sucessos, $0.174). marketing+creative+offer+compliance OK; design:ux deferred. 2 bugs fixed (max_tokens, schemas) | 🟢 | [2026-05-26-impl-milestone-n21-llm-pipeline-real.md](2026-05-26-impl-milestone-n21-llm-pipeline-real.md) |
+| 2026-05-25 | **Multi-tenant/multi-store hardening** — branded types + helpers + Memory/brain storeId + merchant:audit pilot; 309 verdes (+58); smoke 17 | 🟢 | [2026-05-25-impl-milestone-multi-tenant-hardening.md](2026-05-25-impl-milestone-multi-tenant-hardening.md) |
+| 2026-05-25 | **Sub-fase 2.8 Merchant audit MVP** — score por SKU + findings + remediações; 241 testes verdes | 🟢 | [2026-05-25-impl-milestone-merchant-audit-mvp.md](2026-05-25-impl-milestone-merchant-audit-mvp.md) |
+| 2026-05-25 | **Bloco B completo** — 4 agentes novos (marketing/creative/design/traffic); 228 testes verdes | 🟢 | [2026-05-25-impl-milestone-four-new-agents.md](2026-05-25-impl-milestone-four-new-agents.md) |
 | 2026-05-24 | **Repo fechado para equipe** — `pnpm doctor` valida 10 checks; docs harmonizados (README+SETUP+COMMANDS) | 🟢 | [2026-05-24-impl-milestone-team-ready.md](2026-05-24-impl-milestone-team-ready.md) |
 | 2026-05-24 | `@cao/brain-bridge` — ponte mínima execução→cérebro (`--capture` + `pnpm ops:capture`; 126 verdes) | 🟢 | [2026-05-24-impl-milestone-brain-bridge.md](2026-05-24-impl-milestone-brain-bridge.md) |
 | 2026-05-23 | Sub-fase 2.7 — Merchant dry-run end-to-end funcional (pipeline Shopify→SEO→Merchant; 114 testes verdes) | 🟢 | [2026-05-23-impl-milestone-merchant-dry-run.md](2026-05-23-impl-milestone-merchant-dry-run.md) |
@@ -47,6 +51,8 @@ Resultado de auditoria (manual ou via agente).
 
 | Data | Título | Resultado | Arquivo |
 |---|---|---|---|
+| 2026-05-25 | Merchant audit (json, 50 SKUs, tenant=incluo) | 🟢 | [2026-05-25-audit-merchant-audit-incluo-json.md](2026-05-25-audit-merchant-audit-incluo-json.md) |
+| 2026-05-25 | Merchant audit (json, 50 SKUs, tenant=incluo) | 🔴 | [2026-05-25-audit-merchant-audit-incluo-json.md](2026-05-25-audit-merchant-audit-incluo-json.md) |
 | 2026-05-23 | Audit commerce-agent-os (profile=license) | 🟢 | [2026-05-23-audit-repo-auditor-commerce-agent-os.md](2026-05-23-audit-repo-auditor-commerce-agent-os.md) |
 | 2026-05-23 | Sub-fase 2.3 — pass 2: 10 upstreams auditados (2 reclassificações de licença) | 🟡 | [2026-05-23-audit-upstream-pass2-ten-repos.md](2026-05-23-audit-upstream-pass2-ten-repos.md) |
 | 2026-05-23 | Auditoria de gaps da Macro-fase 1 (31 gaps em 4 severidades) | 🟡 | [2026-05-23-audit-phase-1-gap-analysis.md](2026-05-23-audit-phase-1-gap-analysis.md) |

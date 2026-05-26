@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-24T00:30:00.000Z
+updated_at: 2026-05-25T22:39:42.887Z
 tags: [current-state, status]
 source: mixed
 confidence: 1.0
@@ -23,45 +23,39 @@ confidence: 1.0
 | | |
 |---|---|
 | Macro-fase | 2 — Implementação |
-| Sub-fase | 2.3 ✅ + 2.5 (4 agentes + 1) + 2.6 ✅ + **2.7 dry-run Merchant implementado** |
-| Último marco | **Pipeline Merchant dry-run funcional** — `pnpm feed:dry-run` transforma produtos (fixture ou Shopify) → valida zod → escreve relatório auditável em `12_reports/merchant-dry-runs/`. Validado em real run (2 ok / 1 fail / 5 warnings). |
-| Próximo marco técnico | Conectar credenciais externas (Shopify + Anthropic) para rodar pipeline com dados reais — todas validações locais já passam. |
+| Sub-fase | 2.5 ✅ + 2.6 ✅ + 2.7 ✅ + 2.8 ✅ + N26 ✅ + N20.1 ✅ + 2.9 ✅ + 2.9.1 ✅ + **N21 ✅ pipeline LLM real end-to-end** |
+| Último marco (2026-05-26) | **N21 + 2 fixes:** pipeline LLM Incluo end-to-end **5/5 sucessos** (design:ux destravado com coerce de flag-objects e bump aspectRatios). Memory consolidada com brain-bridge — ambos agora em `vault/tenants/<t>/[stores/<s>/]` (era split: Memory `vault/<t>/`, brain `vault/tenants/<t>/`). 13 agent CLIs auto-atualizados via PowerShell sed. **309 testes mantidos**. Runtime agora expõe `error_details` (zod issues) em `agent.failed` events. |
+| Próximo marco técnico | **(a) operação humana Incluo**: ler compliance review + marketing plan + product offer e decidir o que aplicar. **(b) deep fix design-ux schema** (output JSON OK mas zod valida ainda falha — schema precisa surgery). **(c) N24 handoff via Memória** (depende de design:ux estável). Detalhe em [next-actions.md](next-actions.md) e [run-summary N21](run-summaries/2026-05-26-impl-milestone-n21-llm-pipeline-real.md). |
 
 ## Verde
 
-- `pnpm install / typecheck / lint / test / test:smoke` — todos OK.
-- 6 packages `@cao/*` implementados com testes (core, llm, memory, guardrails, observability, runtime).
-- **`repo-auditor` é o 1º agente real**, executável via `pnpm audit:repo <path>`, modo determinístico (sem `ANTHROPIC_API_KEY`).
-- `.env.example`, `SETUP_LOCAL.md`, `COMMANDS.md`, `clone-upstreams.sh` populados.
-- **2 upstreams clonados + auditados** (`langgraph`, `shopify-app-template-react-router`).
-- **Suíte 126 testes verdes** em 18 arquivos (+ 10 cobrindo `@cao/brain-bridge.captureRun` + 2 ajustes).
-- **Cérebro ganha `captureRun()`** (`@cao/brain-bridge`): após execução relevante, gera run-summary curto, atualiza index, bumps current-state, opcional append em next-actions/priorities/blockers/session-log.
-- **`pnpm ops:capture <input.json>`** standalone + **`--capture` integrado** em `audit:repo` e `feed:dry-run` (outros CLIs ficam via `ops:capture` manual).
-- **`pnpm doctor`** — verificação cross-platform única (Node/pnpm/git/install/typecheck/lint/smoke/.env.local/gitleaks/cérebro). 10/10 🟢 local. **Repo fechado para uso da equipe.**
-- **6 agentes reais** (era 4): + `product-feed-seo` (LLM SEO) + `catalog-feed-ops` (orquestrador CLI).
-- **`pnpm llm:smoke`** — smoke LLM isolado.
-- **`pnpm shopify:list-products [--first=N]`** — Sub-fase 2.6.
-- **`pnpm feed:dry-run [--source=fixture|shopify] [--seo] [--first=N]`** — Sub-fase 2.7: pipeline Merchant completo, 100% local sem credenciais. Dry-run gera Markdown + JSON em `12_reports/merchant-dry-runs/`.
-- **4 agentes reais** (4 de 17): `repo-auditor` (det.) + `audit-synthesizer` + `learning-memory-curation` + `memory-context` (LLM).
-- **10 upstreams clonados + auditados** (Sub-fase 2.3 ✅). Licenças: 7 MIT, 2 Apache-2.0, 1 AGPL-3.0, 1 UNKNOWN (com finding crítico).
-- Audit log de tenant escrito por `@cao/runtime` em `07_memory/vault/_test/audit/`.
-- Pre-commit secret-scan ativo (gitleaks 8.30.1).
-- DX: 4 comandos `pnpm <verb>:<noun>` + `bash 10_ops/scripts/clone-upstreams.sh`.
+- `pnpm install / typecheck / lint / test / test:smoke / doctor` — todos OK.
+- **20 agentes REAL_EXECUTABLE** de 22 catalogados (ver [agents-catalog.md](agents-catalog.md) ou rodar audit):
+  - **Bloco A (5/5):** orchestrator-master · governance-risk-qa · market-intelligence · competitor-benchmark · reviews-ops
+  - **Bloco B (6/6):** product-offer · merchant-compliance · marketing-director · creative-copy-assets · design-ux-localization · traffic-campaigns
+  - **Outros (9):** repo-auditor · audit-synthesizer · learning-memory-curation · memory-context · catalog-feed-ops · customer-journey-ops · finance-margin-radar · visual-asset-ops · ads-launchpad
+  - **Library-only:** product-feed-seo (usado por catalog-feed-ops)
+  - **STUB sem demanda:** analytics-optimization (não scaffoldado)
+- **23 comandos `pnpm <verbo>:<noun>`** registrados em [package.json](../../../../package.json).
+- **`pnpm merchant:audit [--source=fixture|json|shopify]`** — audit catalog-level determinístico: score por SKU + findings classificados + remediações. **100% local sem LLM, sem credenciais.** Relatório em `12_reports/merchant-audits/`.
+- **6 packages `@cao/*`** + 5 integrations + brain-bridge funcionando.
+- `repo-auditor` modo determinístico (sem credenciais).
+- `pnpm feed:dry-run` — pipeline Merchant completo, 100% local com fixture, gera relatório em `12_reports/merchant-dry-runs/`.
+- `@cao/brain-bridge.captureRun()` + `--capture` em agentes que escrevem outputs.
+- `pnpm doctor` — 10 checks cross-platform.
+- Pre-commit gitleaks ativo (8.30.1).
 - CI no GitHub Actions; branch protection em `main`; tag `v0.1.0-architecture-baseline`.
 - 8 ADRs aceitos.
 - Cérebro operacional v1 multi-operador estruturado.
 
 ## Bloqueado
 
-- ~~B1~~ — ✅ key rotacionada. ⚠ `.env.local` precisa ser atualizada manualmente com a nova key (a antiga ainda está lá; usar `pnpm curate:memory` retorna 401 até trocar).
-- ~~B2~~ — ✅ resolvido.
-- ~~B3~~ — ✅ resolvido.
-- ~~B4~~ — ✅ todos os blocos commitados + pushados (8 commits totais em `feat/core-runtime-and-first-agent`).
-- ~~B5~~ — ✅ gitleaks 8.30.1 ativo no pre-commit.
-- **B6 (novo)** — `SHOPIFY_SHOP` + `SHOPIFY_ADMIN_TOKEN` ausentes em `.env.local`. Criar custom app em dev store (~3 min) destrava primeira demo Shopify real.
+- **B1** — `.env.local` precisa Anthropic key rotacionada (todos os 17 agentes LLM saem `SKIPPED` graceful sem ela; nada quebra).
+- **B6** — `SHOPIFY_SHOP` + `SHOPIFY_ADMIN_TOKEN` ausentes (criar custom app em dev store ~3 min destrava primeira demo Shopify real).
+- **B7** — Google Merchant creds (apenas para upload real; `pnpm feed:dry-run` já funciona local com fixture).
 
 ## Resumo em 1 linha
 
-> Sub-fases 2.3 ✅ + 2.5 (6 agentes) + 2.6 ✅ + 2.7 ✅ (Merchant dry-run); 114 testes verdes; pipeline real `Shopify → Merchant feed → validação → dry-run report` funciona 100% local com fixture. Bloqueios externos: B1 (Anthropic key), B6 (Shopify creds), B7 (Google creds — só para upload real, **não** para dry-run).
+> N21 ✅ pipeline LLM real end-to-end: 4/5 agentes geraram outputs reais para Incluo Q3 2026 ($0.174 total). merchant:compliance flagou HIGH severity com 5 risks legais brasileiros referenciados (CDC, ANVISA, CONAR). 2 bugs descobertos+fix (max_tokens, schema). design:ux deferido. **309 testes verdes**. Próximo: operação humana lê outputs + deep fix design:ux.
 
 Detalhe em [blockers-and-risks.md](blockers-and-risks.md).

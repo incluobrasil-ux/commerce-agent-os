@@ -135,7 +135,55 @@ importers:
         specifier: ^3
         version: 3.25.76
 
+  03_agents/creative-copy-assets:
+    dependencies:
+      '@cao/brain-bridge':
+        specifier: workspace:*
+        version: link:../../06_packages/brain-bridge
+      '@cao/core':
+        specifier: workspace:*
+        version: link:../../06_packages/core
+      '@cao/llm':
+        specifier: workspace:*
+        version: link:../../06_packages/llm
+      '@cao/memory':
+        specifier: workspace:*
+        version: link:../../06_packages/memory
+      '@cao/observability':
+        specifier: workspace:*
+        version: link:../../06_packages/observability
+      '@cao/runtime':
+        specifier: workspace:*
+        version: link:../../06_packages/runtime
+      zod:
+        specifier: ^3
+        version: 3.25.76
+
   03_agents/customer-journey-ops:
+    dependencies:
+      '@cao/brain-bridge':
+        specifier: workspace:*
+        version: link:../../06_packages/brain-bridge
+      '@cao/core':
+        specifier: workspace:*
+        version: link:../../06_packages/core
+      '@cao/llm':
+        specifier: workspace:*
+        version: link:../../06_packages/llm
+      '@cao/memory':
+        specifier: workspace:*
+        version: link:../../06_packages/memory
+      '@cao/observability':
+        specifier: workspace:*
+        version: link:../../06_packages/observability
+      '@cao/runtime':
+        specifier: workspace:*
+        version: link:../../06_packages/runtime
+      zod:
+        specifier: ^3
+        version: 3.25.76
+
+  03_agents/design-ux-localization:
     dependencies:
       '@cao/brain-bridge':
         specifier: workspace:*
@@ -229,6 +277,30 @@ importers:
         version: 3.25.76
 
   03_agents/market-intelligence:
+    dependencies:
+      '@cao/brain-bridge':
+        specifier: workspace:*
+        version: link:../../06_packages/brain-bridge
+      '@cao/core':
+        specifier: workspace:*
+        version: link:../../06_packages/core
+      '@cao/llm':
+        specifier: workspace:*
+        version: link:../../06_packages/llm
+      '@cao/memory':
+        specifier: workspace:*
+        version: link:../../06_packages/memory
+      '@cao/observability':
+        specifier: workspace:*
+        version: link:../../06_packages/observability
+      '@cao/runtime':
+        specifier: workspace:*
+        version: link:../../06_packages/runtime
+      zod:
+        specifier: ^3
+        version: 3.25.76
+
+  03_agents/marketing-director:
     dependencies:
       '@cao/brain-bridge':
         specifier: workspace:*
@@ -379,6 +451,30 @@ importers:
         version: 3.25.76
 
   03_agents/reviews-ops:
+    dependencies:
+      '@cao/brain-bridge':
+        specifier: workspace:*
+        version: link:../../06_packages/brain-bridge
+      '@cao/core':
+        specifier: workspace:*
+        version: link:../../06_packages/core
+      '@cao/llm':
+        specifier: workspace:*
+        version: link:../../06_packages/llm
+      '@cao/memory':
+        specifier: workspace:*
+        version: link:../../06_packages/memory
+      '@cao/observability':
+        specifier: workspace:*
+        version: link:../../06_packages/observability
+      '@cao/runtime':
+        specifier: workspace:*
+        version: link:../../06_packages/runtime
+      zod:
+        specifier: ^3
+        version: 3.25.76
+
+  03_agents/traffic-campaigns:
     dependencies:
       '@cao/brain-bridge':
         specifier: workspace:*

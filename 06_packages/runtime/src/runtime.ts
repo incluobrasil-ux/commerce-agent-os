@@ -16,6 +16,12 @@ export class AgentRunError extends BaseError {
 
 export interface AgentContext {
   tenantId: string;
+  /**
+   * Identificador da loja Shopify específica (multi-store). Opcional para
+   * preservar compat: agentes tenant-level operam sem storeId. Agentes
+   * store-level devem assertar via `assertTenantStoreContext`.
+   */
+  storeId?: string;
   runId: string;
   agentName: string;
   clock: Clock;
@@ -52,6 +58,12 @@ export interface RunDeps {
 
 export interface RunOptions {
   tenantId: string;
+  /**
+   * Loja específica desta execução. Quando presente, é propagado para
+   * AgentContext.storeId e observability events. Quando ausente, o run é
+   * tratado como tenant-level (compat).
+   */
+  storeId?: string;
 }
 
 export interface RunResult<O> {
@@ -77,12 +89,13 @@ export async function runAgent<I, O>(
   const runId = ids.next();
   const startMs = clock.nowMs();
 
-  const baseEvent = {
+  const baseEvent: Record<string, unknown> = {
     agent_name: agent.name,
     tier: agent.tier,
     run_id: runId,
     tenant_id: opts.tenantId,
   };
+  if (opts.storeId) baseEvent.store_id = opts.storeId;
 
   deps.observability.capture('agent.invoked', baseEvent);
 
@@ -96,6 +109,7 @@ export async function runAgent<I, O>(
       clock,
       memory: deps.memory,
       observability: deps.observability,
+      ...(opts.storeId !== undefined && { storeId: opts.storeId }),
     };
 
     const promptText = await agent.prompt(validatedInput, ctx);
@@ -146,12 +160,18 @@ export async function runAgent<I, O>(
     };
   } catch (err) {
     const durationMs = clock.nowMs() - startMs;
-    deps.observability.capture('agent.failed', {
+    const failedEvent: Record<string, unknown> = {
       ...baseEvent,
       ms: durationMs,
       error_code: err instanceof BaseError ? err.code : 'UNKNOWN',
       error_message: err instanceof Error ? err.message : String(err),
-    });
+    };
+    // Expõe issues do zod quando ValidationError — sem isso o operador não
+    // sabe qual campo falhou e precisa adivinhar.
+    if (err instanceof BaseError && err.context && 'issues' in err.context) {
+      failedEvent.error_details = err.context.issues;
+    }
+    deps.observability.capture('agent.failed', failedEvent);
     // Audit também em falha.
     await writeAuditEntry(deps.memory, {
       runId,

@@ -3,6 +3,7 @@
 
 import { resolve } from 'node:path';
 import { captureRun } from '@cao/brain-bridge';
+import { assertTenantContext, assertTenantStoreContext } from '@cao/core';
 import { makeAnthropicComplete } from '@cao/llm';
 import { Memory } from '@cao/memory';
 import { ConsoleProvider } from '@cao/observability';
@@ -17,6 +18,7 @@ interface MarketArg {
 
 interface CliArgs {
   tenantId: string;
+  storeId: string;
   scopeKind: 'product' | 'collection';
   name: string;
   summary: string;
@@ -43,6 +45,7 @@ function parseMarket(raw: string): MarketArg {
 function parseArgs(argv: string[]): CliArgs {
   const args: CliArgs = {
     tenantId: '_test',
+    storeId: '',
     scopeKind: 'product',
     name: '',
     summary: '',
@@ -55,6 +58,7 @@ function parseArgs(argv: string[]): CliArgs {
   };
   for (const a of argv.slice(2)) {
     if (a.startsWith('--tenant=')) args.tenantId = a.slice('--tenant='.length);
+    else if (a.startsWith('--store=')) args.storeId = a.slice('--store='.length);
     else if (a.startsWith('--scope=')) {
       const v = a.slice('--scope='.length);
       if (v !== 'product' && v !== 'collection') fail('--scope deve ser "product" ou "collection"');
@@ -90,6 +94,12 @@ function skipped(msg: string): never {
 async function main(): Promise<void> {
   const args = parseArgs(process.argv);
 
+  if (args.storeId) {
+    assertTenantStoreContext({ tenantId: args.tenantId, storeId: args.storeId }, 'design:ux');
+  } else {
+    assertTenantContext({ tenantId: args.tenantId }, 'design:ux');
+  }
+
   if (!process.env.ANTHROPIC_API_KEY?.trim()) {
     skipped('ANTHROPIC_API_KEY ausente em .env.local. Brief lido; execução pendente.');
   }
@@ -98,6 +108,7 @@ async function main(): Promise<void> {
   const memory = new Memory({
     vaultRoot: resolve(repoRoot, '07_memory/vault'),
     tenantId: args.tenantId,
+    ...(args.storeId ? { storeId: args.storeId } : {}),
   });
   await memory.ensureBaseDir();
 
@@ -119,7 +130,7 @@ async function main(): Promise<void> {
   const result = await runAgent(
     designUxAgent,
     input,
-    { tenantId: args.tenantId },
+    { tenantId: args.tenantId, ...(args.storeId ? { storeId: args.storeId } : {}) },
     { complete, memory, observability },
   );
 
@@ -133,7 +144,9 @@ async function main(): Promise<void> {
     generatedAt,
   });
   await memory.write(relPath, md);
-  const absPath = resolve(repoRoot, '07_memory/vault', args.tenantId, relPath);
+  const absPath = args.storeId
+    ? resolve(repoRoot, '07_memory/vault', args.tenantId, 'stores', args.storeId, relPath)
+    : resolve(repoRoot, '07_memory/vault', args.tenantId, relPath);
 
   const out = result.output;
   process.stdout.write(`[design:ux] scope="${args.scopeKind}:${args.name}"\n`);
@@ -147,27 +160,39 @@ async function main(): Promise<void> {
 
   if (args.capture) {
     const slugTenant = args.tenantId.replace(/[^a-z0-9-]/gi, '-').toLowerCase();
+    const slugStore = args.storeId ? args.storeId.replace(/[^a-z0-9-]/gi, '-').toLowerCase() : '';
     const slugName = args.name
       .replace(/[^a-z0-9-]/gi, '-')
       .toLowerCase()
       .slice(0, 30);
     const overall: 'green' | 'yellow' | 'red' =
       out.culturalFlags.length + out.riskFlags.length > 0 ? 'yellow' : 'green';
+    const captureSlug = slugStore
+      ? `design-ux-${slugTenant}-${slugStore}-${slugName}`
+      : `design-ux-${slugTenant}-${slugName}`;
+    const titleScope = args.storeId
+      ? `tenant=${args.tenantId}/store=${args.storeId}`
+      : `tenant=${args.tenantId}`;
+    const vaultRel = args.storeId
+      ? `07_memory/vault/tenants/${args.tenantId}/stores/${args.storeId}/${relPath}`
+      : `07_memory/vault/${args.tenantId}/${relPath}`;
     const cap = await captureRun({
       kind: 'agent-run',
-      slug: `design-ux-${slugTenant}-${slugName}`.slice(0, 60),
+      slug: captureSlug.slice(0, 60),
       result: overall,
-      title: `Design: ${args.scopeKind} ${args.name}`,
+      title: `Design: ${args.scopeKind} ${args.name} (${titleScope})`,
       source: 'agent:design-ux-localization',
-      tags: ['design-ux-localization', 'tier-2', 'design', overall],
+      tags: args.storeId
+        ? ['design-ux-localization', 'tier-2', 'design', 'store-scoped', overall]
+        : ['design-ux-localization', 'tier-2', 'design', overall],
       body: {
-        context: `pnpm design:ux blueprinta ${args.scopeKind} ${args.name} para ${out.localizedCopy.length} mercados (${args.tenantId}).`,
+        context: `pnpm design:ux blueprinta ${args.scopeKind} ${args.name} para ${out.localizedCopy.length} mercados em ${titleScope}.`,
         whatHappened: [
-          `Tenant: ${args.tenantId}.`,
+          `Escopo: ${titleScope}.`,
           `Scope: ${args.scopeKind} — ${args.name}.`,
           `Blueprint: ${out.pageBlueprint.length} blocos.`,
           `Mercados localizados: ${out.localizedCopy.map((l) => l.locale).join(', ')}.`,
-          `Arquivo salvo em vault/${args.tenantId}/${relPath}.`,
+          `Arquivo salvo em ${vaultRel}.`,
           `Custo: $${result.costUsd.toFixed(6)} (${result.model}).`,
         ],
         findings: [
@@ -177,9 +202,11 @@ async function main(): Promise<void> {
           ...out.riskFlags.map((r) => `[risk] ${r}`),
         ],
         impact: `${out.pageBlueprint.length} blocos · ${out.localizedCopy.length} locales · ${out.accessibilityNotes.length} a11y notes.`,
-        references: [`07_memory/vault/${args.tenantId}/${relPath}`],
+        references: [vaultRel],
       },
-      sessionLogLine: `design-ux-localization: ${args.scopeKind}/${args.name} → ${out.localizedCopy.length} locales, ${out.riskFlags.length} risk flags.`,
+      sessionLogLine: `design-ux-localization: ${args.scopeKind}/${args.name} (${titleScope}) → ${out.localizedCopy.length} locales, ${out.riskFlags.length} risk flags.`,
+      tenantId: args.tenantId,
+      ...(args.storeId ? { storeId: args.storeId } : {}),
     });
     process.stdout.write(`[design:ux] capture → ${cap.summaryPath}\n`);
   }

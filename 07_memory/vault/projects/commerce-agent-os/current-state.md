@@ -23,9 +23,9 @@ confidence: 1.0
 | | |
 |---|---|
 | Macro-fase | 2 — Implementação |
-| Sub-fase | 2.5 ✅ + 2.6 ✅ + 2.7 ✅ + 2.8 ✅ + N26 ✅ + N20.1 ✅ + **2.9 ✅ multi-tenant/multi-store hardening** |
-| Último marco (2026-05-25) | **Multi-tenant hardening base técnica:** 7 branded types em shared-types; helpers `assertTenantContext`/`assertTenantStoreContext`/`buildContextBundle`/`slugifyShopDomain` em `@cao/core`; `Memory.storeId` opcional (path tenants/<t>/stores/<s>/); `AgentContext.storeId`; `captureRun` resolve brainDir dinamicamente (4 níveis); `merchant:audit` é pilot com `--store=<id>`. Pilot validado real: report + capture isolados em `tenants/incluo-tenant/stores/incluo/`. **309 testes em 36 arquivos** (+58); smoke 5→17 (+12 isolamento). |
-| Próximo marco técnico | **Migrar 5 agentes restantes para `--store=<id>`** seguindo pattern do `merchant:audit` (merchant-compliance, product-offer, marketing-director, creative-copy-assets, design-ux-localization). Ou **N21** (pipeline LLM real) após user rotacionar key Anthropic atual (instalada nesta sessão; recomendado rotar pós-chat). Detalhe em [next-actions.md](next-actions.md). |
+| Sub-fase | 2.5 ✅ + 2.6 ✅ + 2.7 ✅ + 2.8 ✅ + N26 ✅ + N20.1 ✅ + 2.9 ✅ + **2.9.1 ✅ 5 agentes migrados para `--store`** |
+| Último marco (2026-05-25) | **6 agentes** agora aceitam `--store=<id>` (era 1): merchant:audit + merchant:compliance + product:offer + marketing:plan + creative:assets + design:ux. Pattern uniforme: assertTenantStoreContext quando `--store` passado, Memory com storeId, captureRun com tenantId+storeId, paths store-scoped em vault e capture. **309 testes mantidos** (zero regressão). |
+| Próximo marco técnico | **N21 — pipeline LLM real end-to-end** (key Anthropic ativa, custo < $0.30/loop). Ou **N24** (handoff entre agentes via Memória + ContextBundle). Ou migrar próximos agentes (`traffic-campaigns`, `governance-risk-qa`, demais 12) para `--store=<id>` sob demanda. Detalhe em [next-actions.md](next-actions.md). |
 
 ## Verde
 
@@ -56,6 +56,6 @@ confidence: 1.0
 
 ## Resumo em 1 linha
 
-> Multi-tenant/multi-store hardening ✅ — Memory + brain-bridge + runtime + agente pilot todos store-scoped quando passado `--store=<id>`; 12 smoke testes de isolamento; pilot real em `incluo-tenant/stores/incluo/` validado end-to-end. **309 testes verdes**, suíte completa sem regressão. Próximo: migrar próximos 5 agentes para o mesmo pattern.
+> Multi-tenant/multi-store: **6 agentes** com `--store=<id>` + assertion + paths isolados (merchant:audit, merchant:compliance, product:offer, marketing:plan, creative:assets, design:ux). 309 testes verdes mantidos. Próximo: N21 (LLM real) ou N24 (handoff agente→agente via Memória).
 
 Detalhe em [blockers-and-risks.md](blockers-and-risks.md).

@@ -3,6 +3,7 @@
 
 import { resolve } from 'node:path';
 import { captureRun } from '@cao/brain-bridge';
+import { assertTenantContext, assertTenantStoreContext } from '@cao/core';
 import { makeAnthropicComplete } from '@cao/llm';
 import { Memory } from '@cao/memory';
 import { ConsoleProvider } from '@cao/observability';
@@ -11,6 +12,7 @@ import { creativeCopyAgent, creativePath, creativeTimestamp, renderCreative } fr
 
 interface CliArgs {
   tenantId: string;
+  storeId: string;
   campaignName: string;
   theme: string;
   audience: string;
@@ -26,6 +28,7 @@ interface CliArgs {
 function parseArgs(argv: string[]): CliArgs {
   const args: CliArgs = {
     tenantId: '_test',
+    storeId: '',
     campaignName: '',
     theme: '',
     audience: '',
@@ -39,6 +42,7 @@ function parseArgs(argv: string[]): CliArgs {
   };
   for (const a of argv.slice(2)) {
     if (a.startsWith('--tenant=')) args.tenantId = a.slice('--tenant='.length);
+    else if (a.startsWith('--store=')) args.storeId = a.slice('--store='.length);
     else if (a.startsWith('--campaign=')) args.campaignName = a.slice('--campaign='.length);
     else if (a.startsWith('--theme=')) args.theme = a.slice('--theme='.length);
     else if (a.startsWith('--audience=')) args.audience = a.slice('--audience='.length);
@@ -76,6 +80,12 @@ function skipped(msg: string): never {
 async function main(): Promise<void> {
   const args = parseArgs(process.argv);
 
+  if (args.storeId) {
+    assertTenantStoreContext({ tenantId: args.tenantId, storeId: args.storeId }, 'creative:assets');
+  } else {
+    assertTenantContext({ tenantId: args.tenantId }, 'creative:assets');
+  }
+
   if (!process.env.ANTHROPIC_API_KEY?.trim()) {
     skipped('ANTHROPIC_API_KEY ausente em .env.local. Brief lido; execução pendente.');
   }
@@ -84,6 +94,7 @@ async function main(): Promise<void> {
   const memory = new Memory({
     vaultRoot: resolve(repoRoot, '07_memory/vault'),
     tenantId: args.tenantId,
+    ...(args.storeId ? { storeId: args.storeId } : {}),
   });
   await memory.ensureBaseDir();
 
@@ -106,7 +117,7 @@ async function main(): Promise<void> {
   const result = await runAgent(
     creativeCopyAgent,
     input,
-    { tenantId: args.tenantId },
+    { tenantId: args.tenantId, ...(args.storeId ? { storeId: args.storeId } : {}) },
     { complete, memory, observability },
   );
 
@@ -120,7 +131,9 @@ async function main(): Promise<void> {
     generatedAt,
   });
   await memory.write(relPath, md);
-  const absPath = resolve(repoRoot, '07_memory/vault', args.tenantId, relPath);
+  const absPath = args.storeId
+    ? resolve(repoRoot, '07_memory/vault', args.tenantId, 'stores', args.storeId, relPath)
+    : resolve(repoRoot, '07_memory/vault', args.tenantId, relPath);
 
   const out = result.output;
   process.stdout.write(`[creative:assets] campaign="${args.campaignName}"\n`);
@@ -134,25 +147,37 @@ async function main(): Promise<void> {
 
   if (args.capture) {
     const slugTenant = args.tenantId.replace(/[^a-z0-9-]/gi, '-').toLowerCase();
+    const slugStore = args.storeId ? args.storeId.replace(/[^a-z0-9-]/gi, '-').toLowerCase() : '';
     const slugCampaign = args.campaignName
       .replace(/[^a-z0-9-]/gi, '-')
       .toLowerCase()
       .slice(0, 30);
     const overall: 'green' | 'yellow' | 'red' = out.riskFlags.length > 0 ? 'yellow' : 'green';
+    const captureSlug = slugStore
+      ? `creative-copy-${slugTenant}-${slugStore}-${slugCampaign}`
+      : `creative-copy-${slugTenant}-${slugCampaign}`;
+    const titleScope = args.storeId
+      ? `tenant=${args.tenantId}/store=${args.storeId}`
+      : `tenant=${args.tenantId}`;
+    const vaultRel = args.storeId
+      ? `07_memory/vault/tenants/${args.tenantId}/stores/${args.storeId}/${relPath}`
+      : `07_memory/vault/${args.tenantId}/${relPath}`;
     const cap = await captureRun({
       kind: 'agent-run',
-      slug: `creative-copy-${slugTenant}-${slugCampaign}`.slice(0, 60),
+      slug: captureSlug.slice(0, 60),
       result: overall,
-      title: `Creative: ${args.campaignName}`,
+      title: `Creative: ${args.campaignName} (${titleScope})`,
       source: 'agent:creative-copy-assets',
-      tags: ['creative-copy-assets', 'tier-2', 'creative', overall],
+      tags: args.storeId
+        ? ['creative-copy-assets', 'tier-2', 'creative', 'store-scoped', overall]
+        : ['creative-copy-assets', 'tier-2', 'creative', overall],
       body: {
-        context: `pnpm creative:assets gera copy para ${args.campaignName} (${args.tenantId}).`,
+        context: `pnpm creative:assets gera copy para ${args.campaignName} em ${titleScope}.`,
         whatHappened: [
-          `Tenant: ${args.tenantId}.`,
+          `Escopo: ${titleScope}.`,
           `Campaign: ${args.campaignName}.`,
           `Variantes: ${out.variants.length}.`,
-          `Arquivo salvo em vault/${args.tenantId}/${relPath}.`,
+          `Arquivo salvo em ${vaultRel}.`,
           `Custo: $${result.costUsd.toFixed(6)} (${result.model}).`,
         ],
         findings: [
@@ -162,9 +187,11 @@ async function main(): Promise<void> {
           ...out.riskFlags.map((r) => `[risk] ${r}`),
         ],
         impact: `${out.variants.length} variantes · ${out.ctaPool.length} CTA pool · ${out.reviewerChecklist.length} review items.`,
-        references: [`07_memory/vault/${args.tenantId}/${relPath}`],
+        references: [vaultRel],
       },
-      sessionLogLine: `creative-copy-assets: ${args.campaignName} → ${out.variants.length} variantes, ${out.riskFlags.length} risk flags.`,
+      sessionLogLine: `creative-copy-assets: ${args.campaignName} (${titleScope}) → ${out.variants.length} variantes, ${out.riskFlags.length} risk flags.`,
+      tenantId: args.tenantId,
+      ...(args.storeId ? { storeId: args.storeId } : {}),
     });
     process.stdout.write(`[creative:assets] capture → ${cap.summaryPath}\n`);
   }

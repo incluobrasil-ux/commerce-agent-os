@@ -3,6 +3,7 @@
 
 import { resolve } from 'node:path';
 import { captureRun } from '@cao/brain-bridge';
+import { assertTenantContext, assertTenantStoreContext } from '@cao/core';
 import { makeAnthropicComplete } from '@cao/llm';
 import { Memory } from '@cao/memory';
 import { ConsoleProvider } from '@cao/observability';
@@ -11,6 +12,7 @@ import { offerPath, offerTimestamp, productOfferAgent, renderOffer } from './ind
 
 interface CliArgs {
   tenantId: string;
+  storeId: string;
   productName: string;
   description: string;
   price: string;
@@ -29,6 +31,7 @@ interface CliArgs {
 function parseArgs(argv: string[]): CliArgs {
   const args: CliArgs = {
     tenantId: '_test',
+    storeId: '',
     productName: '',
     description: '',
     price: '',
@@ -45,6 +48,7 @@ function parseArgs(argv: string[]): CliArgs {
   };
   for (const a of argv.slice(2)) {
     if (a.startsWith('--tenant=')) args.tenantId = a.slice('--tenant='.length);
+    else if (a.startsWith('--store=')) args.storeId = a.slice('--store='.length);
     else if (a.startsWith('--product-name=')) args.productName = a.slice('--product-name='.length);
     else if (a.startsWith('--description=')) args.description = a.slice('--description='.length);
     else if (a.startsWith('--price=')) args.price = a.slice('--price='.length);
@@ -82,6 +86,13 @@ function skipped(msg: string): never {
 async function main(): Promise<void> {
   const args = parseArgs(process.argv);
 
+  // Multi-tenant safety: assertion explícita antes de qualquer I/O.
+  if (args.storeId) {
+    assertTenantStoreContext({ tenantId: args.tenantId, storeId: args.storeId }, 'product:offer');
+  } else {
+    assertTenantContext({ tenantId: args.tenantId }, 'product:offer');
+  }
+
   if (!process.env.ANTHROPIC_API_KEY?.trim()) {
     skipped('ANTHROPIC_API_KEY ausente em .env.local. Brief lido; execução pendente.');
   }
@@ -90,6 +101,7 @@ async function main(): Promise<void> {
   const memory = new Memory({
     vaultRoot: resolve(repoRoot, '07_memory/vault'),
     tenantId: args.tenantId,
+    ...(args.storeId ? { storeId: args.storeId } : {}),
   });
   await memory.ensureBaseDir();
 
@@ -117,7 +129,7 @@ async function main(): Promise<void> {
   const result = await runAgent(
     productOfferAgent,
     input,
-    { tenantId: args.tenantId },
+    { tenantId: args.tenantId, ...(args.storeId ? { storeId: args.storeId } : {}) },
     { complete, memory, observability },
   );
 
@@ -131,7 +143,9 @@ async function main(): Promise<void> {
     generatedAt,
   });
   await memory.write(relPath, md);
-  const absPath = resolve(repoRoot, '07_memory/vault', args.tenantId, relPath);
+  const absPath = args.storeId
+    ? resolve(repoRoot, '07_memory/vault', args.tenantId, 'stores', args.storeId, relPath)
+    : resolve(repoRoot, '07_memory/vault', args.tenantId, relPath);
 
   const out = result.output;
   process.stdout.write(`[product:offer] hero="${out.heroHeadline.slice(0, 60)}"\n`);
@@ -145,24 +159,36 @@ async function main(): Promise<void> {
 
   if (args.capture) {
     const slugTenant = args.tenantId.replace(/[^a-z0-9-]/gi, '-').toLowerCase();
+    const slugStore = args.storeId ? args.storeId.replace(/[^a-z0-9-]/gi, '-').toLowerCase() : '';
     const slugProduct = args.productName
       .replace(/[^a-z0-9-]/gi, '-')
       .toLowerCase()
       .slice(0, 30);
     const overall: 'green' | 'yellow' | 'red' = out.riskFlags.length > 0 ? 'yellow' : 'green';
+    const captureSlug = slugStore
+      ? `product-offer-${slugTenant}-${slugStore}-${slugProduct}`
+      : `product-offer-${slugTenant}-${slugProduct}`;
+    const titleScope = args.storeId
+      ? `tenant=${args.tenantId}/store=${args.storeId}`
+      : `tenant=${args.tenantId}`;
+    const vaultRel = args.storeId
+      ? `07_memory/vault/tenants/${args.tenantId}/stores/${args.storeId}/${relPath}`
+      : `07_memory/vault/${args.tenantId}/${relPath}`;
     const cap = await captureRun({
       kind: 'agent-run',
-      slug: `product-offer-${slugTenant}-${slugProduct}`.slice(0, 60),
+      slug: captureSlug.slice(0, 60),
       result: overall,
-      title: `Offer: ${args.productName}`,
+      title: `Offer: ${args.productName} (${titleScope})`,
       source: 'agent:product-offer',
-      tags: ['product-offer', 'tier-2', 'copy', overall],
+      tags: args.storeId
+        ? ['product-offer', 'tier-2', 'copy', 'store-scoped', overall]
+        : ['product-offer', 'tier-2', 'copy', overall],
       body: {
-        context: `pnpm product:offer gera oferta para ${args.productName} (${args.tenantId}).`,
+        context: `pnpm product:offer gera oferta para ${args.productName} em ${titleScope}.`,
         whatHappened: [
-          `Tenant: ${args.tenantId}.`,
+          `Escopo: ${titleScope}.`,
           `Hero: ${out.heroHeadline}.`,
-          `Offer salvo em vault/${args.tenantId}/${relPath}.`,
+          `Offer salvo em ${vaultRel}.`,
           `Custo: $${result.costUsd.toFixed(6)} (${result.model}).`,
         ],
         findings: [
@@ -170,9 +196,11 @@ async function main(): Promise<void> {
           ...out.riskFlags.map((r) => `[risk] ${r}`),
         ],
         impact: `${out.valueProps.length} value props · ${out.bundleSuggestions.length} bundles · ${out.ctaOptions.length} CTA variants.`,
-        references: [`07_memory/vault/${args.tenantId}/${relPath}`],
+        references: [vaultRel],
       },
-      sessionLogLine: `product-offer: ${args.productName} → ${out.valueProps.length} value props, ${out.riskFlags.length} risk flags.`,
+      sessionLogLine: `product-offer: ${args.productName} (${titleScope}) → ${out.valueProps.length} value props, ${out.riskFlags.length} risk flags.`,
+      tenantId: args.tenantId,
+      ...(args.storeId ? { storeId: args.storeId } : {}),
     });
     process.stdout.write(`[product:offer] capture → ${cap.summaryPath}\n`);
   }

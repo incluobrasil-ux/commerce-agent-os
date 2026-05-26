@@ -4,6 +4,7 @@
 import { promises as fs } from 'node:fs';
 import { resolve } from 'node:path';
 import { captureRun } from '@cao/brain-bridge';
+import { assertTenantContext, assertTenantStoreContext } from '@cao/core';
 import { makeAnthropicComplete } from '@cao/llm';
 import { Memory } from '@cao/memory';
 import { ConsoleProvider } from '@cao/observability';
@@ -12,6 +13,7 @@ import { marketingDirectorAgent, planPath, planTimestamp, renderPlan } from './i
 
 interface CliArgs {
   tenantId: string;
+  storeId: string;
   horizon: string;
   objectives: string[];
   budgetUsd: number;
@@ -28,6 +30,7 @@ interface CliArgs {
 function parseArgs(argv: string[]): CliArgs {
   const args: CliArgs = {
     tenantId: '_test',
+    storeId: '',
     horizon: '',
     objectives: [],
     budgetUsd: 0,
@@ -42,6 +45,7 @@ function parseArgs(argv: string[]): CliArgs {
   };
   for (const a of argv.slice(2)) {
     if (a.startsWith('--tenant=')) args.tenantId = a.slice('--tenant='.length);
+    else if (a.startsWith('--store=')) args.storeId = a.slice('--store='.length);
     else if (a.startsWith('--horizon=')) args.horizon = a.slice('--horizon='.length);
     else if (a.startsWith('--objective=')) args.objectives.push(a.slice('--objective='.length));
     else if (a.startsWith('--budget=')) args.budgetUsd = Number(a.slice('--budget='.length));
@@ -79,6 +83,12 @@ function skipped(msg: string): never {
 async function main(): Promise<void> {
   const args = parseArgs(process.argv);
 
+  if (args.storeId) {
+    assertTenantStoreContext({ tenantId: args.tenantId, storeId: args.storeId }, 'marketing:plan');
+  } else {
+    assertTenantContext({ tenantId: args.tenantId }, 'marketing:plan');
+  }
+
   if (!process.env.ANTHROPIC_API_KEY?.trim()) {
     skipped('ANTHROPIC_API_KEY ausente em .env.local. Brief lido; execução pendente.');
   }
@@ -93,6 +103,7 @@ async function main(): Promise<void> {
   const memory = new Memory({
     vaultRoot: resolve(repoRoot, '07_memory/vault'),
     tenantId: args.tenantId,
+    ...(args.storeId ? { storeId: args.storeId } : {}),
   });
   await memory.ensureBaseDir();
 
@@ -115,7 +126,7 @@ async function main(): Promise<void> {
   const result = await runAgent(
     marketingDirectorAgent,
     input,
-    { tenantId: args.tenantId },
+    { tenantId: args.tenantId, ...(args.storeId ? { storeId: args.storeId } : {}) },
     { complete, memory, observability },
   );
 
@@ -129,7 +140,9 @@ async function main(): Promise<void> {
     generatedAt,
   });
   await memory.write(relPath, md);
-  const absPath = resolve(repoRoot, '07_memory/vault', args.tenantId, relPath);
+  const absPath = args.storeId
+    ? resolve(repoRoot, '07_memory/vault', args.tenantId, 'stores', args.storeId, relPath)
+    : resolve(repoRoot, '07_memory/vault', args.tenantId, relPath);
 
   const out = result.output;
   process.stdout.write(`[marketing:plan] plan="${out.planTitle.slice(0, 60)}"\n`);
@@ -143,25 +156,37 @@ async function main(): Promise<void> {
 
   if (args.capture) {
     const slugTenant = args.tenantId.replace(/[^a-z0-9-]/gi, '-').toLowerCase();
+    const slugStore = args.storeId ? args.storeId.replace(/[^a-z0-9-]/gi, '-').toLowerCase() : '';
     const slugHorizon = args.horizon
       .replace(/[^a-z0-9-]/gi, '-')
       .toLowerCase()
       .slice(0, 30);
     const overall: 'green' | 'yellow' | 'red' = out.riskFlags.length > 0 ? 'yellow' : 'green';
+    const captureSlug = slugStore
+      ? `marketing-director-${slugTenant}-${slugStore}-${slugHorizon}`
+      : `marketing-director-${slugTenant}-${slugHorizon}`;
+    const titleScope = args.storeId
+      ? `tenant=${args.tenantId}/store=${args.storeId}`
+      : `tenant=${args.tenantId}`;
+    const vaultRel = args.storeId
+      ? `07_memory/vault/tenants/${args.tenantId}/stores/${args.storeId}/${relPath}`
+      : `07_memory/vault/${args.tenantId}/${relPath}`;
     const cap = await captureRun({
       kind: 'agent-run',
-      slug: `marketing-director-${slugTenant}-${slugHorizon}`.slice(0, 60),
+      slug: captureSlug.slice(0, 60),
       result: overall,
-      title: `Marketing plan: ${out.planTitle}`,
+      title: `Marketing plan: ${out.planTitle} (${titleScope})`,
       source: 'agent:marketing-director',
-      tags: ['marketing-director', 'tier-2', 'plan', overall],
+      tags: args.storeId
+        ? ['marketing-director', 'tier-2', 'plan', 'store-scoped', overall]
+        : ['marketing-director', 'tier-2', 'plan', overall],
       body: {
-        context: `pnpm marketing:plan gera plano de marketing para ${args.horizon} (${args.tenantId}).`,
+        context: `pnpm marketing:plan gera plano para ${args.horizon} em ${titleScope}.`,
         whatHappened: [
-          `Tenant: ${args.tenantId}.`,
+          `Escopo: ${titleScope}.`,
           `Horizon: ${args.horizon}, budget USD ${args.budgetUsd}.`,
           `Iniciativas: ${out.initiatives.length}.`,
-          `Plano salvo em vault/${args.tenantId}/${relPath}.`,
+          `Plano salvo em ${vaultRel}.`,
           `Custo: $${result.costUsd.toFixed(6)} (${result.model}).`,
         ],
         findings: [
@@ -169,9 +194,11 @@ async function main(): Promise<void> {
           ...out.riskFlags.map((r) => `[risk] ${r}`),
         ],
         impact: `${out.initiatives.length} iniciativas · ${out.kpiTargets.length} KPIs · ${out.budgetSplit.length} categorias de budget.`,
-        references: [`07_memory/vault/${args.tenantId}/${relPath}`],
+        references: [vaultRel],
       },
-      sessionLogLine: `marketing-director: ${args.horizon} → ${out.initiatives.length} iniciativas, ${out.riskFlags.length} risk flags.`,
+      sessionLogLine: `marketing-director: ${args.horizon} (${titleScope}) → ${out.initiatives.length} iniciativas, ${out.riskFlags.length} risk flags.`,
+      tenantId: args.tenantId,
+      ...(args.storeId ? { storeId: args.storeId } : {}),
     });
     process.stdout.write(`[marketing:plan] capture → ${cap.summaryPath}\n`);
   }

@@ -52,9 +52,9 @@ Análise consolidada com proposta de write por pillar (preserva o trabalho): [`1
 - 7 layers implementadas (shared-types/core/memory/runtime/brain-bridge/merchant:audit pilot/smoke isolation tests).
 - Detalhe completo em [run-summary 2026-05-25-impl-milestone-multi-tenant-hardening](run-summaries/2026-05-25-impl-milestone-multi-tenant-hardening.md).
 
-### Opção A — **Migrar próximos 5 agentes para `--store=<id>`** (~30min cada, baixo risco)
+### ~~Opção A — Migrar 5 agentes~~ ✅ **concluído 2026-05-25**
 
-Pattern estabelecido em `audit-cli.ts`. Repetir nos: `merchant-compliance`, `product-offer`, `marketing-director`, `creative-copy-assets`, `design-ux-localization`. Adoção incremental — não precisa fazer tudo numa rodada.
+Os 5 agentes (`merchant-compliance`, `product-offer`, `marketing-director`, `creative-copy-assets`, `design-ux-localization`) ganharam `--store=<id>`, assertion explícita via `assertTenantStoreContext`/`assertTenantContext`, Memory com `storeId`, captureRun com `tenantId+storeId`, absPath e vaultRel store-scoped. Sem regressão: 309 testes verdes mantidos. Agora **6 de 20 agentes** suportam contexto store-level explicito (era 1 — só merchant:audit). Os 14 restantes seguem tenant-only (compat); migração incremental sob demanda.
 
 ### Opção B — **N21**: Pipeline LLM real end-to-end
 

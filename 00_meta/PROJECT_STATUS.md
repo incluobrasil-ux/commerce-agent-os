@@ -28,7 +28,7 @@
 
 ## O que está parcial / não migrado ainda
 
-- 5 agentes (`merchant-compliance`, `product-offer`, `marketing-director`, `creative-copy-assets`, `design-ux-localization`) aceitam `--tenant` mas **ainda não aceitam `--store=<id>`**. Pattern estabelecido em `catalog-feed-ops/audit-cli.ts`; migração ~30min por agente.
+- **6 de 20 agentes** suportam `--store=<id>` (merchant:audit, merchant:compliance, product:offer, marketing:plan, creative:assets, design:ux). Os outros 14 aceitam `--tenant` mas seguem tenant-only — migração incremental sob demanda usa pattern de `catalog-feed-ops/audit-cli.ts`.
 - `agent.invoked` events vão para `ConsoleProvider` (sem PostHog ativo).
 - Shopify client suporta 1 store por processo. Multi-store paralelo no mesmo processo exige store registry (pendente).
 
@@ -50,8 +50,9 @@
 
 ## Próximo bloco recomendado
 
-1. **Migrar 5 agentes restantes para `--store=<id>`** (Opção A, ~30min cada, baixo risco).
-2. **N21 — Pipeline LLM real end-to-end** se Anthropic key configurada.
-3. **Ampliar `GMC_CATEGORY_OVERRIDES`** com mais categorias além de 3793.
+1. **N21 — Pipeline LLM real end-to-end** (key Anthropic ativa, custo < $0.30/loop).
+2. **N24 — Handoff entre agentes via memory-context + ContextBundle** (depende de N21 validado).
+3. **Migrar próximos agentes** (`traffic-campaigns`, `governance-risk-qa`, etc.) para `--store=<id>` sob demanda.
+4. **Ampliar `GMC_CATEGORY_OVERRIDES`** com mais categorias além de 3793.
 
 Detalhe em [next-actions](../07_memory/vault/projects/commerce-agent-os/next-actions.md).

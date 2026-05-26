@@ -25,6 +25,12 @@ confidence: 1.0
 
 ---
 
+## 2026-05-25 — 5 agentes adicionais migrados para `--store=<id>` (sub-fase 2.9.1)
+
+- Feito: aplicado pattern do `merchant:audit` (audit-cli.ts) aos 5 agentes pendentes — `merchant-compliance`, `product-offer`, `marketing-director`, `creative-copy-assets`, `design-ux-localization`. Cada um agora: aceita `--store=<id>` opcional; importa `assertTenantContext`/`assertTenantStoreContext` de `@cao/core`; assertion explícita antes de I/O (TenantStoreContext quando `--store` passado, TenantContext senão); Memory recebe `storeId` opcional; runAgent recebe `tenantId+storeId` em RunOptions; captureRun recebe `tenantId+storeId` para roteamento; slug do capture inclui store quando presente (evita colisão); absPath de log + `vaultRel` em references usam path tenant/store-scoped (`07_memory/vault/tenants/<t>/stores/<s>/...`).
+- Resultado: green. **309 testes verdes em 36 arquivos** mantidos (zero regressão). Typecheck OK, lint OK, format aplicou 1 fix cosmético. Agora **6 de 20 agentes** suportam contexto store-level explícito (era 1).
+- Próximo: N21 (pipeline LLM real end-to-end com key Anthropic ativa, custo < $0.30) ou N24 (handoff agente→agente via memory-context + ContextBundle). Os 14 agentes restantes seguem tenant-only (compat) e podem ser migrados sob demanda.
+
 ## 2026-05-25 — Multi-tenant/multi-store hardening (base técnica + pilot)
 
 - Feito: 7 layers implementadas. (1) shared-types ganha 7 branded types canônicos (TenantId, StoreId, InstallationId, ShopDomain, RunId, ArtifactId, AgentName). (2) @cao/core ganha context.ts com assertTenantContext, assertTenantStoreContext, validateStoreBelongsToTenant, buildContextBundle, slugifyShopDomain, isGlobalContext. (3) Memory aceita storeId opcional, path vira tenants/<t>/stores/<s>/. (4) AgentContext + RunOptions ganham storeId opcional; observability events propagam store_id. (5) brain-bridge captureRun aceita tenantId+storeId, nova resolveBrainDir() com 4 níveis de precedência. (6) merchant:audit pilot com --store=<id>, assertion explícita, paths store-scoped em reports e capture. (7) 12 smoke testes novos em 11_tests/smoke/multi-tenant-isolation.smoke.ts. Pilot real validado: pnpm merchant:audit --tenant=incluo-tenant --store=incluo escreve em 12_reports/merchant-audits/incluo-tenant/stores/incluo/ e brain em 07_memory/vault/tenants/incluo-tenant/stores/incluo/.

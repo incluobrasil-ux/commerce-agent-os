@@ -1,0 +1,24 @@
+{
+  "name": "@cao/orchestration",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Capability registry, planner, runner, legal-compliance e playbooks operacionais do Chefe (orchestrator-master).",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
+    "./registry": { "types": "./dist/registry.d.ts", "import": "./dist/registry.js" },
+    "./legal": { "types": "./dist/legal.d.ts", "import": "./dist/legal.js" },
+    "./playbooks": { "types": "./dist/playbooks.d.ts", "import": "./dist/playbooks.js" },
+    "./planner": { "types": "./dist/planner.d.ts", "import": "./dist/planner.js" },
+    "./runner": { "types": "./dist/runner.d.ts", "import": "./dist/runner.js" }
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rm -rf dist .tsbuildinfo"
+  },
+  "dependencies": {
+    "@cao/core": "workspace:*"
+  }
+}

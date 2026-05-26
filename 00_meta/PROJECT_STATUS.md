@@ -2,9 +2,25 @@
 
 > Documento curto. Atualizado a cada sub-fase fechada. Para narrativa longa: cérebro operacional em `07_memory/vault/projects/commerce-agent-os/`.
 
-**Última atualização:** 2026-05-25
-**Branch ativa:** `feat/system-retomada-operacional` (5 commits ahead de `main`)
-**Suíte:** 309 testes em 36 arquivos · smoke: 17
+**Última atualização:** 2026-05-26
+**Branch ativa:** `feat/orchestrator-os-consolidation`
+**Suíte:** 361 testes em 40 arquivos · smoke: 17 · orchestration: 28
+
+## Marco mais recente — Chefe operacional consolidado (2026-05-26)
+
+Novo pacote `@cao/orchestration` consolida: capability registry, ContextBundle estendido, decision policy, playbooks oficiais, planner rule-based, runner com state machine + checkpoints, writeback safety gate, e **camada jurídica internacional BR/EU/US**. CLI `pnpm chief` é o entrypoint operacional do sistema.
+
+| Componente | Local |
+|---|---|
+| Capability registry (22 agentes) | `06_packages/orchestration/src/registry.ts` |
+| Camada jurídica (BR LGPD/CDC/CONAR + EU GDPR/CRD/Omnibus + US FTC/CCPA) | `06_packages/orchestration/src/legal.ts` |
+| ContextBundle + estados (queued/running/blocked_external/awaiting_approval/...) | `06_packages/orchestration/src/bundle.ts` |
+| Policy / guardrails (rota curta vs longa, escalação governance, stop conditions) | `06_packages/orchestration/src/policy.ts` |
+| 8 playbooks oficiais | `06_packages/orchestration/src/playbooks.ts` |
+| Planner rule-based + intent classification | `06_packages/orchestration/src/planner.ts` |
+| Runner com checkpoint/resume | `06_packages/orchestration/src/runner.ts` |
+| Writeback safety gate | `06_packages/orchestration/src/writeback-gate.ts` |
+| CLI principal | `06_packages/orchestration/scripts/chief-cli.ts` → `pnpm chief` |
 
 ---
 

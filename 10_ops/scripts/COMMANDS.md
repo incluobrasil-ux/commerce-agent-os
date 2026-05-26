@@ -1,6 +1,35 @@
 # Commands
 
-Comandos principais. Tudo via `pnpm` na raiz. Atualizado: 2026-05-25.
+Comandos principais. Tudo via `pnpm` na raiz. Atualizado: 2026-05-26.
+
+## `pnpm chief` — entrypoint do Chefe
+
+```bash
+pnpm chief --tenant=<id> [--store=<id>] --objective="<descrição NL>" [opts]
+```
+
+Recebe objetivo em linguagem natural, classifica intent (`audit | catalog_merchant | offer | marketing | creative | design_ux | governance | cross_store | writeback | general`), seleciona um **playbook oficial** do registry, monta a rota efetiva (filtra steps por credenciais disponíveis), avalia camada jurídica (BR/EU/US) se houver `--legal-profile`, e devolve o plano.
+
+| Flag | Significado |
+|---|---|
+| `--objective="..."` | Objetivo em NL (obrigatório). |
+| `--tenant=<id>` | Tenant id (obrigatório). |
+| `--store=<id>` | Store id (opcional, exigido para `--mode=writeback`). |
+| `--mode=<read-only\|dry-run\|writeback>` | Modo de execução. Default vem do playbook. Writeback sem token/store rebaixa p/ dry-run automaticamente. |
+| `--playbook=<id>` | Override do playbook auto-selecionado. Lista: `merchant-audit`, `offer-improvement`, `marketing-creative-chain`, `pdp-ux-review`, `governance-review`, `store-readiness`, `cross-store-diagnostic`, `safe-shopify-writeback`. |
+| `--jurisdictions=<BR,EU,US-CA,US-FED>` | Jurisdições da operação. Default `BR`. |
+| `--legal-profile=<path>` | Path JSON do `StoreLegalProfile` (vault local). Quando presente, ativa avaliação regulatória completa. |
+| `--execute` | Despacha steps (default é plan-only). |
+| `--resume=<runId>` | Continua run interrompido (a partir do checkpoint salvo). |
+
+**Modos de execução:**
+- `read-only` — só agentes determinísticos / read-only.
+- `dry-run` — simula writeback sem aplicar (diff visível, audit log gravado).
+- `writeback` — aplica no Shopify. **Sempre passa pelo writeback gate** (verifica jurisdição, perfil legal, aprovação humana).
+
+**Saída:** plano em stdout + checkpoint em `07_memory/vault/tenants/<t>/[stores/<s>/]runs/<runId>.json`.
+
+
 
 ## Verificação (rodar primeiro em qualquer clone novo)
 

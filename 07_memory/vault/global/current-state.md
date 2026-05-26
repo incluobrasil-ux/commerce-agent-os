@@ -12,13 +12,14 @@ tags: [global, current-state]
 | | |
 |---|---|
 | Macro | 2 — Implementação |
-| Último marco (2026-05-26) | Sub-fase 2.6 minimal: `shopify:writeback` CLI (compliance → diff → dry-run/apply → audit log). Dry-run validado em Incluo. 24 testes novos. |
-| Próximo marco | Provisionar SHOPIFY_ADMIN_TOKEN → primeiro `--apply` real em produto de baixo risco (não Contas Madeira). |
+| Último marco (2026-05-26) | **`@cao/orchestration` + CLI `pnpm chief`** — capability registry (22 agentes), 8 playbooks oficiais, planner rule-based, runner com checkpoints, writeback safety gate e **camada jurídica BR/EU/US** (LGPD/CDC/CONAR + GDPR/CRD/Omnibus + FTC/CCPA). 28 testes novos. |
+| Próximo marco | Provisionar SHOPIFY_ADMIN_TOKEN → primeiro `pnpm chief --execute --mode=writeback` real numa store com legal-profile populado. |
 
 ## Verde (cross-tenant)
 
 - **20/22 agentes** REAL_EXECUTABLE; 6 com `--store=<id>` explícito (merchant:audit, merchant:compliance, product:offer, marketing:plan, creative:assets, design:ux).
-- **333 testes verdes** em 39 arquivos; smoke 17 (incl. 12 multi-tenant isolation).
+- **Chefe (`pnpm chief`)** — entrypoint NL único; orquestração com registry + playbooks + planner + runner + legal gate (BR/EU/US) + checkpoints.
+- **361 testes verdes** em 40 arquivos; smoke 17; orchestration package 28.
 - **Pipeline Merchant** dry-run + audit determinístico (zero-cred) + LLM pipeline 5/5 validado real.
 - **Writeback Shopify** dry-run validado em Incluo (parser + diff + audit log); `--apply` aguarda token + revisão jurídica para HIGH-severity.
 - **Multi-tenant**: branded types, assertions, `vault/tenants/<t>/[stores/<s>/]`, brain-bridge dinâmico.

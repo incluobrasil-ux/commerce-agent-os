@@ -33,6 +33,26 @@ pnpm doctor
 pnpm audit:repo .
 ```
 
+## Rodar o Chefe (`pnpm chief`) — uso operacional
+
+```bash
+# Plan-only — entende intent, escolhe playbook, mostra rota:
+pnpm chief --tenant=incluo --store=main --objective="auditar catálogo"
+
+# Com jurisdição + perfil legal (avaliação regulatória BR/EU/US):
+pnpm chief --tenant=incluo --store=main --objective="aplicar fix" \
+  --jurisdictions=BR --legal-profile=07_memory/vault/tenants/incluo/stores/main/legal-profile.json
+
+# Resumir um run interrompido:
+pnpm chief --tenant=incluo --resume=run-1717000000000-abc123
+```
+
+Default: `plan-only` (não despacha steps). Adicione `--execute` para o runner despachar e fazer checkpoints no vault.
+
+**Para uso multi-loja:** o Chefe respeita isolamento por `--store=<id>`. Sem `--store`, opera em escopo tenant. Para writeback, `--store` é obrigatório (gate de segurança).
+
+**Camada jurídica:** mercados BR / EU / US-CA / US-FED suportados na matrix `@cao/orchestration/legal`. Sem `--legal-profile`, o Chefe ainda roda (assume "trust-the-operator") mas writeback sensível é bloqueado.
+
 ## Passo a passo (completo, se quiser ir até LLM real)
 
 ```bash

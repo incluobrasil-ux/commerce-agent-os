@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-25T23:30:00.000Z
+updated_at: 2026-05-26T19:30:00Z
 tags: [next-actions]
 source: mixed
 confidence: 1.0
@@ -32,20 +32,51 @@ confidence: 1.0
 - **Gaps de regra do scorer descobertos:** descrição truncada via MCP; threshold de `title:no-brand` baixo demais; `gtin:missing` não diferencia categoria (confirma necessidade de N20.1).
 - **Detalhe completo:** [run-summary 2026-05-25-audit-merchant-audit-incluo-json](run-summaries/2026-05-25-audit-merchant-audit-incluo-json.md).
 
-## ~~N26 follow-ups~~ — diferidos pelo operador (2026-05-25)
+## N26 follow-ups — status atualizado (2026-05-26)
 
-Decisão: o sistema mostrou-se funcional (end-to-end real-catalog audit OK). Operador opta por **não tocar na loja agora**; N26.a-d ficam diferidos para quando voltar à operação Shopify.
+Operador autorizou orchestrator-master a executar plano completo na loja real. 8 mutations aplicadas via MCP nesta sessão.
 
 | # | Ação | Status |
 |---|---|---|
-| **N26.a** | Corrigir price = 0 no SKU `contas-madeira-montessori-animais-frutas-coordenac` | 🔵 manual no admin (operador) |
-| **N26.b** | Política GTIN (`identifier_exists=false` global) | 🔵 decisão pendente |
-| **N26.c** | Mapping productType → GMC taxonomy (47→3793, 3→5872) | 🔵 decisão pendente |
-| **N26.d** | Brand prefix nos 21 títulos > 70 chars | 🔵 quando convier |
+| ~~**N26.a**~~ | Corrigir price = 0 no SKU contas-madeira | ✅ **aplicado 2026-05-26 20:24** — price R$ 89,90, compareAt R$ 109,90 (pesquisa de mercado via WebSearch fundamentou: ML R$ 109,90 / Amazon R$ 102,60 / Shopee R$ 72,99) |
+| **N26.b** | Convenção SKU global (`INC-<P>-<V>`) substituindo SKU ALI `\d+:\d+#` | 🔵 proposta em [`audit/n26b-sku-normalization-proposal-20260526.md`](../../tenants/incluo-tenant/stores/incluo/audit/n26b-sku-normalization-proposal-20260526.md) — aguarda decisão Samuel |
+| **N26.c** | Mapping productType → GMC taxonomy | 🔵 decisão pendente (`--gmc-default=3793` já cobre 47/50 SKUs na auditoria) |
+| **N26.d** | Brand prefix nos títulos sem "Incluo" | 🔵 baixa prioridade (severity low, 50 ocorrências) |
+| **N26.e** ✨ | Reescrever 7 handles com claims terapêuticos (gap N20.2) | ✅ **aplicado 2026-05-26 20:24** — `redirectNewHandle:true` cria 301 auto |
+| **T2-drafts** | Revisões propostas para 3 descriptions com "autorregulação sensorial" | 🔵 aguarda jurídico em [`compliance/n20-2-followup-descriptions-t2-20260526.md`](../../tenants/incluo-tenant/stores/incluo/compliance/n20-2-followup-descriptions-t2-20260526.md) |
 
-Análise consolidada com proposta de write por pillar (preserva o trabalho): [`12_reports/merchant-audits/incluo-n26-followup-analysis.md`](../../../../12_reports/merchant-audits/incluo-n26-followup-analysis.md). Pronta para puxar a qualquer momento.
+Análise consolidada: [run-summary 2026-05-26-impl-milestone-n20-2-and-gmc-fixes-applied](run-summaries/2026-05-26-impl-milestone-n20-2-and-gmc-fixes-applied.md).
 
-## Prioridade imediata — escolher próximo bloco
+## N20.2 ✅ Scorer evoluído — claims terapêuticos PT-BR + handle scanning (2026-05-26)
+
+- 21 keywords PT-BR adicionadas (autismo, TDAH, TEA, ADHD, OCD, ansiedade, depressão, alivia, terapêutico, autorregulação sensorial, …).
+- Nova rule `link:therapeutic-claim:*` varre URL pública (handle) além de title/description — gap real descoberto no audit Incluo.
+- +5 testes (251 → 256 verdes).
+- Audit Incluo: **89.2 → 92.8** após fixes; **0 critical, 3 high residuais** = T2 puro.
+- Próximo: **N20.3** — pipeline `productToFeedRow` expor `variantSku` no `FeedRow` para detecção automatizada de SKU pattern `\d+:\d+#`.
+
+## Prioridade imediata — operacionalizar writeback real
+
+### N27 — Primeiro `--apply` real do `shopify:writeback`
+
+- **Pré-requisitos:**
+  1. Custom App em dev store (ou loja real) → `SHOPIFY_ADMIN_TOKEN` + `SHOPIFY_SHOP` em `.env.local` (~3 min em https://partners.shopify.com).
+  2. Revisão jurídica do compliance HIGH `contas-madeira-pdp-review` antes de aplicar nesse PDP (não usar como primeiro alvo).
+- **Comando:**
+  ```bash
+  pnpm shopify:writeback \
+    --compliance=<path/to/review.md> \
+    --tenant=incluo-tenant --store=incluo \
+    --apply   # default é dry-run; flag explícita necessária
+  ```
+- **Critério de aceite:** audit log com `applied > 0` + `descriptionHtml` alterado no admin Shopify + run-summary criado.
+- **Quem puxa:** Samuel (precisa do token) + jurídico (precisa do go).
+- **Detalhe técnico:** [run-summary](run-summaries/2026-05-26-impl-milestone-shopify-writeback-minimal.md).
+
+### ✅ Sub-fase 2.6 writeback minimal concluído (2026-05-26)
+
+- PR [#18](https://github.com/incluobrasil-ux/commerce-agent-os/pull/18) merged. Loop `compliance → diff → audit` fechado em código. Dry-run validado.
+- Detalhe em [run-summary 2026-05-26-impl-milestone-shopify-writeback-minimal](run-summaries/2026-05-26-impl-milestone-shopify-writeback-minimal.md).
 
 ### ✅ Multi-tenant hardening 2.9 concluído (2026-05-25)
 

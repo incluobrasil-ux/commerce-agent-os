@@ -62,6 +62,37 @@ const HIGH_RISK_KEYWORDS = [
   'melhor do mundo',
 ];
 
+// Claims terapêuticos/clínicos que disparam revisão ANVISA/CONAR/CDC no Brasil
+// e reprovam direto no GMC quando associados a produto não-médico (RDC 204/2017,
+// Lei 12.764/2012, CDC art. 37). Descoberto no audit Incluo 2026-05-26 — handles
+// públicos ainda carregavam estes termos mesmo após titles serem reescritos.
+//
+// Estes termos são checados separadamente em campos onde aparecem com mais
+// frequência (URL/link), pois o handle público vira parte do landing URL
+// submetido ao GMC.
+const THERAPEUTIC_CLAIM_KEYWORDS = [
+  'autismo',
+  'autista',
+  'tea',
+  'tdah',
+  'adhd',
+  'ocd',
+  'asperger',
+  'ansiedade',
+  'depressao',
+  'depressão',
+  'anti-depressao',
+  'anti-depressão',
+  'alivia',
+  'alívio',
+  'alivio',
+  'terapeutico',
+  'terapêutico',
+  'autorregulacao sensorial',
+  'autorregulação sensorial',
+  'sensorial integrativ',
+];
+
 const PLACEHOLDER_IMAGE_HINTS = [
   'placeholder',
   '.jpg.placeholder',
@@ -376,6 +407,41 @@ function semanticChecks(row: FeedRow): Finding[] {
       });
       break; // 1 keyword finding por row é suficiente
     }
+  }
+
+  // Therapeutic claims em title/description (regra separada — severidade high,
+  // mas o conjunto de keywords é distinto e o motivo regulatório é específico:
+  // ANVISA/CONAR/CDC art. 37 + Lei 12.764/2012 para produtos não-médicos).
+  const therapeuticHit = THERAPEUTIC_CLAIM_KEYWORDS.find((kw) =>
+    haystack.includes(kw.toLowerCase()),
+  );
+  if (therapeuticHit) {
+    out.push({
+      code: `claim:therapeutic:${therapeuticHit.replace(/\s+/g, '-')}`,
+      severity: 'high',
+      field: 'title/description',
+      message: `Termo terapêutico "${therapeuticHit}" associa produto não-médico a condição clínica — risco ANVISA/CONAR/CDC art. 37.`,
+      remediation:
+        'Substituir por descrição lúdica/educativa neutra. Para manter associação a condição clínica, requer registro ANVISA + parecer jurídico-sanitário.',
+    });
+  }
+
+  // Therapeutic claims em link (URL pública). O handle vira parte do landing
+  // URL submetido ao GMC; mesmo com title limpo, claim no slug reprova.
+  // Descoberto no audit Incluo 2026-05-26: handles tipo
+  // `12-lados-fidget-cubo-...-alivia-o-estresse-...-anti-depressao-...-tdah-...-ocd-autismo`
+  // após titles terem sido reescritos para versão limpa.
+  const linkLc = row.link.toLowerCase();
+  const linkHit = THERAPEUTIC_CLAIM_KEYWORDS.find((kw) => linkLc.includes(kw.toLowerCase()));
+  if (linkHit) {
+    out.push({
+      code: `link:therapeutic-claim:${linkHit.replace(/\s+/g, '-')}`,
+      severity: 'high',
+      field: 'link',
+      message: `URL/handle contém termo terapêutico "${linkHit}" — Google ingere a URL como landing page, dispara revisão mesmo com title limpo.`,
+      remediation:
+        'Reescrever handle no Shopify Admin → Search Engine Listing → URL. Shopify cria redirect 301 automaticamente.',
+    });
   }
 
   // Placeholder image

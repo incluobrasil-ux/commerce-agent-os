@@ -213,6 +213,77 @@ describe('scoreRow', () => {
     const gtinFinding = r.findings.find((f) => f.code === 'gtin:missing');
     expect(gtinFinding?.severity).toBe('medium');
   });
+
+  // ===== N20.2 — claims terapêuticos PT-BR + handle scanning (audit Incluo 2026-05-26) =====
+
+  it('claim terapêutico em description dispara finding high (ANVISA/CONAR/CDC)', () => {
+    const r = scoreRow({
+      row: makeRow({
+        description: 'Brinquedo educativo que ajuda no manejo de autismo e TDAH em crianças.',
+      }),
+      validation: okValidation,
+      warnings: [],
+    });
+    const hit = r.findings.find((f) => f.code.startsWith('claim:therapeutic'));
+    expect(hit).toBeDefined();
+    expect(hit?.severity).toBe('high');
+  });
+
+  it('claim terapêutico no link/URL dispara finding high mesmo com title/description limpos', () => {
+    const r = scoreRow({
+      row: makeRow({
+        title: 'Acme Cubo Fidget - Foco e Conforto',
+        description:
+          'Cubo de manipulação com 12 lados texturizados. Material ABS. Ideal para uso recreativo.',
+        link: 'https://acme.test/products/12-lados-fidget-cubo-alivia-estresse-anti-depressao-tdah-autismo',
+      }),
+      validation: okValidation,
+      warnings: [],
+    });
+    const hit = r.findings.find((f) => f.code.startsWith('link:therapeutic-claim'));
+    expect(hit).toBeDefined();
+    expect(hit?.severity).toBe('high');
+    expect(hit?.field).toBe('link');
+  });
+
+  it('link limpo NÃO dispara link:therapeutic-claim', () => {
+    const r = scoreRow({
+      row: makeRow({
+        link: 'https://acme.test/products/cubo-fidget-12-lados-foco-conforto',
+      }),
+      validation: okValidation,
+      warnings: [],
+    });
+    expect(r.findings.some((f) => f.code.startsWith('link:therapeutic-claim'))).toBe(false);
+  });
+
+  it('keywords PT-BR de claim terapêutico são case-insensitive', () => {
+    for (const variant of ['AUTISMO', 'TDAH', 'Ansiedade', 'Depressão', 'alívio']) {
+      const r = scoreRow({
+        row: makeRow({ description: `texto com ${variant} no meio.` }),
+        validation: okValidation,
+        warnings: [],
+      });
+      expect(
+        r.findings.some((f) => f.code.startsWith('claim:therapeutic')),
+        `variant "${variant}" should match`,
+      ).toBe(true);
+    }
+  });
+
+  it('produto sem claim terapêutico não dispara nenhuma finding N20.2', () => {
+    const r = scoreRow({
+      row: makeRow({
+        description:
+          'Brinquedo de madeira para alinhavo. Desenvolve coordenação motora fina por meio do brincar.',
+        link: 'https://acme.test/products/contas-madeira-alinhavo',
+      }),
+      validation: okValidation,
+      warnings: [],
+    });
+    expect(r.findings.some((f) => f.code.startsWith('claim:therapeutic'))).toBe(false);
+    expect(r.findings.some((f) => f.code.startsWith('link:therapeutic-claim'))).toBe(false);
+  });
 });
 
 describe('summarizeAudit', () => {

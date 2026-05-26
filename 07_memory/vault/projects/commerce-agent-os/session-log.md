@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-25T22:39:42.887Z
+updated_at: 2026-05-26T19:30:00Z
 tags: [log, sessions]
 source: human:incluobrasil
 confidence: 1.0
@@ -24,6 +24,18 @@ confidence: 1.0
 ```
 
 ---
+
+## 2026-05-26 (noite) — N20.2 scorer + 8 mutations Shopify aplicadas (orchestrator-master)
+
+- Feito: usuário pediu plano completo conduzido pelo orchestrator. Sequência 10 fases: (1) N20.2 scorer ganhou `THERAPEUTIC_CLAIM_KEYWORDS` (21 termos PT-BR — autismo, TDAH, TEA, OCD, ansiedade, depressão, alivia, terapêutico, autorregulação sensorial, …) + nova rule `link:therapeutic-claim:*` que varre URL pública. +5 testes (25/25 verdes; smoke 17/17; typecheck OK). (2) Re-audit Incluo expôs gap: 93.2→89.2 (10 high findings antes invisíveis). (3) Mapeamento: 7 handles + 1 preço + 3 T2 (descriptions com "autorregulação sensorial"). (4) Pesquisa de mercado via WebSearch para contas-madeira-montessori (Shopee R$ 72,99 / Amazon R$ 102,60 / ML R$ 109,90) → decisão R$ 89,90 / compareAt R$ 109,90. (5+6) 8 mutations aplicadas via MCP: `update-product` (1 fix de preço) + 7× `productUpdate(product:$product)` com `redirectNewHandle:true` (Shopify cria 301 auto). Todos com `userErrors:[]`. (7) Drafts T2 gerados no vault do tenant — NÃO aplicados (bloqueado por jurídico). (8) Proposta N26.b SKU normalization gerada no vault — NÃO aplicada (aguarda decisão Samuel). (9) Re-audit pós-fixes: **89.2→92.8 (+3.6)**, 47🟢/3🟡/0🔴, 0 critical, 3 high residuais = T2 puro. (10) Run-summary + 3 current-state atualizados.
+- Resultado: green. Loja Incluo está em estado submetível ao GMC modulo aprovação jurídica das 3 descriptions. Bloqueios T2 + N26.b explicitamente respeitados; nenhum claim terapêutico em description tocado.
+- Próximo: aguardar jurídico nos drafts T2 + decisão Samuel em N26.b + provisionar SHOPIFY_ADMIN_TOKEN (B6) + N20.3 (expor variantSku no FeedRow para detectar SKU ALI no scorer).
+
+## 2026-05-26 — Sub-fase 2.6 writeback minimal (PR #18 merged)
+
+- Feito: novo módulo `05_integrations/shopify/writeback/` (compliance-parser + apply-revisions + audit-log) + CLI `pnpm shopify:writeback` com gate `--apply` explícito (default dry-run). `admin-graphql.ts` ganhou `getProductByHandle` + `updateProduct` (productUpdate mutation). 24 testes novos (4 arquivos). Dry-run end-to-end validado em compliance file real Incluo (`contas-madeira-pdp-review`): 9 revisões parsed, 2 placeholders skipados, 7 not-found (esperado sem token). Audit log gravado em `vault/tenants/incluo-tenant/stores/incluo/shopify-writeback/`.
+- Resultado: green. Suíte 309 → **333 verdes em 39 arquivos**. Typecheck + lint + smoke OK. PR #18 merged em `main` (`9b63563`). Loop `compliance → diff → audit` fechado em código.
+- Próximo: provisionar `SHOPIFY_ADMIN_TOKEN` (Custom App em dev store, ~3 min) + revisão jurídica do compliance HIGH antes do primeiro `--apply` real. Primeiro apply deve ser em SKU de baixo risco (não contas-madeira).
 
 ## 2026-05-26 — design:ux destravado (5/5) + Memory consolidada com brain-bridge
 

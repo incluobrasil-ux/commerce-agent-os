@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-25T22:39:42.887Z
+updated_at: 2026-05-26T19:30:00Z
 tags: [current-state, status]
 source: mixed
 confidence: 1.0
@@ -23,21 +23,22 @@ confidence: 1.0
 | | |
 |---|---|
 | Macro-fase | 2 — Implementação |
-| Sub-fase | 2.5 ✅ + 2.6 ✅ + 2.7 ✅ + 2.8 ✅ + N26 ✅ + N20.1 ✅ + 2.9 ✅ + 2.9.1 ✅ + **N21 ✅ pipeline LLM real end-to-end** |
-| Último marco (2026-05-26) | **N21 + 2 fixes:** pipeline LLM Incluo end-to-end **5/5 sucessos** (design:ux destravado com coerce de flag-objects e bump aspectRatios). Memory consolidada com brain-bridge — ambos agora em `vault/tenants/<t>/[stores/<s>/]` (era split: Memory `vault/<t>/`, brain `vault/tenants/<t>/`). 13 agent CLIs auto-atualizados via PowerShell sed. **309 testes mantidos**. Runtime agora expõe `error_details` (zod issues) em `agent.failed` events. |
-| Próximo marco técnico | **(a) operação humana Incluo**: ler compliance review + marketing plan + product offer e decidir o que aplicar. **(b) deep fix design-ux schema** (output JSON OK mas zod valida ainda falha — schema precisa surgery). **(c) N24 handoff via Memória** (depende de design:ux estável). Detalhe em [next-actions.md](next-actions.md) e [run-summary N21](run-summaries/2026-05-26-impl-milestone-n21-llm-pipeline-real.md). |
+| Sub-fase | 2.5 ✅ + 2.6 (caminho mínimo ✅ + writeback minimal ✅) + 2.7 ✅ + 2.8 ✅ + N26 ✅ + N20.1 ✅ + 2.9 ✅ + 2.9.1 ✅ + N21 ✅ + **N20.2 ✅** + **N26.a/e ✅** |
+| Último marco (2026-05-26 noite) | **N20.2 scorer evoluído + 8 mutations Shopify aplicadas via MCP**: scorer ganhou 21 keywords PT-BR (autismo/TDAH/TEA/…) + nova rule `link:therapeutic-claim:*` que varre handle público. Orchestrator conduziu: pesquisa de mercado via WebSearch → 1 fix de preço (R$ 89,90 contas-madeira) + 7 reescritas de handle com redirect 301 auto. **Audit Incluo: 93.2 → 89.2 (gap exposto) → 92.8 (pós-fixes)** com 0 critical, 3 high residuais = T2 puro. [run-summary](run-summaries/2026-05-26-impl-milestone-n20-2-and-gmc-fixes-applied.md). |
+| Próximo marco técnico | **(a) provisionar `SHOPIFY_ADMIN_TOKEN`** + primeiro `--apply` real em SKU de baixo risco. **(b) revisão jurídica** do compliance HIGH antes de aplicar em contas-madeira. **(c) deep fix design-ux schema** (output JSON OK mas zod ainda exigente). **(d) N24 handoff via Memória** (depende de design:ux estável). Detalhe em [next-actions.md](next-actions.md). |
 
 ## Verde
 
-- `pnpm install / typecheck / lint / test / test:smoke / doctor` — todos OK.
+- `pnpm install / typecheck / lint / test / test:smoke / doctor` — todos OK (333 testes em 39 arquivos).
 - **20 agentes REAL_EXECUTABLE** de 22 catalogados (ver [agents-catalog.md](agents-catalog.md) ou rodar audit):
   - **Bloco A (5/5):** orchestrator-master · governance-risk-qa · market-intelligence · competitor-benchmark · reviews-ops
   - **Bloco B (6/6):** product-offer · merchant-compliance · marketing-director · creative-copy-assets · design-ux-localization · traffic-campaigns
   - **Outros (9):** repo-auditor · audit-synthesizer · learning-memory-curation · memory-context · catalog-feed-ops · customer-journey-ops · finance-margin-radar · visual-asset-ops · ads-launchpad
   - **Library-only:** product-feed-seo (usado por catalog-feed-ops)
   - **STUB sem demanda:** analytics-optimization (não scaffoldado)
-- **23 comandos `pnpm <verbo>:<noun>`** registrados em [package.json](../../../../package.json).
+- **24 comandos `pnpm <verbo>:<noun>`** registrados em [package.json](../../../../package.json) (incluindo `shopify:writeback`).
 - **`pnpm merchant:audit [--source=fixture|json|shopify]`** — audit catalog-level determinístico: score por SKU + findings classificados + remediações. **100% local sem LLM, sem credenciais.** Relatório em `12_reports/merchant-audits/`.
+- **`pnpm shopify:writeback`** — parser compliance MD → diff → dry-run (default) ou `--apply` (gate explícito) → audit log sempre escrito em `vault/tenants/<t>/stores/<s>/shopify-writeback/`. Dry-run end-to-end validado em Incluo.
 - **6 packages `@cao/*`** + 5 integrations + brain-bridge funcionando.
 - `repo-auditor` modo determinístico (sem credenciais).
 - `pnpm feed:dry-run` — pipeline Merchant completo, 100% local com fixture, gera relatório em `12_reports/merchant-dry-runs/`.
@@ -56,6 +57,6 @@ confidence: 1.0
 
 ## Resumo em 1 linha
 
-> N21 ✅ pipeline LLM real end-to-end: 4/5 agentes geraram outputs reais para Incluo Q3 2026 ($0.174 total). merchant:compliance flagou HIGH severity com 5 risks legais brasileiros referenciados (CDC, ANVISA, CONAR). 2 bugs descobertos+fix (max_tokens, schema). design:ux deferido. **309 testes verdes**. Próximo: operação humana lê outputs + deep fix design:ux.
+> Sub-fase 2.6 writeback minimal ✅: loop compliance MD → diff → dry-run/apply → audit log fechado em código. Dry-run validado em Incluo (9 revisões parsed, 2 placeholders skipados, 7 not-found por falta de token). **333 testes verdes** (+24). Bloqueador para `--apply` real: provisionar `SHOPIFY_ADMIN_TOKEN` + revisão jurídica do compliance HIGH.
 
 Detalhe em [blockers-and-risks.md](blockers-and-risks.md).

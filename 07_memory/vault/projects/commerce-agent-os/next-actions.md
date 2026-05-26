@@ -39,7 +39,9 @@ Operador autorizou orchestrator-master a executar plano completo na loja real. 8
 | # | Ação | Status |
 |---|---|---|
 | ~~**N26.a**~~ | Corrigir price = 0 no SKU contas-madeira | ✅ **aplicado 2026-05-26 20:24** — price R$ 89,90, compareAt R$ 109,90 (pesquisa de mercado via WebSearch fundamentou: ML R$ 109,90 / Amazon R$ 102,60 / Shopee R$ 72,99) |
-| **N26.b** | Convenção SKU global (`INC-<P>-<V>`) substituindo SKU ALI `\d+:\d+#` | 🔵 proposta em [`audit/n26b-sku-normalization-proposal-20260526.md`](../../tenants/incluo-tenant/stores/incluo/audit/n26b-sku-normalization-proposal-20260526.md) — aguarda decisão Samuel |
+| ~~**N26.b**~~ | Convenção SKU global (`INC-<P>-<V>`) substituindo SKU ALI `\d+:\d+#` | ✅ **aplicado 2026-05-26 22:50** — 39 produtos / 119 variantes via batch `productVariantsBulkUpdate`, 100% success. Resultados em [`audit/n26b-sku-normalization-results-20260526.md`](../../tenants/incluo-tenant/stores/incluo/audit/n26b-sku-normalization-results-20260526.md). **~50 produtos das pgs 2/3 ainda precisam mesmo tratamento** (next iter). |
+| ~~**T2-drafts**~~ | Revisões "autorregulação sensorial" nas 3 descriptions | ✅ **aplicado 2026-05-26 22:30** — substituições conservadoras baseadas em ANVISA RDC 204/2017 + CDC art. 37 + CONAR + Lei 12.764/2012. Recomenda-se revisão jurídica humana antes de campanhas pagas pesadas. |
+| **next-iter-SKU** ✨ | Audit MCP completo de 150 produtos (pgs 2/3 fora da fixture) revelou ~50 produtos adicionais com SKU `\d+:\d+#` + 11 variants R$ 0,00 em 4 produtos (cobertor-ponderado, colar-mordedor-tubarão, protetor-auricular-silicone 6un, mini-trampolim 3un). Aplicar mesma convenção INC-<P>-<V> + pesquisa de mercado para os preços | 🔵 aguarda próxima execução |
 | **N26.c** | Mapping productType → GMC taxonomy | 🔵 decisão pendente (`--gmc-default=3793` já cobre 47/50 SKUs na auditoria) |
 | **N26.d** | Brand prefix nos títulos sem "Incluo" | 🔵 baixa prioridade (severity low, 50 ocorrências) |
 | **N26.e** ✨ | Reescrever 7 handles com claims terapêuticos (gap N20.2) | ✅ **aplicado 2026-05-26 20:24** — `redirectNewHandle:true` cria 301 auto |

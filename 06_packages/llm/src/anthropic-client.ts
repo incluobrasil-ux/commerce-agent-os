@@ -39,7 +39,10 @@ export function makeAnthropicComplete(opts: AnthropicClientOptions = {}): Comple
     const startMs = Date.now();
     const response = await client.messages.create({
       model,
-      max_tokens: input.maxTokens ?? 1024,
+      // Default 8192 cobre outputs estruturados grandes (design-ux-localization
+      // gera pageBlueprint + multi-locale copy + media brief que somam 6-10k tokens).
+      // Caller pode aumentar via input.maxTokens. Custo só por tokens gerados.
+      max_tokens: input.maxTokens ?? 8192,
       ...(input.temperature !== undefined && { temperature: input.temperature }),
       ...(input.system !== undefined && { system: input.system }),
       messages: [{ role: 'user', content: input.user }],

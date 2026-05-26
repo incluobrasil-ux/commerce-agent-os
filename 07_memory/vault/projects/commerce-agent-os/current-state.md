@@ -23,9 +23,9 @@ confidence: 1.0
 | | |
 |---|---|
 | Macro-fase | 2 — Implementação |
-| Sub-fase | 2.5 ✅ + 2.6 ✅ + 2.7 ✅ + 2.8 ✅ + N26 ✅ + N20.1 ✅ + 2.9 ✅ + **2.9.1 ✅ 5 agentes migrados para `--store`** |
-| Último marco (2026-05-25) | **6 agentes** agora aceitam `--store=<id>` (era 1): merchant:audit + merchant:compliance + product:offer + marketing:plan + creative:assets + design:ux. Pattern uniforme: assertTenantStoreContext quando `--store` passado, Memory com storeId, captureRun com tenantId+storeId, paths store-scoped em vault e capture. **309 testes mantidos** (zero regressão). |
-| Próximo marco técnico | **N21 — pipeline LLM real end-to-end** (key Anthropic ativa, custo < $0.30/loop). Ou **N24** (handoff entre agentes via Memória + ContextBundle). Ou migrar próximos agentes (`traffic-campaigns`, `governance-risk-qa`, demais 12) para `--store=<id>` sob demanda. Detalhe em [next-actions.md](next-actions.md). |
+| Sub-fase | 2.5 ✅ + 2.6 ✅ + 2.7 ✅ + 2.8 ✅ + N26 ✅ + N20.1 ✅ + 2.9 ✅ + 2.9.1 ✅ + **N21 ✅ pipeline LLM real end-to-end** |
+| Último marco (2026-05-26) | **N21 — Pipeline LLM real Incluo Q3 2026 (4/5 sucessos, $0.174 total).** marketing:plan (7 iniciativas) → creative:assets (4 variantes campanha volta-as-aulas) → ~design:ux (defer)~ → product:offer (hero+bundles SKU red) → merchant:compliance (**HIGH severity, 10 legal risks** com referências CDC/ANVISA/CONAR/ECA brasileiras reais). Multi-tenant routing 100% correto: outputs em `vault/incluo-tenant/stores/incluo/`, captures em `vault/tenants/incluo-tenant/stores/incluo/run-summaries/`. **2 bugs corrigidos no caminho**: max_tokens default 1024→8192; merchant-compliance zod schemas relaxados. **309 testes mantidos**. |
+| Próximo marco técnico | **(a) operação humana Incluo**: ler compliance review + marketing plan + product offer e decidir o que aplicar. **(b) deep fix design-ux schema** (output JSON OK mas zod valida ainda falha — schema precisa surgery). **(c) N24 handoff via Memória** (depende de design:ux estável). Detalhe em [next-actions.md](next-actions.md) e [run-summary N21](run-summaries/2026-05-26-impl-milestone-n21-llm-pipeline-real.md). |
 
 ## Verde
 
@@ -56,6 +56,6 @@ confidence: 1.0
 
 ## Resumo em 1 linha
 
-> Multi-tenant/multi-store: **6 agentes** com `--store=<id>` + assertion + paths isolados (merchant:audit, merchant:compliance, product:offer, marketing:plan, creative:assets, design:ux). 309 testes verdes mantidos. Próximo: N21 (LLM real) ou N24 (handoff agente→agente via Memória).
+> N21 ✅ pipeline LLM real end-to-end: 4/5 agentes geraram outputs reais para Incluo Q3 2026 ($0.174 total). merchant:compliance flagou HIGH severity com 5 risks legais brasileiros referenciados (CDC, ANVISA, CONAR). 2 bugs descobertos+fix (max_tokens, schema). design:ux deferido. **309 testes verdes**. Próximo: operação humana lê outputs + deep fix design:ux.
 
 Detalhe em [blockers-and-risks.md](blockers-and-risks.md).

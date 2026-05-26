@@ -8,23 +8,28 @@
 import { defineAgent } from '@cao/runtime';
 import { z } from 'zod';
 
+// Limites generosos: Claude Sonnet pode gerar análises detalhadas que excedem
+// limites apertados. Mantemos mins pequenos (anti-spam) e maxes folgados para
+// não bloquear runs reais. Custo de schema permissivo: relatório pode ficar
+// longo (resolvido em render). Custo de schema apertado: validation:failed
+// recorrente e LLM cost desperdiçado.
 const piiFlagSchema = z.object({
-  kind: z.string().min(2).max(60),
-  excerpt: z.string().min(2).max(300),
-  recommendation: z.string().min(5).max(400),
+  kind: z.string().min(2).max(120),
+  excerpt: z.string().min(2).max(800),
+  recommendation: z.string().min(5).max(1500),
 });
 
 const legalRiskSchema = z.object({
-  topic: z.string().min(2).max(120),
-  excerpt: z.string().min(2).max(400),
+  topic: z.string().min(2).max(200),
+  excerpt: z.string().min(2).max(1000),
   severity: z.enum(['low', 'medium', 'high']),
-  rationale: z.string().min(5).max(500),
+  rationale: z.string().min(5).max(2000),
 });
 
 const revisionSchema = z.object({
-  original: z.string().min(2).max(500),
-  suggested: z.string().min(2).max(500),
-  reason: z.string().min(5).max(400),
+  original: z.string().min(2).max(1500),
+  suggested: z.string().min(2).max(1500),
+  reason: z.string().min(5).max(1000),
 });
 
 const CONTENT_TYPES = ['copy', 'product-description', 'policy', 'email', 'ad', 'other'] as const;
@@ -43,13 +48,13 @@ export type MerchantComplianceInput = z.infer<typeof inputSchema>;
 
 export const outputSchema = z.object({
   overallSeverity: z.enum(SEVERITY),
-  complianceSummary: z.string().min(5).max(2000),
+  complianceSummary: z.string().min(5).max(4000),
   legalRisks: z.array(legalRiskSchema).max(30),
   piiFlags: z.array(piiFlagSchema).max(30),
-  requiredDisclaimers: z.array(z.string().min(3).max(300)).max(20),
-  policyGaps: z.array(z.string().min(3).max(300)).max(20),
+  requiredDisclaimers: z.array(z.string().min(3).max(600)).max(20),
+  policyGaps: z.array(z.string().min(3).max(600)).max(20),
   recommendedRevisions: z.array(revisionSchema).max(20),
-  followups: z.array(z.string().min(3).max(300)).max(20),
+  followups: z.array(z.string().min(3).max(600)).max(20),
 });
 export type MerchantComplianceOutput = z.infer<typeof outputSchema>;
 

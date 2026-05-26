@@ -24,6 +24,7 @@ Marcos de implementação (sub-fase concluída, primeiro deploy, OAuth funcionan
 
 | Data | Título | Resultado | Arquivo |
 |---|---|---|---|
+| 2026-05-26 | **N21 — pipeline LLM real Incluo** (4/5 sucessos, $0.174). marketing+creative+offer+compliance OK; design:ux deferred. 2 bugs fixed (max_tokens, schemas) | 🟢 | [2026-05-26-impl-milestone-n21-llm-pipeline-real.md](2026-05-26-impl-milestone-n21-llm-pipeline-real.md) |
 | 2026-05-25 | **Multi-tenant/multi-store hardening** — branded types + helpers + Memory/brain storeId + merchant:audit pilot; 309 verdes (+58); smoke 17 | 🟢 | [2026-05-25-impl-milestone-multi-tenant-hardening.md](2026-05-25-impl-milestone-multi-tenant-hardening.md) |
 | 2026-05-25 | **Sub-fase 2.8 Merchant audit MVP** — score por SKU + findings + remediações; 241 testes verdes | 🟢 | [2026-05-25-impl-milestone-merchant-audit-mvp.md](2026-05-25-impl-milestone-merchant-audit-mvp.md) |
 | 2026-05-25 | **Bloco B completo** — 4 agentes novos (marketing/creative/design/traffic); 228 testes verdes | 🟢 | [2026-05-25-impl-milestone-four-new-agents.md](2026-05-25-impl-milestone-four-new-agents.md) |

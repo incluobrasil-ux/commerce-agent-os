@@ -8,30 +8,33 @@
 import { defineAgent } from '@cao/runtime';
 import { z } from 'zod';
 
+// Limites generosos para acomodar análises detalhadas do Claude Sonnet
+// (mesmo problema observado em merchant-compliance — schemas apertados
+// causavam Validation failed mesmo com output bem-formado).
 const blockSchema = z.object({
-  section: z.string().min(2).max(60),
+  section: z.string().min(2).max(120),
   order: z.number().int().min(1).max(20),
-  purpose: z.string().min(3).max(300),
-  contentHint: z.string().min(3).max(500),
+  purpose: z.string().min(3).max(800),
+  contentHint: z.string().min(3).max(1500),
 });
 
 const localeCopySchema = z.object({
   locale: z.string().min(2).max(20),
   currency: z.string().min(2).max(8),
   region: z.string(),
-  title: z.string().min(2).max(200),
+  title: z.string().min(2).max(400),
   subtitle: z.string(),
-  ctaPrimary: z.string().min(2).max(80),
+  ctaPrimary: z.string().min(2).max(200),
   ctaSecondary: z.string(),
-  trustLines: z.array(z.string().min(2).max(200)).max(8),
+  trustLines: z.array(z.string().min(2).max(400)).max(12),
   notes: z.string(),
 });
 
 const mediaBriefSchema = z.object({
-  primaryShot: z.string().min(3).max(300),
-  supportingShots: z.array(z.string().min(3).max(300)).max(8),
-  preferredAspectRatios: z.array(z.string().min(2).max(20)).max(8),
-  altTextHints: z.array(z.string().min(3).max(200)).max(8),
+  primaryShot: z.string().min(3).max(800),
+  supportingShots: z.array(z.string().min(3).max(800)).max(12),
+  preferredAspectRatios: z.array(z.string().min(2).max(40)).max(12),
+  altTextHints: z.array(z.string().min(3).max(400)).max(12),
 });
 
 export const inputSchema = z.object({
@@ -60,8 +63,8 @@ export const outputSchema = z.object({
   pageBlueprint: z.array(blockSchema).min(1).max(20),
   localizedCopy: z.array(localeCopySchema).min(1).max(10),
   mediaBrief: mediaBriefSchema,
-  uxNotes: z.array(z.string().min(3).max(400)).max(20),
-  accessibilityNotes: z.array(z.string().min(3).max(400)).max(20),
+  uxNotes: z.array(z.string().min(3).max(800)).max(20),
+  accessibilityNotes: z.array(z.string().min(3).max(800)).max(20),
   culturalFlags: z.array(z.string()),
   riskFlags: z.array(z.string()),
 });

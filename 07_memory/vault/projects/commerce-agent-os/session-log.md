@@ -25,6 +25,12 @@ confidence: 1.0
 
 ---
 
+## 2026-05-26 — N21: Pipeline LLM real end-to-end Incluo (4/5 sucessos, $0.174)
+
+- Feito: rodado pipeline real end-to-end com 5 agentes Tier-2 store-scoped (`--tenant=incluo-tenant --store=incluo --capture`) no contexto Incluo (brinquedos sensoriais/fidget/Montessori, BR market). Sucessos: marketing:plan (7 iniciativas Q3 2026), creative:assets (4 variantes campanha volta-as-aulas), product:offer (hero+bundles para SKU red contas-madeira-montessori), merchant:compliance (HIGH severity, 10 legal risks com refs CDC/ANVISA/CONAR/ECA brasileiros). Falha: design:ux (output JSON 12K chars + validation:failed após bumps). 2 bugs corrigidos no caminho: max_tokens default 1024→8192 em anthropic-client.ts; merchant-compliance zod schemas relaxados (excerpt 400→1000, rationale 500→2000, revisions 500→1500). design-ux schemas também relaxados mas insuficiente.
+- Resultado: green. 4/5 agentes funcionais. Outputs reais em `vault/incluo-tenant/stores/incluo/{marketing,creative,offers,compliance}/`. Capturas isoladas em `vault/tenants/incluo-tenant/stores/incluo/run-summaries/`. Multi-tenant routing 100% correto. Suíte 309 verdes mantidos.
+- Próximo: operação humana lê outputs (especialmente compliance review com refs legais reais) + deep fix design:ux schema + considerar N24 (handoff entre agentes).
+
 ## 2026-05-25 — 5 agentes adicionais migrados para `--store=<id>` (sub-fase 2.9.1)
 
 - Feito: aplicado pattern do `merchant:audit` (audit-cli.ts) aos 5 agentes pendentes — `merchant-compliance`, `product-offer`, `marketing-director`, `creative-copy-assets`, `design-ux-localization`. Cada um agora: aceita `--store=<id>` opcional; importa `assertTenantContext`/`assertTenantStoreContext` de `@cao/core`; assertion explícita antes de I/O (TenantStoreContext quando `--store` passado, TenantContext senão); Memory recebe `storeId` opcional; runAgent recebe `tenantId+storeId` em RunOptions; captureRun recebe `tenantId+storeId` para roteamento; slug do capture inclui store quando presente (evita colisão); absPath de log + `vaultRel` em references usam path tenant/store-scoped (`07_memory/vault/tenants/<t>/stores/<s>/...`).

@@ -48,10 +48,21 @@
 | B6 | Shopify dev store + admin token | ~3 min em Partners | listagem Shopify real + Shopify-source audits |
 | B7 | Google Merchant creds (OAuth + account) | 30-60 min | upload real ao GMC (não bloqueia dry-run nem audit local) |
 
+## Cérebro operacional — 3 camadas
+
+| Camada | Onde mora | Quando ler | Versionado? |
+|---|---|---|---|
+| **Global** | `07_memory/vault/global/` | quando precisar visão cross-tenant ou padrão arquitetural | ✅ no repo |
+| **Tenant** | `07_memory/vault/tenants/<tenantId>/` | quando coordenar operação cross-store ou tomar decisão de produto | ❌ local-only |
+| **Store** | `07_memory/vault/tenants/<tenantId>/stores/<storeId>/` | quando executar ação operacional numa loja específica | ❌ local-only |
+| **Dev/project** | `07_memory/vault/projects/commerce-agent-os/` | histórico canônico de implementação, ADRs, run-summaries técnicos | ✅ no repo |
+
+**Como evitar misturar contexto:** nunca leia/escreva o vault de outro tenant. Os helpers `assertTenantContext`/`assertTenantStoreContext` garantem que agentes falham cedo se você esquecer. Brain captures vão para o path do tenant/store passado em `--tenant` + `--store`.
+
 ## Próximo bloco recomendado
 
-1. **N21 — Pipeline LLM real end-to-end** (key Anthropic ativa, custo < $0.30/loop).
-2. **N24 — Handoff entre agentes via memory-context + ContextBundle** (depende de N21 validado).
+1. **Aplicar findings reais do pipeline LLM Incluo** (compliance review + correções N26.a-d). Ver `vault/tenants/incluo-tenant/stores/incluo/next-actions.md`.
+2. **N24 — Handoff entre agentes via memory-context + ContextBundle** (depende de N21 validado ✅).
 3. **Migrar próximos agentes** (`traffic-campaigns`, `governance-risk-qa`, etc.) para `--store=<id>` sob demanda.
 4. **Ampliar `GMC_CATEGORY_OVERRIDES`** com mais categorias além de 3793.
 

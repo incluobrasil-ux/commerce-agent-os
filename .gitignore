@@ -54,10 +54,11 @@ coverage/
 !01_upstreams/README.md
 
 # Memory vault — tenants (por loja Shopify) são local-only. Apenas o
-# template e o cérebro operacional (projects/) ficam versionados.
+# template, o cérebro operacional (projects/) e o cérebro global ficam versionados.
 07_memory/vault/*/
 !07_memory/vault/_template/
 !07_memory/vault/projects/
+!07_memory/vault/global/
 
 .obsidian/
 12_reports/team-onboarding.html

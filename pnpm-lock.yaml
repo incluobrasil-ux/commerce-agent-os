@@ -534,6 +534,9 @@ importers:
 
   04_apps/shopify-admin-app:
     dependencies:
+      '@cao/core':
+        specifier: workspace:*
+        version: link:../../06_packages/core
       '@cao/integration-shopify':
         specifier: workspace:*
         version: link:../../05_integrations/shopify

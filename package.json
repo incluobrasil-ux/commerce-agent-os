@@ -16,6 +16,7 @@
     "context:brief": "tsx --env-file=.env.local 03_agents/memory-context/src/cli.ts",
     "llm:smoke": "tsx --env-file=.env.local 06_packages/llm/scripts/smoke.ts",
     "shopify:list-products": "tsx --env-file=.env.local 04_apps/shopify-admin-app/scripts/list-products.ts",
+    "shopify:writeback": "tsx --env-file=.env.local 04_apps/shopify-admin-app/scripts/writeback.ts",
     "feed:dry-run": "tsx --env-file=.env.local 03_agents/catalog-feed-ops/src/cli.ts",
     "merchant:audit": "tsx 03_agents/catalog-feed-ops/src/audit-cli.ts",
     "orchestrate:master": "tsx --env-file=.env.local 03_agents/orchestrator-master/src/cli.ts",

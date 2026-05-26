@@ -30,6 +30,10 @@
     "./oauth": {
       "types": "./dist/oauth/index.d.ts",
       "import": "./dist/oauth/index.js"
+    },
+    "./writeback": {
+      "types": "./dist/writeback/index.d.ts",
+      "import": "./dist/writeback/index.js"
     }
   },
   "scripts": {

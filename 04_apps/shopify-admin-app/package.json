@@ -12,6 +12,7 @@
     "test": "echo \"placeholder: test\""
   },
   "dependencies": {
+    "@cao/core": "workspace:*",
     "@cao/integration-shopify": "workspace:*"
   }
 }

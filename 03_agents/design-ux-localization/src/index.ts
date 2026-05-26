@@ -6,7 +6,7 @@
 // Snapshot salvo em <tenant>/design/<product-slug>-<ts>.md.
 
 import { defineAgent } from '@cao/runtime';
-import { z } from 'zod';
+import { type ZodType, z } from 'zod';
 
 // Limites generosos para acomodar análises detalhadas do Claude Sonnet
 // (mesmo problema observado em merchant-compliance — schemas apertados
@@ -33,9 +33,47 @@ const localeCopySchema = z.object({
 const mediaBriefSchema = z.object({
   primaryShot: z.string().min(3).max(800),
   supportingShots: z.array(z.string().min(3).max(800)).max(12),
-  preferredAspectRatios: z.array(z.string().min(2).max(40)).max(12),
+  // Claude às vezes anota o ratio com hint contextual ("1:1 (Instagram feed quadrado)").
+  // 120 cobre essas variações sem perder a função (renderer extrai/exibe como está).
+  preferredAspectRatios: z.array(z.string().min(2).max(120)).max(12),
   altTextHints: z.array(z.string().min(3).max(400)).max(12),
 });
+
+/**
+ * Coerce flag array: aceita strings OU objetos `{ flag, rationale, ... }` e
+ * normaliza para string legível ANTES da validação. Resolve incompatibilidade
+ * entre prompt (pede string array) e prática real (Claude às vezes entrega
+ * array de objetos estruturados quando o contexto sugere taxonomia).
+ *
+ * Usa `z.preprocess` (não `transform`) para manter o output type como puro
+ * `string[]` e preservar a inferência via `z.infer<typeof outputSchema>`.
+ */
+function coerceFlagToString(v: unknown): unknown {
+  if (typeof v === 'string') return v;
+  if (v && typeof v === 'object') {
+    const obj = v as Record<string, unknown>;
+    const pick = (k: string): string | undefined =>
+      typeof obj[k] === 'string' ? (obj[k] as string) : undefined;
+    const main =
+      pick('flag') ??
+      pick('text') ??
+      pick('message') ??
+      pick('description') ??
+      pick('issue') ??
+      pick('label') ??
+      pick('title');
+    const detail = pick('rationale') ?? pick('reason') ?? pick('note') ?? pick('detail');
+    if (main && detail) return `${main} — ${detail}`;
+    if (main) return main;
+    return JSON.stringify(obj);
+  }
+  return String(v);
+}
+
+const flagArraySchema = z.preprocess(
+  (val) => (Array.isArray(val) ? val.map(coerceFlagToString) : val),
+  z.array(z.string()).max(20),
+);
 
 export const inputSchema = z.object({
   tenantId: z.string().min(1),
@@ -65,16 +103,22 @@ export const outputSchema = z.object({
   mediaBrief: mediaBriefSchema,
   uxNotes: z.array(z.string().min(3).max(800)).max(20),
   accessibilityNotes: z.array(z.string().min(3).max(800)).max(20),
-  culturalFlags: z.array(z.string()),
-  riskFlags: z.array(z.string()),
+  culturalFlags: flagArraySchema,
+  riskFlags: flagArraySchema,
 });
 export type DesignUxOutput = z.infer<typeof outputSchema>;
+
+// outputSchema usa z.preprocess para coerção pré-validação (flagArraySchema).
+// O AgentDefinition.outputSchema é ZodType<O> e requer input === output, mas
+// preprocess introduz input=unknown. Cast explícito mantém type safety no
+// consumer (DesignUxOutput continua = string[]) e satisfaz a constraint.
+const runtimeOutputSchema = outputSchema as unknown as ZodType<DesignUxOutput>;
 
 export const designUxAgent = defineAgent<DesignUxInput, DesignUxOutput>({
   name: 'design-ux-localization',
   tier: 2,
   inputSchema,
-  outputSchema,
+  outputSchema: runtimeOutputSchema,
   model: 'claude-sonnet-4-6',
   system:
     'You are a senior product UX + localization lead. You produce a PDP/collection blueprint, ' +
@@ -122,8 +166,15 @@ export const designUxAgent = defineAgent<DesignUxInput, DesignUxOutput>({
     );
     lines.push('- uxNotes: itens curtos sobre hierarquia, foco, microcopy.');
     lines.push('- accessibilityNotes: contraste, alt text, ordem de leitura, navegação teclado.');
-    lines.push('- culturalFlags: avisos culturais/sociais por mercado (vazio se não aplicar).');
-    lines.push('- riskFlags: claims legais, símbolos, formato de preço que precisam revisão.');
+    lines.push(
+      '- culturalFlags: array de strings curtas (NÃO objetos) — avisos culturais/sociais por mercado (vazio se não aplicar).',
+    );
+    lines.push(
+      '- riskFlags: array de strings curtas (NÃO objetos) — claims legais, símbolos, formato de preço que precisam revisão.',
+    );
+    lines.push(
+      '- preferredAspectRatios: array de strings curtas tipo "1:1", "4:5", "9:16" (sem comentários extras dentro do mesmo item).',
+    );
     lines.push('');
     lines.push('Rules:');
     lines.push('- Anchor every block to product summary + brand style.');

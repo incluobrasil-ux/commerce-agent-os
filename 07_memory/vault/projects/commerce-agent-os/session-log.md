@@ -25,6 +25,12 @@ confidence: 1.0
 
 ---
 
+## 2026-05-26 — design:ux destravado (5/5) + Memory consolidada com brain-bridge
+
+- Feito: (1) runtime ganhou `error_details` no evento `agent.failed` expondo `zod.issues` (BaseError context) — antes "Validation failed" era opaco; agora mostra path+message por field. Diagnóstico do design:ux revelou 2 issues: `preferredAspectRatios.0` > 40 chars (Claude anota ratios com hint contextual "1:1 (Instagram)") + `culturalFlags`/`riskFlags` chegando como **objetos** {flag, rationale} em vez de strings. (2) design-ux-localization schema ganhou helper `flagArraySchema` com `z.preprocess` que coerce objetos para strings legíveis ("flag — rationale" ou JSON fallback) antes do validate, mais bump de preferredAspectRatios 40→120, mais reforço no prompt. Cast `runtimeOutputSchema as ZodType<DesignUxOutput>` resolve incompatibilidade de input vs output type quando preprocess está presente. Re-run design:ux passou 5/5 (8 blocks, 1 locale, 9 a11y, 5 risks, $0.047). (3) consolidação Memory + brain-bridge: Memory agora usa `vault/tenants/<t>/[stores/<s>/]` (antes era `vault/<t>/`), alinhando com brain-bridge.resolveBrainDir. 13 agent CLIs auto-atualizados via PowerShell bulk substitution (resolve+vaultRel). Memory tests permissivos passaram sem alteração.
+- Resultado: green. Suíte 309 verdes em 36 arquivos mantida. Typecheck OK, lint OK.
+- Próximo: abrir PR `feat/system-retomada-operacional` → `main` (agora 11 commits ahead, todas as pendências do user fechadas).
+
 ## 2026-05-26 — N21: Pipeline LLM real end-to-end Incluo (4/5 sucessos, $0.174)
 
 - Feito: rodado pipeline real end-to-end com 5 agentes Tier-2 store-scoped (`--tenant=incluo-tenant --store=incluo --capture`) no contexto Incluo (brinquedos sensoriais/fidget/Montessori, BR market). Sucessos: marketing:plan (7 iniciativas Q3 2026), creative:assets (4 variantes campanha volta-as-aulas), product:offer (hero+bundles para SKU red contas-madeira-montessori), merchant:compliance (HIGH severity, 10 legal risks com refs CDC/ANVISA/CONAR/ECA brasileiros). Falha: design:ux (output JSON 12K chars + validation:failed após bumps). 2 bugs corrigidos no caminho: max_tokens default 1024→8192 em anthropic-client.ts; merchant-compliance zod schemas relaxados (excerpt 400→1000, rationale 500→2000, revisions 500→1500). design-ux schemas também relaxados mas insuficiente.

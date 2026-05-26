@@ -71,15 +71,17 @@ describe('Memory', () => {
   // ===== Multi-tenant / multi-store hardening =====
 
   describe('storeId namespacing', () => {
-    it('baseDir contém stores/<storeId> quando storeId passado', () => {
+    it('baseDir contém tenants/<id>/stores/<storeId> quando storeId passado', () => {
       const m = new Memory({ vaultRoot, tenantId: 't1', storeId: 's1' });
+      expect(m.baseDir).toContain('tenants');
       expect(m.baseDir).toContain('t1');
       expect(m.baseDir).toContain('stores');
       expect(m.baseDir.endsWith('s1')).toBe(true);
     });
 
-    it('baseDir não contém stores quando storeId ausente (backward compat)', () => {
+    it('baseDir contém tenants/<id> quando storeId ausente', () => {
       const m = new Memory({ vaultRoot, tenantId: 't1' });
+      expect(m.baseDir).toContain('tenants');
       expect(m.baseDir).not.toContain('stores');
       expect(m.baseDir.endsWith('t1')).toBe(true);
     });

@@ -24,7 +24,7 @@ confidence: 1.0
 |---|---|
 | Macro-fase | 2 — Implementação |
 | Sub-fase | 2.5 ✅ + 2.6 ✅ + 2.7 ✅ + 2.8 ✅ + N26 ✅ + N20.1 ✅ + 2.9 ✅ + 2.9.1 ✅ + **N21 ✅ pipeline LLM real end-to-end** |
-| Último marco (2026-05-26) | **N21 — Pipeline LLM real Incluo Q3 2026 (4/5 sucessos, $0.174 total).** marketing:plan (7 iniciativas) → creative:assets (4 variantes campanha volta-as-aulas) → ~design:ux (defer)~ → product:offer (hero+bundles SKU red) → merchant:compliance (**HIGH severity, 10 legal risks** com referências CDC/ANVISA/CONAR/ECA brasileiras reais). Multi-tenant routing 100% correto: outputs em `vault/incluo-tenant/stores/incluo/`, captures em `vault/tenants/incluo-tenant/stores/incluo/run-summaries/`. **2 bugs corrigidos no caminho**: max_tokens default 1024→8192; merchant-compliance zod schemas relaxados. **309 testes mantidos**. |
+| Último marco (2026-05-26) | **N21 + 2 fixes:** pipeline LLM Incluo end-to-end **5/5 sucessos** (design:ux destravado com coerce de flag-objects e bump aspectRatios). Memory consolidada com brain-bridge — ambos agora em `vault/tenants/<t>/[stores/<s>/]` (era split: Memory `vault/<t>/`, brain `vault/tenants/<t>/`). 13 agent CLIs auto-atualizados via PowerShell sed. **309 testes mantidos**. Runtime agora expõe `error_details` (zod issues) em `agent.failed` events. |
 | Próximo marco técnico | **(a) operação humana Incluo**: ler compliance review + marketing plan + product offer e decidir o que aplicar. **(b) deep fix design-ux schema** (output JSON OK mas zod valida ainda falha — schema precisa surgery). **(c) N24 handoff via Memória** (depende de design:ux estável). Detalhe em [next-actions.md](next-actions.md) e [run-summary N21](run-summaries/2026-05-26-impl-milestone-n21-llm-pipeline-real.md). |
 
 ## Verde

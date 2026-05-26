@@ -146,7 +146,7 @@ async function main(): Promise<void> {
     },
   );
   await memory.write(relPath, md);
-  const absPath = resolve(repoRoot, '07_memory/vault', args.tenantId, relPath);
+  const absPath = resolve(repoRoot, '07_memory/vault/tenants', args.tenantId, relPath);
 
   const out = result.output;
   process.stdout.write(
@@ -188,7 +188,7 @@ async function main(): Promise<void> {
           ...out.riskFlags.map((r) => `[risk] ${r}`),
         ],
         impact: `${out.topThemes.length} tema(s) recorrente(s) extraído(s). ${out.actionIdeas.length} ação(ões) propostas.`,
-        references: [`07_memory/vault/${args.tenantId}/${relPath}`],
+        references: [`07_memory/vault/tenants/${args.tenantId}/${relPath}`],
       },
       sessionLogLine: `reviews-ops: ${out.sampleSize} reviews → ${out.topThemes.length} temas, ${out.riskFlags.length} risk flags.`,
     });

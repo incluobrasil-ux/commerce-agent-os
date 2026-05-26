@@ -18,8 +18,8 @@ export interface MemoryConfig {
   tenantId: string;
   /**
    * Identificador opcional de store (slug seguro). Quando presente, baseDir
-   * vira `<vaultRoot>/<tenantId>/stores/<storeId>/`. Ausente preserva o
-   * comportamento legado: `<vaultRoot>/<tenantId>/`.
+   * vira `<vaultRoot>/tenants/<tenantId>/stores/<storeId>/`. Ausente:
+   * `<vaultRoot>/tenants/<tenantId>/`.
    *
    * Cross-store é impossível por construção: safePath() trava a I/O em baseDir.
    */
@@ -47,9 +47,14 @@ export class Memory {
     }
     this.tenantId = cfg.tenantId;
     this.storeId = cfg.storeId;
+    // Convenção canônica (alinhada com brain-bridge.resolveBrainDir):
+    //   tenant-level: <vaultRoot>/tenants/<tenantId>/
+    //   store-level:  <vaultRoot>/tenants/<tenantId>/stores/<storeId>/
+    // O segmento `tenants/` é reservado dentro do vault para isolar tenants de
+    // outros namespaces (global/, projects/, _template/, etc.).
     this.baseDir = cfg.storeId
-      ? resolve(cfg.vaultRoot, cfg.tenantId, 'stores', cfg.storeId)
-      : resolve(cfg.vaultRoot, cfg.tenantId);
+      ? resolve(cfg.vaultRoot, 'tenants', cfg.tenantId, 'stores', cfg.storeId)
+      : resolve(cfg.vaultRoot, 'tenants', cfg.tenantId);
   }
 
   /** Resolve um relPath garantindo que fica dentro de baseDir. */

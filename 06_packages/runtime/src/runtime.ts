@@ -160,12 +160,18 @@ export async function runAgent<I, O>(
     };
   } catch (err) {
     const durationMs = clock.nowMs() - startMs;
-    deps.observability.capture('agent.failed', {
+    const failedEvent: Record<string, unknown> = {
       ...baseEvent,
       ms: durationMs,
       error_code: err instanceof BaseError ? err.code : 'UNKNOWN',
       error_message: err instanceof Error ? err.message : String(err),
-    });
+    };
+    // Expõe issues do zod quando ValidationError — sem isso o operador não
+    // sabe qual campo falhou e precisa adivinhar.
+    if (err instanceof BaseError && err.context && 'issues' in err.context) {
+      failedEvent.error_details = err.context.issues;
+    }
+    deps.observability.capture('agent.failed', failedEvent);
     // Audit também em falha.
     await writeAuditEntry(deps.memory, {
       runId,

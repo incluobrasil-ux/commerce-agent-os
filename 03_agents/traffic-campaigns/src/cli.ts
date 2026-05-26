@@ -138,7 +138,7 @@ async function main(): Promise<void> {
     generatedAt,
   });
   await memory.write(relPath, md);
-  const absPath = resolve(repoRoot, '07_memory/vault', args.tenantId, relPath);
+  const absPath = resolve(repoRoot, '07_memory/vault/tenants', args.tenantId, relPath);
 
   const out = result.output;
   const allocated = totalChannelBudget(out.channelMix);
@@ -190,7 +190,7 @@ async function main(): Promise<void> {
           ...out.riskFlags.map((r) => `[risk] ${r}`),
         ],
         impact: `${out.channelMix.length} canais · ${out.audiences.length} audiências · ${out.creativeHypotheses.length} hipóteses criativas.`,
-        references: [`07_memory/vault/${args.tenantId}/${relPath}`],
+        references: [`07_memory/vault/tenants/${args.tenantId}/${relPath}`],
       },
       sessionLogLine: `traffic-campaigns: ${args.campaignName} (dry-run) → ${out.channelMix.length} canais, ${out.riskFlags.length} risk flags.`,
     });

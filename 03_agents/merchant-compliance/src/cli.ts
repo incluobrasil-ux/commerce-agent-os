@@ -161,8 +161,8 @@ async function main(): Promise<void> {
   });
   await memory.write(relPath, md);
   const absPath = args.storeId
-    ? resolve(repoRoot, '07_memory/vault', args.tenantId, 'stores', args.storeId, relPath)
-    : resolve(repoRoot, '07_memory/vault', args.tenantId, relPath);
+    ? resolve(repoRoot, '07_memory/vault/tenants', args.tenantId, 'stores', args.storeId, relPath)
+    : resolve(repoRoot, '07_memory/vault/tenants', args.tenantId, relPath);
 
   const out = result.output;
   process.stdout.write(`[merchant:compliance] severity=${out.overallSeverity.toUpperCase()}\n`);
@@ -196,7 +196,7 @@ async function main(): Promise<void> {
       : `tenant=${args.tenantId}`;
     const vaultRel = args.storeId
       ? `07_memory/vault/tenants/${args.tenantId}/stores/${args.storeId}/${relPath}`
-      : `07_memory/vault/${args.tenantId}/${relPath}`;
+      : `07_memory/vault/tenants/${args.tenantId}/${relPath}`;
     const cap = await captureRun({
       kind: 'agent-run',
       slug: captureSlug.slice(0, 60),

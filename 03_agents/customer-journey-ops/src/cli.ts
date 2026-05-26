@@ -115,7 +115,7 @@ async function main(): Promise<void> {
     generatedAt,
   });
   await memory.write(relPath, md);
-  const absPath = resolve(repoRoot, '07_memory/vault', args.tenantId, relPath);
+  const absPath = resolve(repoRoot, '07_memory/vault/tenants', args.tenantId, relPath);
 
   const out = result.output;
   process.stdout.write(
@@ -156,7 +156,7 @@ async function main(): Promise<void> {
           ...out.riskFlags.map((r) => `[risk] ${r}`),
         ],
         impact: `${out.journeyStages.length} stages · ${out.priorityMoves.length} priority moves · ${out.measurementSuggestions.length} measurement suggestions.`,
-        references: [`07_memory/vault/${args.tenantId}/${relPath}`],
+        references: [`07_memory/vault/tenants/${args.tenantId}/${relPath}`],
       },
       sessionLogLine: `customer-journey-ops: ${args.brandName} → ${out.journeyStages.length} stages, ${out.priorityMoves.length} moves.`,
     });

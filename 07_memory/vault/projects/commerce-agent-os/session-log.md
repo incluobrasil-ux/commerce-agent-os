@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-26T19:30:00Z
+updated_at: 2026-05-26T23:40:00Z
 tags: [log, sessions]
 source: human:incluobrasil
 confidence: 1.0
@@ -24,6 +24,12 @@ confidence: 1.0
 ```
 
 ---
+
+## 2026-05-26 (madrugada) — `@cao/orchestration` + `pnpm chief` (Chefe operacional consolidado, BR/EU/US)
+
+- Feito: novo package `@cao/orchestration` (8 módulos + 28 testes) consolidando o orquestrador. **registry.ts** cataloga 22 agentes com metadata (tier, modes, credentials, kind, contextSupport, predecessors/successors, sideEffects, executable). **legal.ts** matrix regulatória BR/EU/US com 11 regras hard/soft cobrindo LGPD+CDC+CONAR+ANVISA (BR), GDPR+CRD+Omnibus (EU), FTC+CCPA/CPRA (US). `StoreLegalProfile` + `evaluateOperation()` → allowed/blocked_*. **bundle.ts** estende ContextBundle do @cao/core com objective, executionScope, executionMode, stage, status (9 estados), plannedRoute, findings, blockers, decisionTrail, confidence + camada legal completa. **policy.ts** decisões determinísticas (rota curta/longa, escalação governance, stop). **playbooks.ts** 8 oficiais (merchant-audit, offer-improvement, marketing-creative-chain, pdp-ux-review, governance-review, store-readiness, cross-store-diagnostic, safe-shopify-writeback). **planner.ts** classifyIntent rule-based + pickPlaybook + planRun com filtragem por credenciais + rebaixamento writeback→dry-run automático. **runner.ts** state machine com checkpoints em `vault/tenants/<t>/[stores/<s>/]runs/<runId>.json` + resumeFromCheckpoint. **writeback-gate.ts** porta de segurança antes de mutation Shopify (token + scope + legal + sensibilidade + approval). Novo CLI `pnpm chief --tenant --store --objective="..." [--mode --jurisdictions --legal-profile --execute --resume]`. Docs atualizadas (README/COMMANDS/SETUP/.env.example/PROJECT_STATUS). Branch `feat/orchestrator-os-consolidation` pushada (commit `<chief>`).
+- Resultado: green. typecheck OK, lint OK, **366 testes em 40 arquivos** (+33 da sessão anterior), smoke 17/17, doctor 9🟢/1🟡. Compatibilidade total: nenhuma CLI removida, nenhum agente quebrado. Detalhe em [[2026-05-26-impl-milestone-chief-os-consolidation]].
+- Próximo: provisionar SHOPIFY_ADMIN_TOKEN + criar `legal-profile.json` para Incluo → primeiro `pnpm chief --execute --mode=writeback` real. Substituir noopDispatcher do runner por dispatcher que invoca `pnpm <agent-command>` via child_process.
 
 ## 2026-05-26 (final da noite) — T2 aplicado + SKU normalization 39/119 (ALL GREEN)
 

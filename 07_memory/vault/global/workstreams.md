@@ -1,5 +1,5 @@
 ---
-updated_at: 2026-05-26T15:00:00Z
+updated_at: 2026-05-26T19:30:00Z
 tags: [global, workstreams]
 ---
 
@@ -39,13 +39,14 @@ tags: [global, workstreams]
 | Próximo marco | Quando houver 2º tenant: testar isolamento real (não simulação) + criar `tenants/<id>/` skeleton via script |
 | Pré-requisito | demanda de operação real para outra loja |
 
-## W5 — Shopify connect real
+## W5 — Shopify connect real (read + writeback loop)
 
 | | |
 |---|---|
-| Status | 🟡 MCP funciona; `--source=shopify` direto depende de credenciais por tenant |
-| Próximo marco | Shopify dev store + admin token (B6) → `pnpm shopify:list-products` + `--source=shopify` real |
-| Bloqueios | B6 |
+| Status | 🟡 read via MCP + writeback module pronto (dry-run validado); apply requer token |
+| Último marco | Sub-fase 2.6 minimal: `productUpdate` mutation + parser compliance MD + audit log + `pnpm shopify:writeback` CLI (dry-run default, `--apply` gate explícito). 24 testes novos. Validado end-to-end em dry-run no compliance file Incluo (9 revisões parsed corretamente). |
+| Próximo marco | Provisionar `SHOPIFY_SHOP` + `SHOPIFY_ADMIN_TOKEN` (Custom App, scope `write_products`) → primeiro `--apply` real em 1 produto de baixo risco (não Contas Madeira — severity HIGH requer revisão jurídica) |
+| Bloqueios | B6 (credencial Shopify) + revisão jurídica antes de `--apply` em conteúdo HIGH-severity |
 
 ## W6 — GMC upload real
 

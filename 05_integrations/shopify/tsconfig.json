@@ -11,6 +11,7 @@
     "errors/**/*.ts",
     "webhooks/**/*.ts",
     "oauth/**/*.ts",
+    "writeback/**/*.ts",
     "index.ts"
   ]
 }

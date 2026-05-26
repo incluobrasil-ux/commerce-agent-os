@@ -25,7 +25,7 @@ Comandos principais. Tudo via `pnpm` na raiz. Atualizado: 2026-05-25.
 | `pnpm typecheck` | `tsc -b` em todos os refs do tsconfig raiz. | sim |
 | `pnpm lint` | `biome check .` (lint + format + organize imports). | sim |
 | `pnpm format` | `biome format --write .` — aplica formatação. | n/a |
-| `pnpm test` | `vitest run` — toda a suíte (309 testes em 36 arquivos, ~5s). | sim |
+| `pnpm test` | `vitest run` — toda a suíte (333 testes em 39 arquivos, ~4s). | sim |
 | `pnpm test:smoke` | só `11_tests/smoke/` (17 testes incl. multi-tenant isolation). | sim (pre-commit) |
 | `pnpm secret-scan` | `gitleaks protect --staged` — só staged diff. | sim (pre-commit) |
 | `pnpm commitlint` | Conventional Commits (ADR-0017). | sim em PR |
@@ -69,11 +69,12 @@ Comandos principais. Tudo via `pnpm` na raiz. Atualizado: 2026-05-25.
 | `pnpm ads:plan ... [--tenant=<id>]` | Plano tático de anúncio. |
 | `pnpm governance:qa --proposal-file=<path> [--tenant=<id>]` | Verdict (pass/warn/block). |
 
-### Shopify (requerem `SHOPIFY_SHOP` + `SHOPIFY_ADMIN_TOKEN`)
+### Shopify (Admin API real)
 
-| Comando | O que faz |
-|---|---|
-| `pnpm shopify:list-products [--first=N]` | Lista produtos via Admin GraphQL. |
+| Comando | Credenciais | O que faz |
+|---|---|---|
+| `pnpm shopify:list-products [--first=N]` | `SHOPIFY_SHOP` + `SHOPIFY_ADMIN_TOKEN` | Lista produtos via Admin GraphQL. |
+| `pnpm shopify:writeback --tenant=<t> --store=<s> --revisions-file=<path> --product-handle=<h> [--field=descriptionHtml\|title] [--apply]` | nenhuma p/ dry-run; `SHOPIFY_SHOP`+`SHOPIFY_ADMIN_TOKEN` p/ `--apply` | **Loop fechado compliance → diff → (dry-run\|productUpdate) → audit log.** Default = dry-run. `--apply` é gate explícito. Audit log SEMPRE em `vault/tenants/<t>/stores/<s>/shopify-writeback/`. Severity HIGH dispara aviso para revisão jurídica antes de `--apply`. |
 
 ## Multi-tenant / multi-store
 

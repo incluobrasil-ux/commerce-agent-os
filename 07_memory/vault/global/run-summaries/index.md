@@ -1,5 +1,5 @@
 ---
-updated_at: 2026-05-26T15:00:00Z
+updated_at: 2026-05-26T19:30:00Z
 tags: [global, run-summaries, index]
 ---
 
@@ -11,6 +11,7 @@ tags: [global, run-summaries, index]
 
 | Data | Título | Result | Detalhe |
 |---|---|---|---|
+| 2026-05-26 | **Sub-fase 2.6 minimal — Shopify writeback loop** | 🟢 | `shopify:writeback` CLI: compliance MD → parser → diff → dry-run/apply (gate) → audit log. `productUpdate` mutation + `getProductByHandle` no admin-graphql client. Dry-run validado real no compliance file Incluo (9 revisões parsed, placeholder detection OK). 24 testes novos (333 total). |
 | 2026-05-26 | **N21 + design:ux fix + Memory consolidada** | 🟢 | Pipeline LLM 5/5 validado real; Memory + brain-bridge alinhados em `vault/tenants/<t>/`. Detalhe em [projects brain](../../projects/commerce-agent-os/run-summaries/2026-05-26-impl-milestone-n21-llm-pipeline-real.md). |
 | 2026-05-25 | **Multi-tenant hardening + 6 agentes store-scoped** | 🟢 | Branded types, helpers, assertions, `Memory.storeId`, `captureRun` tenant-aware, 12 smoke tests de isolamento. |
 | 2026-05-25 | **Merchant audit MVP** | 🟢 | Score 0-100 por SKU + findings categorizados + remediações; 13 testes scorer. |

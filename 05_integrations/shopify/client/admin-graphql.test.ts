@@ -1,6 +1,12 @@
 import { describe, expect, it, vi } from 'vitest';
 import { ShopifyAuthError, ShopifyGraphQLError, ShopifyRateLimitError } from '../errors/index.js';
-import { ADMIN_API_VERSION, AdminGraphQLClient, listProducts } from './admin-graphql.js';
+import {
+  ADMIN_API_VERSION,
+  AdminGraphQLClient,
+  getProductByHandle,
+  listProducts,
+  updateProduct,
+} from './admin-graphql.js';
 
 function mockFetch(response: {
   status?: number;
@@ -135,5 +141,99 @@ describe('listProducts', () => {
     const call = (fetchImpl as unknown as { mock: { calls: unknown[][] } }).mock.calls[0];
     const body = JSON.parse((call?.[1] as RequestInit).body as string);
     expect(body.variables.first).toBe(10);
+  });
+});
+
+describe('getProductByHandle', () => {
+  it('retorna ProductSnapshot quando encontrado', async () => {
+    const fetchImpl = mockFetch({
+      body: {
+        data: {
+          productByHandle: {
+            id: 'gid://shopify/Product/123',
+            handle: 'conjunto-montessori',
+            title: 'Conjunto Montessori',
+            descriptionHtml: '<p>desc</p>',
+            status: 'ACTIVE',
+            vendor: 'Incluo',
+            productType: 'Brinquedo',
+            tags: ['t1', 't2'],
+            updatedAt: '2026-05-26T10:00:00Z',
+          },
+        },
+      },
+    });
+    const c = new AdminGraphQLClient({ shop: 'i.myshopify.com', accessToken: 't', fetchImpl });
+    const p = await getProductByHandle(c, 'conjunto-montessori');
+    expect(p).not.toBeNull();
+    expect(p?.id).toBe('gid://shopify/Product/123');
+    expect(p?.descriptionHtml).toBe('<p>desc</p>');
+    expect(p?.tags).toEqual(['t1', 't2']);
+  });
+
+  it('retorna null quando produto não existe', async () => {
+    const fetchImpl = mockFetch({ body: { data: { productByHandle: null } } });
+    const c = new AdminGraphQLClient({ shop: 'i.myshopify.com', accessToken: 't', fetchImpl });
+    const p = await getProductByHandle(c, 'nao-existe');
+    expect(p).toBeNull();
+  });
+});
+
+describe('updateProduct', () => {
+  it('envia mutation com input correto e mapeia response', async () => {
+    const fetchImpl = mockFetch({
+      body: {
+        data: {
+          productUpdate: {
+            product: {
+              id: 'gid://shopify/Product/1',
+              handle: 'foo',
+              title: 'Foo',
+              descriptionHtml: '<p>novo</p>',
+              status: 'ACTIVE',
+              vendor: null,
+              productType: null,
+              tags: [],
+              updatedAt: '2026-05-26T11:00:00Z',
+            },
+            userErrors: [],
+          },
+        },
+      },
+    });
+    const c = new AdminGraphQLClient({ shop: 'i.myshopify.com', accessToken: 't', fetchImpl });
+    const res = await updateProduct(c, {
+      id: 'gid://shopify/Product/1',
+      descriptionHtml: '<p>novo</p>',
+    });
+    expect(res.product?.descriptionHtml).toBe('<p>novo</p>');
+    expect(res.userErrors).toEqual([]);
+    const call = (fetchImpl as unknown as { mock: { calls: unknown[][] } }).mock.calls[0];
+    const body = JSON.parse((call?.[1] as RequestInit).body as string);
+    expect(body.variables.input).toEqual({
+      id: 'gid://shopify/Product/1',
+      descriptionHtml: '<p>novo</p>',
+    });
+  });
+
+  it('propaga userErrors retornados pela Shopify', async () => {
+    const fetchImpl = mockFetch({
+      body: {
+        data: {
+          productUpdate: {
+            product: null,
+            userErrors: [{ field: ['input', 'descriptionHtml'], message: 'too long' }],
+          },
+        },
+      },
+    });
+    const c = new AdminGraphQLClient({ shop: 'i.myshopify.com', accessToken: 't', fetchImpl });
+    const res = await updateProduct(c, {
+      id: 'gid://shopify/Product/1',
+      descriptionHtml: 'x',
+    });
+    expect(res.product).toBeNull();
+    expect(res.userErrors).toHaveLength(1);
+    expect(res.userErrors[0]?.message).toBe('too long');
   });
 });

@@ -1,5 +1,5 @@
 ---
-updated_at: 2026-05-26T15:00:00Z
+updated_at: 2026-05-26T19:30:00Z
 tags: [global, current-state]
 ---
 
@@ -12,14 +12,15 @@ tags: [global, current-state]
 | | |
 |---|---|
 | Macro | 2 — Implementação |
-| Último marco (2026-05-26) | Pipeline LLM real end-to-end 5/5 + Memory consolidada em `vault/tenants/<t>/[stores/<s>/]` + 6 agentes store-scoped. |
-| Próximo marco | Operação real Incluo (1º tenant ativo) aplicar findings reais + decidir onboard de 2º tenant. |
+| Último marco (2026-05-26) | Sub-fase 2.6 minimal: `shopify:writeback` CLI (compliance → diff → dry-run/apply → audit log). Dry-run validado em Incluo. 24 testes novos. |
+| Próximo marco | Provisionar SHOPIFY_ADMIN_TOKEN → primeiro `--apply` real em produto de baixo risco (não Contas Madeira). |
 
 ## Verde (cross-tenant)
 
 - **20/22 agentes** REAL_EXECUTABLE; 6 com `--store=<id>` explícito (merchant:audit, merchant:compliance, product:offer, marketing:plan, creative:assets, design:ux).
-- **309 testes verdes** em 36 arquivos; smoke 17 (incl. 12 multi-tenant isolation).
+- **333 testes verdes** em 39 arquivos; smoke 17 (incl. 12 multi-tenant isolation).
 - **Pipeline Merchant** dry-run + audit determinístico (zero-cred) + LLM pipeline 5/5 validado real.
+- **Writeback Shopify** dry-run validado em Incluo (parser + diff + audit log); `--apply` aguarda token + revisão jurídica para HIGH-severity.
 - **Multi-tenant**: branded types, assertions, `vault/tenants/<t>/[stores/<s>/]`, brain-bridge dinâmico.
 - 8 ADRs aceitos; CI ativo; branch protection em `main`.
 
@@ -39,7 +40,7 @@ tags: [global, current-state]
 
 ## Resumo em 1 linha
 
-> 20 agentes reais, 6 store-scoped, multi-tenant + brain consolidados, 1 tenant em produção piloto (incluo), 309 testes verdes, pipeline LLM 5/5 validado.
+> 20 agentes reais, 6 store-scoped, multi-tenant + brain consolidados, 1 tenant em produção piloto (incluo), 333 testes verdes, pipeline LLM 5/5 + writeback Shopify dry-run validado.
 
 Detalhe operacional por tenant: `07_memory/vault/tenants/<id>/current-state.md`.
 History canônico do projeto: `07_memory/vault/projects/commerce-agent-os/`.

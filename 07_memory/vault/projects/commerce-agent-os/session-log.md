@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-27T20:45:00Z
+updated_at: 2026-05-27T20:55:00Z
 tags: [log, sessions]
 source: human:incluobrasil
 confidence: 1.0
@@ -24,6 +24,12 @@ confidence: 1.0
 ```
 
 ---
+
+## 2026-05-27 (Fase C lite — Quick Commands no dashboard + Shell Commands opcional)
+
+- Feito: dashboard ganhou seção "⚡ Quick Commands" com 7 callouts (`[!example]`, `[!tip]`, `[!warning]`, `[!info]`) — cada um com 1 comando pronto para copiar (`pnpm audit:repo`, `pnpm merchant:audit`, `pnpm chief` plan-only + execute, `pnpm llm:smoke + marketing/creative`, `pnpm chief writeback`, `pnpm doctor`). Fluxo: usuário clica no callout → copia o comando → cola no terminal → executa → dashboard re-renderiza queries Dataview automaticamente. Decidi NÃO usar plugin Shell Commands como solução principal (frágil entre máquinas, per-user config) — documentei no fim da página como opção avançada para quem usa máquina única. Esta é a Fase C "lite": interatividade real, zero dependência extra de plugin de execução.
+- Resultado: green. 378 testes mantidos. 13 commits ahead de main. PR #19 reflete automaticamente.
+- Próximo: usuário ativa plugin Dataview, abre dashboard, testa um dos Quick Commands (sugestão: `pnpm audit:repo . --capture` — zero risco, gera run-summary, dashboard atualiza visivelmente).
 
 ## 2026-05-27 (Fases D + B do roadmap de memória viva)
 

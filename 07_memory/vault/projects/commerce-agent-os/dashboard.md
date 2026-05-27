@@ -2,7 +2,7 @@
 aliases: [Dashboard, Painel Operacional, Operações ao Vivo]
 tags: [dashboard, live-view]
 created_at: 2026-05-27T20:40:00Z
-updated_at: 2026-05-27T20:40:00Z
+updated_at: 2026-05-27T20:50:00Z
 ---
 
 # 🛰 Dashboard Operacional — `commerce-agent-os`
@@ -17,6 +17,56 @@ updated_at: 2026-05-27T20:40:00Z
 **O que este arquivo faz:** lê o vault em tempo real e mostra estado atual + últimos runs + tarefas + audits. Cada vez que um agente roda com `--capture`, este dashboard atualiza na próxima visualização — sem mexer aqui.
 
 **Visão visual complementar:** [[operations/operations-map.canvas|Canvas Operations Map]] (estrutura). Este dashboard mostra o **movimento**.
+
+---
+
+## ⚡ Quick Commands (copiar e colar no terminal)
+
+Cada callout abaixo tem um comando pronto. **Fluxo**: clicar na caixa → selecionar o comando → `Ctrl+C` → terminal → `Ctrl+V` → Enter → o run aparece no dashboard automaticamente (queries Dataview re-executam).
+
+> [!example]+ **Audit determinístico** — zero credencial, zero risco
+> ```bash
+> pnpm audit:repo . --capture
+> ```
+> Audita estrutura/licença do próprio repo. Output em `12_reports/audits/` + run-summary curado no vault.
+
+> [!example]+ **Merchant audit** — scoring de catálogo (fixture, zero credencial)
+> ```bash
+> pnpm merchant:audit --source=fixture --capture
+> ```
+> 3 SKUs da fixture, score 0–100, findings classificados, remediação. Relatório em `12_reports/merchant-audits/`.
+
+> [!example]+ **Chief plan-only** — ver rota antes de executar
+> ```bash
+> pnpm chief --tenant=incluo-tenant --store=incluo --objective="auditar catálogo da loja"
+> ```
+> Classifica intent, escolhe playbook, monta rota, mostra warnings — não despacha.
+
+> [!example]+ **Chief execute** — Chefe dispara os agentes via child_process
+> ```bash
+> pnpm chief --tenant=incluo-tenant --store=incluo --objective="auditar catálogo" --execute
+> ```
+> Despacha cada step. Checkpoint a cada agente em `vault/tenants/<t>/[stores/<s>/]runs/<runId>.json`.
+
+> [!tip]+ **Pipeline LLM** — precisa `ANTHROPIC_API_KEY` em `.env.local`
+> ```bash
+> pnpm llm:smoke
+> pnpm marketing:plan --horizon=Q3 --objective="..." --voice="..." --budget=10000 --tenant=incluo-tenant --store=incluo --capture
+> pnpm creative:assets --campaign="..." --tenant=incluo-tenant --store=incluo --capture
+> ```
+> Cada `--capture` adiciona run-summary ao vault, dashboard atualiza.
+
+> [!warning]+ **Shopify writeback real** — precisa `SHOPIFY_ADMIN_TOKEN` + `legal-profile.json` + revisão jurídica
+> ```bash
+> pnpm chief --tenant=incluo-tenant --store=incluo --objective="aplicar fixes do compliance" --mode=writeback --execute
+> ```
+> Passa pelo writeback-gate quíntuplo. Bloqueia se faltar policy ou token. **Não rodar antes de N27 + N29 desbloqueados.**
+
+> [!info]+ **Validar ambiente** — checa setup completo
+> ```bash
+> pnpm doctor
+> ```
+> 10 checks cross-platform. 10🟢 = pronto.
 
 ---
 
@@ -140,3 +190,17 @@ Este arquivo **não precisa ser editado** durante operação normal — ele lê 
 - Quer reorganizar seções
 
 Sintaxe Dataview: [docs oficiais](https://blacksmithgu.github.io/obsidian-dataview/).
+
+---
+
+## Opcional avançado — disparar comandos direto do Obsidian
+
+Se quiser **eliminar o copy-paste** e executar comandos clicando dentro do Obsidian, há um plugin community:
+
+1. `Settings` → `Community plugins` → `Browse` → buscar **`Shell commands`** → `Install` + `Enable`
+2. Configurar: `Settings` → `Shell commands` → `New shell command` → adicionar cada comando do Quick Commands acima
+3. Atribuir hotkey ou rodar via Command Palette (`Ctrl+P` → nome do comando)
+
+**Trade-off honesto:** o plugin executa comandos com o ambiente do Obsidian (PATH, cwd), que **varia por máquina**. Pode falhar em uma máquina e funcionar em outra. Plus: cada operador precisa configurar seus próprios comandos (config armazenada em `.obsidian/plugins/shellcommands/data.json`, que é per-user).
+
+**Recomendação:** se você usa o sistema sozinho na mesma máquina, vale a pena. Para o time, o copy-paste do Quick Commands acima é mais previsível.

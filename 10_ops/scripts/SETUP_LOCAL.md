@@ -8,7 +8,7 @@ Guia mínimo para clonar e rodar este repo em outro PC. ≤ 5 min do clone ao pr
 
 | Ferramenta | Versão mínima | Verificar | Instalar |
 |---|---|---|---|
-| Node.js | 20 | `node --version` | nvm / volta / fnm |
+| Node.js | 22 | `node --version` | nvm / volta / fnm |
 | pnpm | 9 | `pnpm --version` | `npm i -g pnpm@9` ou `corepack enable` |
 | Git | qualquer recente | `git --version` | |
 | gitleaks | 8+ | `gitleaks version` | Windows: `winget install gitleaks` · macOS: `brew install gitleaks` · Linux: `scoop install gitleaks` ou binário oficial |

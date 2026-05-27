@@ -2,13 +2,17 @@
 
 > Documento curto. Atualizado a cada sub-fase fechada. Para narrativa longa: cérebro operacional em `07_memory/vault/projects/commerce-agent-os/`.
 
-**Última atualização:** 2026-05-26
+**Última atualização:** 2026-05-27
 **Branch ativa:** `feat/orchestrator-os-consolidation`
-**Suíte:** 361 testes em 40 arquivos · smoke: 17 · orchestration: 28
+**Suíte:** 376 testes em 42 arquivos · smoke: 17 · orchestration: 38
 
-## Marco mais recente — Chefe operacional consolidado (2026-05-26)
+## Marco mais recente — Dispatcher real do Chefe (2026-05-27)
 
-Novo pacote `@cao/orchestration` consolida: capability registry, ContextBundle estendido, decision policy, playbooks oficiais, planner rule-based, runner com state machine + checkpoints, writeback safety gate, e **camada jurídica internacional BR/EU/US**. CLI `pnpm chief` é o entrypoint operacional do sistema.
+Fechado o **último gap operacional** do `@cao/orchestration`: o runner agora invoca agentes de verdade via shell (`pnpm <agent-command> --tenant --store`) em child_process. Exit codes mapeiam para `StageStatus` (0=completed, 3=skipped_gracefully, *=failed_recoverable). Mais 2 melhorias: (i) `legal-profile.json` é auto-carregado do vault por convenção de path (store-level → tenant fallback), com template em `07_memory/vault/templates/`; (ii) `bundle.requiredPolicies` é populado pelo planner a partir do playbook. **+10 testes** (4 dispatcher + 5 legal-loader + 1 requiredPolicies).
+
+## Marco anterior — Chefe operacional consolidado (2026-05-26)
+
+Pacote `@cao/orchestration` consolida: capability registry (22 agentes), ContextBundle estendido (9 estados), decision policy, 8 playbooks oficiais, planner rule-based, runner com state machine + checkpoints, writeback safety gate, e **camada jurídica internacional BR/EU/US** (11 regras LGPD+CDC+CONAR+ANVISA, GDPR+CRD+Omnibus, FTC+CCPA/CPRA). CLI `pnpm chief` é o entrypoint operacional do sistema.
 
 | Componente | Local |
 |---|---|
@@ -21,6 +25,9 @@ Novo pacote `@cao/orchestration` consolida: capability registry, ContextBundle e
 | Runner com checkpoint/resume | `06_packages/orchestration/src/runner.ts` |
 | Writeback safety gate | `06_packages/orchestration/src/writeback-gate.ts` |
 | CLI principal | `06_packages/orchestration/scripts/chief-cli.ts` → `pnpm chief` |
+| Shell dispatcher real | `06_packages/orchestration/src/dispatcher.ts` |
+| Legal-profile auto-loader | `06_packages/orchestration/src/legal-loader.ts` |
+| Template legal-profile | `07_memory/vault/templates/legal-profile.example.json` (+ README) |
 
 ---
 

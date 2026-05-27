@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-27T00:23:00Z
+updated_at: 2026-05-27T00:50:00Z
 tags: [log, sessions]
 source: human:incluobrasil
 confidence: 1.0
@@ -24,6 +24,12 @@ confidence: 1.0
 ```
 
 ---
+
+## 2026-05-27 (consolidação OS) — Dispatcher real do Chefe + legal-loader auto
+
+- Feito: fechado o último gap operacional do `@cao/orchestration`. **(1)** Novo módulo `dispatcher.ts` — `makeShellDispatcher({cwd, executable, logger, timeoutMs})` substitui `noopDispatcher`. Spawna `pnpm <agent-command> --tenant=<t> --store=<s>` via child_process; cross-platform (shell:true no Windows); streaming de stdout/stderr; timeout configurável; mapeia exit code → StageStatus (`0=completed`, `3=skipped_gracefully`, `2=failed_terminal`, *=`failed_recoverable`). **(2)** Novo `legal-loader.ts` — `loadLegalProfileFromVault({vaultRoot, tenantId, storeId})` auto-carrega por convenção: `tenants/<t>/stores/<s>/legal-profile.json` → cai em `tenants/<t>/legal-profile.json` → null. **(3)** `planner.ts` populando `bundle.requiredPolicies` do `playbook.requiredPolicies` (campo existia mas nunca atribuído). **(4)** `chief-cli.ts` reescrito: usa shell dispatcher real quando `--execute`, auto-load do legal-profile, exit code reflete `finalBundle.status`, nova flag `--timeout`. **(5)** Template + README em `07_memory/vault/templates/legal-profile.{example.json,README.md}` (versionados). **(6)** 10 testes novos (4 dispatcher + 5 legal-loader + 1 requiredPolicies). **(7)** Lint quebrou após writes (organize-imports no CLI + linha longa no dispatcher) — resolvido com `pnpm format` + edit manual. Docs atualizadas (PROJECT_STATUS, COMMANDS com seção "Exemplos práticos do pnpm chief").
+- Resultado: green. typecheck OK, lint OK, **376 testes em 42 arquivos** (+10 da sessão anterior; orchestration foi de 28 para 38). Detalhe em [[2026-05-27-impl-milestone-chief-dispatcher-real]].
+- Próximo: **(a)** cada loja real precisa de `legal-profile.json` próprio em `tenants/<t>/stores/<s>/`; **(b)** provisionar `SHOPIFY_ADMIN_TOKEN` para `--mode=writeback`; **(c)** adotar exit code `3` (SKIPPED) nos 17 agentes LLM quando key ausente; **(d)** writeback-gate bloquear quando `requiredPolicies` não estiverem em `profile.existingPolicies`.
 
 ## 2026-05-27 (entrega) — Branch `feat/orchestrator-os-consolidation` empurrada para equipe
 

@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-26T23:40:00Z
+updated_at: 2026-05-27T00:50:00Z
 tags: [index, run-summaries]
 source: mixed
 confidence: 1.0
@@ -24,6 +24,7 @@ Marcos de implementação (sub-fase concluída, primeiro deploy, OAuth funcionan
 
 | Data | Título | Resultado | Arquivo |
 |---|---|---|---|
+| 2026-05-27 | **Dispatcher real do Chefe + legal-loader auto** — `noopDispatcher` substituído por shell dispatcher (`pnpm <cmd> --tenant --store` via child_process; exit code → StageStatus). `legal-profile.json` auto-load por convenção do vault. `bundle.requiredPolicies` populado pelo planner. +10 testes (4 dispatcher + 5 loader + 1 planner). Suíte 376/42 arquivos. | 🟢 | [2026-05-27-impl-milestone-chief-dispatcher-real.md](2026-05-27-impl-milestone-chief-dispatcher-real.md) |
 | 2026-05-26 | **Chefe OS consolidado — `@cao/orchestration` + `pnpm chief`** — capability registry (22 agentes), 8 playbooks oficiais, planner rule-based, runner com checkpoints, writeback gate, camada jurídica BR/EU/US (11 regras LGPD/CDC/CONAR/GDPR/CRD/Omnibus/FTC/CCPA). 28 testes novos. Total: 366 verdes em 40 arquivos. | 🟢 | [2026-05-26-impl-milestone-chief-os-consolidation.md](2026-05-26-impl-milestone-chief-os-consolidation.md) |
 | 2026-05-26 | **T2 aplicado + SKU normalization 39 produtos / 119 variantes** — função jurídica técnica (3 PDPs com "autorregulação sensorial" → "brinquedo manipulativo" baseado em ANVISA/CDC/CONAR/Berenice) + convenção SKU INC-<P>-<V> via batch productVariantsBulkUpdate. Audit Incluo 92.8 → **94.0/100, 50🟢/0🟡/0🔴 ALL GREEN** pela primeira vez. Total dia: 42 mutations Shopify | 🟢 | [2026-05-26-impl-milestone-t2-applied-sku-normalized.md](2026-05-26-impl-milestone-t2-applied-sku-normalized.md) |
 | 2026-05-26 | **N20.2 + 8 mutations Shopify aplicadas** — scorer ganhou 21 keywords PT-BR + `link:therapeutic-claim`; orchestrator conduziu pesquisa de mercado, fix price=89,90/compareAt=109,90 + reescreveu 7 handles com redirect 301 auto; score 93.2→89.2 (gap exposto)→92.8 (pós-fixes); 256 verdes (+5) | 🟢 | [2026-05-26-impl-milestone-n20-2-and-gmc-fixes-applied.md](2026-05-26-impl-milestone-n20-2-and-gmc-fixes-applied.md) |

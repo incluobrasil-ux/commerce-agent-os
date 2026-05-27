@@ -151,6 +151,10 @@ export function planRun(inputs: PlanInputs): ExecutionPlan {
     plannedRoute: playbook.steps.map((s) => ({ agent: s.agent, purpose: s.purpose })),
   });
 
+  // Propaga páginas/políticas mínimas do playbook para o bundle.
+  // Caller usa esse campo para emitir blockers ANTES de tocar Shopify.
+  bundle.requiredPolicies = playbook.requiredPolicies;
+
   // Camada legal: se há perfil + writeback/dry-run em conteúdo sensível, avalia.
   if (
     inputs.legalProfile &&

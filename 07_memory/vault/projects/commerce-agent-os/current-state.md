@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-26T23:35:00Z
+updated_at: 2026-05-27T00:50:00Z
 tags: [current-state, status]
 source: mixed
 confidence: 1.0
@@ -24,8 +24,9 @@ confidence: 1.0
 |---|---|
 | Macro-fase | 2 — Implementação |
 | Sub-fase | 2.5 ✅ + 2.6 (caminho mínimo ✅ + writeback minimal ✅) + 2.7 ✅ + 2.8 ✅ + N26 ✅ + N20.1 ✅ + 2.9 ✅ + 2.9.1 ✅ + N21 ✅ + **N20.2 ✅** + **N26.a/e ✅** |
-| Último marco (2026-05-26 noite) | **Chefe OS consolidado** — novo `@cao/orchestration` (registry de 22 agentes + 8 playbooks oficiais + ContextBundle estendido + planner rule-based + runner com checkpoints + writeback gate + camada jurídica BR/EU/US com 11 regras LGPD/CDC/CONAR/GDPR/CRD/Omnibus/FTC/CCPA). Novo CLI `pnpm chief --tenant --store --objective="..."`. 28 testes verdes. Total agora: **361 testes em 40 arquivos**. [run-summary](run-summaries/2026-05-26-impl-milestone-chief-os-consolidation.md). |
-| Próximo marco técnico | **(a) provisionar `SHOPIFY_ADMIN_TOKEN`** + primeiro `--apply` real em SKU de baixo risco. **(b) revisão jurídica** do compliance HIGH antes de aplicar em contas-madeira. **(c) deep fix design-ux schema** (output JSON OK mas zod ainda exigente). **(d) N24 handoff via Memória** (depende de design:ux estável). Detalhe em [next-actions.md](next-actions.md). |
+| Último marco (2026-05-27) | **Dispatcher real do Chefe** — `pnpm chief --execute` invoca agentes de verdade via child_process (`pnpm <cmd> --tenant --store`). Exit code → StageStatus. Auto-load de `legal-profile.json` do vault por convenção. `bundle.requiredPolicies` populado. Template versionado em `07_memory/vault/templates/legal-profile.example.json`. **+10 testes** (orchestration: 28→38). Suíte total: **376 testes em 42 arquivos**. [run-summary](run-summaries/2026-05-27-impl-milestone-chief-dispatcher-real.md). |
+| Marco anterior (2026-05-26 noite) | **Chefe OS consolidado** — `@cao/orchestration` (registry 22 agentes + 8 playbooks + ContextBundle estendido + planner + runner com checkpoints + writeback gate + camada jurídica BR/EU/US 11 regras). [run-summary](run-summaries/2026-05-26-impl-milestone-chief-os-consolidation.md). |
+| Próximo marco técnico | **(a) cada loja real precisa do `legal-profile.json` próprio** em `tenants/<t>/stores/<s>/` (template + README disponíveis). **(b) provisionar `SHOPIFY_ADMIN_TOKEN`** para destravar `--mode=writeback` real. **(c) adotar exit code `3` (SKIPPED gracioso)** nos 17 agentes LLM quando key ausente — melhora precisão do bundle.status. **(d) writeback-gate bloquear** quando `requiredPolicies` não estiverem em `profile.existingPolicies`. Detalhe em [next-actions.md](next-actions.md). |
 
 ## Verde
 

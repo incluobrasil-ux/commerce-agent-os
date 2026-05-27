@@ -1,6 +1,6 @@
 # Commands
 
-Comandos principais. Tudo via `pnpm` na raiz. Atualizado: 2026-05-26.
+Comandos principais. Tudo via `pnpm` na raiz. Atualizado: 2026-05-27.
 
 ## `pnpm chief` — entrypoint do Chefe
 
@@ -18,16 +18,59 @@ Recebe objetivo em linguagem natural, classifica intent (`audit | catalog_mercha
 | `--mode=<read-only\|dry-run\|writeback>` | Modo de execução. Default vem do playbook. Writeback sem token/store rebaixa p/ dry-run automaticamente. |
 | `--playbook=<id>` | Override do playbook auto-selecionado. Lista: `merchant-audit`, `offer-improvement`, `marketing-creative-chain`, `pdp-ux-review`, `governance-review`, `store-readiness`, `cross-store-diagnostic`, `safe-shopify-writeback`. |
 | `--jurisdictions=<BR,EU,US-CA,US-FED>` | Jurisdições da operação. Default `BR`. |
-| `--legal-profile=<path>` | Path JSON do `StoreLegalProfile` (vault local). Quando presente, ativa avaliação regulatória completa. |
-| `--execute` | Despacha steps (default é plan-only). |
+| `--legal-profile=<path>` | Path JSON do `StoreLegalProfile` (override do auto-load). Auto-load tenta `07_memory/vault/tenants/<t>/stores/<s>/legal-profile.json` → `tenants/<t>/legal-profile.json` → null. Template em `07_memory/vault/templates/legal-profile.example.json`. |
+| `--execute` | Despacha steps via shell (`pnpm <agent-command> --tenant --store`). Sem ela, default é plan-only. |
 | `--resume=<runId>` | Continua run interrompido (a partir do checkpoint salvo). |
+| `--timeout=<ms>` | Timeout por step em ms. Default 300000 (5 min). |
 
 **Modos de execução:**
 - `read-only` — só agentes determinísticos / read-only.
 - `dry-run` — simula writeback sem aplicar (diff visível, audit log gravado).
 - `writeback` — aplica no Shopify. **Sempre passa pelo writeback gate** (verifica jurisdição, perfil legal, aprovação humana).
 
-**Saída:** plano em stdout + checkpoint em `07_memory/vault/tenants/<t>/[stores/<s>/]runs/<runId>.json`.
+**Saída:** plano em stdout + checkpoint em `07_memory/vault/tenants/<t>/[stores/<s>/]runs/<runId>.json`. Com `--execute`, cada step spawna `pnpm <agent-command>` em child_process; exit codes mapeiam para `StageStatus` (0=completed, 3=skipped_gracefully, *=failed_recoverable).
+
+### Exemplos práticos
+
+```bash
+# 1. Plan-only (sem rodar nada) — só visualiza rota + camada legal
+pnpm chief --tenant=incluo-tenant --store=incluo \
+  --objective="auditar catálogo da loja Incluo"
+
+# 2. Auditoria determinística end-to-end (zero credencial)
+pnpm chief --tenant=incluo-tenant --store=incluo \
+  --objective="audit catalog quality" --execute
+
+# 3. Plano de marketing + criativo (precisa ANTHROPIC_API_KEY)
+pnpm chief --tenant=incluo-tenant --store=incluo \
+  --objective="planejar campanha de volta às aulas com 4 variantes criativas" \
+  --jurisdictions=BR --execute
+
+# 4. Review de PDP em UE (camada legal GDPR + CRD ativa se legal-profile presente)
+pnpm chief --tenant=acme --store=de \
+  --objective="revisar PDP do produto X" \
+  --jurisdictions=EU --execute
+
+# 5. Writeback Shopify seguro — passa pelo gate (token+scope+legal+approval)
+pnpm chief --tenant=incluo-tenant --store=incluo \
+  --objective="aplicar revisões de compliance no PDP contas-madeira" \
+  --mode=writeback --execute
+
+# 6. Retomar um run interrompido (checkpoint preservado)
+pnpm chief --tenant=incluo-tenant --store=incluo --resume=run-1730000000-abc123
+```
+
+### Checklist antes do primeiro `--execute` em loja real
+
+1. **legal-profile.json no vault** — copiar template:
+   ```
+   cp 07_memory/vault/templates/legal-profile.example.json \
+      07_memory/vault/tenants/<tenantId>/stores/<storeId>/legal-profile.json
+   ```
+   Editar `jurisdictions`, `primaryLocale`, `existingPolicies`, `companyIdentity`.
+2. **`.env.local`** com `ANTHROPIC_API_KEY` (agentes LLM) + `SHOPIFY_SHOP`/`SHOPIFY_ADMIN_TOKEN` (writeback).
+3. **`pnpm doctor`** — todos 🟢 (gitleaks 🟡 não bloqueia).
+4. **Plan-only primeiro** — rodar sem `--execute` e ler a rota antes de despachar.
 
 
 
@@ -54,7 +97,7 @@ Recebe objetivo em linguagem natural, classifica intent (`audit | catalog_mercha
 | `pnpm typecheck` | `tsc -b` em todos os refs do tsconfig raiz. | sim |
 | `pnpm lint` | `biome check .` (lint + format + organize imports). | sim |
 | `pnpm format` | `biome format --write .` — aplica formatação. | n/a |
-| `pnpm test` | `vitest run` — toda a suíte (333 testes em 39 arquivos, ~4s). | sim |
+| `pnpm test` | `vitest run` — toda a suíte (376 testes em 42 arquivos, ~4s). | sim |
 | `pnpm test:smoke` | só `11_tests/smoke/` (17 testes incl. multi-tenant isolation). | sim (pre-commit) |
 | `pnpm secret-scan` | `gitleaks protect --staged` — só staged diff. | sim (pre-commit) |
 | `pnpm commitlint` | Conventional Commits (ADR-0017). | sim em PR |
@@ -148,10 +191,13 @@ Conventional Commits 1.0.0 obrigatório. Tipos: `feat` `fix` `docs` `chore` `ref
 | ambiente novo do zero | `pnpm install && pnpm doctor` |
 | validar mudança antes de commit | `pnpm doctor` (cobre typecheck + lint + smoke) |
 | rodar suíte completa | `pnpm test` |
+| **mandar objetivo NL para o Chefe** | `pnpm chief --tenant=<t> --store=<s> --objective="..." --execute` |
+| **ver rota antes de executar** | mesmo comando **sem** `--execute` |
 | primeiro agente real (zero credencial) | `pnpm audit:repo .` |
 | primeiro merchant audit (zero credencial) | `pnpm merchant:audit --source=fixture` |
 | primeiro merchant audit em catálogo real (JSON) | `pnpm merchant:audit --source=json --file=<path> --tenant=<id> --store=<id> --gmc-default=3793 --capture` |
 | primeiro LLM call real | `pnpm llm:smoke` (precisa `ANTHROPIC_API_KEY`) |
+| configurar camada legal de uma loja | copiar `07_memory/vault/templates/legal-profile.example.json` para `tenants/<t>/stores/<s>/legal-profile.json` |
 | ver onde estamos | abrir `00_meta/PROJECT_STATUS.md` ou `07_memory/vault/projects/commerce-agent-os/current-state.md` |
 | ver o que puxar | abrir `07_memory/vault/projects/commerce-agent-os/next-actions.md` |
 | ver passagem de bastão | abrir `07_memory/vault/projects/commerce-agent-os/handoff-log.md` |

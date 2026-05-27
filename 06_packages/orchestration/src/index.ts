@@ -18,3 +18,5 @@ export * from './playbooks.js';
 export * from './planner.js';
 export * from './runner.js';
 export * from './writeback-gate.js';
+export * from './dispatcher.js';
+export * from './legal-loader.js';

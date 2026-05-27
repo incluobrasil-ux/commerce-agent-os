@@ -11,9 +11,15 @@
 //   --playbook=<id>              Override do playbook auto-selecionado.
 //   --mode=<read-only|dry-run|writeback>  Modo de execução.
 //   --jurisdictions=<BR,EU,US-CA,US-FED>  Jurisdições (default: BR).
-//   --legal-profile=<path>       Path JSON do StoreLegalProfile.
+//   --legal-profile=<path>       Path JSON do StoreLegalProfile (override
+//                                do auto-load do vault).
 //   --execute                    Despacha steps via shell (default: só plan).
 //   --resume=<runId>             Continua um run interrompido.
+//   --timeout=<ms>               Timeout por step em ms (default 300000).
+//
+// Auto-load de legal-profile: se --legal-profile não for passado, tenta
+// carregar de 07_memory/vault/tenants/<t>/stores/<s>/legal-profile.json
+// (cai em tenants/<t>/legal-profile.json se store não tiver).
 //
 // Sai com:
 //   0 = sucesso
@@ -26,8 +32,10 @@ import { resolve } from 'node:path';
 import {
   type ExecutionMode,
   type Jurisdiction,
-  type StepDispatcher,
   type StoreLegalProfile,
+  legalProfilePathFor,
+  loadLegalProfileFromVault,
+  makeShellDispatcher,
   planRun,
   resumeFromCheckpoint,
   runPlan,
@@ -43,6 +51,7 @@ interface CliArgs {
   legalProfilePath?: string;
   execute: boolean;
   resume?: string;
+  timeoutMs: number;
 }
 
 function parseArgs(argv: string[]): CliArgs {
@@ -51,6 +60,7 @@ function parseArgs(argv: string[]): CliArgs {
     tenantId: '',
     jurisdictions: ['BR'],
     execute: false,
+    timeoutMs: 300_000,
   };
   for (const a of argv.slice(2)) {
     if (a.startsWith('--objective=')) args.objective = a.slice('--objective='.length);
@@ -72,6 +82,7 @@ function parseArgs(argv: string[]): CliArgs {
       args.legalProfilePath = a.slice('--legal-profile='.length);
     } else if (a === '--execute') args.execute = true;
     else if (a.startsWith('--resume=')) args.resume = a.slice('--resume='.length);
+    else if (a.startsWith('--timeout=')) args.timeoutMs = Number(a.slice('--timeout='.length));
     else if (a.startsWith('--')) fail(`Flag desconhecida: ${a}`);
     else fail(`Argumento inesperado: ${a}`);
   }
@@ -85,7 +96,7 @@ function fail(msg: string): never {
   process.exit(2);
 }
 
-async function loadLegalProfile(path: string): Promise<StoreLegalProfile> {
+async function loadLegalProfileFromPath(path: string): Promise<StoreLegalProfile> {
   const content = await fs.readFile(resolve(path), 'utf8');
   return JSON.parse(content) as StoreLegalProfile;
 }
@@ -123,10 +134,31 @@ async function main(): Promise<void> {
     process.exit(0);
   }
 
-  // Load legal profile if provided.
+  // Carrega legal-profile (override > auto-load do vault).
   let legalProfile: StoreLegalProfile | undefined;
   if (args.legalProfilePath) {
-    legalProfile = await loadLegalProfile(args.legalProfilePath);
+    legalProfile = await loadLegalProfileFromPath(args.legalProfilePath);
+    process.stdout.write(`[chief] legal-profile: ${args.legalProfilePath}\n`);
+  } else {
+    const auto = await loadLegalProfileFromVault({
+      vaultRoot,
+      tenantId: args.tenantId,
+      ...(args.storeId !== undefined ? { storeId: args.storeId } : {}),
+    });
+    if (auto) {
+      legalProfile = auto;
+      process.stdout.write(
+        `[chief] legal-profile (auto-load): ${legalProfilePathFor({
+          vaultRoot,
+          tenantId: args.tenantId,
+          ...(args.storeId !== undefined ? { storeId: args.storeId } : {}),
+        })}\n`,
+      );
+    } else {
+      process.stdout.write(
+        '[chief] legal-profile: nenhum encontrado (vault sem legal-profile.json + sem --legal-profile=). Camada legal só roda se profile estiver disponível.\n',
+      );
+    }
   }
 
   // Plan.
@@ -157,6 +189,11 @@ async function main(): Promise<void> {
     const tag = s.willSkip ? `[SKIPPED: ${s.skipReason}]` : '';
     process.stdout.write(`  ${i + 1}. ${s.agent}: ${s.purpose} ${tag}\n`);
   }
+  if (plan.bundle.requiredPolicies.length > 0) {
+    process.stdout.write(
+      `[chief] required policies (playbook): ${plan.bundle.requiredPolicies.join(', ')}\n`,
+    );
+  }
   if (plan.warnings.length > 0) {
     process.stdout.write('[chief] warnings:\n');
     for (const w of plan.warnings) process.stdout.write(`  - ${w}\n`);
@@ -179,17 +216,13 @@ async function main(): Promise<void> {
     process.exit(0);
   }
 
-  // Execute via dispatcher.
-  const dispatcher: StepDispatcher = async (step, bundle) => {
-    process.stdout.write(`[chief] → executando ${step.agent} (stage=${bundle.stage})...\n`);
-    return {
-      stage: bundle.stage,
-      agent: step.agent,
-      status: 'completed',
-      durationMs: 0,
-      artifacts: [],
-    };
-  };
+  // Execute via shell dispatcher real.
+  const dispatcher = makeShellDispatcher({
+    cwd: process.cwd(),
+    logger: (line) => process.stdout.write(line),
+    executable: true,
+    timeoutMs: args.timeoutMs,
+  });
 
   const finalBundle = await runPlan(plan, { vaultRoot }, dispatcher);
   process.stdout.write(
@@ -198,7 +231,7 @@ async function main(): Promise<void> {
   process.stdout.write(
     `[chief] checkpoint salvo em vault. Use --resume=${finalBundle.runId} para continuar.\n`,
   );
-  process.exit(0);
+  process.exit(finalBundle.status === 'completed' ? 0 : 1);
 }
 
 main().catch((err: unknown) => {

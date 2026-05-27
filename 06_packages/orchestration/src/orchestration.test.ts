@@ -233,6 +233,21 @@ describe('planner', () => {
     expect(skip).toBeDefined();
     expect(skip?.skipReason).toMatch(/anthropic/);
   });
+
+  it('bundle.requiredPolicies recebe as do playbook', () => {
+    // pdp-ux-review declara requiredPolicies: ['privacy']
+    const plan = planRun({
+      tenantId: 't',
+      storeId: 's',
+      objective: 'revisar pdp',
+      playbookId: 'pdp-ux-review',
+      jurisdictions: ['BR'],
+      hasAnthropicKey: true,
+      hasShopifyToken: false,
+      hasGoogleMerchantCreds: false,
+    });
+    expect(plan.bundle.requiredPolicies).toContain('privacy');
+  });
 });
 
 describe('policy', () => {

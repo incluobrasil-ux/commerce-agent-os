@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-27T19:30:00Z
+updated_at: 2026-05-27T20:45:00Z
 tags: [log, sessions]
 source: human:incluobrasil
 confidence: 1.0
@@ -24,6 +24,12 @@ confidence: 1.0
 ```
 
 ---
+
+## 2026-05-27 (Fases D + B do roadmap de memória viva)
+
+- Feito: **(Fase D)** Bootstrap obrigatório do Claude em `CLAUDE.md` raiz (4 arquivos do vault para ler ao abrir sessão: current-state, handoff-log, next-actions, session-log) + seção "Fechamento de sessão Claude (anti-compactação)" no `sync-protocol.md` com 4 gatilhos para registrar antes do contexto compactar. **(Fase B)** Dashboard ao vivo em `dashboard.md` usando Dataview syntax: tabela de últimos 10 runs, marcos de implementação, audits recentes, contagem por resultado — tudo lendo o vault em tempo real via filesystem (queries Dataview). Linkado no `project-home.md` e `vault/README.md`. Sem inflar: arquivos curtos, queries diretas, sem duplicar conteúdo.
+- Resultado: green. typecheck OK, lint OK, 378 testes verdes mantidos. 12 commits ahead de main. PR #19 atualizado automaticamente.
+- Próximo: usuário instala plugin Dataview no Obsidian (Settings → Community plugins → Browse → Dataview → Install + Enable). Abre `dashboard.md` para ver queries renderizadas. Próxima fase opcional: Fase C — disparar agentes a partir do Obsidian via plugin Shell Commands (depois que dashboard estiver estável).
 
 ## 2026-05-27 (Canvas refeito — text nodes em vez de file nodes, layout limpo)
 

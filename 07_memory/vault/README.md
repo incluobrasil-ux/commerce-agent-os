@@ -2,7 +2,9 @@
 
 Raiz de memória do projeto.
 
-> **🗺 VISÃO PRINCIPAL:** abra [`projects/commerce-agent-os/operations/operations-map.canvas`](projects/commerce-agent-os/operations/operations-map.canvas) no Obsidian — Canvas com o mapa operacional bonito (Chefe, Mesa de Comando, Painel, Motor, Terminais etc.). Como ler: [`projects/commerce-agent-os/operations/README.md`](projects/commerce-agent-os/operations/README.md).
+> **🗺 VISÃO PRINCIPAL (estrutura):** abra [`projects/commerce-agent-os/operations/operations-map.canvas`](projects/commerce-agent-os/operations/operations-map.canvas) no Obsidian — Canvas com o mapa operacional bonito (Chefe, Mesa de Comando, Painel, Motor, Terminais etc.). Como ler: [`projects/commerce-agent-os/operations/README.md`](projects/commerce-agent-os/operations/README.md).
+>
+> **🛰 DASHBOARD AO VIVO (movimento):** abra [`projects/commerce-agent-os/dashboard.md`](projects/commerce-agent-os/dashboard.md) — últimos runs, audits, tarefas, semáforos. Requer plugin **Dataview** (Settings → Community plugins → Browse → Dataview → Install + Enable).
 >
 > **PARA ABRIR NO OBSIDIAN:** `File → Open vault → Open folder as vault` → apontar para esta pasta (`07_memory/vault/`). **NÃO abra a raiz do monorepo** — o Obsidian indexaria 350+ arquivos `.md` técnicos (READMEs de packages, ADRs, AGENT.md, relatórios) e o grafo vira ruído. O cérebro real só vive aqui dentro.
 >

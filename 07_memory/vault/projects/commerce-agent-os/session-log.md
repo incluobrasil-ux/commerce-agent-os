@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-27T20:55:00Z
+updated_at: 2026-05-27T21:00:00Z
 tags: [log, sessions]
 source: human:incluobrasil
 confidence: 1.0
@@ -24,6 +24,12 @@ confidence: 1.0
 ```
 
 ---
+
+## 2026-05-27 (N29 parcial — legal-profile.json local para Incluo + validação end-to-end do gate)
+
+- Feito: criado `tenants/incluo-tenant/stores/incluo/legal-profile.json` localmente (gitignored, não vai pro repo). Modo conservador: `existingPolicies: []`, `allowsSensitiveWriteback: false`, `companyIdentity` com placeholders `<TODO>` explícitos. Comentários inline orientam preenchimento futuro. **Validação end-to-end rodada** (`pnpm chief --mode=writeback --tenant=incluo-tenant --store=incluo --objective="aplicar fixes do compliance HIGH no PDP"`): auto-loader pegou o profile, intent classificado como `design_ux`, playbook `pdp-ux-review` escolhido, mode rebaixado para `dry-run` por falta de `SHOPIFY_ADMIN_TOKEN`, camada legal BR ativou e devolveu **2 hard blocks** (`BR-LGPD-PRIVACY-PAGE` LGPD Art. 9º + `BR-CDC-RETURNS-7-DAYS` CDC Art. 49) → decisão `blocked_missing_policy`, `requiresHumanApproval: true`. Gate funcionou exatamente como projetado.
+- Resultado: green. Chefe agora opera Incluo em modo audit/dry-run com gate jurídico ativo. Writeback sensível segue bloqueado até preencher URLs reais das políticas Shopify Incluo + dados reais da companyIdentity + revisão jurídica do compliance HIGH (N27).
+- Próximo: operador humano preenche legal-profile.json com (a) URLs reais das políticas Shopify (Settings → Policies no admin Incluo), (b) CNPJ/razão social/endereço/email reais, (c) `allowsSensitiveWriteback: true` APENAS após revisão jurídica formal. Quando feito + `SHOPIFY_ADMIN_TOKEN` provisionado, primeiro `pnpm chief --execute --mode=writeback` real fica destravado.
 
 ## 2026-05-27 (Fase C lite — Quick Commands no dashboard + Shell Commands opcional)
 

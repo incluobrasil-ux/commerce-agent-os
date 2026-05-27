@@ -2,7 +2,23 @@
 
 Sistema operacional de **agentes especializados** para lojistas Shopify — automação de catálogo, feed Google Merchant, marketing, reviews e analytics, sob runtime + memória + guardrails comuns.
 
-> ⚙️ **Estado do projeto (2026-05-25):** núcleo `@cao/*` + **20 agentes reais executáveis** (de 22 catalogados) + **multi-tenant/multi-store hardening** (base técnica completa; pilot validado em `merchant:audit`). **Suíte: 309 testes em 36 arquivos.** Pipeline Merchant audit + dry-run end-to-end funciona local com fixture/JSON. **Não é produto** — runs reais Shopify/Anthropic/GMC dependem de credenciais externas.
+> ⚙️ **Estado do projeto (2026-05-27):** núcleo `@cao/*` + **20 agentes reais executáveis** (de 22 catalogados) + **multi-tenant/multi-store hardening** + **Chefe operacional `pnpm chief`** com capability registry, 8 playbooks, planner rule-based, runner com checkpoints (dispatcher real via child_process), writeback safety gate quíntuplo (token+scope+`requiredPolicies`+legal+human approval) e **camada jurídica BR/EU/US** com auto-load de `legal-profile.json` do vault. Mapa visual operacional no Obsidian (`07_memory/vault/projects/commerce-agent-os/operations/operations-map.canvas`). **Suíte: 378 testes em 42 arquivos.** Pipeline Merchant audit + dry-run end-to-end funciona local com fixture/JSON. **Não é produto** — runs reais Shopify/Anthropic/GMC dependem de credenciais externas.
+
+## TL;DR — usar como OS
+
+```bash
+# Auditar uma loja:
+pnpm chief --tenant=incluo --store=main --objective="auditar catálogo da loja"
+
+# Aplicar com gates de segurança (rebaixa p/ dry-run sem token):
+pnpm chief --tenant=incluo --store=main --objective="aplicar fix de preço" --mode=writeback
+
+# Com perfil legal + jurisdição:
+pnpm chief --tenant=acme --store=us --objective="auditar PDP" --jurisdictions=US-CA,US-FED \
+  --legal-profile=07_memory/vault/tenants/acme/stores/us/legal-profile.json
+```
+
+O Chefe (`orchestrator-master`) recebe objetivo em linguagem natural, classifica intent, escolhe playbook, executa rota com checkpoints e respeita gates de jurisdição/credencial. Detalhes: [10_ops/scripts/COMMANDS.md](./10_ops/scripts/COMMANDS.md#pnpm-chief--entrypoint-do-chefe).
 >
 > O que há hoje:
 > - **20 agentes REAL_EXECUTABLE** com CLI thin (`pnpm <verbo>:<noun>`), zod schemas, testes reais e graceful `SKIPPED` quando credencial ausente.
@@ -171,6 +187,7 @@ Variáveis de ambiente: [`.env.example`](./.env.example) (copiar para `.env.loca
 | Protocolo multi-operador | [`07_memory/vault/projects/commerce-agent-os/sync-protocol.md`](./07_memory/vault/projects/commerce-agent-os/sync-protocol.md) |
 | Qual arquivo é autoridade | [`07_memory/vault/projects/commerce-agent-os/source-of-truth.md`](./07_memory/vault/projects/commerce-agent-os/source-of-truth.md) |
 | Entrada do cérebro | [`07_memory/vault/projects/commerce-agent-os/project-home.md`](./07_memory/vault/projects/commerce-agent-os/project-home.md) |
+| Abrir cérebro no Obsidian | `File → Open vault → Open folder as vault` → apontar para `07_memory/vault/` (**não** a raiz do repo — ver [`07_memory/vault/README.md`](./07_memory/vault/README.md)) |
 | Setup local em outro PC | [`10_ops/scripts/SETUP_LOCAL.md`](./10_ops/scripts/SETUP_LOCAL.md) |
 | Lista de comandos | [`10_ops/scripts/COMMANDS.md`](./10_ops/scripts/COMMANDS.md) |
 

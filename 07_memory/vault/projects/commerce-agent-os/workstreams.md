@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-25T18:40:00Z
+updated_at: 2026-05-27T17:55:00Z
 tags: [workstreams, parallel-tracks]
 source: mixed
 confidence: 1.0
@@ -38,27 +38,27 @@ confidence: 1.0
 
 | | |
 |---|---|
-| Status | 🟢 (**20 agentes reais** de 22; Bloco A+B + Merchant audit MVP em 2026-05-25) |
-| Escopo | 22 agentes declarativos virando executáveis. |
-| Último marco | **Merchant audit MVP** — `pnpm merchant:audit` produz score por SKU + findings categorizados + remediações (determinístico, 241 testes verdes). |
-| Próximo marco | **N26** — rodar Merchant audit em catálogo Shopify real (Catálogo); depois **N21** ligar pipeline LLM Marketing → Criativo → Vitrine → Catálogo → Produtos → Merchant. |
+| Status | 🟢 (**20 agentes reais** de 22; N26 + N20.2 + N21 concluídos; Chefe OS consolidado) |
+| Escopo | 22 agentes declarativos executáveis + camada de orquestração (`@cao/orchestration`). |
+| Último marco | **Dispatcher real do Chefe** (2026-05-27) — `pnpm chief --execute` invoca agentes via shell. Writeback-gate verifica `requiredPolicies` do bundle contra `legal-profile.existingPolicies`. Suíte 378+ verdes. |
+| Próximo marco | **(a) cada loja real configura `legal-profile.json`** próprio; **(b) adotar exit code `3` (SKIPPED) nos 17 agentes LLM** (hoje só `catalog-feed-ops` segue a convenção — dispatcher mapeia exit code → StageStatus mas agentes não emitem `3`); **(c) primeiro `pnpm chief --execute --mode=writeback` real após token Shopify provisionado**. |
 | Dono sugerido | dev + ops (creds) |
-| Depende de | Shopify dev store + token (N26); ANTHROPIC_API_KEY (N21). Nada para desenvolvimento. |
-| Itens ativos | N26 (prioridade imediata), N21, N20.1, N24 — ver [next-actions.md](next-actions.md). |
-| Refs | [03_agents/](../../../../03_agents/), [`2026-05-25-impl-milestone-merchant-audit-mvp.md`](run-summaries/2026-05-25-impl-milestone-merchant-audit-mvp.md), [`2026-05-25-impl-milestone-four-new-agents.md`](run-summaries/2026-05-25-impl-milestone-four-new-agents.md) |
+| Depende de | (a) decisão produto por loja; (b) refactor mecânico bulk; (c) `SHOPIFY_ADMIN_TOKEN` em `.env.local`. |
+| Itens ativos | N27 (writeback real), exit-code-3 follow-up, legal-profile per-store — ver [next-actions.md](next-actions.md). |
+| Refs | [03_agents/](../../../../03_agents/) · [`2026-05-27-impl-milestone-chief-dispatcher-real.md`](run-summaries/2026-05-27-impl-milestone-chief-dispatcher-real.md) · [`2026-05-26-impl-milestone-chief-os-consolidation.md`](run-summaries/2026-05-26-impl-milestone-chief-os-consolidation.md) |
 
 ## W3 — Shopify connect
 
 | | |
 |---|---|
-| Status | ⚪ |
-| Escopo | `04_apps/shopify-admin-app` + `04_apps/shopify-theme` + `05_integrations/shopify/`. OAuth, webhooks, Admin GraphQL. |
-| Último marco | Scaffolds completos (Macro-fase 1 pré-trabalho de Fase 8) |
-| Próximo marco | OAuth funcionando em loja de dev + 1 webhook handler real |
-| Dono sugerido | dev |
-| Depende de | W1 mergeada, upstream `shopify-app-template` clonado, dev store criada (Shopify Partners) |
-| Itens ativos | P5 (clonar template), P12, P13 (em `depois`) |
-| Refs | [`02_architecture/integrations/shopify-map.md`](../../../../02_architecture/integrations/), [`12_reports/audits/shopify-readiness.md`](../../../../12_reports/audits/shopify-readiness.md) |
+| Status | 🟡 (Admin GraphQL + writeback funcional via CLI; OAuth Public App + webhooks ainda não) |
+| Escopo | `05_integrations/shopify/` (Admin client + writeback + OAuth helpers); `04_apps/shopify-admin-app` (scripts) + `04_apps/shopify-theme` (scaffolds). |
+| Último marco | **Sub-fase 2.6 writeback minimal + N26.a/e/T2 aplicados (2026-05-26)** — `pnpm shopify:writeback` parser MD → diff → dry-run/apply → audit log; 50 mutations Shopify reais aplicadas; loja Incluo ALL GREEN no scorer (50🟢/0🟡/0🔴). |
+| Próximo marco | (a) primeiro `pnpm chief --execute --mode=writeback` real após token + legal-profile (N27); (b) OAuth Public App funcionando para multi-store no mesmo processo. |
+| Dono sugerido | dev + ops |
+| Depende de | `SHOPIFY_ADMIN_TOKEN` em `.env.local` (B6); revisão jurídica do compliance HIGH antes de PDPs sensíveis. |
+| Itens ativos | N27 (writeback real), OAuth Public App. |
+| Refs | [`05_integrations/shopify/`](../../../../05_integrations/shopify/) · [`2026-05-26-impl-milestone-shopify-writeback-minimal.md`](run-summaries/2026-05-26-impl-milestone-shopify-writeback-minimal.md) · [`2026-05-26-impl-milestone-t2-applied-sku-normalized.md`](run-summaries/2026-05-26-impl-milestone-t2-applied-sku-normalized.md) |
 
 ## W4 — Merchant feed
 
@@ -104,13 +104,13 @@ confidence: 1.0
 | | |
 |---|---|
 | Status | 🟢 |
-| Escopo | `07_memory/` (este cérebro + vault tenants), `10_ops/` (runbooks, security, scripts), políticas de retenção, secret manager. |
-| Último marco | Cérebro operacional v1 estruturado para multi-operador |
+| Escopo | `07_memory/` (este cérebro + vault tenants), `10_ops/` (runbooks, security, scripts), políticas de retenção, secret manager, ferramentas auxiliares de operador (`prompt-master` opcional). |
+| Último marco | Cérebro operacional v1 estruturado para multi-operador + `prompt-master` documentado como skill auxiliar user-level (2026-05-27). |
 | Próximo marco | uso real do protocolo em ≥ 2 sessões de operadores diferentes + 1 handoff funcional |
 | Dono sugerido | ops |
 | Depende de | — |
 | Itens ativos | — (manutenção contínua) |
-| Refs | [project-home.md](project-home.md), [sync-protocol.md](sync-protocol.md), [source-of-truth.md](source-of-truth.md) |
+| Refs | [project-home.md](project-home.md), [sync-protocol.md](sync-protocol.md), [source-of-truth.md](source-of-truth.md), [PROMPT_MASTER.md](../../../../10_ops/scripts/PROMPT_MASTER.md) |
 
 ## W8 — Security / QA / Hardening
 

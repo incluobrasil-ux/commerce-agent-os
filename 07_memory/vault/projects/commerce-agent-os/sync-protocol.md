@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-23T00:00:00Z
+updated_at: 2026-05-27T20:35:00Z
 tags: [protocol, sync, multi-operator]
 source: human:incluobrasil
 confidence: 1.0
@@ -61,6 +61,25 @@ confidence: 1.0
 | Item concluído | Remover de [next-actions.md](next-actions.md) e/ou [operational-priorities.md](operational-priorities.md). |
 
 Commit final com mensagem Conventional (`docs(brain): ...`, `chore(brain): ...`). Push.
+
+---
+
+## Fechamento de sessão Claude (anti-compactação)
+
+Sessões do **Claude Code / Claude.ai** têm uma característica que sessões humanas não têm: o **contexto compacta** quando fica longo, e mudanças importantes podem ser perdidas se não forem registradas no vault antes disso.
+
+Regra para operador-Claude (humano que usa Claude, ou agente Claude direto):
+
+| Gatilho | Ação obrigatória |
+|---|---|
+| Encerrou trabalho significativo (commit, marco, mais de ~5 mudanças relevantes) | 1 entrada em [session-log.md](session-log.md) **antes** de pedir nova tarefa |
+| Conversa Claude longa (>30 turnos, perto da compactação) | Curar 1 run-summary com as decisões importantes da sessão |
+| WIP aberto que outra pessoa/sessão pode continuar | 1 entrada em [handoff-log.md](handoff-log.md) com branch + próximo passo |
+| Decisão arquitetural ou mudança de fase | Atualizar [current-state.md](current-state.md), [ops-brief.md](ops-brief.md), [decision-index.md](decision-index.md) conforme aplicável |
+
+Bootstrap obrigatório está em [`CLAUDE.md`](../../../../CLAUDE.md) raiz do repo — 4 arquivos para ler ao abrir sessão.
+
+**Por que isso importa:** sem registro no vault, próxima sessão Claude começa cega. Cégo + contexto longo = alucinação sobre estado do projeto. Vault registrado = próxima sessão lê os 4 arquivos do bootstrap e parte do estado real.
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-26T19:30:00Z
+updated_at: 2026-05-27T17:40:00Z
 tags: [next-actions]
 source: mixed
 confidence: 1.0
@@ -75,6 +75,27 @@ Análise consolidada: [run-summary 2026-05-26-impl-milestone-n20-2-and-gmc-fixes
 - **Quem puxa:** Samuel (precisa do token) + jurídico (precisa do go).
 - **Detalhe técnico:** [run-summary](run-summaries/2026-05-26-impl-milestone-shopify-writeback-minimal.md).
 
+### N28 — Adotar exit code 3 (SKIPPED gracioso) nos 17 agentes LLM
+
+- **Motivo:** dispatcher do Chefe (`makeShellDispatcher`) mapeia exit code → `StageStatus`: `0=completed`, `3=skipped_gracefully`, `2=failed_terminal`, * = `failed_recoverable`. Hoje só `catalog-feed-ops/audit-cli.ts` segue. Os 17 agentes LLM saem com `0` mesmo quando `ANTHROPIC_API_KEY` ausente (com log "SKIPPED"). Dispatcher os marca como `completed`, perdendo precisão no bundle.
+- **Trabalho:** padrão `if (!hasAnthropicKey) { console.error('SKIPPED: missing ANTHROPIC_API_KEY'); process.exit(3); }` no entry-point de cada `*-cli.ts`.
+- **Risco:** baixo se feito 1 agente por vez; bulk via PowerShell substitution arrisca regressão silenciosa. Recomenda-se 17 PRs pequenos OU 1 PR + smoke test que verifica exit code de cada CLI sem key.
+- **Critério de aceite:** `pnpm chief --execute` sem `ANTHROPIC_API_KEY` mostra steps como `skipped_gracefully` em vez de `completed`.
+
+### N29 — Cada loja real precisa de `legal-profile.json` próprio
+
+- **Motivo:** writeback-gate agora bloqueia se `bundle.requiredPolicies` (vindas do playbook) não estiverem em `legal-profile.existingPolicies`. Sem o profile, o gate só sabe ler defaults conservadores. Cada store real precisa declarar mercados/políticas/identidade.
+- **Trabalho operacional (não código):**
+  ```
+  cp 07_memory/vault/templates/legal-profile.example.json \
+     07_memory/vault/tenants/<tenantId>/stores/<storeId>/legal-profile.json
+  # editar: jurisdictions, primaryLocale, primaryCurrency,
+  # existingPolicies, consentRegime, companyIdentity,
+  # allowsSensitiveWriteback
+  ```
+- **Quem puxa:** ops de cada loja. Para Incluo: usar template BR + CNPJ Incluo + URLs reais das políticas Shopify.
+- **Detalhe:** [template README](../../templates/legal-profile.README.md).
+
 ### ✅ Sub-fase 2.6 writeback minimal concluído (2026-05-26)
 
 - PR [#18](https://github.com/incluobrasil-ux/commerce-agent-os/pull/18) merged. Loop `compliance → diff → audit` fechado em código. Dry-run validado.
@@ -111,6 +132,19 @@ pnpm feed:dry-run --source=fixture --seo --capture
 ### Opção C — **N24**: Handoff entre agentes via Memória
 
 Usar `memory-context` (Memória) para passar context bundle automático entre Marketing → Criativo → Vitrine. Reduz retrabalho do operador e custo de tokens. Pré-requisito: N21 validado primeiro.
+
+## 🆕 Chefe operacional (`pnpm chief`) — pronto pra uso (2026-05-26 noite)
+
+Novo entrypoint principal: [[2026-05-26-impl-milestone-chief-os-consolidation]].
+
+### Próximas ações de maior ROI
+
+1. **B6 — provisionar `SHOPIFY_ADMIN_TOKEN`** (~3 min em https://partners.shopify.com). Destrava primeiro `pnpm chief --execute --mode=writeback` real com gates de segurança completos.
+2. **Criar `legal-profile.json` para Incluo** em `07_memory/vault/tenants/incluo-tenant/stores/incluo/legal-profile.json` (gitignored). Schema mínimo em `.env.example`. Ativa a camada jurídica BR completa.
+3. **Substituir noopDispatcher do runner** por dispatcher que invoca `pnpm <agent-command>` via `child_process.spawn` e parseia output. Hoje o runner persiste checkpoint mas não executa de fato os agentes.
+4. **N20.3** — expor `variantSku` no `FeedRow` para scorer detectar SKU pattern `\d+:\d+#` automaticamente.
+5. **Próxima iteração SKU** — ~50 produtos das pgs 2/3 do Incluo (fora da fixture local) com SKU ALI ainda não normalizados. Mesmo padrão `INC-<P>-<V>` via batch `productVariantsBulkUpdate`.
+6. **Próxima iteração price=0** — decidir preço para 11 variants em 4 produtos descobertos nas pgs 2/3 (cobertor-ponderado, colar-mordedor-tubarão, protetor-auricular-silicone 6un, mini-trampolim 3un) via pesquisa de mercado.
 
 ## Bloqueios externos (separados — não bloqueiam desenvolvimento)
 

@@ -1,6 +1,21 @@
 # commerce-agent-os
 
-Monorepo para um sistema operacional de agentes de e-commerce.
+Monorepo para um sistema operacional de agentes de e-commerce. **22 agentes catalogados** (20 executáveis), `pnpm chief` como entrypoint orquestrador, camada legal BR/EU/US, multi-tenant/multi-store.
+
+## Bootstrap do Claude — memória externa anti-alucinação
+
+> **OBRIGATÓRIO** ao abrir uma sessão neste projeto: ler os 4 arquivos do vault abaixo **antes de qualquer trabalho não-trivial**. Eles substituem o contexto que se perde quando a conversa compacta — sem isso, há risco de retrabalho ou alucinação sobre o que já foi feito.
+
+| Ordem | Ler | Para saber |
+|---|---|---|
+| 1 | [07_memory/vault/projects/commerce-agent-os/current-state.md](07_memory/vault/projects/commerce-agent-os/current-state.md) | onde estamos agora (1 página) |
+| 2 | [07_memory/vault/projects/commerce-agent-os/handoff-log.md](07_memory/vault/projects/commerce-agent-os/handoff-log.md) | se alguém deixou WIP aberto |
+| 3 | [07_memory/vault/projects/commerce-agent-os/next-actions.md](07_memory/vault/projects/commerce-agent-os/next-actions.md) | o que está na fila |
+| 4 | [07_memory/vault/projects/commerce-agent-os/session-log.md](07_memory/vault/projects/commerce-agent-os/session-log.md) topo | últimas 3 sessões |
+
+**Ao encerrar trabalho significativo** (commit feito, marco fechado, mais de ~5 mudanças relevantes, ou conversa longa próxima da compactação): registrar entrada em `session-log.md` **antes** que o contexto compacte. Se sobrou WIP, adicionar entrada em `handoff-log.md`. Protocolo completo em [sync-protocol.md](07_memory/vault/projects/commerce-agent-os/sync-protocol.md).
+
+**Atalhos amigáveis** (Obsidian `Ctrl+O`): Chefe, Radar, Mesa de Comando, Painel, Motor, Núcleo, Oficina, Guia, Terminal 1, Terminal 2, Tarefas em Espera. Mapa visual: `07_memory/vault/projects/commerce-agent-os/operations/operations-map.canvas`.
 
 ## Layout
 
@@ -47,13 +62,18 @@ Monorepo para um sistema operacional de agentes de e-commerce.
 
 Detalhe completo em [STACK_RULES.md](00_meta/STACK_RULES.md).
 
-## Comandos (placeholders — Fase 5)
+## Comandos principais
 
 ```
-pnpm install                          # ainda não configurado (deps não declaradas)
-pnpm typecheck                        # tsc -b
-pnpm test                             # placeholder
-pnpm lint                             # placeholder
-bash 10_ops/scripts/validate-structure.sh   # já funciona
-bash 11_tests/smoke/structure.smoke.sh      # já funciona
+pnpm install                                 # 28+ workspaces
+pnpm doctor                                  # 10 checks cross-platform
+pnpm typecheck                               # tsc -b
+pnpm lint                                    # biome
+pnpm test                                    # vitest (378 testes em 42 arquivos)
+pnpm test:smoke                              # 17 smoke tests
+pnpm chief --tenant=<t> --objective="..."    # orquestrador principal
+pnpm audit:repo .                            # agente determinístico, zero credencial
+pnpm merchant:audit --source=fixture         # scoring de catálogo (zero credencial)
 ```
+
+Detalhe completo em [10_ops/scripts/COMMANDS.md](10_ops/scripts/COMMANDS.md).

@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-24T00:30:00.000Z
+updated_at: 2026-05-27T18:30:00Z
 tags: [brief, status]
 source: mixed
 confidence: 1.0
@@ -22,60 +22,60 @@ Legenda: 🟢 funciona / 🟡 parcial / 🔴 não funciona / ⚪ não iniciado.
 
 | Bloco | Estado | Observação |
 |---|---|---|
-| Estrutura do monorepo | 🟢 | 24 workspaces, project references OK |
-| QA stack (lint/test/typecheck/smoke) | 🟢 | tudo verde local + CI |
-| `@cao/core` | 🟢 | errors / result / clock / id / retry + testes |
+| Estrutura do monorepo | 🟢 | 28+ workspaces, project references OK |
+| QA stack (lint/test/typecheck/smoke) | 🟢 | **378 testes verdes em 42 arquivos** + smoke 17/17 + doctor 10🟢/0🟡/0🔴 |
+| `@cao/core` | 🟢 | errors / result / clock / id / retry + branded types multi-tenant + assertions |
 | `@cao/observability` | 🟢 | console + silent providers + audit hook |
 | `@cao/guardrails` | 🟢 | validate(zod) + PII + secrets |
-| `@cao/memory` | 🟢 | CRUD markdown com isolamento por tenant |
-| `@cao/llm` | 🟢 | **2 chamadas Anthropic reais validadas** ($0.0099 total) |
-| `@cao/runtime` | 🟢 | fluxo completo invocado em produção via `audit-synthesizer` — audit log + cost + observability OK |
-| `@cao/repo-auditor` | 🟢 | 1º agente real (determinístico) |
-| `@cao/audit-synthesizer` | 🟢 | 2º agente real (LLM) — `pnpm synthesize:audit <path>` |
-| `@cao/learning-memory-curation` | 🟡 | 3º agente real (LLM) — `pnpm curate:memory`. Real run pendente da key. |
-| `@cao/memory-context` | 🟡 | **4º agente real (LLM read-only)** — `pnpm context:brief --task=...`. Real run pendente da key. |
-| Outros `@cao/*` (stubs) | 🟡 | placeholders ainda |
-| Outros agentes (13 declarativos) | 🔴 | só schema; nenhum executável |
-| Pre-commit secret scan | 🟢 | gitleaks 8.30.1 integrado |
-| Apps (`04_apps/`) | 🔴 | scaffolds, sem código real |
-| Integrações (`05_integrations/`) | 🔴 | contratos + adapters stub |
-| Upstreams (`01_upstreams/`) | 🟡 | 2/10 clonados (langgraph + shopify-app-template, ambos MIT). Outros 8 sob demanda. |
-| Memória (`07_memory/`) | 🟢 (template + cérebro) / ⚪ (tenants) | template OK; cérebro v1 multi-operador; nenhum tenant provisionado |
+| `@cao/memory` | 🟢 | CRUD markdown com isolamento por tenant/store |
+| `@cao/llm` | 🟢 | Anthropic real validado + noop fallback + `pnpm llm:smoke` |
+| `@cao/runtime` | 🟢 | fluxo completo invocado em runtime via `audit-synthesizer` + outros LLM |
+| `@cao/brain-bridge` | 🟢 | captura em `vault/tenants/<t>/[stores/<s>/]` com `--capture` |
+| **`@cao/orchestration`** | 🟢 | **Chefe OS consolidado** — registry 22 agentes, 8 playbooks, planner, runner com checkpoints, writeback-gate, camada legal BR/EU/US, dispatcher real via child_process |
+| **`pnpm chief` CLI** | 🟢 | entrypoint operacional NL → playbook → rota → dispatcher → checkpoint retomável |
+| **Camada legal BR/EU/US** | 🟢 | 11 regras hard/soft + 9 risk types + 5 decisions + auto-load de `legal-profile.json` do vault + writeback-gate bloqueia por `requiredPolicies` |
+| 20 agentes REAL_EXECUTABLE | 🟢 | repo-auditor · audit-synthesizer · learning-memory-curation · memory-context · catalog-feed-ops · customer-journey-ops · finance-margin-radar · visual-asset-ops · ads-launchpad · orchestrator-master · governance-risk-qa · market-intelligence · competitor-benchmark · reviews-ops · product-offer · merchant-compliance · marketing-director · creative-copy-assets · design-ux-localization · traffic-campaigns |
+| `product-feed-seo` | 🟡 | library-only (consumido por catalog-feed-ops) |
+| `analytics-optimization` | 🔴 | stub, aguarda demanda PostHog |
+| Pre-commit (biome+smoke+gitleaks+commitlint) | 🟢 | ativo, gitleaks 8.30.1 |
+| Apps (`04_apps/`) | 🟡 | `shopify-admin-app/scripts/writeback.ts` operacional; outros scaffolds |
+| Integrações (`05_integrations/`) | 🟢 (shopify) / 🟡 (outras) | `shopify/{client,oauth,writeback}` funcional; google-merchant client OK; demais com contratos |
+| Upstreams (`01_upstreams/`) | 🟡 | 2/10 clonados (langgraph + shopify-app-template). Outros 8 sob demanda. |
+| Memória (`07_memory/`) | 🟢 | _template + cérebro multi-operador + templates (legal-profile) + tenants/incluo local |
 | CI | 🟢 | lint+typecheck+smoke+commitlint em PR |
 | CD | ⚪ | sem deploy ainda |
-| Security operacional | 🔴 | sem secret manager, sem retenção definida |
+| Security operacional | 🟡 | secret-scan ativo; sem secret manager central, retenção não definida |
+| Ferramenta auxiliar `prompt-master` | 🟢 | opcional, user-level em `~/.claude/skills/`, fora do core (doc em `10_ops/scripts/PROMPT_MASTER.md`) |
 
 Quem precisa do estado **agora mesmo** (verde/bloqueado, sem detalhe) → [current-state.md](current-state.md).
 Quem precisa de divisão por trilha → [workstreams.md](workstreams.md).
 
 ## Marcos alcançados
 
-- 2026-05-23 — Macro-fase 1 (scaffold) concluída ([summary](run-summaries/2026-05-23-impl-milestone-phase-1-setup-complete.md)).
-- 2026-05-23 — Sub-fase 2.0 (ADRs estruturais) concluída.
-- 2026-05-23 — Sub-fase 2.1 (bootstrap funcional) concluída + repo público + tag `v0.1.0-architecture-baseline`.
-- 2026-05-23 — Sub-fase 2.2 (núcleo `@cao/*`) verde em local ([summary](run-summaries/2026-05-23-test-milestone-sub-phase-2-2-suite-green.md)).
+- 2026-05-23 — Macro-fase 1 (scaffold) + bootstrap funcional + repo público + tag `v0.1.0-architecture-baseline`.
 - 2026-05-23 — Cérebro operacional v1 (multi-operador) estruturado.
-- 2026-05-23 — **`repo-auditor` é o 1º agente real funcional** ([summary](run-summaries/2026-05-23-agent-run-repo-auditor-self-audit.md)). Suíte sobe para 52 testes verdes.
-- 2026-05-23 — `.env.example`, `SETUP_LOCAL.md`, `COMMANDS.md` prontos para clone em outro PC.
-- 2026-05-23 — ADR-0007 aceito. 2 upstreams clonados + auditados. Suíte 54 verdes ([summary](run-summaries/2026-05-23-agent-run-repo-auditor-2-upstreams.md)).
-- 2026-05-23 — **`audit-synthesizer` é o 2º agente real — primeira chamada LLM ao Claude validada** ($0.0099, 2 execuções, audit log gravado). Suíte 59 verdes ([summary](run-summaries/2026-05-23-agent-run-llm-first-real-calls.md)).
-- 2026-05-23 — Sub-fase 2.5 iniciada. `@cao/learning-memory-curation` implementado + testado (3º agente). Pre-commit ganhou secret-scan (gitleaks). Suíte 65 verdes.
-- 2026-05-23 — 4º agente: `@cao/memory-context` (read-only context brief). Suíte **71 verdes**. Real runs dos 3 agentes LLM aguardam atualização de `.env.local`.
+- 2026-05-23 — Primeiros agentes reais: `repo-auditor`, `audit-synthesizer` (1ª chamada LLM real, $0.0099), `learning-memory-curation`, `memory-context`.
+- 2026-05-24 — `@cao/brain-bridge` (`--capture` + `pnpm ops:capture`).
+- 2026-05-25 — Bloco B (4 agentes novos: marketing/creative/design/traffic) + Merchant audit MVP + Multi-tenant/multi-store hardening (309 testes verdes).
+- 2026-05-26 — N20.1/N20.2 scorer com claims terapêuticos PT-BR; N21 pipeline LLM real Incluo ($0.174); N26 com 8 mutations Shopify aplicadas + T2 + SKU normalization (50 mutations totais, Incluo ALL GREEN no scorer).
+- 2026-05-26 — Sub-fase 2.6 writeback minimal merged (PR #18).
+- 2026-05-26 — **`@cao/orchestration` consolidado** ([summary](run-summaries/2026-05-26-impl-milestone-chief-os-consolidation.md)): registry + ContextBundle estendido + planner + runner + writeback-gate + camada legal BR/EU/US + 8 playbooks + CLI `pnpm chief`.
+- 2026-05-27 — **Dispatcher real do Chefe** ([summary](run-summaries/2026-05-27-impl-milestone-chief-dispatcher-real.md)): `noopDispatcher` substituído por `makeShellDispatcher` que invoca `pnpm <agent-cmd>` via child_process; auto-load de `legal-profile.json`; `bundle.requiredPolicies` populado.
+- 2026-05-27 — Writeback-gate bloqueia quando `requiredPolicies` ausentes no `legalProfile.existingPolicies`.
+- 2026-05-27 — `prompt-master` integrado como skill auxiliar user-level (fora do repo).
 
 ## Próximos 3 focos
 
-1. **Atualizar `.env.local` com a key nova** → validar os 3 agentes LLM com 1 comando:
-   ```bash
-   pnpm synthesize:audit 12_reports/audits/repo-auditor/langgraph-*.md && \
-     pnpm curate:memory --tenant=_test && \
-     pnpm context:brief --task="optimize Q2 catalog titles" --tenant=_test
-   ```
-2. **Decidir 5º agente** (Sub-fase 2.5 continua) ou **pivotar para Sub-fase 2.6** (Shopify OAuth).
-3. **Mergear PR** `feat/core-runtime-and-first-agent` no GitHub.
+1. **N29** — criar `legal-profile.json` para Incluo (e outras lojas reais) em `vault/tenants/<t>/stores/<s>/` — template pronto, ~5 min por loja.
+2. **N27 / B6** — provisionar `SHOPIFY_ADMIN_TOKEN` em `.env.local` (~3 min em Partners) + primeiro `pnpm chief --execute --mode=writeback` real em SKU de baixo risco.
+3. **N28** — adotar exit code `3` (SKIPPED gracioso) nos 17 agentes LLM (hoje só `catalog-feed-ops` segue convenção). Bulk, ~2-3h, baixa prioridade.
 
-## Critério para "Sub-fase 2.3 concluída"
+## Critério para "Chefe OS pronto para uso operacional do time"
 
-- ≥ 2 upstreams clonados em `01_upstreams/` (mínimo `langgraph` + `shopify-app-template`).
-- `pnpm audit:repo 01_upstreams/<repo>` rodado em cada com relatório em `12_reports/audits/repo-auditor/`.
-- `00_meta/upstreams_index.md` atualizado com SHA + licença confirmada.
-- Premissas dos audits originais reavaliadas (flags `⚠ verificar` resolvidas).
+- ✅ Registry + playbooks + planner + runner + writeback-gate + camada legal completos.
+- ✅ Dispatcher real (não-noop) que invoca agentes via shell com checkpoint/resume.
+- ✅ Auto-load de `legal-profile.json` do vault.
+- ✅ `bundle.requiredPolicies` enforcement no gate.
+- ✅ 378 testes verdes em 42 arquivos, doctor 10🟢.
+- ✅ Doc para equipe: `COMMANDS.md`, `SETUP_LOCAL.md`, `PROMPT_MASTER.md`, vault `README.md`.
+- ⏳ Primeira execução `--mode=writeback` real em loja Incluo (depende de SHOPIFY_ADMIN_TOKEN + legal-profile + revisão jurídica).

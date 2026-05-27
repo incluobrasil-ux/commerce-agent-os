@@ -1,0 +1,25 @@
+{
+  "_comment": "Template — copie para tenants/<tenantId>/stores/<storeId>/legal-profile.json (NÃO versionado). Cada loja declara mercados, idioma/moeda, políticas existentes e regime de consentimento. O Chefe consulta este arquivo antes de qualquer writeback sensível.",
+  "tenantId": "incluo-tenant",
+  "storeId": "incluo",
+  "jurisdictions": ["BR"],
+  "primaryLocale": "pt-BR",
+  "primaryCurrency": "BRL",
+  "maturityLevel": "starter",
+  "existingPolicies": [
+    { "type": "privacy", "url": "https://example.myshopify.com/policies/privacy-policy" },
+    { "type": "terms", "url": "https://example.myshopify.com/policies/terms-of-service" },
+    { "type": "refund", "url": "https://example.myshopify.com/policies/refund-policy" },
+    { "type": "shipping", "url": "https://example.myshopify.com/policies/shipping-policy" },
+    { "type": "contact", "url": "https://example.myshopify.com/pages/contact" }
+  ],
+  "consentRegime": "opt-in-strict",
+  "allowsSensitiveWriteback": false,
+  "companyIdentity": {
+    "legalName": "Sua Empresa LTDA",
+    "registrationId": "00.000.000/0001-00",
+    "address": "Endereço completo, cidade — UF, CEP",
+    "contactEmail": "contato@suaempresa.com.br",
+    "contactPhone": "+55 11 99999-9999"
+  }
+}

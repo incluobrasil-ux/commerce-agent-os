@@ -2,9 +2,32 @@
 
 > Documento curto. Atualizado a cada sub-fase fechada. Para narrativa longa: cérebro operacional em `07_memory/vault/projects/commerce-agent-os/`.
 
-**Última atualização:** 2026-05-25
-**Branch ativa:** `feat/system-retomada-operacional` (5 commits ahead de `main`)
-**Suíte:** 309 testes em 36 arquivos · smoke: 17
+**Última atualização:** 2026-05-27
+**Branch ativa:** `feat/orchestrator-os-consolidation`
+**Suíte:** 376 testes em 42 arquivos · smoke: 17 · orchestration: 38
+
+## Marco mais recente — Dispatcher real do Chefe (2026-05-27)
+
+Fechado o **último gap operacional** do `@cao/orchestration`: o runner agora invoca agentes de verdade via shell (`pnpm <agent-command> --tenant --store`) em child_process. Exit codes mapeiam para `StageStatus` (0=completed, 3=skipped_gracefully, *=failed_recoverable). Mais 2 melhorias: (i) `legal-profile.json` é auto-carregado do vault por convenção de path (store-level → tenant fallback), com template em `07_memory/vault/templates/`; (ii) `bundle.requiredPolicies` é populado pelo planner a partir do playbook. **+10 testes** (4 dispatcher + 5 legal-loader + 1 requiredPolicies).
+
+## Marco anterior — Chefe operacional consolidado (2026-05-26)
+
+Pacote `@cao/orchestration` consolida: capability registry (22 agentes), ContextBundle estendido (9 estados), decision policy, 8 playbooks oficiais, planner rule-based, runner com state machine + checkpoints, writeback safety gate, e **camada jurídica internacional BR/EU/US** (11 regras LGPD+CDC+CONAR+ANVISA, GDPR+CRD+Omnibus, FTC+CCPA/CPRA). CLI `pnpm chief` é o entrypoint operacional do sistema.
+
+| Componente | Local |
+|---|---|
+| Capability registry (22 agentes) | `06_packages/orchestration/src/registry.ts` |
+| Camada jurídica (BR LGPD/CDC/CONAR + EU GDPR/CRD/Omnibus + US FTC/CCPA) | `06_packages/orchestration/src/legal.ts` |
+| ContextBundle + estados (queued/running/blocked_external/awaiting_approval/...) | `06_packages/orchestration/src/bundle.ts` |
+| Policy / guardrails (rota curta vs longa, escalação governance, stop conditions) | `06_packages/orchestration/src/policy.ts` |
+| 8 playbooks oficiais | `06_packages/orchestration/src/playbooks.ts` |
+| Planner rule-based + intent classification | `06_packages/orchestration/src/planner.ts` |
+| Runner com checkpoint/resume | `06_packages/orchestration/src/runner.ts` |
+| Writeback safety gate | `06_packages/orchestration/src/writeback-gate.ts` |
+| CLI principal | `06_packages/orchestration/scripts/chief-cli.ts` → `pnpm chief` |
+| Shell dispatcher real | `06_packages/orchestration/src/dispatcher.ts` |
+| Legal-profile auto-loader | `06_packages/orchestration/src/legal-loader.ts` |
+| Template legal-profile | `07_memory/vault/templates/legal-profile.example.json` (+ README) |
 
 ---
 

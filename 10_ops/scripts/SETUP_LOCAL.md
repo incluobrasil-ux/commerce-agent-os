@@ -8,7 +8,7 @@ Guia mínimo para clonar e rodar este repo em outro PC. ≤ 5 min do clone ao pr
 
 | Ferramenta | Versão mínima | Verificar | Instalar |
 |---|---|---|---|
-| Node.js | 20 | `node --version` | nvm / volta / fnm |
+| Node.js | 22 | `node --version` | nvm / volta / fnm |
 | pnpm | 9 | `pnpm --version` | `npm i -g pnpm@9` ou `corepack enable` |
 | Git | qualquer recente | `git --version` | |
 | gitleaks | 8+ | `gitleaks version` | Windows: `winget install gitleaks` · macOS: `brew install gitleaks` · Linux: `scoop install gitleaks` ou binário oficial |
@@ -32,6 +32,28 @@ pnpm doctor
 # Se tudo verde: pronto. Primeiro agente real (zero credencial):
 pnpm audit:repo .
 ```
+
+## Rodar o Chefe (`pnpm chief`) — uso operacional
+
+```bash
+# Plan-only — entende intent, escolhe playbook, mostra rota:
+pnpm chief --tenant=incluo --store=main --objective="auditar catálogo"
+
+# Com jurisdição + perfil legal (avaliação regulatória BR/EU/US):
+pnpm chief --tenant=incluo --store=main --objective="aplicar fix" \
+  --jurisdictions=BR --legal-profile=07_memory/vault/tenants/incluo/stores/main/legal-profile.json
+# Auto-load: se o profile estiver em tenants/<t>/stores/<s>/legal-profile.json,
+# basta omitir --legal-profile= (template em 07_memory/vault/templates/).
+
+# Resumir um run interrompido:
+pnpm chief --tenant=incluo --resume=run-1717000000000-abc123
+```
+
+Default: `plan-only` (não despacha steps). Adicione `--execute` para o runner despachar e fazer checkpoints no vault.
+
+**Para uso multi-loja:** o Chefe respeita isolamento por `--store=<id>`. Sem `--store`, opera em escopo tenant. Para writeback, `--store` é obrigatório (gate de segurança).
+
+**Camada jurídica:** mercados BR / EU / US-CA / US-FED suportados na matrix `@cao/orchestration/legal`. Sem `--legal-profile`, o Chefe ainda roda (assume "trust-the-operator") mas writeback sensível é bloqueado.
 
 ## Passo a passo (completo, se quiser ir até LLM real)
 
@@ -111,6 +133,7 @@ Pilot completo (merchant:audit) em [COMMANDS.md](./COMMANDS.md) seção "Multi-t
 ## Setup local do operador (não é parte do repo)
 
 - **`.agents/` e `skills-lock.json`** ficam gitignored. Se você usar `caveman` ou outro skill manager local, esses arquivos aparecem na sua working tree mas não vão pro repo. Configure no seu PC sem afetar o time.
+- **`prompt-master`** (Claude skill auxiliar para escrever prompts) — instalação user-level opcional em `~/.claude/skills/`. Não é dependência do core. Detalhe em [PROMPT_MASTER.md](./PROMPT_MASTER.md).
 
 ## Problemas comuns
 
@@ -135,3 +158,5 @@ Depois do setup verde:
 Lista completa de comandos: [`COMMANDS.md`](./COMMANDS.md).
 
 Para abrir o cérebro no Obsidian: `File → Open vault → 07_memory/vault/`. Pasta `_template/` tem exemplo; `projects/commerce-agent-os/` é o cérebro de desenvolvimento; `tenants/<id>/` aparece quando você rodar agentes com `--tenant=<id>`.
+
+**Visão principal recomendada:** abrir `projects/commerce-agent-os/operations/operations-map.canvas` (Canvas nativo, sem plugins) — mapa visual com Chefe, Mesa de Comando, Painel, Motor, Terminais. Aliases ativos (`Ctrl+O` aceita "Chefe", "Radar", "Painel" etc.). Detalhe em `07_memory/vault/projects/commerce-agent-os/operations/README.md`.

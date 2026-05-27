@@ -1,15 +1,31 @@
 # vault/
 
-Raiz de memória. **3 tipos** de pasta filha — não misturar.
+Raiz de memória do projeto.
+
+> **PARA ABRIR NO OBSIDIAN:** `File → Open vault → Open folder as vault` → apontar para esta pasta (`07_memory/vault/`). **NÃO abra a raiz do monorepo** — o Obsidian indexaria 350+ arquivos `.md` técnicos (READMEs de packages, ADRs, AGENT.md, relatórios) e o grafo vira ruído. O cérebro real só vive aqui dentro.
+>
+> Se você já abriu a raiz e está vendo um grafo com órbitas "soltas" ao redor do cluster central — não é bug. São docs técnicas/ADRs/READMEs do código. Feche esse vault e abra só `07_memory/vault/`.
+
+**4 tipos** de pasta filha — não misturar.
 
 ## Layout
 
 ```
 vault/
+├─ README.md                     # este arquivo
 ├─ _template/                    # estrutura canônica para provisionar tenants
+├─ templates/                    # templates compartilhados (versionados)
+│  ├─ legal-profile.example.json # template do StoreLegalProfile por loja
+│  └─ legal-profile.README.md    # como configurar
+├─ global/                       # cérebro cross-projeto (versionado)
+│  ├─ README.md
+│  ├─ current-state.md
+│  ├─ decision-index.md
+│  ├─ workstreams.md
+│  └─ run-summaries/index.md
 ├─ projects/
-│  └─ commerce-agent-os/         # cérebro operacional (commitado em git)
-│     ├─ project-home.md         #   entrada do cérebro
+│  └─ commerce-agent-os/         # cérebro do projeto (versionado)
+│     ├─ project-home.md         #   entrada do cérebro — comece aqui
 │     ├─ current-state.md        #   snapshot curto agora
 │     ├─ ops-brief.md            #   semáforos + 3 focos
 │     ├─ workstreams.md          #   trilhas paralelas (W1–W8)
@@ -26,13 +42,18 @@ vault/
 │        ├─ _template.md         #   esqueleto fillable
 │        ├─ index.md             #   catálogo dos resumos
 │        └─ <date>-<kind>-<slug>.md   …
-└─ <tenant_id>/                  # memória runtime de loja Shopify (NÃO commitado)
-   ├─ facts/
-   ├─ working/
-   ├─ voc/
-   ├─ competitor-benchmark/
-   └─ audit/                     # append-only
+└─ tenants/                      # memória runtime por loja Shopify (NÃO commitado)
+   └─ <tenant_id>/[stores/<store_id>/]
+      ├─ legal-profile.json      #   cópia do template, editado por loja
+      ├─ facts/
+      ├─ working/
+      ├─ voc/
+      ├─ competitor-benchmark/
+      ├─ audit/                  #   append-only
+      └─ runs/<runId>.json       #   checkpoints do pnpm chief --execute
 ```
+
+**Templates standalone (`_template/`, `templates/`)** ficam desconectados do grafo principal — isto é correto, não é bug.
 
 ## `projects/` — cérebro operacional
 

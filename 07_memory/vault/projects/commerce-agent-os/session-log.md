@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-27T17:55:00Z
+updated_at: 2026-05-27T18:30:00Z
 tags: [log, sessions]
 source: human:incluobrasil
 confidence: 1.0
@@ -24,6 +24,12 @@ confidence: 1.0
 ```
 
 ---
+
+## 2026-05-27 (correção do vault Obsidian — project-home e ops-brief atualizados, README do vault esclarecido)
+
+- Feito: usuário relatou grafo do Obsidian com "orbes flutuantes" — diagnóstico: vault apontado para a raiz do repo (351 .md) em vez de `07_memory/vault/` (76 .md). Órbitas são docs técnicas (AGENT.md, ADRs, READMEs de packages, audits) que NÃO devem ser conectadas ao cérebro. Correções aplicadas no cérebro real: **(1)** `07_memory/vault/README.md` ganhou nota destacada no topo "PARA ABRIR NO OBSIDIAN: aponte para esta pasta, não a raiz do repo" + layout expandido para mostrar `templates/` e `global/` (existiam mas faltavam no doc) + nota explícita que templates standalone ficam desconectados por design. **(2)** `project-home.md` atualizado (estava de 2026-05-23, dizia "0 agentes reais" e "sub-fase 2.2→2.3"): agora reflete 22 agentes catalogados / 20 REAL_EXECUTABLE, Chefe OS consolidado, 8 playbooks, camada legal BR/EU/US, dispatcher real, 378 testes verdes, branch 6 commits ahead. **(3)** `ops-brief.md` atualizado (estava de 2026-05-24, citava "4 agentes reais" + "59 testes"): semáforos refletem realidade atual incluindo `@cao/orchestration` 🟢, `pnpm chief` CLI 🟢, camada legal 🟢, marcos cumulativos até 2026-05-27 + 3 focos atuais (N29 legal-profile por loja, N27/B6 token Shopify, N28 exit code 3).
+- Resultado: green. NADA tocado em docs técnicas (regra rígida respeitada): zero AGENT.md, zero ADRs, zero READMEs de packages, zero relatórios standalone alterados. Suíte 378/42 mantida. Doctor 10🟢/0🟡/0🔴.
+- Próximo: usuário fecha o vault atual no Obsidian e abre `07_memory/vault/` como vault. Aí o grafo limita aos 76 nós reais do cérebro + órbitas legítimas (templates, _template, run-summaries individuais com frontmatter `related:` mas sem wikilinks).
 
 ## 2026-05-27 (prompt-master integrado como skill auxiliar opcional)
 

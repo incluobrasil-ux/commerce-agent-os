@@ -187,6 +187,7 @@ Variáveis de ambiente: [`.env.example`](./.env.example) (copiar para `.env.loca
 | Protocolo multi-operador | [`07_memory/vault/projects/commerce-agent-os/sync-protocol.md`](./07_memory/vault/projects/commerce-agent-os/sync-protocol.md) |
 | Qual arquivo é autoridade | [`07_memory/vault/projects/commerce-agent-os/source-of-truth.md`](./07_memory/vault/projects/commerce-agent-os/source-of-truth.md) |
 | Entrada do cérebro | [`07_memory/vault/projects/commerce-agent-os/project-home.md`](./07_memory/vault/projects/commerce-agent-os/project-home.md) |
+| Abrir cérebro no Obsidian | `File → Open vault → Open folder as vault` → apontar para `07_memory/vault/` (**não** a raiz do repo — ver [`07_memory/vault/README.md`](./07_memory/vault/README.md)) |
 | Setup local em outro PC | [`10_ops/scripts/SETUP_LOCAL.md`](./10_ops/scripts/SETUP_LOCAL.md) |
 | Lista de comandos | [`10_ops/scripts/COMMANDS.md`](./10_ops/scripts/COMMANDS.md) |
 

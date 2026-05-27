@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-27T19:00:00Z
+updated_at: 2026-05-27T19:30:00Z
 tags: [log, sessions]
 source: human:incluobrasil
 confidence: 1.0
@@ -24,6 +24,12 @@ confidence: 1.0
 ```
 
 ---
+
+## 2026-05-27 (Canvas refeito — text nodes em vez de file nodes, layout limpo)
+
+- Feito: primeira versão do Canvas (commit `9411919`) usou `type:"file"` em todos os 11 cards principais — isso fez o Obsidian renderizar cada card com header + botões de view-mode interno, e quando o vault está apontado errado (ou path relativo não resolve) aparecia "arquivo não encontrado" no card. Refeito: **(1)** todos os 11 cards principais migrados para `type:"text"` com markdown autocontido + link `[[nota]]` interno para detalhes — cards ficam limpos, sem botões internos, sem risco de "não encontrado" visível na superfície. **(2)** Reduzido de 11 edges para 6 (só conexões essenciais ao Chefe: painel→chefe→{mesa, motor, radar}, motor→{det, llm}). **(3)** Layout grid 3x3 mais espaçado (cards 360x220, gaps 100px). **(4)** Removidos 4 nodes de "grupo" que viraram ruído (Orquestração/Execução/Terminais/Suporte) — substituídos por organização visual implícita em colunas + 1 rodapé combinando Guia e Oficina (suporte) sem inflar. **(5)** Apagados 2 canvases "Sem título" que o usuário criou ao testar.
+- Resultado: green. Cards autocontidos, sem dependência de path resolution. 11 notas-espelho preservadas para `Ctrl+O`. Suíte 378/42 mantida.
+- Próximo: usuário recarrega Canvas no Obsidian (pode precisar fechar/reabrir). Layout visual deve estar limpo e bonito.
 
 ## 2026-05-27 (camada visual operacional — Canvas + 11 notas-espelho + 11 SVGs + aliases amigáveis)
 

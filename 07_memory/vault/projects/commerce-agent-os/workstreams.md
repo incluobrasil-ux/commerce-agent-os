@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-27T00:55:00Z
+updated_at: 2026-05-27T17:55:00Z
 tags: [workstreams, parallel-tracks]
 source: mixed
 confidence: 1.0
@@ -104,13 +104,13 @@ confidence: 1.0
 | | |
 |---|---|
 | Status | 🟢 |
-| Escopo | `07_memory/` (este cérebro + vault tenants), `10_ops/` (runbooks, security, scripts), políticas de retenção, secret manager. |
-| Último marco | Cérebro operacional v1 estruturado para multi-operador |
+| Escopo | `07_memory/` (este cérebro + vault tenants), `10_ops/` (runbooks, security, scripts), políticas de retenção, secret manager, ferramentas auxiliares de operador (`prompt-master` opcional). |
+| Último marco | Cérebro operacional v1 estruturado para multi-operador + `prompt-master` documentado como skill auxiliar user-level (2026-05-27). |
 | Próximo marco | uso real do protocolo em ≥ 2 sessões de operadores diferentes + 1 handoff funcional |
 | Dono sugerido | ops |
 | Depende de | — |
 | Itens ativos | — (manutenção contínua) |
-| Refs | [project-home.md](project-home.md), [sync-protocol.md](sync-protocol.md), [source-of-truth.md](source-of-truth.md) |
+| Refs | [project-home.md](project-home.md), [sync-protocol.md](sync-protocol.md), [source-of-truth.md](source-of-truth.md), [PROMPT_MASTER.md](../../../../10_ops/scripts/PROMPT_MASTER.md) |
 
 ## W8 — Security / QA / Hardening
 

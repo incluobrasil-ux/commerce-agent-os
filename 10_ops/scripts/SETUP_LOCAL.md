@@ -133,6 +133,7 @@ Pilot completo (merchant:audit) em [COMMANDS.md](./COMMANDS.md) seção "Multi-t
 ## Setup local do operador (não é parte do repo)
 
 - **`.agents/` e `skills-lock.json`** ficam gitignored. Se você usar `caveman` ou outro skill manager local, esses arquivos aparecem na sua working tree mas não vão pro repo. Configure no seu PC sem afetar o time.
+- **`prompt-master`** (Claude skill auxiliar para escrever prompts) — instalação user-level opcional em `~/.claude/skills/`. Não é dependência do core. Detalhe em [PROMPT_MASTER.md](./PROMPT_MASTER.md).
 
 ## Problemas comuns
 

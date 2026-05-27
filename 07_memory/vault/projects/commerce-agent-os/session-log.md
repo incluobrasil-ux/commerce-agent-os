@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-27T17:40:00Z
+updated_at: 2026-05-27T17:55:00Z
 tags: [log, sessions]
 source: human:incluobrasil
 confidence: 1.0
@@ -24,6 +24,12 @@ confidence: 1.0
 ```
 
 ---
+
+## 2026-05-27 (prompt-master integrado como skill auxiliar opcional)
+
+- Feito: pesquisado `nidhinjs/prompt-master` (8.4k stars, MIT, **só markdown** — `LICENSE` + `README.md` + `SKILL.md` v1.6.0 + `references/`, 108KB, zero código executável, zero deps). Decisão: tratar como **ferramenta auxiliar de operador**, não dependência do core — alinhado com regra rígida da spec. Instalado user-level via `git clone https://github.com/nidhinjs/prompt-master.git ~/.claude/skills/prompt-master` (commit `7a02ddd`). **Repo do projeto inalterado** após instalação — `package.json`, `pnpm doctor`, lint, test, typecheck não tocados. Criada doc curta `10_ops/scripts/PROMPT_MASTER.md` (papel, instalação, quando usar, limites, desinstalação, distribuição alternativa). +1 linha em `SETUP_LOCAL.md` (seção "Setup local do operador") e +1 tabela em `COMMANDS.md` ("Ferramentas auxiliares de operador"). Não adicionado ao `package.json`. Não acoplado ao Chefe.
+- Resultado: green. Skill disponível ao operador no Claude Code. Repo continua limpo: working tree afeta só 4 arquivos de doc.
+- Próximo: cada operador do time roda o `git clone` user-level se quiser usar. Se time decidir distribuir via repo no futuro, é só copiar para `.claude/skills/prompt-master/` (caminho documentado em PROMPT_MASTER.md).
 
 ## 2026-05-27 (writeback-gate hardening) — bloqueio por requiredPolicies + workstreams atualizados
 

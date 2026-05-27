@@ -184,6 +184,12 @@ pnpm chief --tenant=incluo-tenant --store=incluo --resume=run-1730000000-abc123
 
 Conventional Commits 1.0.0 obrigatório. Tipos: `feat` `fix` `docs` `chore` `refactor` `test` `build` `ci` `perf` `style`. CI roda em PR: lint + typecheck + smoke + commitlint.
 
+## Ferramentas auxiliares de operador (opcionais, não fazem parte do core)
+
+| Ferramenta | O que é | Como instalar | Doc |
+|---|---|---|---|
+| **`prompt-master`** | Claude skill que escreve/melhora prompts para LLMs antes de você rodar agentes (`marketing:plan`, `creative:assets`, etc.) ou usar `pnpm chief`. | User-level: `git clone https://github.com/nidhinjs/prompt-master.git ~/.claude/skills/prompt-master`. Não toca no repo, não está em `package.json`. | [PROMPT_MASTER.md](./PROMPT_MASTER.md) |
+
 ## Tabela rápida
 
 | Quero… | Comando |

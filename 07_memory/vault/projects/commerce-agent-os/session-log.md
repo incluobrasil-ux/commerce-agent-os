@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-27T21:00:00Z
+updated_at: 2026-05-27T21:15:00Z
 tags: [log, sessions]
 source: human:incluobrasil
 confidence: 1.0
@@ -24,6 +24,12 @@ confidence: 1.0
 ```
 
 ---
+
+## 2026-05-27 (fechamento — 2 bugs de portabilidade descobertos e corrigidos via clone fresh)
+
+- Feito: usuário pediu "feche o projeto + re-instale o repo". Clonado em `~/commerce-agent-os-fresh/` para simular setup de operador novo. **Bug 1 descoberto:** `11_tests/smoke/repo-auditor.smoke.ts` hard-codava `expect(r.repoName).toBe('commerce-agent-os')` — quebrava em clones com nome de pasta diferente. Fix: `toMatch(/commerce-agent-os/)`. Commit `54ec22c`. **Bug 2 descoberto:** 23 scripts em `package.json` usavam `tsx --env-file=.env.local` que falha com exit 9 em Node 24 quando `.env.local` não existe. Fix: trocar para `--env-file-if-exists=` (Node 21.7+) e bump `engines.node >=22` (LTS). Commit `6f537ce`. **Validado em ambos os repos:** original 17/17 smoke + 378 testes; fresh `pnpm chief --tenant=_test` rodando sem `.env.local`, com warnings esperados (`legal-profile: nenhum encontrado`, 2 steps `SKIPPED: missing_credential:anthropic`). Obsidian re-aberto apontando para `~/commerce-agent-os-fresh/07_memory/vault/`.
+- Resultado: green. Branch agora **16 commits ahead** de main. PR #19 atualizado automaticamente. Setup de operador novo agora é robusto a (a) nome de pasta diferente e (b) ausência de `.env.local`.
+- Próximo: operador novo no fresh segue path normal — copia `.env.example` para `.env.local`, preenche o que vai usar, cria seu `legal-profile.json` local em `tenants/<t>/stores/<s>/`, e pronto.
 
 ## 2026-05-27 (N29 parcial — legal-profile.json local para Incluo + validação end-to-end do gate)
 

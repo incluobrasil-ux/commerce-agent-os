@@ -613,6 +613,12 @@ importers:
 
   06_packages/observability: {}
 
+  06_packages/orchestration:
+    dependencies:
+      '@cao/core':
+        specifier: workspace:*
+        version: link:../core
+
   06_packages/runtime:
     dependencies:
       '@cao/core':

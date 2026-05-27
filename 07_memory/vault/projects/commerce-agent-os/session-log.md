@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-26T23:40:00Z
+updated_at: 2026-05-27T00:23:00Z
 tags: [log, sessions]
 source: human:incluobrasil
 confidence: 1.0
@@ -24,6 +24,12 @@ confidence: 1.0
 ```
 
 ---
+
+## 2026-05-27 (entrega) — Branch `feat/orchestrator-os-consolidation` empurrada para equipe
+
+- Feito: sanity check verde (typecheck OK, **366 testes em 40 arquivos**, smoke structure OK, doctor **9🟢/1🟡** — único amarelo é gitleaks fora do PATH, não bloqueia). Commit final de handoff: workspace lock do `@cao/orchestration` (faltava em `pnpm-lock.yaml`) + reformatação cosmética do `run-summaries/index.md` + esta entrada. Push de `feat/orchestrator-os-consolidation` (3 commits ahead de `origin/main`) para o time.
+- Resultado: green. Conteúdo entregue: `@cao/orchestration` (8 módulos + 28 testes) + `pnpm chief` CLI + camada legal BR/EU/US (11 regras hard/soft) + 8 playbooks oficiais + nó do Chefe plugado em session-log/next-actions/index. Equipe puxa com `git fetch && git checkout feat/orchestrator-os-consolidation && pnpm install && pnpm doctor && pnpm chief --help`.
+- Próximo: equipe roda smoke local; Samuel provisiona `SHOPIFY_ADMIN_TOKEN` para destravar N27 (primeiro `pnpm shopify:writeback --apply` real); substituir noopDispatcher do runner por dispatcher que invoca agentes via child_process.
 
 ## 2026-05-26 (madrugada) — `@cao/orchestration` + `pnpm chief` (Chefe operacional consolidado, BR/EU/US)
 

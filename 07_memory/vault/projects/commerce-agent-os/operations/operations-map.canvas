@@ -1,159 +1,23 @@
 {
-  "nodes": [
-    {
-      "id": "header",
-      "type": "text",
-      "text": "# 🗺  Mapa Operacional — `commerce-agent-os`\n\nQuem faz o quê. O **Chefe da Operação** é o centro: recebe objetivo em linguagem natural, decide rota, e despacha agentes.\n\n**Como usar este Canvas:** clique no link `[[…]]` de cada card para abrir a nota com nome técnico, arquivos e comandos. `Ctrl+O` aceita aliases (Chefe, Radar, Painel, Mesa de Comando, Motor, Núcleo, Oficina, Guia, Terminal 1, Terminal 2, Tarefas em Espera).",
-      "x": -700,
-      "y": -560,
-      "width": 1400,
-      "height": 160
-    },
-    {
-      "id": "mesa",
-      "type": "text",
-      "text": "## 🟣 Mesa de Comando\n\nOnde o Chefe consulta a rota. Contém **registry** de 22 agentes, **8 playbooks** oficiais, **planner** (intent → playbook), **runner** (state machine + checkpoint/resume) e o **writeback-gate** quíntuplo.\n\n→ [[mesa-de-comando]]",
-      "x": -640,
-      "y": -340,
-      "width": 360,
-      "height": 220,
-      "color": "6"
-    },
-    {
-      "id": "radar",
-      "type": "text",
-      "text": "## 🟦 Radar da Operação\n\nObserva tudo. Captura runs no vault por tenant/store, mantém audit log de custo e duração, propaga eventos para o cérebro.\n\n→ [[radar-da-operacao]]",
-      "x": -180,
-      "y": -340,
-      "width": 360,
-      "height": 220,
-      "color": "5"
-    },
-    {
-      "id": "nucleo",
-      "type": "text",
-      "text": "## 🔵 Núcleo das Regras\n\nContratos invariantes: branded types multi-tenant, assertions, schemas zod, **camada legal BR/EU/US** (11 regras hard/soft, 9 risk types, 5 decisions).\n\n→ [[nucleo-das-regras]]",
-      "x": 280,
-      "y": -340,
-      "width": 360,
-      "height": 220,
-      "color": "5"
-    },
-    {
-      "id": "painel",
-      "type": "text",
-      "text": "## 🟢 Painel do Operador\n\nInterface humana — 24 CLIs `pnpm <verb>:<noun>` + entrypoint principal `pnpm chief`. Onde o humano digita o objetivo.\n\n→ [[painel-do-operador]]",
-      "x": -640,
-      "y": -60,
-      "width": 360,
-      "height": 220,
-      "color": "4"
-    },
-    {
-      "id": "chefe",
-      "type": "text",
-      "text": "# 🟡 Chefe da Operação\n\n**Centro de comando.** Recebe objetivo NL, classifica intent, escolhe playbook, avalia camada legal, monta rota, despacha agentes, registra checkpoint.\n\n**Técnico:** `orchestrator-master` + `@cao/orchestration` · CLI: `pnpm chief`\n\n→ [[chefe-da-operacao]]",
-      "x": -180,
-      "y": -60,
-      "width": 360,
-      "height": 260,
-      "color": "3"
-    },
-    {
-      "id": "motor",
-      "type": "text",
-      "text": "## 🟧 Motor dos Agentes\n\nExecuta cada agente individual com guardrails, validação zod, PII/secret check, audit log, cost tracking. É o \"como\" da execução.\n\n→ [[motor-dos-agentes]]",
-      "x": 280,
-      "y": -60,
-      "width": 360,
-      "height": 220,
-      "color": "2"
-    },
-    {
-      "id": "terminal-det",
-      "type": "text",
-      "text": "## 🟢 Terminal Determinístico\n\nAgentes **sem LLM**: previsíveis, gratuitos, sem credencial. Auditoria, scoring, validação.\n\n`repo-auditor` · `catalog-feed-ops` · `audit-synthesizer` (det)\n\n→ [[terminal-deterministico]]",
-      "x": -640,
-      "y": 240,
-      "width": 360,
-      "height": 220,
-      "color": "4"
-    },
-    {
-      "id": "terminal-llm",
-      "type": "text",
-      "text": "## 🟪 Terminal LLM\n\n17 agentes Claude (Tier-2+): marketing, criativo, design, oferta, compliance, traffic, journey. Exige `ANTHROPIC_API_KEY`.\n\n→ [[terminal-llm]]",
-      "x": 280,
-      "y": 240,
-      "width": 360,
-      "height": 220,
-      "color": "6"
-    },
-    {
-      "id": "tarefas",
-      "type": "text",
-      "text": "## 🔴 Tarefas em Espera\n\nO que está parado esperando ação externa.\n\n- **N27** writeback real (token Shopify)\n- **N28** exit code 3 nos LLMs (bulk)\n- **N29** legal-profile.json por loja\n- **B6** `SHOPIFY_ADMIN_TOKEN`\n\n→ [[tarefas-em-espera]]",
-      "x": -180,
-      "y": 240,
-      "width": 360,
-      "height": 220,
-      "color": "1"
-    },
-    {
-      "id": "footer",
-      "type": "text",
-      "text": "### Suporte (não fazem parte do fluxo de execução)\n\n**🩷 Guia da Equipe** → [[guia-da-equipe]] · onboarding + docs\n\n**🩶 Oficina Técnica** → [[oficina-tecnica]] · build/CI/QA (biome, tsc, vitest, gitleaks)\n\n---\n\n**Convenção:** nomes amigáveis são `aliases` no frontmatter das notas — nenhum arquivo de código foi renomeado. Detalhe em [[README]] · Voltar: [[../project-home|Project Home]].",
-      "x": -700,
-      "y": 540,
-      "width": 1400,
-      "height": 180
-    }
-  ],
-  "edges": [
-    {
-      "id": "e-painel-chefe",
-      "fromNode": "painel",
-      "fromSide": "right",
-      "toNode": "chefe",
-      "toSide": "left",
-      "label": "objetivo NL"
-    },
-    {
-      "id": "e-chefe-mesa",
-      "fromNode": "chefe",
-      "fromSide": "top",
-      "toNode": "mesa",
-      "toSide": "bottom",
-      "label": "consulta"
-    },
-    {
-      "id": "e-chefe-motor",
-      "fromNode": "chefe",
-      "fromSide": "right",
-      "toNode": "motor",
-      "toSide": "left",
-      "label": "despacha"
-    },
-    {
-      "id": "e-chefe-radar",
-      "fromNode": "chefe",
-      "fromSide": "top",
-      "toNode": "radar",
-      "toSide": "bottom"
-    },
-    {
-      "id": "e-motor-llm",
-      "fromNode": "motor",
-      "fromSide": "bottom",
-      "toNode": "terminal-llm",
-      "toSide": "top"
-    },
-    {
-      "id": "e-motor-det",
-      "fromNode": "motor",
-      "fromSide": "bottom",
-      "toNode": "terminal-det",
-      "toSide": "top"
-    }
-  ]
+	"nodes":[
+		{"id":"header","type":"text","text":"# 🗺  Mapa Operacional — `commerce-agent-os`\n\nQuem faz o quê. O **Chefe da Operação** é o centro: recebe objetivo em linguagem natural, decide rota, e despacha agentes.\n\n**Como usar este Canvas:** clique no link `[[…]]` de cada card para abrir a nota com nome técnico, arquivos e comandos. `Ctrl+O` aceita aliases (Chefe, Radar, Painel, Mesa de Comando, Motor, Núcleo, Oficina, Guia, Terminal 1, Terminal 2, Tarefas em Espera).","x":-700,"y":-560,"width":1400,"height":160},
+		{"id":"mesa","type":"text","text":"## 🟣 Mesa de Comando\n\nOnde o Chefe consulta a rota. Contém **registry** de 22 agentes, **8 playbooks** oficiais, **planner** (intent → playbook), **runner** (state machine + checkpoint/resume) e o **writeback-gate** quíntuplo.\n\n→ [[mesa-de-comando]]","x":-640,"y":-340,"width":360,"height":220,"color":"6"},
+		{"id":"radar","type":"text","text":"## 🟦 Radar da Operação\n\nObserva tudo. Captura runs no vault por tenant/store, mantém audit log de custo e duração, propaga eventos para o cérebro.\n\n→ [[radar-da-operacao]]","x":-180,"y":-340,"width":360,"height":220,"color":"5"},
+		{"id":"nucleo","type":"text","text":"## 🔵 Núcleo das Regras\n\nContratos invariantes: branded types multi-tenant, assertions, schemas zod, **camada legal BR/EU/US** (11 regras hard/soft, 9 risk types, 5 decisions).\n\n→ [[nucleo-das-regras]]","x":280,"y":-340,"width":360,"height":220,"color":"5"},
+		{"id":"painel","type":"text","text":"## 🟢 Painel do Operador\n\nInterface humana — 24 CLIs `pnpm <verb>:<noun>` + entrypoint principal `pnpm chief`. Onde o humano digita o objetivo.\n\n→ [[painel-do-operador]]","x":-640,"y":-60,"width":360,"height":220,"color":"4"},
+		{"id":"chefe","type":"text","text":"# 🟡 Chefe da Operação\n\n**Centro de comando.** Recebe objetivo NL, classifica intent, escolhe playbook, avalia camada legal, monta rota, despacha agentes, registra checkpoint.\n\n**Técnico:** `orchestrator-master` + `@cao/orchestration` · CLI: `pnpm chief`\n\n→ [[chefe-da-operacao]]","x":-180,"y":-60,"width":360,"height":260,"color":"3"},
+		{"id":"motor","type":"text","text":"## 🟧 Motor dos Agentes\n\nExecuta cada agente individual com guardrails, validação zod, PII/secret check, audit log, cost tracking. É o \"como\" da execução.\n\n→ [[motor-dos-agentes]]","x":280,"y":-60,"width":360,"height":220,"color":"2"},
+		{"id":"terminal-det","type":"text","text":"## 🟢 Terminal Determinístico\n\nAgentes **sem LLM**: previsíveis, gratuitos, sem credencial. Auditoria, scoring, validação.\n\n`repo-auditor` · `catalog-feed-ops` · `audit-synthesizer` (det)\n\n→ [[terminal-deterministico]]","x":-640,"y":240,"width":360,"height":220,"color":"4"},
+		{"id":"terminal-llm","type":"text","text":"## 🟪 Terminal LLM\n\n17 agentes Claude (Tier-2+): marketing, criativo, design, oferta, compliance, traffic, journey. Exige `ANTHROPIC_API_KEY`.\n\n→ [[terminal-llm]]","x":280,"y":240,"width":360,"height":220,"color":"6"},
+		{"id":"tarefas","type":"text","text":"## 🔴 Tarefas em Espera\n\nO que está parado esperando ação externa.\n\n- **N27** writeback real (token Shopify)\n- **N28** exit code 3 nos LLMs (bulk)\n- **N29** legal-profile.json por loja\n- **B6** `SHOPIFY_ADMIN_TOKEN`\n\n→ [[tarefas-em-espera]]","x":-180,"y":240,"width":360,"height":220,"color":"1"},
+		{"id":"footer","type":"text","text":"### Suporte (não fazem parte do fluxo de execução)\n\n**🩷 Guia da Equipe** → [[guia-da-equipe]] · onboarding + docs\n\n**🩶 Oficina Técnica** → [[oficina-tecnica]] · build/CI/QA (biome, tsc, vitest, gitleaks)\n\n---\n\n**Convenção:** nomes amigáveis são `aliases` no frontmatter das notas — nenhum arquivo de código foi renomeado. Detalhe em [[README]] · Voltar: [[../project-home|Project Home]].","x":-700,"y":540,"width":1400,"height":180}
+	],
+	"edges":[
+		{"id":"e-painel-chefe","fromNode":"painel","fromSide":"right","toNode":"chefe","toSide":"left","label":"objetivo NL"},
+		{"id":"e-chefe-mesa","fromNode":"chefe","fromSide":"top","toNode":"mesa","toSide":"bottom","label":"consulta"},
+		{"id":"e-chefe-motor","fromNode":"chefe","fromSide":"right","toNode":"motor","toSide":"left","label":"despacha"},
+		{"id":"e-chefe-radar","fromNode":"chefe","fromSide":"top","toNode":"radar","toSide":"bottom"},
+		{"id":"e-motor-llm","fromNode":"motor","fromSide":"bottom","toNode":"terminal-llm","toSide":"top"},
+		{"id":"e-motor-det","fromNode":"motor","fromSide":"bottom","toNode":"terminal-det","toSide":"top"}
+	]
 }

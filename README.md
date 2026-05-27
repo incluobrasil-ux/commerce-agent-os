@@ -2,7 +2,7 @@
 
 Sistema operacional de **agentes especializados** para lojistas Shopify — automação de catálogo, feed Google Merchant, marketing, reviews e analytics, sob runtime + memória + guardrails comuns.
 
-> ⚙️ **Estado do projeto (2026-05-26):** núcleo `@cao/*` + **20 agentes reais executáveis** (de 22 catalogados) + **multi-tenant/multi-store hardening** + **Chefe operacional `pnpm chief`** com capability registry, 8 playbooks, planner rule-based, runner com checkpoints, writeback safety gate e **camada jurídica BR/EU/US**. **Suíte: 366 testes em 40 arquivos.** Pipeline Merchant audit + dry-run end-to-end funciona local com fixture/JSON. **Não é produto** — runs reais Shopify/Anthropic/GMC dependem de credenciais externas.
+> ⚙️ **Estado do projeto (2026-05-27):** núcleo `@cao/*` + **20 agentes reais executáveis** (de 22 catalogados) + **multi-tenant/multi-store hardening** + **Chefe operacional `pnpm chief`** com capability registry, 8 playbooks, planner rule-based, runner com checkpoints (dispatcher real via child_process), writeback safety gate quíntuplo (token+scope+`requiredPolicies`+legal+human approval) e **camada jurídica BR/EU/US** com auto-load de `legal-profile.json` do vault. Mapa visual operacional no Obsidian (`07_memory/vault/projects/commerce-agent-os/operations/operations-map.canvas`). **Suíte: 378 testes em 42 arquivos.** Pipeline Merchant audit + dry-run end-to-end funciona local com fixture/JSON. **Não é produto** — runs reais Shopify/Anthropic/GMC dependem de credenciais externas.
 
 ## TL;DR — usar como OS
 

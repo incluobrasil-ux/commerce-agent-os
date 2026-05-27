@@ -378,4 +378,44 @@ describe('writeback gate', () => {
     expect(r.allow).toBe(false);
     expect(r.effectiveMode).toBe('dry-run');
   });
+
+  it('bloqueia quando requiredPolicies do bundle estão ausentes no profile', () => {
+    const bundleWithReqs = {
+      ...baseBundle,
+      requiredPolicies: ['privacy' as const, 'refund' as const, 'contact' as const],
+    };
+    const r = gateWriteback({
+      bundle: bundleWithReqs,
+      legalProfile: {
+        ...baseProfile,
+        jurisdictions: [...baseProfile.jurisdictions],
+        // profile só tem privacy e refund — falta contact
+        existingPolicies: [
+          { type: 'privacy' as const, url: 'x' },
+          { type: 'refund' as const, url: 'x' },
+        ],
+      },
+      operation: 'pdp_update',
+      hasShopifyToken: true,
+      humanApproved: true,
+    });
+    expect(r.allow).toBe(false);
+    expect(r.effectiveMode).toBe('blocked');
+    expect(r.reasons[0]).toContain('contact');
+  });
+
+  it('permite quando todas as requiredPolicies estão no profile', () => {
+    const bundleWithReqs = {
+      ...baseBundle,
+      requiredPolicies: ['privacy' as const, 'refund' as const],
+    };
+    const r = gateWriteback({
+      bundle: bundleWithReqs,
+      legalProfile: { ...baseProfile, jurisdictions: [...baseProfile.jurisdictions] },
+      operation: 'price_update',
+      hasShopifyToken: true,
+      humanApproved: true,
+    });
+    expect(r.allow).toBe(true);
+  });
 });

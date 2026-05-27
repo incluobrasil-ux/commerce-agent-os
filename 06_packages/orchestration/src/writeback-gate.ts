@@ -34,11 +34,12 @@ export interface WritebackGateResult {
  * Regras (em ordem):
  * 1. Sem token Shopify → blocked.
  * 2. Bundle.executionScope ≠ 'store' → blocked.
- * 3. Profile não autoriza sensitive writeback → dry-run only.
- * 4. Legal evaluation = blocked_* → blocked.
- * 5. requiresHumanApproval e !humanApproved → blocked com motivo.
- * 6. allowed_with_warnings → permite mas anota.
- * 7. allowed → permite.
+ * 3. requiredPolicies do bundle ausentes em existingPolicies do profile → blocked.
+ * 4. Profile não autoriza sensitive writeback → dry-run only.
+ * 5. Legal evaluation = blocked_* → blocked.
+ * 6. requiresHumanApproval e !humanApproved → blocked com motivo.
+ * 7. allowed_with_warnings → permite mas anota.
+ * 8. allowed → permite.
  */
 export function gateWriteback(input: WritebackGateInput): WritebackGateResult {
   const reasons: string[] = [];
@@ -57,6 +58,20 @@ export function gateWriteback(input: WritebackGateInput): WritebackGateResult {
       allow: false,
       effectiveMode: 'blocked',
       reasons: [`executionScope=${input.bundle.executionScope} (writeback exige store)`],
+      legalFindings: [],
+    };
+  }
+
+  // Required policies do playbook precisam estar declaradas no profile.
+  // Evita writeback em loja que não publicou política mínima (privacy/refund/etc).
+  const missingPolicies = findMissingRequiredPolicies(input.bundle, input.legalProfile);
+  if (missingPolicies.length > 0) {
+    return {
+      allow: false,
+      effectiveMode: 'blocked',
+      reasons: [
+        `Playbook exige políticas ausentes no legal-profile: ${missingPolicies.join(', ')}`,
+      ],
       legalFindings: [],
     };
   }
@@ -118,4 +133,13 @@ function isSensitive(op: OperationType): boolean {
     op === 'subscription_or_trial_setup' ||
     op === 'review_publication'
   );
+}
+
+function findMissingRequiredPolicies(
+  bundle: OrchestrationBundle,
+  profile: StoreLegalProfile,
+): string[] {
+  if (bundle.requiredPolicies.length === 0) return [];
+  const existing = new Set(profile.existingPolicies.map((p) => p.type));
+  return bundle.requiredPolicies.filter((req) => !existing.has(req));
 }

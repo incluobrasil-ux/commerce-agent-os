@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-26T23:40:00Z
+updated_at: 2026-05-27T17:40:00Z
 tags: [next-actions]
 source: mixed
 confidence: 1.0
@@ -74,6 +74,27 @@ Análise consolidada: [run-summary 2026-05-26-impl-milestone-n20-2-and-gmc-fixes
 - **Critério de aceite:** audit log com `applied > 0` + `descriptionHtml` alterado no admin Shopify + run-summary criado.
 - **Quem puxa:** Samuel (precisa do token) + jurídico (precisa do go).
 - **Detalhe técnico:** [run-summary](run-summaries/2026-05-26-impl-milestone-shopify-writeback-minimal.md).
+
+### N28 — Adotar exit code 3 (SKIPPED gracioso) nos 17 agentes LLM
+
+- **Motivo:** dispatcher do Chefe (`makeShellDispatcher`) mapeia exit code → `StageStatus`: `0=completed`, `3=skipped_gracefully`, `2=failed_terminal`, * = `failed_recoverable`. Hoje só `catalog-feed-ops/audit-cli.ts` segue. Os 17 agentes LLM saem com `0` mesmo quando `ANTHROPIC_API_KEY` ausente (com log "SKIPPED"). Dispatcher os marca como `completed`, perdendo precisão no bundle.
+- **Trabalho:** padrão `if (!hasAnthropicKey) { console.error('SKIPPED: missing ANTHROPIC_API_KEY'); process.exit(3); }` no entry-point de cada `*-cli.ts`.
+- **Risco:** baixo se feito 1 agente por vez; bulk via PowerShell substitution arrisca regressão silenciosa. Recomenda-se 17 PRs pequenos OU 1 PR + smoke test que verifica exit code de cada CLI sem key.
+- **Critério de aceite:** `pnpm chief --execute` sem `ANTHROPIC_API_KEY` mostra steps como `skipped_gracefully` em vez de `completed`.
+
+### N29 — Cada loja real precisa de `legal-profile.json` próprio
+
+- **Motivo:** writeback-gate agora bloqueia se `bundle.requiredPolicies` (vindas do playbook) não estiverem em `legal-profile.existingPolicies`. Sem o profile, o gate só sabe ler defaults conservadores. Cada store real precisa declarar mercados/políticas/identidade.
+- **Trabalho operacional (não código):**
+  ```
+  cp 07_memory/vault/templates/legal-profile.example.json \
+     07_memory/vault/tenants/<tenantId>/stores/<storeId>/legal-profile.json
+  # editar: jurisdictions, primaryLocale, primaryCurrency,
+  # existingPolicies, consentRegime, companyIdentity,
+  # allowsSensitiveWriteback
+  ```
+- **Quem puxa:** ops de cada loja. Para Incluo: usar template BR + CNPJ Incluo + URLs reais das políticas Shopify.
+- **Detalhe:** [template README](../../templates/legal-profile.README.md).
 
 ### ✅ Sub-fase 2.6 writeback minimal concluído (2026-05-26)
 

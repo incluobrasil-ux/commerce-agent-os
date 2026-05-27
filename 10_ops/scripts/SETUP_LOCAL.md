@@ -42,6 +42,8 @@ pnpm chief --tenant=incluo --store=main --objective="auditar catálogo"
 # Com jurisdição + perfil legal (avaliação regulatória BR/EU/US):
 pnpm chief --tenant=incluo --store=main --objective="aplicar fix" \
   --jurisdictions=BR --legal-profile=07_memory/vault/tenants/incluo/stores/main/legal-profile.json
+# Auto-load: se o profile estiver em tenants/<t>/stores/<s>/legal-profile.json,
+# basta omitir --legal-profile= (template em 07_memory/vault/templates/).
 
 # Resumir um run interrompido:
 pnpm chief --tenant=incluo --resume=run-1717000000000-abc123

@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-27T00:50:00Z
+updated_at: 2026-05-27T17:40:00Z
 tags: [log, sessions]
 source: human:incluobrasil
 confidence: 1.0
@@ -24,6 +24,12 @@ confidence: 1.0
 ```
 
 ---
+
+## 2026-05-27 (writeback-gate hardening) — bloqueio por requiredPolicies + workstreams atualizados
+
+- Feito: re-auditado o estado pós-`501bcfc`; confirmado que as 15 fases da nova spec já estavam entregues nos 4 commits anteriores. Atacado 1 gap real residual: writeback-gate (`gateWriteback`) agora verifica se `bundle.requiredPolicies` (vindas do playbook, populadas em `501bcfc`) estão em `legalProfile.existingPolicies` — se faltam, retorna `effectiveMode=blocked` com lista das ausentes. Antes do legal evaluation, depois do scope check. +2 testes (orchestration: 38→40; suite total: 376→378). Atualizado workstreams.md (W2 estava listando N26 como pendente, mudei para refletir Chefe consolidado + próximos blocos N28/N29; W3 estava ⚪ "scaffolds", mudei para 🟡 com Sub-fase 2.6 + 50 mutations aplicadas em Incluo). Adicionados N28 (exit code 3 nos 17 LLMs) e N29 (legal-profile por loja) no next-actions. Pequena nota em SETUP_LOCAL sobre auto-load do profile.
+- Resultado: green. typecheck OK, lint OK, **378 testes em 42 arquivos** (+2). Smoke 17/17.
+- Próximo: N28 (exit code 3, 17 agentes LLM, melhor 1-a-1) + N29 (legal-profile.json para Incluo + outras lojas reais) + N27 (primeiro --apply real, ainda bloqueado por SHOPIFY_ADMIN_TOKEN).
 
 ## 2026-05-27 (consolidação OS) — Dispatcher real do Chefe + legal-loader auto
 

@@ -2,6 +2,8 @@
 
 Raiz de memória do projeto.
 
+> **🗺 VISÃO PRINCIPAL:** abra [`projects/commerce-agent-os/operations/operations-map.canvas`](projects/commerce-agent-os/operations/operations-map.canvas) no Obsidian — Canvas com o mapa operacional bonito (Chefe, Mesa de Comando, Painel, Motor, Terminais etc.). Como ler: [`projects/commerce-agent-os/operations/README.md`](projects/commerce-agent-os/operations/README.md).
+>
 > **PARA ABRIR NO OBSIDIAN:** `File → Open vault → Open folder as vault` → apontar para esta pasta (`07_memory/vault/`). **NÃO abra a raiz do monorepo** — o Obsidian indexaria 350+ arquivos `.md` técnicos (READMEs de packages, ADRs, AGENT.md, relatórios) e o grafo vira ruído. O cérebro real só vive aqui dentro.
 >
 > Se você já abriu a raiz e está vendo um grafo com órbitas "soltas" ao redor do cluster central — não é bug. São docs técnicas/ADRs/READMEs do código. Feche esse vault e abra só `07_memory/vault/`.

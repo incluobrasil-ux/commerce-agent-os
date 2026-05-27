@@ -8,6 +8,8 @@ confidence: 1.0
 
 # commerce-agent-os — Project Home
 
+> **🗺 Mapa Operacional visual:** [[operations/operations-map.canvas|operations-map (Canvas)]] — quem faz o quê em 1 olhada. Nomes amigáveis ativos via aliases (`Ctrl+O` → "Chefe", "Radar", "Painel", "Mesa de Comando", "Motor", "Núcleo", "Oficina", "Guia", "Terminal 1", "Terminal 2", "Tarefas em Espera"). Como ler: [[operations/README|operations/README]].
+
 **Para que serve este arquivo:** ponto de entrada do cérebro operacional. Lê isto primeiro para entender onde o projeto está hoje. Os outros arquivos do diretório especializam pedaços daqui.
 
 **Como usar:** atualizar quando muda fase, muda status executivo, ou muda o "o que funciona / o que não funciona". Mudanças pequenas vão em `session-log.md` em vez daqui.

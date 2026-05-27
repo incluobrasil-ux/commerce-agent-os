@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-27T18:30:00Z
+updated_at: 2026-05-27T19:00:00Z
 tags: [log, sessions]
 source: human:incluobrasil
 confidence: 1.0
@@ -24,6 +24,12 @@ confidence: 1.0
 ```
 
 ---
+
+## 2026-05-27 (camada visual operacional — Canvas + 11 notas-espelho + 11 SVGs + aliases amigáveis)
+
+- Feito: criado mapa visual operacional dentro do vault sem tocar em código técnico. **(1)** Canvas nativo do Obsidian em `operations/operations-map.canvas` (JSON, zero plugin) com Chefe no centro, conexões "consulta rota / valida / despacha / objetivo NL / writeback-gate / destrava", e grupos visuais (Orquestração, Execução, Terminais, Suporte). **(2)** 11 notas-espelho curtas em `operations/` com `aliases:` no frontmatter — `Ctrl+O` no Obsidian aceita "Chefe", "Radar", "Painel", "Mesa de Comando", "Motor", "Núcleo", "Oficina", "Guia", "Terminal 1", "Terminal 2", "Tarefas em Espera" e abre a nota correspondente que aponta para o nome técnico real. **(3)** 11 SVGs leves (~1KB cada) em `operations/icons/` com família visual coerente (mesma viewBox 64x64, fundo dark `#1F2937`, cor distinta por categoria). **(4)** `operations/README.md` explica como ler o mapa, mapeamento amigável↔técnico, e o que NÃO entra (docs técnicas, ADRs, AGENT.md, relatórios). **(5)** `project-home.md` ganhou link bem visível para o Canvas no topo. **(6)** `vault/README.md` ganhou "VISÃO PRINCIPAL" apontando para o Canvas. **(7)** `SETUP_LOCAL.md` documenta o Canvas como visão recomendada.
+- Resultado: green. ZERO arquivo de código tocado: `03_agents/*`, `06_packages/*`, `04_apps/*`, `05_integrations/*` intactos. ZERO renomeação. ZERO wikilink em massa em docs técnicas. Suíte 378/42 mantida. Doctor 10🟢/0🟡/0🔴.
+- Próximo: usuário fecha o vault atual no Obsidian e abre `07_memory/vault/`; abre `projects/commerce-agent-os/operations/operations-map.canvas` (ou via `Ctrl+P` → "operations-map"). Manutenção do mapa: editar nota correspondente em `operations/` (não mexer no código). Adicionar componente: nova nota + SVG + nó no Canvas.
 
 ## 2026-05-27 (correção do vault Obsidian — project-home e ops-brief atualizados, README do vault esclarecido)
 

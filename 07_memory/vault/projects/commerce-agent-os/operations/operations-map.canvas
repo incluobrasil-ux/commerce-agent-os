@@ -1,0 +1,261 @@
+{
+  "nodes": [
+    {
+      "id": "title",
+      "type": "text",
+      "text": "# Mapa Operacional — commerce-agent-os\n\nVisão visual da operação. **Centro:** o Chefe. **Setas:** quem manda em quem. **Cores:** categorias. Clique em qualquer nó para abrir a nota com nome técnico + comandos.\n\n— Ler primeiro: [[README|Como ler o mapa]] · [[../project-home|Voltar ao Project Home]]",
+      "x": -560,
+      "y": -620,
+      "width": 1180,
+      "height": 140,
+      "color": "3"
+    },
+    {
+      "id": "group-orchestration",
+      "type": "text",
+      "text": "## 🎯 Orquestração",
+      "x": -360,
+      "y": -440,
+      "width": 780,
+      "height": 60,
+      "color": "3"
+    },
+    {
+      "id": "chefe",
+      "type": "file",
+      "file": "projects/commerce-agent-os/operations/chefe-da-operacao.md",
+      "x": -140,
+      "y": -120,
+      "width": 280,
+      "height": 200,
+      "color": "3"
+    },
+    {
+      "id": "mesa",
+      "type": "file",
+      "file": "projects/commerce-agent-os/operations/mesa-de-comando.md",
+      "x": 220,
+      "y": -120,
+      "width": 280,
+      "height": 200,
+      "color": "6"
+    },
+    {
+      "id": "radar",
+      "type": "file",
+      "file": "projects/commerce-agent-os/operations/radar-da-operacao.md",
+      "x": -140,
+      "y": -380,
+      "width": 280,
+      "height": 200,
+      "color": "5"
+    },
+    {
+      "id": "nucleo",
+      "type": "file",
+      "file": "projects/commerce-agent-os/operations/nucleo-das-regras.md",
+      "x": -500,
+      "y": -120,
+      "width": 280,
+      "height": 200,
+      "color": "5"
+    },
+    {
+      "id": "group-execution",
+      "type": "text",
+      "text": "## ⚡ Execução",
+      "x": -560,
+      "y": 140,
+      "width": 1180,
+      "height": 60,
+      "color": "2"
+    },
+    {
+      "id": "painel",
+      "type": "file",
+      "file": "projects/commerce-agent-os/operations/painel-do-operador.md",
+      "x": -500,
+      "y": 220,
+      "width": 280,
+      "height": 200,
+      "color": "4"
+    },
+    {
+      "id": "motor",
+      "type": "file",
+      "file": "projects/commerce-agent-os/operations/motor-dos-agentes.md",
+      "x": 220,
+      "y": 220,
+      "width": 280,
+      "height": 200,
+      "color": "2"
+    },
+    {
+      "id": "group-terminals",
+      "type": "text",
+      "text": "## 🖥 Terminais",
+      "x": -560,
+      "y": 480,
+      "width": 1180,
+      "height": 60,
+      "color": "4"
+    },
+    {
+      "id": "terminal-det",
+      "type": "file",
+      "file": "projects/commerce-agent-os/operations/terminal-deterministico.md",
+      "x": -500,
+      "y": 560,
+      "width": 280,
+      "height": 200,
+      "color": "4"
+    },
+    {
+      "id": "terminal-llm",
+      "type": "file",
+      "file": "projects/commerce-agent-os/operations/terminal-llm.md",
+      "x": 220,
+      "y": 560,
+      "width": 280,
+      "height": 200,
+      "color": "6"
+    },
+    {
+      "id": "group-support",
+      "type": "text",
+      "text": "## 🧭 Suporte",
+      "x": -560,
+      "y": 820,
+      "width": 1180,
+      "height": 60,
+      "color": "1"
+    },
+    {
+      "id": "oficina",
+      "type": "file",
+      "file": "projects/commerce-agent-os/operations/oficina-tecnica.md",
+      "x": -500,
+      "y": 900,
+      "width": 280,
+      "height": 200
+    },
+    {
+      "id": "guia",
+      "type": "file",
+      "file": "projects/commerce-agent-os/operations/guia-da-equipe.md",
+      "x": -140,
+      "y": 900,
+      "width": 280,
+      "height": 200,
+      "color": "1"
+    },
+    {
+      "id": "tarefas",
+      "type": "file",
+      "file": "projects/commerce-agent-os/operations/tarefas-em-espera.md",
+      "x": 220,
+      "y": 900,
+      "width": 280,
+      "height": 200,
+      "color": "1"
+    },
+    {
+      "id": "legend",
+      "type": "text",
+      "text": "### Cores\n\n- 🟡 Liderança · 🟣 Orquestração · 🟦 Observação/Regras\n- 🟢 Interface humana / Terminal determinístico\n- 🟧 Execução · 🟪 Terminal LLM\n- 🔴 Pendências / Tooling de suporte\n\n### Convenção\n\n**Aliases ativos** (`Ctrl+O`): Chefe, Radar, Mesa de Comando, Painel, Motor, Núcleo, Oficina, Guia, Terminal 1, Terminal 2, Tarefas em Espera. Cada um aponta para o nome técnico real (sem renomear código).",
+      "x": 540,
+      "y": -120,
+      "width": 380,
+      "height": 460,
+      "color": "3"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-chefe-mesa",
+      "fromNode": "chefe",
+      "fromSide": "right",
+      "toNode": "mesa",
+      "toSide": "left",
+      "label": "consulta rota"
+    },
+    {
+      "id": "e-chefe-radar",
+      "fromNode": "chefe",
+      "fromSide": "top",
+      "toNode": "radar",
+      "toSide": "bottom",
+      "label": "registra"
+    },
+    {
+      "id": "e-chefe-nucleo",
+      "fromNode": "chefe",
+      "fromSide": "left",
+      "toNode": "nucleo",
+      "toSide": "right",
+      "label": "valida"
+    },
+    {
+      "id": "e-painel-chefe",
+      "fromNode": "painel",
+      "fromSide": "top",
+      "toNode": "chefe",
+      "toSide": "bottom",
+      "label": "objetivo NL"
+    },
+    {
+      "id": "e-chefe-motor",
+      "fromNode": "chefe",
+      "fromSide": "bottom",
+      "toNode": "motor",
+      "toSide": "top",
+      "label": "despacha"
+    },
+    {
+      "id": "e-motor-det",
+      "fromNode": "motor",
+      "fromSide": "bottom",
+      "toNode": "terminal-det",
+      "toSide": "top"
+    },
+    {
+      "id": "e-motor-llm",
+      "fromNode": "motor",
+      "fromSide": "bottom",
+      "toNode": "terminal-llm",
+      "toSide": "top"
+    },
+    {
+      "id": "e-mesa-motor",
+      "fromNode": "mesa",
+      "fromSide": "bottom",
+      "toNode": "motor",
+      "toSide": "top",
+      "label": "playbook"
+    },
+    {
+      "id": "e-mesa-nucleo",
+      "fromNode": "mesa",
+      "fromSide": "left",
+      "toNode": "nucleo",
+      "toSide": "right",
+      "label": "writeback-gate"
+    },
+    {
+      "id": "e-tarefas-painel",
+      "fromNode": "tarefas",
+      "fromSide": "left",
+      "toNode": "painel",
+      "toSide": "right",
+      "label": "destrava"
+    },
+    {
+      "id": "e-guia-painel",
+      "fromNode": "guia",
+      "fromSide": "left",
+      "toNode": "painel",
+      "toSide": "right",
+      "label": "onboarding"
+    }
+  ]
+}

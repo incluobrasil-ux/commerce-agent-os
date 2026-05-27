@@ -158,3 +158,5 @@ Depois do setup verde:
 Lista completa de comandos: [`COMMANDS.md`](./COMMANDS.md).
 
 Para abrir o cérebro no Obsidian: `File → Open vault → 07_memory/vault/`. Pasta `_template/` tem exemplo; `projects/commerce-agent-os/` é o cérebro de desenvolvimento; `tenants/<id>/` aparece quando você rodar agentes com `--tenant=<id>`.
+
+**Visão principal recomendada:** abrir `projects/commerce-agent-os/operations/operations-map.canvas` (Canvas nativo, sem plugins) — mapa visual com Chefe, Mesa de Comando, Painel, Motor, Terminais. Aliases ativos (`Ctrl+O` aceita "Chefe", "Radar", "Painel" etc.). Detalhe em `07_memory/vault/projects/commerce-agent-os/operations/README.md`.

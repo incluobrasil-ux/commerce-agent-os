@@ -10,7 +10,9 @@ describe('repo-auditor smoke', () => {
   it('audita o próprio projeto e detecta MIT + estrutura TS', async () => {
     const r = await auditRepo({ repoPath: process.cwd(), profile: 'full' });
     expect(r.license).toBe('MIT');
-    expect(r.repoName).toBe('commerce-agent-os');
+    // Aceita variantes do nome de pasta (clones em paths diferentes: commerce-agent-os-fresh,
+    // commerce-agent-os-team, etc.). repoName vem do basename de process.cwd().
+    expect(r.repoName).toMatch(/commerce-agent-os/);
     expect(r.report.markdown.length).toBeGreaterThan(100);
     expect(r.report.summary.length).toBeGreaterThan(0);
     expect(r.findings).toBeDefined();

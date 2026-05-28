@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-28T03:30:00Z
+updated_at: 2026-05-28T04:00:00Z
 tags: [next-actions]
 source: mixed
 confidence: 1.0
@@ -81,27 +81,23 @@ Análise consolidada: [run-summary 2026-05-26-impl-milestone-n20-2-and-gmc-fixes
 - **Quem executa:** operador humano (escrita ao tema MAIN bloqueada via MCP)
 - **Critério de aceite:** disclaimer visível no footer em todas as páginas da loja
 
-### H1 — Reescrever descriptions das coleções (MCP) 🟡
+### ~~H1~~ ✅ Descriptions das coleções (2026-05-28)
 
-- **Alvo:** 5 coleções com linguagem clínica pesada (ABA, TEACCH, PECS, proprioceptivos, vestibular, terapia ocupacional)
-- **Coleções:** fidget-toys-foco, motricidade-fina, ferramentas-de-fala, quiet-books-e-busy-books, cartoes-de-emocoes
-- **Ação:** `collectionUpdate` com descriptionHtml limpo para cada uma (sem termos clínicos)
-- **Critério de aceite:** zero termos proibidos nas descriptions de coleção
+- 3 coleções com violations corrigidas: fidget-toys-foco (autorregulação×2), motricidade-fina (autorregulação + "massas terapêuticas"), cartoes-de-emocoes (autorregulação×2 + ABA)
+- Título da coleção cartoes-de-emocoes atualizado: "Cartões Educacionais de Emoções e **Autorregulação**" → "Cartões Educacionais de Emoções"
+- c3 (ferramentas-de-fala) e c4 (quiet-books-e-busy-books) verificadas e limpas — sem alteração necessária
 
-### H2 — Remover tags problemáticas (MCP) 🟡
+### ~~H2~~ ✅ Tags de produto (2026-05-28)
 
-- **Tags a remover/substituir:**
-  - `autorregulação` em Cubo Fidget 12 Lados (`gid://shopify/Product/8924974350498`)
-  - `Autorregulação` em Cubo Fidget Magnético (`gid://shopify/Product/8924984311970`)
-  - `Anti-Stress` (tag) em Fidget Slider Coruja (`gid://shopify/Product/8924992110754`)
-  - `Silicone de Grau Médico` em Mordedor Sensorial (`gid://shopify/Product/8927591301282`)
-- **Ação:** `productUpdate` com array `tags` atualizado para cada produto
+- `autorregulação` removida do Cubo Fidget 12 Lados
+- `Autorregulação` removida do Cubo Fidget Magnético
+- `Anti-Stress` removida do Fidget Slider Coruja
+- `Silicone de Grau Médico` removida do Mordedor Sensorial
 
 ### Quando submeter re-review GMC
 
-**Mínimo necessário:** T0.2 (manual footer) concluído.  
-H1 + H2 reduzem risco mas não são bloqueadores duros.  
-Após esses itens: GMC Admin → Products → Diagnostics → Account Issues → Misrepresentation → Request Review.
+**Mínimo necessário:** T0.2 (manual footer) concluído. H1 e H2 já concluídos (2026-05-28).  
+Após T0.2: GMC Admin → Products → Diagnostics → Account Issues → Misrepresentation → Request Review.
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-27T23:40:00Z
+updated_at: 2026-05-28T03:30:00Z
 tags: [next-actions]
 source: mixed
 confidence: 1.0
@@ -28,7 +28,11 @@ confidence: 1.0
 - **Zero erros:** todos os 95 mutations retornaram `userErrors: []`.
 - **Commit:** `1e1b6fa` — push OK para `incluobrasil-ux/commerce-agent-os`.
 - **Detalhe:** [run-summary 2026-05-27-impl-misrepresentation-remediation-applied](run-summaries/2026-05-27-impl-misrepresentation-remediation-applied.md).
-- **Pendente (NÃO submeter GMC re-review ainda):** T0.2 (disclaimer no footer do tema), T0.3 (página "Sobre" reforçada), T0.4 (SKUs AliExpress residuais com claims).
+- **T0.3 concluído 2026-05-27:** "Sobre Nós" atualizada — disclaimer no topo, claims diagnósticos removidos da seção "Para quem trabalhamos", "autorregulação" → "organização pessoal", ABA removido.
+- **T0.2 pendente (manual):** escrever bloco "Text" no footer via Shopify Admin → Themes → Customize (escrita direta ao tema MAIN bloqueada via MCP). Texto: `<p><strong>Aviso:</strong> Os produtos Incluo são brinquedos e ferramentas de apoio sensorial — não substituem avaliação, diagnóstico ou tratamento médico.</p>`
+- **T0.4 pendente:** varredura de SKUs AliExpress residuais com claims.
+- **NÃO submeter GMC re-review** até T0.2 + T0.4 concluídos.
+- **C1+C2+C4 concluídos 2026-05-28:** SEO meta fields (33 violações em 143 produtos), body p89 (TEA), 5 collection handles — zero erros. Detalhe: [run-summary 2026-05-28-impl-seo-meta-remediation-and-collection-handles](run-summaries/2026-05-28-impl-seo-meta-remediation-and-collection-handles.md).
 
 ## ~~N26~~ ✅ Merchant audit em catálogo real Incluo — **concluído 2026-05-25**
 
@@ -65,6 +69,41 @@ Análise consolidada: [run-summary 2026-05-26-impl-milestone-n20-2-and-gmc-fixes
 - +5 testes (251 → 256 verdes).
 - Audit Incluo: **89.2 → 92.8** após fixes; **0 critical, 3 high residuais** = T2 puro.
 - Próximo: **N20.3** — pipeline `productToFeedRow` expor `variantSku` no `FeedRow` para detecção automatizada de SKU pattern `\d+:\d+#`.
+
+## Prioridade imediata — completar remediação GMC (sessão 2)
+
+### T0.2 — Footer disclaimer (MANUAL — bloqueador de re-submissão)
+
+- **Ação:** Shopify Admin → Online Store → Themes → Customize → Footer → Add block → Text → colar:
+  ```
+  <p><strong>Aviso:</strong> Os produtos Incluo são brinquedos e ferramentas de apoio sensorial — não substituem avaliação, diagnóstico ou tratamento médico.</p>
+  ```
+- **Quem executa:** operador humano (escrita ao tema MAIN bloqueada via MCP)
+- **Critério de aceite:** disclaimer visível no footer em todas as páginas da loja
+
+### H1 — Reescrever descriptions das coleções (MCP) 🟡
+
+- **Alvo:** 5 coleções com linguagem clínica pesada (ABA, TEACCH, PECS, proprioceptivos, vestibular, terapia ocupacional)
+- **Coleções:** fidget-toys-foco, motricidade-fina, ferramentas-de-fala, quiet-books-e-busy-books, cartoes-de-emocoes
+- **Ação:** `collectionUpdate` com descriptionHtml limpo para cada uma (sem termos clínicos)
+- **Critério de aceite:** zero termos proibidos nas descriptions de coleção
+
+### H2 — Remover tags problemáticas (MCP) 🟡
+
+- **Tags a remover/substituir:**
+  - `autorregulação` em Cubo Fidget 12 Lados (`gid://shopify/Product/8924974350498`)
+  - `Autorregulação` em Cubo Fidget Magnético (`gid://shopify/Product/8924984311970`)
+  - `Anti-Stress` (tag) em Fidget Slider Coruja (`gid://shopify/Product/8924992110754`)
+  - `Silicone de Grau Médico` em Mordedor Sensorial (`gid://shopify/Product/8927591301282`)
+- **Ação:** `productUpdate` com array `tags` atualizado para cada produto
+
+### Quando submeter re-review GMC
+
+**Mínimo necessário:** T0.2 (manual footer) concluído.  
+H1 + H2 reduzem risco mas não são bloqueadores duros.  
+Após esses itens: GMC Admin → Products → Diagnostics → Account Issues → Misrepresentation → Request Review.
+
+---
 
 ## Prioridade imediata — operacionalizar writeback real
 

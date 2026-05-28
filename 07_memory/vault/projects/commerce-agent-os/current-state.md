@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-27T00:50:00Z
+updated_at: 2026-05-28T14:35:00Z
 tags: [current-state, status]
 source: mixed
 confidence: 1.0
@@ -23,15 +23,15 @@ confidence: 1.0
 | | |
 |---|---|
 | Macro-fase | 2 — Implementação |
-| Sub-fase | 2.5 ✅ + 2.6 (caminho mínimo ✅ + writeback minimal ✅) + 2.7 ✅ + 2.8 ✅ + N26 ✅ + N20.1 ✅ + 2.9 ✅ + 2.9.1 ✅ + N21 ✅ + **N20.2 ✅** + **N26.a/e ✅** |
-| Último marco (2026-05-27) | **Dispatcher real do Chefe** — `pnpm chief --execute` invoca agentes de verdade via child_process (`pnpm <cmd> --tenant --store`). Exit code → StageStatus. Auto-load de `legal-profile.json` do vault por convenção. `bundle.requiredPolicies` populado. Template versionado em `07_memory/vault/templates/legal-profile.example.json`. **+10 testes** (orchestration: 28→38). Suíte total: **376 testes em 42 arquivos**. [run-summary](run-summaries/2026-05-27-impl-milestone-chief-dispatcher-real.md). |
-| Marco anterior (2026-05-26 noite) | **Chefe OS consolidado** — `@cao/orchestration` (registry 22 agentes + 8 playbooks + ContextBundle estendido + planner + runner com checkpoints + writeback gate + camada jurídica BR/EU/US 11 regras). [run-summary](run-summaries/2026-05-26-impl-milestone-chief-os-consolidation.md). |
+| Sub-fase | 2.5 ✅ + 2.6 (caminho mínimo ✅ + writeback minimal ✅) + 2.7 ✅ + 2.8 ✅ + N26 ✅ + N20.1 ✅ + 2.9 ✅ + 2.9.1 ✅ + N21 ✅ + N20.2 ✅ + N26.a/e ✅ + **N30 ✅ (product-mining pipeline)** |
+| Último marco (2026-05-28) | **Pipeline de descoberta de produto plugado ao Chefe** — `@cao/ecommerce-pipeline` (wrapper TS minimalista pra sidecar Python externo em `~/ecommerce-pipeline`). Novo agente `product-mining` (Tier 5, deterministic, sideEffects:writes-external) + playbook `product-discovery-pipeline` (mine→curate→images com aprovação humana). CLI `pnpm mining:run`. +8 testes. **386 testes em 43 arquivos**, zero regressão. [run-summary](run-summaries/2026-05-28-impl-milestone-product-mining-pipeline-integration.md). |
+| Marco anterior (2026-05-27) | **Dispatcher real do Chefe** — `pnpm chief --execute` invoca agentes de verdade via child_process. Exit code → StageStatus. Auto-load de `legal-profile.json` do vault por convenção. `bundle.requiredPolicies` populado. [run-summary](run-summaries/2026-05-27-impl-milestone-chief-dispatcher-real.md). |
 | Próximo marco técnico | **(a) cada loja real precisa do `legal-profile.json` próprio** em `tenants/<t>/stores/<s>/` (template + README disponíveis). **(b) provisionar `SHOPIFY_ADMIN_TOKEN`** para destravar `--mode=writeback` real. **(c) adotar exit code `3` (SKIPPED gracioso)** nos 17 agentes LLM quando key ausente — melhora precisão do bundle.status. **(d) writeback-gate bloquear** quando `requiredPolicies` não estiverem em `profile.existingPolicies`. Detalhe em [next-actions.md](next-actions.md). |
 
 ## Verde
 
-- `pnpm install / typecheck / lint / test / test:smoke / doctor` — todos OK (333 testes em 39 arquivos).
-- **20 agentes REAL_EXECUTABLE** de 22 catalogados (ver [agents-catalog.md](agents-catalog.md) ou rodar audit):
+- `pnpm install / typecheck / lint / test / test:smoke / doctor` — todos OK (**386 testes em 43 arquivos**).
+- **21 agentes REAL_EXECUTABLE** de 23 catalogados (`product-mining` adicionado 2026-05-28):
   - **Bloco A (5/5):** orchestrator-master · governance-risk-qa · market-intelligence · competitor-benchmark · reviews-ops
   - **Bloco B (6/6):** product-offer · merchant-compliance · marketing-director · creative-copy-assets · design-ux-localization · traffic-campaigns
   - **Outros (9):** repo-auditor · audit-synthesizer · learning-memory-curation · memory-context · catalog-feed-ops · customer-journey-ops · finance-margin-radar · visual-asset-ops · ads-launchpad

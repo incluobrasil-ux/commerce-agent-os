@@ -541,6 +541,19 @@ importers:
         specifier: workspace:*
         version: link:../../05_integrations/shopify
 
+  05_integrations/ecommerce-pipeline:
+    dependencies:
+      '@cao/shared-types':
+        specifier: workspace:*
+        version: link:../../06_packages/shared-types
+    devDependencies:
+      '@types/node':
+        specifier: ^20
+        version: 20.19.41
+      typescript:
+        specifier: ^5
+        version: 5.9.3
+
   05_integrations/google-merchant:
     dependencies:
       '@cao/shared-types':

@@ -24,6 +24,7 @@
     { "path": "./05_integrations/review-apps" },
     { "path": "./05_integrations/higgsfield" },
     { "path": "./05_integrations/posthog" },
+    { "path": "./05_integrations/ecommerce-pipeline" },
     { "path": "./03_agents/repo-auditor" },
     { "path": "./03_agents/audit-synthesizer" },
     { "path": "./03_agents/learning-memory-curation" },

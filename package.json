@@ -21,6 +21,7 @@
     "merchant:audit": "tsx 03_agents/catalog-feed-ops/src/audit-cli.ts",
     "orchestrate:master": "tsx --env-file-if-exists=.env.local 03_agents/orchestrator-master/src/cli.ts",
     "chief": "tsx --env-file-if-exists=.env.local 06_packages/orchestration/scripts/chief-cli.ts",
+    "mining:run": "tsx 05_integrations/ecommerce-pipeline/scripts/run-cli.ts",
     "market:intelligence": "tsx --env-file-if-exists=.env.local 03_agents/market-intelligence/src/cli.ts",
     "competitor:benchmark": "tsx --env-file-if-exists=.env.local 03_agents/competitor-benchmark/src/cli.ts",
     "reviews:ops": "tsx --env-file-if-exists=.env.local 03_agents/reviews-ops/src/cli.ts",

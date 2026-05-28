@@ -296,6 +296,23 @@ export const AGENT_REGISTRY: readonly AgentCapability[] = [
     executable: 'real',
   },
   {
+    name: 'product-mining',
+    tier: 5,
+    purpose:
+      'Pipeline AliExpress: minera por queries, cura por avaliação/pedidos/preço, gera imagens via Higgsfield. Sidecar Python externo invocado via @cao/ecommerce-pipeline.',
+    modes: ['read-only', 'planning'],
+    credentials: ['none'],
+    kind: 'deterministic',
+    contextSupport: 'tenant-or-store',
+    inputsRequired: ['projectName', 'step'],
+    outputsMain: ['minedProducts', 'curatedSelection', 'generatedImages'],
+    typicalPredecessors: ['market-intelligence'],
+    typicalSuccessors: ['product-offer', 'creative-copy-assets', 'merchant-compliance'],
+    sideEffects: 'writes-external',
+    pnpmCommand: 'mining:run',
+    executable: 'real',
+  },
+  {
     name: 'reviews-ops',
     tier: 5,
     purpose: 'Voz do cliente: agrega reviews em temas, gera respostas.',

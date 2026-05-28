@@ -226,7 +226,54 @@ export const PLAYBOOKS: readonly Playbook[] = [
     canAuditOnly: true,
     defaultExecutionMode: 'read-only',
   },
-  // 8. Safe Shopify writeback flow
+  // 8.5 Product discovery pipeline (AliExpress mining → curation → image generation)
+  {
+    id: 'product-discovery-pipeline',
+    name: 'Product discovery pipeline',
+    objective:
+      'Descobrir produtos via AliExpress (mine), curar (filtro qualidade), gerar imagens profissionais (Higgsfield) — execução determinística no sidecar Python externo.',
+    steps: [
+      {
+        agent: 'product-mining',
+        purpose:
+          'Roda mine → curate → images via @cao/ecommerce-pipeline. Imagens salvas em Área de Trabalho/<store>/imagens de produto/. Aprovação humana entre etapas.',
+      },
+      {
+        agent: 'merchant-compliance',
+        purpose: 'Valida copy/claims dos produtos selecionados antes de listar.',
+        optional: true,
+      },
+      {
+        agent: 'governance-risk-qa',
+        purpose: 'Gate final antes de produto entrar no catálogo Shopify.',
+        optional: true,
+      },
+    ],
+    prerequisites: [
+      'ecommerce-pipeline clonado em ~/ecommerce-pipeline (ou ECOMMERCE_PIPELINE_ROOT)',
+      'projects/<nome>/project.json criado',
+      '.env com AE_APP_KEY/AE_APP_SECRET preenchido no repo do pipeline',
+      'Higgsfield CLI autenticado (hf auth token)',
+    ],
+    stopCriteria: [
+      'selected.json gerado',
+      'imagens geradas e aprovadas produto-a-produto',
+      'governance approve (se opcional habilitado)',
+    ],
+    expectedOutputs: [
+      'projects/<nome>/cache.json (mineração)',
+      'projects/<nome>/selected.json (curadoria)',
+      'Área de Trabalho/<store>/imagens de produto/<produto>/{hero,ambient,detail_1,detail_2,social}.png',
+    ],
+    credentialsHelpful: [],
+    requiresHumanApproval: true,
+    supportedJurisdictions: ['*'],
+    relevantLegalRisks: ['claims_risk', 'deceptive_design_risk', 'merchant_trust_risk'],
+    requiredPolicies: [],
+    canAuditOnly: true,
+    defaultExecutionMode: 'read-only',
+  },
+  // 9. Safe Shopify writeback flow
   {
     id: 'safe-shopify-writeback',
     name: 'Safe Shopify writeback flow',

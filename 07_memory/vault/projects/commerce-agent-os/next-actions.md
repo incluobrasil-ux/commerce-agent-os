@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-26T19:30:00Z
+updated_at: 2026-05-27T23:40:00Z
 tags: [next-actions]
 source: mixed
 confidence: 1.0
@@ -20,6 +20,15 @@ confidence: 1.0
 > Chefe = `orchestrator-master` · Memória = `memory-context` · Organizador = `learning-memory-curation` · Auditor = `repo-auditor` · Resumidor = `audit-synthesizer` · Mercado = `market-intelligence` · Concorrentes = `competitor-benchmark` · Oferta = `product-offer` · Merchant = `merchant-compliance` · Qualidade = `governance-risk-qa` · Produtos = `product-feed-seo` · Catálogo = `catalog-feed-ops` · Reviews = `reviews-ops` · Marketing = `marketing-director` · Criativo = `creative-copy-assets` · Vitrine = `design-ux-localization` · Tráfego = `traffic-campaigns` · Performance = `analytics-optimization` · Margem = `finance-margin-radar` · Cliente = `customer-journey-ops` · Visual = `visual-asset-ops` · Campanhas = `ads-launchpad`.
 
 ---
+
+## ~~T0.1~~ ✅ GMC Misrepresentation — corrigir todos os produtos (2026-05-27)
+
+- **Contexto:** loja Incluo recebeu ação manual do Google Merchant Center (Misrepresentation) bloqueando Google Shopping BR por claims terapêuticos/médicos nas descriptions (autismo, TDAH, ansiedade, anti-estresse, terapêutico, autorregulação).
+- **Entrega:** 95 produtos corrigidos via `productUpdate` MCP — títulos e descriptions limpas de claims proibidos. Substituições aplicadas: "autorregulação" → "organização pessoal", "anti-estresse" → "relaxamento", "ansiedade" → "agitação", "TDAH" → "alta energia", "autismo" → "desenvolvimento", "terapêutico" → "prático". Handles terapêuticos atualizados com `redirectNewHandle:true` (301 auto).
+- **Zero erros:** todos os 95 mutations retornaram `userErrors: []`.
+- **Commit:** `1e1b6fa` — push OK para `incluobrasil-ux/commerce-agent-os`.
+- **Detalhe:** [run-summary 2026-05-27-impl-misrepresentation-remediation-applied](run-summaries/2026-05-27-impl-misrepresentation-remediation-applied.md).
+- **Pendente (NÃO submeter GMC re-review ainda):** T0.2 (disclaimer no footer do tema), T0.3 (página "Sobre" reforçada), T0.4 (SKUs AliExpress residuais com claims).
 
 ## ~~N26~~ ✅ Merchant audit em catálogo real Incluo — **concluído 2026-05-25**
 

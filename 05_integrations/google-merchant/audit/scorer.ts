@@ -70,7 +70,13 @@ const HIGH_RISK_KEYWORDS = [
 // Estes termos são checados separadamente em campos onde aparecem com mais
 // frequência (URL/link), pois o handle público vira parte do landing URL
 // submetido ao GMC.
+//
+// N20.3 (audit Incluo 2026-05-28): expandido com termos encontrados em tags,
+// productType, metafields e variant options que o scorer N20.2 não cobria.
+// Ordem importa: termos mais curtos que são substrings de outros aparecem antes
+// para garantir match — o find() para no primeiro hit.
 const THERAPEUTIC_CLAIM_KEYWORDS = [
+  // Condições clínicas (ANVISA / Lei 12.764/2012 / CDC art. 37)
   'autismo',
   'autista',
   'tea',
@@ -78,19 +84,37 @@ const THERAPEUTIC_CLAIM_KEYWORDS = [
   'adhd',
   'ocd',
   'asperger',
+  // Estados emocionais usados como claim de saúde
   'ansiedade',
   'depressao',
   'depressão',
   'anti-depressao',
   'anti-depressão',
+  // Claims de alívio/benefício clínico
   'alivia',
   'alívio',
   'alivio',
+  // Anti-estresse em todas as grafias — N20.3
+  'antiestresse',
+  'anti-estresse',
+  'antistress',
+  'anti-stress',
+  // Terminologia clínica
   'terapeutico',
   'terapêutico',
-  'autorregulacao sensorial',
-  'autorregulação sensorial',
-  'sensorial integrativ',
+  'terapeutas ocupacionais',
+  'clinica aba',
+  // Autorregulação em qualquer forma — N20.3 (standalone cobre o composto)
+  'autorregulacao',
+  'autorregulação',
+  // Regulação emocional — N20.3
+  'regulacao emocional',
+  'regulação emocional',
+  // Integração sensorial — N20.3 (substitui 'sensorial integrativ' de N20.2)
+  'integracao sensorial',
+  'integração sensorial',
+  // Outros termos identificados no audit Incluo 2026-05-28 — N20.3
+  'sobrecarga sensorial',
 ];
 
 const PLACEHOLDER_IMAGE_HINTS = [
@@ -112,10 +136,34 @@ const GMC_CATEGORY_OVERRIDES: Record<string, { gtinSeverity?: Severity }> = {
   '3793': { gtinSeverity: 'low' }, // Toys & Games > Toys > Educational Toys
 };
 
+/**
+ * Superfícies adicionais do produto Shopify que não fazem parte do FeedRow padrão
+ * mas são lidas pelo crawler GMC e pela revisão manual humana.
+ *
+ * N20.3 (audit Incluo 2026-05-28): descoberto que alt text vazio em 16 produtos,
+ * tags terapêuticas, productType e metafields custom continham claims não cobertos
+ * pelo scorer N20.2. Estas superfícies são opcionais — quando ausentes, os checks
+ * correspondentes são skipped (backward-compatible com callers existentes).
+ */
+export interface ExtendedSurfaces {
+  /** Alt text de cada imagem do produto. Vazio = medium; claim terapêutico = high. */
+  imageAlts?: string[];
+  /** Tags do produto (slugs e labels). Claims em tags = high. */
+  tags?: string[];
+  /** productType Shopify — ex.: "Brinquedos Antiestresse". Claims = high. */
+  productType?: string | null;
+  /** Conteúdo de custom.detalhes_do_produto (texto extraído do HTML). Claims = high. */
+  detalhesDoProduct?: string | null;
+  /** Valores de option das variantes (ex.: "Cinza Antiestresse"). Claims = high. */
+  variantOptions?: string[];
+}
+
 export interface ScoreInput {
   row: FeedRow;
   validation: ValidationResult;
   warnings: string[];
+  /** Superfícies adicionais — N20.3. Opcional para backward-compat. */
+  extended?: ExtendedSurfaces;
 }
 
 export function scoreRow(input: ScoreInput): RowScore {
@@ -136,7 +184,7 @@ export function scoreRow(input: ScoreInput): RowScore {
     if (f) findings.push(f);
   }
 
-  findings.push(...semanticChecks(input.row));
+  findings.push(...semanticChecks(input.row, input.extended));
 
   const totalPenalty = findings.reduce((acc, f) => acc + PENALTY[f.severity], 0);
   const score = Math.max(0, 100 - totalPenalty);
@@ -285,7 +333,7 @@ function mapWarning(w: string): Finding | null {
   };
 }
 
-function semanticChecks(row: FeedRow): Finding[] {
+function semanticChecks(row: FeedRow, extended?: ExtendedSurfaces): Finding[] {
   const out: Finding[] = [];
 
   // Missing brand
@@ -455,5 +503,121 @@ function semanticChecks(row: FeedRow): Finding[] {
     });
   }
 
+  // ===== N20.3 — Extended surfaces (N20.3, audit Incluo 2026-05-28) =====
+  if (extended) {
+    out.push(...extendedSurfaceChecks(extended));
+  }
+
   return out;
+}
+
+/**
+ * Verifica superfícies adicionais do produto Shopify que não fazem parte do
+ * FeedRow padrão mas são lidas pelo crawler GMC e pela revisão manual humana.
+ *
+ * N20.3: alt text de imagens, tags, productType, metafield detalhes_do_produto,
+ * e valores de option de variantes.
+ */
+function extendedSurfaceChecks(extended: ExtendedSurfaces): Finding[] {
+  const out: Finding[] = [];
+
+  // Alt text — vazio ou com claim terapêutico
+  if (extended.imageAlts && extended.imageAlts.length > 0) {
+    const emptyCount = extended.imageAlts.filter((a) => !a || a.trim() === '').length;
+    if (emptyCount > 0) {
+      out.push({
+        code: 'alt:empty',
+        severity: 'medium',
+        field: 'media[].alt',
+        message: `${emptyCount} imagem(ns) sem alt text — Google indexa alt para SEO e feed Shopping.`,
+        remediation:
+          'Preencher alt text de todas as imagens: "Produto X [cor/característica] brinquedo sensorial".',
+      });
+    }
+    const therapeuticAlt = extended.imageAlts
+      .filter((a) => a && a.trim() !== '')
+      .map((a) => ({ alt: a, hit: therapeuticHitIn(a) }))
+      .find((x) => x.hit !== null);
+    if (therapeuticAlt?.hit) {
+      out.push({
+        code: `alt:therapeutic-claim:${therapeuticAlt.hit.replace(/\s+/g, '-')}`,
+        severity: 'high',
+        field: 'media[].alt',
+        message: `Alt text contém claim terapêutico "${therapeuticAlt.hit}" — Google indexa alt text.`,
+        remediation: 'Substituir por descrição física neutra (cor, material, ângulo da imagem).',
+      });
+    }
+  }
+
+  // Tags — claims terapêuticos em slugs e labels
+  if (extended.tags && extended.tags.length > 0) {
+    for (const tag of extended.tags) {
+      const hit = therapeuticHitIn(tag);
+      if (hit) {
+        out.push({
+          code: `tag:therapeutic-claim:${hit.replace(/\s+/g, '-')}`,
+          severity: 'high',
+          field: 'tags',
+          message: `Tag "${tag}" contém claim terapêutico "${hit}" — tags aparecem em URLs de coleção indexadas pelo GMC.`,
+          remediation: `Remover tag "${tag}" ou substituir por tag funcional/descritiva sem claim clínico.`,
+        });
+        break; // 1 finding de tag por produto
+      }
+    }
+  }
+
+  // productType — claim terapêutico direto
+  if (extended.productType && extended.productType.trim() !== '') {
+    const hit = therapeuticHitIn(extended.productType);
+    if (hit) {
+      out.push({
+        code: `productType:therapeutic-claim:${hit.replace(/\s+/g, '-')}`,
+        severity: 'high',
+        field: 'productType',
+        message: `productType "${extended.productType}" contém claim terapêutico "${hit}" — enviado ao feed GMC como product_type.`,
+        remediation:
+          'Atualizar productType para categoria funcional: ex. "Brinquedos Sensoriais Fidget" em vez de "Brinquedos Antiestresse".',
+      });
+    }
+  }
+
+  // Metafield custom.detalhes_do_produto
+  if (extended.detalhesDoProduct && extended.detalhesDoProduct.trim() !== '') {
+    const hit = therapeuticHitIn(extended.detalhesDoProduct);
+    if (hit) {
+      out.push({
+        code: `metafield:therapeutic-claim:${hit.replace(/\s+/g, '-')}`,
+        severity: 'high',
+        field: 'custom.detalhes_do_produto',
+        message: `Metafield detalhes_do_produto contém claim terapêutico "${hit}" — renderizado na PDP e lido pelo crawler.`,
+        remediation:
+          'Editar metafield no Shopify Admin → Produto → Metafields → custom.detalhes_do_produto.',
+      });
+    }
+  }
+
+  // Variant option values (ex.: "Cinza Antiestresse / Solteiro Conforto Real")
+  if (extended.variantOptions && extended.variantOptions.length > 0) {
+    for (const opt of extended.variantOptions) {
+      const hit = therapeuticHitIn(opt);
+      if (hit) {
+        out.push({
+          code: `variantOption:therapeutic-claim:${hit.replace(/\s+/g, '-')}`,
+          severity: 'high',
+          field: 'variants[].options',
+          message: `Variant option "${opt}" contém claim terapêutico "${hit}" — aparece na PDP e pode ir ao feed como variant title.`,
+          remediation: `Editar option value no Shopify Admin → Produto → Variantes → "${opt}".`,
+        });
+        break; // 1 finding de variant option por produto
+      }
+    }
+  }
+
+  return out;
+}
+
+/** Retorna o primeiro termo terapêutico encontrado na string, ou null. */
+function therapeuticHitIn(text: string): string | null {
+  const lc = text.toLowerCase();
+  return THERAPEUTIC_CLAIM_KEYWORDS.find((kw) => lc.includes(kw.toLowerCase())) ?? null;
 }

@@ -1,6 +1,6 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-26T19:30:00Z
+updated_at: 2026-06-03T00:00:00Z
 tags: [current-state, status]
 source: mixed
 confidence: 1.0
@@ -8,13 +8,7 @@ confidence: 1.0
 
 # Current State
 
-**Para que serve:** snapshot **curtíssimo** do estado da operação. Quem abre isto deve saber em 60 segundos onde estamos. Sem narrativa, sem links — só status.
-
-**Como usar:** atualizar **toda vez** que mudar fase, marco, bloqueio ou status verde/vermelho. Quem fizer a alteração também atualiza `updated_at` no frontmatter.
-
-**Output que gera:** snapshot único e atual da operação.
-
-**Regra:** ≤ 25 linhas no corpo. Se estiver crescendo, alguma informação deveria estar em `ops-brief.md` ou `workstreams.md`.
+**Para que serve:** snapshot **curtíssimo** do estado da operação. Quem abre isto deve saber em 60 segundos onde estamos.
 
 ---
 
@@ -22,41 +16,37 @@ confidence: 1.0
 
 | | |
 |---|---|
-| Macro-fase | 2 — Implementação |
-| Sub-fase | 2.5 ✅ + 2.6 (caminho mínimo ✅ + writeback minimal ✅) + 2.7 ✅ + 2.8 ✅ + N26 ✅ + N20.1 ✅ + 2.9 ✅ + 2.9.1 ✅ + N21 ✅ + **N20.2 ✅** + **N26.a/e ✅** |
-| Último marco (2026-05-26 noite) | **T2 aplicado + SKU normalization 39/119** — orchestrator aplicou função jurídica técnica nas 3 descriptions T2 (substituições "autorregulação sensorial" → "brinquedo manipulativo" baseadas em ANVISA RDC 204/2017 + CDC art. 37 + CONAR + Lei 12.764/2012) + decidiu e aplicou convenção SKU `INC-<P>-<V>` em 39 produtos / 119 variantes via batch `productVariantsBulkUpdate`. **Audit Incluo: 92.8 → 94.0/100, 50🟢/0🟡/0🔴 — ALL GREEN pela primeira vez.** Total da sessão de 26-mai: **42 mutations Shopify** (8 + 3 + 39 + 119 SKUs), 100% sucesso. [run-summary](run-summaries/2026-05-26-impl-milestone-t2-applied-sku-normalized.md). |
-| Próximo marco técnico | **(a) provisionar `SHOPIFY_ADMIN_TOKEN`** + primeiro `--apply` real em SKU de baixo risco. **(b) revisão jurídica** do compliance HIGH antes de aplicar em contas-madeira. **(c) deep fix design-ux schema** (output JSON OK mas zod ainda exigente). **(d) N24 handoff via Memória** (depende de design:ux estável). Detalhe em [next-actions.md](next-actions.md). |
-
-## Verde
-
-- `pnpm install / typecheck / lint / test / test:smoke / doctor` — todos OK (333 testes em 39 arquivos).
-- **20 agentes REAL_EXECUTABLE** de 22 catalogados (ver [agents-catalog.md](agents-catalog.md) ou rodar audit):
-  - **Bloco A (5/5):** orchestrator-master · governance-risk-qa · market-intelligence · competitor-benchmark · reviews-ops
-  - **Bloco B (6/6):** product-offer · merchant-compliance · marketing-director · creative-copy-assets · design-ux-localization · traffic-campaigns
-  - **Outros (9):** repo-auditor · audit-synthesizer · learning-memory-curation · memory-context · catalog-feed-ops · customer-journey-ops · finance-margin-radar · visual-asset-ops · ads-launchpad
-  - **Library-only:** product-feed-seo (usado por catalog-feed-ops)
-  - **STUB sem demanda:** analytics-optimization (não scaffoldado)
-- **24 comandos `pnpm <verbo>:<noun>`** registrados em [package.json](../../../../package.json) (incluindo `shopify:writeback`).
-- **`pnpm merchant:audit [--source=fixture|json|shopify]`** — audit catalog-level determinístico: score por SKU + findings classificados + remediações. **100% local sem LLM, sem credenciais.** Relatório em `12_reports/merchant-audits/`.
-- **`pnpm shopify:writeback`** — parser compliance MD → diff → dry-run (default) ou `--apply` (gate explícito) → audit log sempre escrito em `vault/tenants/<t>/stores/<s>/shopify-writeback/`. Dry-run end-to-end validado em Incluo.
-- **6 packages `@cao/*`** + 5 integrations + brain-bridge funcionando.
-- `repo-auditor` modo determinístico (sem credenciais).
-- `pnpm feed:dry-run` — pipeline Merchant completo, 100% local com fixture, gera relatório em `12_reports/merchant-dry-runs/`.
-- `@cao/brain-bridge.captureRun()` + `--capture` em agentes que escrevem outputs.
-- `pnpm doctor` — 10 checks cross-platform.
-- Pre-commit gitleaks ativo (8.30.1).
-- CI no GitHub Actions; branch protection em `main`; tag `v0.1.0-architecture-baseline`.
-- 8 ADRs aceitos.
-- Cérebro operacional v1 multi-operador estruturado.
-
-## Bloqueado
-
-- **B1** — `.env.local` precisa Anthropic key rotacionada (todos os 17 agentes LLM saem `SKIPPED` graceful sem ela; nada quebra).
-- **B6** — `SHOPIFY_SHOP` + `SHOPIFY_ADMIN_TOKEN` ausentes (criar custom app em dev store ~3 min destrava primeira demo Shopify real).
-- **B7** — Google Merchant creds (apenas para upload real; `pnpm feed:dry-run` já funciona local com fixture).
+| Macro-fase | GMC Misrepresentation Remediation — FASE FINAL |
+| Status GMC | 🟡 AGUARDANDO REQUEST REVIEW 2 — submeter em **04/06/2026** |
+| Último marco (2026-06-01/03) | CDN images: ZERO filenames clínicos restantes (26 produtos, 152+ imagens re-uploaded). GBP criado. Políticas Shopify em preenchimento. |
 
 ## Resumo em 1 linha
 
-> Sub-fase 2.6 writeback minimal ✅: loop compliance MD → diff → dry-run/apply → audit log fechado em código. Dry-run validado em Incluo (9 revisões parsed, 2 placeholders skipados, 7 not-found por falta de token). **333 testes verdes** (+24). Bloqueador para `--apply` real: provisionar `SHOPIFY_ADMIN_TOKEN` + revisão jurídica do compliance HIGH.
+> Toda a remediação técnica está concluída (400+ mutations, 26 produtos com imagens CDN, feed 444 produtos limpos). Faltam apenas os passos manuais de identidade Google (GBP verificado + vincular GMC) e submeter Review 2 em 04/06/2026.
 
-Detalhe em [blockers-and-risks.md](blockers-and-risks.md).
+## Verde
+
+- 143 produtos — body, title, SEO, tags, handles, alt text, metafields ✅
+- 15 coleções reescritas ✅
+- 2 artigos blog limpos ✅
+- **26 produtos** com imagens CDN re-uploaded (ZERO filenames clínicos) ✅
+- Feed Simprosys: 444 / Submitted 444 / Ineligible 0 / Excluded 0 ✅
+- Shipping GMC: Brasil, Gratuito, 7–14 dias ✅
+- Returns GMC: 7 dias, Gratuito, Verificado ✅
+- GMC Diagnostics: apenas suspensão conta, zero erros individuais ✅
+- Google Business Profile criado (Incluo Brasil, Av. Serrinha 3262, VCA-BA) ✅
+- Guest checkout OK via Yampi ✅
+- Políticas Shopify (Configurações → Políticas) — em preenchimento ⏳
+
+## Bloqueado / Pendente Manual
+
+- **B1** — Carta verificação GBP (Correios, 5–14 dias) → após receber: verificar em business.google.com → vincular ao GMC
+- **B2** — Banner GMC: verificar se há pedido de documento de identidade pendente
+- **B3** — NAP Google Ads / redes sociais — confirmar consistência
+- **B4** — Submeter GMC Request Review 2 em **04/06/2026**
+
+## Arquivos de referência
+
+- Playbook completo: `07_memory/vault/global/gmc-shopify-approval-playbook.md`
+- Google Ads strategy (pós-aprovação): `07_memory/vault/global/google-ads-strategy-incluo.md`
+- Texto justificativa Review 2: `next-actions.md` seção R1

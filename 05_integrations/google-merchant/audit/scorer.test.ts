@@ -284,6 +284,136 @@ describe('scoreRow', () => {
     expect(r.findings.some((f) => f.code.startsWith('claim:therapeutic'))).toBe(false);
     expect(r.findings.some((f) => f.code.startsWith('link:therapeutic-claim'))).toBe(false);
   });
+
+  // ===== N20.3 — Extended surfaces (audit Incluo 2026-05-28) =====
+
+  it('N20.3: alt text vazio gera finding medium (alt:empty)', () => {
+    const r = scoreRow({
+      row: makeRow(),
+      validation: okValidation,
+      warnings: [],
+      extended: { imageAlts: ['', '', ''] },
+    });
+    const f = r.findings.find((x) => x.code === 'alt:empty');
+    expect(f).toBeDefined();
+    expect(f?.severity).toBe('medium');
+    expect(f?.message).toContain('3');
+  });
+
+  it('N20.3: alt text com claim terapêutico gera finding high (alt:therapeutic-claim)', () => {
+    const r = scoreRow({
+      row: makeRow(),
+      validation: okValidation,
+      warnings: [],
+      extended: { imageAlts: ['Imagem do produto antiestresse para crianças'] },
+    });
+    expect(r.findings.some((f) => f.code.startsWith('alt:therapeutic-claim'))).toBe(true);
+    expect(r.findings.find((f) => f.code.startsWith('alt:therapeutic-claim'))?.severity).toBe('high');
+  });
+
+  it('N20.3: alt text preenchido e limpo não dispara nenhum finding de alt', () => {
+    const r = scoreRow({
+      row: makeRow(),
+      validation: okValidation,
+      warnings: [],
+      extended: { imageAlts: ['Cubo fidget 12 lados azul', 'Vista lateral do cubo fidget'] },
+    });
+    expect(r.findings.some((f) => f.code.startsWith('alt:'))).toBe(false);
+  });
+
+  it('N20.3: tag com claim terapêutico gera finding high (tag:therapeutic-claim)', () => {
+    const r = scoreRow({
+      row: makeRow(),
+      validation: okValidation,
+      warnings: [],
+      extended: { tags: ['brinquedo-sensorial', 'Anti-Stress', 'fidget'] },
+    });
+    expect(r.findings.some((f) => f.code.startsWith('tag:therapeutic-claim'))).toBe(true);
+    expect(r.findings.find((f) => f.code.startsWith('tag:therapeutic-claim'))?.severity).toBe('high');
+  });
+
+  it('N20.3: tags limpas não disparam tag:therapeutic-claim', () => {
+    const r = scoreRow({
+      row: makeRow(),
+      validation: okValidation,
+      warnings: [],
+      extended: { tags: ['brinquedo-sensorial', 'fidget', 'foco', 'relaxamento'] },
+    });
+    expect(r.findings.some((f) => f.code.startsWith('tag:therapeutic-claim'))).toBe(false);
+  });
+
+  it('N20.3: productType com claim terapêutico gera finding high (productType:therapeutic-claim)', () => {
+    const r = scoreRow({
+      row: makeRow(),
+      validation: okValidation,
+      warnings: [],
+      extended: { productType: 'Brinquedos Antiestresse e Fidget' },
+    });
+    expect(r.findings.some((f) => f.code.startsWith('productType:therapeutic-claim'))).toBe(true);
+    expect(r.findings.find((f) => f.code.startsWith('productType:therapeutic-claim'))?.severity).toBe('high');
+  });
+
+  it('N20.3: productType limpo não dispara finding', () => {
+    const r = scoreRow({
+      row: makeRow(),
+      validation: okValidation,
+      warnings: [],
+      extended: { productType: 'Brinquedos Sensoriais Fidget' },
+    });
+    expect(r.findings.some((f) => f.code.startsWith('productType:therapeutic-claim'))).toBe(false);
+  });
+
+  it('N20.3: metafield detalhes_do_produto com claim gera finding high (metafield:therapeutic-claim)', () => {
+    const r = scoreRow({
+      row: makeRow(),
+      validation: okValidation,
+      warnings: [],
+      extended: { detalhesDoProduct: 'Indicado para: crianças com TDAH e autorregulação emocional.' },
+    });
+    expect(r.findings.some((f) => f.code.startsWith('metafield:therapeutic-claim'))).toBe(true);
+    expect(r.findings.find((f) => f.code.startsWith('metafield:therapeutic-claim'))?.severity).toBe('high');
+  });
+
+  it('N20.3: variant option com claim gera finding high (variantOption:therapeutic-claim)', () => {
+    const r = scoreRow({
+      row: makeRow(),
+      validation: okValidation,
+      warnings: [],
+      extended: { variantOptions: ['Cinza Antiestresse / Solteiro 4,5kg'] },
+    });
+    expect(r.findings.some((f) => f.code.startsWith('variantOption:therapeutic-claim'))).toBe(true);
+    expect(r.findings.find((f) => f.code.startsWith('variantOption:therapeutic-claim'))?.severity).toBe('high');
+  });
+
+  it('N20.3: sem extended não dispara nenhum finding de extended surfaces', () => {
+    const r = scoreRow({
+      row: makeRow(),
+      validation: okValidation,
+      warnings: [],
+      // sem extended — backward compat
+    });
+    expect(r.findings.some((f) =>
+      ['alt:', 'tag:', 'productType:', 'metafield:', 'variantOption:'].some((p) => f.code.startsWith(p))
+    )).toBe(false);
+  });
+
+  it('N20.3: autorregulação standalone (sem "sensorial") é detectado', () => {
+    const r = scoreRow({
+      row: makeRow({ description: 'Ferramenta de autorregulação para crianças.' }),
+      validation: okValidation,
+      warnings: [],
+    });
+    expect(r.findings.some((f) => f.code.startsWith('claim:therapeutic'))).toBe(true);
+  });
+
+  it('N20.3: integração sensorial é detectada como claim', () => {
+    const r = scoreRow({
+      row: makeRow({ description: 'Baseado em princípios de integração sensorial.' }),
+      validation: okValidation,
+      warnings: [],
+    });
+    expect(r.findings.some((f) => f.code.startsWith('claim:therapeutic'))).toBe(true);
+  });
 });
 
 describe('summarizeAudit', () => {

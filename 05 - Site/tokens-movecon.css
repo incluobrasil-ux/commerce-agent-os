@@ -641,3 +641,70 @@ a:hover { color: var(--mv-azul); }
 }
 .sec--dark .resposta-curta,
 .hero .resposta-curta { color: #EAF1F8; }
+
+/* ==========================================================================
+   SIMULADOR
+   Unico bloco interativo do site. O conteudo indexavel (H1, answer-first, FAQ)
+   fica FORA daqui — crawlers de IA em geral nao executam JavaScript.
+   ========================================================================== */
+
+.mv-sim {
+  display: grid; gap: 2rem;
+  background: var(--mv-branco);
+  border: 1px solid var(--mv-borda);
+  border-radius: var(--mv-raio-lg);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  box-shadow: var(--mv-sombra);
+}
+@media (min-width: 900px) { .mv-sim { grid-template-columns: 1.05fr .95fr; gap: 3rem; } }
+
+.mv-sim__campos { display: grid; gap: 2rem; align-content: start; }
+.mv-sim__campo  { display: grid; gap: .5rem; }
+.mv-sim__campo > span {
+  font-family: var(--mv-fonte-titulo); font-size: .8rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--mv-petroleo);
+}
+.mv-sim__campo input[type="text"],
+.mv-sim__campo output {
+  font-family: var(--mv-fonte-titulo);
+  font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 700;
+  color: var(--mv-azul); background: transparent;
+  border: 0; border-bottom: 2px solid var(--mv-borda);
+  padding: .2rem 0; width: 100%; font-variant-numeric: tabular-nums;
+}
+.mv-sim__campo input[type="text"]:focus { outline: none; border-bottom-color: var(--mv-turquesa); }
+.mv-sim__campo small { color: var(--mv-cinza-500); font-size: .8rem; font-variant-numeric: tabular-nums; }
+
+.mv-sim input[type="range"] {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 4px; border-radius: 2px;
+  background: var(--mv-azul-100); cursor: pointer;
+}
+.mv-sim input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--mv-turquesa); border: 3px solid var(--mv-branco);
+  box-shadow: 0 1px 5px rgba(15,36,68,.3);
+}
+.mv-sim input[type="range"]::-moz-range-thumb {
+  width: 22px; height: 22px; border-radius: 50%; border: 3px solid var(--mv-branco);
+  background: var(--mv-turquesa); box-shadow: 0 1px 5px rgba(15,36,68,.3);
+}
+
+.mv-sim__res {
+  background: var(--mv-grafite); color: #DCE6F2;
+  border-radius: var(--mv-raio); padding: 1.75rem;
+  display: grid; gap: .9rem; align-content: start;
+}
+.mv-sim__linha { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+.mv-sim__linha span   { font-size: .9rem; opacity: .8; }
+.mv-sim__linha strong {
+  font-family: var(--mv-fonte-titulo); font-size: 1.15rem; font-weight: 700;
+  color: #fff; font-variant-numeric: tabular-nums;
+}
+.mv-sim__linha--destaque {
+  border-block: 1px solid rgba(255,255,255,.14);
+  padding-block: .9rem; margin-block: .2rem;
+}
+.mv-sim__linha--destaque strong { font-size: clamp(1.6rem, 3.5vw, 2.1rem); color: var(--mv-turquesa); }
+.mv-sim__cta  { width: 100%; margin-top: .6rem; }
+.mv-sim__nota { font-size: .72rem; line-height: 1.5; opacity: .6; margin: 0; }

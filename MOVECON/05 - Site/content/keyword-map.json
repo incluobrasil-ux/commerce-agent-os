@@ -1181,10 +1181,10 @@
       "keyword": "movecon avaliações",
       "intencao": "navegacional",
       "camada": "confianca",
-      "title": "Avaliações de Clientes | MOVECON Consórcio",
-      "description": "Depoimentos de consorciados e links diretos para nossa página no Reclame Aqui e no Google. Sem filtro e sem seleção.",
+      "title": "Avaliações e Reputação | MOVECON Consórcio",
+      "description": "A MOVECON é nova e ainda não tem avaliações de clientes. Veja o que dá para verificar hoje: CNPJ, administradora e consulta no Banco Central.",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 2
     },
     {

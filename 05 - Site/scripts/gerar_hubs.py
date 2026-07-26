@@ -22,6 +22,24 @@ CARD = ('      <div class="card card--acento">\n'
         '        <p>%s</p>\n'
         '      </div>')
 ITEM = '      <div class="card"><h3>%s</h3></div>'
+# Card de filha: o link envolve o card inteiro, entao a area de clique e a
+# area visivel. O texto ancora e a keyword da filha, nao "saiba mais".
+FILHA_CARD = ('      <a class="card card--link" href="%s">\n'
+              '        <h3>%s</h3>\n'
+              '        <p>%s</p>\n'
+              '      </a>')
+FILHAS_SEC = '''
+<section class="sec">
+  <div class="wrap stack-l">
+    <div class="stack prosa">
+      <p class="eyebrow">Por objetivo</p>
+      <h2>Escolha o seu caso de %s</h2>
+    </div>
+    <div class="cards cards--3">
+%s
+    </div>
+  </div>
+</section>'''
 FAQ = ('      <details%s>\n'
        '        <summary>%s</summary>\n'
        '        <div class="resposta">%s</div>\n'
@@ -74,6 +92,8 @@ TPL = '''<!-- wp:html -->
     </div>
   </div>
 </section>
+
+%(filhas)s
 
 <section class="sec">
   <div class="wrap stack-l">
@@ -135,8 +155,26 @@ def main():
         if palavras > 60:
             print('[!] %s: respostaCurta com %d palavras (alvo max. ~55)' % (url, palavras))
 
+        # Links hub -> filha. Sem isso o silo nao existe: as filhas ficam
+        # dependendo do menu-fallback do tema para serem alcancadas, o que
+        # nao passa contexto nenhum. Sai do keyword-map para nao duplicar
+        # fonte da verdade, e so entra filha que esta no ar.
+        filhos = [r for r in mapa['rotas']
+                  if r.get('pai') == url and r.get('camada') == 'filha'
+                  and r.get('status') == 'no-ar']
+        filhos.sort(key=lambda r: r['url'])
+        if filhos:
+            linhas = '\n'.join(
+                FILHA_CARD % (r['url'], r['keyword'][0].upper() + r['keyword'][1:],
+                              r['description'])
+                for r in filhos)
+            filhas_html = FILHAS_SEC % (s['nome'].lower(), linhas)
+        else:
+            filhas_html = ''
+
         html = TPL % dict(
             s,
+            filhas=filhas_html,
             nome_low=s['nome'].lower(),
             porque='\n'.join(CARD % (t, d) for t, d in s['porque']),
             cobre='\n'.join(ITEM % c for c in s['cobre']),

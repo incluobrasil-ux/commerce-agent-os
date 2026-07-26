@@ -65,6 +65,7 @@ TPL = '''<!-- wp:html -->
     <div class="cards cards--3">
 %(itens)s
     </div>
+%(destaque)s
     <div class="nota prosa">
       <p><strong>Sem juros — mas com custo.</strong> Você paga taxa de administração e, quando previsto em contrato, fundo de reserva. Os dois são informados antes da adesão. E a contemplação ocorre por sorteio ou lance: ninguém pode prometer data.</p>
     </div>
@@ -138,8 +139,18 @@ def main():
             if pal > 60:
                 print('[!] %s: answer-first com %d palavras (alvo ~55)' % (url, pal))
 
+            # Bloco opcional. Usado quando a pagina precisa destacar uma
+            # ressalva que vale mais que os cards - hoje so na pagina de
+            # verificacao no Bacen, para a frase literal do regulador.
+            dst = f.get('destaque')
+            destaque = ('' if not dst else
+                        '    <div class="destaque prosa">\n'
+                        '      <h3>%s</h3>\n      <p>%s</p>\n    </div>'
+                        % (dst['titulo'], dst['texto']))
+
             html = TPL % dict(
-                f, pai=pai, paiNome=pai_nome, simulador=d['simulador'],
+                f, destaque=destaque, pai=pai, paiNome=pai_nome,
+                simulador=d['simulador'],
                 h1Low=f['h1'][0].lower() + f['h1'][1:],
                 itens='\n'.join(ITEM % (t, x) for t, x in f['itens']),
                 faq='\n'.join(FAQ % (' open' if i == 0 else '', q, a)

@@ -349,7 +349,7 @@
       "title": "Consórcio de Moto | Sem juros e sem entrada",
       "description": "Consórcio de moto com parcela menor que a do financiamento. Para trabalho ou lazer, sem juros e sem entrada. Simule sua parcela.",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 1
     },
     {
@@ -502,7 +502,7 @@
       "intencao": "comercial",
       "camada": "filha",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 2
     },
     {
@@ -514,7 +514,7 @@
       "intencao": "comercial",
       "camada": "filha",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 2
     },
     {
@@ -862,7 +862,7 @@
       "intencao": "comercial",
       "camada": "filha",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 2
     },
     {

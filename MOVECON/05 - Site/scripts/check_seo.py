@@ -26,7 +26,11 @@ SSH_HOST = 'root@2.24.220.21'
 SSH_KEY = os.path.expanduser('~/.ssh/id_ed25519')
 WP = 'bash /root/wpcli-movecon.sh'
 
-CAMADAS = {'institucional', 'conversao', 'lp', 'hub', 'filha',
+# 'artigo' e a camada do /blog/: comparativos editoriais que citam
+# concorrentes nomeados. Separada de 'guia' de proposito - guia explica
+# o mecanismo do consorcio, artigo compara players do mercado, e as duas
+# coisas tem exposicao juridica bem diferente.
+CAMADAS = {'institucional', 'conversao', 'lp', 'hub', 'filha', 'artigo',
            'guia', 'glossario', 'confianca', 'local'}
 INTENCOES = {'transacional', 'comercial', 'informacional', 'navegacional'}
 STATUS = {'no-ar', 'em-producao', 'planejada'}

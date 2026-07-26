@@ -309,7 +309,8 @@ function mv_render_llms() {
 		foreach ( $rotas as $r ) {
 			if ( $r['camada'] !== $camada ) continue;
 			$linhas[] = sprintf( '- [%s](%s): %s',
-				mv_nome_curto( $r ), home_url( $r['url'] ), $r['description'] );
+				mv_nome_curto( $r ), home_url( $r['url'] ),
+				! empty( $r['llms'] ) ? $r['llms'] : $r['description'] );
 		}
 		return $linhas ? implode( "\n", $linhas ) : '- (nenhuma publicada ainda)';
 	};
@@ -328,6 +329,16 @@ function mv_render_llms() {
 	        . $por_camada( 'institucional' ) . "\n\n";
 	$corpo .= "## Guias\n" . $por_camada( 'guia' ) . "\n\n";
 	$corpo .= "## Ferramentas\n" . $por_camada( 'conversao' ) . "\n\n";
+	// Comparativos entram so quando a rota sai de 'planejada'. Enquanto
+	// os artigos forem rascunho, mv_indexaveis() nao os devolve e a
+	// secao inteira nem chega a ser escrita.
+	$comparativos = $por_camada( 'artigo' );
+	if ( strpos( $comparativos, '(nenhuma publicada' ) === false ) {
+		$corpo .= "## Comparativos e rankings
+" . $comparativos . "
+
+";
+	}
 	$corpo .= sprintf( "---\nPáginas publicadas: %d de %d mapeadas.\n",
 		count( $rotas ), count( mv_rotas() ) );
 
@@ -341,7 +352,7 @@ function mv_render_llms() {
 function mv_render_sitemap() {
 	$prioridade = array(
 		'hub' => '0.9', 'conversao' => '0.9', 'filha' => '0.8',
-		'guia' => '0.7', 'confianca' => '0.6',
+		'guia' => '0.7', 'artigo' => '0.7', 'confianca' => '0.6',
 	);
 	header( 'Content-Type: application/xml; charset=utf-8' );
 	echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";

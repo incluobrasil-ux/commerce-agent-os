@@ -1,0 +1,320 @@
+{
+ "_leia_me": "Conteudo das landing pages de midia paga. Regras estruturais (noindex, sem menu, sem rodape de navegacao) NAO moram aqui: moram no mu-plugin movecon-header-footer.php via mv_e_lp(). Aqui e so copy. `simulador` aponta a chave em simuladores.json; quando null, a LP usa CTA direto de WhatsApp em vez de calculadora.",
+ "_sem_prova_social": "Nenhuma LP tem depoimento, numero de clientes ou selo de resultado. Nao ha dado real. O prompt pedia prova social pesada nas de remarketing; no lugar, elas quebram objecao e declaram para quem o consorcio NAO serve. Trocar por prova real assim que existir.",
+ "aquisicao": [
+  {
+   "slug": "veiculos",
+   "simulador": "veiculos",
+   "eyebrow": "Consórcio de carro",
+   "h1": "Seu carro sem juros e sem entrada",
+   "lead": "No financiamento, os juros correm do primeiro ao último mês. No consórcio não há juros — você paga parcelas, é contemplado por sorteio ou lance, e chega na concessionária como comprador à vista.",
+   "bullets": [
+    [
+     "Sem juros",
+     "Você paga taxa de administração, não juros compostos"
+    ],
+    [
+     "Sem entrada",
+     "Comece a pagar e concorra desde a primeira assembleia"
+    ],
+    [
+     "À vista",
+     "Com a carta em mãos, você negocia desconto"
+    ]
+   ]
+  },
+  {
+   "slug": "moto",
+   "simulador": null,
+   "eyebrow": "Consórcio de moto",
+   "h1": "Sua moto sem juros e sem entrada",
+   "lead": "Para trabalho ou para o fim de semana. O financiamento de moto cobra juros e quase sempre pede entrada. O consórcio não faz nem uma coisa nem outra.",
+   "bullets": [
+    [
+     "Parcela menor",
+     "Sem juros, o valor mensal fica abaixo do financiamento"
+    ],
+    [
+     "Sem entrada",
+     "O consórcio não exige entrada"
+    ],
+    [
+     "Nova ou usada",
+     "Você escolhe marca e modelo na contemplação"
+    ]
+   ]
+  },
+  {
+   "slug": "imoveis",
+   "simulador": "imoveis",
+   "eyebrow": "Consórcio de imóvel",
+   "h1": "Sua casa sem os juros de um financiamento de 30 anos",
+   "lead": "Num financiamento longo, é comum pagar mais de duas vezes o valor do imóvel só em juros. No consórcio não há juros — você paga parcelas, é contemplado por sorteio ou lance, e compra à vista.",
+   "bullets": [
+    [
+     "Sem juros",
+     "Você paga taxa de administração, não juros compostos"
+    ],
+    [
+     "Sem entrada",
+     "Comece a pagar e concorra desde a primeira assembleia"
+    ],
+    [
+     "FGTS",
+     "Pode ser usado como lance para antecipar a contemplação"
+    ]
+   ]
+  },
+  {
+   "slug": "caminhao",
+   "simulador": "caminhao",
+   "eyebrow": "Consórcio de caminhão",
+   "h1": "Renove a frota sem que os juros comam a margem do frete",
+   "lead": "Caminhão é ferramenta de trabalho, e juros de financiamento saem direto da margem. O consórcio troca isso por uma parcela previsível, sem juros.",
+   "bullets": [
+    [
+     "Custo previsível",
+     "O cálculo do frete não precisa absorver variação de taxa"
+    ],
+    [
+     "Novo ou usado",
+     "Também cobre carreta e implementos"
+    ],
+    [
+     "Autônomo ou empresa",
+     "Sem análise de crédito para entrar no grupo"
+    ]
+   ]
+  },
+  {
+   "slug": "agro",
+   "simulador": "maquinas-agricolas",
+   "eyebrow": "Consórcio no agro",
+   "h1": "Trator e maquinário no tempo da lavoura, não no do banco",
+   "lead": "Crédito rural nem sempre chega na janela certa. O consórcio permite planejar a contemplação para o plantio, sem depender de aprovação nem de liberação de linha.",
+   "bullets": [
+    [
+     "Independe do crédito rural",
+     "Sem calendário de liberação e sem enquadramento"
+    ],
+    [
+     "Planejado para a safra",
+     "O lance pode antecipar a contemplação"
+    ],
+    [
+     "Trator a implemento",
+     "Colheitadeira, pulverizador e plantadeira"
+    ]
+   ]
+  },
+  {
+   "slug": "servicos",
+   "simulador": "servicos",
+   "eyebrow": "Consórcio de serviços",
+   "h1": "Energia solar, reforma ou viagem sem os juros do cartão",
+   "lead": "Cartão parcelado e crediário são as formas mais caras de pagar. O consórcio de serviços não tem juros — e na contemplação você contrata o prestador à vista.",
+   "bullets": [
+    [
+     "Sem juros de cartão",
+     "Nem rotativo, nem parcelamento, nem crediário"
+    ],
+    [
+     "Contrata à vista",
+     "O que costuma render desconto com o fornecedor"
+    ],
+    [
+     "Amplo",
+     "Solar, reforma, viagem, casamento, estudos e saúde"
+    ]
+   ]
+  },
+  {
+   "slug": "empresa",
+   "simulador": null,
+   "eyebrow": "Consórcio PJ",
+   "h1": "Invista na operação sem travar o capital de giro",
+   "lead": "Empréstimo empresarial consome margem e exige garantia. O consórcio permite planejar frota, equipamento ou obra com parcela previsível, preservando o caixa.",
+   "bullets": [
+    [
+     "Capital de giro intacto",
+     "Sem imobilizar caixa nem comprometer limite bancário"
+    ],
+    [
+     "Custo previsível",
+     "Entra no orçamento anual sem surpresa"
+    ],
+    [
+     "MEI a empresa estruturada",
+     "Muda o porte, não a lógica"
+    ]
+   ]
+  },
+  {
+   "slug": "marca",
+   "simulador": null,
+   "eyebrow": "MOVECON Consórcio",
+   "h1": "MOVECON: consórcio com quem você pode conferir",
+   "lead": "Os grupos são administrados pela Alpha Administradora de Consórcio Ltda., administradora autorizada a funcionar pelo Banco Central do Brasil. E nós ensinamos você a conferir isso na fonte oficial.",
+   "bullets": [
+    [
+     "Verificável",
+     "CNPJ 90.982.679/0001-54 · certificado nº 03/100/213/88"
+    ],
+    [
+     "Custos por escrito",
+     "Taxa e prazo no contrato, antes da assinatura"
+    ],
+    [
+     "Sem promessa de data",
+     "Contemplação por sorteio ou lance, como manda a regra"
+    ]
+   ]
+  }
+ ],
+ "remarketing": [
+  {
+   "slug": "veiculos",
+   "simulador": "veiculos",
+   "nome": "carro",
+   "objecoes": [
+    [
+     "“E se eu demorar demais para ser contemplado?”",
+     "É o risco real, e ninguém honesto dirá o contrário. A contemplação depende de sorteio ou lance. Se você precisa do carro em data fechada, o consórcio pode não ser a ferramenta certa."
+    ],
+    [
+     "“Não é só juro com outro nome?”",
+     "Não. A taxa de administração é percentual fixo sobre a carta, definido em contrato. Não incide sobre saldo devedor nem compõe juros sobre juros."
+    ],
+    [
+     "“E se eu precisar desistir?”",
+     "A Lei 11.795/08 prevê regras de desistência e devolução. As condições exatas estão no contrato do seu grupo — que você lê antes de assinar."
+    ],
+    [
+     "“Como sei que não é golpe?”",
+     "Pedindo o CNPJ da administradora e conferindo na relação do Banco Central. Os grupos são administrados pela Alpha Administradora de Consórcio Ltda., CNPJ 90.982.679/0001-54."
+    ]
+   ],
+   "naoServe": "Se você precisa do carro numa data definida, ou não tem folga para manter a parcela por anos, financiamento pode ser melhor. Preferimos dizer agora do que você descobrir depois."
+  },
+  {
+   "slug": "moto",
+   "simulador": null,
+   "nome": "moto",
+   "objecoes": [
+    [
+     "“E se eu demorar demais para ser contemplado?”",
+     "A contemplação depende de sorteio ou lance, e ninguém pode garantir data. Se a moto é para trabalhar já, vale considerar outra via."
+    ],
+    [
+     "“A parcela é mesmo menor?”",
+     "Sem juros, sim, para o mesmo crédito e prazo comparável. O que existe é taxa de administração, informada antes da adesão."
+    ],
+    [
+     "“E se eu precisar desistir?”",
+     "A Lei 11.795/08 prevê regras de desistência e devolução, com as condições no contrato do grupo."
+    ],
+    [
+     "“Como sei que não é golpe?”",
+     "Conferindo o CNPJ da administradora no Banco Central. Alpha Administradora de Consórcio Ltda., CNPJ 90.982.679/0001-54."
+    ]
+   ],
+   "naoServe": "Se a moto é sua ferramenta de trabalho e você precisa dela este mês, o consórcio não resolve. Ele é planejamento, não urgência."
+  },
+  {
+   "slug": "imoveis",
+   "simulador": "imoveis",
+   "nome": "imóvel",
+   "objecoes": [
+    [
+     "“E se eu demorar demais para ser contemplado?”",
+     "É o risco real do consórcio, e ninguém honesto vai dizer o contrário. A contemplação depende de sorteio ou lance. Se você tem prazo fechado para sair do aluguel, o consórcio pode não ser a ferramenta certa."
+    ],
+    [
+     "“Não é só juro com outro nome?”",
+     "Não. A taxa de administração é um percentual fixo sobre a carta, definido no contrato e diluído nas parcelas. Não incide sobre saldo devedor nem compõe juros sobre juros."
+    ],
+    [
+     "“E se eu precisar desistir no meio?”",
+     "A Lei 11.795/08 prevê regras de desistência e devolução de valores. As condições exatas estão no contrato do seu grupo — e você lê antes de assinar, não depois."
+    ],
+    [
+     "“Como sei que não é golpe?”",
+     "Pedindo o CNPJ da administradora e conferindo você mesmo na relação do Banco Central. Alpha Administradora de Consórcio Ltda., CNPJ 90.982.679/0001-54, certificado nº 03/100/213/88."
+    ]
+   ],
+   "naoServe": "Se você precisa do imóvel numa data definida, ou não tem folga para manter a parcela por anos, financiamento ou aluguel podem ser melhores. Preferimos dizer isso agora do que você descobrir depois."
+  },
+  {
+   "slug": "caminhao",
+   "simulador": "caminhao",
+   "nome": "caminhão",
+   "objecoes": [
+    [
+     "“Não posso ficar sem o caminhão esperando sorteio.”",
+     "Correto. Por isso o consórcio funciona melhor como renovação programada, não como reposição de emergência. Quem já roda usa para planejar o próximo, não o de hoje."
+    ],
+    [
+     "“A taxa não come o ganho de não ter juros?”",
+     "A taxa é percentual fixo sobre a carta. Num prazo comparável, o custo total costuma ficar abaixo do financiamento — e é justamente essa conta que o simulador mostra."
+    ],
+    [
+     "“Empresa pode participar?”",
+     "Sim, e é comum manter mais de uma cota para escalonar a renovação da frota."
+    ],
+    [
+     "“Como sei que não é golpe?”",
+     "Conferindo o CNPJ no Banco Central. Alpha Administradora de Consórcio Ltda., CNPJ 90.982.679/0001-54, certificado nº 03/100/213/88."
+    ]
+   ],
+   "naoServe": "Se o caminhão parou e você precisa rodar semana que vem, consórcio não é a resposta. Ele serve para quem planeja a próxima aquisição."
+  },
+  {
+   "slug": "agro",
+   "simulador": "maquinas-agricolas",
+   "nome": "máquina agrícola",
+   "objecoes": [
+    [
+     "“O Pronaf não sai mais barato?”",
+     "Muitas vezes sim, quando você se enquadra e a linha está disponível. O consórcio ganha em previsibilidade e em não depender de aprovação — não em taxa subsidiada."
+    ],
+    [
+     "“E se a contemplação não cair na safra certa?”",
+     "É o risco. O lance é a ferramenta para antecipar, mas nenhuma administradora garante data. Planejar com folga de safra reduz o problema."
+    ],
+    [
+     "“Produtor pessoa física entra?”",
+     "Sim, pessoa física e jurídica, conforme as regras do grupo."
+    ],
+    [
+     "“Como sei que não é golpe?”",
+     "Conferindo o CNPJ no Banco Central. Alpha Administradora de Consórcio Ltda., CNPJ 90.982.679/0001-54."
+    ]
+   ],
+   "naoServe": "Se a máquina é necessária para esta safra e você tem acesso a crédito rural aprovado, o crédito rural provavelmente é melhor."
+  },
+  {
+   "slug": "servicos",
+   "simulador": "servicos",
+   "nome": "serviços",
+   "objecoes": [
+    [
+     "“Não é mais simples parcelar no cartão?”",
+     "É mais rápido, e bem mais caro. O cartão parcelado e o crediário estão entre as linhas de maior juro do mercado. O consórcio não tem juros."
+    ],
+    [
+     "“E se eu precisar do serviço antes da contemplação?”",
+     "Aí o consórcio não resolve. Ele serve para o que você consegue planejar com meses de antecedência."
+    ],
+    [
+     "“Posso escolher qualquer prestador?”",
+     "Em geral sim, desde que ele atenda aos requisitos de documentação para o pagamento da carta."
+    ],
+    [
+     "“Como sei que não é golpe?”",
+     "Conferindo o CNPJ da administradora no Banco Central. Alpha Administradora de Consórcio Ltda., CNPJ 90.982.679/0001-54."
+    ]
+   ],
+   "naoServe": "Procedimento urgente, viagem com data marcada ou obra que já começou não cabem em consórcio. Ele é para o que dá para planejar."
+  }
+ ]
+}

@@ -7,7 +7,7 @@
   "custoSobreCarta": "(kFirst + tot - 1) * 100",
   "_nota": "Sao DUAS componentes. Ignorar a primeira parcela subestima o custo total - erro cometido e corrigido em 25/07/2026."
  },
- "_disclaimer": "Estimativa. Valores sujeitos a confirmacao pela administradora no momento da adesao. Nao constitui proposta. A contemplacao ocorre por sorteio ou lance e nao pode ser garantida.",
+ "_disclaimer": "Estimativa. Valores sujeitos a confirmação pela administradora no momento da adesão. Não constitui proposta. A contemplação ocorre por sorteio ou lance e não pode ser garantida.",
  "whatsapp": "5577981620921",
  "_whatsapp_provisorio": "PROVISORIO - este e o numero da CRELIDER, autorizado pelo cliente como temporario em 25/07/2026. Leads do site da MOVECON caem no WhatsApp da Crelider. Trocar por um numero MOVECON assim que existir: alterar SO esta chave e republicar os simuladores.",
  "categorias": {

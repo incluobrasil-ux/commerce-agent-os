@@ -6,7 +6,7 @@
       "nome": "Veículos",
       "eyebrow": "Veículos",
       "h1": "Consórcio de veículos: comprar à vista, pagando aos poucos",
-      "respostaCurta": "O consórcio de veículos é uma compra planejada em grupo, sem juros e sem entrada. Você paga parcelas mensais e, ao ser contemplado por sorteio ou lance, recebe uma carta de crédito para comprar o carro à vista — o que dá poder de negociação na concessionária.",
+      "respostaCurta": "O consórcio de veículos permite comprar carro novo ou usado sem juros e sem entrada obrigatória. Você paga parcelas, é contemplado por sorteio ou lance e fecha à vista, como quem chega com dinheiro na mão. Serve a quem pode esperar — não a quem precisa do carro esta semana.",
       "lead": "Financiamento cobra juros do primeiro ao último mês. No consórcio não há juros — você paga parcelas, é contemplado por sorteio ou lance, e chega na concessionária como comprador à vista.",
       "porque_titulo": "Por que consórcio para veículo",
       "porque": [
@@ -21,16 +21,38 @@
         [
           "Parcela que cabe no orçamento",
           "Você escolhe o valor do crédito e o prazo. A parcela sai do seu planejamento, não da tabela do banco."
+        ],
+        [
+          "Lance livre ou embutido",
+          "O lance é a única alavanca sobre o tempo. No livre você oferta do próprio bolso; no embutido, parte sai da carta e o crédito diminui na mesma proporção — dá para disputar sem ter o valor à vista, desde que a conta do carro feche com o que sobra."
         ]
       ],
       "cobre_titulo": "O que a carta de crédito cobre",
       "cobre": [
-        "Carro novo, zero quilômetro",
-        "Carro usado ou seminovo",
-        "SUV e picape",
-        "Carro elétrico e híbrido",
-        "Primeiro carro",
-        "Van e utilitário de trabalho"
+        [
+          "Carro novo, zero quilômetro",
+          "Compra direto na concessionária, com a carta paga ao vendedor pela administradora."
+        ],
+        [
+          "Carro usado ou seminovo",
+          "Dentro dos critérios de ano e vistoria da administradora. É onde a diferença para o financiamento mais aparece: crédito de usado costuma ter taxa maior que o de zero."
+        ],
+        [
+          "SUV e picape",
+          "A carta acompanha o valor do veículo pretendido, dentro dos limites da modalidade."
+        ],
+        [
+          "Carro elétrico e híbrido",
+          "Mesma regra dos demais: o que define é o valor da carta e a documentação, não a motorização."
+        ],
+        [
+          "Primeiro carro",
+          "Sem análise de crédito na adesão, alcança quem ainda não tem histórico bancário para financiar."
+        ],
+        [
+          "Van e utilitário de trabalho",
+          "Veículo usado como ferramenta. Vale lembrar que o consórcio não repõe veículo parado: a contemplação não chega sob encomenda."
+        ]
       ],
       "faq": [
         [
@@ -44,8 +66,70 @@
         [
           "Preciso dar entrada?",
           "Não. O consórcio não exige entrada. Você começa a pagar as parcelas e já concorre à contemplação desde a primeira assembleia."
+        ],
+        [
+          "Quanto tempo até eu receber a carta de crédito?",
+          "Não há resposta honesta em forma de prazo. A contemplação ocorre por sorteio ou lance, em assembleia, e varia grupo a grupo. O lance aumenta a chance, não a certeza — e nenhuma administradora pode prometer data."
+        ],
+        [
+          "Além do carro, o que eu ainda vou pagar?",
+          "Transferência de propriedade, emplacamento e licenciamento não entram na carta. São custos junto ao Detran, pagos por você na hora da compra."
+        ],
+        [
+          "Posso comprar de particular?",
+          "Sim, desde que a documentação do veículo e do vendedor atenda às exigências e o carro passe na vistoria."
         ]
-      ]
+      ],
+      "simulador": "/simulador/veiculos/",
+      "tabela": {
+        "titulo": "Consórcio ou financiamento de veículo",
+        "intro": "As duas vias compram o mesmo carro e cobram de formas diferentes. A pergunta que decide não é qual tem a menor taxa, e sim se você pode esperar.",
+        "col0": "",
+        "col1": "Consórcio",
+        "col2": "Financiamento de veículo",
+        "linhas": [
+          ["Juros", "Não há", "Sim, e costumam ser maiores em carro usado"],
+          [
+            "Custo além do bem",
+            "Taxa de administração e, quando previsto em contrato, fundo de reserva",
+            "Juros, IOF, tarifa de cadastro e seguro exigido pelo credor"
+          ],
+          ["Entrada", "Não obrigatória", "Em regra exigida, e maior no usado"],
+          [
+            "Análise de crédito",
+            "Na contemplação, quando o crédito é liberado",
+            "Na contratação — reprova antes de você começar"
+          ],
+          [
+            "Acesso ao carro",
+            "Na contemplação, por sorteio ou lance, sem data previsível",
+            "Imediato"
+          ],
+          ["Posição na negociação", "Comprador à vista", "Comprador financiado"]
+        ],
+        "nota": "As taxas de administração e os juros variam por administradora, banco e perfil. A comparação honesta soma tudo o que sai do bolso até o fim do contrato, nos dois cenários."
+      },
+      "passos": {
+        "titulo": "Como funciona, da adesão à chave na mão",
+        "itens": [
+          [
+            "Adesão",
+            "Você escolhe o valor da carta e o prazo, sem entrada. A carta é dimensionada pelo carro que você pretende comprar — inclusive o que ele deve custar daqui a alguns meses, e não hoje. Não há análise de crédito nesta etapa."
+          ],
+          [
+            "Parcelas",
+            "Você paga a mensalidade e concorre desde a primeira assembleia. Cota em dia concorre todo mês sem custo adicional; cota em atraso deixa de concorrer até regularizar."
+          ],
+          [
+            "Contemplação",
+            "Por sorteio ou por lance, em assembleia. Não existe data que possa ser prometida — vence o maior percentual daquele mês, e isso muda a cada assembleia. É aqui que a análise de capacidade de pagamento acontece."
+          ],
+          [
+            "Carro na mão",
+            "A administradora paga o vendedor diretamente, depois da vistoria e da conferência documental. Serve para concessionária ou particular, zero ou usado, respeitados os critérios de ano. As parcelas restantes continuam."
+          ]
+        ]
+      }
     },
     {
       "slug": "consorcio-moto",

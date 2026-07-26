@@ -220,32 +220,50 @@ add_action( 'wp_head', function () {
 	) );
 }, 4 );
 
-/** FAQPage — hubs de segmento, a partir de content/segmentos.json. */
+/**
+ * FAQPage.
+ *
+ * Duas fontes, nesta ordem:
+ *   content/faq-map.json  -> url => perguntas (filhas de silo, gerado pelos scripts)
+ *   content/segmentos.json -> hubs de segmento
+ *
+ * Sem isto o FAQ existiria no HTML e nao no dado estruturado — e e o schema
+ * que faz motor generativo extrair e citar a resposta.
+ */
 add_action( 'wp_head', function () {
 	$rota = mv_rota();
 	if ( ! $rota ) return;
 
-	$slug = trim( $rota['url'], '/' );
-	$segs = mv_json( 'segmentos.json' );
-	if ( empty( $segs['segmentos'] ) ) return;
+	$perguntas = array();
 
-	foreach ( $segs['segmentos'] as $s ) {
-		if ( $s['slug'] !== $slug || empty( $s['faq'] ) ) continue;
-		$perguntas = array();
-		foreach ( $s['faq'] as $par ) {
-			$perguntas[] = array(
-				'@type'          => 'Question',
-				'name'           => $par[0],
-				'acceptedAnswer' => array( '@type' => 'Answer', 'text' => $par[1] ),
-			);
+	$faq_map = mv_json( 'faq-map.json' );
+	if ( ! empty( $faq_map[ $rota['url'] ] ) ) {
+		$perguntas = $faq_map[ $rota['url'] ];
+	} else {
+		$slug = trim( $rota['url'], '/' );
+		$segs = mv_json( 'segmentos.json' );
+		foreach ( ( isset( $segs['segmentos'] ) ? $segs['segmentos'] : array() ) as $s ) {
+			if ( $s['slug'] === $slug && ! empty( $s['faq'] ) ) {
+				$perguntas = $s['faq'];
+				break;
+			}
 		}
-		mv_jsonld( array(
-			'@context'   => 'https://schema.org',
-			'@type'      => 'FAQPage',
-			'mainEntity' => $perguntas,
-		) );
-		return;
 	}
+	if ( empty( $perguntas ) ) return;
+
+	$itens = array();
+	foreach ( $perguntas as $par ) {
+		$itens[] = array(
+			'@type'          => 'Question',
+			'name'           => $par[0],
+			'acceptedAnswer' => array( '@type' => 'Answer', 'text' => $par[1] ),
+		);
+	}
+	mv_jsonld( array(
+		'@context'   => 'https://schema.org',
+		'@type'      => 'FAQPage',
+		'mainEntity' => $itens,
+	) );
 }, 5 );
 
 /* ==========================================================================

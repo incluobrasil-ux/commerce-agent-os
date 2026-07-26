@@ -713,3 +713,14 @@ a:hover { color: var(--mv-azul); }
 .mv-topo--lp   { position: static; }
 .mv-topo--lp .mv-marca { cursor: default; }
 .mv-rodape--lp { padding-block: 2.5rem 2rem; }
+
+/* ---------- Breadcrumb visivel (filhas de silo) ---------- */
+.mv-trilha {
+  width: min(100% - 2.5rem, var(--mv-container));
+  margin: 1.25rem auto -.5rem;
+  font-size: .82rem; color: var(--mv-cinza-500);
+}
+.mv-trilha a { color: var(--mv-texto-suave); text-decoration: none; }
+.mv-trilha a:hover { color: var(--mv-azul); text-decoration: underline; }
+.mv-trilha span { margin-inline: .3rem; }
+.mv-trilha [aria-current] { color: var(--mv-azul); font-weight: 600; }

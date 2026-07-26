@@ -44,7 +44,7 @@ FILHAS_NO_AR = {
     # lote 9 - confianca, publicadas em 26/07/2026
     '/quem-somos/', '/seguranca/',
     # lote 10 - /dados/, publicado em 26/07/2026 com numeros da ABAC
-    '/dados/',
+    '/dados/', '/avaliacoes/',
     # lote 8 - os 20 guias, publicados em 26/07/2026
     '/guia/como-funciona-o-consorcio/', '/guia/carta-de-credito/',
     '/guia/lance-no-consorcio/', '/guia/taxa-de-administracao/',
@@ -376,8 +376,15 @@ for url, kw, cam, t, d, fase in [
          'Conheça o time da MOVECON, a estrutura de atendimento e a administradora que responde pelos grupos. Transparência completa.', 2),
         ('/seguranca/', 'como saber se o consórcio é seguro', 'confianca', 'Segurança e Transparência | MOVECON',
          'CNPJ, autorização do Bacen, contrato e canais oficiais reunidos em uma página. Confira cada informação na fonte original.', 2),
-        ('/avaliacoes/', 'movecon avaliações', 'confianca', 'Avaliações de Clientes | MOVECON Consórcio',
-         'Depoimentos de consorciados e links diretos para nossa página no Reclame Aqui e no Google. Sem filtro e sem seleção.', 2),
+        # Publicada em 26/07/2026 como pagina de REPUTACAO, e nao de
+        # depoimentos. A MOVECON e nova e nao tem avaliacao de cliente. A
+        # alternativa levantada - usar as avaliacoes da parceira - foi
+        # recusada: depoimento atribuido a quem nao o deu e fabricado,
+        # mesmo quando o texto original e verdadeiro. A pagina responde a
+        # busca com o que da para verificar hoje: CNPJs, certificado da
+        # administradora e o caminho da consulta no Bacen.
+        ('/avaliacoes/', 'movecon avaliações', 'confianca', 'Avaliações e Reputação | MOVECON Consórcio',
+         'A MOVECON é nova e ainda não tem avaliações de clientes. Veja o que dá para verificar hoje: CNPJ, administradora e consulta no Banco Central.', 2),
         # /autores/ e /imprensa/ REMOVIDAS do mapa em 26/07/2026, por decisao
         # do cliente. As duas dependiam de fato que a MOVECON ainda nao tem:
         # um quadro de autores identificaveis e mencoes reais na imprensa.

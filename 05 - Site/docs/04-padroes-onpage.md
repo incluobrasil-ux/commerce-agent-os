@@ -120,6 +120,33 @@ recorta o conteúdo e descarta o rodapé do site. Texto obrigatório em
 - Todo CTA de simulação aponta para a rota real do simulador do segmento
 - **Nenhum CTA promete prazo**
 
+## Replicação de molde — o que herda e o que não
+
+A estrutura herda; o texto não. Regra do prompt 1.2 do manual.
+
+**Item permanente do checklist de aceite:** nenhuma menção a benefício ou custo
+que não se aplica à modalidade. **FGTS fora de imóveis é falha, não aviso.**
+
+Codificado em `validar_modalidade()` no `check_seo.py`, que falha com exit 1:
+
+| Termo | Só pode aparecer em |
+|---|---|
+| `fgts` | imóveis, `/guia/primeiro-imovel/`, glossário, `/guia/lance-no-consorcio/`, `/perguntas/` |
+| `itbi`, `escritura` | imóveis, `/guia/primeiro-imovel/` |
+| `emplacamento`, `licenciamento` | veículos, moto, caminhão, máquinas agrícolas |
+
+A varredura é sobre os JSON de conteúdo, não sobre o HTML: no JSON a rota é
+conhecida com precisão. Existe porque replicação de molde é onde esse erro
+nasce — FGTS, ITBI e escritura viajam junto com a estrutura se ninguém segurar,
+e checklist humano falha na quinta replicação.
+
+**O que PODE repetir entre hubs**, por ser estrutura e não conteúdo:
+
+- bloco de compliance (texto literal de `01-compliance.md`)
+- nota "Sem juros — mas com custo"
+- copy do CTA final
+- nota da tabela comparativa
+
 ## Anti-padrões a não repetir
 
 Do relatório:

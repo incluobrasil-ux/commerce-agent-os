@@ -113,6 +113,69 @@ def validar_mapa(doc):
                 erros.append('COMPLIANCE - expressao proibida "%s" em %s' % (p, r['url']))
 
 
+# Termo -> prefixos de rota onde ele PODE aparecer. Fora disso e erro.
+#
+# FGTS so existe para imovel residencial: a lei do fundo nao permite usar em
+# veiculo, servico, maquina ou embarcacao. Citar em outra modalidade nao e
+# imprecisao de copy, e informacao falsa numa pagina sobre dinheiro.
+#
+# ITBI, escritura e registro sao custos de transmissao de imovel. Emplacamento
+# e transferencia sao de veiculo. Trocar um pelo outro entrega ao leitor uma
+# conta que ele nao vai ter - ou esconde uma que vai.
+TERMOS_MODALIDADE = {
+    'fgts': ('/consorcio-imoveis', '/guia/primeiro-imovel/', '/glossario/',
+             '/guia/lance-no-consorcio/', '/perguntas/'),
+    'itbi': ('/consorcio-imoveis', '/guia/primeiro-imovel/'),
+    'escritura': ('/consorcio-imoveis', '/guia/primeiro-imovel/'),
+    'emplacamento': ('/consorcio-veiculos', '/consorcio-moto',
+                     '/consorcio-caminhao', '/consorcio-maquinas-agricolas'),
+    'licenciamento': ('/consorcio-veiculos', '/consorcio-moto',
+                      '/consorcio-caminhao', '/consorcio-maquinas-agricolas'),
+}
+
+
+def validar_modalidade():
+    """
+    Nenhuma pagina menciona beneficio ou custo de outra modalidade.
+
+    Regra do cliente: FGTS fora de imoveis e FALHA, nao aviso. Existe porque
+    a replicacao de molde carrega o texto junto com a estrutura, e o erro so
+    aparece quando um leitor tenta usar FGTS num consorcio de carro.
+    """
+    erros = []
+    conteudo = os.path.join(RAIZ, 'content')
+
+    def checar(rota, blob, origem):
+        texto = json.dumps(blob, ensure_ascii=False).lower()
+        for termo, permitidos in TERMOS_MODALIDADE.items():
+            if termo not in texto:
+                continue
+            if not any(rota.startswith(p) for p in permitidos):
+                erros.append('MODALIDADE - "%s" em %s (%s). Esse termo so se '
+                             'aplica a: %s'
+                             % (termo, rota, origem, ', '.join(permitidos)))
+
+    caminho = os.path.join(conteudo, 'segmentos.json')
+    if os.path.exists(caminho):
+        with io.open(caminho, encoding='utf-8') as fh:
+            for seg in json.load(fh)['segmentos']:
+                checar('/%s/' % seg['slug'], seg, 'segmentos.json')
+
+    for nome in sorted(os.listdir(conteudo)):
+        if nome.startswith('filhas-') and nome.endswith('.json'):
+            with io.open(os.path.join(conteudo, nome), encoding='utf-8') as fh:
+                d = json.load(fh)
+            for x in d.get('filhas', []):
+                checar('%s%s/' % (d['pai'], x['slug']), x, nome)
+        if nome.startswith('guias-') and nome.endswith('.json'):
+            with io.open(os.path.join(conteudo, nome), encoding='utf-8') as fh:
+                d = json.load(fh)
+            for x in d.get('guias', []):
+                checar('/guia/%s/' % x['slug'], x, nome)
+
+    return erros
+
+
 def validar_prosa(doc):
     """
     Varre o HTML/PHP das paginas atras das expressoes proibidas.
@@ -220,6 +283,7 @@ def main():
     doc = carregar()
     validar_mapa(doc)
     validar_prosa(doc)
+    erros.extend(validar_modalidade())
     if '--wp' in sys.argv:
         validar_wp(doc)
 

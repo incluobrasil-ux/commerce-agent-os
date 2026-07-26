@@ -19,6 +19,12 @@ FILHAS_NO_AR = {
     '/consorcio-servicos/energia-solar/', '/consorcio-servicos/viagem/',
     '/consorcio-servicos/casamento/', '/consorcio-servicos/educacao/',
     '/consorcio-servicos/saude-estetica/',
+    # lote 4 - caminhao e agro, publicadas em 25/07/2026
+    '/consorcio-caminhao/caminhao-usado/', '/consorcio-caminhao/carreta-implementos/',
+    '/consorcio-caminhao/frota/', '/consorcio-caminhao/caminhoneiro-autonomo/',
+    '/consorcio-maquinas-agricolas/trator/', '/consorcio-maquinas-agricolas/colheitadeira/',
+    '/consorcio-maquinas-agricolas/implementos/',
+    '/consorcio-maquinas-agricolas/pronaf-ou-consorcio/',
 }
 
 

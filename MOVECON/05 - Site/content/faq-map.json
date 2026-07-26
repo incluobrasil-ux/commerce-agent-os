@@ -510,5 +510,55 @@
    "Sobra crédito se a moto custar menos que a carta?",
    "As regras variam conforme o contrato do grupo. Confirme como a diferença é tratada antes de aderir."
   ]
+ ],
+ "/perguntas/": [
+  [
+   "Consórcio é a mesma coisa que financiamento?",
+   "Não. No financiamento você recebe o bem primeiro e paga juros por isso. No consórcio você paga primeiro e recebe quando for contemplado, sem juros — mas com taxa de administração. O financiamento vende tempo; o consórcio vende planejamento. Quem tem pressa não deveria estar num consórcio."
+  ],
+  [
+   "Quanto tempo demora para ser contemplado?",
+   "Não existe resposta honesta para isso em forma de prazo. A contemplação depende de sorteio ou lance, em assembleia, e varia grupo a grupo. Quem oferece lance aumenta a chance, não a certeza. Qualquer pessoa que prometa uma data está prometendo o que não pode entregar."
+  ],
+  [
+   "Posso participar estando negativado?",
+   "Para entrar no grupo, em geral sim: não há análise de crédito na adesão. A análise acontece na contemplação, quando o crédito vai ser liberado. Ou seja, estar negativado não impede começar, mas pode impedir receber. Vale usar o tempo até a contemplação para regularizar."
+  ],
+  [
+   "O que acontece se eu não puder mais pagar?",
+   "Você pode transferir a cota a outra pessoa, com formalização pela administradora, ou desistir. Desistindo, tem direito à devolução dos valores pagos ao fundo comum, com as deduções e no prazo previstos em contrato — em regra, após o encerramento do grupo, e não no momento da saída."
+  ],
+  [
+   "Consórcio tem juros mesmo?",
+   "Não tem juros, e isso é literal. Tem custo: taxa de administração e, quando previsto em contrato, fundo de reserva e seguro. Os dois primeiros são informados antes da adesão. \"Sem juros\" não significa \"sem custo\" — significa que ninguém está cobrando pelo empréstimo de dinheiro, porque não há empréstimo."
+  ],
+  [
+   "Posso usar a carta de crédito para outra coisa?",
+   "Não. A carta é vinculada à modalidade contratada: carta de imóvel compra imóvel, carta de veículo compra veículo. A administradora paga o vendedor diretamente, mediante comprovação da compra. Não existe consórcio que vire dinheiro na conta."
+  ],
+  [
+   "Posso ter mais de uma cota?",
+   "Pode. Cada cota concorre de forma independente nas assembleias, o que distribui as contemplações ao longo do tempo. É a estratégia usada por quem precisa de mais de um bem, como transportadora renovando frota, ou por quem quer somar cartas para um bem maior."
+  ],
+  [
+   "A parcela aumenta com o tempo?",
+   "É reajustada periodicamente, conforme o índice previsto em contrato, para que a carta continue comprando o bem pretendido. Não é aumento de custo: se o crédito não acompanhasse o preço do bem, você chegaria à contemplação com dinheiro insuficiente. O contrato diz qual índice e com que frequência."
+  ],
+  [
+   "Preciso dar entrada?",
+   "Não. Diferente do financiamento, que quase sempre exige um percentual à vista, no consórcio você começa a pagar a parcela e já concorre desde a primeira assembleia. Lance é opcional e não é entrada: é oferta para tentar antecipar a contemplação."
+  ],
+  [
+   "Como sei se uma empresa de consórcio é confiável?",
+   "Comece verificando a administradora na relação pública do Banco Central, buscando por CNPJ e não por nome. Mas leia a ressalva do próprio Bacen: o sistema não garante que a instituição é confiável, somente que ela é autorizada. Estar na relação é o mínimo, não a conclusão."
+  ],
+  [
+   "Recebi uma oferta de carta contemplada barata. É seguro?",
+   "Quase sempre não. O golpe mais comum do setor tem sempre o mesmo roteiro: urgência, desconto grande e taxa antecipada para \"liberar\" um crédito inexistente, paga na conta de uma pessoa física. Dinheiro de consórcio vai para a administradora. Transferência legítima existe, mas é formalizada por ela."
+  ],
+  [
+   "Quem administra os grupos da MOVECON?",
+   "A Alpha Administradora de Consórcio Ltda., CNPJ 90.982.679/0001-54, autorizada a funcionar pelo Banco Central do Brasil sob o certificado nº 03/100/213/88. A MOVECON é a plataforma; a administração dos grupos e a gestão dos recursos são da Alpha. Confira o CNPJ você mesmo."
+  ]
  ]
 }

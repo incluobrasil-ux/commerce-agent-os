@@ -40,7 +40,7 @@ FILHAS_NO_AR = {
     # veiculo, entao nao ha parametro proprio. Paginas de moto apontam para
     # /simulador/veiculos/ e nao exibem valor de parcela.
     # lote 7 - glossario, publicado em 26/07/2026 (41 verbetes, 46 ancoras)
-    '/glossario/',
+    '/glossario/', '/perguntas/',
 }
 
 
@@ -337,7 +337,7 @@ for url, kw, t, d, fase in [
         ('/dados/', 'dados do mercado de consórcio no brasil', 'Consórcio no Brasil: dados e estatísticas',
          'Número de consorciados ativos, contemplações, volume de crédito e administradoras autorizadas. Dados públicos ABAC e Bacen.', 3),
         ('/perguntas/', 'perguntas frequentes sobre consórcio', 'Perguntas Frequentes sobre Consórcio | MOVECON',
-         'As dúvidas que mais chegam no nosso WhatsApp, respondidas de forma direta: contemplação, lance, desistência e documentação.', 2)]:
+         'Contemplação, custo real, negativado, desistência e como verificar se a empresa é idônea. Respostas diretas, sem promessa de prazo.', 2)]:
     R.append(dict(url=url, keyword=kw, intencao='informacional', camada='glossario',
                   title=t, description=d, indexavel=True,
                   status=('no-ar' if url in FILHAS_NO_AR else 'planejada'),

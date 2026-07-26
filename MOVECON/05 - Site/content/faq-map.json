@@ -110,5 +110,61 @@
    "Posso vender a cota depois?",
    "A transferência de cota é prevista e formalizada pela administradora, com contrato e análise. Nunca por acerto direto entre particulares."
   ]
+ ],
+ "/consorcio-veiculos/carros/": [
+  [
+   "Posso escolher qualquer marca e modelo?",
+   "Sim. A carta de crédito não é vinculada a marca ou concessionária. Você escolhe o veículo no momento da contemplação, respeitando o valor do crédito contratado."
+  ],
+  [
+   "O carro fica alienado?",
+   "Sim. O veículo fica em alienação fiduciária à administradora até a quitação das parcelas — o mesmo que ocorre em financiamento. A diferença está no custo, não na garantia."
+  ],
+  [
+   "E se o carro custar menos que a carta?",
+   "O saldo costuma poder ser usado conforme as regras do contrato, por exemplo para abater parcelas. As condições estão no contrato do seu grupo."
+  ]
+ ],
+ "/consorcio-veiculos/carro-usado/": [
+  [
+   "Até que ano de fabricação é aceito?",
+   "O limite é definido pela administradora e varia conforme a modalidade contratada. Confirme com o consultor antes da adesão — é o que determina se a carta serve para o carro que você quer."
+  ],
+  [
+   "Posso comprar de pessoa física?",
+   "Sim, desde que a documentação do veículo e do vendedor atenda às exigências da administradora e o carro passe na vistoria."
+  ],
+  [
+   "A taxa é maior por ser usado?",
+   "Não. A taxa de administração é definida pela carta contratada, não pela idade do veículo escolhido."
+  ]
+ ],
+ "/consorcio-veiculos/carro-pj/": [
+  [
+   "MEI pode contratar?",
+   "Sim. MEI, autônomo e empresas de qualquer porte podem aderir, conforme as regras do grupo."
+  ],
+  [
+   "O consórcio é dedutível no Imposto de Renda?",
+   "O tratamento tributário depende do regime da empresa e do tipo de bem. Consulte seu contador — não prestamos orientação fiscal."
+  ],
+  [
+   "Dá para transferir a cota para outro CNPJ?",
+   "A transferência de cota é prevista e formalizada pela administradora, com contrato e análise. Nunca por acerto direto entre as partes."
+  ]
+ ],
+ "/consorcio-veiculos/carro-de-luxo/": [
+  [
+   "Serve para carro importado?",
+   "Sim, respeitadas a documentação, a nacionalização regular e as regras de avaliação da administradora."
+  ],
+  [
+   "Posso usar lance alto para ser contemplado logo?",
+   "O lance aumenta a competitividade da sua oferta na assembleia, mas não garante contemplação. Nenhuma administradora pode prometer data."
+  ],
+  [
+   "Existe limite máximo de crédito?",
+   "Cada modalidade tem uma faixa própria. O consultor informa o teto vigente antes da adesão."
+  ]
  ]
 }

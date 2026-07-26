@@ -1,0 +1,64 @@
+{
+  "_leia_me": "Numeros de /dados/. TODO numero aqui e publico, tem fonte nomeada, periodo de referencia e URL. Nada nesta pagina pode ser estimativa, arredondamento nosso ou numero de origem desconhecida.",
+
+  "_regra": "Se um numero nao puder ser citado com fonte + periodo + URL, ele NAO entra. Preferimos uma pagina com 5 numeros verificaveis a uma com 20 numeros que ninguem consegue conferir - o assunto desta pagina e justamente credibilidade.",
+
+  "_omitido_de_proposito": "O valor de creditos comercializados/disponibilizados do acumulado de 2026 NAO foi publicado aqui. A materia da ABAC de 30/06/2026 traz duas cifras diferentes (R$ 232,94 bi e R$ 53,83 bi) para recortes que a pagina nao distingue com clareza. Sem entender qual e qual, publicar seria chutar o rotulo. Fica de fora ate a duvida ser resolvida na fonte.",
+
+  "_manutencao": "A ABAC publica dados mensalmente. Atualize `numeros` e `verificadoEm`, rode scripts/gerar_dados.py e republique. Se a pagina passar de ~3 meses sem atualizacao, ela comeca a mentir por omissao - o rodape avisa a data para o leitor perceber.",
+
+  "verificadoEm": "26 de julho de 2026",
+
+  "fontes": [
+    {
+      "id": "abr",
+      "nome": "ABAC — Sistema de Consórcios em abril/2026",
+      "url": "https://blog.abac.org.br/drops-de-mercado/sistema-de-consorcios-em-abril-2026-dados-economicos",
+      "publicadoEm": "2 de junho de 2026"
+    },
+    {
+      "id": "mai",
+      "nome": "ABAC — Sistema de Consórcios em maio/2026",
+      "url": "https://blog.abac.org.br/drops-de-mercado/sistema-de-consorcios-em-maio-2026-dados-economicos",
+      "publicadoEm": "30 de junho de 2026"
+    }
+  ],
+
+  "numeros": [
+    {
+      "valor": "12,94 milhões",
+      "rotulo": "participantes ativos",
+      "referencia": "abril de 2026",
+      "detalhe": "Crescimento de 11,6% na comparação com o mesmo mês de 2025.",
+      "fonte": "abr"
+    },
+    {
+      "valor": "2,36 milhões",
+      "rotulo": "cotas vendidas no ano",
+      "referencia": "janeiro a maio de 2026",
+      "detalhe": "Adesões acumuladas no período.",
+      "fonte": "mai"
+    },
+    {
+      "valor": "753,58 mil",
+      "rotulo": "consorciados contemplados",
+      "referencia": "janeiro a maio de 2026",
+      "detalhe": "Contemplações acumuladas no período, por sorteio e por lance.",
+      "fonte": "mai"
+    },
+    {
+      "valor": "5,53 milhões",
+      "rotulo": "consorciados em veículos leves",
+      "referencia": "maio de 2026",
+      "detalhe": "É o maior segmento do sistema em número de participantes.",
+      "fonte": "mai"
+    },
+    {
+      "valor": "3,25 milhões",
+      "rotulo": "consorciados em motocicletas",
+      "referencia": "maio de 2026",
+      "detalhe": "Segundo maior segmento por participantes ativos.",
+      "fonte": "mai"
+    }
+  ]
+}

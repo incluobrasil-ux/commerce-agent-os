@@ -1138,9 +1138,9 @@
       "intencao": "informacional",
       "camada": "glossario",
       "title": "Consórcio no Brasil: dados e estatísticas",
-      "description": "Número de consorciados ativos, contemplações, volume de crédito e administradoras autorizadas. Dados públicos ABAC e Bacen.",
+      "description": "Participantes ativos, cotas vendidas e contemplações no Sistema de Consórcios brasileiro. Números públicos da ABAC, com fonte e data.",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3
     },
     {

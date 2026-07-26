@@ -146,8 +146,11 @@ Hubs de segmento (8)
   /consorcio-maquinas-agricolas/  /consorcio-servicos/  /consorcio-empresa/
   /consorcio-embarcacoes/  /consorcio-contemplado/
 
-Simuladores (6)
+Simuladores (6) — 🔒 EM NOINDEX desde 25/07/2026
   /simulador/ + veiculos, imoveis, caminhao, maquinas-agricolas, servicos
+  NÃO despublicados, mas fora do índice e fora do sitemap. Nenhuma campanha
+  aponta para eles. Ver "CASO REAL REGISTRADO" na seção de rollback: motivo,
+  como reverter e as 4 condições que liberam a reversão.
   Fórmula tem DUAS componentes:
     1ª parcela      = valor * kFirst
     demais parcelas = valor * tot / prazo
@@ -155,8 +158,9 @@ Simuladores (6)
   copiados do simulador da Crelider e confirmados pelo cliente.
   Eventos GA4: sim_start, sim_result, lead_whatsapp (nomes fixos, não inventar).
 
-Landing pages (15: container + 14)
-  8 de aquisição + 6 de remarketing. Todas noindex, sem menu, sem rodapé de
+Landing pages (15: container + 14) — 🔒 SEM TRÁFEGO até a tabela chegar
+  8 de aquisição + 6 de remarketing. Levam ao simulador, então seguem a mesma
+  retenção. Verificado: nenhuma exibe valor de parcela na copy. Todas noindex, sem menu, sem rodapé de
   navegação. A regra mora no mu-plugin (mv_e_lp), não em cada página.
 
 Filhas de silo (8) — todas de /consorcio-imoveis/
@@ -237,6 +241,109 @@ Não bloqueiam, mas fortalecem:
     consertado, rode gitleaks explicitamente antes de commitar:
     gitleaks detect --source . --log-opts="<range>" --no-banner --redact
 
+## FRONTEIRA DE DECISÃO — o que você NÃO decide sozinho
+
+Estas não são decisões técnicas. São decisões do cliente, e lendo só o código
+não há como saber disso. Pare e pergunte:
+
+  1. Publicar a /administrado-pela-alpha/ na versão nova. Ela está escrita e
+     RETIDA por decisão do cliente, aguardando alinhamento com a Alpha e com
+     Gustavo/Pablo.
+  2. Mexer em qualquer nomenclatura de compliance — como a MOVECON se descreve,
+     como a Alpha é nomeada, a lista nuncaEscrever. Cada palavra ali tem um
+     motivo jurídico registrado.
+  3. Alterar fórmula, tabela ou parâmetro de simulador. Número errado publicado
+     não é bug de front-end.
+  4. Publicar qualquer página que exiba VALOR ou PARCELA, mesmo que o cálculo
+     esteja correto. A origem do número é decisão comercial.
+  5. Publicar lote acima de 5 páginas de uma vez. O limite de 10 do CLAUDE.md
+     não pegou as 14 LPs nem as 8 filhas — as duas foram ao ar sem revisão
+     página a página.
+  6. Tocar em QUALQUER COISA fora de /opt/movecon/ no servidor. O VPS é
+     compartilhado com a Crelider e com o CRM.
+  7. Despublicar ou remover página que já está no ar.
+  8. Publicar guia sem autor real vinculado.
+
+## ROLLBACK — o que fazer quando der errado
+
+Cinco incidentes reais nas primeiras rodadas: canonical duplicado,
+template_redirect servindo 404, portar_mapa.py gravando fora de content/,
+H1 fora de compliance no ar, e o hook de secret-scan derrubado. Nenhum tinha
+procedimento escrito. Estes têm.
+
+REGRA DE OURO
+  Qualquer passada que toque mais de 5 arquivos exige commit limpo ANTES.
+  Sem baseline não há diff, e sem diff não há como saber o que quebrou.
+  Foi exatamente o que faltou no dia da uniformização por regex: a substituição
+  encadeou regras, duplicou a razão social e injetou construção proibida na
+  prosa — e não havia como comparar com o estado anterior.
+
+REVERTER UMA PÁGINA PUBLICADA
+  O WordPress guarda revisões. Do mais seguro ao mais bruto:
+    bash /root/wpcli-movecon.sh post list --post_type=revision --post_parent=<ID>
+    bash /root/wpcli-movecon.sh post get <ID_REVISAO> --field=content > /tmp/ant.html
+    bash /root/wpcli-movecon.sh post update <ID> /host/ant.html
+  Ou regenere do JSON, que é a fonte da verdade:
+    python scripts/gerar_<tipo>.py <slug> && scp ... && wp post update
+
+REVERTER UMA REGENERAÇÃO EM MASSA
+  Se o commit foi feito antes (regra de ouro):
+    git diff HEAD -- "MOVECON/05 - Site/content"     # ver o que mudou
+    git checkout HEAD -- "MOVECON/05 - Site/content" # descartar
+    python scripts/portar_mapa.py && python scripts/check_seo.py
+  Depois republique as páginas afetadas a partir dos geradores.
+  Se NÃO houve commit antes: não há reversão automática. Rode os greps de dano
+  (ver abaixo) e conserte à mão.
+
+REVERTER UM MU-PLUGIN
+  Os arquivos em _codigo/ são o espelho do que roda no servidor.
+    git checkout HEAD -- "MOVECON/05 - Site/_codigo/<arquivo>.php"
+    scp ... root@2.24.220.21:/tmp/
+    docker cp /tmp/<arquivo>.php movecon_wp:/var/www/html/wp-content/mu-plugins/
+    docker exec movecon_wp php -l /var/www/html/wp-content/mu-plugins/<arquivo>.php
+  Em emergência, renomear para .php.off desliga o plugin sem apagar nada.
+
+REVERTER O CADDY
+  Há backups datados em /opt/crm/infra/Caddyfile.bak-*
+    cp /opt/crm/infra/Caddyfile.bak-<data> /opt/crm/infra/Caddyfile
+    docker exec crm_caddy caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile
+    docker exec -w /etc/caddy crm_caddy caddy reload --config /etc/caddy/Caddyfile
+  ⚠️ O Caddyfile serve Crelider e CRM. Validar SEMPRE antes de recarregar.
+
+GREPS DE DANO — rode depois de qualquer substituição em massa
+    grep -rn "Ltda\. de Consórcio" .
+    grep -rn "Ltda\.\." .
+    grep -rn "Consórcio Ltda\. Ltda" .
+    python scripts/check_seo.py          # pega compliance na prosa e no mapa
+  O check_seo tem validar_prosa(), que varre _codigo/ e build/ atrás das
+  expressões de nuncaEscrever e de sintaxe quebrada. Ele existe porque validar
+  só o keyword-map não pega dano no corpo da página.
+
+CASO REAL REGISTRADO — os 6 simuladores em noindex (25/07/2026)
+  O QUE: /simulador/ e as 5 categorias foram para noindex, sem despublicar.
+  POR QUÊ: a fórmula está correta (foi lida do código-fonte da Crelider, não
+    inferida), mas a TABELA é da Crelider, publicada sob a marca MOVECON. Canal
+    diferente pode ter condição comercial diferente, e ninguém da Alpha validou
+    aqueles valores para a MOVECON. Modo de falha: o lead simula, o vendedor dá
+    outro número — a família de reclamação que dominou a auditoria da Crelider,
+    inaceitável num site cuja tese é transparência.
+  COMO FOI FEITO: flag SIM_NOINDEX em scripts/portar_mapa.py marca as rotas de
+    camada `conversao` como indexavel=False. O mu-plugin emite o noindex e o
+    sitemap deixa de listá-las. Nada foi editado à mão.
+  EFEITO COLATERAL ACEITO: as 14 LPs também não recebem tráfego, porque levam
+    ao simulador. Verificado que nenhuma delas exibe valor de parcela na copy —
+    os únicos números são o CNPJ da Alpha e a Lei 11.795/08. As 8 filhas de
+    imóveis não citam número algum.
+  COMO REVERTER: SIM_NOINDEX = False em portar_mapa.py, regerar, subir o JSON
+    para wp-content/movecon/ e rodar check_seo.py --wp.
+  CONDIÇÃO QUE LIBERA A REVERSÃO — as quatro, juntas:
+    1. tabela vigente da MOVECON recebida da Alpha
+    2. por escrito
+    3. com data de validade
+    4. conferida contra a fórmula (1ª parcela = valor × kFirst;
+       demais = valor × tot / prazo)
+  ATÉ LÁ: nenhuma campanha aponta para simulador nem para LP.
+
 ## COMO TRABALHAR
 
 - Uma camada por sessão. Não avance de fase sem o cliente aprovar.
@@ -246,6 +353,8 @@ Não bloqueiam, mas fortalecem:
 - Mudou URL que já estava indexada? 301 na mesma tarefa, sem exceção.
 - Ao terminar, atualize o status em portar_mapa.py e rode check_seo.py --wp.
 - Faltou dado? Pergunte. Não preencha com estimativa.
+- Passada que toca mais de 5 arquivos: commit limpo ANTES, sem exceção.
+- Antes de publicar, confira a FRONTEIRA DE DECISÃO acima.
 
 Comece lendo, nesta ordem:
   MOVECON/05 - Site/HANDOFF.md            (este arquivo)

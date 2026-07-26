@@ -102,11 +102,12 @@ TPL = '''<!-- wp:html -->
       </div>
 
       <div class="mv-sim__res" aria-live="polite">
+        <p class="mv-sim__aviso">Estimativa. Valores sujeitos a confirmação pela administradora no momento da adesão. Não constitui proposta.</p>
         <div class="mv-sim__linha"><span>1ª parcela</span><strong id="mvFirst">—</strong></div>
         <div class="mv-sim__linha mv-sim__linha--destaque"><span>Demais parcelas</span><strong id="mvParcela">—</strong></div>
         <div class="mv-sim__linha"><span>Total estimado</span><strong id="mvTotal">—</strong></div>
         <a class="btn btn--cta mv-sim__cta" id="mvWa" href="#" target="_blank" rel="noopener">Falar com um consultor</a>
-        <p class="mv-sim__nota">%(disclaimer)s</p>
+        <p class="mv-sim__nota">A contemplação ocorre por sorteio ou lance e não pode ser garantida.</p>
       </div>
     </div>
   </div>

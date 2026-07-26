@@ -454,7 +454,7 @@
    "intencao": "comercial",
    "camada": "filha",
    "indexavel": true,
-   "status": "planejada",
+   "status": "no-ar",
    "fase": 2
   },
   {
@@ -466,7 +466,7 @@
    "intencao": "comercial",
    "camada": "filha",
    "indexavel": true,
-   "status": "planejada",
+   "status": "no-ar",
    "fase": 2
   },
   {
@@ -478,7 +478,7 @@
    "intencao": "comercial",
    "camada": "filha",
    "indexavel": true,
-   "status": "planejada",
+   "status": "no-ar",
    "fase": 2
   },
   {
@@ -490,7 +490,7 @@
    "intencao": "comercial",
    "camada": "filha",
    "indexavel": true,
-   "status": "planejada",
+   "status": "no-ar",
    "fase": 2
   },
   {

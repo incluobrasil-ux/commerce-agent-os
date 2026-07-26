@@ -166,5 +166,75 @@
    "Existe limite máximo de crédito?",
    "Cada modalidade tem uma faixa própria. O consultor informa o teto vigente antes da adesão."
   ]
+ ],
+ "/consorcio-servicos/energia-solar/": [
+  [
+   "A economia na conta de luz cobre a parcela?",
+   "Depende do seu consumo, do porte do sistema e da tarifa da sua distribuidora. Em muitos casos cobre parte relevante, mas não prometemos que cobre integralmente — a conta varia caso a caso."
+  ],
+  [
+   "Posso escolher qualquer instalador?",
+   "Em geral sim, desde que ele atenda aos requisitos de documentação exigidos para o pagamento da carta."
+  ],
+  [
+   "Serve para ampliar um sistema existente?",
+   "Costuma servir, conforme as regras da modalidade. Confirme com o consultor antes da adesão."
+  ]
+ ],
+ "/consorcio-servicos/viagem/": [
+  [
+   "Consigo viajar em data marcada?",
+   "Não com garantia. A contemplação ocorre por sorteio ou por lance, sem data previsível. Se a viagem tem data fechada, o consórcio não é a ferramenta certa."
+  ],
+  [
+   "Posso escolher qualquer agência?",
+   "Em geral sim, desde que atenda aos requisitos de documentação para o pagamento da carta."
+  ],
+  [
+   "A carta cobre a viagem toda?",
+   "Cobre o que estiver dentro do valor contratado e das regras da modalidade. Despesas fora disso ficam por sua conta."
+  ]
+ ],
+ "/consorcio-servicos/casamento/": [
+  [
+   "Consigo garantir a contemplação antes da data do casamento?",
+   "Não. Nenhuma administradora pode garantir prazo. O lance aumenta a chance, mas não assegura. Se a data já está marcada e próxima, considere outra via."
+  ],
+  [
+   "Dá para usar em mais de um fornecedor?",
+   "Em geral sim, dentro do valor da carta e das regras da modalidade contratada."
+  ],
+  [
+   "E se sobrar valor da carta?",
+   "O saldo segue as regras do contrato do seu grupo. Confirme as condições antes da adesão."
+  ]
+ ],
+ "/consorcio-servicos/educacao/": [
+  [
+   "Serve para pagar mensalidade que já está correndo?",
+   "A carta é liberada na contemplação, que não tem data previsível. Para uma mensalidade já em curso, o consórcio não resolve o problema imediato."
+  ],
+  [
+   "Posso escolher qualquer instituição?",
+   "Em geral sim, desde que ela atenda aos requisitos de documentação para o pagamento da carta."
+  ],
+  [
+   "Dá para usar em curso no exterior?",
+   "A modalidade de intercâmbio costuma cobrir, respeitadas as regras de comprovação e câmbio. Confirme antes da adesão."
+  ]
+ ],
+ "/consorcio-servicos/saude-estetica/": [
+  [
+   "Serve para procedimento de urgência?",
+   "Não. A contemplação depende de sorteio ou lance e não tem data previsível. O consórcio é para procedimento eletivo, planejado com antecedência."
+  ],
+  [
+   "A carta cobre exames e pós-operatório?",
+   "Depende do que estiver previsto na modalidade e do orçamento apresentado. Confirme o escopo com o consultor antes da adesão."
+  ],
+  [
+   "Posso trocar de clínica depois de contemplado?",
+   "A liberação acontece mediante comprovação da contratação. Enquanto não houver contratação formalizada, a escolha é sua."
+  ]
  ]
 }

@@ -12,6 +12,9 @@ FILHAS_NO_AR = {
     '/consorcio-imoveis/terreno/', '/consorcio-imoveis/construcao/',
     '/consorcio-imoveis/reforma/', '/consorcio-imoveis/fgts/',
     '/consorcio-imoveis/imovel-rural/', '/consorcio-imoveis/investimento/',
+    # lote 2 - veiculos, publicadas em 25/07/2026
+    '/consorcio-veiculos/carros/', '/consorcio-veiculos/carro-usado/',
+    '/consorcio-veiculos/carro-pj/', '/consorcio-veiculos/carro-de-luxo/',
 }
 
 

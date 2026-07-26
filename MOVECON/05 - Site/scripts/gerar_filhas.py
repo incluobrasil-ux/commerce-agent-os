@@ -144,7 +144,7 @@ def main():
             # verificacao no Bacen, para a frase literal do regulador.
             dst = f.get('destaque')
             destaque = ('' if not dst else
-                        '    <div class="destaque prosa">\n'
+                        '    <div class="destaque destaque--regulador prosa">\n'
                         '      <h3>%s</h3>\n      <p>%s</p>\n    </div>'
                         % (dst['titulo'], dst['texto']))
 

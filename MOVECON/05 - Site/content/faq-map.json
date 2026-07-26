@@ -236,5 +236,117 @@
    "Posso trocar de clínica depois de contemplado?",
    "A liberação acontece mediante comprovação da contratação. Enquanto não houver contratação formalizada, a escolha é sua."
   ]
+ ],
+ "/consorcio-caminhao/caminhao-usado/": [
+  [
+   "Até que ano de fabricação é aceito?",
+   "O limite é definido pela administradora e varia conforme a modalidade. Confirme antes da adesão — é o que determina se a carta serve para o caminhão que você quer."
+  ],
+  [
+   "Posso comprar de particular?",
+   "Sim, desde que a documentação do veículo e do vendedor atenda às exigências e o caminhão passe na vistoria."
+  ],
+  [
+   "A taxa é maior por ser usado?",
+   "Não. A taxa de administração é definida pela carta contratada, não pela idade do veículo escolhido."
+  ]
+ ],
+ "/consorcio-caminhao/carreta-implementos/": [
+  [
+   "Dá para comprar só o implemento, sem o cavalo?",
+   "Sim. A carta pode ser destinada ao implemento isoladamente, conforme a modalidade contratada."
+  ],
+  [
+   "Serve para implemento usado?",
+   "Costuma servir, dentro dos critérios de ano e avaliação da administradora. Confirme antes da adesão."
+  ],
+  [
+   "Posso somar duas cotas para um conjunto maior?",
+   "É possível manter mais de uma cota e usar as contemplações de forma combinada, conforme as regras do contrato."
+  ]
+ ],
+ "/consorcio-caminhao/frota/": [
+  [
+   "Quantas cotas uma empresa pode ter?",
+   "Não há limitação usual de quantidade. O que existe é análise na contemplação, quando o crédito é liberado."
+  ],
+  [
+   "As contemplações saem juntas?",
+   "Não há como prever. Cada cota concorre de forma independente, por sorteio ou lance."
+  ],
+  [
+   "Serve para renovar veículo parado ou quebrado?",
+   "Não. O consórcio é planejamento de médio prazo. Para reposição imediata, a contemplação não chega a tempo."
+  ]
+ ],
+ "/consorcio-caminhao/caminhoneiro-autonomo/": [
+  [
+   "Preciso comprovar renda para entrar?",
+   "Não para aderir ao grupo. A comprovação de capacidade de pagamento acontece na contemplação, quando o crédito vai ser liberado."
+  ],
+  [
+   "E se eu não for aprovado na contemplação?",
+   "Existem alternativas previstas em contrato, como apresentar garantia adicional ou aguardar. As condições exatas constam do contrato do seu grupo — confirme antes de aderir."
+  ],
+  [
+   "Estando negativado, posso participar?",
+   "É possível entrar no grupo, mas a análise na contemplação continua existindo. Não prometemos liberação: seja cuidadoso com quem promete."
+  ]
+ ],
+ "/consorcio-maquinas-agricolas/trator/": [
+  [
+   "Produtor pessoa física pode aderir?",
+   "Sim, pessoa física e jurídica podem contratar, conforme as regras do grupo."
+  ],
+  [
+   "Serve para trator usado?",
+   "Depende da modalidade e dos critérios de ano e estado do equipamento. Confirme na adesão."
+  ],
+  [
+   "Dá para garantir a contemplação antes do plantio?",
+   "Não. A contemplação depende de sorteio ou lance e não tem data previsível. O lance aumenta a chance, mas nenhuma administradora pode prometer prazo."
+  ]
+ ],
+ "/consorcio-maquinas-agricolas/colheitadeira/": [
+  [
+   "Serve para plataforma e acessórios?",
+   "Depende da modalidade contratada. Alguns itens entram junto com a máquina; outros exigem carta específica."
+  ],
+  [
+   "Posso usar mais de uma cota?",
+   "Sim, é possível manter cotas em paralelo e combinar as contemplações conforme as regras do contrato."
+  ],
+  [
+   "E se a máquina custar mais que a carta?",
+   "A diferença é complementada por você no momento da compra. Vale dimensionar a carta considerando isso."
+  ]
+ ],
+ "/consorcio-maquinas-agricolas/implementos/": [
+  [
+   "Dá para comprar implemento usado?",
+   "Costuma dar, dentro dos critérios de ano e conservação da administradora. Confirme antes da adesão."
+  ],
+  [
+   "Posso comprar mais de um implemento com a mesma carta?",
+   "Depende das regras da modalidade e do valor. Confirme o escopo com o consultor."
+  ],
+  [
+   "Preciso ter o trator antes?",
+   "Não é exigência do consórcio. A carta se destina ao implemento, independentemente do que você já possui."
+  ]
+ ],
+ "/consorcio-maquinas-agricolas/pronaf-ou-consorcio/": [
+  [
+   "Então o consórcio é mais caro que o Pronaf?",
+   "Em geral sim, quando o produtor se enquadra e a linha está disponível. Crédito subsidiado é subsidiado. O consórcio compensa por outros motivos, não por taxa."
+  ],
+  [
+   "Posso usar os dois?",
+   "Sim. É comum usar a linha subsidiada no que ela cobre e o consórcio no que ficou de fora ou no próximo investimento."
+  ],
+  [
+   "Quando o consórcio é a escolha melhor?",
+   "Quando você não se enquadra, quando a linha não está disponível, quando já usou o limite, ou quando prefere previsibilidade a depender de aprovação."
+  ]
  ]
 }

@@ -1,0 +1,89 @@
+{
+ "_leia_me": "Filhas de silo de /consorcio-maquinas-agricolas/. `respostaCurta` e o bloco ANSWER-FIRST: responde a keyword nas 2-3 primeiras frases. Maximo ~55 palavras.",
+
+ "_status": "AGUARDANDO APROVACAO DOS ANSWER-FIRST. Paginas geradas, nao publicadas.",
+
+ "_nota": "Publico que compara com credito rural subsidiado. A copy NAO afirma que consorcio e mais barato que Pronaf - nao e, quando o produtor se enquadra. O argumento honesto e previsibilidade e independencia de aprovacao. A pagina /pronaf-ou-consorcio/ diz isso abertamente.",
+
+ "pai": "/consorcio-maquinas-agricolas/",
+ "simulador": "/simulador/maquinas-agricolas/",
+
+ "filhas": [
+  {
+   "slug": "trator",
+   "keyword": "consórcio de trator",
+   "h1": "Consórcio de trator",
+   "respostaCurta": "O consórcio de trator permite adquirir a máquina sem juros e sem depender da liberação de crédito rural. Você paga parcelas e, na contemplação, compra à vista. O planejamento costuma ser feito para que a contemplação caia na janela de preparo do solo ou de plantio.",
+   "eyebrow": "Trator",
+   "lead": "Trator parado no momento errado custa safra. E crédito rural, quando sai, nem sempre sai na janela certa. O consórcio troca a espera pela aprovação de um banco pela espera por uma assembleia — com custo previsível.",
+   "secao": "Como funciona no campo",
+   "itens": [
+    ["Novo ou usado", "Respeitados os critérios de ano e avaliação definidos pela administradora."],
+    ["Qualquer porte", "A carta acompanha a potência e o valor da máquina pretendida."],
+    ["Planejamento por safra", "Quem começa cedo atravessa mais assembleias antes da janela em que precisa da máquina."]
+   ],
+   "faq": [
+    ["Produtor pessoa física pode aderir?", "Sim, pessoa física e jurídica podem contratar, conforme as regras do grupo."],
+    ["Serve para trator usado?", "Depende da modalidade e dos critérios de ano e estado do equipamento. Confirme na adesão."],
+    ["Dá para garantir a contemplação antes do plantio?", "Não. A contemplação depende de sorteio ou lance e não tem data previsível. O lance aumenta a chance, mas nenhuma administradora pode prometer prazo."]
+   ]
+  },
+  {
+   "slug": "colheitadeira",
+   "keyword": "consórcio de colheitadeira",
+   "h1": "Consórcio de colheitadeira",
+   "respostaCurta": "O consórcio de colheitadeira viabiliza crédito alto sem juros e sem depender de linha de financiamento rural. Você paga parcelas e compra à vista na contemplação. Por ser um dos ativos mais caros da lavoura, é comum planejar a adesão com uma ou duas safras de antecedência.",
+   "eyebrow": "Colheitadeira",
+   "lead": "Colheitadeira é o ativo que mais concentra capital numa operação agrícola. Financiar significa comprometer margem por anos; o consórcio distribui o custo sem juros, ao preço de não ter data garantida.",
+   "secao": "O que considerar",
+   "itens": [
+    ["Crédito de valor alto", "A faixa acompanha o valor da máquina, dentro dos limites da modalidade."],
+    ["Antecedência maior", "Quanto mais caro o ativo, mais vale começar cedo e atravessar mais assembleias."],
+    ["Lance com recurso de safra", "Uma safra boa pode financiar um lance e antecipar a contemplação — sem garantia de resultado."]
+   ],
+   "faq": [
+    ["Serve para plataforma e acessórios?", "Depende da modalidade contratada. Alguns itens entram junto com a máquina; outros exigem carta específica."],
+    ["Posso usar mais de uma cota?", "Sim, é possível manter cotas em paralelo e combinar as contemplações conforme as regras do contrato."],
+    ["E se a máquina custar mais que a carta?", "A diferença é complementada por você no momento da compra. Vale dimensionar a carta considerando isso."]
+   ]
+  },
+  {
+   "slug": "implementos",
+   "keyword": "consórcio de implementos agrícolas",
+   "h1": "Consórcio de implementos agrícolas",
+   "respostaCurta": "O consórcio de implementos agrícolas cobre plantadeira, pulverizador, grade, plataforma e demais equipamentos, sem juros. Você paga parcelas e compra à vista na contemplação. É a via usada por quem já tem trator e precisa ampliar ou modernizar o conjunto de operação.",
+   "eyebrow": "Implementos",
+   "lead": "Nem todo ganho de produtividade vem de trocar o trator. Muitas vezes está no implemento — e ali o retorno por hectare aparece mais rápido, com investimento menor.",
+   "secao": "O que a carta cobre",
+   "itens": [
+    ["Plantadeira e semeadora", "Conforme a modalidade contratada e o valor da carta."],
+    ["Pulverizador e distribuidor", "Autopropelido ou de arrasto, respeitadas as regras de avaliação."],
+    ["Grade, plataforma e demais", "Equipamentos de preparo e colheita, novos ou usados dentro dos critérios."]
+   ],
+   "faq": [
+    ["Dá para comprar implemento usado?", "Costuma dar, dentro dos critérios de ano e conservação da administradora. Confirme antes da adesão."],
+    ["Posso comprar mais de um implemento com a mesma carta?", "Depende das regras da modalidade e do valor. Confirme o escopo com o consultor."],
+    ["Preciso ter o trator antes?", "Não é exigência do consórcio. A carta se destina ao implemento, independentemente do que você já possui."]
+   ]
+  },
+  {
+   "slug": "pronaf-ou-consorcio",
+   "keyword": "pronaf ou consórcio",
+   "h1": "Pronaf ou consórcio: qual escolher",
+   "respostaCurta": "Quando o produtor se enquadra e a linha está disponível, o Pronaf costuma ter custo menor, porque é crédito subsidiado. O consórcio ganha em previsibilidade e em não depender de aprovação, enquadramento ou calendário de liberação. São ferramentas para situações diferentes.",
+   "eyebrow": "Comparativo honesto",
+   "lead": "Esta é uma comparação em que não vencemos sempre — e dizer o contrário seria desonesto. O ponto não é qual é melhor, é qual serve à sua situação.",
+   "secao": "Onde cada um vence",
+   "itens": [
+    ["Pronaf vence no custo", "Sendo crédito subsidiado, a taxa tende a ser menor que a taxa de administração do consórcio. Se você se enquadra e a linha está aberta, compare com atenção."],
+    ["Consórcio vence na previsibilidade", "Não depende de enquadramento, de disponibilidade de recurso nem de calendário de liberação."],
+    ["Consórcio vence no acesso", "Sem análise de crédito na adesão, ele alcança quem não se enquadra ou já usou o limite da linha."]
+   ],
+   "faq": [
+    ["Então o consórcio é mais caro que o Pronaf?", "Em geral sim, quando o produtor se enquadra e a linha está disponível. Crédito subsidiado é subsidiado. O consórcio compensa por outros motivos, não por taxa."],
+    ["Posso usar os dois?", "Sim. É comum usar a linha subsidiada no que ela cobre e o consórcio no que ficou de fora ou no próximo investimento."],
+    ["Quando o consórcio é a escolha melhor?", "Quando você não se enquadra, quando a linha não está disponível, quando já usou o limite, ou quando prefere previsibilidade a depender de aprovação."]
+   ]
+  }
+ ]
+}

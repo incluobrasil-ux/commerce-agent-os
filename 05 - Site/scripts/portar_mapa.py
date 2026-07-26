@@ -43,6 +43,8 @@ FILHAS_NO_AR = {
     '/glossario/', '/perguntas/', '/guia/',
     # lote 9 - confianca, publicadas em 26/07/2026
     '/quem-somos/', '/seguranca/',
+    # lote 10 - /dados/, publicado em 26/07/2026 com numeros da ABAC
+    '/dados/',
     # lote 8 - os 20 guias, publicados em 26/07/2026
     '/guia/como-funciona-o-consorcio/', '/guia/carta-de-credito/',
     '/guia/lance-no-consorcio/', '/guia/taxa-de-administracao/',
@@ -360,7 +362,7 @@ for url, kw, t, d, fase in [
         ('/glossario/', 'glossário do consórcio', 'Glossário do Consórcio: os termos explicados',
          'Assembleia, cota, lance embutido, fundo comum, alienação fiduciária. Os 41 termos do consórcio definidos em linguagem simples, sem juridiquês.', 2),
         ('/dados/', 'dados do mercado de consórcio no brasil', 'Consórcio no Brasil: dados e estatísticas',
-         'Número de consorciados ativos, contemplações, volume de crédito e administradoras autorizadas. Dados públicos ABAC e Bacen.', 3),
+         'Participantes ativos, cotas vendidas e contemplações no Sistema de Consórcios brasileiro. Números públicos da ABAC, com fonte e data.', 3),
         ('/perguntas/', 'perguntas frequentes sobre consórcio', 'Perguntas Frequentes sobre Consórcio | MOVECON',
          'Contemplação, custo real, negativado, desistência e como verificar se a empresa é idônea. Respostas diretas, sem promessa de prazo.', 2)]:
     R.append(dict(url=url, keyword=kw, intencao='informacional', camada='glossario',

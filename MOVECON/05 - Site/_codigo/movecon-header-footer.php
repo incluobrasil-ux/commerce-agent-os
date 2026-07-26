@@ -125,13 +125,20 @@ add_action( 'wp_footer', function () {
           <?php
           $mv_hubs = array(
             'consorcio-veiculos'            => 'Veículos',
+            'consorcio-moto'                => 'Moto',
             'consorcio-imoveis'             => 'Imóveis',
             'consorcio-caminhao'            => 'Caminhão e frota',
             'consorcio-maquinas-agricolas'  => 'Máquinas agrícolas',
             'consorcio-servicos'            => 'Serviços',
             'consorcio-empresa'             => 'Para empresas',
             'consorcio-embarcacoes'         => 'Embarcações',
-            'consorcio-contemplado'         => 'Consórcio contemplado',
+            // 'consorcio-contemplado' saiu do rodape em 26/07/2026, por
+            // decisao do cliente. O hub e as 3 filhas continuam NO AR e
+            // continuam no sitemap - o que mudou foi so a presenca na
+            // navegacao do rodape. Para tirar do site inteiro seria preciso
+            // despublicar 4 paginas, o que nao foi pedido.
+            // 'consorcio-moto' entrou junto: o hub foi publicado em 25/07 e
+            // o rodape nunca chegou a listar.
           );
           foreach ( $mv_hubs as $slug => $nome ) {
             printf( '<li><a href="%s">%s</a></li>',

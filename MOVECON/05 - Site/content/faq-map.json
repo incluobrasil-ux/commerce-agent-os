@@ -348,5 +348,131 @@
    "Quando o consórcio é a escolha melhor?",
    "Quando você não se enquadra, quando a linha não está disponível, quando já usou o limite, ou quando prefere previsibilidade a depender de aprovação."
   ]
+ ],
+ "/consorcio-empresa/frota/": [
+  [
+   "Quantas cotas a empresa pode ter?",
+   "Não há limitação usual de quantidade. A análise acontece na contemplação, quando o crédito é liberado."
+  ],
+  [
+   "As contemplações saem juntas?",
+   "Não há como prever. Cada cota concorre de forma independente, por sorteio ou lance."
+  ],
+  [
+   "Serve para repor veículo parado?",
+   "Não. O consórcio é planejamento de médio prazo. Para reposição imediata, a contemplação não chega a tempo."
+  ]
+ ],
+ "/consorcio-empresa/equipamentos/": [
+  [
+   "Preciso comprovar como vou usar o crédito?",
+   "Sim. A liberação acontece mediante comprovação da compra junto ao fornecedor, conforme as regras da administradora."
+  ],
+  [
+   "Serve para equipamento importado?",
+   "Costuma servir, respeitadas a nacionalização regular e a documentação exigida. Confirme antes da adesão."
+  ],
+  [
+   "Posso somar cotas para um equipamento maior?",
+   "Sim, é possível manter cotas em paralelo e combinar as contemplações conforme as regras do contrato."
+  ]
+ ],
+ "/consorcio-empresa/imovel-comercial/": [
+  [
+   "Serve para imóvel em construção?",
+   "Depende da modalidade contratada e da documentação do empreendimento. Confirme antes da adesão."
+  ],
+  [
+   "Posso usar para reformar o ponto atual?",
+   "Reforma costuma exigir modalidade específica. A carta de imóvel destina-se à aquisição."
+  ],
+  [
+   "E se o contrato de aluguel vencer antes da contemplação?",
+   "O consórcio não resolve prazo de locação. Se a saída do aluguel tem data, avalie outra via em paralelo."
+  ]
+ ],
+ "/consorcio-empresa/mei/": [
+  [
+   "MEI pode contratar em nome da empresa?",
+   "Sim. MEI, autônomo e empresas de qualquer porte podem aderir, conforme as regras do grupo."
+  ],
+  [
+   "Preciso ter faturamento mínimo?",
+   "Não para aderir. A comprovação de capacidade de pagamento acontece na contemplação."
+  ],
+  [
+   "Posso deduzir no Imposto de Renda?",
+   "O tratamento tributário depende do seu regime e do bem adquirido. Consulte seu contador — não prestamos orientação fiscal."
+  ]
+ ],
+ "/consorcio-contemplado/golpes-mais-comuns/": [
+  [
+   "Existe transferência legítima de cota contemplada?",
+   "Sim. Ela é formalizada pela administradora, com contrato e análise. O que não existe é carta contemplada barata, urgente e paga na conta de um particular."
+  ],
+  [
+   "Como confirmo antes de pagar?",
+   "Peça o CNPJ da administradora, ligue para ela pelo telefone do site oficial — não pelo que o vendedor passou — e confirme se a cota existe e se a transferência está em andamento."
+  ],
+  [
+   "Caí no golpe. O que faço?",
+   "Registre boletim de ocorrência, reúna todos os comprovantes e comunicações, e procure a administradora informada pelo vendedor para confirmar se a cota existe."
+  ]
+ ],
+ "/consorcio-contemplado/como-verificar-no-banco-central/": [
+  [
+   "E se a empresa não aparecer na relação?",
+   "Se a empresa se apresenta como administradora de consórcio e não consta na relação do Banco Central, encerre a conversa. Não há explicação aceitável para essa ausência."
+  ],
+  [
+   "E se ela disser que é 'parceira' de uma administradora?",
+   "Pergunte qual é a administradora e o CNPJ dela, e verifique esse CNPJ. Uma plataforma ou representante pode existir legitimamente, mas os grupos precisam ser administrados por empresa autorizada."
+  ],
+  [
+   "Qual é o CNPJ da administradora dos grupos MOVECON?",
+   "É o CNPJ 90.982.679/0001-54, da Alpha Administradora de Consórcio Ltda., autorizada pelo Banco Central sob o certificado nº 03/100/213/88. Confira você mesmo."
+  ]
+ ],
+ "/consorcio-contemplado/comprar-cota-contemplada/": [
+  [
+   "Vale a pena financeiramente?",
+   "Depende do saldo devedor, das parcelas já pagas e do ágio cobrado pelo vendedor. Faça a conta completa: às vezes entrar em um grupo novo sai melhor."
+  ],
+  [
+   "Assumo as dívidas da cota?",
+   "Sim. Você assume as parcelas restantes e a situação da cota como ela está. Por isso o extrato atualizado é indispensável."
+  ],
+  [
+   "O vendedor pode receber por fora?",
+   "Um ágio pode existir entre as partes, mas o valor da cota é sempre pago à administradora. Desconfie de qualquer arranjo que evite a administradora."
+  ]
+ ],
+ "/consorcio-embarcacoes/lancha/": [
+  [
+   "A carta cobre motor e acessórios?",
+   "Em geral a carta é destinada à embarcação. Motor de popa e acessórios dependem das regras da modalidade — confirme antes da adesão."
+  ],
+  [
+   "Serve para embarcação usada?",
+   "Costuma servir, dentro dos critérios de ano, avaliação e documentação da administradora."
+  ],
+  [
+   "Preciso de habilitação náutica para contratar?",
+   "Não. A habilitação é exigida para conduzir a embarcação, não para participar do grupo."
+  ]
+ ],
+ "/consorcio-embarcacoes/jet-ski/": [
+  [
+   "Serve para jet ski usado?",
+   "Costuma servir, dentro dos critérios de ano e avaliação da administradora. Confirme antes da adesão."
+  ],
+  [
+   "A carta cobre reboque e acessórios?",
+   "Depende da modalidade contratada. Itens adicionais nem sempre entram — confirme o escopo com o consultor."
+  ],
+  [
+   "Consigo antes do verão?",
+   "Não há como prometer. A contemplação depende de sorteio ou lance, sem data previsível. Quem quer usar numa temporada específica precisa começar com bastante antecedência."
+  ]
  ]
 }

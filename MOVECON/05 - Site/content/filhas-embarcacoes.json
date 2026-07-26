@@ -1,0 +1,49 @@
+{
+ "_leia_me": "Filhas de silo de /consorcio-embarcacoes/. `respostaCurta` e o bloco ANSWER-FIRST. Maximo ~55 palavras.",
+
+ "_status": "AGUARDANDO APROVACAO DOS ANSWER-FIRST. Paginas geradas, nao publicadas.",
+
+ "pai": "/consorcio-embarcacoes/",
+ "simulador": "/simulador/servicos/",
+
+ "filhas": [
+  {
+   "slug": "lancha",
+   "keyword": "consórcio de lancha",
+   "h1": "Consórcio de lancha e barco",
+   "respostaCurta": "O consórcio de lancha permite adquirir a embarcação sem juros, o que pesa num setor em que o crédito específico está entre os mais caros do mercado. Você paga parcelas e, na contemplação, compra à vista — negociando direto com estaleiro ou revenda como comprador imediato.",
+   "eyebrow": "Lancha e barco",
+   "lead": "O crédito náutico tem poucas linhas e taxas bem acima das de veículo. Num ativo dessa faixa de valor, a diferença entre pagar juros e pagar taxa de administração se conta em dezenas de milhares.",
+   "secao": "O que a carta cobre",
+   "itens": [
+    ["Lancha, barco e veleiro", "Conforme a modalidade contratada e o valor da carta."],
+    ["Nova ou seminova", "Respeitados os critérios de ano e avaliação definidos pela administradora."],
+    ["Negociação à vista", "Estaleiro e revenda costumam abrir condição melhor para pagamento imediato."]
+   ],
+   "faq": [
+    ["A carta cobre motor e acessórios?", "Em geral a carta é destinada à embarcação. Motor de popa e acessórios dependem das regras da modalidade — confirme antes da adesão."],
+    ["Serve para embarcação usada?", "Costuma servir, dentro dos critérios de ano, avaliação e documentação da administradora."],
+    ["Preciso de habilitação náutica para contratar?", "Não. A habilitação é exigida para conduzir a embarcação, não para participar do grupo."]
+   ]
+  },
+  {
+   "slug": "jet-ski",
+   "keyword": "consórcio de jet ski",
+   "h1": "Consórcio de jet ski",
+   "respostaCurta": "O consórcio de jet ski permite comprar novo ou usado sem juros e sem entrada. Você paga parcelas e, na contemplação, adquire à vista. Como o ticket é menor que o de uma lancha, os prazos costumam ser mais curtos e a parcela cabe em orçamentos menores.",
+   "eyebrow": "Jet ski",
+   "lead": "Jet ski costuma ser financiado com taxa de crédito pessoal, que é das mais altas do mercado. O consórcio troca isso por planejamento, com a limitação de não entregar data.",
+   "secao": "Como funciona",
+   "itens": [
+    ["Novo ou usado", "Respeitados os critérios de ano e conservação definidos pela administradora."],
+    ["Sem entrada", "Você começa a pagar e já concorre desde a primeira assembleia."],
+    ["Prazo mais curto", "O ticket menor permite prazos menores que os de embarcações maiores."]
+   ],
+   "faq": [
+    ["Serve para jet ski usado?", "Costuma servir, dentro dos critérios de ano e avaliação da administradora. Confirme antes da adesão."],
+    ["A carta cobre reboque e acessórios?", "Depende da modalidade contratada. Itens adicionais nem sempre entram — confirme o escopo com o consultor."],
+    ["Consigo antes do verão?", "Não há como prometer. A contemplação depende de sorteio ou lance, sem data previsível. Quem quer usar numa temporada específica precisa começar com bastante antecedência."]
+   ]
+  }
+ ]
+}

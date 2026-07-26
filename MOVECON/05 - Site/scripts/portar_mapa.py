@@ -88,9 +88,18 @@ SIM = [
 NO_AR_SIM = {'/simulador/', '/simulador/veiculos/', '/simulador/imoveis/',
              '/simulador/caminhao/', '/simulador/maquinas-agricolas/',
              '/simulador/servicos/'}
+# NOINDEX desde 25/07/2026, por decisao do cliente.
+# A formula esta correta (lida da origem), mas a TABELA e da Crelider,
+# publicada sob a marca MOVECON. Canal diferente pode ter condicao comercial
+# diferente, e ninguem da Alpha validou esses valores para a MOVECON.
+# Modo de falha: lead simula, vendedor da outro numero.
+# CONDICAO DE REVERSAO PARA INDEX: tabela vigente da MOVECON recebida da Alpha,
+# por escrito, com data de validade, e conferida contra a formula.
+SIM_NOINDEX = True
+
 for url, kw, t, d, pai, sec in SIM:
     r = dict(url=url, keyword=kw, intencao='transacional', camada='conversao',
-             title=t, description=d, indexavel=True,
+             title=t, description=d, indexavel=not SIM_NOINDEX,
              status=('no-ar' if url in NO_AR_SIM else 'planejada'), fase=1)
     if pai:
         r['pai'] = pai

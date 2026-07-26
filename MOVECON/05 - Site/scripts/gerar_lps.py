@@ -44,11 +44,12 @@ SIM_BLOCO = '''    <div class="mv-sim" id="mvSim"
         </label>
       </div>
       <div class="mv-sim__res" aria-live="polite">
+        <p class="mv-sim__aviso">Estimativa. Valores sujeitos a confirmação pela administradora no momento da adesão. Não constitui proposta.</p>
         <div class="mv-sim__linha"><span>1ª parcela</span><strong id="mvFirst">—</strong></div>
         <div class="mv-sim__linha mv-sim__linha--destaque"><span>Demais parcelas</span><strong id="mvParcela">—</strong></div>
         <div class="mv-sim__linha"><span>Total estimado</span><strong id="mvTotal">—</strong></div>
         <a class="btn btn--cta mv-sim__cta" id="mvWa" href="#" target="_blank" rel="noopener">%(cta)s</a>
-        <p class="mv-sim__nota">%(disclaimer)s</p>
+        <p class="mv-sim__nota">A contemplação ocorre por sorteio ou lance e não pode ser garantida.</p>
       </div>
     </div>'''
 
@@ -56,7 +57,7 @@ WA_BLOCO = '''    <div class="mv-sim">
       <div class="mv-sim__res" style="grid-column:1/-1">
         <div class="mv-sim__linha mv-sim__linha--destaque"><span>Fale agora</span><strong>Sem compromisso</strong></div>
         <a class="btn btn--cta mv-sim__cta" href="https://wa.me/%(wa)s?text=%(msg)s" target="_blank" rel="noopener" data-evento="lead_whatsapp">%(cta)s</a>
-        <p class="mv-sim__nota">%(disclaimer)s</p>
+        <p class="mv-sim__nota">A contemplação ocorre por sorteio ou lance e não pode ser garantida.</p>
       </div>
     </div>'''
 

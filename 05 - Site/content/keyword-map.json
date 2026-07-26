@@ -1188,28 +1188,6 @@
       "fase": 2
     },
     {
-      "url": "/autores/",
-      "keyword": "autores movecon",
-      "intencao": "navegacional",
-      "camada": "confianca",
-      "title": "Quem escreve nosso conteúdo | MOVECON",
-      "description": "Os especialistas responsáveis pelos guias do site, com formação, experiência no mercado de consórcio e contato direto.",
-      "indexavel": true,
-      "status": "planejada",
-      "fase": 2
-    },
-    {
-      "url": "/imprensa/",
-      "keyword": "movecon imprensa",
-      "intencao": "navegacional",
-      "camada": "confianca",
-      "title": "Imprensa e Dados para Jornalistas | MOVECON",
-      "description": "Releases, dados do setor de consórcio e contato para pauta. Material livre para citação com atribuição da fonte.",
-      "indexavel": true,
-      "status": "planejada",
-      "fase": 3
-    },
-    {
       "url": "/politica-de-privacidade/",
       "keyword": "política de privacidade movecon",
       "intencao": "navegacional",

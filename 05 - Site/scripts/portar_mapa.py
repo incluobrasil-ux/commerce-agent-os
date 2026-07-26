@@ -378,10 +378,12 @@ for url, kw, cam, t, d, fase in [
          'CNPJ, autorização do Bacen, contrato e canais oficiais reunidos em uma página. Confira cada informação na fonte original.', 2),
         ('/avaliacoes/', 'movecon avaliações', 'confianca', 'Avaliações de Clientes | MOVECON Consórcio',
          'Depoimentos de consorciados e links diretos para nossa página no Reclame Aqui e no Google. Sem filtro e sem seleção.', 2),
-        ('/autores/', 'autores movecon', 'confianca', 'Quem escreve nosso conteúdo | MOVECON',
-         'Os especialistas responsáveis pelos guias do site, com formação, experiência no mercado de consórcio e contato direto.', 2),
-        ('/imprensa/', 'movecon imprensa', 'confianca', 'Imprensa e Dados para Jornalistas | MOVECON',
-         'Releases, dados do setor de consórcio e contato para pauta. Material livre para citação com atribuição da fonte.', 3),
+        # /autores/ e /imprensa/ REMOVIDAS do mapa em 26/07/2026, por decisao
+        # do cliente. As duas dependiam de fato que a MOVECON ainda nao tem:
+        # um quadro de autores identificaveis e mencoes reais na imprensa.
+        # Pagina de imprensa vazia e pior que pagina inexistente, e pagina de
+        # autores sem autor nao tem o que dizer. Se um dia houver os dois,
+        # basta reintroduzir as rotas aqui.
         ('/politica-de-privacidade/', 'política de privacidade movecon', 'institucional', 'Política de Privacidade | MOVECON',
          'Como a MOVECON coleta, usa e protege seus dados pessoais, conforme a Lei Geral de Proteção de Dados (LGPD).', 1),
         ('/termos-de-uso/', 'termos de uso movecon', 'institucional', 'Termos de Uso | MOVECON',

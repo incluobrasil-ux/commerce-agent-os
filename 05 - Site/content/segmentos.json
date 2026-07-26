@@ -1032,7 +1032,8 @@
           "Já paguei e acho que caí em golpe. E agora?",
           "Registre boletim de ocorrência, reúna todos os comprovantes e comunicações, e procure a administradora informada pelo vendedor para confirmar se a cota existe."
         ]
-      ]
+      ],
+      "template": "proprio"
     }
   ]
 }

@@ -170,6 +170,33 @@ O próprio relatório os marca como não verificados:
 
 ---
 
+# Decisão de keyword — `/consorcio-contemplado/`
+
+**Decisão do cliente, 26/07/2026. Registrada aqui para ninguém "otimizar" isso
+no futuro achando que é erro.**
+
+O hub mantém `"carta de crédito contemplada"` como keyword secundária no
+keyword-map — palavra de **intenção transacional de compra**. A página responde
+essa busca dizendo que **não vendemos**.
+
+Isso é deliberado, e não um descuido de otimização:
+
+- Interceptar essa intenção é **proteção do usuário e da marca**. O cluster
+  "carta contemplada" é o de maior volume e menor defesa do setor, dominado por
+  corretoras, e é onde mora a fraude mais comum do consórcio brasileiro.
+- **Bounce de leitor avisado é sucesso, não custo.** Quem chega com pressa para
+  comprar contemplação e sai sabendo que ela não se compra saiu ganhando — e
+  não pagou um golpe.
+- O relatório de concorrentes registra que nenhum player defende a própria SERP
+  nesse cluster.
+
+**Não remova a secundária.** Se a métrica de bounce ou de conversão apontar essa
+página como problema, a leitura correta é que ela está funcionando.
+
+A página inteira foi construída em torno disso: disclaimer acima da dobra, FAQ
+abrindo com "Vocês vendem carta contemplada?" respondida com "Não.", e CTA que
+oferece a única aceleração legítima — o lance.
+
 # Regra: material de origem não se edita por conformidade
 
 **Decisão do cliente, 26/07/2026.**

@@ -1,0 +1,114 @@
+{
+ "/consorcio-imoveis/casa/": [
+  [
+   "Serve para casa usada?",
+   "Sim. A carta de crédito de imóvel costuma cobrir imóvel novo e usado, respeitadas as regras de avaliação e a documentação exigida."
+  ],
+  [
+   "Posso comprar em outra cidade?",
+   "Sim. A carta é de abrangência nacional, dentro das regras de avaliação do imóvel."
+  ],
+  [
+   "E se a casa custar menos que a carta?",
+   "O saldo costuma poder ser usado conforme as regras do contrato — por exemplo, para abater parcelas. As condições estão no contrato do seu grupo."
+  ]
+ ],
+ "/consorcio-imoveis/apartamento/": [
+  [
+   "Serve para imóvel na planta?",
+   "Sim, conforme as regras da modalidade contratada e a documentação da construtora."
+  ],
+  [
+   "Posso usar o FGTS?",
+   "Sim, dentro das regras aplicáveis. O uso mais comum é como lance, para antecipar a contemplação."
+  ],
+  [
+   "E se eu quiser trocar de imóvel depois de contemplado?",
+   "A carta é usada uma vez, no imóvel aprovado pela administradora. A escolha acontece após a contemplação, então você tem tempo para decidir."
+  ]
+ ],
+ "/consorcio-imoveis/terreno/": [
+  [
+   "Dá para comprar terreno e construir com a mesma carta?",
+   "Depende da modalidade contratada. Existem cartas que cobrem terreno e construção — defina isso na adesão."
+  ],
+  [
+   "Serve para terreno em loteamento não registrado?",
+   "Não. A administradora exige documentação regular do imóvel para liberar o crédito."
+  ],
+  [
+   "Posso comprar de pessoa física?",
+   "Sim, desde que a documentação do imóvel e do vendedor atenda às exigências da administradora."
+  ]
+ ],
+ "/consorcio-imoveis/construcao/": [
+  [
+   "O dinheiro cai todo de uma vez?",
+   "Não. Na modalidade construção, a liberação acompanha o andamento da obra e passa por vistoria a cada etapa."
+  ],
+  [
+   "Preciso ter o terreno antes?",
+   "Sim, para a modalidade construção. Se ainda não tem, existem cartas que cobrem terreno e obra."
+  ],
+  [
+   "Posso usar para ampliar o que já existe?",
+   "Ampliação costuma se enquadrar em reforma, não em construção. A modalidade correta é definida na adesão."
+  ]
+ ],
+ "/consorcio-imoveis/reforma/": [
+  [
+   "Preciso comprovar como vou usar o crédito?",
+   "Sim. A liberação acontece mediante comprovação da contratação ou da compra, conforme as regras da administradora."
+  ],
+  [
+   "Serve para reforma de imóvel alugado?",
+   "A carta é destinada a imóvel do titular. Reforma em imóvel de terceiro não costuma ser aceita."
+  ],
+  [
+   "Dá para usar parte em material e parte em mão de obra?",
+   "Em geral sim, dentro das regras da modalidade. Confirme com o consultor antes da adesão."
+  ]
+ ],
+ "/consorcio-imoveis/fgts/": [
+  [
+   "Usar o FGTS garante que eu seja contemplado?",
+   "Não. O lance com FGTS aumenta a competitividade da sua oferta na assembleia, mas a contemplação continua dependendo do resultado do lance ou do sorteio."
+  ],
+  [
+   "Qualquer imóvel aceita FGTS?",
+   "Não. O imóvel precisa atender às condições do FGTS — entre elas, ser residencial, urbano e destinado à moradia do titular."
+  ],
+  [
+   "Preciso ter tempo de trabalho mínimo?",
+   "As condições de saque do FGTS seguem as regras do fundo, não do consórcio. Vale conferir seu enquadramento antes de contar com esse recurso."
+  ]
+ ],
+ "/consorcio-imoveis/imovel-rural/": [
+  [
+   "Serve para qualquer imóvel rural?",
+   "O imóvel precisa ter documentação regular e ser aceito na avaliação da administradora. Área sem registro não é aceita."
+  ],
+  [
+   "Produtor pessoa física pode aderir?",
+   "Sim, pessoa física e jurídica, conforme as regras do grupo."
+  ],
+  [
+   "Dá para usar a carta em benfeitorias?",
+   "A modalidade imóvel destina-se à aquisição. Benfeitoria e obra costumam exigir modalidade específica — confirme na adesão."
+  ]
+ ],
+ "/consorcio-imoveis/investimento/": [
+  [
+   "Consórcio rende alguma coisa?",
+   "Não. Consórcio é modalidade de compra programada e não gera rendimento. Quem apresenta consórcio como aplicação financeira está informando errado."
+  ],
+  [
+   "Vale mais a pena que financiar e alugar?",
+   "Depende do seu prazo e da sua liquidez. Sem juros, o custo total tende a ser menor; em compensação, não há data garantida para receber o imóvel."
+  ],
+  [
+   "Posso vender a cota depois?",
+   "A transferência de cota é prevista e formalizada pela administradora, com contrato e análise. Nunca por acerto direto entre particulares."
+  ]
+ ]
+}

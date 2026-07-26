@@ -6,10 +6,19 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DESTINO = os.path.join(RAIZ, 'content', 'keyword-map.json')
 
 
+# Filhas de /consorcio-imoveis/ publicadas em 25/07/2026 (bloco 5, lote 1).
+FILHAS_NO_AR = {
+    '/consorcio-imoveis/casa/', '/consorcio-imoveis/apartamento/',
+    '/consorcio-imoveis/terreno/', '/consorcio-imoveis/construcao/',
+    '/consorcio-imoveis/reforma/', '/consorcio-imoveis/fgts/',
+    '/consorcio-imoveis/imovel-rural/', '/consorcio-imoveis/investimento/',
+}
+
+
 def f(url, kw, pai, title, desc):
     return dict(url=url, keyword=kw, pai=pai, title=title, description=desc,
                 intencao='comercial', camada='filha', indexavel=True,
-                status='planejada', fase=2)
+                status=('no-ar' if url in FILHAS_NO_AR else 'planejada'), fase=2)
 
 
 def g(url, kw, title, desc, pai=None):

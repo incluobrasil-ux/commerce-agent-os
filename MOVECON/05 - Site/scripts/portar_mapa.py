@@ -40,7 +40,18 @@ FILHAS_NO_AR = {
     # veiculo, entao nao ha parametro proprio. Paginas de moto apontam para
     # /simulador/veiculos/ e nao exibem valor de parcela.
     # lote 7 - glossario, publicado em 26/07/2026 (41 verbetes, 46 ancoras)
-    '/glossario/', '/perguntas/',
+    '/glossario/', '/perguntas/', '/guia/',
+    # lote 8 - os 20 guias, publicados em 26/07/2026
+    '/guia/como-funciona-o-consorcio/', '/guia/carta-de-credito/',
+    '/guia/lance-no-consorcio/', '/guia/taxa-de-administracao/',
+    '/guia/fundo-de-reserva/', '/guia/reajuste-da-parcela/',
+    '/guia/atraso-e-desistencia/', '/guia/consorcio-vale-a-pena/',
+    '/guia/consorcio-ou-financiamento/', '/guia/consorcio-ou-emprestimo/',
+    '/guia/consorcio-ou-poupar/', '/guia/como-ser-contemplado-mais-rapido/',
+    '/guia/lance-embutido-na-pratica/', '/guia/depois-da-contemplacao/',
+    '/guia/consorcio-e-confiavel/', '/guia/direitos-do-consorciado/',
+    '/guia/contemplacao-garantida-e-golpe/', '/guia/consorcio-para-autonomo/',
+    '/guia/consorcio-para-negativado/', '/guia/primeiro-imovel/',
 }
 
 
@@ -53,7 +64,7 @@ def f(url, kw, pai, title, desc):
 def g(url, kw, title, desc, pai=None):
     r = dict(url=url, keyword=kw, title=title, description=desc,
              intencao='informacional', camada='guia', indexavel=True,
-             status='planejada', fase=3)
+             status=('no-ar' if url in FILHAS_NO_AR else 'planejada'), fase=3)
     if pai:
         r['pai'] = pai
     return r
@@ -293,11 +304,11 @@ R += [
     g('/guia/carta-de-credito/', 'o que é carta de crédito', 'O que é Carta de Crédito no Consórcio',
       'A carta de crédito é o valor que você recebe ao ser contemplado. Veja o que ela compra, o que não compra e como reajusta.', GA),
     g('/guia/lance-no-consorcio/', 'como funciona o lance no consórcio', 'Lance no Consórcio: livre, fixo e embutido',
-      'Os três tipos de lance, quando cada um compensa e o erro que faz o consorciado perder dinheiro na assembleia.', GA),
+      'Lance livre, fixo e embutido: como cada um funciona, quando compensa e por que o valor ofertado abate o seu saldo devedor.', GA),
     g('/guia/taxa-de-administracao/', 'taxa de administração consórcio', 'Taxa de Administração: o que é e quanto custa',
-      'Como a taxa é cobrada, por que ela não é juro e como comparar administradoras sem cair na conta errada.', GA),
+      'Como a taxa é cobrada, por que ela não é juro e como comparar administradoras sem cair na conta errada. Peça o percentual por escrito.', GA),
     g('/guia/fundo-de-reserva/', 'fundo de reserva consórcio', 'Fundo de Reserva no Consórcio: para que serve',
-      'O que é o fundo de reserva, quanto ele costuma custar e em que casos o saldo é devolvido ao consorciado.', GA),
+      'O que é o fundo de reserva, por que ele existe, como aparece na parcela e em que condições o saldo volta ao grupo no encerramento.', GA),
     g('/guia/reajuste-da-parcela/', 'reajuste da parcela do consórcio', 'Por que a Parcela do Consórcio Reajusta',
       'A parcela acompanha o valor do bem. Entenda o índice, a periodicidade e como se planejar para o reajuste anual.', GA),
     g('/guia/atraso-e-desistencia/', 'desistir do consórcio', 'Desistir do Consórcio: como é a devolução',
@@ -305,9 +316,9 @@ R += [
     g(GB, 'consórcio vale a pena', 'Consórcio Vale a Pena? Análise honesta',
       'Para quem o consórcio compensa, para quem não compensa e a conta completa comparada ao financiamento. Sem propaganda.'),
     g('/guia/consorcio-ou-financiamento/', 'consórcio ou financiamento', 'Consórcio ou Financiamento: qual é mais barato?',
-      'Comparativo com números: custo total, prazo, entrada e liquidez. Em que situação cada opção realmente vence.', GB),
+      'Custo total, prazo, entrada e acesso ao crédito. Onde o financiamento vence, onde o consórcio vence e como comparar sem se enganar.', GB),
     g('/guia/consorcio-ou-emprestimo/', 'consórcio ou empréstimo', 'Consórcio ou Empréstimo: quando cada um serve',
-      'Urgência contra planejamento. Compare custo e prazo antes de tomar crédito pessoal para comprar um bem.', GB),
+      'Empréstimo entrega dinheiro livre e caro; consórcio entrega crédito vinculado e sem juros. Compare antes de tomar crédito pessoal.', GB),
     g('/guia/consorcio-ou-poupar/', 'consórcio ou juntar dinheiro', 'Consórcio ou Juntar Dinheiro: qual chega antes?',
       'A disciplina forçada do consórcio contra a liquidez da poupança e da renda fixa. Comparativo com cenários reais.', GB),
     g(GC, 'como ser contemplado mais rápido no consórcio', 'Como Ser Contemplado Mais Rápido no Consórcio',
@@ -319,16 +330,28 @@ R += [
     g(GD, 'consórcio é confiável', 'Consórcio é Confiável? Como verificar antes',
       'O sistema é regulado pelo Banco Central pela Lei 11.795. Veja como conferir qualquer administradora em 2 minutos.'),
     g('/guia/direitos-do-consorciado/', 'direitos do consorciado', 'Direitos do Consorciado: o que a lei garante',
-      'O que a Lei 11.795 garante sobre contrato, devolução, assembleia e prestação de contas. Em linguagem clara.', GD),
+      'O que a Lei 11.795/08 garante sobre contrato, custos, devolução, assembleia e prestação de contas. Em linguagem clara, para você cobrar.', GD),
     g('/guia/contemplacao-garantida-e-golpe/', 'contemplação garantida', 'Por que Contemplação Garantida é Sempre Golpe',
-      'Nenhuma administradora pode garantir contemplação, é vedado pela regulação. Quem promete isso está cometendo fraude.', GD),
+      'Nenhuma administradora pode garantir contemplação: ela depende de sorteio ou lance em assembleia. Quem promete prazo está vendendo o que não tem.', GD),
     g('/guia/consorcio-para-autonomo/', 'consórcio para autônomo', 'Consórcio para Autônomo: sem holerite',
       'Sem comprovação de renda tradicional e sem análise de crédito na entrada. Veja o que é exigido e em que momento.'),
     g('/guia/consorcio-para-negativado/', 'consórcio para negativado', 'Consórcio para Negativado: pode contratar?',
       'É possível entrar no grupo, mas a análise acontece na contemplação. Entenda como funciona, sem promessa falsa.'),
     g('/guia/primeiro-imovel/', 'como comprar o primeiro imóvel', 'Como Comprar o Primeiro Imóvel com Consórcio',
-      'Planejamento realista para quem está começando: prazo, parcela, FGTS e o erro mais comum de quem tem pressa.'),
+      'Planejamento realista para quem está começando: prazo, parcela, FGTS, custos de cartório e o erro mais comum de quem tem pressa.'),
 ]
+
+# ------------------------------------------------------------- indice de guias
+# A rota /guia/ existe porque as 20 paginas sao filhas dela: sem a pagina-pai
+# publicada, o permalink /guia/<slug>/ nao se forma. Nasceu como container
+# vazio e o check_seo apontou como PAGINA FANTASMA. Virou indice de verdade.
+R.append(dict(url='/guia/', keyword='guias sobre consórcio',
+              intencao='informacional', camada='guia',
+              title='Guias do Consórcio: 20 respostas diretas | MOVECON',
+              description='Como funciona, quanto custa, como dar lance, o que acontece se desistir e como verificar uma administradora. 20 guias sem promessa de prazo.',
+              indexavel=True,
+              status=('no-ar' if '/guia/' in FILHAS_NO_AR else 'planejada'),
+              fase=3))
 
 # ------------------------------------------------------------------------ AEO
 for url, kw, t, d, fase in [

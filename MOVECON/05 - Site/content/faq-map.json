@@ -560,5 +560,285 @@
    "Quem administra os grupos da MOVECON?",
    "A Alpha Administradora de Consórcio Ltda., CNPJ 90.982.679/0001-54, autorizada a funcionar pelo Banco Central do Brasil sob o certificado nº 03/100/213/88. A MOVECON é a plataforma; a administração dos grupos e a gestão dos recursos são da Alpha. Confira o CNPJ você mesmo."
   ]
+ ],
+ "/guia/como-funciona-o-consorcio/": [
+  [
+   "Quanto tempo leva para ser contemplado?",
+   "Não existe resposta honesta em forma de prazo. Depende de sorteio ou lance e varia grupo a grupo. Lance aumenta a chance, não a certeza."
+  ],
+  [
+   "Preciso de análise de crédito para entrar?",
+   "Não para aderir ao grupo. A análise acontece na contemplação, quando o crédito vai ser liberado. É a diferença central em relação ao financiamento."
+  ],
+  [
+   "Consórcio tem juros?",
+   "Não. Tem taxa de administração e, quando previsto em contrato, fundo de reserva e seguro. \"Sem juros\" não significa \"sem custo\": significa que não há empréstimo sendo cobrado."
+  ]
+ ],
+ "/guia/carta-de-credito/": [
+  [
+   "Posso usar a carta para pagar dívidas?",
+   "Não. A carta é vinculada à compra do bem da modalidade contratada, com pagamento direto ao vendedor."
+  ],
+  [
+   "E se o bem custar menos que a carta?",
+   "As regras variam conforme o contrato do grupo. Confirme como a diferença é tratada antes de aderir — não assuma que sobra em dinheiro."
+  ],
+  [
+   "E se custar mais?",
+   "Você complementa a diferença no momento da compra. Vale dimensionar a carta considerando isso já na adesão."
+  ]
+ ],
+ "/guia/lance-no-consorcio/": [
+  [
+   "Se eu não vencer o lance, perco o dinheiro?",
+   "Não. A oferta só se efetiva se for vencedora. Não vencendo, nada é cobrado e você segue concorrendo normalmente."
+  ],
+  [
+   "Qual percentual garante a contemplação?",
+   "Nenhum. O vencedor é o maior lance daquela assembleia específica, e isso muda todo mês conforme quem está disputando."
+  ],
+  [
+   "Posso dar lance na primeira assembleia?",
+   "Em geral sim, conforme as regras do grupo. Confirme no contrato, porque algumas modalidades têm carência."
+  ]
+ ],
+ "/guia/lance-embutido-na-pratica/": [
+  [
+   "Lance embutido é mais caro?",
+   "Não é mais caro em taxa. Ele troca crédito por antecipação: você recebe antes e recebe menos."
+  ],
+  [
+   "Posso somar embutido com lance próprio?",
+   "Costuma ser possível, respeitado o teto da modalidade. Confirme as regras do grupo antes de montar a estratégia."
+  ],
+  [
+   "Todo grupo tem lance embutido?",
+   "Não. É uma modalidade prevista em contrato, e nem todo grupo a oferece. Pergunte antes de aderir se ela existe no seu."
+  ]
+ ],
+ "/guia/como-ser-contemplado-mais-rapido/": [
+  [
+   "Grupo novo ou grupo antigo é melhor?",
+   "Depende do objetivo. Grupo mais avançado teve mais contemplações, mas também tem menos assembleias pela frente. Peça a composição ao consultor."
+  ],
+  [
+   "Pagar parcelas adiantadas antecipa a contemplação?",
+   "Antecipação de parcelas fora da mecânica de lance não contempla. O que contempla é sorteio ou lance vencedor."
+  ],
+  [
+   "Existe consórcio com contemplação garantida?",
+   "Não existe. Quem oferece isso está cometendo fraude ou vendendo o que não pode entregar."
+  ]
+ ],
+ "/guia/taxa-de-administracao/": [
+  [
+   "Qual é a taxa de administração?",
+   "Varia por administradora, modalidade e grupo. Qualquer número dito de forma genérica seria chute. Peça o percentual do seu grupo por escrito antes de assinar."
+  ],
+  [
+   "A taxa muda ao longo do plano?",
+   "O percentual contratado não muda. O valor em reais acompanha o reajuste da carta, porque é calculado sobre ela."
+  ],
+  [
+   "Dá para negociar?",
+   "As condições são do grupo, não individuais. O que existe é diferença entre administradoras e entre modalidades — vale comparar antes de escolher."
+  ]
+ ],
+ "/guia/fundo-de-reserva/": [
+  [
+   "O fundo de reserva é devolvido?",
+   "O saldo não utilizado é rateado no encerramento do grupo, conforme o contrato. Não há garantia de valor, porque depende do que foi usado."
+  ],
+  [
+   "Todo consórcio cobra?",
+   "Não. É previsto em contrato e varia por grupo e administradora. Pergunte especificamente por ele antes de aderir."
+  ],
+  [
+   "Ele conta como parte do meu crédito?",
+   "Não. Ele não compõe a carta de crédito: é reserva do grupo, com finalidade própria."
+  ]
+ ],
+ "/guia/reajuste-da-parcela/": [
+  [
+   "De quanto em quanto tempo reajusta?",
+   "Depende do contrato do grupo. É comum ser anual, mas confirme a periodicidade e o índice no seu."
+  ],
+  [
+   "Se eu já fui contemplado, a parcela ainda reajusta?",
+   "As parcelas restantes seguem as regras do contrato, inclusive de reajuste. Contemplação não encerra o pagamento."
+  ],
+  [
+   "Posso escolher o índice?",
+   "Não. O índice é do grupo e consta do contrato. O que dá para fazer é conferi-lo antes de aderir."
+  ]
+ ],
+ "/guia/atraso-e-desistencia/": [
+  [
+   "Quanto tempo demora a devolução?",
+   "Depende do contrato e do encerramento do grupo. Confirme o prazo e as deduções por escrito antes de aderir — é uma das cláusulas mais importantes."
+  ],
+  [
+   "Recebo tudo que paguei de volta?",
+   "Não. A devolução é sobre o que foi pago ao fundo comum, com as deduções previstas. Taxa de administração já prestada, por exemplo, não volta."
+  ],
+  [
+   "É melhor desistir ou transferir?",
+   "Transferir costuma ser melhor, porque evita a espera pelo encerramento. Depende de encontrar interessado e da formalização pela administradora."
+  ]
+ ],
+ "/guia/direitos-do-consorciado/": [
+  [
+   "Posso participar das assembleias?",
+   "Sim. As assembleias são do grupo e a participação é direito do consorciado. Pergunte à administradora como acompanhar as do seu."
+  ],
+  [
+   "A administradora pode mudar as regras no meio?",
+   "As regras são contratuais. Alterações seguem o que o contrato e a regulamentação permitem — mudança unilateral fora disso é questionável."
+  ],
+  [
+   "Onde reclamo se algo estiver errado?",
+   "Primeiro na própria administradora, por canal formal e registrado. Persistindo, o Banco Central recebe reclamações sobre instituições que autoriza."
+  ]
+ ],
+ "/guia/depois-da-contemplacao/": [
+  [
+   "E se eu não passar na análise?",
+   "Existem alternativas previstas em contrato, como apresentar garantia adicional ou aguardar. As condições exatas constam do contrato do seu grupo."
+  ],
+  [
+   "Posso escolher qualquer bem?",
+   "Dentro da modalidade contratada e dos critérios da administradora, como ano de fabricação e situação documental."
+  ],
+  [
+   "Quanto tempo leva a liberação?",
+   "Depende da documentação e da análise. Ter os documentos organizados antes é o que mais encurta esse prazo."
+  ]
+ ],
+ "/guia/consorcio-e-confiavel/": [
+  [
+   "Onde consulto a administradora?",
+   "No site do Banco Central, em Estabilidade Financeira → Sistema Financeiro Nacional → Organização → Encontre uma Instituição, filtrando o segmento por \"Administradora de Consórcio\"."
+  ],
+  [
+   "E se a empresa disser que é parceira de uma administradora?",
+   "Pergunte qual é a administradora e o CNPJ dela, e verifique esse CNPJ. Plataformas e representantes podem existir, mas os grupos precisam ser administrados por empresa autorizada."
+  ],
+  [
+   "O que acontece se a administradora quebrar?",
+   "O Banco Central tem competência para intervir e determinar a administração do grupo por outra instituição. Os recursos do grupo não se confundem com o patrimônio da administradora."
+  ]
+ ],
+ "/guia/contemplacao-garantida-e-golpe/": [
+  [
+   "Mas existe cota já contemplada à venda?",
+   "Existe transferência legítima de cota contemplada, formalizada pela administradora, com contrato e análise. O que não existe é carta contemplada barata, urgente e paga na conta de um particular."
+  ],
+  [
+   "Como confirmo antes de pagar?",
+   "Peça o CNPJ da administradora, ligue para ela pelo telefone do site oficial — nunca pelo número que o vendedor passou — e confirme se a cota existe e se a transferência está em andamento."
+  ],
+  [
+   "Caí no golpe. O que faço?",
+   "Registre boletim de ocorrência, reúna todos os comprovantes e comunicações, e procure a administradora citada pelo vendedor para confirmar se a cota existe."
+  ]
+ ],
+ "/guia/consorcio-para-autonomo/": [
+  [
+   "Preciso de CNPJ?",
+   "Não. Pessoa física autônoma pode aderir normalmente, assim como MEI e empresas de qualquer porte."
+  ],
+  [
+   "Como comprovo renda sem holerite?",
+   "Costumam ser aceitos extratos bancários, declaração de imposto de renda e outros documentos de movimentação. Confirme a lista com a administradora."
+  ],
+  [
+   "Tem carência para dar lance?",
+   "Depende das regras do grupo. Confirme no contrato se há carência e a partir de quando você pode ofertar."
+  ]
+ ],
+ "/guia/consorcio-para-negativado/": [
+  [
+   "Posso aderir com o nome sujo?",
+   "Em geral sim, porque a adesão ao grupo não passa por análise de crédito. O ponto de atenção é a contemplação."
+  ],
+  [
+   "E se eu for contemplado antes de limpar o nome?",
+   "Existem alternativas previstas em contrato, como apresentar garantia adicional. As condições constam do contrato do seu grupo — pergunte antes de aderir."
+  ],
+  [
+   "Ser negativado reduz minha chance no sorteio?",
+   "Não. O que exclui do sorteio é estar com parcelas em atraso, não a situação do seu nome em órgãos de proteção ao crédito."
+  ]
+ ],
+ "/guia/consorcio-vale-a-pena/": [
+  [
+   "Consórcio é mais barato que financiamento?",
+   "Em geral o custo total é menor, porque não há juros. Mas depende da taxa de administração, do prazo e das condições do financiamento comparado. Faça a conta completa."
+  ],
+  [
+   "Vale a pena para investir?",
+   "Pode fazer sentido para adquirir bem que gera renda, como imóvel para locação. Mas não é aplicação financeira: não há rendimento, há aquisição."
+  ],
+  [
+   "E se eu precisar do dinheiro antes?",
+   "Consórcio não é reserva de emergência. O valor pago não fica disponível para saque, e a devolução em caso de desistência costuma sair só após o encerramento do grupo."
+  ]
+ ],
+ "/guia/consorcio-ou-financiamento/": [
+  [
+   "Posso usar o consórcio para quitar um financiamento?",
+   "Depende da modalidade e das regras do contrato. Algumas administradoras permitem usar a carta para quitação do bem financiado. Confirme antes de aderir contando com isso."
+  ],
+  [
+   "No financiamento preciso de entrada?",
+   "Quase sempre sim, um percentual à vista. No consórcio não há entrada obrigatória: você começa pela parcela."
+  ],
+  [
+   "E se eu não for aprovado no financiamento?",
+   "É o cenário em que o consórcio costuma ser a alternativa real, já que a adesão ao grupo não passa por análise de crédito."
+  ]
+ ],
+ "/guia/consorcio-ou-emprestimo/": [
+  [
+   "Posso pegar empréstimo para dar lance?",
+   "É possível, mas pense duas vezes: você estaria pagando juros altos para antecipar um crédito sem juros. A conta raramente fecha."
+  ],
+  [
+   "Consórcio serve para quitar dívidas?",
+   "Não. A carta é vinculada à compra do bem da modalidade, com pagamento ao vendedor."
+  ],
+  [
+   "Qual é mais rápido?",
+   "Empréstimo, sem comparação. Se a necessidade é imediata, o consórcio não atende."
+  ]
+ ],
+ "/guia/consorcio-ou-poupar/": [
+  [
+   "Dá para fazer os dois?",
+   "Dá, e é comum: consórcio para o bem principal e reserva própria para a diferença, para o lance ou para custos da compra, como documentação."
+  ],
+  [
+   "O dinheiro do consórcio rende?",
+   "Não é aplicação. Os recursos do grupo têm destinação própria e regulamentada. A correção existe para manter o poder de compra da carta, não para render a você."
+  ],
+  [
+   "E se eu desistir no meio?",
+   "A devolução ocorre nos termos do contrato, em regra após o encerramento do grupo. Por isso consórcio não substitui reserva de emergência."
+  ]
+ ],
+ "/guia/primeiro-imovel/": [
+  [
+   "Posso usar o FGTS?",
+   "O FGTS pode ser usado na compra de imóvel residencial, inclusive em consórcio, respeitadas as regras do fundo e as condições do seu contrato. Confirme os requisitos antes de contar com ele."
+  ],
+  [
+   "Preciso de entrada no consórcio?",
+   "Não há entrada obrigatória. Você começa pela parcela e concorre desde a primeira assembleia."
+  ],
+  [
+   "Terreno e construção entram?",
+   "Costumam entrar, em modalidades específicas. Confirme na adesão se a modalidade cobre o que você pretende fazer."
+  ]
  ]
 }

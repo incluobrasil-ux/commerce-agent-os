@@ -1,0 +1,227 @@
+{
+  "_leia_me": "Guias de custo e contrato. Publico que ja entendeu o mecanismo e agora quer saber quanto custa e o que acontece se der errado. `respostaCurta` e o bloco ANSWER-FIRST, maximo ~55 palavras.",
+  "_nota": "Nenhum destes guias cita percentual de taxa. A taxa varia por administradora, modalidade e grupo, e publicar numero generico vira promessa. O que a pagina ensina e ONDE olhar e O QUE exigir por escrito.",
+
+  "guias": [
+    {
+      "slug": "taxa-de-administracao",
+      "keyword": "taxa de administração consórcio",
+      "eyebrow": "Custos",
+      "h1": "Taxa de administração no consórcio",
+      "respostaCurta": "A taxa de administração é a remuneração da administradora por organizar e gerir o grupo. É o principal custo do consórcio e ocupa o lugar que os juros ocupam no financiamento. O percentual é definido em contrato e deve ser informado por escrito antes da adesão.",
+      "lead": "\"Consórcio não tem juros\" é verdade e é incompleto. Não ter juros não é o mesmo que não ter custo — e é exatamente na taxa de administração que mora o custo real de um consórcio.",
+      "secao": "Como ela aparece no seu contrato",
+      "itens": [
+        [
+          "Diluída na parcela",
+          "A taxa costuma ser cobrada mensalmente, junto com a parcela, e não de uma vez. O contrato mostra a divisão entre fundo comum e taxa."
+        ],
+        [
+          "Percentual sobre a carta",
+          "Ela é calculada sobre o valor do crédito contratado, não sobre o que você já pagou."
+        ],
+        [
+          "Informada antes da assinatura",
+          "É obrigação da administradora apresentar o percentual por escrito. Se não estiver claro no contrato, não assine."
+        ]
+      ],
+      "notaTitulo": "Compare taxa com taxa, não taxa com juros.",
+      "nota": "Taxa de administração e juros são coisas diferentes e comparar os percentuais direto engana. O jeito honesto de comparar consórcio e financiamento é somar tudo que sai do seu bolso até o fim, nos dois casos, e olhar o total.",
+      "relacionados": [
+        "/guia/fundo-de-reserva/",
+        "/guia/consorcio-ou-financiamento/",
+        "/guia/consorcio-vale-a-pena/"
+      ],
+      "faq": [
+        [
+          "Qual é a taxa de administração?",
+          "Varia por administradora, modalidade e grupo. Qualquer número dito de forma genérica seria chute. Peça o percentual do seu grupo por escrito antes de assinar."
+        ],
+        [
+          "A taxa muda ao longo do plano?",
+          "O percentual contratado não muda. O valor em reais acompanha o reajuste da carta, porque é calculado sobre ela."
+        ],
+        [
+          "Dá para negociar?",
+          "As condições são do grupo, não individuais. O que existe é diferença entre administradoras e entre modalidades — vale comparar antes de escolher."
+        ]
+      ]
+    },
+    {
+      "slug": "fundo-de-reserva",
+      "keyword": "fundo de reserva consórcio",
+      "eyebrow": "Custos",
+      "h1": "Fundo de reserva: o que é e para que serve",
+      "respostaCurta": "O fundo de reserva é uma reserva do grupo para cobrir inadimplência e despesas imprevistas, garantindo que as contemplações continuem acontecendo mesmo quando alguém deixa de pagar. Quando previsto em contrato, é cobrado junto com a parcela. O saldo não usado é rateado no encerramento.",
+      "lead": "É a linha da parcela que mais gera dúvida, porque parece cobrança extra e não é bem isso. Ela existe para proteger justamente quem está pagando em dia.",
+      "secao": "Por que ele existe",
+      "itens": [
+        [
+          "Cobre a inadimplência do grupo",
+          "Se alguém para de pagar, o fundo comum poderia ficar insuficiente para contemplar. O fundo de reserva evita que isso trave o grupo."
+        ],
+        [
+          "Nem todo contrato prevê",
+          "Existe grupo sem fundo de reserva. Confirme se o seu tem e qual o percentual antes de assinar."
+        ],
+        [
+          "Sobra volta ao grupo",
+          "O que não for utilizado é rateado entre os participantes no encerramento, conforme as regras do contrato."
+        ]
+      ],
+      "notaTitulo": "É custo, e deve entrar na sua conta.",
+      "nota": "Mesmo sendo rateável no fim, o fundo de reserva sai do seu bolso todo mês. Ao comparar consórcio com outra forma de aquisição, some taxa de administração, fundo de reserva e seguro — não só a taxa.",
+      "relacionados": [
+        "/guia/taxa-de-administracao/",
+        "/guia/direitos-do-consorciado/",
+        "/guia/consorcio-vale-a-pena/"
+      ],
+      "faq": [
+        [
+          "O fundo de reserva é devolvido?",
+          "O saldo não utilizado é rateado no encerramento do grupo, conforme o contrato. Não há garantia de valor, porque depende do que foi usado."
+        ],
+        [
+          "Todo consórcio cobra?",
+          "Não. É previsto em contrato e varia por grupo e administradora. Pergunte especificamente por ele antes de aderir."
+        ],
+        [
+          "Ele conta como parte do meu crédito?",
+          "Não. Ele não compõe a carta de crédito: é reserva do grupo, com finalidade própria."
+        ]
+      ]
+    },
+    {
+      "slug": "reajuste-da-parcela",
+      "keyword": "reajuste da parcela do consórcio",
+      "eyebrow": "Custos",
+      "h1": "Reajuste da parcela do consórcio",
+      "respostaCurta": "A carta de crédito e a parcela são reajustadas periodicamente pelo índice previsto em contrato, para que o crédito continue comprando o bem pretendido. Não é aumento de custo: sem reajuste, você chegaria à contemplação com um crédito que não compra mais o que comprava.",
+      "lead": "É a parte do consórcio que mais parece injusta à primeira vista e que costuma fazer sentido quando se entende o que está sendo protegido — que é o seu poder de compra, não a margem da administradora.",
+      "secao": "O que está sendo corrigido",
+      "itens": [
+        [
+          "A carta é corrigida",
+          "O valor do crédito acompanha o índice do contrato, para continuar comprando o mesmo bem daqui a alguns anos."
+        ],
+        [
+          "A parcela acompanha",
+          "Como a parcela é calculada sobre a carta, ela sobe junto. É consequência, não cobrança nova."
+        ],
+        [
+          "O índice está no contrato",
+          "Qual índice, com que periodicidade e desde quando. Se isso não estiver escrito de forma clara, pergunte antes de assinar."
+        ]
+      ],
+      "notaTitulo": "O reajuste também protege quem já foi contemplado.",
+      "nota": "Quem foi contemplado no início do plano recebeu um crédito atualizado para aquele momento. O reajuste é o que mantém a equivalência entre quem é contemplado agora e quem será contemplado daqui a cinco anos.",
+      "relacionados": [
+        "/guia/carta-de-credito/",
+        "/guia/taxa-de-administracao/",
+        "/guia/direitos-do-consorciado/"
+      ],
+      "faq": [
+        [
+          "De quanto em quanto tempo reajusta?",
+          "Depende do contrato do grupo. É comum ser anual, mas confirme a periodicidade e o índice no seu."
+        ],
+        [
+          "Se eu já fui contemplado, a parcela ainda reajusta?",
+          "As parcelas restantes seguem as regras do contrato, inclusive de reajuste. Contemplação não encerra o pagamento."
+        ],
+        [
+          "Posso escolher o índice?",
+          "Não. O índice é do grupo e consta do contrato. O que dá para fazer é conferi-lo antes de aderir."
+        ]
+      ]
+    },
+    {
+      "slug": "atraso-e-desistencia",
+      "keyword": "desistir do consórcio",
+      "eyebrow": "Contrato",
+      "h1": "Atraso e desistência no consórcio",
+      "respostaCurta": "Quem atrasa deixa de concorrer às contemplações enquanto não regularizar, e pode ser excluído do grupo. Quem desiste tem direito à devolução dos valores pagos ao fundo comum, com as deduções previstas em contrato — em regra após o encerramento do grupo, e não no momento da saída.",
+      "lead": "É o cenário que ninguém planeja e que precisa ser entendido antes de assinar, não depois. O ponto mais importante costuma ser o prazo da devolução, e ele surpreende muita gente.",
+      "secao": "O que acontece em cada situação",
+      "itens": [
+        [
+          "Atraso",
+          "A cota em atraso não concorre nas assembleias. Regularizando, volta a concorrer. Persistindo, pode haver exclusão conforme o contrato."
+        ],
+        [
+          "Desistência",
+          "Saída voluntária. Gera direito à devolução do que foi pago ao fundo comum, com as deduções contratuais."
+        ],
+        [
+          "Transferência",
+          "Alternativa à desistência: passar a cota a outra pessoa, com formalização pela administradora. Costuma ser melhor que desistir."
+        ]
+      ],
+      "notaTitulo": "A devolução não é imediata.",
+      "nota": "Em regra o desistente recebe após o encerramento do grupo, que pode levar anos. Não existe consórcio que devolva no mês seguinte à saída — e quem prometer isso na hora da venda está criando uma expectativa que o contrato não sustenta.",
+      "relacionados": [
+        "/guia/direitos-do-consorciado/",
+        "/guia/consorcio-vale-a-pena/",
+        "/guia/como-funciona-o-consorcio/"
+      ],
+      "faq": [
+        [
+          "Quanto tempo demora a devolução?",
+          "Depende do contrato e do encerramento do grupo. Confirme o prazo e as deduções por escrito antes de aderir — é uma das cláusulas mais importantes."
+        ],
+        [
+          "Recebo tudo que paguei de volta?",
+          "Não. A devolução é sobre o que foi pago ao fundo comum, com as deduções previstas. Taxa de administração já prestada, por exemplo, não volta."
+        ],
+        [
+          "É melhor desistir ou transferir?",
+          "Transferir costuma ser melhor, porque evita a espera pelo encerramento. Depende de encontrar interessado e da formalização pela administradora."
+        ]
+      ]
+    },
+    {
+      "slug": "direitos-do-consorciado",
+      "keyword": "direitos do consorciado",
+      "eyebrow": "Contrato",
+      "h1": "Direitos do consorciado",
+      "respostaCurta": "O consorciado tem direito a contrato claro antes da adesão, a informação sobre custos e regras de contemplação, a prestação de contas do grupo, a participar das assembleias e à devolução dos valores pagos ao fundo comum em caso de saída, nos termos do contrato.",
+      "lead": "A Lei 11.795/08 e as normas do Banco Central definem obrigações que a administradora tem com você. Saber quais são muda a conversa: você para de pedir favor e passa a cobrar o que já é seu.",
+      "secao": "O que você pode exigir",
+      "itens": [
+        [
+          "Contrato antes de assinar",
+          "Você tem direito de ler as regras do grupo, os custos e as condições de contemplação antes de se comprometer. Não assine o que não leu."
+        ],
+        [
+          "Prestação de contas",
+          "A administradora deve informar a situação dos recursos, das contemplações e das cotas. Isso ocorre nas assembleias."
+        ],
+        [
+          "Informação clara sobre custos",
+          "Taxa de administração, fundo de reserva e seguro, quando existirem, devem estar explícitos — não escondidos em nota de rodapé."
+        ]
+      ],
+      "notaTitulo": "Quem fiscaliza é o Banco Central.",
+      "nota": "Administradoras de consórcio são autorizadas e fiscalizadas pelo Bacen. Se a administradora descumprir suas obrigações, existe caminho de reclamação formal — e a relação de instituições autorizadas é pública, para você conferir com quem está lidando.",
+      "relacionados": [
+        "/guia/consorcio-e-confiavel/",
+        "/guia/atraso-e-desistencia/",
+        "/guia/taxa-de-administracao/"
+      ],
+      "faq": [
+        [
+          "Posso participar das assembleias?",
+          "Sim. As assembleias são do grupo e a participação é direito do consorciado. Pergunte à administradora como acompanhar as do seu."
+        ],
+        [
+          "A administradora pode mudar as regras no meio?",
+          "As regras são contratuais. Alterações seguem o que o contrato e a regulamentação permitem — mudança unilateral fora disso é questionável."
+        ],
+        [
+          "Onde reclamo se algo estiver errado?",
+          "Primeiro na própria administradora, por canal formal e registrado. Persistindo, o Banco Central recebe reclamações sobre instituições que autoriza."
+        ]
+      ]
+    }
+  ]
+}

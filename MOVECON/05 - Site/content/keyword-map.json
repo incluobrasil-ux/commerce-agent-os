@@ -885,7 +885,7 @@
       "intencao": "informacional",
       "camada": "guia",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3
     },
     {
@@ -896,7 +896,7 @@
       "intencao": "informacional",
       "camada": "guia",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/guia/como-funciona-o-consorcio/"
     },
@@ -904,11 +904,11 @@
       "url": "/guia/lance-no-consorcio/",
       "keyword": "como funciona o lance no consórcio",
       "title": "Lance no Consórcio: livre, fixo e embutido",
-      "description": "Os três tipos de lance, quando cada um compensa e o erro que faz o consorciado perder dinheiro na assembleia.",
+      "description": "Lance livre, fixo e embutido: como cada um funciona, quando compensa e por que o valor ofertado abate o seu saldo devedor.",
       "intencao": "informacional",
       "camada": "guia",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/guia/como-funciona-o-consorcio/"
     },
@@ -916,11 +916,11 @@
       "url": "/guia/taxa-de-administracao/",
       "keyword": "taxa de administração consórcio",
       "title": "Taxa de Administração: o que é e quanto custa",
-      "description": "Como a taxa é cobrada, por que ela não é juro e como comparar administradoras sem cair na conta errada.",
+      "description": "Como a taxa é cobrada, por que ela não é juro e como comparar administradoras sem cair na conta errada. Peça o percentual por escrito.",
       "intencao": "informacional",
       "camada": "guia",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/guia/como-funciona-o-consorcio/"
     },
@@ -928,11 +928,11 @@
       "url": "/guia/fundo-de-reserva/",
       "keyword": "fundo de reserva consórcio",
       "title": "Fundo de Reserva no Consórcio: para que serve",
-      "description": "O que é o fundo de reserva, quanto ele costuma custar e em que casos o saldo é devolvido ao consorciado.",
+      "description": "O que é o fundo de reserva, por que ele existe, como aparece na parcela e em que condições o saldo volta ao grupo no encerramento.",
       "intencao": "informacional",
       "camada": "guia",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/guia/como-funciona-o-consorcio/"
     },
@@ -944,7 +944,7 @@
       "intencao": "informacional",
       "camada": "guia",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/guia/como-funciona-o-consorcio/"
     },
@@ -956,7 +956,7 @@
       "intencao": "informacional",
       "camada": "guia",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/guia/como-funciona-o-consorcio/"
     },
@@ -968,18 +968,18 @@
       "intencao": "informacional",
       "camada": "guia",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3
     },
     {
       "url": "/guia/consorcio-ou-financiamento/",
       "keyword": "consórcio ou financiamento",
       "title": "Consórcio ou Financiamento: qual é mais barato?",
-      "description": "Comparativo com números: custo total, prazo, entrada e liquidez. Em que situação cada opção realmente vence.",
+      "description": "Custo total, prazo, entrada e acesso ao crédito. Onde o financiamento vence, onde o consórcio vence e como comparar sem se enganar.",
       "intencao": "informacional",
       "camada": "guia",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/guia/consorcio-vale-a-pena/"
     },
@@ -987,11 +987,11 @@
       "url": "/guia/consorcio-ou-emprestimo/",
       "keyword": "consórcio ou empréstimo",
       "title": "Consórcio ou Empréstimo: quando cada um serve",
-      "description": "Urgência contra planejamento. Compare custo e prazo antes de tomar crédito pessoal para comprar um bem.",
+      "description": "Empréstimo entrega dinheiro livre e caro; consórcio entrega crédito vinculado e sem juros. Compare antes de tomar crédito pessoal.",
       "intencao": "informacional",
       "camada": "guia",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/guia/consorcio-vale-a-pena/"
     },
@@ -1003,7 +1003,7 @@
       "intencao": "informacional",
       "camada": "guia",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/guia/consorcio-vale-a-pena/"
     },
@@ -1015,7 +1015,7 @@
       "intencao": "informacional",
       "camada": "guia",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3
     },
     {
@@ -1026,7 +1026,7 @@
       "intencao": "informacional",
       "camada": "guia",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/guia/como-ser-contemplado-mais-rapido/"
     },
@@ -1038,7 +1038,7 @@
       "intencao": "informacional",
       "camada": "guia",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/guia/como-ser-contemplado-mais-rapido/"
     },
@@ -1050,18 +1050,18 @@
       "intencao": "informacional",
       "camada": "guia",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3
     },
     {
       "url": "/guia/direitos-do-consorciado/",
       "keyword": "direitos do consorciado",
       "title": "Direitos do Consorciado: o que a lei garante",
-      "description": "O que a Lei 11.795 garante sobre contrato, devolução, assembleia e prestação de contas. Em linguagem clara.",
+      "description": "O que a Lei 11.795/08 garante sobre contrato, custos, devolução, assembleia e prestação de contas. Em linguagem clara, para você cobrar.",
       "intencao": "informacional",
       "camada": "guia",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/guia/consorcio-e-confiavel/"
     },
@@ -1069,11 +1069,11 @@
       "url": "/guia/contemplacao-garantida-e-golpe/",
       "keyword": "contemplação garantida",
       "title": "Por que Contemplação Garantida é Sempre Golpe",
-      "description": "Nenhuma administradora pode garantir contemplação, é vedado pela regulação. Quem promete isso está cometendo fraude.",
+      "description": "Nenhuma administradora pode garantir contemplação: ela depende de sorteio ou lance em assembleia. Quem promete prazo está vendendo o que não tem.",
       "intencao": "informacional",
       "camada": "guia",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/guia/consorcio-e-confiavel/"
     },
@@ -1085,7 +1085,7 @@
       "intencao": "informacional",
       "camada": "guia",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3
     },
     {
@@ -1096,18 +1096,29 @@
       "intencao": "informacional",
       "camada": "guia",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3
     },
     {
       "url": "/guia/primeiro-imovel/",
       "keyword": "como comprar o primeiro imóvel",
       "title": "Como Comprar o Primeiro Imóvel com Consórcio",
-      "description": "Planejamento realista para quem está começando: prazo, parcela, FGTS e o erro mais comum de quem tem pressa.",
+      "description": "Planejamento realista para quem está começando: prazo, parcela, FGTS, custos de cartório e o erro mais comum de quem tem pressa.",
       "intencao": "informacional",
       "camada": "guia",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
+      "fase": 3
+    },
+    {
+      "url": "/guia/",
+      "keyword": "guias sobre consórcio",
+      "intencao": "informacional",
+      "camada": "guia",
+      "title": "Guias do Consórcio: 20 respostas diretas | MOVECON",
+      "description": "Como funciona, quanto custa, como dar lance, o que acontece se desistir e como verificar uma administradora. 20 guias sem promessa de prazo.",
+      "indexavel": true,
+      "status": "no-ar",
       "fase": 3
     },
     {

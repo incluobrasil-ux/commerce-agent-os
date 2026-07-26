@@ -148,14 +148,50 @@ add_action( 'wp_footer', function () {
         </ul>
       </div>
 
-      <div>
-        <h3>Institucional</h3>
-        <ul>
-          <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Início</a></li>
-          <li><a href="<?php echo esc_url( home_url( '/administrado-pela-alpha/' ) ); ?>">Quem administra os grupos</a></li>
-          <li><a href="<?php echo esc_url( home_url( '/contato/' ) ); ?>">Contato</a></li>
-        </ul>
-      </div>
+      <?php
+      /*
+       * COLUNAS DE NAVEGACAO DO RODAPE
+       *
+       * O rodape ficou parado enquanto o site ia de 11 para 99 paginas. Os 21
+       * guias, o glossario, as perguntas, o blog e as paginas de confianca
+       * estavam no ar e sem NENHUM link sitewide - so o link contextual de
+       * dentro dos hubs. Rodape e o unico bloco que aparece nas 99 paginas, e
+       * portanto o mecanismo mais barato de distribuir autoridade interna.
+       *
+       * As 36 filhas de silo NAO entram aqui de proposito: elas sao alcancadas
+       * pelo hub pai, que e onde o contexto existe. Rodape com 36 links vira
+       * ruido e dilui o peso de cada um.
+       *
+       * /consorcio-contemplado/ segue fora da coluna Consorcios por decisao do
+       * cliente em 26/07/2026. Continua alcancavel pelo menu principal e pelo
+       * silo - a remocao foi da navegacao do rodape, nao do site.
+       */
+      $mv_colunas = array(
+        'Aprenda' => array(
+          '/guia/'       => 'Guias do consórcio',
+          '/glossario/'  => 'Glossário',
+          '/perguntas/'  => 'Perguntas frequentes',
+          '/dados/'      => 'Dados do mercado',
+          '/blog/'       => 'Comparativos',
+        ),
+        'Institucional' => array(
+          '/'                        => 'Início',
+          '/quem-somos/'             => 'Quem é a MOVECON',
+          '/administrado-pela-alpha/' => 'Quem administra os grupos',
+          '/seguranca/'              => 'Segurança e verificação',
+          '/avaliacoes/'             => 'Reputação',
+          '/contato/'                => 'Contato',
+        ),
+      );
+      foreach ( $mv_colunas as $mv_titulo => $mv_itens ) {
+        echo '<div><h3>' . esc_html( $mv_titulo ) . '</h3><ul>';
+        foreach ( $mv_itens as $mv_rota => $mv_nome ) {
+          printf( '<li><a href="%s">%s</a></li>',
+            esc_url( home_url( $mv_rota ) ), esc_html( $mv_nome ) );
+        }
+        echo '</ul></div>';
+      }
+      ?>
 
       <div>
         <h3>Acesso</h3>

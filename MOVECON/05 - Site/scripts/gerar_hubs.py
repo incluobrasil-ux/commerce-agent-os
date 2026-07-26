@@ -24,6 +24,52 @@ CARD = ('      <div class="card card--acento">\n'
 ITEM = '      <div class="card"><h3>%s</h3></div>'
 # Card de filha: o link envolve o card inteiro, entao a area de clique e a
 # area visivel. O texto ancora e a keyword da filha, nao "saiba mais".
+# Tabela comparativa do segmento. Tabela HTML de verdade, e nao imagem: e o
+# formato que ganha featured snippet em consulta comparativa, e o unico que
+# um leitor de tela consegue percorrer.
+TABELA = """
+<section class="sec">
+  <div class="wrap stack-l">
+    <div class="stack prosa">
+      <p class="eyebrow">Comparativo</p>
+      <h2>%(titulo)s</h2>
+      <p>%(intro)s</p>
+    </div>
+    <div class="tabela-wrap">
+      <table class="tabela">
+        <thead>
+          <tr><th scope="col">%(col0)s</th><th scope="col">%(col1)s</th><th scope="col">%(col2)s</th></tr>
+        </thead>
+        <tbody>
+%(linhas)s
+        </tbody>
+      </table>
+    </div>
+    <p class="tabela-nota">%(nota)s</p>
+  </div>
+</section>"""
+
+TABELA_LINHA = ('          <tr><th scope="row">%s</th><td>%s</td><td>%s</td></tr>')
+
+# Bloco de compliance NO CORPO. O rodape global ja traz a atribuicao, mas
+# rodape de site e descartado por quem extrai trecho - motor generativo
+# recorta o conteudo da pagina. Sem isto, a pagina pode ser citada sem a
+# informacao de quem administra os grupos.
+COMPLIANCE = """
+<section class="sec sec--alt">
+  <div class="wrap stack prosa">
+    <div class="nota">
+      <p><strong>Quem administra os grupos.</strong> Os grupos de consórcio
+      apresentados pela MOVECON são administrados pela Alpha Administradora de
+      Consórcio Ltda., CNPJ 90.982.679/0001-54, administradora autorizada a
+      funcionar pelo Banco Central do Brasil sob o certificado nº 03/100/213/88.
+      A MOVECON é a plataforma que apresenta os grupos e acompanha o cliente.
+      A contemplação ocorre por sorteio ou lance em assembleia: nenhuma data
+      pode ser prometida.</p>
+    </div>
+  </div>
+</section>"""
+
 FILHA_CARD = ('      <a class="card card--link" href="%s">\n'
               '        <h3>%s</h3>\n'
               '        <p>%s</p>\n'
@@ -93,6 +139,7 @@ TPL = '''<!-- wp:html -->
   </div>
 </section>
 
+%(tabela)s
 %(filhas)s
 
 <section class="sec">
@@ -106,6 +153,8 @@ TPL = '''<!-- wp:html -->
     </div>
   </div>
 </section>
+
+%(compliance)s
 
 <section class="sec sec--dark chevrons">
   <div class="wrap stack prosa">
@@ -172,8 +221,18 @@ def main():
         else:
             filhas_html = ''
 
+        # Tabela e compliance sao opcionais por hub: entram conforme cada
+        # segmento recebe a engorda, sem quebrar os que ainda nao receberam.
+        tab = s.get('tabela')
+        tabela_html = '' if not tab else TABELA % dict(
+            tab,
+            linhas='
+'.join(TABELA_LINHA % (a, b, c) for a, b, c in tab['linhas']))
+
         html = TPL % dict(
             s,
+            tabela=tabela_html,
+            compliance=COMPLIANCE if s.get('compliance', True) else '',
             filhas=filhas_html,
             nome_low=s['nome'].lower(),
             porque='\n'.join(CARD % (t, d) for t, d in s['porque']),

@@ -153,15 +153,40 @@ O próprio relatório os marca como não verificados:
 
 ---
 
-# Alteração que eu fiz no material de origem — precisa do seu aval
+# Regra: material de origem não se edita por conformidade
 
-Ao gravar `relatorio-pesquisa-concorrentes.md` no repositório, **troquei uma
-expressão**: na análise da Âncora, "modelo white-label reverso" virou "modelo
-de marca branca reverso".
+**Decisão do cliente, 26/07/2026.**
 
-Motivo: `white-label` é uma das 11 expressões proibidas do validador. O
-relatório é documento interno e não seria varrido pelo `check_seo.py`, que só
-lê `_codigo/` e `build/` — então a troca **não era necessária** por regra.
+Fonte é registro fiel. A restrição de vocabulário se aplica na **camada de
+saída** — o texto público —, que o `check_seo.py` já cobre varrendo `_codigo/`
+e `build/`.
 
-Alterar documento de origem reduz fidelidade da fonte. Registro para você
-decidir: mantenho a troca ou restauro o texto original do relatório?
+Eu havia trocado "white-label reverso" por "marca branca reverso" ao gravar o
+`relatorio-pesquisa-concorrentes.md`. **Foi revertido:** o original está de
+volta.
+
+**Procedimento quando a fonte conflitar com uma regra de saída:**
+
+1. Não editar a fonte.
+2. Anotar o conflito aqui, neste arquivo.
+3. Aplicar a regra apenas ao texto público derivado.
+
+## Conflitos de vocabulário já anotados
+
+| Fonte | Trecho | Regra de saída |
+|---|---|---|
+| `relatorio-pesquisa-concorrentes.md`, análise da Âncora | "modelo white-label reverso" | `white-label` é expressão proibida em texto público. O termo pode ser lido e discutido internamente; nunca sai em página do site. |
+
+## Backlog de schema
+
+**`DefinedTerm` — não implementado.** O plano mestre das 96 rotas afirmava que
+o mu-plugin já suportava. Não suporta: zero ocorrência no código e zero no HTML
+de `/glossario/`.
+
+Decisão do cliente em 26/07/2026: **não implementar agora**. A prioridade de
+schema segue `FAQPage`, `Organization` e `BreadcrumbList`, conforme
+`05-schema-specs.md`. Os 41 verbetes já têm âncora própria e estrutura pronta
+para receber o schema quando for feito.
+
+O plano mestre, quando for revisado, precisa ter essa afirmação removida ou
+marcada como backlog — ele não está versionado neste repositório.

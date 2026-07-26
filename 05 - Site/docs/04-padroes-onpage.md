@@ -6,6 +6,13 @@
 
 ## Limites duros
 
+**Extensão é meta indicativa, não gate.** Decisão do cliente em 26/07/2026: as
+contagens abaixo orientam a priorização; nenhuma delas bloqueia publicação.
+Completar página com texto vazio para fechar métrica é o oposto do que a
+auditoria pediu — se a página está completa com menos, publica com menos.
+
+Os limites da tabela seguinte, esses sim, são duros.
+
 | Campo | Limite | Onde vive |
 |---|---|---|
 | `title` | ≤ 60 caracteres | keyword-map |

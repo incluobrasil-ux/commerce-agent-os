@@ -840,5 +840,143 @@
    "Terreno e construção entram?",
    "Costumam entrar, em modalidades específicas. Confirme na adesão se a modalidade cobre o que você pretende fazer."
   ]
+ ],
+ "/consorcio-veiculos/": [
+  [
+   "Posso escolher qualquer marca e modelo?",
+   "Sim. A carta de crédito não é vinculada a marca ou concessionária. Você escolhe o veículo no momento da contemplação, respeitando o valor do crédito contratado."
+  ],
+  [
+   "Posso usar a carta para comprar carro usado?",
+   "Sim. A carta de veículos costuma permitir a compra de usados dentro dos critérios de ano e estado definidos pela administradora. O consultor confirma as regras do grupo antes da adesão."
+  ],
+  [
+   "Preciso dar entrada?",
+   "Não. O consórcio não exige entrada. Você começa a pagar as parcelas e já concorre à contemplação desde a primeira assembleia."
+  ]
+ ],
+ "/consorcio-moto/": [
+  [
+   "Consigo consórcio de moto sendo autônomo?",
+   "Sim. Não há análise de crédito para entrar no grupo. A comprovação de capacidade de pagamento acontece na contemplação, quando o crédito é liberado."
+  ],
+  [
+   "Posso comprar moto usada com a carta?",
+   "Sim, respeitados os critérios de ano e estado de conservação definidos pela administradora para a carta contratada."
+  ],
+  [
+   "O consórcio cobre emplacamento e seguro?",
+   "A carta de crédito cobre o valor do bem. Custos de emplacamento, documentação e seguro variam conforme o plano — confirme antes de contratar."
+  ]
+ ],
+ "/consorcio-imoveis/": [
+  [
+   "Posso usar o FGTS no consórcio de imóvel?",
+   "Sim, dentro das regras aplicáveis ao FGTS e ao seu grupo. O uso mais comum é como lance, para antecipar a contemplação. O consultor detalha as condições antes da adesão."
+  ],
+  [
+   "Serve para construir, não só para comprar?",
+   "Sim. Há cartas destinadas à construção em terreno próprio e à reforma. A modalidade é escolhida na adesão, então vale definir seu objetivo desde o começo."
+  ],
+  [
+   "Posso comprar imóvel em outra cidade?",
+   "Sim. A carta de crédito é de abrangência nacional, respeitadas as regras de avaliação e documentação do imóvel."
+  ],
+  [
+   "Quanto tempo até eu receber a carta de crédito?",
+   "Não há resposta honesta em forma de prazo. A contemplação ocorre por sorteio ou lance em assembleia e varia grupo a grupo. O lance aumenta a chance, não a certeza — e nenhuma administradora pode prometer data."
+  ],
+  [
+   "E se o imóvel custar mais que a carta?",
+   "Você complementa a diferença no momento da compra. Vale dimensionar a carta considerando isso já na adesão — e lembrar de ITBI, registro e escritura, que não entram na carta e chegam todos juntos."
+  ],
+  [
+   "Preciso dar entrada?",
+   "Não. Você começa pela parcela e concorre desde a primeira assembleia. É a diferença mais concreta em relação ao financiamento, que quase sempre exige um percentual à vista."
+  ]
+ ],
+ "/consorcio-caminhao/": [
+  [
+   "Caminhoneiro autônomo consegue entrar?",
+   "Sim. Não existe análise de crédito na entrada do grupo, o que facilita para quem não tem comprovação de renda tradicional. A análise ocorre na contemplação."
+  ],
+  [
+   "Dá para comprar caminhão usado?",
+   "Sim, respeitados os critérios de ano e estado de conservação definidos pela administradora para a carta contratada."
+  ],
+  [
+   "Empresa pode fazer consórcio?",
+   "Sim. Pessoa jurídica pode aderir, e é comum que empresas mantenham mais de uma cota para escalonar a renovação da frota."
+  ]
+ ],
+ "/consorcio-maquinas-agricolas/": [
+  [
+   "Produtor rural pessoa física pode aderir?",
+   "Sim. Tanto produtor pessoa física quanto pessoa jurídica podem contratar, conforme as regras do grupo."
+  ],
+  [
+   "Posso comprar máquina usada?",
+   "Depende da modalidade contratada e dos critérios da administradora quanto a ano e estado do equipamento. Confirme na adesão."
+  ],
+  [
+   "Vale mais a pena que o crédito rural?",
+   "Depende. O crédito rural subsidiado costuma ter custo menor, mas depende de disponibilidade, enquadramento e liberação. O consórcio vence em previsibilidade e independência de aprovação."
+  ]
+ ],
+ "/consorcio-servicos/": [
+  [
+   "Como funciona a carta para serviço?",
+   "A carta de crédito é usada para contratar o serviço junto ao prestador escolhido, conforme as regras da modalidade. O pagamento é feito ao prestador, não a você."
+  ],
+  [
+   "Posso escolher qualquer profissional ou clínica?",
+   "Em geral sim, desde que o prestador atenda aos requisitos de documentação exigidos para o pagamento da carta."
+  ],
+  [
+   "Energia solar entra em serviços?",
+   "Sim. É uma das modalidades mais procuradas, porque o sistema costuma se pagar com a economia na conta de luz."
+  ]
+ ],
+ "/consorcio-empresa/": [
+  [
+   "MEI pode fazer consórcio?",
+   "Sim. MEI, autônomo e empresas de qualquer porte podem aderir, conforme as regras do grupo."
+  ],
+  [
+   "O consórcio é dedutível no Imposto de Renda?",
+   "O tratamento tributário depende do regime da empresa e do tipo de bem. Consulte seu contador — não damos orientação fiscal."
+  ],
+  [
+   "Posso ter várias cotas?",
+   "Sim. É comum empresas manterem mais de uma cota para escalonar contemplações conforme o plano de investimento."
+  ]
+ ],
+ "/consorcio-embarcacoes/": [
+  [
+   "Dá para comprar embarcação usada?",
+   "Depende da modalidade e dos critérios de ano e conservação definidos pela administradora. Confirme antes da adesão."
+  ],
+  [
+   "A carta cobre motor e equipamentos?",
+   "Em geral a carta é destinada à embarcação. Itens adicionais dependem das regras da modalidade contratada."
+  ],
+  [
+   "Preciso ter habilitação náutica para aderir?",
+   "Não para contratar o consórcio. A habilitação é exigida para conduzir a embarcação, não para participar do grupo."
+  ]
+ ],
+ "/consorcio-contemplado/": [
+  [
+   "Existe carta contemplada legítima?",
+   "Sim. A transferência de cota contemplada é prevista e formalizada pela administradora, com contrato e análise. O que não existe é carta contemplada barata, urgente e paga na conta de um particular."
+  ],
+  [
+   "Como faço para ser contemplado de verdade?",
+   "Por sorteio ou por lance nas assembleias do grupo. Um consultor pode explicar estratégias de lance, mas ninguém pode prometer data."
+  ],
+  [
+   "Já paguei e acho que caí em golpe. E agora?",
+   "Registre boletim de ocorrência, reúna todos os comprovantes e comunicações, e procure a administradora informada pelo vendedor para confirmar se a cota existe."
+  ]
  ]
 }

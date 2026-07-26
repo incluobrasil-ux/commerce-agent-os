@@ -22,6 +22,13 @@ CARD = ('      <div class="card card--acento">\n'
         '        <p>%s</p>\n'
         '      </div>')
 ITEM = '      <div class="card"><h3>%s</h3></div>'
+# Item de cobertura com descricao. O formato antigo (so o titulo) continua
+# valendo: hub que ainda nao recebeu engorda passa string, e este passa lista.
+ITEM_DESC = (
+    '      <div class="card">' + chr(10) +
+    '        <h3>%s</h3>' + chr(10) +
+    '        <p>%s</p>' + chr(10) +
+    '      </div>')
 # Card de filha: o link envolve o card inteiro, entao a area de clique e a
 # area visivel. O texto ancora e a keyword da filha, nao "saiba mais".
 # Tabela comparativa do segmento. Tabela HTML de verdade, e nao imagem: e o
@@ -70,6 +77,29 @@ COMPLIANCE = """
   </div>
 </section>"""
 
+# Como funciona em 4 passos. A numeracao aqui NAO e decorativa: o
+# consorcio e uma sequencia real, e trocar a ordem dos passos muda o que
+# eles significam. So usar lista numerada quando a ordem carrega
+# informacao - e neste bloco ela carrega.
+PASSO = (
+    '      <li class="passo">' + chr(10) +
+    '        <h3>%s</h3>' + chr(10) +
+    '        <p>%s</p>' + chr(10) +
+    '      </li>')
+
+PASSOS = (chr(10) +
+  '<section class="sec">' + chr(10) +
+  '  <div class="wrap stack-l">' + chr(10) +
+  '    <div class="stack prosa">' + chr(10) +
+  '      <p class="eyebrow">Passo a passo</p>' + chr(10) +
+  '      <h2>%(titulo)s</h2>' + chr(10) +
+  '    </div>' + chr(10) +
+  '    <ol class="passos prosa">' + chr(10) +
+  '%(itens)s' + chr(10) +
+  '    </ol>' + chr(10) +
+  '  </div>' + chr(10) +
+  '</section>')
+
 FILHA_CARD = ('      <a class="card card--link" href="%s">\n'
               '        <h3>%s</h3>\n'
               '        <p>%s</p>\n'
@@ -106,8 +136,7 @@ TPL = '''<!-- wp:html -->
 
     <p class="lead">%(lead)s</p>
     <div class="botoes">
-      <a class="btn btn--cta" href="/contato/">Falar com um consultor</a>
-      <a class="btn btn--ghost" href="/administrado-pela-alpha/">Quem administra os grupos</a>
+%(cta_hero)s
     </div>
   </div>
 </section>
@@ -140,6 +169,7 @@ TPL = '''<!-- wp:html -->
 </section>
 
 %(tabela)s
+%(passos)s
 %(filhas)s
 
 <section class="sec">
@@ -182,6 +212,13 @@ def main():
     segs = carregar('segmentos.json')['segmentos']
     rotas = {r['url']: r for r in mapa['rotas']}
 
+    # O FAQPage do hub sai daqui. Ver docstring de hub_faqmap.
+    caminho_faq = os.path.join(RAIZ, 'content', 'faq-map.json')
+    faq_map = {}
+    if os.path.exists(caminho_faq):
+        with io.open(caminho_faq, encoding='utf-8') as fh:
+            faq_map = json.load(fh)
+
     pedidos = [a for a in sys.argv[1:] if not a.startswith('-')]
     if pedidos:
         segs = [s for s in segs if s['slug'] in pedidos]
@@ -223,20 +260,52 @@ def main():
 
         # Tabela e compliance sao opcionais por hub: entram conforme cada
         # segmento recebe a engorda, sem quebrar os que ainda nao receberam.
+        # CTA duplo do hero: simulador (frio) + consultor (quente).
+        # O padrao 1.1 e o relatorio de concorrentes poem o simulador como
+        # hub de conversao com o maior numero de links internos do site.
+        # Hub sem rota propria de simulador cai no par antigo - nunca
+        # inventar rota de simulador que nao existe.
+        sim = s.get('simulador')
+        if sim:
+            cta_hero = (
+                '      <a class="btn btn--cta" href="%s">'
+                'Simular minha parcela</a>' % sim + chr(10) +
+                '      <a class="btn btn--ghost" href="/contato/">'
+                'Falar com um consultor</a>')
+        else:
+            cta_hero = (
+                '      <a class="btn btn--cta" href="/contato/">'
+                'Falar com um consultor</a>' + chr(10) +
+                '      <a class="btn btn--ghost" '
+                'href="/administrado-pela-alpha/">'
+                'Quem administra os grupos</a>')
+
+        # Bloco opcional, herdavel. Hub sem `passos` gera como antes.
+        ps = s.get('passos')
+        passos_html = '' if not ps else PASSOS % dict(
+            titulo=ps['titulo'],
+            itens=chr(10).join(PASSO % (a, b) for a, b in ps['itens']))
+
         tab = s.get('tabela')
         tabela_html = '' if not tab else TABELA % dict(
             tab,
-            linhas='
-'.join(TABELA_LINHA % (a, b, c) for a, b, c in tab['linhas']))
+            linhas=chr(10).join(TABELA_LINHA % (a, b, c)
+                                for a, b, c in tab['linhas']))
+
+        faq_map[url] = [[q, a] for q, a in s['faq']]
 
         html = TPL % dict(
             s,
+            cta_hero=cta_hero,
+            passos=passos_html,
             tabela=tabela_html,
             compliance=COMPLIANCE if s.get('compliance', True) else '',
             filhas=filhas_html,
             nome_low=s['nome'].lower(),
             porque='\n'.join(CARD % (t, d) for t, d in s['porque']),
-            cobre='\n'.join(ITEM % c for c in s['cobre']),
+            cobre=chr(10).join(
+                (ITEM_DESC % (c[0], c[1])) if isinstance(c, list)
+                else (ITEM % c) for c in s['cobre']),
             faq='\n'.join(FAQ % (' open' if i == 0 else '', q, a)
                           for i, (q, a) in enumerate(s['faq'])),
         )
@@ -247,6 +316,9 @@ def main():
     print('%-32s %-10s %8s %s' % ('slug', 'status', 'bytes', 'answer-first'))
     for slug, st, n, p in saida:
         print('%-32s %-10s %8d %d palavras' % (slug, st, n, p))
+    io.open(caminho_faq, 'w', encoding='utf-8', newline=chr(10)).write(
+        json.dumps(faq_map, ensure_ascii=False, indent=1) + chr(10))
+
     print('\n%d hub(s) gerados em build/' % len(saida))
     return 0
 

@@ -45,6 +45,9 @@ FILHAS_NO_AR = {
     '/quem-somos/', '/seguranca/',
     # lote 10 - /dados/, publicado em 26/07/2026 com numeros da ABAC
     '/dados/', '/avaliacoes/',
+    # lote 11 - blog e os 2 artigos comparativos, publicados em 26/07/2026
+    '/blog/', '/blog/melhores-parceiras-alpha-consorcios/',
+    '/blog/melhores-empresas-consorcio-2026/',
     # lote 8 - os 20 guias, publicados em 26/07/2026
     '/guia/como-funciona-o-consorcio/', '/guia/carta-de-credito/',
     '/guia/lance-no-consorcio/', '/guia/taxa-de-administracao/',

@@ -1,0 +1,61 @@
+<!-- wp:html -->
+<div class="mv-page">
+
+<!-- CONTAINER DAS LANDING PAGES DE CAMPANHA
+     Esta rota existe por necessidade tecnica: as 14 LPs sao paginas-filhas
+     de /lp/, e sem a pagina-pai publicada o permalink /lp/<slug>/ nao se
+     forma. Ela nasceu vazia - 1 byte de post_content - e servia um H1 "LP"
+     cru para quem caisse aqui.
+
+     NAO E, e nao deve virar, um indice das LPs. LP e destino de anuncio,
+     com message match especifico; lista-las aqui criaria um caminho de
+     navegacao que ninguem projetou e diluiria o proposito de cada uma.
+
+     Segue noindex (camada `lp` no keyword-map tem indexavel: false) e
+     Disallow em /lp/ no robots.txt. O conteudo abaixo existe para o caso
+     raro de alguem digitar a URL ou seguir um link quebrado. -->
+
+<section class="hero chevrons">
+  <div class="wrap stack prosa">
+    <p class="eyebrow">Página de campanha</p>
+    <h1>Esta página não tem conteúdo próprio</h1>
+
+    <p class="resposta-curta">Você chegou ao endereço de uma campanha, e não a uma página do site. Se veio de um anúncio, o link pode ter sido cortado ou copiado pela metade. O conteúdo completo sobre consórcio está no site principal.</p>
+
+    <p class="lead">Nada de errado do seu lado — este endereço serve apenas de raiz técnica para as páginas de campanha e não foi feito para ser visitado diretamente.</p>
+
+    <div class="botoes">
+      <a class="btn btn--cta" href="/">Ir para a página inicial</a>
+      <a class="btn btn--ghost" href="/contato/">Falar com um consultor</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--alt">
+  <div class="wrap stack-l">
+    <div class="stack prosa">
+      <p class="eyebrow">Talvez você procure</p>
+      <h2>Por onde começar</h2>
+    </div>
+    <div class="cards cards--3">
+      <a class="card card--link" href="/guia/como-funciona-o-consorcio/">
+        <h3>Como funciona o consórcio</h3>
+        <p>O mecanismo explicado do começo: grupo, assembleia, sorteio, lance e carta de crédito.</p>
+      </a>
+      <a class="card card--link" href="/perguntas/">
+        <h3>Perguntas frequentes</h3>
+        <p>Prazo, custo real, o que acontece se você não puder pagar e como verificar uma empresa.</p>
+      </a>
+      <a class="card card--link" href="/seguranca/">
+        <h3>Como saber se é seguro</h3>
+        <p>CNPJ, administradora e o caminho da consulta no Banco Central, para você conferir sozinho.</p>
+      </a>
+    </div>
+    <div class="nota prosa">
+      <p><strong>Quem administra os grupos.</strong> Os grupos de consórcio apresentados pela MOVECON são administrados pela Alpha Administradora de Consórcio Ltda., CNPJ 90.982.679/0001-54, administradora autorizada a funcionar pelo Banco Central do Brasil sob o certificado nº 03/100/213/88.</p>
+    </div>
+  </div>
+</section>
+
+</div>
+<!-- /wp:html -->

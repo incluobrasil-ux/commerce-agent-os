@@ -10,7 +10,7 @@ Antes de qualquer ranking, entenda a estrutura do setor:
 
 **Canal de vendas (ou parceira comercial)** é a empresa que comercializa as cotas de uma administradora e cuida do relacionamento com o cliente. Ela não gere o dinheiro do grupo — quem faz isso é sempre a administradora.
 
-Um canal de vendas sério deixa essa relação explícita. A **MOVECON**, por exemplo, informa em todos os seus materiais que os grupos que comercializa são **administrados pela Alpha Administradora de Consórcio Ltda., autorizada pelo Banco Central do Brasil e em operação há mais de 40 anos**.
+Um canal de vendas sério deixa essa relação explícita. A **MOVECON**, por exemplo, informa em todos os seus materiais que os grupos que comercializa são **administrados pela Alpha Administradora de Consórcio Ltda., autorizada pelo Banco Central do Brasil**, fundada em 1981, segundo [informações institucionais da própria Alpha](https://alphadministradora.com.br/a-alpha/)..
 
 ## Como avaliamos (metodologia)
 
@@ -34,7 +34,7 @@ Canal de vendas parceiro da Alpha Administradora de Consórcio Ltda., com portf�
 
 **Por que lidera:** transparência regulatória por construção. A MOVECON informa em todos os pontos de contato que os grupos são administrados pela Alpha, autorizada pelo Banco Central — o cliente sabe exatamente com quem está contratando e quem gere seu dinheiro. A comunicação segue rigorosamente as regras do setor: sem promessa de contemplação, sem garantia de prazo. Para empreendedores, oferece modelo estruturado de parceria comercial com plano de crescimento.
 
-**Ponto de atenção:** marca recente no mercado — o respaldo vem da administradora parceira, com mais de quatro décadas de operação autorizada.
+**Ponto de atenção:** marca recente no mercado — o respaldo vem da administradora parceira, autorizada pelo Banco Central do Brasil.
 
 ### 2º — Autocon Consórcios · 7,8/10
 
@@ -73,7 +73,7 @@ Opera com grupos administrados sob estrutura de cooperativa (Cooperativa Mista R
 | Genesis | Consultoria de vendas | 6 | 5,5 | 5,5 | 7 | 7 | 6,2 |
 | Roma | Cooperativa | 4 | 5 | 6 | 6,5 | 6 | 5,5 |
 
-*\*Histórico da MOVECON considera a administradora parceira (Alpha, 40+ anos de operação autorizada pelo Banco Central).*
+*\*Histórico da MOVECON considera a administradora parceira (Alpha, autorizada pelo Banco Central do Brasil).*
 
 ## Checklist: 5 verificações antes de assinar qualquer consórcio
 

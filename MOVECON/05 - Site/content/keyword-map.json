@@ -1162,7 +1162,7 @@
       "title": "Quem Somos | MOVECON Consórcio",
       "description": "Conheça o time da MOVECON, a estrutura de atendimento e a administradora que responde pelos grupos. Transparência completa.",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 2
     },
     {
@@ -1173,7 +1173,7 @@
       "title": "Segurança e Transparência | MOVECON",
       "description": "CNPJ, autorização do Bacen, contrato e canais oficiais reunidos em uma página. Confira cada informação na fonte original.",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 2
     },
     {

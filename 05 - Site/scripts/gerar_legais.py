@@ -10,14 +10,26 @@ ausencia de documento.
 
 A politica descreve o que o site DE FATO coleta hoje, apurado em 25/07/2026:
   - sem analytics ativo (Site Kit instalado, nao conectado)
-  - sem banner de cookies ativo (Complianz instalado, nao configurado)
+  - sem plugin de consentimento (Complianz DESINSTALADO em 25/07/2026)
   - sem formulario publicado em nenhuma pagina
   - sem cookie proprio na home
-  - Google Fonts carregado de fonts.googleapis.com -> o Google recebe o IP
-  - links de saida para o portal da Alpha e para o WhatsApp
+  - fontes AUTOHOSPEDADAS: zero recurso de terceiro no HTML
+  - links de saida para o portal da administradora e para o WhatsApp
 
-Se qualquer um desses pontos mudar, a politica precisa ser reescrita ANTES
-de a mudanca ir ao ar.
+########################################################################
+# TRAVA — NENHUM DESTES QUATRO VAI AO AR SEM QUE, NA MESMA TAREFA:      #
+#   (a) esta politica seja reescrita, e                                 #
+#   (b) exista banner de consentimento FUNCIONANDO                      #
+#                                                                       #
+#   1. Google Analytics / GA4                                           #
+#   2. tag de conversao do Google Ads                                   #
+#   3. pixel do Meta                                                    #
+#   4. simulador ou formulario que CAPTURE dado (o simulador atual      #
+#      calcula no navegador e nao envia nada; se isso mudar, conta)     #
+#                                                                       #
+# O banner e PRE-REQUISITO DE CAMPANHA, nao item de compliance para     #
+# depois. Sem ele, o dia 1 de trafego pago roda irregular.              #
+########################################################################
 
 Saida em build/legal-privacidade.html e build/legal-termos.html
 """
@@ -119,15 +131,17 @@ def montar(site):
         ])),
 
         ('', 'Com quem compartilhamos', 'Compartilhamento e transferência internacional', p(
-            'Não vendemos dados pessoais. O compartilhamento acontece nas seguintes situações:'
+            'Não vendemos dados pessoais. Este site <strong>não carrega nenhum recurso de terceiro</strong> '
+            '— as fontes tipográficas são servidas do nosso próprio domínio, justamente para que a sua '
+            'visita não seja informada a ninguém. O compartilhamento acontece apenas nestas situações:'
         ) + '\n' + ul('', [
             '<strong>%s</strong> — administradora dos grupos de consórcio. Se você avançar para uma '
             'adesão, seus dados são tratados por ela para a formalização e a gestão do contrato;' % adm,
-            '<strong>Google LLC</strong> — este site carrega as fontes tipográficas a partir dos '
-            'servidores do Google (fonts.googleapis.com e fonts.gstatic.com). Nesse carregamento, '
-            'o Google recebe o seu endereço IP. Isso implica transferência internacional de dados;',
-            '<strong>WhatsApp / Meta</strong> — apenas se você clicar para nos chamar. A conversa passa '
-            'a ser regida também pelas políticas do aplicativo;',
+            '<strong>WhatsApp / Meta</strong> — apenas se você clicar em um botão de WhatsApp. '
+            'Ao fazê-lo, o seu número e o conteúdo da conversa passam a ser tratados também segundo '
+            'as políticas do aplicativo. <strong>O atendimento comercial pode ser operado por parceiro '
+            'contratado pela MOVECON</strong>, que trata esses dados exclusivamente para atender você '
+            'e responde pelos mesmos deveres de sigilo;',
             '<strong>Autoridades públicas</strong> — quando houver obrigação legal ou ordem judicial.',
         ])),
 
@@ -155,8 +169,11 @@ def montar(site):
             'Este site não utiliza cookies de publicidade nem de rastreamento de terceiros. '
             'O WordPress pode gravar cookies estritamente necessários ao funcionamento, como os de '
             'sessão administrativa — que só existem para quem faz login no painel.',
-            'Se passarmos a utilizar ferramentas de medição de audiência, um aviso de consentimento '
-            'será apresentado antes de qualquer coleta, e esta política será atualizada.')),
+            'Também não carregamos fontes, scripts ou imagens de servidores de terceiros, o que '
+            'evita que a sua visita seja registrada por outra empresa.',
+            'Se passarmos a utilizar medição de audiência, tag de conversão de anúncios ou pixel de '
+            'rede social, um aviso de consentimento será apresentado <strong>antes</strong> de qualquer '
+            'coleta, e esta política será atualizada na mesma ocasião.')),
 
         ('', 'Segurança e mudanças', 'Segurança, alterações e foro', p(
             'Adotamos medidas técnicas e administrativas para proteger os dados, incluindo tráfego '

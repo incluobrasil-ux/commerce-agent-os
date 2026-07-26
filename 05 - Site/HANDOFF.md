@@ -125,7 +125,13 @@ Infra e fundação
   design system do Manual da Marca v1.0 no Customizer (~30 KB)
   header e rodapé da marca, logo e favicon (símbolo isolado)
   Montserrat + Inter · grafismo de chevrons
-  11 plugins gratuitos · 4 mu-plugins próprios
+  10 plugins gratuitos · 4 mu-plugins próprios
+  fontes AUTOHOSPEDADAS em wp-content/movecon/fonts/ (14 woff2, latin +
+  latin-ext). ZERO recurso de terceiro no HTML — verificado em home, hub,
+  simulador e LP. NÃO reintroduzir CDN de fonte: a política afirma que o site
+  não carrega recurso externo.
+  Complianz DESINSTALADO em 25/07/2026 (plugin + 11 options residuais).
+  Reinstalar e configurar JUNTO com o Analytics, na mesma tarefa.
   /llms.txt e /sitemap-movecon.xml, ambos HTTP 200, gerados do mapa
   robots.txt: Disallow /lp/ e /obrigado/, crawlers de IA liberados de propósito
   check_seo.py + hook de pre-commit
@@ -225,8 +231,31 @@ Não bloqueiam, mas fortalecem:
   - hex das cores neutras (pág. 11 do manual não veio legível)
   - LinkedIn do autor
 
+## PRÉ-REQUISITO DE CAMPANHA — não é item de compliance para depois
+
+Banner de consentimento FUNCIONANDO é pré-requisito do dia 1 de tráfego pago.
+Sem ele, a campanha roda irregular desde o primeiro clique.
+
+Nenhum destes quatro vai ao ar sem que, NA MESMA TAREFA, a política seja
+reescrita E o banner esteja funcionando:
+  1. Google Analytics / GA4
+  2. tag de conversão do Google Ads
+  3. pixel do Meta
+  4. simulador ou formulário que CAPTURE dado
+     (o simulador atual calcula no navegador e não envia nada; se isso mudar,
+      passa a contar)
+
+A trava está registrada também no docstring de scripts/gerar_legais.py, para
+quem mexer no gerador ver antes de mexer na política.
+
+Ordem correta quando a campanha for ligada:
+  reinstalar Complianz -> configurar banner -> ligar GA4/Ads/Meta ->
+  reescrever a política -> publicar -> só então subir verba.
+
 ## PENDÊNCIAS OPERACIONAIS
 
+  - Banner de consentimento: não existe (Complianz desinstalado de propósito).
+    Ver PRÉ-REQUISITO DE CAMPANHA acima.
   - Search Console não está configurado. Nenhum sitemap foi submetido.
     Passos: adicionar o domínio, submeter /sitemap-movecon.xml, inspecionar as
     URLs. O cache do Google foi descontinuado em 2024; para ver o que o

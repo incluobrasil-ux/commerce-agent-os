@@ -307,11 +307,14 @@ a:hover { color: var(--mv-azul); }
 }
 
 /* ==========================================================================
-   FONTES — carregar no <head> do tema (não via @import, que bloqueia render)
+   FONTES
+   Montserrat e Inter sao AUTOHOSPEDADAS em wp-content/movecon/fonts/ e
+   carregadas pelo mu-plugin movecon-fonts.php.
 
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
+   NAO reintroduzir CDN de fonte externa. A politica de privacidade afirma
+   que este site nao carrega recurso de terceiro; uma fonte servida de fora
+   entregaria o IP do visitante e tornaria a afirmacao falsa.
+   Ver o aviso completo em _codigo/movecon-fonts.php.
    ========================================================================== */
 
 

@@ -735,3 +735,13 @@ a:hover { color: var(--mv-azul); }
   padding: .7rem .9rem; margin: 0 0 .4rem;
   border-radius: 0 var(--mv-raio) var(--mv-raio) 0;
 }
+
+/* ---------- Paginas legais ---------- */
+.mv-legal .prosa p { max-width: 68ch; }
+.mv-legal__vigencia {
+  font-size: .82rem; color: var(--mv-cinza-500);
+  border-top: 1px solid rgba(255,255,255,.15); padding-top: .9rem; margin-top: .4rem;
+}
+.hero .mv-legal__vigencia { color: #A9BFD6; }
+.mv-legal__lista { max-width: 68ch; margin: .2rem 0 0; padding-left: 1.15rem; }
+.mv-legal__lista li { margin-bottom: .55rem; line-height: 1.65; }

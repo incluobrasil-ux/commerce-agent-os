@@ -1,0 +1,227 @@
+{
+  "_leia_me": "Guias de decisao e comparacao. Publico que esta escolhendo entre consorcio e outra coisa. `respostaCurta` e o bloco ANSWER-FIRST, maximo ~55 palavras.",
+  "_nota": "REGRA DESTES GUIAS: o consorcio NAO vence sempre, e a pagina diz onde ele perde. Comparativo em que a resposta e sempre 'consorcio' nao e comparativo, e anuncio - e o leitor percebe. A confianca vem justamente de admitir o caso em que a outra opcao e melhor.",
+
+  "guias": [
+    {
+      "slug": "consorcio-vale-a-pena",
+      "keyword": "consórcio vale a pena",
+      "eyebrow": "Decisão",
+      "h1": "Consórcio vale a pena?",
+      "respostaCurta": "Vale para quem consegue esperar e quer evitar juros; não vale para quem precisa do bem em data definida. O consórcio troca previsibilidade de custo por imprevisibilidade de prazo. Se o prazo é inegociável para você, essa troca não fecha — e nenhuma taxa baixa compensa isso.",
+      "lead": "A resposta honesta depende de uma única pergunta: você tem prazo? Todo o resto — taxa, valor da parcela, tipo de bem — é secundário diante disso.",
+      "secao": "Quando vale e quando não vale",
+      "itens": [
+        [
+          "Vale se você pode esperar",
+          "Compra planejada para daqui a um, dois, cinco anos. Trocar o bem de casa, ampliar a operação, comprar o primeiro imóvel sem pressa."
+        ],
+        [
+          "Não vale se há data",
+          "Casamento marcado, mudança com prazo, veículo de trabalho quebrado. A contemplação não chega sob encomenda."
+        ],
+        [
+          "Vale se o crédito está caro para você",
+          "Sem análise na adesão, o consórcio alcança quem o banco recusa ou taxa alto. Aí a comparação nem sempre é com juros — é com não conseguir."
+        ]
+      ],
+      "notaTitulo": "Não existe resposta genérica.",
+      "nota": "Quem responde \"sempre vale a pena\" está vendendo, não orientando. O consórcio é uma ferramenta com um trade-off explícito. Faça a conta com os seus números e o seu prazo — e se a resposta for não, é não.",
+      "relacionados": [
+        "/guia/consorcio-ou-financiamento/",
+        "/guia/consorcio-ou-poupar/",
+        "/guia/taxa-de-administracao/"
+      ],
+      "faq": [
+        [
+          "Consórcio é mais barato que financiamento?",
+          "Em geral o custo total é menor, porque não há juros. Mas depende da taxa de administração, do prazo e das condições do financiamento comparado. Faça a conta completa."
+        ],
+        [
+          "Vale a pena para investir?",
+          "Pode fazer sentido para adquirir bem que gera renda, como imóvel para locação. Mas não é aplicação financeira: não há rendimento, há aquisição."
+        ],
+        [
+          "E se eu precisar do dinheiro antes?",
+          "Consórcio não é reserva de emergência. O valor pago não fica disponível para saque, e a devolução em caso de desistência costuma sair só após o encerramento do grupo."
+        ]
+      ]
+    },
+    {
+      "slug": "consorcio-ou-financiamento",
+      "keyword": "consórcio ou financiamento",
+      "eyebrow": "Comparativo",
+      "h1": "Consórcio ou financiamento?",
+      "respostaCurta": "O financiamento entrega o bem imediatamente e cobra juros por isso. O consórcio não cobra juros, mas não entrega data. Para quem tem pressa, financiamento resolve e o consórcio não. Para quem tem prazo, o consórcio costuma custar menos no total.",
+      "lead": "Não é uma disputa entre um produto bom e um ruim. São mecanismos diferentes para situações diferentes, e a escolha errada não é a mais cara — é a que não serve ao seu caso.",
+      "secao": "Onde cada um vence",
+      "itens": [
+        [
+          "Financiamento vence no tempo",
+          "Você sai com o bem hoje. Se a necessidade tem data, essa é a única opção que atende — e o juro é o preço disso."
+        ],
+        [
+          "Consórcio vence no custo total",
+          "Sem juros, o total desembolsado costuma ser menor no fim do plano, mesmo somando taxa de administração e fundo de reserva."
+        ],
+        [
+          "Consórcio vence no acesso",
+          "Não há análise de crédito na adesão. Quem seria recusado ou taxado alto no banco consegue entrar no grupo."
+        ]
+      ],
+      "notaTitulo": "A comparação justa soma tudo.",
+      "nota": "Comparar taxa de administração com taxa de juros direto engana, porque são calculadas de formas diferentes. O jeito honesto é somar cada centavo que sai do seu bolso até o fim, nos dois cenários, e comparar os totais — considerando também a entrada exigida no financiamento.",
+      "relacionados": [
+        "/guia/consorcio-vale-a-pena/",
+        "/guia/taxa-de-administracao/",
+        "/guia/consorcio-ou-emprestimo/"
+      ],
+      "faq": [
+        [
+          "Posso usar o consórcio para quitar um financiamento?",
+          "Depende da modalidade e das regras do contrato. Algumas administradoras permitem usar a carta para quitação do bem financiado. Confirme antes de aderir contando com isso."
+        ],
+        [
+          "No financiamento preciso de entrada?",
+          "Quase sempre sim, um percentual à vista. No consórcio não há entrada obrigatória: você começa pela parcela."
+        ],
+        [
+          "E se eu não for aprovado no financiamento?",
+          "É o cenário em que o consórcio costuma ser a alternativa real, já que a adesão ao grupo não passa por análise de crédito."
+        ]
+      ]
+    },
+    {
+      "slug": "consorcio-ou-emprestimo",
+      "keyword": "consórcio ou empréstimo",
+      "eyebrow": "Comparativo",
+      "h1": "Consórcio ou empréstimo?",
+      "respostaCurta": "Empréstimo pessoal entrega dinheiro livre e rápido, com uma das taxas mais altas do mercado. O consórcio não entrega dinheiro nem data, mas não cobra juros e destina o crédito à compra de um bem específico. São ferramentas para necessidades diferentes.",
+      "lead": "Se o que você precisa é dinheiro para usar como quiser, o consórcio não é a resposta — e forçar essa comparação leva à decisão errada.",
+      "secao": "A diferença que decide",
+      "itens": [
+        [
+          "Empréstimo é dinheiro livre",
+          "Cai na conta e você usa como quiser. Essa liberdade é exatamente o que a taxa alta está cobrando."
+        ],
+        [
+          "Consórcio é crédito vinculado",
+          "A carta compra o bem da modalidade contratada, com pagamento direto ao vendedor. Não vira saldo em conta."
+        ],
+        [
+          "Urgência muda tudo",
+          "Empréstimo sai em dias. Consórcio depende de assembleia. Para emergência, a comparação nem chega a existir."
+        ]
+      ],
+      "notaTitulo": "Empréstimo para comprar bem costuma ser a pior via.",
+      "nota": "Quando existe uma linha específica para o bem — financiamento de veículo, crédito imobiliário, consórcio — usar empréstimo pessoal costuma sair mais caro que qualquer uma delas. Ele é a saída de quem não tem alternativa, não a escolha de quem tem.",
+      "relacionados": [
+        "/guia/consorcio-ou-financiamento/",
+        "/guia/consorcio-vale-a-pena/",
+        "/guia/carta-de-credito/"
+      ],
+      "faq": [
+        [
+          "Posso pegar empréstimo para dar lance?",
+          "É possível, mas pense duas vezes: você estaria pagando juros altos para antecipar um crédito sem juros. A conta raramente fecha."
+        ],
+        [
+          "Consórcio serve para quitar dívidas?",
+          "Não. A carta é vinculada à compra do bem da modalidade, com pagamento ao vendedor."
+        ],
+        [
+          "Qual é mais rápido?",
+          "Empréstimo, sem comparação. Se a necessidade é imediata, o consórcio não atende."
+        ]
+      ]
+    },
+    {
+      "slug": "consorcio-ou-poupar",
+      "keyword": "consórcio ou juntar dinheiro",
+      "eyebrow": "Comparativo",
+      "h1": "Consórcio ou juntar dinheiro?",
+      "respostaCurta": "Juntar sozinho tem custo zero e rende, mas depende inteiramente da sua disciplina e não protege contra a alta do preço do bem. O consórcio custa taxa de administração, impõe o compromisso mensal e corrige a carta pelo índice do contrato — protegendo o poder de compra.",
+      "lead": "Este é o comparativo em que o consórcio menos vence no papel e mais vence na prática — porque o que ele resolve não é matemática, é comportamento.",
+      "secao": "O que cada caminho cobra de você",
+      "itens": [
+        [
+          "Poupar não custa taxa",
+          "Se você tem disciplina e uma aplicação decente, juntar sozinho tende a sair mais barato. É honesto dizer isso."
+        ],
+        [
+          "Poupar não protege do preço",
+          "O bem sobe enquanto você junta. A carta do consórcio é corrigida pelo índice do contrato justamente para não ficar para trás."
+        ],
+        [
+          "Consórcio impõe compromisso",
+          "A parcela tem data e consequência. Para muita gente, é isso que faz a reserva existir — o dinheiro que \"sobra\" costuma não sobrar."
+        ]
+      ],
+      "notaTitulo": "Se você já poupa há anos, provavelmente não precisa de consórcio.",
+      "nota": "Quem tem constância comprovada e disciplina para não usar a reserva costuma se sair melhor juntando por conta e comprando à vista. O consórcio faz mais sentido para quem tenta juntar há tempo e nunca chega ao valor.",
+      "relacionados": [
+        "/guia/consorcio-vale-a-pena/",
+        "/guia/reajuste-da-parcela/",
+        "/guia/primeiro-imovel/"
+      ],
+      "faq": [
+        [
+          "Dá para fazer os dois?",
+          "Dá, e é comum: consórcio para o bem principal e reserva própria para a diferença, para o lance ou para custos da compra, como documentação."
+        ],
+        [
+          "O dinheiro do consórcio rende?",
+          "Não é aplicação. Os recursos do grupo têm destinação própria e regulamentada. A correção existe para manter o poder de compra da carta, não para render a você."
+        ],
+        [
+          "E se eu desistir no meio?",
+          "A devolução ocorre nos termos do contrato, em regra após o encerramento do grupo. Por isso consórcio não substitui reserva de emergência."
+        ]
+      ]
+    },
+    {
+      "slug": "primeiro-imovel",
+      "keyword": "como comprar o primeiro imóvel",
+      "eyebrow": "Planejamento",
+      "h1": "Como comprar o primeiro imóvel",
+      "respostaCurta": "As vias mais comuns são financiamento, consórcio e compra à vista com recursos próprios. O financiamento entrega a chave agora e cobra juros por décadas; o consórcio não cobra juros mas não define data. O FGTS pode entrar em ambas, respeitadas as regras do fundo.",
+      "lead": "É a maior compra da vida da maioria das pessoas, e a decisão costuma ser tomada com pressa e pouca informação. Vale gastar algumas semanas entendendo antes de assinar trinta anos.",
+      "secao": "O que decidir antes de escolher a via",
+      "itens": [
+        [
+          "Você tem data?",
+          "Se o aluguel vence, se a família cresce em prazo definido, isso restringe as opções antes de qualquer conta de taxa."
+        ],
+        [
+          "Quanto cabe por mês, de verdade",
+          "Não o máximo que você consegue pagar, mas o valor que sobrevive a um ano ruim. Comprometer o limite é a origem da maioria das inadimplências."
+        ],
+        [
+          "Além do imóvel, há custos",
+          "ITBI, registro, escritura, mudança e reforma. Eles não entram na carta nem no financiamento e chegam todos juntos."
+        ]
+      ],
+      "notaTitulo": "O consórcio não resolve prazo de aluguel.",
+      "nota": "Se a sua saída do aluguel tem data marcada, o consórcio sozinho não sustenta o plano. Ele funciona para quem consegue esperar a contemplação — ou para quem o usa em paralelo, sabendo que a data continua em aberto.",
+      "relacionados": [
+        "/guia/consorcio-ou-financiamento/",
+        "/guia/consorcio-ou-poupar/",
+        "/guia/carta-de-credito/"
+      ],
+      "faq": [
+        [
+          "Posso usar o FGTS?",
+          "O FGTS pode ser usado na compra de imóvel residencial, inclusive em consórcio, respeitadas as regras do fundo e as condições do seu contrato. Confirme os requisitos antes de contar com ele."
+        ],
+        [
+          "Preciso de entrada no consórcio?",
+          "Não há entrada obrigatória. Você começa pela parcela e concorre desde a primeira assembleia."
+        ],
+        [
+          "Terreno e construção entram?",
+          "Costumam entrar, em modalidades específicas. Confirme na adesão se a modalidade cobre o que você pretende fazer."
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,227 @@
+{
+  "_leia_me": "Guias de confianca, perfil e pos-contemplacao. Publico que ja tem intencao mas tem medo, ou que ja foi contemplado e nao sabe o que fazer. `respostaCurta` e o bloco ANSWER-FIRST, maximo ~55 palavras.",
+  "_nota": "O guia /contemplacao-garantida-e-golpe/ e o mais sensivel do conjunto: ele descreve o roteiro de uma fraude. Nenhuma frase dele pode ser suavizada por conveniencia comercial - a pagina so vale se disser que a promessa nao existe, inclusive quando quem promete e um concorrente.",
+
+  "guias": [
+    {
+      "slug": "depois-da-contemplacao",
+      "keyword": "fui contemplado e agora",
+      "eyebrow": "Pós-contemplação",
+      "h1": "Fui contemplado. E agora?",
+      "respostaCurta": "Depois da contemplação vêm três etapas: análise de capacidade de pagamento, escolha e documentação do bem, e liberação do crédito com pagamento direto ao vendedor. As parcelas restantes continuam sendo pagas — ser contemplado não encerra o plano.",
+      "lead": "A contemplação parece o fim da linha e é o começo de uma etapa nova, com exigências que pegam muita gente desprevenida. Quem se prepara antes atravessa isso em semanas; quem não se prepara pode travar.",
+      "secao": "O caminho até a chave na mão",
+      "itens": [
+        [
+          "Análise de crédito",
+          "É agora que ela acontece. A administradora avalia sua capacidade de pagar o saldo restante e a constituição da garantia."
+        ],
+        [
+          "Documentação do bem",
+          "Imóvel e veículo passam por avaliação e precisam estar sem restrição. Documentação irregular trava a liberação."
+        ],
+        [
+          "Garantia",
+          "O bem costuma ficar alienado à administradora até a quitação. Você usa normalmente, mas não pode vender antes de quitar."
+        ]
+      ],
+      "notaTitulo": "As parcelas continuam.",
+      "nota": "Receber a carta não quita a cota. O saldo devedor permanece e as parcelas seguem até o fim do plano. Quem entende isso só na contemplação costuma passar por um susto de orçamento evitável.",
+      "relacionados": [
+        "/guia/carta-de-credito/",
+        "/guia/direitos-do-consorciado/",
+        "/guia/como-funciona-o-consorcio/"
+      ],
+      "faq": [
+        [
+          "E se eu não passar na análise?",
+          "Existem alternativas previstas em contrato, como apresentar garantia adicional ou aguardar. As condições exatas constam do contrato do seu grupo."
+        ],
+        [
+          "Posso escolher qualquer bem?",
+          "Dentro da modalidade contratada e dos critérios da administradora, como ano de fabricação e situação documental."
+        ],
+        [
+          "Quanto tempo leva a liberação?",
+          "Depende da documentação e da análise. Ter os documentos organizados antes é o que mais encurta esse prazo."
+        ]
+      ]
+    },
+    {
+      "slug": "consorcio-e-confiavel",
+      "keyword": "consórcio é confiável",
+      "eyebrow": "Confiança",
+      "h1": "Consórcio é confiável?",
+      "respostaCurta": "O sistema de consórcio é regulado pela Lei 11.795/08 e fiscalizado pelo Banco Central, que autoriza as administradoras e mantém pública a relação delas. A confiabilidade não é do setor em abstrato: é de cada administradora, e você consegue verificar a sua em dois minutos.",
+      "lead": "A pergunta é legítima, porque o setor convive com um volume alto de fraude — quase sempre praticada por quem não é administradora autorizada, vendendo cotas que não existem.",
+      "secao": "Como verificar antes de confiar",
+      "itens": [
+        [
+          "Consulte pelo CNPJ",
+          "A relação de administradoras autorizadas é pública no site do Banco Central. Busque por CNPJ, não por nome: nome comercial varia de grafia e pode ser imitado."
+        ],
+        [
+          "Exija o contrato antes",
+          "Custos, regras de contemplação e condições de saída por escrito. Recusa em entregar contrato antes da assinatura é sinal de alerta."
+        ],
+        [
+          "Pagamento só à administradora",
+          "Valor pedido em conta de pessoa física é o indício mais claro de fraude que existe no setor."
+        ]
+      ],
+      "notaTitulo": "O Banco Central faz a ressalva, e ela importa.",
+      "nota": "Nas palavras do próprio Bacen, o sistema de consulta \"não garante que a instituição é confiável, somente que ela é autorizada\". Autorização é requisito para funcionar, não atestado de conduta. Estar na relação é o mínimo — continue avaliando contrato, atendimento e reputação.",
+      "relacionados": [
+        "/guia/contemplacao-garantida-e-golpe/",
+        "/guia/direitos-do-consorciado/",
+        "/guia/como-funciona-o-consorcio/"
+      ],
+      "faq": [
+        [
+          "Onde consulto a administradora?",
+          "No site do Banco Central, em Estabilidade Financeira → Sistema Financeiro Nacional → Organização → Encontre uma Instituição, filtrando o segmento por \"Administradora de Consórcio\"."
+        ],
+        [
+          "E se a empresa disser que é parceira de uma administradora?",
+          "Pergunte qual é a administradora e o CNPJ dela, e verifique esse CNPJ. Plataformas e representantes podem existir, mas os grupos precisam ser administrados por empresa autorizada."
+        ],
+        [
+          "O que acontece se a administradora quebrar?",
+          "O Banco Central tem competência para intervir e determinar a administração do grupo por outra instituição. Os recursos do grupo não se confundem com o patrimônio da administradora."
+        ]
+      ]
+    },
+    {
+      "slug": "contemplacao-garantida-e-golpe",
+      "keyword": "contemplação garantida",
+      "eyebrow": "Anti-golpe",
+      "h1": "Contemplação garantida é golpe",
+      "respostaCurta": "Não existe contemplação garantida. A contemplação ocorre por sorteio ou lance, em assembleia, e nenhuma administradora autorizada pode assegurar data. Quem promete prazo está cometendo fraude ou vendendo o que não tem como entregar — e essa é a promessa mais usada em golpe no setor.",
+      "lead": "É a frase que abre praticamente todo golpe de consórcio no Brasil. Ela funciona porque atende exatamente ao que a pessoa quer ouvir, e porque quase ninguém sabe que ela é impossível.",
+      "secao": "Como o golpe funciona",
+      "itens": [
+        [
+          "Urgência fabricada",
+          "\"É hoje ou perde.\" A pressa não é do negócio, é do golpe: ela existe para impedir você de conferir."
+        ],
+        [
+          "Taxa antecipada",
+          "Pedem transferência para \"liberar\" o crédito. Depois disso, o contato desaparece. Nenhuma liberação legítima exige pagamento a intermediário."
+        ],
+        [
+          "Conta de pessoa física",
+          "O pagamento nunca é para a administradora. Este é o sinal mais claro e mais fácil de checar."
+        ]
+      ],
+      "notaTitulo": "Nem a MOVECON pode prometer prazo.",
+      "nota": "Não é modéstia comercial: é como o sistema funciona. Se qualquer pessoa — inclusive um consultor nosso — disser que garante contemplação em determinado prazo, isso é motivo para desconfiar e para nos avisar. A promessa não existe para ninguém.",
+      "relacionados": [
+        "/guia/consorcio-e-confiavel/",
+        "/guia/como-ser-contemplado-mais-rapido/",
+        "/guia/lance-no-consorcio/"
+      ],
+      "faq": [
+        [
+          "Mas existe cota já contemplada à venda?",
+          "Existe transferência legítima de cota contemplada, formalizada pela administradora, com contrato e análise. O que não existe é carta contemplada barata, urgente e paga na conta de um particular."
+        ],
+        [
+          "Como confirmo antes de pagar?",
+          "Peça o CNPJ da administradora, ligue para ela pelo telefone do site oficial — nunca pelo número que o vendedor passou — e confirme se a cota existe e se a transferência está em andamento."
+        ],
+        [
+          "Caí no golpe. O que faço?",
+          "Registre boletim de ocorrência, reúna todos os comprovantes e comunicações, e procure a administradora citada pelo vendedor para confirmar se a cota existe."
+        ]
+      ]
+    },
+    {
+      "slug": "consorcio-para-autonomo",
+      "keyword": "consórcio para autônomo",
+      "eyebrow": "Perfil",
+      "h1": "Consórcio para autônomo",
+      "respostaCurta": "Autônomos podem aderir normalmente: não há análise de crédito nem exigência de holerite na entrada do grupo. A comprovação de capacidade de pagamento acontece na contemplação. Por isso o consórcio costuma ser mais acessível que o financiamento para quem não tem renda formal.",
+      "lead": "Quem trabalha por conta própria conhece a barreira: sem contracheque, o banco dificulta e a taxa sobe. O consórcio inverte a ordem — você entra primeiro e a análise vem depois.",
+      "secao": "O que muda para quem não tem carteira assinada",
+      "itens": [
+        [
+          "Sem análise na adesão",
+          "Você entra no grupo e concorre desde a primeira assembleia, sem passar por aprovação de crédito."
+        ],
+        [
+          "Análise na contemplação",
+          "É ali que a capacidade de pagamento é avaliada. Vale usar o tempo até lá para organizar comprovação de renda."
+        ],
+        [
+          "Comprovação alternativa",
+          "Extratos, declaração de imposto de renda e movimentação bancária costumam ser aceitos. Confirme o que sua administradora aceita."
+        ]
+      ],
+      "notaTitulo": "Prepare a comprovação desde já.",
+      "nota": "O erro mais comum do autônomo é tratar a contemplação como surpresa. Movimentação bancária organizada e declaração em dia, construídas ao longo do plano, são o que evita travar justamente na hora em que o crédito ia ser liberado.",
+      "relacionados": [
+        "/guia/consorcio-para-negativado/",
+        "/guia/depois-da-contemplacao/",
+        "/guia/consorcio-ou-financiamento/"
+      ],
+      "faq": [
+        [
+          "Preciso de CNPJ?",
+          "Não. Pessoa física autônoma pode aderir normalmente, assim como MEI e empresas de qualquer porte."
+        ],
+        [
+          "Como comprovo renda sem holerite?",
+          "Costumam ser aceitos extratos bancários, declaração de imposto de renda e outros documentos de movimentação. Confirme a lista com a administradora."
+        ],
+        [
+          "Tem carência para dar lance?",
+          "Depende das regras do grupo. Confirme no contrato se há carência e a partir de quando você pode ofertar."
+        ]
+      ]
+    },
+    {
+      "slug": "consorcio-para-negativado",
+      "keyword": "consórcio para negativado",
+      "eyebrow": "Perfil",
+      "h1": "Consórcio para negativado",
+      "respostaCurta": "É possível entrar em um grupo de consórcio estando negativado, porque não há análise de crédito na adesão. Mas a análise existe na contemplação, quando o crédito vai ser liberado — e estar negativado nesse momento pode impedir o recebimento da carta.",
+      "lead": "Esta é a página em que é mais tentador prometer o que não se pode cumprir. Vamos ser diretos: entrar você consegue; receber depende de você regularizar até lá.",
+      "secao": "O que esperar em cada etapa",
+      "itens": [
+        [
+          "Adesão: sem consulta",
+          "Você entra no grupo e começa a concorrer sem passar por aprovação de crédito. Isso é real e vale para qualquer administradora."
+        ],
+        [
+          "Contemplação: com análise",
+          "A liberação do crédito depende de avaliação de capacidade de pagamento e de constituição de garantia."
+        ],
+        [
+          "O tempo joga a seu favor",
+          "Entre a adesão e a contemplação costumam se passar meses ou anos. É tempo suficiente para regularizar o nome."
+        ]
+      ],
+      "notaTitulo": "Desconfie de quem promete liberação para negativado.",
+      "nota": "Nenhuma administradora autorizada pode garantir liberação de crédito sem análise. Quem afirma que \"aprova negativado sem consulta\" na contemplação está prometendo o que a regulamentação não permite — e cobrando por isso.",
+      "relacionados": [
+        "/guia/consorcio-para-autonomo/",
+        "/guia/depois-da-contemplacao/",
+        "/guia/contemplacao-garantida-e-golpe/"
+      ],
+      "faq": [
+        [
+          "Posso aderir com o nome sujo?",
+          "Em geral sim, porque a adesão ao grupo não passa por análise de crédito. O ponto de atenção é a contemplação."
+        ],
+        [
+          "E se eu for contemplado antes de limpar o nome?",
+          "Existem alternativas previstas em contrato, como apresentar garantia adicional. As condições constam do contrato do seu grupo — pergunte antes de aderir."
+        ],
+        [
+          "Ser negativado reduz minha chance no sorteio?",
+          "Não. O que exclui do sorteio é estar com parcelas em atraso, não a situação do seu nome em órgãos de proteção ao crédito."
+        ]
+      ]
+    }
+  ]
+}

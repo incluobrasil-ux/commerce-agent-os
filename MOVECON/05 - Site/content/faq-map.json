@@ -421,16 +421,24 @@
  ],
  "/consorcio-contemplado/como-verificar-no-banco-central/": [
   [
-   "E se a empresa não aparecer na relação?",
-   "Se a empresa se apresenta como administradora de consórcio e não consta na relação do Banco Central, encerre a conversa. Não há explicação aceitável para essa ausência."
+   "Onde fica a consulta oficial?",
+   "No site do Banco Central, em Estabilidade Financeira → Sistema Financeiro Nacional → Organização → Encontre uma Instituição. Filtre o segmento por “Administradora de Consórcio”. A ferramenta também aparece no gov.br como “Consultar instituições autorizadas pelo Banco Central”."
   ],
   [
-   "E se ela disser que é 'parceira' de uma administradora?",
-   "Pergunte qual é a administradora e o CNPJ dela, e verifique esse CNPJ. Uma plataforma ou representante pode existir legitimamente, mas os grupos precisam ser administrados por empresa autorizada."
+   "Se a empresa aparece na relação, posso confiar?",
+   "Não é o que a consulta diz. Nas palavras do próprio Banco Central: “O sistema não garante que a instituição é confiável, somente que ela é autorizada.” A relação exclui quem não pode operar — ela não avalia conduta. Estar lá é o piso, não o veredito."
+  ],
+  [
+   "E se a empresa não aparecer na relação?",
+   "Se ela se apresenta como administradora de consórcio e não consta na relação do Banco Central, encerre a conversa. Não há explicação aceitável para essa ausência."
+  ],
+  [
+   "E se ela disser que é “parceira” de uma administradora?",
+   "Pergunte qual é a administradora e qual o CNPJ dela, e verifique esse CNPJ. Uma plataforma ou representante pode existir legitimamente, mas os grupos precisam ser administrados por empresa autorizada. É exatamente o caso da MOVECON: os grupos são administrados pela Alpha Administradora de Consórcio Ltda."
   ],
   [
    "Qual é o CNPJ da administradora dos grupos MOVECON?",
-   "É o CNPJ 90.982.679/0001-54, da Alpha Administradora de Consórcio Ltda., autorizada pelo Banco Central sob o certificado nº 03/100/213/88. Confira você mesmo."
+   "É o CNPJ 90.982.679/0001-54, da Alpha Administradora de Consórcio Ltda., administradora autorizada a funcionar pelo Banco Central do Brasil sob o certificado nº 03/100/213/88. Confira você mesmo — a página inteira existe para isso."
   ]
  ],
  "/consorcio-contemplado/comprar-cota-contemplada/": [
@@ -473,6 +481,34 @@
   [
    "Consigo antes do verão?",
    "Não há como prometer. A contemplação depende de sorteio ou lance, sem data previsível. Quem quer usar numa temporada específica precisa começar com bastante antecedência."
+  ]
+ ],
+ "/consorcio-moto/moto-para-trabalhar/": [
+  [
+   "Preciso comprovar renda para entrar?",
+   "Não para aderir ao grupo. A comprovação de capacidade de pagamento acontece na contemplação, quando o crédito vai ser liberado."
+  ],
+  [
+   "Dá para usar a carta em moto usada?",
+   "Costuma dar, dentro dos critérios de ano e avaliação da administradora. Confirme antes da adesão."
+  ],
+  [
+   "Consigo a moto a tempo de começar a trabalhar?",
+   "Não há como prometer. A contemplação depende de sorteio ou lance e não tem data previsível. Quem precisa da moto para começar a trabalhar agora deve avaliar outra via."
+  ]
+ ],
+ "/consorcio-moto/moto-zero/": [
+  [
+   "Posso trocar de modelo até a contemplação?",
+   "Em geral sim: a carta é um valor de crédito, e a escolha da moto acontece na contemplação, respeitados os limites da modalidade."
+  ],
+  [
+   "A carta cobre emplacamento e acessórios?",
+   "Depende da modalidade contratada. Alguns itens entram, outros não — confirme o escopo com o consultor antes da adesão."
+  ],
+  [
+   "Sobra crédito se a moto custar menos que a carta?",
+   "As regras variam conforme o contrato do grupo. Confirme como a diferença é tratada antes de aderir."
   ]
  ]
 }

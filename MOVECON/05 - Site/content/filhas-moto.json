@@ -1,0 +1,79 @@
+{
+  "_leia_me": "Filhas de silo de /consorcio-moto/. `respostaCurta` e o bloco ANSWER-FIRST. Maximo ~55 palavras.",
+  "_nota": "Moto saiu da cobertura de /consorcio-veiculos/ quando o hub proprio foi publicado: uma intencao de busca, uma URL. O simulador /simulador/moto/ NAO existe - a tabela da Alpha nao separa moto de veiculo. Enquanto nao separar, o CTA aponta para /simulador/veiculos/ e nenhuma pagina de moto exibe valor de parcela.",
+  "pai": "/consorcio-moto/",
+  "simulador": "/simulador/veiculos/",
+  "filhas": [
+    {
+      "slug": "moto-para-trabalhar",
+      "keyword": "consórcio de moto para trabalhar",
+      "h1": "Consórcio de moto para trabalhar",
+      "respostaCurta": "Para quem tira o sustento da moto, o consórcio troca os juros do financiamento por uma parcela previsível, sem entrada e sem análise de crédito na adesão. A contraparte é não ter data: a contemplação sai por sorteio ou lance, então não serve para repor moto parada.",
+      "eyebrow": "Trabalho",
+      "lead": "Entregador e mototaxista conhecem a conta: a moto é a ferramenta que paga as contas, e financiar come a margem todo mês. O consórcio corta os juros — em troca de exigir planejamento, porque não entrega data.",
+      "secao": "O que pesa na decisão",
+      "itens": [
+        [
+          "Sem análise na adesão",
+          "Você entra no grupo e começa a concorrer sem passar por aprovação de crédito. A análise vem na contemplação."
+        ],
+        [
+          "Parcela previsível",
+          "Sem juros e sem variação de taxa, o custo entra no orçamento do mês sem surpresa."
+        ],
+        [
+          "Não repõe moto parada",
+          "Se a sua quebrou e a renda depende dela, o consórcio não chega a tempo. Ele é planejamento, não emergência."
+        ]
+      ],
+      "faq": [
+        [
+          "Preciso comprovar renda para entrar?",
+          "Não para aderir ao grupo. A comprovação de capacidade de pagamento acontece na contemplação, quando o crédito vai ser liberado."
+        ],
+        [
+          "Dá para usar a carta em moto usada?",
+          "Costuma dar, dentro dos critérios de ano e avaliação da administradora. Confirme antes da adesão."
+        ],
+        [
+          "Consigo a moto a tempo de começar a trabalhar?",
+          "Não há como prometer. A contemplação depende de sorteio ou lance e não tem data previsível. Quem precisa da moto para começar a trabalhar agora deve avaliar outra via."
+        ]
+      ]
+    },
+    {
+      "slug": "moto-zero",
+      "keyword": "consórcio de moto 0km",
+      "h1": "Consórcio de moto 0km",
+      "respostaCurta": "O consórcio de moto 0km permite comprar na concessionária sem juros e sem entrada. Você paga parcelas e, na contemplação, fecha à vista — posição que costuma valer desconto e condição melhor do que a de quem chega financiando.",
+      "eyebrow": "Zero quilômetro",
+      "lead": "Financiamento de moto está entre os mais caros do crédito de veículo. O consórcio troca esses juros por taxa de administração, com a limitação conhecida: você escolhe a moto, não a data.",
+      "secao": "Como funciona",
+      "itens": [
+        [
+          "Qualquer marca e cilindrada",
+          "A carta acompanha o valor da moto pretendida, dentro dos limites da modalidade."
+        ],
+        ["Sem entrada", "Você começa a pagar e já concorre desde a primeira assembleia."],
+        [
+          "Compra à vista na concessionária",
+          "Pagamento imediato costuma abrir desconto e condição melhor nos opcionais."
+        ]
+      ],
+      "faq": [
+        [
+          "Posso trocar de modelo até a contemplação?",
+          "Em geral sim: a carta é um valor de crédito, e a escolha da moto acontece na contemplação, respeitados os limites da modalidade."
+        ],
+        [
+          "A carta cobre emplacamento e acessórios?",
+          "Depende da modalidade contratada. Alguns itens entram, outros não — confirme o escopo com o consultor antes da adesão."
+        ],
+        [
+          "Sobra crédito se a moto custar menos que a carta?",
+          "As regras variam conforme o contrato do grupo. Confirme como a diferença é tratada antes de aderir."
+        ]
+      ]
+    }
+  ]
+}

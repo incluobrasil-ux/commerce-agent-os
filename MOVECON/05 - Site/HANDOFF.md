@@ -373,6 +373,65 @@ CASO REAL REGISTRADO — os 6 simuladores em noindex (25/07/2026)
        demais = valor × tot / prazo)
   ATÉ LÁ: nenhuma campanha aponta para simulador nem para LP.
 
+## COMPORTAMENTOS INTENCIONAIS — não "conserte" isto
+
+Coisas que parecem inconsistência e não são. Cada uma foi decidida.
+Se você for mexer, saiba o que está desfazendo.
+
+### 1. Description curta é AVISO em página planejada e ERRO em página no ar
+
+`scripts/check_seo.py` trata a mesma description de dois jeitos conforme
+o `status` da rota:
+
+| status na rota | description com menos de 120 caracteres |
+|---|---|
+| `planejada` | **aviso** — não bloqueia commit |
+| `no-ar`     | **erro** — bloqueia commit, exit 1 |
+
+Não é bug e não é inconsistência de severidade. É a regra que faz a
+description ser revisada no momento em que ela passa a existir para o
+Google, e não antes.
+
+Rota planejada é rascunho: a description ainda vai mudar e travar o
+commit por causa dela só cria ruído. No instante em que a rota vira
+`no-ar`, aquele texto virou a linha que aparece no resultado de busca —
+e aí é erro, porque agora custa alguma coisa.
+
+**O efeito prático é este:** uma rota pode passar meses commitando em
+paz como `planejada` e falhar o hook no exato commit em que é publicada.
+Isso é o desenho funcionando, não regressão. Aconteceu três vezes no
+lote 5 — jet-ski (109 caracteres), equipamentos (107) e imóvel comercial
+(109) — e nas três o validador estava certo.
+
+Se alguém "uniformizar" as duas severidades, escolha qual perder:
+- tudo aviso → publica description curta sem ninguém notar
+- tudo erro  → trava commit de rascunho e o time desliga o hook
+
+Foi para não escolher nenhuma das duas que existe a distinção.
+
+### 2. `/simulador/moto/` continua `planejada` com o hub de moto no ar
+
+Não é esquecimento. A tabela da Alpha não separa moto de veículo, então
+não existe parâmetro de moto para preencher. As páginas de moto apontam
+para `/simulador/veiculos/` e **nenhuma delas exibe valor de parcela.**
+Criar o simulador exigiria inventar número — ver PENDÊNCIAS DE DADO.
+
+### 3. `keyword-map.json` está no ignore do biome
+
+É artefato gerado por `scripts/portar_mapa.py`, mesma categoria de
+`dist/`. O biome quer colapsar arrays curtos em uma linha e o
+`json.dumps` não faz isso — lintar saída de gerador só produz atrito
+entre duas ferramentas que nunca vão concordar. Edite o gerador.
+
+### 4. A ordem do pre-commit é secret-scan → test → check_seo → lint
+
+Nessa ordem de propósito: o que **protege** roda antes do que
+**embeleza**. Antes o `lint` vinha primeiro e qualquer erro de
+formatação em qualquer canto do repositório impedia o `gitleaks` de
+rodar — uma checagem de estilo derrubava a de segurança. O `lint:staged`
+também escopa o biome aos arquivos staged, para que formatação
+pré-existente e alheia ao commit não trave quem não a causou.
+
 ## COMO TRABALHAR
 
 - Uma camada por sessão. Não avance de fase sem o cliente aprovar.

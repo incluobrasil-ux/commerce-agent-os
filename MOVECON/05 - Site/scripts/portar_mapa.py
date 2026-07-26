@@ -31,9 +31,14 @@ FILHAS_NO_AR = {
     '/consorcio-embarcacoes/lancha/', '/consorcio-embarcacoes/jet-ski/',
     '/consorcio-contemplado/golpes-mais-comuns/',
     '/consorcio-contemplado/comprar-cota-contemplada/',
-    # NAO incluir /consorcio-contemplado/como-verificar-no-banco-central/:
-    # retida ate a URL oficial de consulta do Bacen ser confirmada. A pagina
-    # ensina um caminho de verificacao que ainda nao foi verificado.
+    # URL oficial do Bacen confirmada pelo cliente em 25/07/2026 - destravada.
+    '/consorcio-contemplado/como-verificar-no-banco-central/',
+    # lote 6 - hub de moto e suas filhas, publicados em 25/07/2026
+    '/consorcio-moto/',
+    '/consorcio-moto/moto-para-trabalhar/', '/consorcio-moto/moto-zero/',
+    # /simulador/moto/ segue PLANEJADA: a tabela da Alpha nao separa moto de
+    # veiculo, entao nao ha parametro proprio. Paginas de moto apontam para
+    # /simulador/veiculos/ e nao exibem valor de parcela.
 }
 
 
@@ -157,7 +162,7 @@ HUBS = [
      'no-ar', ['consórcio de automóvel']),
     ('/consorcio-moto/', 'consórcio de moto', 'Consórcio de Moto | Sem juros e sem entrada',
      'Consórcio de moto com parcela menor que a do financiamento. Para trabalho ou lazer, sem juros e sem entrada. Simule sua parcela.',
-     'planejada', None),
+     'no-ar', None),
     ('/consorcio-imoveis/', 'consórcio de imóveis', 'Consórcio de Imóveis | Sem os juros de 30 anos',
      'Consórcio imobiliário sem juros, com FGTS aceito como lance. Compare com o financiamento e veja quanto deixa de pagar em juros.',
      'no-ar', ['consórcio imobiliário']),

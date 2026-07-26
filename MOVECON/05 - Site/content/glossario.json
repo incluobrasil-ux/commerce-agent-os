@@ -1,0 +1,254 @@
+{
+  "_leia_me": "Verbetes de /glossario/. NAO viram uma pagina cada um: sao ancoras dentro de /glossario/. Uma pagina por termo canibalizaria os guias.",
+  "_regra": "Verbete que colide com guia existente e CURTO e linka o guia - nao compete com ele. Verbete sem guia correspondente segura a intencao sozinho, o que torna o glossario util antes de os 20 guias sairem.",
+  "_decisao_26_07_2026": "Da lista de 42 apresentada ao cliente foram cortados 'autofinanciamento' (carga historica de esquema irregular dos anos 2000, atrai intencao errada) e 'custo efetivo total' (termo de credito bancario, convida comparacao errada com financiamento). Incluido 'contemplacao garantida' como verbete que NEGA o termo. Total: 41.",
+  "grupos": [
+    {
+      "nome": "Contrato e grupo",
+      "id": "contrato",
+      "termos": [
+        {
+          "termo": "Grupo de consórcio",
+          "slug": "grupo-de-consorcio",
+          "definicao": "Conjunto de pessoas reunidas pela administradora para formar uma poupança comum destinada à compra de um bem ou serviço. Cada participante paga uma parcela mensal, e a cada assembleia um ou mais integrantes são contemplados, até que todos tenham recebido a carta de crédito."
+        },
+        {
+          "termo": "Cota",
+          "slug": "cota",
+          "definicao": "A participação de um consorciado no grupo. Uma pessoa pode ter mais de uma cota, e cada uma concorre de forma independente nas assembleias. A cota tem valor de crédito, prazo e parcela próprios, definidos na adesão."
+        },
+        {
+          "termo": "Assembleia",
+          "slug": "assembleia",
+          "definicao": "Reunião mensal do grupo em que ocorrem as contemplações por sorteio e por lance, além da prestação de contas. É o evento que move o consórcio: sem assembleia não há contemplação."
+        },
+        {
+          "termo": "Contemplação",
+          "slug": "contemplacao",
+          "definicao": "O momento em que o consorciado adquire o direito de usar a carta de crédito. Acontece por sorteio ou por lance, sempre em assembleia. Não tem data previsível: ninguém pode prometer quando você será contemplado."
+        },
+        {
+          "termo": "Sorteio",
+          "slug": "sorteio",
+          "definicao": "Forma de contemplação em que a cota é escolhida aleatoriamente entre as que estão em dia. Todo consorciado adimplente concorre em todas as assembleias, desde a primeira, sem custo adicional."
+        },
+        {
+          "termo": "Lance",
+          "slug": "lance",
+          "definicao": "Oferta de antecipação de parcelas feita para tentar ser contemplado antes do sorteio. Quem oferece o maior percentual leva. O lance aumenta a chance, mas não garante: se outro consorciado ofertar mais, ele vence.",
+          "guia": "/guia/lance-no-consorcio/"
+        },
+        {
+          "termo": "Lance embutido",
+          "slug": "lance-embutido",
+          "definicao": "Modalidade em que parte do lance é paga com o próprio valor da carta de crédito, e não com dinheiro do bolso. O crédito recebido diminui na mesma proporção. É a forma de dar lance sem ter o valor à vista.",
+          "guia": "/guia/lance-embutido-na-pratica/"
+        },
+        {
+          "termo": "Lance fixo",
+          "slug": "lance-fixo",
+          "definicao": "Modalidade em que a administradora define previamente um percentual único de lance. Todos que ofertam disputam em igualdade, e o desempate segue a regra do contrato do grupo."
+        },
+        {
+          "termo": "Lance livre",
+          "slug": "lance-livre",
+          "definicao": "Modalidade em que cada consorciado escolhe quanto ofertar. Vence o maior percentual. É a mais comum e a mais imprevisível: o valor vencedor varia a cada assembleia, conforme quem está disputando."
+        }
+      ]
+    },
+    {
+      "nome": "Custos",
+      "id": "custos",
+      "termos": [
+        {
+          "termo": "Taxa de administração",
+          "slug": "taxa-de-administracao",
+          "definicao": "Remuneração da administradora pelo serviço de organizar e gerir o grupo. É o principal custo do consórcio e ocupa o lugar dos juros do financiamento. O percentual é informado antes da adesão e consta do contrato.",
+          "guia": "/guia/taxa-de-administracao/"
+        },
+        {
+          "termo": "Fundo de reserva",
+          "slug": "fundo-de-reserva",
+          "definicao": "Reserva do grupo para cobrir inadimplência e despesas imprevistas, para que as contemplações continuem acontecendo. Quando previsto em contrato, é cobrado junto com a parcela. O saldo não utilizado é rateado no encerramento.",
+          "guia": "/guia/fundo-de-reserva/"
+        },
+        {
+          "termo": "Fundo comum",
+          "slug": "fundo-comum",
+          "definicao": "A parte da parcela que forma a poupança coletiva do grupo, usada para pagar as cartas de crédito dos contemplados. É o dinheiro que efetivamente compra os bens; o restante da parcela é taxa e fundo de reserva."
+        },
+        {
+          "termo": "Seguro prestamista",
+          "slug": "seguro-prestamista",
+          "definicao": "Seguro que quita ou amortiza o saldo devedor da cota em caso de morte ou invalidez do consorciado, protegendo a família e o grupo. Quando previsto, é cobrado junto com a parcela."
+        },
+        {
+          "termo": "Taxa de adesão",
+          "slug": "taxa-de-adesao",
+          "definicao": "Valor cobrado na entrada do grupo por algumas administradoras. Nem todo contrato prevê. Quando existe, deve estar informado por escrito antes da assinatura: pergunte sempre se ela é cobrada e quanto é."
+        },
+        {
+          "termo": "Reajuste da parcela",
+          "slug": "reajuste-da-parcela",
+          "definicao": "Atualização periódica do valor da carta de crédito e da parcela, para que o crédito continue comprando o bem pretendido ao longo do plano. Segue o índice previsto em contrato. Não é aumento de custo: é preservação do poder de compra.",
+          "guia": "/guia/reajuste-da-parcela/"
+        },
+        {
+          "termo": "Saldo devedor",
+          "slug": "saldo-devedor",
+          "definicao": "O que ainda falta pagar da cota. Continua existindo depois da contemplação: receber a carta de crédito não encerra o pagamento das parcelas restantes."
+        }
+      ]
+    },
+    {
+      "nome": "Crédito",
+      "id": "credito",
+      "termos": [
+        {
+          "termo": "Carta de crédito",
+          "slug": "carta-de-credito",
+          "definicao": "O valor que o consorciado recebe ao ser contemplado, para comprar o bem à vista. Não é dinheiro em conta: é um crédito liberado pela administradora diretamente ao vendedor, mediante comprovação da compra.",
+          "guia": "/guia/carta-de-credito/"
+        },
+        {
+          "termo": "Crédito contemplado",
+          "slug": "credito-contemplado",
+          "definicao": "Cota que já foi contemplada e cuja carta está disponível ou já foi utilizada. Cotas contempladas podem ser transferidas a terceiros, desde que a transferência seja formalizada pela administradora."
+        },
+        {
+          "termo": "Lance vencedor",
+          "slug": "lance-vencedor",
+          "definicao": "O maior percentual ofertado em uma assembleia, que leva a contemplação. Varia a cada mês conforme quem está disputando: não existe percentual que garanta vitória."
+        },
+        {
+          "termo": "Diferença de crédito",
+          "slug": "diferenca-de-credito",
+          "definicao": "Valor que falta quando o bem escolhido custa mais que a carta. É complementado pelo consorciado no momento da compra. Vale considerar isso ao dimensionar a carta na adesão."
+        },
+        {
+          "termo": "Liberação do crédito",
+          "slug": "liberacao-do-credito",
+          "definicao": "Etapa em que a administradora efetiva o pagamento ao vendedor, depois da contemplação. Depende de análise de capacidade de pagamento, documentação do bem e constituição da garantia.",
+          "guia": "/guia/depois-da-contemplacao/"
+        },
+        {
+          "termo": "Alienação fiduciária",
+          "slug": "alienacao-fiduciaria",
+          "definicao": "Garantia em que o bem comprado com a carta fica vinculado à administradora até a quitação total da cota. O consorciado usa o bem normalmente, mas não pode vendê-lo sem quitar antes."
+        },
+        {
+          "termo": "Garantia real",
+          "slug": "garantia-real",
+          "definicao": "Bem dado em garantia do saldo devedor. No consórcio, é normalmente o próprio bem adquirido. Em alguns casos a administradora aceita ou exige garantia adicional."
+        },
+        {
+          "termo": "Análise de crédito",
+          "slug": "analise-de-credito",
+          "definicao": "Avaliação da capacidade de pagamento do consorciado. Não acontece na adesão ao grupo: acontece na contemplação, quando o crédito vai ser liberado. É a diferença central em relação ao financiamento."
+        }
+      ]
+    },
+    {
+      "nome": "Situações do consorciado",
+      "id": "situacoes",
+      "termos": [
+        {
+          "termo": "Desistência",
+          "slug": "desistencia",
+          "definicao": "Saída voluntária do grupo antes do encerramento. O desistente tem direito à devolução dos valores pagos ao fundo comum, nas condições e no prazo previstos em contrato: em regra, depois do encerramento do grupo.",
+          "guia": "/guia/atraso-e-desistencia/"
+        },
+        {
+          "termo": "Exclusão",
+          "slug": "exclusao",
+          "definicao": "Desligamento do grupo por inadimplência, conforme as regras do contrato. O excluído deixa de concorrer às contemplações e passa à fila de devolução, nas mesmas condições do desistente."
+        },
+        {
+          "termo": "Transferência de cota",
+          "slug": "transferencia-de-cota",
+          "definicao": "Passagem da cota para outra pessoa, formalizada pela administradora, com contrato e análise das partes. Acerto direto entre particulares não transfere cota, e é exatamente aí que mora a fraude mais comum do setor."
+        },
+        {
+          "termo": "Cessão de direitos",
+          "slug": "cessao-de-direitos",
+          "definicao": "Instrumento pelo qual o consorciado transfere a outra pessoa os direitos e obrigações da cota. Só produz efeito quando registrada pela administradora."
+        },
+        {
+          "termo": "Cota cancelada",
+          "slug": "cota-cancelada",
+          "definicao": "Cota desligada do grupo por desistência ou exclusão. Deixa de concorrer e entra na fila de devolução de valores prevista em contrato."
+        },
+        {
+          "termo": "Devolução de valores",
+          "slug": "devolucao-de-valores",
+          "definicao": "Restituição do que foi pago ao fundo comum a quem desistiu ou foi excluído, com as deduções previstas em contrato. Em regra ocorre depois do encerramento do grupo, e não no momento da saída."
+        },
+        {
+          "termo": "Encerramento do grupo",
+          "slug": "encerramento-do-grupo",
+          "definicao": "Conclusão do plano, depois de todas as contemplações e da quitação das obrigações. Na assembleia de encerramento é feita a prestação de contas final e o rateio de eventuais sobras."
+        },
+        {
+          "termo": "Consorciado inadimplente",
+          "slug": "consorciado-inadimplente",
+          "definicao": "Quem está com parcelas em atraso. Deixa de concorrer às contemplações enquanto não regularizar, e pode ser excluído do grupo conforme as regras do contrato.",
+          "guia": "/guia/atraso-e-desistencia/"
+        }
+      ]
+    },
+    {
+      "nome": "Regulatório",
+      "id": "regulatorio",
+      "termos": [
+        {
+          "termo": "Lei 11.795/08",
+          "slug": "lei-11795",
+          "definicao": "Lei do Sistema de Consórcios. Define o que é grupo de consórcio, quais são os direitos do consorciado e quais deveres cabem à administradora. É a base legal de tudo que está neste glossário."
+        },
+        {
+          "termo": "Administradora autorizada",
+          "slug": "administradora-autorizada",
+          "definicao": "Empresa autorizada pelo Banco Central a constituir e administrar grupos de consórcio. Somente ela pode gerir os recursos do grupo. Plataformas e representantes podem existir, mas não administram: os grupos MOVECON são administrados pela Alpha Administradora de Consórcio Ltda."
+        },
+        {
+          "termo": "Banco Central do Brasil",
+          "slug": "banco-central",
+          "definicao": "Órgão que autoriza e fiscaliza as administradoras de consórcio. Mantém pública a relação de instituições autorizadas. Vale a ressalva do próprio Bacen: o sistema não garante que a instituição é confiável, somente que ela é autorizada."
+        },
+        {
+          "termo": "ABAC",
+          "slug": "abac",
+          "definicao": "Associação Brasileira de Administradoras de Consórcios. Entidade representativa do setor, que divulga estatísticas de vendas, contemplações e participantes. Não é órgão regulador: quem regula é o Banco Central."
+        },
+        {
+          "termo": "Circular Bacen",
+          "slug": "circular-bacen",
+          "definicao": "Norma editada pelo Banco Central que detalha regras operacionais das administradoras, complementando a Lei 11.795/08. É onde estão os procedimentos que o contrato do grupo precisa seguir."
+        },
+        {
+          "termo": "Prestação de contas",
+          "slug": "prestacao-de-contas",
+          "definicao": "Obrigação da administradora de informar ao grupo a situação dos recursos, das contemplações e das cotas. Ocorre nas assembleias e é direito do consorciado acompanhar.",
+          "guia": "/guia/direitos-do-consorciado/"
+        },
+        {
+          "termo": "Fiscalização",
+          "slug": "fiscalizacao",
+          "definicao": "Atividade do Banco Central de acompanhar as administradoras e punir o descumprimento das normas, inclusive com sanções. Autorização em vigor não significa ausência de histórico: significa que a instituição está apta a operar."
+        },
+        {
+          "termo": "Assembleia de encerramento",
+          "slug": "assembleia-de-encerramento",
+          "definicao": "Última assembleia do grupo, em que se faz a prestação de contas final e o rateio de eventuais saldos remanescentes entre os participantes."
+        },
+        {
+          "termo": "Contemplação garantida",
+          "slug": "contemplacao-garantida",
+          "definicao": "Não existe. É a promessa mais usada em golpe de consórcio. A contemplação ocorre por sorteio ou lance, em assembleia, e nenhuma administradora pode assegurar data. Quem promete está cometendo fraude ou vendendo o que não pode entregar.",
+          "guia": "/guia/contemplacao-garantida-e-golpe/",
+          "alerta": true
+        }
+      ]
+    }
+  ]
+}

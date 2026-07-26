@@ -39,6 +39,8 @@ FILHAS_NO_AR = {
     # /simulador/moto/ segue PLANEJADA: a tabela da Alpha nao separa moto de
     # veiculo, entao nao ha parametro proprio. Paginas de moto apontam para
     # /simulador/veiculos/ e nao exibem valor de parcela.
+    # lote 7 - glossario, publicado em 26/07/2026 (41 verbetes, 46 ancoras)
+    '/glossario/',
 }
 
 
@@ -331,13 +333,15 @@ R += [
 # ------------------------------------------------------------------------ AEO
 for url, kw, t, d, fase in [
         ('/glossario/', 'glossário do consórcio', 'Glossário do Consórcio: os termos explicados',
-         'Assembleia, amortização, cota, lance embutido, fundo comum. Mais de 60 termos do consórcio definidos em linguagem simples.', 2),
+         'Assembleia, cota, lance embutido, fundo comum, alienação fiduciária. Os 41 termos do consórcio definidos em linguagem simples, sem juridiquês.', 2),
         ('/dados/', 'dados do mercado de consórcio no brasil', 'Consórcio no Brasil: dados e estatísticas',
          'Número de consorciados ativos, contemplações, volume de crédito e administradoras autorizadas. Dados públicos ABAC e Bacen.', 3),
         ('/perguntas/', 'perguntas frequentes sobre consórcio', 'Perguntas Frequentes sobre Consórcio | MOVECON',
          'As dúvidas que mais chegam no nosso WhatsApp, respondidas de forma direta: contemplação, lance, desistência e documentação.', 2)]:
     R.append(dict(url=url, keyword=kw, intencao='informacional', camada='glossario',
-                  title=t, description=d, indexavel=True, status='planejada', fase=fase))
+                  title=t, description=d, indexavel=True,
+                  status=('no-ar' if url in FILHAS_NO_AR else 'planejada'),
+                  fase=fase))
 
 # ------------------------------------------------------------------- confiança
 for url, kw, cam, t, d, fase in [

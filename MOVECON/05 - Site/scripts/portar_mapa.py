@@ -72,9 +72,15 @@ SIM = [
      'Simule o consórcio para viagem, casamento, estudos, energia solar ou procedimentos. Parcelas sem os juros do cartão.',
      '/simulador/', None),
 ]
+# Publicados em 25/07/2026. /simulador/moto/ segue planejada: a Crelider nao
+# separa moto de veiculo, entao nao ha parametro de moto para copiar.
+NO_AR_SIM = {'/simulador/', '/simulador/veiculos/', '/simulador/imoveis/',
+             '/simulador/caminhao/', '/simulador/maquinas-agricolas/',
+             '/simulador/servicos/'}
 for url, kw, t, d, pai, sec in SIM:
     r = dict(url=url, keyword=kw, intencao='transacional', camada='conversao',
-             title=t, description=d, indexavel=True, status='planejada', fase=1)
+             title=t, description=d, indexavel=True,
+             status=('no-ar' if url in NO_AR_SIM else 'planejada'), fase=1)
     if pai:
         r['pai'] = pai
     if sec:

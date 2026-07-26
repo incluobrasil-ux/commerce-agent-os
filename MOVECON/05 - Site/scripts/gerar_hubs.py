@@ -269,7 +269,7 @@ def main():
         if sim:
             cta_hero = (
                 '      <a class="btn btn--cta" href="%s">'
-                'Simular minha parcela</a>' % sim + chr(10) +
+                '%s</a>' % (sim, s.get('ctaSimulador', 'Simular minha parcela')) + chr(10) +
                 '      <a class="btn btn--ghost" href="/contato/">'
                 'Falar com um consultor</a>')
         else:

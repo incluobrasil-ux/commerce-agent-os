@@ -1,89 +1,155 @@
 {
- "_leia_me": "Filhas de silo de /consorcio-empresa/. `respostaCurta` e o bloco ANSWER-FIRST: responde a keyword nas 2-3 primeiras frases. Maximo ~55 palavras.",
+  "_leia_me": "Filhas de silo de /consorcio-empresa/. `respostaCurta` e o bloco ANSWER-FIRST: responde a keyword nas 2-3 primeiras frases. Maximo ~55 palavras.",
 
- "_status": "AGUARDANDO APROVACAO DOS ANSWER-FIRST. Paginas geradas, nao publicadas.",
+  "_status": "AGUARDANDO APROVACAO DOS ANSWER-FIRST. Paginas geradas, nao publicadas.",
 
- "_nota": "Publico PJ. A copy fala de capital de giro, limite bancario e previsibilidade de orcamento - nao de conquista. NENHUMA pagina do silo da orientacao tributaria: o tratamento contabil depende do regime da empresa e do bem, e isso e trabalho de contador.",
+  "_nota": "Publico PJ. A copy fala de capital de giro, limite bancario e previsibilidade de orcamento - nao de conquista. NENHUMA pagina do silo da orientacao tributaria: o tratamento contabil depende do regime da empresa e do bem, e isso e trabalho de contador.",
 
- "pai": "/consorcio-empresa/",
- "simulador": "/simulador/servicos/",
+  "pai": "/consorcio-empresa/",
+  "simulador": "/simulador/servicos/",
 
- "filhas": [
-  {
-   "slug": "frota",
-   "keyword": "consórcio de frota para empresa",
-   "h1": "Consórcio de frota para empresa",
-   "respostaCurta": "O consórcio de frota permite renovar veículos corporativos com múltiplas cotas, sem juros e sem consumir limite bancário. As contemplações se distribuem ao longo do tempo, o que troca a renovação em bloco por reposição contínua, com custo mensal previsível no orçamento.",
-   "eyebrow": "Frota corporativa",
-   "lead": "Trocar frota inteira de uma vez concentra investimento e trava limite de crédito. Escalonar com várias cotas transforma isso em custo mensal previsível, sem disputar com o capital de giro.",
-   "secao": "Como funciona na empresa",
-   "itens": [
-    ["Múltiplas cotas em paralelo", "Cada cota concorre separadamente, o que distribui as contemplações ao longo do tempo."],
-    ["Limite bancário preservado", "O crédito da empresa fica livre para giro e para emergência."],
-    ["Custo previsível no orçamento", "Sem juros e sem variação de taxa, a parcela entra no planejamento anual sem surpresa."]
-   ],
-   "faq": [
-    ["Quantas cotas a empresa pode ter?", "Não há limitação usual de quantidade. A análise acontece na contemplação, quando o crédito é liberado."],
-    ["As contemplações saem juntas?", "Não há como prever. Cada cota concorre de forma independente, por sorteio ou lance."],
-    ["Serve para repor veículo parado?", "Não. O consórcio é planejamento de médio prazo. Para reposição imediata, a contemplação não chega a tempo."]
-   ]
-  },
-  {
-   "slug": "equipamentos",
-   "keyword": "consórcio de equipamentos",
-   "h1": "Consórcio de equipamentos e maquinário",
-   "respostaCurta": "O consórcio de equipamentos permite adquirir máquinas, equipamentos e tecnologia para a operação sem tomar crédito bancário. Você paga parcelas e compra à vista na contemplação, preservando o capital de giro que sustenta o dia a dia da empresa.",
-   "eyebrow": "Equipamentos",
-   "lead": "Equipamento parado ou obsoleto custa produtividade, mas comprar à vista trava caixa e financiar consome limite. O consórcio é a via de quem consegue planejar a aquisição com alguns meses de antecedência.",
-   "secao": "O que a carta cobre",
-   "itens": [
-    ["Máquinas e equipamentos industriais", "Conforme a modalidade contratada e o valor da carta."],
-    ["Tecnologia e infraestrutura", "Equipamentos de TI e instalação, respeitadas as regras de comprovação."],
-    ["Novo ou usado", "Dentro dos critérios de ano e avaliação definidos pela administradora."]
-   ],
-   "faq": [
-    ["Preciso comprovar como vou usar o crédito?", "Sim. A liberação acontece mediante comprovação da compra junto ao fornecedor, conforme as regras da administradora."],
-    ["Serve para equipamento importado?", "Costuma servir, respeitadas a nacionalização regular e a documentação exigida. Confirme antes da adesão."],
-    ["Posso somar cotas para um equipamento maior?", "Sim, é possível manter cotas em paralelo e combinar as contemplações conforme as regras do contrato."]
-   ]
-  },
-  {
-   "slug": "imovel-comercial",
-   "keyword": "consórcio de imóvel comercial",
-   "h1": "Consórcio de imóvel comercial",
-   "respostaCurta": "O consórcio de imóvel comercial financia sala, loja, galpão ou ponto sem os juros de um financiamento empresarial. Você paga parcelas e compra à vista na contemplação — trocando aluguel, que é despesa permanente, por patrimônio da empresa.",
-   "eyebrow": "Sala, loja e galpão",
-   "lead": "Aluguel comercial é despesa que não volta e reajusta todo ano. Trocá-lo por patrimônio costuma fazer sentido no longo prazo — desde que a empresa consiga esperar a contemplação sem apertar o caixa.",
-   "secao": "O que considerar",
-   "itens": [
-    ["Sala, loja, galpão ou ponto", "Respeitadas a documentação e a avaliação do imóvel pela administradora."],
-    ["Sem consumir limite bancário", "O crédito da empresa fica disponível para a operação."],
-    ["Prazo longo", "Combina com ativo de vida útil longa, mas exige planejamento: não há data de contemplação."]
-   ],
-   "faq": [
-    ["Serve para imóvel em construção?", "Depende da modalidade contratada e da documentação do empreendimento. Confirme antes da adesão."],
-    ["Posso usar para reformar o ponto atual?", "Reforma costuma exigir modalidade específica. A carta de imóvel destina-se à aquisição."],
-    ["E se o contrato de aluguel vencer antes da contemplação?", "O consórcio não resolve prazo de locação. Se a saída do aluguel tem data, avalie outra via em paralelo."]
-   ]
-  },
-  {
-   "slug": "mei",
-   "keyword": "consórcio para mei",
-   "h1": "Consórcio para MEI e pequena empresa",
-   "respostaCurta": "MEI, autônomo e pequenas empresas podem contratar consórcio para veículo, equipamento ou imóvel. Não há análise de crédito na adesão ao grupo, o que facilita para quem tem dificuldade de acesso a crédito bancário. A análise acontece na contemplação, quando o valor é liberado.",
-   "eyebrow": "MEI e autônomo",
-   "lead": "Crédito bancário para MEI costuma vir com taxa alta e limite baixo, quando vem. O consórcio inverte a ordem: você entra no grupo primeiro e a análise acontece depois, na hora de liberar o crédito.",
-   "secao": "O que isso significa",
-   "itens": [
-    ["Sem análise na adesão", "Você entra no grupo e começa a concorrer sem passar por aprovação de crédito."],
-    ["Veículo, equipamento ou imóvel", "A modalidade é escolhida conforme o objetivo, na adesão."],
-    ["Análise na contemplação", "Quando o crédito é liberado, aí sim há avaliação. Vale se preparar para esse momento."]
-   ],
-   "faq": [
-    ["MEI pode contratar em nome da empresa?", "Sim. MEI, autônomo e empresas de qualquer porte podem aderir, conforme as regras do grupo."],
-    ["Preciso ter faturamento mínimo?", "Não para aderir. A comprovação de capacidade de pagamento acontece na contemplação."],
-    ["Posso deduzir no Imposto de Renda?", "O tratamento tributário depende do seu regime e do bem adquirido. Consulte seu contador — não prestamos orientação fiscal."]
-   ]
-  }
- ]
+  "filhas": [
+    {
+      "slug": "frota",
+      "keyword": "consórcio de frota para empresa",
+      "h1": "Consórcio de frota para empresa",
+      "respostaCurta": "O consórcio de frota permite renovar veículos corporativos com múltiplas cotas, sem juros e sem consumir limite bancário. As contemplações se distribuem ao longo do tempo, o que troca a renovação em bloco por reposição contínua, com custo mensal previsível no orçamento.",
+      "eyebrow": "Frota corporativa",
+      "lead": "Trocar frota inteira de uma vez concentra investimento e trava limite de crédito. Escalonar com várias cotas transforma isso em custo mensal previsível, sem disputar com o capital de giro.",
+      "secao": "Como funciona na empresa",
+      "itens": [
+        [
+          "Múltiplas cotas em paralelo",
+          "Cada cota concorre separadamente, o que distribui as contemplações ao longo do tempo."
+        ],
+        [
+          "Limite bancário preservado",
+          "O crédito da empresa fica livre para giro e para emergência."
+        ],
+        [
+          "Custo previsível no orçamento",
+          "Sem juros e com taxa de administração definida em contrato, a parcela entra no planejamento anual. O reajuste segue o índice previsto."
+        ]
+      ],
+      "faq": [
+        [
+          "Quantas cotas a empresa pode ter?",
+          "Não há limitação usual de quantidade. A análise acontece na contemplação, quando o crédito é liberado."
+        ],
+        [
+          "As contemplações saem juntas?",
+          "Não há como prever. Cada cota concorre de forma independente, por sorteio ou lance."
+        ],
+        [
+          "Serve para repor veículo parado?",
+          "Não. O consórcio é planejamento de médio prazo. Para reposição imediata, a contemplação não chega a tempo."
+        ]
+      ]
+    },
+    {
+      "slug": "equipamentos",
+      "keyword": "consórcio de equipamentos",
+      "h1": "Consórcio de equipamentos e maquinário",
+      "respostaCurta": "O consórcio de equipamentos permite adquirir máquinas, equipamentos e tecnologia para a operação sem tomar crédito bancário. Você paga parcelas e compra à vista na contemplação, preservando o capital de giro que sustenta o dia a dia da empresa.",
+      "eyebrow": "Equipamentos",
+      "lead": "Equipamento parado ou obsoleto custa produtividade, mas comprar à vista trava caixa e financiar consome limite. O consórcio é a via de quem consegue planejar a aquisição com alguns meses de antecedência.",
+      "secao": "O que a carta cobre",
+      "itens": [
+        [
+          "Máquinas e equipamentos industriais",
+          "Conforme a modalidade contratada e o valor da carta."
+        ],
+        [
+          "Tecnologia e infraestrutura",
+          "Equipamentos de TI e instalação, respeitadas as regras de comprovação."
+        ],
+        ["Novo ou usado", "Dentro dos critérios de ano e avaliação definidos pela administradora."]
+      ],
+      "faq": [
+        [
+          "Preciso comprovar como vou usar o crédito?",
+          "Sim. A liberação acontece mediante comprovação da compra junto ao fornecedor, conforme as regras da administradora."
+        ],
+        [
+          "Serve para equipamento importado?",
+          "Costuma servir, respeitadas a nacionalização regular e a documentação exigida. Confirme antes da adesão."
+        ],
+        [
+          "Posso somar cotas para um equipamento maior?",
+          "Sim, é possível manter cotas em paralelo e combinar as contemplações conforme as regras do contrato."
+        ]
+      ]
+    },
+    {
+      "slug": "imovel-comercial",
+      "keyword": "consórcio de imóvel comercial",
+      "h1": "Consórcio de imóvel comercial",
+      "respostaCurta": "O consórcio de imóvel comercial financia sala, loja, galpão ou ponto sem os juros de um financiamento empresarial. Você paga parcelas e compra à vista na contemplação — trocando aluguel, que é despesa permanente, por patrimônio da empresa.",
+      "eyebrow": "Sala, loja e galpão",
+      "lead": "Aluguel comercial é despesa que não volta e reajusta todo ano. Trocá-lo por patrimônio costuma fazer sentido no longo prazo — desde que a empresa consiga esperar a contemplação sem apertar o caixa.",
+      "secao": "O que considerar",
+      "itens": [
+        [
+          "Sala, loja, galpão ou ponto",
+          "Respeitadas a documentação e a avaliação do imóvel pela administradora."
+        ],
+        ["Sem consumir limite bancário", "O crédito da empresa fica disponível para a operação."],
+        [
+          "Prazo longo",
+          "Combina com ativo de vida útil longa, mas exige planejamento: não há data de contemplação."
+        ]
+      ],
+      "faq": [
+        [
+          "Serve para imóvel em construção?",
+          "Depende da modalidade contratada e da documentação do empreendimento. Confirme antes da adesão."
+        ],
+        [
+          "Posso usar para reformar o ponto atual?",
+          "Reforma costuma exigir modalidade específica. A carta de imóvel destina-se à aquisição."
+        ],
+        [
+          "E se o contrato de aluguel vencer antes da contemplação?",
+          "O consórcio não resolve prazo de locação. Se a saída do aluguel tem data, avalie outra via em paralelo."
+        ]
+      ]
+    },
+    {
+      "slug": "mei",
+      "keyword": "consórcio para mei",
+      "h1": "Consórcio para MEI e pequena empresa",
+      "respostaCurta": "MEI, autônomo e pequenas empresas podem contratar consórcio para veículo, equipamento ou imóvel. Não há análise de crédito na adesão ao grupo, o que facilita para quem tem dificuldade de acesso a crédito bancário. A análise acontece na contemplação, quando o valor é liberado.",
+      "eyebrow": "MEI e autônomo",
+      "lead": "Crédito bancário para MEI costuma vir com taxa alta e limite baixo, quando vem. O consórcio inverte a ordem: você entra no grupo primeiro e a análise acontece depois, na hora de liberar o crédito.",
+      "secao": "O que isso significa",
+      "itens": [
+        [
+          "Sem análise na adesão",
+          "Você entra no grupo e começa a concorrer sem passar por aprovação de crédito."
+        ],
+        [
+          "Veículo, equipamento ou imóvel",
+          "A modalidade é escolhida conforme o objetivo, na adesão."
+        ],
+        [
+          "Análise na contemplação",
+          "Quando o crédito é liberado, aí sim há avaliação. Vale se preparar para esse momento."
+        ]
+      ],
+      "faq": [
+        [
+          "MEI pode contratar em nome da empresa?",
+          "Sim. MEI, autônomo e empresas de qualquer porte podem aderir, conforme as regras do grupo."
+        ],
+        [
+          "Preciso ter faturamento mínimo?",
+          "Não para aderir. A comprovação de capacidade de pagamento acontece na contemplação."
+        ],
+        [
+          "Posso deduzir no Imposto de Renda?",
+          "O tratamento tributário depende do seu regime e do bem adquirido. Consulte seu contador — não prestamos orientação fiscal."
+        ]
+      ]
+    }
+  ]
 }

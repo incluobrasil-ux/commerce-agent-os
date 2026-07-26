@@ -115,8 +115,12 @@ add_action( 'wp_head', function () {
 
 	// Canonical: NÃO emitir — o core do WordPress já emite rel="canonical".
 
-	$rota = mv_rota();
-	if ( $rota && empty( $rota['indexavel'] ) ) {
+	// noindex por rota nao indexavel no mapa, OU por estar sob /lp/.
+	// A segunda condicao existe para que uma LP nova nunca vaze para o indice
+	// por esquecimento de registro no keyword-map.
+	$rota  = mv_rota();
+	$em_lp = function_exists( 'mv_e_lp' ) && mv_e_lp();
+	if ( $em_lp || ( $rota && empty( $rota['indexavel'] ) ) ) {
 		echo '<meta name="robots" content="noindex, nofollow" />' . "\n";
 	}
 
@@ -334,3 +338,29 @@ function mv_render_sitemap() {
 	echo '</urlset>';
 	exit;
 }
+
+/* ==========================================================================
+   robots.txt
+   Crawlers de IA sao PERMITIDOS de proposito: bloquear GPTBot, ClaudeBot ou
+   PerplexityBot zeraria a chance de a MOVECON ser citada em resposta gerada
+   por IA, que e metade do objetivo do site. Nao bloquear sem conversar.
+   ========================================================================== */
+
+add_filter( 'robots_txt', function () {
+	// Reescreve o bloco inteiro em vez de anexar: anexando, o Disallow caia
+	// depois da linha Sitemap do core, o que funciona mas e fragil de ler.
+	$linhas = array(
+		'User-agent: *',
+		'Allow: /',
+		'Disallow: /wp-admin/',
+		'Allow: /wp-admin/admin-ajax.php',
+		'Disallow: /lp/',        // midia paga nunca entra no indice
+		'Disallow: /obrigado/',
+		'',
+		'Sitemap: ' . home_url( '/sitemap-movecon.xml' ),  // gerado do keyword-map
+		'Sitemap: ' . home_url( '/wp-sitemap.xml' ),
+		'',
+	);
+	return implode( "
+", $linhas );
+}, 99 );

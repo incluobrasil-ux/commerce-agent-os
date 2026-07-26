@@ -160,9 +160,12 @@ def validar_wp(doc):
         avisos.append('Chave SSH nao encontrada - checagem --wp pulada.')
         return
 
+    # `--field=url` devolve o permalink completo. Usar post_name quebraria em
+    # pagina filha: /simulador/veiculos/ viraria /veiculos/ e o check acusaria
+    # "mapa mente" numa pagina que existe.
     cmd = ['ssh', '-i', SSH_KEY, '-o', 'StrictHostKeyChecking=no',
            '-o', 'ConnectTimeout=15', '-o', 'BatchMode=yes', SSH_HOST,
-           '%s post list --post_type=page --post_status=publish --field=post_name' % WP]
+           '%s post list --post_type=page --post_status=publish --field=url' % WP]
     try:
         saida = subprocess.check_output(cmd, stderr=subprocess.STDOUT, timeout=90)
     except Exception as exc:                                   # noqa: BLE001
@@ -170,11 +173,14 @@ def validar_wp(doc):
                       % type(exc).__name__)
         return
 
-    slugs = [s.strip() for s in saida.decode('utf-8', 'replace').splitlines() if s.strip()]
-    # a home tem slug proprio no WP, mas responde por "/"
     publicadas = set()
-    for s in slugs:
-        publicadas.add('/' if s in ('home', 'inicio') else '/%s/' % s)
+    for linha in saida.decode('utf-8', 'replace').splitlines():
+        linha = linha.strip()
+        if not linha.startswith('http'):
+            continue
+        caminho = linha.split('//', 1)[-1]
+        caminho = caminho[caminho.find('/'):] if '/' in caminho else '/'
+        publicadas.add('/' + caminho.strip('/') + '/' if caminho.strip('/') else '/')
 
     no_mapa = {r['url'] for r in doc['rotas']}
     no_ar = {r['url'] for r in doc['rotas'] if r.get('status') == 'no-ar'}

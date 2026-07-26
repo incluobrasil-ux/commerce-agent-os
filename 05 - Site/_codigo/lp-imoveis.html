@@ -1,0 +1,121 @@
+<!-- wp:html -->
+<div class="mv-page mv-lp">
+
+<section class="hero chevrons">
+  <div class="wrap hero-grid">
+    <div class="stack">
+      <p class="eyebrow">Consórcio de imóvel</p>
+      <h1>Sua casa sem os juros de um financiamento de 30 anos</h1>
+      <p class="lead">
+        Num financiamento longo, é comum pagar mais de duas vezes o valor do imóvel só em juros.
+        No consórcio não há juros — você paga parcelas, é contemplado por sorteio ou lance, e compra à vista.
+        Simule agora e veja a sua parcela.
+      </p>
+      <div class="botoes">
+        <a class="btn btn--cta btn--lg" href="#simular">Simular minha parcela</a>
+      </div>
+      <p class="mv-lp__micro">Simulação gratuita · sem cadastro · sem compromisso</p>
+    </div>
+
+    <div class="dados">
+      <dl>
+        <div><dt>Sem juros</dt><dd>Você paga taxa de administração, não juros compostos</dd></div>
+        <div><dt>Sem entrada</dt><dd>Comece a pagar e já concorra desde a primeira assembleia</dd></div>
+        <div><dt>FGTS</dt><dd>Pode ser usado como lance para antecipar a contemplação</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="simular">
+  <div class="wrap stack-l">
+    <div class="stack prosa">
+      <p class="eyebrow">Simule</p>
+      <h2>Quanto fica a sua parcela</h2>
+    </div>
+
+    <div class="mv-sim" id="mvSim"
+         data-cat="imoveis" data-nome="Imóvel"
+         data-vmin="70500" data-vmax="1000000" data-vstep="1000" data-vdef="150000"
+         data-kfirst="0.1921036" data-tot="1.3524068"
+         data-pmin="100" data-pmax="200" data-pdef="200"
+         data-wa="5577981620921">
+      <div class="mv-sim__campos">
+        <label class="mv-sim__campo">
+          <span>Valor da carta de crédito</span>
+          <input type="text" id="mvValTxt" inputmode="numeric" autocomplete="off">
+          <input type="range" id="mvVal" min="70500" max="1000000" step="1000" value="150000">
+          <small><span id="mvValMin"></span> a <span id="mvValMax"></span></small>
+        </label>
+        <label class="mv-sim__campo">
+          <span>Prazo</span>
+          <output id="mvPrazoNum">200 meses</output>
+          <input type="range" id="mvPrazo" min="100" max="200" step="1" value="200">
+          <small>100 a 200 meses</small>
+        </label>
+      </div>
+      <div class="mv-sim__res" aria-live="polite">
+        <div class="mv-sim__linha"><span>1ª parcela</span><strong id="mvFirst">—</strong></div>
+        <div class="mv-sim__linha mv-sim__linha--destaque"><span>Demais parcelas</span><strong id="mvParcela">—</strong></div>
+        <div class="mv-sim__linha"><span>Total estimado</span><strong id="mvTotal">—</strong></div>
+        <a class="btn btn--cta mv-sim__cta" id="mvWa" href="#" target="_blank" rel="noopener">Falar com um consultor</a>
+        <p class="mv-sim__nota">Estimativa. Valores sujeitos a confirmação pela administradora no momento da adesão. Não constitui proposta. A contemplação ocorre por sorteio ou lance e não pode ser garantida.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--alt">
+  <div class="wrap stack-l">
+    <div class="stack prosa">
+      <p class="eyebrow">Como funciona</p>
+      <h2>Do primeiro contato à chave na mão</h2>
+    </div>
+    <div class="passos">
+      <div class="passo"><div><h3>Você escolhe a carta e o prazo</h3><p>Recebe por escrito taxa de administração, prazo e regras de contemplação antes de decidir.</p></div></div>
+      <div class="passo"><div><h3>Paga as parcelas mensais</h3><p>Sem entrada obrigatória e sem juros. Você já concorre desde a primeira assembleia.</p></div></div>
+      <div class="passo"><div><h3>É contemplado por sorteio ou lance</h3><p>O FGTS pode ser usado como lance. Ninguém pode prometer data — nem nós.</p></div></div>
+      <div class="passo"><div><h3>Compra o imóvel à vista</h3><p>Com a carta em mãos, você negocia como comprador à vista, com construtora ou particular.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap stack-l">
+    <div class="stack prosa">
+      <p class="eyebrow">Antes de você perguntar</p>
+      <h2>O que a gente diz logo</h2>
+    </div>
+    <div class="faq prosa">
+      <details open>
+        <summary>Consórcio tem juros?</summary>
+        <div class="resposta">Não há incidência de juros. Existe <strong>taxa de administração</strong> e, quando previsto em contrato, <strong>fundo de reserva</strong> — ambos informados antes da adesão.</div>
+      </details>
+      <details>
+        <summary>Quando eu sou contemplado?</summary>
+        <div class="resposta">Não há como prever nem prometer. A contemplação ocorre por sorteio ou por lance nas assembleias mensais do grupo. Qualquer promessa de data contraria as regras do consórcio.</div>
+      </details>
+      <details>
+        <summary>Posso usar o FGTS?</summary>
+        <div class="resposta">Sim, dentro das regras aplicáveis. O uso mais comum é como lance, para antecipar a contemplação. O consultor detalha as condições antes da adesão.</div>
+      </details>
+      <details>
+        <summary>Quem administra os grupos?</summary>
+        <div class="resposta">Os grupos são administrados pela <strong>Alpha Administradora de Consórcio Ltda.</strong>, administradora autorizada a funcionar pelo Banco Central do Brasil (CNPJ 90.982.679/0001-54, certificado nº 03/100/213/88). Você pode conferir na relação oficial do Bacen.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--dark chevrons">
+  <div class="wrap stack prosa">
+    <h2>Vamos calcular a sua parcela?</h2>
+    <p class="lead">Sem pressa e sem compromisso. Um consultor explica os custos por escrito e responde o que você precisar.</p>
+    <div class="botoes">
+      <a class="btn btn--cta btn--lg" href="#simular">Simular minha parcela</a>
+    </div>
+  </div>
+</section>
+
+</div>
+<!-- /wp:html -->

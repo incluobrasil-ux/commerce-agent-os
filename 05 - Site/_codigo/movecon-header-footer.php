@@ -8,6 +8,18 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 const MV_PORTAL = 'https://portal.alphaconsorcio.com/portal';
 
+/**
+ * Landing page de midia paga?
+ *
+ * Tudo sob /lp/ e destino de campanha: sem menu, sem rodape de navegacao,
+ * um unico CTA. A regra mora aqui e nao em cada LP, entao e impossivel
+ * esquecer numa LP nova. O noindex vem junto, no movecon-seo.php.
+ */
+function mv_e_lp() {
+	$p = wp_parse_url( isset( $_SERVER['REQUEST_URI'] ) ? $_SERVER['REQUEST_URI'] : '', PHP_URL_PATH );
+	return strpos( '/' . ltrim( (string) $p, '/' ), '/lp/' ) === 0;
+}
+
 function mv_logo_url() {
 	$id = get_theme_mod( 'custom_logo' );
 	$u  = $id ? wp_get_attachment_image_url( $id, 'full' ) : '';
@@ -25,6 +37,17 @@ add_action( 'wp_head', function () {
 add_action( 'wp_body_open', function () {
 	$logo = esc_url( mv_logo_url() );
 	$home = esc_url( home_url( '/' ) );
+
+	// LP: marca sem link e sem menu. Identifica sem oferecer saida.
+	if ( mv_e_lp() ) {
+		printf(
+			'<header class="mv-topo mv-topo--lp"><div class="mv-topo__in">'
+			. '<span class="mv-marca"><img src="%s" alt="MOVECON Consórcio" width="120" height="90"></span>'
+			. '</div></header>',
+			$logo
+		);
+		return;
+	}
 	?>
 <header class="mv-topo">
   <div class="mv-topo__in">
@@ -64,6 +87,22 @@ add_action( 'wp_body_open', function () {
 add_action( 'wp_footer', function () {
 	$logo = esc_url( mv_logo_url() );
 	$ano  = date_i18n( 'Y' );
+
+	// LP: so o bloco legal, sem nenhum link de navegacao.
+	if ( mv_e_lp() ) {
+		printf(
+			'<footer class="mv-rodape mv-rodape--lp"><div class="mv-rodape__in"><div class="mv-rodape__legal">'
+			. '<p>MOVECON — plataforma de consórcio. Os grupos são administrados pela <strong>%s</strong>, '
+			. 'administradora autorizada a funcionar pelo Banco Central do Brasil. Consórcio é modalidade de '
+			. 'compra programada, não é investimento e não gera rendimento. Não há juros; há taxa de '
+			. 'administração e, quando previsto, fundo de reserva. A contemplação ocorre por sorteio ou lance, '
+			. 'sem data garantida. Leia o contrato antes de aderir.</p>'
+			. '<p class="mv-rodape__copy">© %s MOVECON Consórcio · CNPJ 67.559.635/0001-02</p>'
+			. '</div></div></footer>',
+			esc_html( MV_ADMINISTRADORA ), esc_html( $ano )
+		);
+		return;
+	}
 	?>
 <footer class="mv-rodape">
   <div class="mv-rodape__in">

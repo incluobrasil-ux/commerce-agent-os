@@ -1,0 +1,99 @@
+<!-- wp:html -->
+<div class="mv-page mv-lp">
+
+<section class="hero chevrons">
+  <div class="wrap stack prosa">
+    <p class="eyebrow">Você já esteve aqui</p>
+    <h1>Ficou uma dúvida sobre o consórcio de imóvel?</h1>
+    <p class="lead">
+      Quem pesquisa consórcio quase sempre trava numa destas quatro perguntas.
+      Respondemos as quatro abaixo, sem rodeio — inclusive as que não nos favorecem.
+    </p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap stack-l">
+    <div class="stack prosa">
+      <p class="eyebrow">As objeções reais</p>
+      <h2>O que costuma travar a decisão</h2>
+    </div>
+
+    <div class="cards cards--2">
+      <div class="card card--acento">
+        <h3>“E se eu demorar demais para ser contemplado?”</h3>
+        <p>É o risco real do consórcio, e ninguém honesto vai dizer o contrário. A contemplação depende de sorteio ou lance. Se você tem prazo fechado para sair do aluguel, o consórcio pode não ser a ferramenta certa — e um consultor sério vai te dizer isso.</p>
+      </div>
+      <div class="card card--acento">
+        <h3>“Não é só juro com outro nome?”</h3>
+        <p>Não. A taxa de administração é um percentual fixo sobre a carta, definido no contrato e diluído nas parcelas. Não incide sobre saldo devedor nem compõe juros sobre juros. Por isso o custo total é menor num prazo comparável.</p>
+      </div>
+      <div class="card card--acento">
+        <h3>“E se eu precisar desistir no meio?”</h3>
+        <p>A Lei 11.795/08 prevê regras de desistência e devolução de valores. As condições exatas estão no contrato do seu grupo — e você lê antes de assinar, não depois.</p>
+      </div>
+      <div class="card card--acento">
+        <h3>“Como sei que não é golpe?”</h3>
+        <p>Pedindo o CNPJ da administradora e conferindo você mesmo na relação do Banco Central. Os grupos são administrados pela <strong>Alpha Administradora de Consórcio Ltda.</strong> — CNPJ 90.982.679/0001-54, certificado nº 03/100/213/88.</p>
+      </div>
+    </div>
+
+    <div class="nota prosa">
+      <p><strong>Para quem o consórcio não serve.</strong> Se você precisa do imóvel numa data definida, ou não tem folga para manter a parcela por anos, financiamento ou aluguel podem ser melhores. Preferimos dizer isso agora do que você descobrir depois.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--alt" id="simular">
+  <div class="wrap stack-l">
+    <div class="stack prosa">
+      <p class="eyebrow">Sem compromisso</p>
+      <h2>Refaça a conta com calma</h2>
+    </div>
+
+    <div class="mv-sim" id="mvSim"
+         data-cat="rmk-imoveis" data-nome="Imóvel"
+         data-vmin="70500" data-vmax="1000000" data-vstep="1000" data-vdef="150000"
+         data-kfirst="0.1921036" data-tot="1.3524068"
+         data-pmin="100" data-pmax="200" data-pdef="200"
+         data-wa="5577981620921">
+      <div class="mv-sim__campos">
+        <label class="mv-sim__campo">
+          <span>Valor da carta de crédito</span>
+          <input type="text" id="mvValTxt" inputmode="numeric" autocomplete="off">
+          <input type="range" id="mvVal" min="70500" max="1000000" step="1000" value="150000">
+          <small><span id="mvValMin"></span> a <span id="mvValMax"></span></small>
+        </label>
+        <label class="mv-sim__campo">
+          <span>Prazo</span>
+          <output id="mvPrazoNum">200 meses</output>
+          <input type="range" id="mvPrazo" min="100" max="200" step="1" value="200">
+          <small>100 a 200 meses</small>
+        </label>
+      </div>
+      <div class="mv-sim__res" aria-live="polite">
+        <div class="mv-sim__linha"><span>1ª parcela</span><strong id="mvFirst">—</strong></div>
+        <div class="mv-sim__linha mv-sim__linha--destaque"><span>Demais parcelas</span><strong id="mvParcela">—</strong></div>
+        <div class="mv-sim__linha"><span>Total estimado</span><strong id="mvTotal">—</strong></div>
+        <a class="btn btn--cta mv-sim__cta" id="mvWa" href="#" target="_blank" rel="noopener">Tirar minha dúvida no WhatsApp</a>
+        <p class="mv-sim__nota">Estimativa. Valores sujeitos a confirmação pela administradora no momento da adesão. Não constitui proposta. A contemplação ocorre por sorteio ou lance e não pode ser garantida.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--dark chevrons">
+  <div class="wrap stack prosa">
+    <h2>Prefere conferir antes de conversar?</h2>
+    <p class="lead">
+      A gente ensina como verificar a administradora na fonte oficial, em dois minutos.
+      Vale para qualquer empresa de consórcio — inclusive para nós.
+    </p>
+    <div class="botoes">
+      <a class="btn btn--cta btn--lg" href="#simular">Refazer minha simulação</a>
+    </div>
+  </div>
+</section>
+
+</div>
+<!-- /wp:html -->

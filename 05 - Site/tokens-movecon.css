@@ -708,3 +708,8 @@ a:hover { color: var(--mv-azul); }
 .mv-sim__linha--destaque strong { font-size: clamp(1.6rem, 3.5vw, 2.1rem); color: var(--mv-turquesa); }
 .mv-sim__cta  { width: 100%; margin-top: .6rem; }
 .mv-sim__nota { font-size: .72rem; line-height: 1.5; opacity: .6; margin: 0; }
+
+/* ---------- Landing page de campanha: sem saida ---------- */
+.mv-topo--lp   { position: static; }
+.mv-topo--lp .mv-marca { cursor: default; }
+.mv-rodape--lp { padding-block: 2.5rem 2rem; }

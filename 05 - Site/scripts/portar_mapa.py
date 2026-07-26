@@ -23,10 +23,12 @@ def g(url, kw, title, desc, pai=None):
 
 def lp(slug, titulo, nota, rmk=False):
     s = ('rmk-' + slug) if rmk else slug
+    # Todas as 14 LPs publicadas em 25/07/2026. Seguem noindex: o status
+    # 'no-ar' descreve existencia no site, nao presenca no indice.
     return dict(url='/lp/%s/' % s, keyword='lp:%s' % s, intencao='transacional',
                 camada='lp', title='%s | MOVECON' % titulo,
                 description='Landing de campanha - %s. Nao indexada.' % nota,
-                indexavel=False, status='planejada', fase=1)
+                indexavel=False, status='no-ar', fase=1)
 
 
 R = []
@@ -88,6 +90,13 @@ for url, kw, t, d, pai, sec in SIM:
     R.append(r)
 
 # ------------------------------------------------------------------------ LPs
+# Container das LPs. Existe como pagina no WP so para dar caminho as filhas
+# (/lp/veiculos/ etc). Nunca recebe trafego nem indexa.
+R.append(dict(url='/lp/', keyword='lp:container', intencao='transacional',
+              camada='lp', title='LP | MOVECON',
+              description='Container das landings de campanha. Nao indexada.',
+              indexavel=False, status='no-ar', fase=1))
+
 for slug, titulo, nota in [
         ('veiculos', 'Consórcio de Carro sem juros', 'search veiculos'),
         ('moto', 'Consórcio de Moto sem juros', 'search moto'),

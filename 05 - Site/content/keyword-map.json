@@ -163,6 +163,17 @@
    "pai": "/simulador/"
   },
   {
+   "url": "/lp/",
+   "keyword": "lp:container",
+   "intencao": "transacional",
+   "camada": "lp",
+   "title": "LP | MOVECON",
+   "description": "Container das landings de campanha. Nao indexada.",
+   "indexavel": false,
+   "status": "no-ar",
+   "fase": 1
+  },
+  {
    "url": "/lp/veiculos/",
    "keyword": "lp:veiculos",
    "intencao": "transacional",
@@ -170,7 +181,7 @@
    "title": "Consórcio de Carro sem juros | MOVECON",
    "description": "Landing de campanha - search veiculos. Nao indexada.",
    "indexavel": false,
-   "status": "planejada",
+   "status": "no-ar",
    "fase": 1
   },
   {
@@ -181,7 +192,7 @@
    "title": "Consórcio de Moto sem juros | MOVECON",
    "description": "Landing de campanha - search moto. Nao indexada.",
    "indexavel": false,
-   "status": "planejada",
+   "status": "no-ar",
    "fase": 1
   },
   {
@@ -192,7 +203,7 @@
    "title": "Consórcio de Imóvel sem juros | MOVECON",
    "description": "Landing de campanha - search imoveis. Nao indexada.",
    "indexavel": false,
-   "status": "planejada",
+   "status": "no-ar",
    "fase": 1
   },
   {
@@ -203,7 +214,7 @@
    "title": "Consórcio de Caminhão sem juros | MOVECON",
    "description": "Landing de campanha - search caminhao. Nao indexada.",
    "indexavel": false,
-   "status": "planejada",
+   "status": "no-ar",
    "fase": 1
   },
   {
@@ -214,7 +225,7 @@
    "title": "Consórcio de Máquinas Agrícolas | MOVECON",
    "description": "Landing de campanha - search agro. Nao indexada.",
    "indexavel": false,
-   "status": "planejada",
+   "status": "no-ar",
    "fase": 1
   },
   {
@@ -225,7 +236,7 @@
    "title": "Consórcio de Serviços | MOVECON",
    "description": "Landing de campanha - search servicos. Nao indexada.",
    "indexavel": false,
-   "status": "planejada",
+   "status": "no-ar",
    "fase": 1
   },
   {
@@ -236,7 +247,7 @@
    "title": "Consórcio para Empresa | MOVECON",
    "description": "Landing de campanha - search PJ. Nao indexada.",
    "indexavel": false,
-   "status": "planejada",
+   "status": "no-ar",
    "fase": 1
   },
   {
@@ -247,7 +258,7 @@
    "title": "MOVECON Consórcio | MOVECON",
    "description": "Landing de campanha - defesa de marca. Nao indexada.",
    "indexavel": false,
-   "status": "planejada",
+   "status": "no-ar",
    "fase": 1
   },
   {
@@ -258,7 +269,7 @@
    "title": "Consórcio veiculos | MOVECON",
    "description": "Landing de campanha - remarketing veiculos. Nao indexada.",
    "indexavel": false,
-   "status": "planejada",
+   "status": "no-ar",
    "fase": 1
   },
   {
@@ -269,7 +280,7 @@
    "title": "Consórcio moto | MOVECON",
    "description": "Landing de campanha - remarketing moto. Nao indexada.",
    "indexavel": false,
-   "status": "planejada",
+   "status": "no-ar",
    "fase": 1
   },
   {
@@ -280,7 +291,7 @@
    "title": "Consórcio imoveis | MOVECON",
    "description": "Landing de campanha - remarketing imoveis. Nao indexada.",
    "indexavel": false,
-   "status": "planejada",
+   "status": "no-ar",
    "fase": 1
   },
   {
@@ -291,7 +302,7 @@
    "title": "Consórcio caminhao | MOVECON",
    "description": "Landing de campanha - remarketing caminhao. Nao indexada.",
    "indexavel": false,
-   "status": "planejada",
+   "status": "no-ar",
    "fase": 1
   },
   {
@@ -302,7 +313,7 @@
    "title": "Consórcio agro | MOVECON",
    "description": "Landing de campanha - remarketing agro. Nao indexada.",
    "indexavel": false,
-   "status": "planejada",
+   "status": "no-ar",
    "fase": 1
   },
   {
@@ -313,7 +324,7 @@
    "title": "Consórcio servicos | MOVECON",
    "description": "Landing de campanha - remarketing servicos. Nao indexada.",
    "indexavel": false,
-   "status": "planejada",
+   "status": "no-ar",
    "fase": 1
   },
   {

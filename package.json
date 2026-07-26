@@ -59,7 +59,7 @@
     "@commitlint/config-conventional": "^19"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint && pnpm test:smoke && pnpm secret-scan",
+    "pre-commit": "pnpm lint && pnpm test:smoke && pnpm secret-scan && python \"MOVECON/05 - Site/scripts/check_seo.py\"",
     "commit-msg": "pnpm commitlint"
   }
 }

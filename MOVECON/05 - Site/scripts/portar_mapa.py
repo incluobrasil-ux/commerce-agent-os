@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 """Porta content/keyword-map.ts (scaffold Next.js) -> content/keyword-map.json."""
-import io, json, collections
+import io, json, collections, os
+
+RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DESTINO = os.path.join(RAIZ, 'content', 'keyword-map.json')
 
 
 def f(url, kw, pai, title, desc):
@@ -327,13 +330,22 @@ doc['site'] = collections.OrderedDict([
         'plataforma autorizada pela Alpha',
         'representante autorizada',
         'white-label',
+        # Adicionadas em 25/07/2026. Nao mencionamos o PE 202816 - e assunto do
+        # parceiro. Mas afirmar historico limpo transformaria uma omissao
+        # legitima em afirmacao falsa. Estas expressoes ficam proibidas.
+        'sem nenhuma ocorrência',
+        'ficha limpa',
+        'histórico impecável',
+        'nunca foi penalizada',
+        'sem qualquer sanção',
     ]),
 ])
 doc['rotas'] = R
 
-io.open('keyword-map.json', 'w', encoding='utf-8').write(
+io.open(DESTINO, 'w', encoding='utf-8').write(
     json.dumps(doc, ensure_ascii=False, indent=1))
 
+print('escrito em: %s' % os.path.relpath(DESTINO, RAIZ))
 print('rotas: %d' % len(R))
 for c in ['institucional', 'conversao', 'lp', 'hub', 'filha', 'guia', 'glossario', 'confianca']:
     print('  %-14s %d' % (c, len([r for r in R if r['camada'] == c])))

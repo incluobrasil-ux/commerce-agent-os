@@ -108,6 +108,52 @@ def validar_mapa(doc):
                 erros.append('COMPLIANCE - expressao proibida "%s" em %s' % (p, r['url']))
 
 
+def validar_prosa(doc):
+    """
+    Varre o HTML/PHP das paginas atras das expressoes proibidas.
+
+    Existe porque validar so o keyword-map nao pega dano em prosa: uma
+    substituicao mal feita pode injetar "MOVECON autorizada" no corpo de uma
+    pagina sem tocar em title nem description, e o site vai ao ar violando
+    compliance com o validador dando OK.
+    """
+    proibidas = [p.lower() for p in doc['site'].get('nuncaEscrever', [])]
+    # variacoes que a regra proibe mas a string exata nao cobre
+    padroes = proibidas + [
+        'movecon é autorizada', 'movecon e autorizada',
+        'autorizada pela alpha', 'somos uma administradora',
+        'quem autoriza a movecon',
+    ]
+    alvos = []
+    for pasta in ('_codigo', 'build'):
+        base = os.path.join(RAIZ, pasta)
+        if not os.path.isdir(base):
+            continue
+        for nome in sorted(os.listdir(base)):
+            if nome.endswith(('.html', '.php')):
+                alvos.append(os.path.join(base, nome))
+
+    for caminho in alvos:
+        with io.open(caminho, encoding='utf-8') as fh:
+            texto = fh.read().lower()
+        rel = os.path.relpath(caminho, RAIZ).replace('\\', '/')
+        for p in padroes:
+            if p and p in texto:
+                erros.append('COMPLIANCE NA PROSA - "%s" em %s' % (p, rel))
+
+    # sintaxe quebrada por substituicao encadeada
+    for caminho in alvos:
+        with io.open(caminho, encoding='utf-8') as fh:
+            texto = fh.read()
+        rel = os.path.relpath(caminho, RAIZ).replace('\\', '/')
+        for ruim, rotulo in [('Ltda..', 'ponto duplicado'),
+                             ('Ltda. de Consórcio', 'nome duplicado'),
+                             ('Ltda. ,', 'virgula solta'),
+                             ('Ltda. Ltda', 'sufixo duplicado')]:
+            if ruim in texto:
+                erros.append('SINTAXE (%s) - "%s" em %s' % (rotulo, ruim, rel))
+
+
 def validar_wp(doc):
     """Sincronia mapa <-> WordPress. Exige SSH."""
     if not os.path.exists(SSH_KEY):
@@ -144,6 +190,7 @@ def validar_wp(doc):
 def main():
     doc = carregar()
     validar_mapa(doc)
+    validar_prosa(doc)
     if '--wp' in sys.argv:
         validar_wp(doc)
 

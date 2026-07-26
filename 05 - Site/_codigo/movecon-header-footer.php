@@ -34,7 +34,7 @@ add_action( 'wp_body_open', function () {
 
     <nav class="mv-nav" aria-label="Navegação principal">
       <a href="<?php echo $home; ?>">Início</a>
-      <a href="<?php echo esc_url( home_url( '/administrado-pela-alpha/' ) ); ?>">Quem autoriza</a>
+      <a href="<?php echo esc_url( home_url( '/administrado-pela-alpha/' ) ); ?>">Quem administra</a>
       <a href="<?php echo esc_url( home_url( '/contato/' ) ); ?>">Contato</a>
     </nav>
 
@@ -106,7 +106,7 @@ add_action( 'wp_footer', function () {
         <h3>Institucional</h3>
         <ul>
           <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Início</a></li>
-          <li><a href="<?php echo esc_url( home_url( '/administrado-pela-alpha/' ) ); ?>">Quem autoriza a MOVECON</a></li>
+          <li><a href="<?php echo esc_url( home_url( '/administrado-pela-alpha/' ) ); ?>">Quem administra os grupos</a></li>
           <li><a href="<?php echo esc_url( home_url( '/contato/' ) ); ?>">Contato</a></li>
         </ul>
       </div>
@@ -124,7 +124,7 @@ add_action( 'wp_footer', function () {
 
     <div class="mv-rodape__legal">
       <p>
-        MOVECON — plataforma de consórcio autorizada pela <strong>Alpha Administradora de Consórcio Ltda.</strong>, autorizada pelo
+        MOVECON — plataforma de consórcio. Os grupos são administrados pela <strong>Alpha Administradora de Consórcio Ltda.</strong>, autorizada pelo
         Banco Central (Cert. BCB 03/100/213/88 · CNPJ 90.982.679/0001-54). Consórcio é modalidade de compra
         programada, não é investimento e não gera rendimento. Não há juros; há taxa de administração e,
         quando previsto, fundo de reserva. A contemplação ocorre por sorteio ou lance, sem data garantida.

@@ -456,6 +456,14 @@ doc['_leia_me'] = (
     'Regra central: UMA INTENCAO DE BUSCA = UMA URL. '
     'Validar com: python scripts/check_seo.py'
 )
+doc['_pendencias'] = [
+    'FUNIL 01 - a pagina de recrutamento de representantes NAO EXISTE no '
+    'site. A FAQ "Como me tornar representante da MOVECON?", nos dois artigos '
+    'de /blog/, esta sem link de proposito: nao ha URL para apontar e nenhuma '
+    'foi inventada. Quando a pagina existir, registre a rota aqui e insira o '
+    'link nos dois markdowns em content/artigos/, regerando com '
+    'scripts/gerar_artigos.py.',
+]
 doc['site'] = collections.OrderedDict([
     ('nome', 'MOVECON'),
     ('nomeCompleto', 'MOVECON Consórcio'),

@@ -328,6 +328,15 @@ function mv_render_llms() {
 	$corpo .= "## Institucional e verificação\n" . $por_camada( 'confianca' ) . "\n"
 	        . $por_camada( 'institucional' ) . "\n\n";
 	$corpo .= "## Guias\n" . $por_camada( 'guia' ) . "\n\n";
+	// Glossario, dados de mercado e perguntas frequentes. Estavam publicadas
+	// e ausentes do llms.txt desde que foram ao ar - o arquivo listava so
+	// hub, confianca, institucional, guia e conversao. Sao justamente as
+	// paginas que um modelo mais tende a citar: definicao de termo, numero
+	// com fonte e resposta direta.
+	$corpo .= "## Referência e dados
+" . $por_camada( 'glossario' ) . "
+
+";
 	$corpo .= "## Ferramentas\n" . $por_camada( 'conversao' ) . "\n\n";
 	// Comparativos entram so quando a rota sai de 'planejada'. Enquanto
 	// os artigos forem rascunho, mv_indexaveis() nao os devolve e a

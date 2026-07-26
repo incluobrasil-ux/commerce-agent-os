@@ -10,6 +10,12 @@ codigo.
 A tabela comparativa vira <!-- wp:table --> de verdade, nao imagem nem HTML
 solto, para continuar legivel em leitor de tela e no mobile.
 
+PENDENCIA CONHECIDA - a FAQ "Como me tornar representante da MOVECON?" fica
+SEM LINK nos dois artigos. A pagina de recrutamento (Funil 01) nao existe no
+site, e inventar URL seria pior que deixar sem. Registrado tambem em
+`_pendencias` no keyword-map.json. Quando a pagina existir, o link entra no
+markdown de origem e o artigo e regerado.
+
 NAO ALTERA TEXTO. A unica transformacao e estrutural: markdown -> blocos.
 Se este script comecar a "melhorar" redacao, ele quebrou o contrato de que
 o conteudo foi revisado juridicamente e nao pode mudar sem aprovacao.
@@ -28,7 +34,17 @@ ARTIGOS = os.path.join(RAIZ, 'content', 'artigos')
 def inline(txt):
     """**negrito**, *italico* e [texto](url) -> HTML. Nada alem disso."""
     txt = txt.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
-    txt = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', txt)
+    # Link externo leva rel="nofollow noopener" e abre em nova aba. Link
+    # interno nao: nofollow no proprio site desperdicaria o silo. A regra e o
+    # protocolo - href interno neste projeto e sempre relativo (/rota/).
+    def _link(m):
+        texto, url = m.group(1), m.group(2)
+        if url.startswith('http'):
+            return ('<a href="%s" rel="nofollow noopener" target="_blank">%s</a>'
+                    % (url, texto))
+        return '<a href="%s">%s</a>' % (url, texto)
+
+    txt = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', _link, txt)
     txt = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', txt)
     txt = re.sub(r'(?<!\*)\*([^*]+?)\*(?!\*)', r'<em>\1</em>', txt)
     return txt

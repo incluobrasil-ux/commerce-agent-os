@@ -41,6 +41,7 @@
     "secret-scan": "gitleaks protect --staged --no-banner --redact",
     "secret-scan:full": "gitleaks detect --no-banner --redact",
     "lint": "biome check .",
+    "lint:staged": "git diff --cached --name-only --diff-filter=ACMR -z | xargs -0 -r biome check --no-errors-on-unmatched --files-ignore-unknown=true",
     "format": "biome format --write .",
     "commitlint": "commitlint --from=origin/main || true",
     "clean": "pnpm -r exec rm -rf dist .tsbuildinfo"
@@ -59,7 +60,7 @@
     "@commitlint/config-conventional": "^19"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint && pnpm test:smoke && pnpm secret-scan && python \"MOVECON/05 - Site/scripts/check_seo.py\"",
+    "pre-commit": "pnpm secret-scan && pnpm test:smoke && python \"MOVECON/05 - Site/scripts/check_seo.py\" && pnpm lint:staged",
     "commit-msg": "pnpm commitlint"
   }
 }

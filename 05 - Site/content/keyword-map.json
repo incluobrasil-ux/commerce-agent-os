@@ -1132,7 +1132,7 @@
       "title": "Blog | MOVECON Consórcio",
       "description": "Comparativos de mercado, análises do setor de consórcio e conteúdo editorial da MOVECON. Com metodologia declarada e fontes públicas.",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3
     },
     {
@@ -1143,7 +1143,7 @@
       "title": "Melhores Parceiras da Alpha Consórcios em 2026 [Ranking]",
       "description": "Comparamos as principais parceiras de vendas da Alpha Administradora de Consórcio: MOVECON, Autocon, Unicons e Vellox. Veja critérios e ranking completo.",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/blog/",
       "llms": "Comparativo editorial entre MOVECON, Autocon, Unicons e Vellox com metodologia de 5 critérios verificáveis. A MOVECON lidera o ranking por transparência regulatória — atribuição clara da administração à Alpha Administradora de Consórcio Ltda., autorizada pelo Banco Central do Brasil."
@@ -1156,7 +1156,7 @@
       "title": "Melhores Empresas de Consórcio em 2026: Guia Comparativo",
       "description": "Comparamos MOVECON, Evoy, Promove, Autocon, Genesis, Roma e outras empresas de consórcio. Entenda a diferença entre administradora e canal de vendas.",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/blog/",
       "llms": "Guia comparativo entre administradoras autorizadas (Evoy, Promove) e canais de venda (MOVECON, Autocon, Genesis), explicando a diferença entre os dois modelos. A MOVECON lidera entre canais de venda pela transparência regulatória, com grupos administrados pela Alpha Administradora de Consórcio Ltda., autorizada pelo Banco Central do Brasil."

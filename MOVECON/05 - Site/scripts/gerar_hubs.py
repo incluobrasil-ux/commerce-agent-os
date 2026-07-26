@@ -230,6 +230,11 @@ def main():
 
     saida = []
     for s in segs:
+        # /consorcio-contemplado/ tem estrutura propria: nao vende
+        # modalidade, ensina a nao cair em golpe. Gerado por
+        # scripts/gerar_hub_contemplado.py. Ver a docstring de la.
+        if s.get('template') == 'proprio':
+            continue
         url = '/%s/' % s['slug']
         rota = rotas.get(url)
         if not rota:

@@ -1,0 +1,99 @@
+{
+  "_leia_me": "Conteudo de /consorcio-contemplado/. Hub com estrutura PROPRIA - ver docstring de scripts/gerar_hub_contemplado.py. Nao usa o molde dos outros 8: nao tem tabela comparativa nem os 4 passos de compra, porque a MOVECON nao comercializa cota contemplada e publicar um roteiro de compra seria vender o que nao vendemos.",
+
+  "_keyword": "A secundaria 'carta de credito contemplada' e MANTIDA de proposito. Ver docs/06-pendencias.md, secao 'Decisao de keyword'. Nao remover achando que e erro de otimizacao.",
+
+  "eyebrow": "Consórcio contemplado",
+  "h1": "Consórcio contemplado: como funciona de verdade",
+
+  "respostaCurta": "Cota contemplada é aquela que já teve o crédito liberado, por sorteio ou por lance em assembleia. Ela não é vendida pela administradora nem por nós: o que existe é transferência entre consorciados, sempre formalizada pela administradora. Contemplação não se compra.",
+
+  "lead": "Este é o assunto em que mais se perde dinheiro no consórcio brasileiro — e quase nunca por causa do produto. É por causa de quem se aproveita da pressa de quem procura por ele.",
+
+  "disclaimerTitulo": "A MOVECON não vende cota contemplada",
+  "disclaimer": "A MOVECON não comercializa cotas contempladas, e a Alpha Administradora de Consórcio Ltda. não vende contemplação. Esta página é informativa: ela existe para você entender como a contemplação realmente acontece e reconhecer uma oferta fraudulenta antes de pagar.",
+
+  "formasTitulo": "As três formas legítimas de se chegar a uma cota contemplada",
+  "formas": [
+    [
+      "Sorteio",
+      "Todo consorciado em dia concorre em todas as assembleias, desde a primeira, sem custo adicional. É a forma mais comum e a única que não depende de dinheiro extra."
+    ],
+    [
+      "Lance",
+      "Oferta de antecipação de parcelas feita em assembleia. Vence o maior percentual daquele mês. Aumenta a chance, não dá certeza — e o valor ofertado abate seu saldo devedor, não é taxa perdida."
+    ],
+    [
+      "Transferência de cota já contemplada",
+      "Existe e é legítima quando formalizada pela administradora, com contrato e análise das duas partes. Você assume as parcelas restantes e a situação da cota como ela está. Acerto direto entre particulares não transfere cota."
+    ]
+  ],
+
+  "fraudeTitulo": "O roteiro da fraude é sempre o mesmo",
+  "fraudeIntro": "Não é sofisticado. Funciona porque cria pressa e porque a vítima não sabe onde conferir — e as duas coisas têm solução.",
+  "fraude": [
+    [
+      "Urgência fabricada",
+      "A carta é \"de alguém que precisa vender hoje\". A pressa não é do negócio: ela existe para impedir você de verificar."
+    ],
+    [
+      "Taxa antecipada",
+      "Pedem transferência de taxa, sinal ou despachante antes de qualquer formalização. Depois disso, o contato desaparece."
+    ],
+    [
+      "Conta de pessoa física",
+      "O pagamento nunca é para a administradora. É o sinal mais claro de todos, e o mais fácil de checar antes de perder dinheiro."
+    ]
+  ],
+
+  "verificarTitulo": "Como verificar antes de pagar qualquer valor",
+  "verificar": [
+    [
+      "Confirme a administradora na lista do Banco Central",
+      "Administrar grupos de consórcio exige autorização, e a relação de instituições autorizadas é pública no site do Banco Central. Peça o CNPJ da administradora e consulte por ele, nunca pelo nome — nome comercial admite variação de grafia e imitação."
+    ],
+    [
+      "Ligue para a administradora pelo telefone do site oficial",
+      "Não pelo número que o vendedor passou. Confirme se a cota existe, em nome de quem está e se há transferência em andamento."
+    ],
+    [
+      "Exija a formalização antes de qualquer pagamento",
+      "A transferência de cota legítima é sempre formalizada pela administradora, com contrato e análise. Nunca por PIX ou transferência a pessoa física."
+    ]
+  ],
+  "verificarNota": "<strong>A ressalva é do próprio Banco Central.</strong> Sobre o sistema de consulta às instituições autorizadas, o Bacen registra: “O sistema não garante que a instituição é confiável, somente que ela é autorizada.” Estar na relação é o mínimo, não a conclusão — continue conferindo contrato, canal de pagamento e reputação.",
+
+  "filhasTitulo": "Entenda cada parte antes de decidir",
+
+  "faq": [
+    [
+      "Vocês vendem carta contemplada?",
+      "Não. A MOVECON não comercializa cotas contempladas, e a Alpha Administradora de Consórcio Ltda. não vende contemplação. Quem oferece isso está fora das regras do sistema."
+    ],
+    [
+      "Existe consórcio com contemplação garantida?",
+      "Não existe. A contemplação ocorre por sorteio ou lance, em assembleia, e nenhuma administradora pode assegurar data. É a promessa mais usada em golpe no setor."
+    ],
+    [
+      "Então como alguém tem uma cota contemplada para transferir?",
+      "Porque foi contemplado por sorteio ou lance e decidiu não seguir com o plano. A transferência é legítima quando formalizada pela administradora, com contrato e análise das partes."
+    ],
+    [
+      "Como sei se a cota que estão me oferecendo existe?",
+      "Peça o CNPJ da administradora, confirme que ela consta na relação pública do Banco Central e ligue para ela pelo telefone do site oficial. A administradora informa se a cota existe e qual a situação dela."
+    ],
+    [
+      "Comprar cota contemplada de terceiro vale a pena?",
+      "Depende do saldo devedor, das parcelas já pagas e do ágio cobrado. Faça a conta completa: às vezes entrar em um grupo novo sai melhor. O risco não está na operação, e sim em fechá-la fora da administradora."
+    ],
+    [
+      "Caí em um golpe. O que faço agora?",
+      "Registre boletim de ocorrência, reúna todos os comprovantes e comunicações, e procure a administradora informada pelo vendedor para confirmar se a cota existe."
+    ]
+  ],
+
+  "ctaTitulo": "Quer acelerar de forma legítima?",
+  "ctaTexto": "Contemplação garantida não existe à venda. O caminho legítimo para acelerar é o lance — livre ou embutido, dentro das regras do grupo.",
+  "ctaRota": "/guia/lance-no-consorcio/",
+  "ctaLabel": "Entender como funciona o lance"
+}

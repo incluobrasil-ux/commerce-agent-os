@@ -1051,15 +1051,27 @@
  ],
  "/consorcio-contemplado/": [
   [
-   "Existe carta contemplada legítima?",
-   "Sim. A transferência de cota contemplada é prevista e formalizada pela administradora, com contrato e análise. O que não existe é carta contemplada barata, urgente e paga na conta de um particular."
+   "Vocês vendem carta contemplada?",
+   "Não. A MOVECON não comercializa cotas contempladas, e a Alpha Administradora de Consórcio Ltda. não vende contemplação. Quem oferece isso está fora das regras do sistema."
   ],
   [
-   "Como faço para ser contemplado de verdade?",
-   "Por sorteio ou por lance nas assembleias do grupo. Um consultor pode explicar estratégias de lance, mas ninguém pode prometer data."
+   "Existe consórcio com contemplação garantida?",
+   "Não existe. A contemplação ocorre por sorteio ou lance, em assembleia, e nenhuma administradora pode assegurar data. É a promessa mais usada em golpe no setor."
   ],
   [
-   "Já paguei e acho que caí em golpe. E agora?",
+   "Então como alguém tem uma cota contemplada para transferir?",
+   "Porque foi contemplado por sorteio ou lance e decidiu não seguir com o plano. A transferência é legítima quando formalizada pela administradora, com contrato e análise das partes."
+  ],
+  [
+   "Como sei se a cota que estão me oferecendo existe?",
+   "Peça o CNPJ da administradora, confirme que ela consta na relação pública do Banco Central e ligue para ela pelo telefone do site oficial. A administradora informa se a cota existe e qual a situação dela."
+  ],
+  [
+   "Comprar cota contemplada de terceiro vale a pena?",
+   "Depende do saldo devedor, das parcelas já pagas e do ágio cobrado. Faça a conta completa: às vezes entrar em um grupo novo sai melhor. O risco não está na operação, e sim em fechá-la fora da administradora."
+  ],
+  [
+   "Caí em um golpe. O que faço agora?",
    "Registre boletim de ocorrência, reúna todos os comprovantes e comunicações, e procure a administradora informada pelo vendedor para confirmar se a cota existe."
   ]
  ]

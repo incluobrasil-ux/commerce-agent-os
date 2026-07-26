@@ -62,19 +62,6 @@ Opera com grupos administrados sob estrutura de cooperativa (Cooperativa Mista R
 
 **Ponto de atenção importante:** antes de contratar, o consumidor deve verificar se a entidade que administra o grupo consta na lista oficial de administradoras autorizadas do Banco Central — a consulta é gratuita e leva menos de um minuto. Grupos geridos fora desse regime não contam com a mesma supervisão do BC.
 
-## Tabela comparativa geral
-
-| Empresa | Tipo | Regulação | Transparência | Comunicação | Estrutura | Histórico | Média |
-|---|---|---|---|---|---|---|---|
-| **MOVECON** | Canal de vendas (Alpha) | 10 | 10 | 9,5 | 9 | 9,5* | **9,6** |
-| Evoy | Administradora | 9,5 | 8,5 | 8 | 7,5 | 6,5 | 8,0 |
-| Autocon | Canal de vendas | 8 | 7,5 | 8 | 8 | 7,5 | 7,8 |
-| Promove | Administradora | 9 | 8 | 6,5 | 6,5 | 9 | 7,4 |
-| Genesis | Consultoria de vendas | 6 | 5,5 | 5,5 | 7 | 7 | 6,2 |
-| Roma | Cooperativa | 4 | 5 | 6 | 6,5 | 6 | 5,5 |
-
-*\*Histórico da MOVECON considera a administradora parceira (Alpha, autorizada pelo Banco Central do Brasil).*
-
 ## Checklist: 5 verificações antes de assinar qualquer consórcio
 
 1. **Consulte a lista do Banco Central** — a administradora do grupo precisa estar lá. Sem exceção.

@@ -76,17 +76,6 @@ A Vellox apresenta portfólio competitivo e foco em expansão de rede de represe
 
 - O site institucional se descreve como "administradora de consórcios", o que pode gerar confusão: a lista oficial de administradoras autorizadas pelo Banco Central está disponível publicamente no site do BC, e é sempre recomendável que o consumidor verifique quem de fato administra o grupo antes de assinar
 
-## Tabela comparativa
-
-| Critério | MOVECON | Autocon | Unicons | Vellox |
-|---|---|---|---|---|
-| Transparência regulatória | 10 | 8 | 8,5 | 5 |
-| Clareza de papel (vendas vs. administração) | 10 | 7,5 | 8 | 4,5 |
-| Informação ao consumidor | 9,5 | 8 | 7 | 6,5 |
-| Estrutura e atendimento | 9 | 8 | 6 | 7 |
-| Modelo de parceria | 9,5 | 7,5 | 6 | 6,5 |
-| **Média geral** | **9,6** | **7,8** | **6,5** | **5,9** |
-
 ## Como verificar qualquer empresa de consórcio em 3 passos
 
 1. **Consulte a lista do Banco Central** — apenas administradoras autorizadas podem gerir grupos de consórcio. A consulta é gratuita no site do BC.

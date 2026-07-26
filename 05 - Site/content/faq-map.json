@@ -879,6 +879,18 @@
   [
    "O consórcio cobre emplacamento e seguro?",
    "A carta de crédito cobre o valor do bem. Custos de emplacamento, documentação e seguro variam conforme o plano — confirme antes de contratar."
+  ],
+  [
+   "Quanto tempo até eu receber a carta de crédito?",
+   "Não há resposta honesta em forma de prazo. É sorteio ou lance, em assembleia, e varia grupo a grupo. O lance aumenta a chance, não a certeza."
+  ],
+  [
+   "Consigo a moto a tempo de começar a trabalhar?",
+   "Não há como prometer. Se a renda depende da moto agora, o consórcio não é a ferramenta — ele é planejamento de médio prazo."
+  ],
+  [
+   "Posso comprar de particular?",
+   "Sim, desde que a documentação da moto e do vendedor atenda às exigências e a moto passe na vistoria."
   ]
  ],
  "/consorcio-imoveis/": [
@@ -919,6 +931,18 @@
   [
    "Empresa pode fazer consórcio?",
    "Sim. Pessoa jurídica pode aderir, e é comum que empresas mantenham mais de uma cota para escalonar a renovação da frota."
+  ],
+  [
+   "Quanto tempo até eu receber a carta de crédito?",
+   "Não há resposta honesta em forma de prazo. A contemplação ocorre por sorteio ou lance, em assembleia, e varia grupo a grupo. O lance aumenta a chance, não a certeza."
+  ],
+  [
+   "Além do caminhão, o que eu ainda vou pagar?",
+   "Transferência de propriedade, emplacamento e licenciamento não entram na carta. São custos junto ao Detran, pagos por você na hora da compra."
+  ],
+  [
+   "Posso usar mais de uma cota para renovar a frota?",
+   "Sim. Cada cota concorre de forma independente, o que distribui as contemplações ao longo do tempo. Não há como prever se sairão juntas."
   ]
  ],
  "/consorcio-maquinas-agricolas/": [
@@ -933,6 +957,18 @@
   [
    "Vale mais a pena que o crédito rural?",
    "Depende. O crédito rural subsidiado costuma ter custo menor, mas depende de disponibilidade, enquadramento e liberação. O consórcio vence em previsibilidade e independência de aprovação."
+  ],
+  [
+   "Quanto tempo até eu receber a carta de crédito?",
+   "Não há resposta honesta em forma de prazo. A contemplação ocorre por sorteio ou lance e não tem data previsível. Nenhuma administradora pode prometer que a máquina chega antes do plantio."
+  ],
+  [
+   "Consórcio é mais barato que o crédito rural subsidiado?",
+   "Em geral não, quando o produtor se enquadra e a linha está disponível. Crédito subsidiado é subsidiado. O consórcio compensa por previsibilidade e acesso, não por taxa."
+  ],
+  [
+   "Posso usar os dois?",
+   "Sim. É comum usar a linha subsidiada no que ela cobre e o consórcio no que ficou de fora ou no próximo investimento."
   ]
  ],
  "/consorcio-servicos/": [
@@ -947,20 +983,44 @@
   [
    "Energia solar entra em serviços?",
    "Sim. É uma das modalidades mais procuradas, porque o sistema costuma se pagar com a economia na conta de luz."
+  ],
+  [
+   "A carta vira dinheiro na minha conta?",
+   "Não. A administradora paga o prestador diretamente, mediante nota fiscal e comprovação do serviço. Não existe consórcio que vire saldo livre — e quem oferecer isso está fora das regras."
+  ],
+  [
+   "Quanto tempo até eu receber a carta de crédito?",
+   "Não há resposta honesta em forma de prazo. É sorteio ou lance, em assembleia. Quem tem data marcada — casamento, viagem, início de curso — precisa saber que a contemplação não chega sob encomenda."
+  ],
+  [
+   "E se o serviço custar menos que a carta?",
+   "As regras variam conforme o contrato do grupo. Confirme antes de aderir como a diferença é tratada — não assuma que sobra em dinheiro."
   ]
  ],
  "/consorcio-empresa/": [
   [
    "MEI pode fazer consórcio?",
-   "Sim. MEI, autônomo e empresas de qualquer porte podem aderir, conforme as regras do grupo."
+   "Sim. MEI, autônomo e empresas de qualquer porte podem aderir, conforme as regras do grupo. Não há exigência de faturamento mínimo para entrar."
   ],
   [
    "O consórcio é dedutível no Imposto de Renda?",
-   "O tratamento tributário depende do regime da empresa e do tipo de bem. Consulte seu contador — não damos orientação fiscal."
+   "Depende do regime tributário da empresa e do bem adquirido. Consulte seu contador — não prestamos orientação fiscal."
   ],
   [
    "Posso ter várias cotas?",
-   "Sim. É comum empresas manterem mais de uma cota para escalonar contemplações conforme o plano de investimento."
+   "Sim, e é comum. Não há limitação usual de quantidade; a análise acontece na contemplação de cada uma."
+  ],
+  [
+   "Quanto tempo até receber a carta de crédito?",
+   "Não há resposta honesta em forma de prazo. Sorteio ou lance, em assembleia. Para investimento com data definida, o consórcio não é a ferramenta."
+  ],
+  [
+   "Serve para repor equipamento parado?",
+   "Não. O consórcio é planejamento de médio prazo. Para reposição imediata, a contemplação não chega a tempo."
+  ],
+  [
+   "A análise na contemplação olha o CNPJ ou o sócio?",
+   "Depende da administradora e do porte da empresa. Confirme o critério antes de aderir, porque é ele que determina o que preparar até lá."
   ]
  ],
  "/consorcio-embarcacoes/": [
@@ -975,6 +1035,18 @@
   [
    "Preciso ter habilitação náutica para aderir?",
    "Não para contratar o consórcio. A habilitação é exigida para conduzir a embarcação, não para participar do grupo."
+  ],
+  [
+   "Quanto tempo até eu receber a carta de crédito?",
+   "Não há resposta honesta em forma de prazo. É sorteio ou lance, em assembleia. Quem quer usar numa temporada específica precisa começar cedo."
+  ],
+  [
+   "A carta cobre motor de popa e acessórios?",
+   "Em geral a carta é destinada à embarcação. Motor e acessórios dependem das regras da modalidade — confirme o escopo antes da adesão."
+  ],
+  [
+   "Além da embarcação, o que eu ainda vou pagar?",
+   "Registro junto à Marinha, vaga em marina e manutenção não entram na carta. São custos recorrentes que costumam surpreender quem compra a primeira."
   ]
  ],
  "/consorcio-contemplado/": [

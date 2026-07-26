@@ -70,6 +70,23 @@ publicada** — exposição LGPD que independe de campanha.
 A tabela não separa moto de veículo. As páginas de moto apontam para
 `/simulador/veiculos/` e nenhuma exibe valor de parcela.
 
+## P6b — Simulador próprio para moto e embarcações
+
+**Não bloqueia página. Bloqueia precisão do CTA.**
+
+`/consorcio-moto/` aponta para `/simulador/veiculos/` e
+`/consorcio-embarcacoes/` para `/simulador/servicos/`. Nenhuma das duas exibe
+valor de parcela, então **não há dado errado no ar** — mas o botão leva a uma
+calculadora que não é do bem.
+
+Mitigação aplicada em 26/07/2026: nesses dois hubs o botão diz **"Simular meu
+consórcio"** em vez de "Simular minha parcela", que seria promessa de cálculo
+específico.
+
+**Quando P1 chegar:** criar rota de simulador própria para as duas modalidades,
+ou parametrizar o bem no simulador atual. Aí o CTA volta a "Simular minha
+parcela".
+
 ## P7 — Banner de consentimento
 
 **Bloqueia:** qualquer campanha, e também GA4 em tráfego orgânico.

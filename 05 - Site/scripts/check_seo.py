@@ -122,6 +122,31 @@ def validar_mapa(doc):
 # ITBI, escritura e registro sao custos de transmissao de imovel. Emplacamento
 # e transferencia sao de veiculo. Trocar um pelo outro entrega ao leitor uma
 # conta que ele nao vai ter - ou esconde uma que vai.
+# Construcoes que prometem parcela que nao muda. A parcela MUDA: e reajustada
+# pelo indice do contrato, e o proprio /guia/reajuste-da-parcela/ explica isso.
+#
+# "Sem juros e sem variacao de taxa, a parcela entra no planejamento anual sem
+# surpresa" nasceu num card de vantagem e se espalhou por 12 lugares antes de
+# alguem notar. Em pagina sobre dinheiro isso e informacao falsa, nao
+# imprecisao de copy - e o erro nasceu duas vezes em card de vantagem, que e
+# onde a tentacao de simplificar e maior.
+#
+# O que E previsivel: a ausencia de juros e a regra estar no contrato. O valor
+# em reais, nao.
+#
+# Valor = rotas onde o padrao PODE aparecer, porque ali ele nega o conceito
+# em vez de prometer.
+PARCELA_FIXA = {
+    'sem variacao': (),
+    'sem variacao de taxa': (),
+    'parcela fixa': (),
+    'valor fixo': (),
+    'sem surpresa': (),
+    'sem sobressalto': (),
+    'sem reajuste': ('/guia/reajuste-da-parcela/',),
+}
+
+
 TERMOS_MODALIDADE = {
     'fgts': ('/consorcio-imoveis', '/guia/primeiro-imovel/', '/glossario/',
              '/guia/lance-no-consorcio/', '/perguntas/'),
@@ -142,6 +167,13 @@ def validar_modalidade():
     a replicacao de molde carrega o texto junto com a estrutura, e o erro so
     aparece quando um leitor tenta usar FGTS num consorcio de carro.
     """
+    import unicodedata
+
+    def norm(t):
+        t = unicodedata.normalize('NFD', t.lower())
+        return ''.join(c for c in t
+                       if unicodedata.category(c) != 'Mn')
+
     erros = []
     conteudo = os.path.join(RAIZ, 'content')
 
@@ -154,6 +186,16 @@ def validar_modalidade():
                 erros.append('MODALIDADE - "%s" em %s (%s). Esse termo so se '
                              'aplica a: %s'
                              % (termo, rota, origem, ', '.join(permitidos)))
+
+        # Mesma mecanica, outra regra: promessa de parcela que nao muda.
+        for termo, permitidos in PARCELA_FIXA.items():
+            if termo not in norm(texto):
+                continue
+            if not any(rota.startswith(p) for p in permitidos):
+                erros.append('PARCELA FIXA - "%s" em %s (%s). A parcela e '
+                             'reajustada pelo indice do contrato; prometer que '
+                             'ela nao muda e informacao falsa.'
+                             % (termo, rota, origem))
 
     caminho = os.path.join(conteudo, 'segmentos.json')
     if os.path.exists(caminho):

@@ -136,7 +136,7 @@
       "nome": "Moto",
       "eyebrow": "Moto",
       "h1": "Consórcio de moto: da primeira ao trabalho",
-      "respostaCurta": "O consórcio de moto permite comprar sua moto sem juros e sem entrada, com parcelas geralmente menores que as de um financiamento. Você entra em um grupo, paga mensalmente e recebe a carta de crédito ao ser contemplado por sorteio ou por lance.",
+      "respostaCurta": "O consórcio de moto permite comprar moto nova ou usada sem juros e sem entrada, com parcela geralmente menor que a de um financiamento. Você é contemplado por sorteio ou lance e compra à vista. Serve a quem pode esperar — não a quem depende da moto para trabalhar agora.",
       "lead": "Moto nova ou usada, para o trabalho ou para o fim de semana, e muitas vezes a primeira da vida. O financiamento cobra juros e quase sempre pede entrada. O consórcio não faz nem uma coisa nem outra — você planeja e compra à vista.",
       "porque_titulo": "Por que consórcio de moto",
       "porque": [
@@ -148,16 +148,35 @@
         [
           "Você escolhe na contemplação",
           "Marca, cilindrada, nova ou usada — a carta não é vinculada a concessionária."
+        ],
+        [
+          "Sem análise de crédito na adesão",
+          "Você entra no grupo e concorre desde a primeira assembleia, sem passar por aprovação. A análise de capacidade de pagamento vem na contemplação, quando o crédito vai ser liberado."
         ]
       ],
       "cobre_titulo": "O que a carta de crédito cobre",
       "cobre": [
-        "Moto zero quilômetro",
-        "Moto usada ou seminova",
-        "Primeira moto",
-        "Moto de trabalho e delivery",
-        "Moto elétrica",
-        "Scooter e alta cilindrada"
+        [
+          "Moto zero quilômetro",
+          "Compra na concessionária, com a carta paga ao vendedor pela administradora."
+        ],
+        [
+          "Moto usada ou seminova",
+          "Dentro dos critérios de ano e vistoria — confirme o limite de ano antes da adesão."
+        ],
+        [
+          "Primeira moto",
+          "Sem análise de crédito na adesão, alcança quem ainda não tem histórico bancário."
+        ],
+        [
+          "Moto de trabalho e delivery",
+          "Ferramenta de renda. Vale lembrar que o consórcio não repõe moto parada."
+        ],
+        ["Moto elétrica", "O que define é o valor da carta e a documentação, não a motorização."],
+        [
+          "Scooter e alta cilindrada",
+          "A carta acompanha o valor da moto pretendida, dentro dos limites da modalidade."
+        ]
       ],
       "faq": [
         [
@@ -171,8 +190,62 @@
         [
           "O consórcio cobre emplacamento e seguro?",
           "A carta de crédito cobre o valor do bem. Custos de emplacamento, documentação e seguro variam conforme o plano — confirme antes de contratar."
+        ],
+        [
+          "Quanto tempo até eu receber a carta de crédito?",
+          "Não há resposta honesta em forma de prazo. É sorteio ou lance, em assembleia, e varia grupo a grupo. O lance aumenta a chance, não a certeza."
+        ],
+        [
+          "Consigo a moto a tempo de começar a trabalhar?",
+          "Não há como prometer. Se a renda depende da moto agora, o consórcio não é a ferramenta — ele é planejamento de médio prazo."
+        ],
+        [
+          "Posso comprar de particular?",
+          "Sim, desde que a documentação da moto e do vendedor atenda às exigências e a moto passe na vistoria."
         ]
-      ]
+      ],
+      "simulador": "/simulador/veiculos/",
+      "ctaSimulador": "Simular meu consórcio",
+      "tabela": {
+        "titulo": "Consórcio ou financiamento de moto",
+        "intro": "Financiamento de moto costuma sair com taxa de crédito pessoal, das mais altas do mercado. É a comparação que mais pesa nesta modalidade.",
+        "col0": "",
+        "col1": "Consórcio",
+        "col2": "Financiamento de moto",
+        "linhas": [
+          ["Juros", "Não há", "Sim, frequentemente em patamar de crédito pessoal"],
+          ["Entrada", "Não obrigatória", "Em regra exigida"],
+          ["Análise de crédito", "Na contemplação", "Na contratação — reprova antes de começar"],
+          [
+            "Acesso à moto",
+            "Na contemplação, por sorteio ou lance, sem data previsível",
+            "Imediato"
+          ],
+          ["Posição na negociação", "Comprador à vista", "Comprador financiado"]
+        ],
+        "nota": "As taxas de administração e os juros variam por administradora, banco e perfil. A comparação honesta soma tudo o que sai do bolso até o fim do contrato, nos dois cenários."
+      },
+      "passos": {
+        "titulo": "Como funciona, da adesão à moto na garagem",
+        "itens": [
+          [
+            "Adesão",
+            "Você escolhe o valor da carta e o prazo, sem entrada e sem análise de crédito."
+          ],
+          [
+            "Parcelas",
+            "Você paga e concorre desde a primeira assembleia. Cota em atraso deixa de concorrer até regularizar."
+          ],
+          [
+            "Contemplação",
+            "Por sorteio ou lance, em assembleia. Nenhuma data pode ser prometida — e quem depende da moto para trabalhar precisa considerar isso antes de aderir."
+          ],
+          [
+            "Moto na garagem",
+            "A administradora paga o vendedor após vistoria e conferência documental. Concessionária ou particular, zero ou usada."
+          ]
+        ]
+      }
     },
     {
       "slug": "consorcio-imoveis",
@@ -321,7 +394,7 @@
       "nome": "Caminhão",
       "eyebrow": "Caminhão e transporte",
       "h1": "Consórcio de caminhão: renovar a frota sem comprometer o caixa",
-      "respostaCurta": "O consórcio de caminhão permite renovar ou ampliar a frota sem juros e sem entrada. Você paga parcelas mensais e, na contemplação, compra o caminhão, a carreta ou o implemento à vista — preservando a margem do frete, que no financiamento é consumida pelos juros.",
+      "respostaCurta": "O consórcio de caminhão permite comprar ou renovar caminhão, carreta e implementos sem juros e sem entrada. Você paga parcelas, é contemplado por sorteio ou lance e compra à vista. Serve a quem planeja a renovação — não a quem precisa repor um veículo parado agora.",
       "lead": "Para quem vive de transporte, o caminhão é ferramenta de trabalho — e juros de financiamento saem direto da margem do frete. O consórcio troca isso por uma parcela previsível, sem juros.",
       "porque_titulo": "Por que consórcio para transporte",
       "porque": [
@@ -336,16 +409,38 @@
         [
           "Vale para autônomo e para empresa",
           "Caminhoneiro autônomo, transportadora ou empresa com frota própria — a estrutura é a mesma."
+        ],
+        [
+          "Custo por quilômetro previsível",
+          "Sem juros, com taxa de administração definida no contrato e reajuste pelo índice previsto, o custo do ativo entra no cálculo do frete de forma planejável. Numa operação de margem apertada, previsibilidade vale tanto quanto preço."
         ]
       ],
       "cobre_titulo": "O que a carta de crédito cobre",
       "cobre": [
-        "Caminhão novo",
-        "Caminhão usado ou seminovo",
-        "Renovação de frota empresarial",
-        "Ônibus e micro-ônibus",
-        "Carreta, bitrem e baú",
-        "Implementos rodoviários"
+        [
+          "Caminhão novo",
+          "Compra direto na concessionária, com a carta paga ao vendedor pela administradora."
+        ],
+        [
+          "Caminhão usado ou seminovo",
+          "Dentro dos critérios de ano e vistoria. Confirme o limite de ano na adesão: é ele que define se a carta serve para o caminhão que você quer."
+        ],
+        [
+          "Renovação de frota empresarial",
+          "Várias cotas em paralelo distribuem as contemplações e trocam a renovação em bloco por reposição contínua."
+        ],
+        [
+          "Ônibus e micro-ônibus",
+          "Transporte de passageiros, fretamento e turismo, conforme a modalidade contratada."
+        ],
+        [
+          "Carreta, bitrem e baú",
+          "Dá para comprar só o implemento, sem o cavalo mecânico — é onde o retorno por quilômetro costuma aparecer mais rápido."
+        ],
+        [
+          "Implementos rodoviários",
+          "Tanque, prancha, graneleiro e demais, novos ou usados dentro dos critérios."
+        ]
       ],
       "faq": [
         [
@@ -359,15 +454,73 @@
         [
           "Empresa pode fazer consórcio?",
           "Sim. Pessoa jurídica pode aderir, e é comum que empresas mantenham mais de uma cota para escalonar a renovação da frota."
+        ],
+        [
+          "Quanto tempo até eu receber a carta de crédito?",
+          "Não há resposta honesta em forma de prazo. A contemplação ocorre por sorteio ou lance, em assembleia, e varia grupo a grupo. O lance aumenta a chance, não a certeza."
+        ],
+        [
+          "Além do caminhão, o que eu ainda vou pagar?",
+          "Transferência de propriedade, emplacamento e licenciamento não entram na carta. São custos junto ao Detran, pagos por você na hora da compra."
+        ],
+        [
+          "Posso usar mais de uma cota para renovar a frota?",
+          "Sim. Cada cota concorre de forma independente, o que distribui as contemplações ao longo do tempo. Não há como prever se sairão juntas."
         ]
-      ]
+      ],
+      "simulador": "/simulador/caminhao/",
+      "tabela": {
+        "titulo": "Consórcio ou financiamento de veículo pesado",
+        "intro": "Renovar frota é decisão de caixa antes de ser decisão de taxa. O que muda entre as vias é quando o caminhão roda e quanto do limite da empresa fica comprometido.",
+        "col0": "",
+        "col1": "Consórcio",
+        "col2": "Financiamento de pesado",
+        "linhas": [
+          ["Juros", "Não há", "Sim, ao longo de todo o contrato"],
+          ["Entrada", "Não obrigatória", "Em regra exigida"],
+          ["Análise de crédito", "Na contemplação", "Na contratação — reprova antes de começar"],
+          ["Limite bancário", "Não consome", "Consome o limite da empresa"],
+          [
+            "Acesso ao veículo",
+            "Na contemplação, por sorteio ou lance, sem data previsível",
+            "Imediato"
+          ],
+          [
+            "Linha subsidiada para bem de capital",
+            "Não se aplica",
+            "Quando o transportador se enquadra, tende a custar menos que o consórcio"
+          ]
+        ],
+        "nota": "As taxas de administração e os juros variam por administradora, banco e perfil. A comparação honesta soma tudo o que sai do bolso até o fim do contrato, nos dois cenários. O consórcio não vence no custo quando há linha subsidiada disponível: ele vence em previsibilidade e em não depender de aprovação."
+      },
+      "passos": {
+        "titulo": "Como funciona, da adesão ao veículo rodando",
+        "itens": [
+          [
+            "Adesão",
+            "Você escolhe o valor da carta e o prazo, sem entrada e sem análise de crédito. A carta é dimensionada pelo veículo pretendido, considerando o que ele deve custar na contemplação."
+          ],
+          [
+            "Parcelas",
+            "Você paga a mensalidade e concorre desde a primeira assembleia. Cota em atraso deixa de concorrer até regularizar."
+          ],
+          [
+            "Contemplação",
+            "Por sorteio ou lance, em assembleia. Nenhuma data pode ser prometida. É aqui que entra a análise de capacidade de pagamento e a constituição da garantia."
+          ],
+          [
+            "Veículo rodando",
+            "A administradora paga o vendedor após vistoria e conferência documental. Concessionária ou particular, zero ou usado. As parcelas restantes continuam."
+          ]
+        ]
+      }
     },
     {
       "slug": "consorcio-maquinas-agricolas",
       "nome": "Máquinas Agrícolas",
       "eyebrow": "Agronegócio",
       "h1": "Consórcio de máquinas agrícolas: investir no maquinário no tempo da lavoura",
-      "respostaCurta": "O consórcio de máquinas agrícolas permite adquirir trator, colheitadeira e implementos sem juros e sem depender da liberação do crédito rural. Você planeja a contemplação para a janela da safra e compra à vista, com poder de negociação na concessionária.",
+      "respostaCurta": "O consórcio de máquinas agrícolas permite adquirir trator, colheitadeira ou implemento sem juros e sem depender da liberação de crédito rural. Você paga parcelas e compra à vista na contemplação. Serve a quem planeja por safra — não a quem precisa da máquina antes do próximo plantio.",
       "lead": "Máquina parada é safra comprometida — mas crédito rural nem sempre chega na hora certa, e juros pesam num setor que já convive com clima e câmbio. O consórcio dá previsibilidade a um custo que você controla.",
       "porque_titulo": "Por que consórcio no agro",
       "porque": [
@@ -382,15 +535,31 @@
         [
           "Lance como ferramenta de estratégia",
           "Numa safra boa, o lance pode antecipar a contemplação para a próxima janela de plantio."
+        ],
+        [
+          "Não depende de enquadramento",
+          "Sem análise de crédito na adesão, alcança quem não se enquadra na linha subsidiada, já usou o limite ou não quer depender do calendário de liberação."
         ]
       ],
       "cobre_titulo": "O que a carta de crédito cobre",
       "cobre": [
-        "Trator de qualquer porte",
-        "Colheitadeira",
-        "Pulverizador",
-        "Plantadeira e implementos",
-        "Equipamentos e maquinário em geral"
+        [
+          "Trator de qualquer porte",
+          "A carta acompanha a potência e o valor da máquina pretendida."
+        ],
+        [
+          "Colheitadeira",
+          "Ativo que mais concentra capital na lavoura — costuma pedir uma ou duas safras de antecedência no planejamento."
+        ],
+        ["Pulverizador", "Autopropelido ou de arrasto, respeitadas as regras de avaliação."],
+        [
+          "Plantadeira e implementos",
+          "Onde o ganho por hectare costuma aparecer mais rápido, com investimento menor que o de trocar o trator."
+        ],
+        [
+          "Equipamentos e maquinário em geral",
+          "Novos ou usados, dentro dos critérios de ano e conservação da administradora."
+        ]
       ],
       "faq": [
         [
@@ -404,15 +573,73 @@
         [
           "Vale mais a pena que o crédito rural?",
           "Depende. O crédito rural subsidiado costuma ter custo menor, mas depende de disponibilidade, enquadramento e liberação. O consórcio vence em previsibilidade e independência de aprovação."
+        ],
+        [
+          "Quanto tempo até eu receber a carta de crédito?",
+          "Não há resposta honesta em forma de prazo. A contemplação ocorre por sorteio ou lance e não tem data previsível. Nenhuma administradora pode prometer que a máquina chega antes do plantio."
+        ],
+        [
+          "Consórcio é mais barato que o crédito rural subsidiado?",
+          "Em geral não, quando o produtor se enquadra e a linha está disponível. Crédito subsidiado é subsidiado. O consórcio compensa por previsibilidade e acesso, não por taxa."
+        ],
+        [
+          "Posso usar os dois?",
+          "Sim. É comum usar a linha subsidiada no que ela cobre e o consórcio no que ficou de fora ou no próximo investimento."
         ]
-      ]
+      ],
+      "simulador": "/simulador/maquinas-agricolas/",
+      "tabela": {
+        "titulo": "Consórcio ou crédito rural subsidiado",
+        "intro": "Esta é uma comparação em que o consórcio não vence sempre — e dizer o contrário seria desonesto. O ponto não é qual é melhor, é qual serve à sua situação.",
+        "col0": "",
+        "col1": "Consórcio",
+        "col2": "Crédito rural subsidiado",
+        "linhas": [
+          [
+            "Custo",
+            "Taxa de administração, sem juros",
+            "Costuma ser menor para quem se enquadra — é crédito subsidiado"
+          ],
+          ["Enquadramento", "Não exige", "Exige, e nem todo produtor se enquadra"],
+          ["Disponibilidade", "Sempre aberta", "Depende de dotação e de calendário"],
+          ["Análise de crédito", "Na contemplação", "Na contratação"],
+          [
+            "Acesso à máquina",
+            "Na contemplação, sem data previsível",
+            "Após aprovação e liberação"
+          ],
+          ["Limite da linha", "Não consome", "Consome o limite disponível"]
+        ],
+        "nota": "O consórcio não vence no custo quando a linha subsidiada está disponível e o produtor se enquadra. Ele vence em previsibilidade, em acesso e em não depender de aprovação. As taxas de administração e os juros variam por administradora, banco e perfil. A comparação honesta soma tudo o que sai do bolso até o fim do contrato, nos dois cenários."
+      },
+      "passos": {
+        "titulo": "Como funciona, da adesão à máquina no campo",
+        "itens": [
+          [
+            "Adesão",
+            "Você escolhe a carta pelo valor da máquina pretendida, sem entrada e sem análise de crédito. Pessoa física e jurídica podem aderir."
+          ],
+          [
+            "Parcelas",
+            "Você paga e concorre desde a primeira assembleia. Quem começa cedo atravessa mais assembleias antes da janela em que precisa da máquina."
+          ],
+          [
+            "Contemplação",
+            "Por sorteio ou lance. Uma safra boa pode financiar um lance e antecipar a contemplação — sem garantia de resultado, porque vence o maior percentual do mês."
+          ],
+          [
+            "Máquina no campo",
+            "A administradora paga o vendedor após a conferência documental. Se a máquina custar mais que a carta, a diferença é complementada por você."
+          ]
+        ]
+      }
     },
     {
       "slug": "consorcio-servicos",
       "nome": "Serviços",
       "eyebrow": "Serviços",
       "h1": "Consórcio de serviços: planejar o que não é bem material",
-      "respostaCurta": "O consórcio de serviços é uma forma de pagar viagem, casamento, estudos, energia solar ou procedimentos de saúde de forma planejada, sem os juros do cartão parcelado ou do crediário. Na contemplação, você recebe o crédito e contrata o serviço à vista.",
+      "respostaCurta": "Consórcio de serviços financia o que não é bem material: energia solar, viagem, casamento, estudos ou procedimentos de saúde. A carta paga o prestador diretamente, mediante nota fiscal — não vira dinheiro na sua conta. Você é contemplado por sorteio ou lance, sem data previsível.",
       "lead": "Nem tudo que a gente quer conquistar é um bem. Reforma, tratamento, viagem, casamento e estudo costumam acabar no cartão parcelado ou no empréstimo pessoal — as duas formas mais caras de pagar. Existe alternativa sem juros.",
       "porque_titulo": "Por que consórcio de serviços",
       "porque": [
@@ -427,20 +654,42 @@
         [
           "Pagamento à vista ao prestador",
           "Com a carta, você contrata como quem paga à vista — e isso costuma render desconto."
+        ],
+        [
+          "O que a carta não faz",
+          "Ela não vira saldo em conta e não quita dívida. A administradora paga o fornecedor contra nota fiscal, e é você quem escolhe o prestador — dentro do que a modalidade contratada cobre."
         ]
       ],
       "cobre_titulo": "O que a carta de crédito cobre",
       "cobre": [
-        "Energia solar",
-        "Reforma da casa",
-        "Cirurgia plástica",
-        "Harmonização estética",
-        "Tratamento odontológico",
-        "Viagem",
-        "Casamento",
-        "Festas e eventos",
-        "Intercâmbio e educação",
-        "Móveis planejados"
+        [
+          "Energia solar",
+          "Instalação de sistema fotovoltaico, com pagamento ao fornecedor mediante nota."
+        ],
+        [
+          "Reforma da casa",
+          "Material e mão de obra, conforme a modalidade. Reforma e aquisição de imóvel são cartas diferentes."
+        ],
+        [
+          "Cirurgia plástica",
+          "Procedimento em clínica ou hospital, com nota fiscal em nome do consorciado."
+        ],
+        [
+          "Harmonização estética",
+          "Procedimentos estéticos realizados por profissional habilitado."
+        ],
+        [
+          "Tratamento odontológico",
+          "Implante, ortodontia e demais tratamentos com orçamento formal."
+        ],
+        ["Viagem", "Pacote, passagem e hospedagem contratados junto a agência ou operadora."],
+        ["Casamento", "Festa, buffet, decoração e cerimônia — cada fornecedor recebe contra nota."],
+        ["Festas e eventos", "Formatura, aniversário e eventos com fornecedor formalizado."],
+        [
+          "Intercâmbio e educação",
+          "Curso, graduação, pós ou programa no exterior, pago à instituição."
+        ],
+        ["Móveis planejados", "Projeto e instalação contratados junto a marcenaria ou loja."]
       ],
       "faq": [
         [
@@ -454,15 +703,68 @@
         [
           "Energia solar entra em serviços?",
           "Sim. É uma das modalidades mais procuradas, porque o sistema costuma se pagar com a economia na conta de luz."
+        ],
+        [
+          "A carta vira dinheiro na minha conta?",
+          "Não. A administradora paga o prestador diretamente, mediante nota fiscal e comprovação do serviço. Não existe consórcio que vire saldo livre — e quem oferecer isso está fora das regras."
+        ],
+        [
+          "Quanto tempo até eu receber a carta de crédito?",
+          "Não há resposta honesta em forma de prazo. É sorteio ou lance, em assembleia. Quem tem data marcada — casamento, viagem, início de curso — precisa saber que a contemplação não chega sob encomenda."
+        ],
+        [
+          "E se o serviço custar menos que a carta?",
+          "As regras variam conforme o contrato do grupo. Confirme antes de aderir como a diferença é tratada — não assuma que sobra em dinheiro."
         ]
-      ]
+      ],
+      "simulador": "/simulador/servicos/",
+      "tabela": {
+        "titulo": "Consórcio de serviços, cartão parcelado ou crédito pessoal",
+        "intro": "O concorrente real desta modalidade não é o financiamento — é o cartão e o crédito pessoal, que são as vias que a maioria usa para pagar serviço. A diferença mais importante não é a taxa: é que a carta é vinculada e as outras duas são dinheiro livre.",
+        "col0": "",
+        "col1": "Consórcio de serviços",
+        "col2": "Cartão parcelado ou crédito pessoal",
+        "linhas": [
+          ["Juros", "Não há", "Sim, entre os mais altos do mercado"],
+          [
+            "Uso do dinheiro",
+            "Vinculado ao serviço, pago ao prestador contra nota fiscal",
+            "Livre"
+          ],
+          ["Quando você usa", "Na contemplação, sem data previsível", "Imediato"],
+          ["Análise de crédito", "Na contemplação", "Na aprovação do limite ou na contratação"],
+          ["Escolha do prestador", "Sua, dentro do que a modalidade cobre", "Sua, sem restrição"]
+        ],
+        "nota": "Para quem precisa do serviço agora, cartão e crédito pessoal resolvem e o consórcio não. As taxas de administração e os juros variam por administradora, banco e perfil. A comparação honesta soma tudo o que sai do bolso até o fim do contrato, nos dois cenários."
+      },
+      "passos": {
+        "titulo": "Como funciona, da adesão ao serviço contratado",
+        "itens": [
+          [
+            "Adesão",
+            "Você escolhe o valor da carta pelo orçamento do serviço pretendido, sem entrada e sem análise de crédito."
+          ],
+          [
+            "Parcelas",
+            "Você paga a mensalidade e concorre desde a primeira assembleia. Cota em atraso deixa de concorrer até regularizar."
+          ],
+          [
+            "Contemplação",
+            "Por sorteio ou lance. Nenhuma data pode ser prometida — quem tem evento marcado precisa considerar isso antes de aderir."
+          ],
+          [
+            "Serviço contratado",
+            "Você apresenta o orçamento e a administradora paga o prestador contra nota fiscal. O dinheiro não passa pela sua conta em nenhum momento."
+          ]
+        ]
+      }
     },
     {
       "slug": "consorcio-empresa",
       "nome": "Empresa",
       "eyebrow": "Empresas e MEI",
       "h1": "Consórcio para empresa: investir sem travar o capital de giro",
-      "respostaCurta": "O consórcio para empresa permite adquirir frota, equipamentos ou imóvel comercial sem consumir capital de giro e sem tomar crédito bancário. A parcela entra como custo previsível no fluxo de caixa, e a compra à vista na contemplação amplia o poder de negociação.",
+      "respostaCurta": "O consórcio para empresa permite adquirir frota, equipamentos ou imóvel comercial sem juros e sem consumir limite bancário. A parcela entra no orçamento com regra definida em contrato e o capital de giro fica livre. Serve a quem planeja o investimento — não a quem precisa repor um ativo parado.",
       "lead": "Empréstimo empresarial consome margem e exige garantia. O consórcio permite planejar a compra de equipamento, veículo ou obra com parcela previsível — preservando o caixa que sustenta a operação no dia a dia.",
       "porque_titulo": "Por que consórcio para o seu negócio",
       "porque": [
@@ -472,43 +774,119 @@
         ],
         [
           "Custo previsível no orçamento",
-          "Sem juros e sem variação de taxa, a parcela entra no planejamento anual sem surpresa."
+          "Sem juros e com taxa de administração definida em contrato, a parcela entra no planejamento anual. O reajuste segue o índice previsto."
         ],
         [
           "Do MEI à empresa estruturada",
           "Autônomo, MEI ou sociedade — muda o porte, não a lógica do planejamento."
+        ],
+        [
+          "Múltiplas cotas em paralelo",
+          "Cada cota concorre separadamente, o que distribui as contemplações ao longo do tempo e troca a renovação em bloco por reposição contínua."
         ]
       ],
       "cobre_titulo": "O que a carta de crédito cobre",
       "cobre": [
-        "MEI e autônomo",
-        "Abertura ou expansão de franquia",
-        "Equipamentos industriais",
-        "Construção civil e obra",
-        "Veículos e frota",
-        "Imóvel comercial"
+        [
+          "MEI e autônomo",
+          "Sem análise de crédito na adesão — alcança quem tem dificuldade de acesso a crédito bancário."
+        ],
+        [
+          "Abertura ou expansão de franquia",
+          "Investimento planejado, conforme a modalidade contratada."
+        ],
+        [
+          "Equipamentos industriais",
+          "Máquinas, equipamentos e tecnologia, novos ou usados dentro dos critérios."
+        ],
+        [
+          "Construção civil e obra",
+          "Equipamento e maquinário de obra, respeitadas as regras de comprovação."
+        ],
+        [
+          "Veículos e frota",
+          "Várias cotas em paralelo escalonam a renovação sem concentrar investimento."
+        ],
+        [
+          "Imóvel comercial",
+          "Sala, loja, galpão ou ponto — troca aluguel comercial por patrimônio da empresa."
+        ]
       ],
       "faq": [
         [
           "MEI pode fazer consórcio?",
-          "Sim. MEI, autônomo e empresas de qualquer porte podem aderir, conforme as regras do grupo."
+          "Sim. MEI, autônomo e empresas de qualquer porte podem aderir, conforme as regras do grupo. Não há exigência de faturamento mínimo para entrar."
         ],
         [
           "O consórcio é dedutível no Imposto de Renda?",
-          "O tratamento tributário depende do regime da empresa e do tipo de bem. Consulte seu contador — não damos orientação fiscal."
+          "Depende do regime tributário da empresa e do bem adquirido. Consulte seu contador — não prestamos orientação fiscal."
         ],
         [
           "Posso ter várias cotas?",
-          "Sim. É comum empresas manterem mais de uma cota para escalonar contemplações conforme o plano de investimento."
+          "Sim, e é comum. Não há limitação usual de quantidade; a análise acontece na contemplação de cada uma."
+        ],
+        [
+          "Quanto tempo até receber a carta de crédito?",
+          "Não há resposta honesta em forma de prazo. Sorteio ou lance, em assembleia. Para investimento com data definida, o consórcio não é a ferramenta."
+        ],
+        [
+          "Serve para repor equipamento parado?",
+          "Não. O consórcio é planejamento de médio prazo. Para reposição imediata, a contemplação não chega a tempo."
+        ],
+        [
+          "A análise na contemplação olha o CNPJ ou o sócio?",
+          "Depende da administradora e do porte da empresa. Confirme o critério antes de aderir, porque é ele que determina o que preparar até lá."
         ]
-      ]
+      ],
+      "simulador": "/simulador/servicos/",
+      "tabela": {
+        "titulo": "Consórcio, capital de giro ou crédito bancário PJ",
+        "intro": "Para a empresa, a pergunta raramente é só quanto custa. É também o que sobra de limite e de caixa depois da decisão.",
+        "col0": "",
+        "col1": "Consórcio",
+        "col2": "Crédito bancário PJ",
+        "linhas": [
+          ["Juros", "Não há", "Sim, conforme a linha e o perfil da empresa"],
+          ["Limite bancário", "Não consome", "Consome o limite disponível"],
+          ["Capital de giro", "Preservado", "Preservado, mas o limite fica comprometido"],
+          [
+            "Garantia exigida",
+            "Em regra o próprio bem, na contemplação",
+            "Definida na contratação, podendo incluir garantia adicional"
+          ],
+          ["Análise de crédito", "Na contemplação", "Na contratação"],
+          ["Acesso ao ativo", "Na contemplação, sem data previsível", "Imediato"]
+        ],
+        "nota": "As taxas de administração e os juros variam por administradora, banco e perfil. A comparação honesta soma tudo o que sai do bolso até o fim do contrato, nos dois cenários."
+      },
+      "passos": {
+        "titulo": "Como funciona na empresa, da adesão ao ativo",
+        "itens": [
+          [
+            "Adesão",
+            "A empresa escolhe o valor da carta e o prazo, sem entrada. Não há análise de crédito nesta etapa, e a linha bancária da empresa segue intacta."
+          ],
+          [
+            "Parcelas",
+            "A mensalidade entra no orçamento com regra definida em contrato. Cada cota concorre desde a primeira assembleia."
+          ],
+          [
+            "Contemplação",
+            "Por sorteio ou lance. Cotas em paralelo não são contempladas juntas necessariamente — e nenhuma data pode ser prometida. É aqui que entra a análise."
+          ],
+          [
+            "Ativo na operação",
+            "A administradora paga o fornecedor mediante comprovação da compra. As parcelas restantes continuam até o fim do plano."
+          ]
+        ]
+      }
     },
     {
       "slug": "consorcio-embarcacoes",
       "nome": "Embarcações",
       "eyebrow": "Náutica",
       "h1": "Consórcio de embarcações: lancha e jet ski sem financiamento caro",
-      "respostaCurta": "O consórcio de embarcações permite comprar lancha, barco ou jet ski sem juros — uma diferença relevante, já que o crédito náutico está entre os mais caros do mercado. Você paga parcelas mensais e adquire a embarcação à vista na contemplação.",
+      "respostaCurta": "O consórcio de embarcações permite comprar lancha, barco ou jet ski sem juros, o que pesa num setor em que o crédito específico está entre os mais caros do mercado. Você é contemplado por sorteio ou lance e negocia como comprador à vista. Não há data previsível.",
       "lead": "O mercado náutico tem poucas linhas de crédito e taxas altas. O consórcio é a via mais comum para quem quer planejar a compra sem entregar boa parte do valor da embarcação em juros.",
       "porque_titulo": "Por que consórcio náutico",
       "porque": [
@@ -523,10 +901,28 @@
         [
           "Serve para nova ou usada",
           "A modalidade contratada define se a carta cobre embarcação nova, seminova ou ambas."
+        ],
+        [
+          "Comprador à vista abre condição",
+          "Estaleiro e revenda costumam melhorar a condição para pagamento imediato. Num ativo dessa faixa de valor, a diferença entre pagar juros e pagar taxa de administração é expressiva — e aparece na negociação como comprador à vista."
         ]
       ],
       "cobre_titulo": "O que a carta de crédito cobre",
-      "cobre": ["Lancha", "Jet ski", "Barco e veleiro", "Embarcações de lazer"],
+      "cobre": [
+        [
+          "Lancha",
+          "Nova ou seminova, respeitados os critérios de ano e avaliação da administradora."
+        ],
+        [
+          "Jet ski",
+          "Ticket menor que o de embarcação maior, o que costuma permitir prazos mais curtos."
+        ],
+        ["Barco e veleiro", "Conforme a modalidade contratada e o valor da carta."],
+        [
+          "Embarcações de lazer",
+          "Uso recreativo. Confirme na adesão se motor de popa e acessórios entram na carta."
+        ]
+      ],
       "faq": [
         [
           "Dá para comprar embarcação usada?",
@@ -539,8 +935,58 @@
         [
           "Preciso ter habilitação náutica para aderir?",
           "Não para contratar o consórcio. A habilitação é exigida para conduzir a embarcação, não para participar do grupo."
+        ],
+        [
+          "Quanto tempo até eu receber a carta de crédito?",
+          "Não há resposta honesta em forma de prazo. É sorteio ou lance, em assembleia. Quem quer usar numa temporada específica precisa começar cedo."
+        ],
+        [
+          "A carta cobre motor de popa e acessórios?",
+          "Em geral a carta é destinada à embarcação. Motor e acessórios dependem das regras da modalidade — confirme o escopo antes da adesão."
+        ],
+        [
+          "Além da embarcação, o que eu ainda vou pagar?",
+          "Registro junto à Marinha, vaga em marina e manutenção não entram na carta. São custos recorrentes que costumam surpreender quem compra a primeira."
         ]
-      ]
+      ],
+      "simulador": "/simulador/servicos/",
+      "ctaSimulador": "Simular meu consórcio",
+      "tabela": {
+        "titulo": "Consórcio ou crédito náutico",
+        "intro": "O crédito náutico tem poucas linhas e condições menos favoráveis que as de veículo. É o que torna a comparação relevante nesta modalidade.",
+        "col0": "",
+        "col1": "Consórcio",
+        "col2": "Crédito náutico",
+        "linhas": [
+          ["Juros", "Não há", "Sim, e entre os mais altos do crédito para bens"],
+          ["Entrada", "Não obrigatória", "Em regra exigida"],
+          ["Disponibilidade de linhas", "Não se aplica", "Poucas instituições operam a modalidade"],
+          ["Análise de crédito", "Na contemplação", "Na contratação"],
+          ["Acesso à embarcação", "Na contemplação, sem data previsível", "Imediato"]
+        ],
+        "nota": "As taxas de administração e os juros variam por administradora, banco e perfil. A comparação honesta soma tudo o que sai do bolso até o fim do contrato, nos dois cenários."
+      },
+      "passos": {
+        "titulo": "Como funciona, da adesão à embarcação",
+        "itens": [
+          [
+            "Adesão",
+            "Você escolhe o valor da carta pela embarcação pretendida, sem entrada e sem análise de crédito."
+          ],
+          [
+            "Parcelas",
+            "Você paga e concorre desde a primeira assembleia. Cota em atraso deixa de concorrer até regularizar."
+          ],
+          [
+            "Contemplação",
+            "Por sorteio ou lance. Quem pretende usar numa temporada específica precisa começar com bastante antecedência — nenhuma data pode ser prometida."
+          ],
+          [
+            "Embarcação na água",
+            "A administradora paga o vendedor após a conferência documental. Serve para estaleiro, revenda ou particular, respeitados os critérios."
+          ]
+        ]
+      }
     },
     {
       "slug": "consorcio-contemplado",

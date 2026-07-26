@@ -78,8 +78,12 @@ do `movecon-schema-artigos.php`. Sem isso sairiam duas.
 O plano mestre afirma que o mu-plugin já suporta `DefinedTerm` no glossário.
 **Não suporta:** zero ocorrência no código e zero no HTML de `/glossario/`.
 
-Implementar é trabalho não previsto. Os 41 verbetes têm âncora própria e
-estrutura pronta para receber o schema quando for feito.
+**Status: NÃO IMPLEMENTADO — backlog.** Decisão do cliente em 26/07/2026: não
+implementar agora. A prioridade de schema segue `FAQPage`, `Organization` e
+`BreadcrumbList`.
+
+Os 41 verbetes já têm âncora própria e estrutura pronta para receber o schema
+quando for feito. Registrado em `06-pendencias.md`.
 
 ## Sitemap e llms.txt
 

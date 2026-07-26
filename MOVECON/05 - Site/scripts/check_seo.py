@@ -14,6 +14,7 @@ AVISO = pendencia de copy em pagina ainda planejada (resolve na fase de conteudo
       Sem a flag, o script roda offline (util no pre-commit sem rede).
 """
 import io
+import re
 import json
 import os
 import subprocess
@@ -144,6 +145,24 @@ def validar_prosa(doc):
         for p in padroes:
             if p and p in texto:
                 erros.append('COMPLIANCE NA PROSA - "%s" em %s' % (p, rel))
+
+    # REGRA PERMANENTE: nenhuma pagina publica com placeholder renderizado.
+    #
+    # O marcador {{...}} existe para segurar dado que ainda nao chegou -
+    # taxa, prazo, valor de carta. Ele e util no rascunho e catastrofico no
+    # ar: o visitante le "{{DADO_PENDENTE}}" numa pagina que fala de dinheiro,
+    # e a pagina perde exatamente a credibilidade que o resto do site tenta
+    # construir.
+    #
+    # Por isso o placeholder nao e aviso, e ERRO: ou o dado chega, ou a frase
+    # e reescrita sem ele, ou a pagina nao vai ao ar.
+    for caminho in alvos:
+        with io.open(caminho, encoding='utf-8') as fh:
+            texto = fh.read()
+        rel = os.path.relpath(caminho, RAIZ).replace(os.sep, '/')
+        marcadores = sorted(set(re.findall(r'\{\{[^}]{1,60}\}\}', texto)))
+        for m in marcadores:
+            erros.append('PLACEHOLDER NAO RESOLVIDO - %s em %s' % (m, rel))
 
     # sintaxe quebrada por substituicao encadeada
     for caminho in alvos:

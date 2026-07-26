@@ -55,7 +55,7 @@ Contexto de mercado (Anuário ABAC 2026, dados 2025): créditos comercializados 
 
 - Simulador embutido na home (form multi-modalidade). Slugs em dois padrões (inconsistência a evitar): /imoveis, /carros, /motos no rodapé vs /consorcio/consorcio-de-servicos etc.
 - **FAQ on-page gigante na home** (tipos de lance, contemplação, reajuste INCC/IGPM, FGTS, desistência) — ideal para FAQPage schema.
-- E-E-A-T mais forte entre os menores: "36 anos", "150 mil+ bens entregues", "97 mil+ cotas ativas", "500+ contemplações/mês"; RA1000, ISO 9001, GPTW, Bacen, ABAC. Administradora oficial de marcas (Kawasaki, Voltz, XCMG, Dafra, Bajaj, CFMOTO, Yanmar) com subdomínios próprios — modelo de marca branca reverso, relevante como referência estrutural.
+- E-E-A-T mais forte entre os menores: "36 anos", "150 mil+ bens entregues", "97 mil+ cotas ativas", "500+ contemplações/mês"; RA1000, ISO 9001, GPTW, Bacen, ABAC. Administradora oficial de marcas (Kawasaki, Voltz, XCMG, Dafra, Bajaj, CFMOTO, Yanmar) com subdomínios próprios — modelo white-label reverso relevante como referência estrutural.
 - Blog fraco; "Âncora é confiável" nas SERPs é dominado por terceiros (iDinheiro, ABAC) — gap de branded SERP.
 
 ### 6. HS Consórcios (hsconsorcios.com.br) — benchmark mais parecido com a MOVECON

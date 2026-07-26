@@ -25,6 +25,15 @@ FILHAS_NO_AR = {
     '/consorcio-maquinas-agricolas/trator/', '/consorcio-maquinas-agricolas/colheitadeira/',
     '/consorcio-maquinas-agricolas/implementos/',
     '/consorcio-maquinas-agricolas/pronaf-ou-consorcio/',
+    # lote 5 - empresa, embarcacoes e contemplado, publicadas em 25/07/2026
+    '/consorcio-empresa/frota/', '/consorcio-empresa/equipamentos/',
+    '/consorcio-empresa/imovel-comercial/', '/consorcio-empresa/mei/',
+    '/consorcio-embarcacoes/lancha/', '/consorcio-embarcacoes/jet-ski/',
+    '/consorcio-contemplado/golpes-mais-comuns/',
+    '/consorcio-contemplado/comprar-cota-contemplada/',
+    # NAO incluir /consorcio-contemplado/como-verificar-no-banco-central/:
+    # retida ate a URL oficial de consulta do Bacen ser confirmada. A pagina
+    # ensina um caminho de verificacao que ainda nao foi verificado.
 }
 
 
@@ -247,15 +256,15 @@ R += [
     f(E + 'frota/', 'consórcio de frota para empresa', E, 'Consórcio de Frota para Empresa | MOVECON',
       'Renove a frota corporativa com previsibilidade de custo e sem consumir capital de giro. Múltiplas cotas. Simule.'),
     f(E + 'equipamentos/', 'consórcio de equipamentos', E, 'Consórcio de Equipamentos e Maquinário',
-      'Máquinas, equipamentos e tecnologia para a operação, sem tomar crédito bancário nem travar o caixa. Simule.'),
+      'Máquinas, equipamentos e tecnologia para a operação, sem juros e sem tomar crédito bancário. Preserve o capital de giro da empresa.'),
     f(E + 'imovel-comercial/', 'consórcio de imóvel comercial', E, 'Consórcio de Imóvel Comercial | Saia do aluguel',
-      'Compre sala, galpão ou ponto comercial sem financiamento. Troque o aluguel por patrimônio da empresa. Simule.'),
+      'Compre sala, loja, galpão ou ponto comercial sem os juros de um financiamento empresarial. Troque o aluguel por patrimônio da empresa.'),
     f(E + 'mei/', 'consórcio para mei', E, 'Consórcio para MEI e Pequena Empresa | MOVECON',
       'Como o MEI usa o consórcio para comprar veículo, equipamento ou imóvel sem crédito bancário caro. Simule sua parcela.'),
     f(B + 'lancha/', 'consórcio de lancha', B, 'Consórcio de Lancha e Barco | MOVECON',
       'Consórcio náutico para lancha, barco e veleiro, sem os juros elevados do crédito náutico. Simule sua parcela agora.'),
     f(B + 'jet-ski/', 'consórcio de jet ski', B, 'Consórcio de Jet Ski | Sem juros | MOVECON',
-      'Jet ski novo ou usado pela carta de crédito, sem entrada e sem juros. Negocie como comprador à vista. Simule.'),
+      'Jet ski novo ou usado pela carta de crédito, sem entrada e sem os juros do crédito pessoal. Negocie como comprador à vista na contemplação.'),
     f(K + 'golpes-mais-comuns/', 'golpe da carta contemplada', K, 'Golpe da Carta Contemplada: como evitar',
       'Anatomia da fraude mais comum do setor: quem aborda, o que promete e qual pagamento nunca deve ser feito. Com verificação.'),
     f(K + 'como-verificar-no-banco-central/', 'como consultar administradora no banco central', K,
@@ -388,8 +397,12 @@ doc['site'] = collections.OrderedDict([
 ])
 doc['rotas'] = R
 
-io.open(DESTINO, 'w', encoding='utf-8').write(
-    json.dumps(doc, ensure_ascii=False, indent=1))
+# indent=2 e quebra de linha LF: o biome roda no pre-commit sobre os arquivos
+# staged, e o .gitattributes exige LF. Gerar ja no padrao evita que o arquivo
+# gerado derrube o hook a cada regeneracao.
+LF = chr(10)
+io.open(DESTINO, 'w', encoding='utf-8', newline=LF).write(
+    json.dumps(doc, ensure_ascii=False, indent=2) + LF)
 
 print('escrito em: %s' % os.path.relpath(DESTINO, RAIZ))
 print('rotas: %d' % len(R))

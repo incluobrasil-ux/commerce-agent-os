@@ -41,6 +41,8 @@ FILHAS_NO_AR = {
     # /simulador/veiculos/ e nao exibem valor de parcela.
     # lote 7 - glossario, publicado em 26/07/2026 (41 verbetes, 46 ancoras)
     '/glossario/', '/perguntas/', '/guia/',
+    # lote 9 - confianca, publicadas em 26/07/2026
+    '/quem-somos/', '/seguranca/',
     # lote 8 - os 20 guias, publicados em 26/07/2026
     '/guia/como-funciona-o-consorcio/', '/guia/carta-de-credito/',
     '/guia/lance-no-consorcio/', '/guia/taxa-de-administracao/',
@@ -383,7 +385,9 @@ for url, kw, cam, t, d, fase in [
         ('/termos-de-uso/', 'termos de uso movecon', 'institucional', 'Termos de Uso | MOVECON',
          'Condições de uso do site moveconconsorcio.com e dos canais de atendimento da MOVECON. Leia antes de utilizar.', 1)]:
     R.append(dict(url=url, keyword=kw, intencao='navegacional', camada=cam,
-                  title=t, description=d, indexavel=True, status='planejada', fase=fase))
+                  title=t, description=d, indexavel=True,
+                  status=('no-ar' if url in FILHAS_NO_AR else 'planejada'),
+                  fase=fase))
 
 # ------------------------------------------------------------------- montagem
 doc = collections.OrderedDict()

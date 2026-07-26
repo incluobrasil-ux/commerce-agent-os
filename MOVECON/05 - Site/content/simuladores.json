@@ -1,0 +1,99 @@
+{
+ "_leia_me": "Parametros de calculo dos simuladores. ORIGEM: planos Alpha, mesma configuracao usada no simulador da Crelider (pagina 57, lida em 25/07/2026). Confirmado pelo cliente que sao planos da Alpha - mesma administradora dos grupos MOVECON. Nenhum valor foi inventado nem arredondado.",
+ "_formula": {
+  "primeiraParcela": "valor * kFirst",
+  "demaisParcelas": "valor * tot / prazo",
+  "totalPago": "primeiraParcela + demaisParcelas * prazo",
+  "custoSobreCarta": "(kFirst + tot - 1) * 100",
+  "_nota": "Sao DUAS componentes. Ignorar a primeira parcela subestima o custo total - erro cometido e corrigido em 25/07/2026."
+ },
+ "_disclaimer": "Estimativa. Valores sujeitos a confirmacao pela administradora no momento da adesao. Nao constitui proposta. A contemplacao ocorre por sorteio ou lance e nao pode ser garantida.",
+ "whatsapp": "5577981620921",
+ "_whatsapp_provisorio": "PROVISORIO - este e o numero da CRELIDER, autorizado pelo cliente como temporario em 25/07/2026. Leads do site da MOVECON caem no WhatsApp da Crelider. Trocar por um numero MOVECON assim que existir: alterar SO esta chave e republicar os simuladores.",
+ "categorias": {
+  "veiculos": {
+   "nome": "Veículo",
+   "rota": "/simulador/veiculos/",
+   "vMin": 40000,
+   "vMax": 1000000,
+   "vStep": 1000,
+   "vDef": 80000,
+   "kFirst": 0.1411505,
+   "tot": 1.0084444,
+   "pMin": 40,
+   "pMax": 80,
+   "pDef": 80
+  },
+  "moto": {
+   "nome": "Moto",
+   "rota": "/simulador/moto/",
+   "_pendente": "A Crelider nao tem categoria moto separada - usava veiculo. Faixa de credito e prazo de moto precisam ser confirmados com a Alpha antes de publicar.",
+   "vMin": null,
+   "vMax": null,
+   "vStep": 500,
+   "vDef": null,
+   "kFirst": null,
+   "tot": null,
+   "pMin": null,
+   "pMax": null,
+   "pDef": null
+  },
+  "imoveis": {
+   "nome": "Imóvel",
+   "rota": "/simulador/imoveis/",
+   "vMin": 70500,
+   "vMax": 1000000,
+   "vStep": 1000,
+   "vDef": 150000,
+   "kFirst": 0.1921036,
+   "tot": 1.3524068,
+   "pMin": 100,
+   "pMax": 200,
+   "pDef": 200
+  },
+  "caminhao": {
+   "nome": "Caminhão",
+   "rota": "/simulador/caminhao/",
+   "vMin": 81972,
+   "vMax": 2000000,
+   "vStep": 1000,
+   "vDef": 150000,
+   "kFirst": 0.193131,
+   "tot": 1.3616142,
+   "pMin": 75,
+   "pMax": 150,
+   "pDef": 150
+  },
+  "maquinas-agricolas": {
+   "nome": "Máquina Agrícola",
+   "rota": "/simulador/maquinas-agricolas/",
+   "vMin": 81972,
+   "vMax": 2000000,
+   "vStep": 1000,
+   "vDef": 150000,
+   "kFirst": 0.193131,
+   "tot": 1.3616142,
+   "pMin": 75,
+   "pMax": 150,
+   "pDef": 150
+  },
+  "servicos": {
+   "nome": "Serviços",
+   "rota": "/simulador/servicos/",
+   "vMin": 21859,
+   "vMax": 120000,
+   "vStep": 500,
+   "vDef": 30000,
+   "kFirst": 0.138867,
+   "tot": 1.2676965,
+   "pMin": 30,
+   "pMax": 60,
+   "pDef": 60
+  }
+ },
+ "_pendencias": [
+  "WhatsApp proprio da MOVECON (hoje usando o da Crelider como provisorio).",
+  "Faixa e prazo da categoria moto (a Crelider nao separava moto de veiculo).",
+  "Confirmar com a Alpha se ha categoria propria para embarcacoes e empresa - hoje o mapa preve /consorcio-embarcacoes/ e /consorcio-empresa/ como hubs, mas nao ha simulador correspondente no keyword-map."
+ ]
+}

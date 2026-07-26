@@ -15,6 +15,10 @@ FILHAS_NO_AR = {
     # lote 2 - veiculos, publicadas em 25/07/2026
     '/consorcio-veiculos/carros/', '/consorcio-veiculos/carro-usado/',
     '/consorcio-veiculos/carro-pj/', '/consorcio-veiculos/carro-de-luxo/',
+    # lote 3 - servicos, publicadas em 25/07/2026
+    '/consorcio-servicos/energia-solar/', '/consorcio-servicos/viagem/',
+    '/consorcio-servicos/casamento/', '/consorcio-servicos/educacao/',
+    '/consorcio-servicos/saude-estetica/',
 }
 
 
@@ -233,7 +237,7 @@ R += [
     f(S + 'educacao/', 'consórcio para estudos', S, 'Consórcio para Estudos e Intercâmbio',
       'Faculdade, pós-graduação ou intercâmbio sem financiamento estudantil. Consórcio de serviços para educação. Simule.'),
     f(S + 'saude-estetica/', 'consórcio para procedimento estético', S, 'Consórcio para Procedimentos e Tratamentos',
-      'Procedimentos e tratamentos planejados sem juros de cartão ou crediário da clínica. Contrate à vista. Simule.'),
+      'Cirurgia plástica, harmonização e tratamento odontológico sem os juros do cartão ou do crediário da clínica. Contrate à vista na contemplação.'),
     f(E + 'frota/', 'consórcio de frota para empresa', E, 'Consórcio de Frota para Empresa | MOVECON',
       'Renove a frota corporativa com previsibilidade de custo e sem consumir capital de giro. Múltiplas cotas. Simule.'),
     f(E + 'equipamentos/', 'consórcio de equipamentos', E, 'Consórcio de Equipamentos e Maquinário',

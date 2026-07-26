@@ -718,7 +718,7 @@
    "intencao": "comercial",
    "camada": "filha",
    "indexavel": true,
-   "status": "planejada",
+   "status": "no-ar",
    "fase": 2
   },
   {
@@ -730,7 +730,7 @@
    "intencao": "comercial",
    "camada": "filha",
    "indexavel": true,
-   "status": "planejada",
+   "status": "no-ar",
    "fase": 2
   },
   {
@@ -742,7 +742,7 @@
    "intencao": "comercial",
    "camada": "filha",
    "indexavel": true,
-   "status": "planejada",
+   "status": "no-ar",
    "fase": 2
   },
   {
@@ -754,7 +754,7 @@
    "intencao": "comercial",
    "camada": "filha",
    "indexavel": true,
-   "status": "planejada",
+   "status": "no-ar",
    "fase": 2
   },
   {
@@ -762,11 +762,11 @@
    "keyword": "consórcio para procedimento estético",
    "pai": "/consorcio-servicos/",
    "title": "Consórcio para Procedimentos e Tratamentos",
-   "description": "Procedimentos e tratamentos planejados sem juros de cartão ou crediário da clínica. Contrate à vista. Simule.",
+   "description": "Cirurgia plástica, harmonização e tratamento odontológico sem os juros do cartão ou do crediário da clínica. Contrate à vista na contemplação.",
    "intencao": "comercial",
    "camada": "filha",
    "indexavel": true,
-   "status": "planejada",
+   "status": "no-ar",
    "fase": 2
   },
   {

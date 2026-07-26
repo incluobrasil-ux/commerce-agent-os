@@ -1,0 +1,89 @@
+{
+ "_leia_me": "Filhas de silo de /consorcio-caminhao/. `respostaCurta` e o bloco ANSWER-FIRST: responde a keyword nas 2-3 primeiras frases, antes de qualquer contexto. Maximo ~55 palavras.",
+
+ "_status": "AGUARDANDO APROVACAO DOS ANSWER-FIRST. Paginas geradas, nao publicadas.",
+
+ "_nota": "Publico profissional: o caminhao e ferramenta de trabalho, nao desejo. A copy fala de margem, custo por quilometro e renovacao programada - nao de conquista. E declara que consorcio nao repoe veiculo parado.",
+
+ "pai": "/consorcio-caminhao/",
+ "simulador": "/simulador/caminhao/",
+
+ "filhas": [
+  {
+   "slug": "caminhao-usado",
+   "keyword": "consórcio de caminhão usado",
+   "h1": "Consórcio de caminhão usado",
+   "respostaCurta": "A carta de crédito de caminhão também compra usado, sem juros. A administradora define um limite de ano de fabricação e exige vistoria e documentação regular. Na contemplação, você paga à vista — o que costuma abrir margem de negociação relevante no mercado de seminovos.",
+   "eyebrow": "Seminovo e usado",
+   "lead": "Financiar caminhão usado costuma sair mais caro que financiar zero: taxa maior, prazo menor e entrada exigida. O consórcio não faz essa distinção — a taxa de administração é a da carta contratada, não da idade do veículo.",
+   "secao": "O que muda em relação ao zero",
+   "itens": [
+    ["Limite de ano de fabricação", "A administradora define até que ano aceita. É o primeiro ponto a confirmar, porque determina se a carta serve."],
+    ["Vistoria e documentação", "O veículo passa por avaliação e precisa estar sem restrição."],
+    ["Negociação à vista", "No mercado de seminovos pesados, pagamento imediato costuma valer desconto."]
+   ],
+   "faq": [
+    ["Até que ano de fabricação é aceito?", "O limite é definido pela administradora e varia conforme a modalidade. Confirme antes da adesão — é o que determina se a carta serve para o caminhão que você quer."],
+    ["Posso comprar de particular?", "Sim, desde que a documentação do veículo e do vendedor atenda às exigências e o caminhão passe na vistoria."],
+    ["A taxa é maior por ser usado?", "Não. A taxa de administração é definida pela carta contratada, não pela idade do veículo escolhido."]
+   ]
+  },
+  {
+   "slug": "carreta-implementos",
+   "keyword": "consórcio de carreta",
+   "h1": "Consórcio de carreta e implementos rodoviários",
+   "respostaCurta": "O consórcio de carreta cobre semirreboque, bitrem, baú, graneleiro e outros implementos rodoviários, sem juros. Você paga parcelas e, na contemplação, compra à vista. É a forma comum de ampliar capacidade de carga sem tomar crédito bancário nem comprometer o cavalo mecânico como garantia.",
+   "eyebrow": "Implementos rodoviários",
+   "lead": "Ampliar capacidade nem sempre significa trocar de caminhão. Muitas vezes o gargalo é o implemento — e é ali que o retorno por quilômetro rodado aparece mais rápido.",
+   "secao": "O que a carta cobre",
+   "itens": [
+    ["Semirreboque e bitrem", "Carreta simples, bitrem e rodotrem, conforme a modalidade contratada."],
+    ["Baú, graneleiro, tanque e prancha", "Implementos específicos por tipo de carga."],
+    ["Novo ou usado", "Respeitados os critérios de ano e conservação definidos pela administradora."]
+   ],
+   "faq": [
+    ["Dá para comprar só o implemento, sem o cavalo?", "Sim. A carta pode ser destinada ao implemento isoladamente, conforme a modalidade contratada."],
+    ["Serve para implemento usado?", "Costuma servir, dentro dos critérios de ano e avaliação da administradora. Confirme antes da adesão."],
+    ["Posso somar duas cotas para um conjunto maior?", "É possível manter mais de uma cota e usar as contemplações de forma combinada, conforme as regras do contrato."]
+   ]
+  },
+  {
+   "slug": "frota",
+   "keyword": "consórcio de frota",
+   "h1": "Consórcio de frota para transportadora",
+   "respostaCurta": "O consórcio de frota permite programar a renovação de vários veículos com múltiplas cotas, sem juros e sem consumir limite bancário. As contemplações se distribuem ao longo do tempo, o que troca a troca em bloco por uma reposição contínua e de custo previsível.",
+   "eyebrow": "Transportadora",
+   "lead": "Renovar frota inteira de uma vez trava caixa e limite. Escalonar a renovação com várias cotas transforma um investimento concentrado em custo mensal previsível — que entra no cálculo do frete sem sobressalto.",
+   "secao": "Como funciona na operação",
+   "itens": [
+    ["Múltiplas cotas em paralelo", "Cada cota concorre separadamente, o que distribui as contemplações ao longo do tempo."],
+    ["Custo previsível no frete", "Sem juros e sem variação de taxa, o custo do ativo entra no orçamento sem surpresa."],
+    ["Limite bancário preservado", "O crédito da empresa fica livre para capital de giro e para emergência."]
+   ],
+   "faq": [
+    ["Quantas cotas uma empresa pode ter?", "Não há limitação usual de quantidade. O que existe é análise na contemplação, quando o crédito é liberado."],
+    ["As contemplações saem juntas?", "Não há como prever. Cada cota concorre de forma independente, por sorteio ou lance."],
+    ["Serve para renovar veículo parado ou quebrado?", "Não. O consórcio é planejamento de médio prazo. Para reposição imediata, a contemplação não chega a tempo."]
+   ]
+  },
+  {
+   "slug": "caminhoneiro-autonomo",
+   "keyword": "consórcio para caminhoneiro autônomo",
+   "h1": "Consórcio para caminhoneiro autônomo",
+   "respostaCurta": "Não há análise de crédito para entrar em um grupo de consórcio, o que facilita para o caminhoneiro autônomo sem comprovação de renda tradicional. A análise acontece na contemplação, quando o crédito é liberado. Também não há entrada obrigatória nem exigência de holerite na adesão.",
+   "eyebrow": "Autônomo",
+   "lead": "Quem trabalha por conta própria conhece a barreira: sem holerite, o banco dificulta e a taxa sobe. O consórcio inverte a ordem — você entra no grupo primeiro e a análise vem depois, na hora de liberar o crédito.",
+   "secao": "O que isso significa na prática",
+   "itens": [
+    ["Sem análise na adesão", "Você entra no grupo e começa a concorrer sem passar por aprovação de crédito."],
+    ["Sem entrada obrigatória", "Diferente do financiamento, que quase sempre exige um percentual à vista."],
+    ["Análise na contemplação", "Quando o crédito é liberado, aí sim há avaliação. Vale se preparar para esse momento."]
+   ],
+   "faq": [
+    ["Preciso comprovar renda para entrar?", "Não para aderir ao grupo. A comprovação de capacidade de pagamento acontece na contemplação, quando o crédito vai ser liberado."],
+    ["E se eu não for aprovado na contemplação?", "Existem alternativas previstas em contrato, como apresentar garantia adicional ou aguardar. As condições exatas constam do contrato do seu grupo — confirme antes de aderir."],
+    ["Estando negativado, posso participar?", "É possível entrar no grupo, mas a análise na contemplação continua existindo. Não prometemos liberação: seja cuidadoso com quem promete."]
+   ]
+  }
+ ]
+}

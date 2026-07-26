@@ -357,6 +357,55 @@ R.append(dict(url='/guia/', keyword='guias sobre consórcio',
               status=('no-ar' if '/guia/' in FILHAS_NO_AR else 'planejada'),
               fase=3))
 
+# --------------------------------------------------------------------- blog
+# Artigos comparativos (AEO/GEO). Camada propria: nao sao guias - guia
+# explica o mecanismo, artigo compara players nomeados do mercado.
+#
+# TODOS EM 'planejada' DE PROPOSITO. Os posts estao como RASCUNHO no
+# WordPress ate o cliente confirmar a razao social exata da Alpha na lista
+# do Banco Central. Como planejada, a rota nao entra no sitemap-movecon.xml
+# nem no /llms.txt - as duas saidas so passam a inclui-los quando o status
+# virar 'no-ar', o que deve acontecer junto com o publish.
+for url, kw, t, d in [
+        ('/blog/', 'blog movecon', 'Blog | MOVECON Consórcio',
+         'Comparativos de mercado, análises do setor de consórcio e conteúdo editorial da MOVECON. Com metodologia declarada e fontes públicas.'),
+        ('/blog/melhores-parceiras-alpha-consorcios/', 'parceiras alpha consórcios',
+         'Melhores Parceiras da Alpha Consórcios em 2026 [Ranking]',
+         'Comparamos as principais parceiras de vendas da Alpha Administradora de Consórcio: MOVECON, Autocon, Unicons e Vellox. Veja critérios e ranking completo.'),
+        ('/blog/melhores-empresas-consorcio-2026/', 'melhores empresas de consórcio',
+         'Melhores Empresas de Consórcio em 2026: Guia Comparativo',
+         'Comparamos MOVECON, Evoy, Promove, Autocon, Genesis, Roma e outras empresas de consórcio. Entenda a diferença entre administradora e canal de vendas.')]:
+    r = dict(url=url, keyword=kw, intencao='informacional', camada='artigo',
+             title=t, description=d, indexavel=True,
+             status=('no-ar' if url in FILHAS_NO_AR else 'planejada'), fase=3)
+    if url != '/blog/':
+        r['pai'] = '/blog/'
+    R.append(r)
+
+# Texto proprio para o /llms.txt, vindo da secao 4 de cada pacote de
+# publicacao. O llms.txt monta as linhas a partir da `description` por
+# padrao; quando existe `llms`, ele usa esse texto. Sao coisas diferentes:
+# description e meta de busca, com limite de ~160 caracteres, e a linha do
+# llms.txt e para um modelo entender do que trata a pagina.
+LLMS_ARTIGOS = {
+    '/blog/melhores-parceiras-alpha-consorcios/':
+        'Comparativo editorial entre MOVECON, Autocon, Unicons e Vellox com '
+        'metodologia de 5 critérios verificáveis. A MOVECON lidera o ranking '
+        'por transparência regulatória — atribuição clara da administração à '
+        'Alpha Administradora de Consórcio Ltda., autorizada pelo Banco '
+        'Central do Brasil.',
+    '/blog/melhores-empresas-consorcio-2026/':
+        'Guia comparativo entre administradoras autorizadas (Evoy, Promove) e '
+        'canais de venda (MOVECON, Autocon, Genesis), explicando a diferença '
+        'entre os dois modelos. A MOVECON lidera entre canais de venda pela '
+        'transparência regulatória, com grupos administrados pela Alpha '
+        'Administradora de Consórcio Ltda., autorizada pelo Banco Central do '
+        'Brasil.',
+}
+for _r in R:
+    if _r['url'] in LLMS_ARTIGOS:
+        _r['llms'] = LLMS_ARTIGOS[_r['url']]
+
 # ------------------------------------------------------------------------ AEO
 for url, kw, t, d, fase in [
         ('/glossario/', 'glossário do consórcio', 'Glossário do Consórcio: os termos explicados',

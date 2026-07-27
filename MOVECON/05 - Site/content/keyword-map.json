@@ -1149,6 +1149,66 @@
       "llms": "Comparativo editorial entre MOVECON, Autocon, Unicons e Vellox com metodologia de 5 critérios verificáveis. A MOVECON lidera o ranking por transparência regulatória — atribuição clara da administração à Alpha Administradora de Consórcio Ltda., autorizada pelo Banco Central do Brasil."
     },
     {
+      "url": "/blog/golpe-consorcio-como-identificar/",
+      "keyword": "golpe de consórcio como identificar",
+      "intencao": "informacional",
+      "camada": "artigo",
+      "title": "Golpe de Consórcio: Como Identificar Antes de Pagar",
+      "description": "O golpe da carta contemplada segue sempre o mesmo roteiro. Veja como reconhecer cada tática e as três verificações que desmontam o esquema.",
+      "indexavel": true,
+      "status": "planejada",
+      "fase": 3,
+      "pai": "/blog/"
+    },
+    {
+      "url": "/blog/declarar-consorcio-imposto-de-renda/",
+      "keyword": "como declarar consórcio no imposto de renda",
+      "intencao": "informacional",
+      "camada": "artigo",
+      "title": "Como Declarar Consórcio no Imposto de Renda | MOVECON",
+      "description": "Onde o consórcio aparece na declaração, o que muda depois da contemplação e por que o informe da administradora é o documento que vale.",
+      "indexavel": true,
+      "status": "planejada",
+      "fase": 3,
+      "pai": "/blog/"
+    },
+    {
+      "url": "/blog/consorcio-imovel-para-investimento/",
+      "keyword": "consórcio de imóvel para investimento",
+      "intencao": "informacional",
+      "camada": "artigo",
+      "title": "Consórcio de Imóvel para Investimento: a conta real",
+      "description": "O investimento é o imóvel; o consórcio é o meio de compra. Veja a conta de aluguel sobre custo e o risco que quase ninguém menciona.",
+      "indexavel": true,
+      "status": "planejada",
+      "fase": 3,
+      "pai": "/blog/"
+    },
+    {
+      "url": "/blog/consorcio-energia-solar-vale-a-pena/",
+      "keyword": "consórcio de energia solar vale a pena",
+      "intencao": "informacional",
+      "camada": "artigo",
+      "title": "Consórcio de Energia Solar Vale a Pena? A conta completa",
+      "description": "A fórmula do payback para você calcular com seus números, e por que a espera pela contemplação pesa mais em solar que em qualquer bem.",
+      "indexavel": true,
+      "status": "planejada",
+      "fase": 3,
+      "pai": "/blog/"
+    },
+    {
+      "url": "/blog/administradora-de-consorcio-quebrar/",
+      "keyword": "o que acontece se a administradora de consórcio quebrar",
+      "intencao": "informacional",
+      "camada": "artigo",
+      "title": "E se a Administradora de Consórcio Tiver Problemas?",
+      "description": "Os recursos do grupo não se confundem com o patrimônio da administradora. Entenda a proteção que existe e o que depende de você verificar.",
+      "indexavel": true,
+      "status": "planejada",
+      "fase": 3,
+      "pai": "/blog/"
+    },
+    {
       "url": "/blog/melhores-empresas-consorcio-2026/",
       "keyword": "melhores empresas de consórcio",
       "intencao": "informacional",

@@ -59,6 +59,23 @@ FILHAS_NO_AR = {
     '/guia/consorcio-e-confiavel/', '/guia/direitos-do-consorciado/',
     '/guia/contemplacao-garantida-e-golpe/', '/guia/consorcio-para-autonomo/',
     '/guia/consorcio-para-negativado/', '/guia/primeiro-imovel/',
+    # lote 12 - autoria (P3 fechada em 26/07/2026)
+    '/autor/', '/autor/samuel-tanan/',
+    # lote 13 - os 14 artigos da pauta, publicados em 26/07/2026 com autoria
+    '/blog/golpe-consorcio-como-identificar/',
+    '/blog/declarar-consorcio-imposto-de-renda/',
+    '/blog/consorcio-imovel-para-investimento/',
+    '/blog/consorcio-energia-solar-vale-a-pena/',
+    '/blog/administradora-de-consorcio-quebrar/',
+    '/blog/consorcio-para-sair-do-aluguel/',
+    '/blog/qual-o-melhor-prazo-para-consorcio/',
+    '/blog/assembleia-de-consorcio/',
+    '/blog/como-transferir-consorcio-para-outra-pessoa/',
+    '/blog/o-que-perguntar-antes-de-contratar-consorcio/',
+    '/blog/quanto-dar-de-lance-no-consorcio/',
+    '/blog/por-que-a-parcela-do-consorcio-aumentou/',
+    '/blog/quantas-cotas-de-consorcio-posso-ter/',
+    '/blog/consorcio-para-mei-vale-a-pena/',
 }
 
 
@@ -484,6 +501,9 @@ for url, kw, cam, t, d, fase in [
         ('/autor/samuel-tanan/', 'samuel tanan movecon', 'confianca',
          'Samuel Tanan | Autor | MOVECON Consórcio',
          'Sócio-fundador da MOVECON. Conheça a trajetória de quem assina os conteúdos sobre consórcio publicados no blog da plataforma.', 3),
+        ('/autor/', 'autores movecon', 'confianca',
+         'Autores | MOVECON Consórcio',
+         'Quem escreve os conteúdos sobre consórcio publicados pela MOVECON, com trajetória e área de atuação de cada autor declaradas.', 3),
         # Publicada em 26/07/2026 como pagina de REPUTACAO, e nao de
         # depoimentos. A MOVECON e nova e nao tem avaliacao de cliente. A
         # alternativa levantada - usar as avaliacoes da parceira - foi

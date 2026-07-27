@@ -36,6 +36,10 @@ REVELA = ('primeira parcela', '1ª parcela', 'antecipa',
 KFIRST = ('19,21', '19,31', '14,12', '13,89', '0,1921', '0,1931')
 
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from check_seo import permitido_em_rota  # noqa: E402
+
+
 def norm(t):
     t = unicodedata.normalize('NFD', t.lower())
     return ''.join(c for c in t if unicodedata.category(c) != 'Mn')
@@ -93,7 +97,12 @@ def main():
         if vaz:
             falhas.append((r['url'], 'percentual de kFirst no site: %s' % vaz))
 
-        ach = [p for p in proibidas if norm(p) in n]
+        # O escopo vem do check_seo, fonte unica da regra. Duplicar a
+        # allow-list aqui criaria duas versoes da mesma decisao, e a copia
+        # esquecida e que passa a mentir. Auditor que discorda do validador
+        # nao e auditoria independente, e ruido.
+        ach = [p for p in proibidas
+               if norm(p) in n and not permitido_em_rota(p, r['url'])]
         if ach:
             falhas.append((r['url'], 'expressão proibida: %s' % ach))
 

@@ -1662,3 +1662,92 @@ a:hover {
   background: var(--azul);
   color: #fff;
 }
+
+/* ---------------------------------------------------------------- autoria */
+/* Caixa ao fim de cada artigo e pagina de autor. Ambas funcionam SEM foto:
+   o gerador omite o <img> enquanto ela nao existe, e o layout usa gap em vez
+   de margem lateral fixa, entao nao sobra buraco. */
+.autor-caixa {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  margin: 3rem 0 0;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: var(--mv-fundo-alt);
+  border-left: 4px solid var(--mv-azul);
+}
+.autor-caixa__foto,
+.autor-perfil__foto {
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.autor-caixa__rotulo {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mv-texto);
+  opacity: 0.7;
+}
+.autor-caixa__nome {
+  margin: 0.15rem 0 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.autor-caixa__nome a {
+  color: var(--mv-titulo);
+  text-decoration: none;
+}
+.autor-caixa__nome a:hover {
+  text-decoration: underline;
+}
+.autor-caixa__cargo {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  color: var(--mv-azul);
+  font-weight: 600;
+}
+.autor-caixa__bio {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.autor-caixa__link {
+  margin: 0.6rem 0 0;
+  font-size: 0.9rem;
+}
+
+.autor-perfil__topo {
+  display: flex;
+  gap: 1.75rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.autor-perfil__topo h1 {
+  margin: 0;
+}
+.autor-perfil__cargo {
+  margin: 0.35rem 0 0;
+  color: var(--mv-azul);
+  font-weight: 600;
+}
+.autor-perfil__bio p {
+  margin: 0 0 1.1rem;
+  line-height: 1.7;
+}
+.autor-perfil__artigos {
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 600px) {
+  .autor-caixa {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .autor-perfil__topo {
+    flex-direction: column;
+    text-align: center;
+  }
+}

@@ -168,25 +168,25 @@ Testado nos dois sentidos, 9 casos: hub, guia, LP, caixa de autor e `bioCurta`
 falham; `/quem-somos/`, `/seja-um-representante/`, página de autor e `bioLonga`
 passam.
 
-### Ressalva registrada — ponto não resolvido pela mudança
+### Justificativa — resolvida em 26/07/2026
 
-O motivo original da proibição **não era audiência**. Era: *"descreve relação
-contratual que não foi documentada"*.
+A ressalva anterior está **encerrada**. O cliente confirmou que a relação
+contratual MOVECON–Alpha está documentada: **contrato de parceria formalizado no
+kickoff de julho/2026**.
 
-A regra de escopo não resolve esse ponto. Em `/quem-somos/` a afirmação continua
-sendo sobre um contrato, apenas dirigida a outro público. Duas situações
-possíveis:
+Com isso o motivo da regra muda de natureza, e a mudança importa:
 
-1. **A relação foi documentada** desde o registro original — nesse caso o
-   motivo caducou e vale substituir a justificativa da linha 6 pela nova regra,
-   registrando qual documento a sustenta.
-2. **A relação segue sem documentação** — nesse caso o uso do termo, mesmo em
-   página B2B, é uma afirmação contratual sem lastro, e o risco mudou de público
-   mas não desapareceu.
+| | Motivo |
+|---|---|
+| Até 26/07/2026 | "Descreve relação contratual que não foi documentada" — o problema era **factual**: afirmação sem lastro |
+| Desde 26/07/2026 | **Adequação de linguagem por audiência** — o lastro existe; o que varia é para quem a descrição serve |
 
-**Pendente de confirmação do cliente.** A regra de escopo está implementada e
-ativa conforme determinado; esta ressalva não a bloqueia, apenas registra que a
-questão documental permanece aberta.
+A diferença não é formal. Enquanto o motivo era factual, o termo seria falso em
+qualquer página. Agora ele é verdadeiro em todas, e a restrição passa a ser
+editorial: para o consumidor o termo não informa nada e embaralha o único ponto
+que precisa ficar claro — quem administra o grupo é a Alpha.
+
+**Lastro:** contrato de parceria MOVECON–Alpha, kickoff de julho/2026.
 
 ### Rota ainda inexistente
 

@@ -64,6 +64,25 @@ function mv_art_autor() {
 }
 
 /**
+ * Ficha de um artigo fora do mapa fixo, ou false.
+ *
+ * Gerada por scripts/gerar_schema_artigos.py a partir do markdown de origem.
+ */
+function mv_art_ficha( $rota ) {
+	static $fichas = null;
+	if ( null === $fichas ) {
+		$arq    = __DIR__ . '/movecon-artigos.json';
+		$fichas = is_readable( $arq )
+			? json_decode( file_get_contents( $arq ), true )
+			: array();
+		if ( ! is_array( $fichas ) ) {
+			$fichas = array();
+		}
+	}
+	return isset( $fichas[ $rota ] ) ? $fichas[ $rota ] : false;
+}
+
+/**
  * Grafo por rota. As URLs sao montadas com home_url() em vez de literais:
  * os pacotes traziam [URL_HOME_MOVECON] e [URL_DO_ARTIGO] como placeholder, e
  * placeholder nao vai para producao nem em rascunho.
@@ -150,8 +169,22 @@ function mv_art_grafo( $rota ) {
 		),
 	);
 
+	// Os dois comparativos vivem no mapa fixo acima porque tem ItemList - um
+	// ranking nomeando concorrentes, que nenhum gerador deveria montar sozinho.
+	// Os demais artigos vem de movecon-artigos.json, gerado a partir do proprio
+	// markdown: headline e FAQ saem do texto publicado, entao nao ha como o
+	// schema divergir do que a pagina mostra. Divergencia entre FAQPage e corpo
+	// visivel ja foi defeito neste site.
 	if ( ! isset( $artigos[ $rota ] ) ) {
-		return null;
+		$fora = mv_art_ficha( $rota );
+		if ( ! $fora ) {
+			return null;
+		}
+		$artigos[ $rota ] = array(
+			'headline' => $fora['headline'],
+			'lista'    => null,
+			'faq'      => isset( $fora['faq'] ) ? $fora['faq'] : array(),
+		);
 	}
 
 	$a   = $artigos[ $rota ];
@@ -229,12 +262,17 @@ function mv_art_grafo( $rota ) {
 		$article['dateModified'] = $alterado;
 	}
 
+	$grafo = array( $article );
+	if ( $lista ) {
+		$grafo[] = $lista;
+	}
+	if ( $faq ) {
+		$grafo[] = array( '@type' => 'FAQPage', 'mainEntity' => $faq );
+	}
+
 	return array(
 		'@context' => 'https://schema.org',
-		'@graph'   => array( $article, $lista, array(
-			'@type'      => 'FAQPage',
-			'mainEntity' => $faq,
-		) ),
+		'@graph'   => $grafo,
 	);
 }
 

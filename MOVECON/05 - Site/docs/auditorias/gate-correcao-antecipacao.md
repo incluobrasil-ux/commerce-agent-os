@@ -5,9 +5,9 @@ Executado em 26/07/2026. Formato da seção 5.4 do manual.
 
 | Item | Resultado |
 |---|---|
-| Rotas indexáveis auditadas | 78 |
-| Rotas que alegam ausência de entrada | 10 |
-| Delas, com a ressalva no mesmo documento | **10** |
+| Rotas indexáveis auditadas | 94 |
+| Rotas que alegam ausência de entrada | 12 |
+| Delas, com a ressalva no mesmo documento | **12** |
 | Percentual de `kFirst` vazando para o site | 0 |
 | Expressões proibidas | 0 |
 | Placeholders renderizados | 0 |

@@ -1,0 +1,241 @@
+{
+  "_leia_me": "PAUTA do blog - Prompt 2.1 do manual. So a pauta: titulo, keyword, intencao, H2s. SEM TEXTO. Aguarda aprovacao do cliente antes de qualquer artigo ser escrito.",
+
+  "_fonte": "Clusters de keyword do relatorio-pesquisa-concorrentes.md, cruzados com content/keyword-map.json para nao canibalizar as 99 rotas no ar.",
+
+  "_regra_de_publicacao": "NENHUM artigo publica sem autor real definido (P3). A pauta pode ser aprovada e os artigos podem ser escritos com a P3 aberta, mas o Article schema segue com publisher Organization e SEM author pessoa ate o dado chegar. Regra registrada em docs/06-pendencias.md.",
+
+  "_anti_canibalizacao": "Cada keyword abaixo foi conferida contra as 21 dos guias, 3 do glossario, 3 dos artigos e 4 de confianca. Onde o assunto encosta num guia existente, a pauta declara o guia em `naoCanibaliza` e o angulo que a diferencia. O check_seo bloqueia no pre-commit se duas rotas disputarem a mesma keyword.",
+
+  "_status": "AGUARDANDO APROVACAO",
+
+  "artigos": [
+    {
+      "n": 1,
+      "titulo": "Consórcio para sair do aluguel: quanto tempo você ainda vai pagar para o proprietário",
+      "keyword": "consórcio para sair do aluguel",
+      "intencao": "comercial",
+      "porque": "O relatório lista 'consórcio para sair do aluguel' no cluster de uso do bem. É a dor mais concreta do público de imóveis e nenhum concorrente menor a ataca.",
+      "naoCanibaliza": "/guia/primeiro-imovel/ trata de COMO comprar; este trata de QUANDO faz sentido trocar aluguel por parcela.",
+      "h2": [
+        "Aluguel é despesa que não volta — mas trocar por parcela não é automático",
+        "A conta que decide: aluguel de hoje contra parcela e prazo",
+        "O erro de quem tem data para sair",
+        "O que muda se você já tem parte do valor",
+        "Quando continuar alugando é a decisão certa"
+      ]
+    },
+    {
+      "n": 2,
+      "titulo": "Consórcio de imóvel para investimento: o que funciona e o que é promessa",
+      "keyword": "consórcio de imóvel para investimento",
+      "intencao": "comercial",
+      "porque": "A HS posiciona consórcio como investimento em rota própria. É cluster diferenciado e pouco disputado.",
+      "naoCanibaliza": "/consorcio-imoveis/investimento/ é a filha comercial; aqui é o artigo de decisão, com a conta e o alerta.",
+      "h2": [
+        "Consórcio não é aplicação financeira — e por que essa confusão existe",
+        "O que de fato acontece: aquisição de bem que pode gerar renda",
+        "A conta de aluguel sobre valor investido",
+        "O risco que ninguém menciona: a data que não existe",
+        "Para quem faz sentido e para quem não faz"
+      ]
+    },
+    {
+      "n": 3,
+      "titulo": "Como escolher o prazo do consórcio sem se arrepender depois",
+      "keyword": "qual o melhor prazo para consórcio",
+      "intencao": "informacional",
+      "porque": "Decisão que todo consorciado toma na adesão e quase nenhum conteúdo do setor explica.",
+      "naoCanibaliza": "assunto novo — nenhum guia trata de prazo isoladamente.",
+      "h2": [
+        "O que o prazo muda na parcela e o que ele não muda no custo",
+        "Prazo longo: parcela menor, mais tempo de taxa",
+        "Prazo curto: exige folga real no orçamento",
+        "Como o prazo afeta sua chance no sorteio",
+        "A pergunta que decide: quanto cabe num ano ruim"
+      ]
+    },
+    {
+      "n": 4,
+      "titulo": "Assembleia de consórcio: o que acontece, quem participa e o que você deveria acompanhar",
+      "keyword": "assembleia de consórcio",
+      "intencao": "informacional",
+      "porque": "O relatório lista 'assembleia' no cluster de mecânica. Está no glossário como verbete, sem página própria.",
+      "naoCanibaliza": "o verbete do glossário define em 40-60 palavras; aqui é o funcionamento completo.",
+      "h2": [
+        "O que é decidido numa assembleia",
+        "Sorteio e lance acontecem no mesmo momento",
+        "A prestação de contas que é seu direito acompanhar",
+        "Como saber o resultado da sua cota",
+        "O que fazer quando você discorda de algo"
+      ]
+    },
+    {
+      "n": 5,
+      "titulo": "Transferir seu consórcio para outra pessoa: como funciona e o que exigir",
+      "keyword": "como transferir consórcio para outra pessoa",
+      "intencao": "informacional",
+      "porque": "Alternativa à desistência, com volume real de busca e ligação direta com o cluster anti-golpe.",
+      "naoCanibaliza": "/guia/atraso-e-desistencia/ trata de sair; este trata de transferir, que costuma ser a saída melhor.",
+      "h2": [
+        "Por que transferir costuma ser melhor que desistir",
+        "A formalização pela administradora é o que torna a transferência real",
+        "O que o comprador assume junto com a cota",
+        "Documentos e análise das duas partes",
+        "O acerto por fora que não transfere nada"
+      ]
+    },
+    {
+      "n": 6,
+      "titulo": "Consórcio contemplado que some: como o golpe do falso vendedor funciona por dentro",
+      "keyword": "golpe de consórcio como identificar",
+      "intencao": "informacional",
+      "porque": "O relatório aponta o cluster contemplados como dominado por corretoras. É o gap onde a MOVECON tem mais a dizer.",
+      "naoCanibaliza": "/consorcio-contemplado/golpes-mais-comuns/ é a filha de silo; aqui o ângulo é o roteiro do golpista, não o do consumidor.",
+      "h2": [
+        "O golpe não é sofisticado — ele é rápido",
+        "Como a urgência é fabricada",
+        "Por que sempre pedem para pagar antes de formalizar",
+        "Os três minutos de verificação que quebram o esquema",
+        "O que fazer se você já pagou"
+      ]
+    },
+    {
+      "n": 7,
+      "titulo": "Consórcio de energia solar: a conta que decide se compensa",
+      "keyword": "consórcio de energia solar vale a pena",
+      "intencao": "comercial",
+      "porque": "Nicho que o relatório aponta como pouco disputado, e o único da modalidade serviços com retorno mensurável.",
+      "naoCanibaliza": "/consorcio-servicos/energia-solar/ é a filha comercial; aqui é a análise de payback.",
+      "h2": [
+        "O que entra na carta e o que não entra",
+        "A conta de payback: economia mensal contra parcela",
+        "Por que a data indefinida pesa mais aqui",
+        "Financiamento verde e cartão: como comparar",
+        "Quando esperar a contemplação custa dinheiro"
+      ]
+    },
+    {
+      "n": 8,
+      "titulo": "Consórcio para MEI: o que muda quando a empresa é você mesmo",
+      "keyword": "consórcio para mei vale a pena",
+      "intencao": "comercial",
+      "porque": "O relatório lista 'consórcio para empresa' no cluster de decisão. MEI é o recorte com mais volume e menos conteúdo.",
+      "naoCanibaliza": "/consorcio-empresa/mei/ é a filha comercial; aqui é a decisão, incluindo quando NÃO vale.",
+      "h2": [
+        "Sem análise de crédito na adesão: o que isso realmente resolve",
+        "O que a análise na contemplação vai olhar",
+        "CNPJ ou CPF: a escolha que muda a comprovação",
+        "Quando o MEI deveria escolher outra via",
+        "A pergunta tributária que só o contador responde"
+      ]
+    },
+    {
+      "n": 9,
+      "titulo": "Quantas cotas de consórcio vale a pena ter ao mesmo tempo",
+      "keyword": "quantas cotas de consórcio posso ter",
+      "intencao": "informacional",
+      "porque": "Estratégia usada por transportadora e empresa, sem conteúdo dedicado em nenhum concorrente analisado.",
+      "naoCanibaliza": "assunto novo — aparece como FAQ em hubs, nunca como página.",
+      "h2": [
+        "Cada cota concorre sozinha — e o que isso significa na prática",
+        "Por que as contemplações não saem juntas",
+        "O cálculo de comprometimento mensal antes de somar cotas",
+        "Renovação escalonada: o caso da frota",
+        "O limite real não é o da administradora, é o do seu caixa"
+      ]
+    },
+    {
+      "n": 10,
+      "titulo": "Consórcio contemplado por lance: quanto ofertar e quando não ofertar",
+      "keyword": "quanto dar de lance no consórcio",
+      "intencao": "informacional",
+      "porque": "A pergunta mais buscada do cluster de mecânica, e a que mais gera decisão errada.",
+      "naoCanibaliza": "/guia/lance-no-consorcio/ explica como funciona; este trata da estratégia de valor.",
+      "h2": [
+        "Não existe percentual que garanta — e por que",
+        "O lance vencedor muda a cada assembleia",
+        "De onde tirar o dinheiro do lance sem se afundar",
+        "Quando dar lance destrói a lógica do consórcio",
+        "Lance embutido: o que você troca"
+      ]
+    },
+    {
+      "n": 11,
+      "titulo": "O que acontece com seu consórcio se a administradora tiver problemas",
+      "keyword": "o que acontece se a administradora de consórcio quebrar",
+      "intencao": "informacional",
+      "porque": "Medo real, quase nunca respondido, e diretamente ligado ao posicionamento de transparência.",
+      "naoCanibaliza": "/guia/consorcio-e-confiavel/ trata de como verificar; este trata do que acontece depois.",
+      "h2": [
+        "Os recursos do grupo não se confundem com o patrimônio da administradora",
+        "O que o Banco Central pode determinar",
+        "Por que a autorização importa exatamente nesse cenário",
+        "O que você deveria guardar desde a adesão",
+        "Como acompanhar a situação da sua administradora"
+      ]
+    },
+    {
+      "n": 12,
+      "titulo": "Consórcio de caminhão usado: o limite de ano que decide tudo",
+      "keyword": "consórcio de caminhão usado limite de ano",
+      "intencao": "comercial",
+      "porque": "Detalhe operacional que decide a compra e que nenhum concorrente explica.",
+      "naoCanibaliza": "/consorcio-caminhao/caminhao-usado/ é a filha comercial; aqui o foco é o critério de ano e a vistoria.",
+      "h2": [
+        "O limite de ano é o primeiro item a confirmar",
+        "Por que ele existe: garantia e valor residual",
+        "Vistoria e documentação sem restrição",
+        "Comprar de particular: o que muda",
+        "Quando a carta não serve para o caminhão que você quer"
+      ]
+    },
+    {
+      "n": 13,
+      "titulo": "Consórcio e imposto de renda: o que declarar e o que não inventar",
+      "keyword": "como declarar consórcio no imposto de renda",
+      "intencao": "informacional",
+      "porque": "Busca sazonal alta e recorrente, sem conteúdo confiável no setor.",
+      "naoCanibaliza": "assunto novo. ATENÇÃO: a página informa onde a informação aparece, e manda ao contador para qualquer decisão fiscal.",
+      "h2": [
+        "Onde o consórcio aparece na declaração",
+        "Antes e depois da contemplação são situações diferentes",
+        "O que a administradora fornece e quando",
+        "O que não fazer: estimar valores por conta própria",
+        "Por que isso é conversa de contador"
+      ]
+    },
+    {
+      "n": 14,
+      "titulo": "Reajuste do consórcio na prática: por que sua parcela subiu",
+      "keyword": "por que a parcela do consórcio aumentou",
+      "intencao": "informacional",
+      "porque": "Pergunta de quem já é consorciado, alto volume, e momento de maior risco de desistência.",
+      "naoCanibaliza": "/guia/reajuste-da-parcela/ explica o mecanismo; este responde à surpresa de quem já recebeu o aumento.",
+      "h2": [
+        "O aumento não é cobrança nova",
+        "O que foi reajustado: a carta, e a parcela veio junto",
+        "Onde encontrar o índice no seu contrato",
+        "Por que sem reajuste você sairia perdendo",
+        "O que fazer se a parcela não couber mais"
+      ]
+    },
+    {
+      "n": 15,
+      "titulo": "Antes de assinar: as 7 perguntas que separam um consórcio bom de um problema",
+      "keyword": "o que perguntar antes de contratar consórcio",
+      "intencao": "informacional",
+      "porque": "Formato de checklist, altamente citável por IA, e a materialização do posicionamento do site.",
+      "naoCanibaliza": "/seguranca/ é institucional; aqui é o roteiro prático de perguntas ao vendedor.",
+      "h2": [
+        "Qual é o CNPJ da administradora",
+        "Qual a taxa de administração e se há fundo de reserva",
+        "Como funciona o reajuste e qual o índice",
+        "O que acontece se eu desistir, e em quanto tempo recebo",
+        "Qual o primeiro desembolso — e por que ele é maior",
+        "Quais as regras de lance no meu grupo",
+        "Onde está tudo isso por escrito"
+      ]
+    }
+  ]
+}

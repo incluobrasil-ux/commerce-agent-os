@@ -1,5 +1,41 @@
 # 00 — Contexto
 
+## Regra de produto — garantia e exigência de registro (imóveis)
+
+**Base confirmada pelo cliente em 27/07/2026.** Registrada aqui porque outras
+páginas vão precisar dela: a filha de terreno e o guia do contemplado
+provavelmente tocam no tema.
+
+> O imóvel adquirido com a carta de crédito fica **alienado fiduciariamente à
+> administradora até a quitação** do plano. Como a alienação fiduciária se
+> constitui por registro, o imóvel precisa ter **matrícula no cartório de
+> registro de imóveis e documentação apta à transferência**.
+
+**Consequência prática:** imóvel sem matrícula, ou com pendência que impeça o
+registro, não passa na análise de liberação do crédito.
+
+**Limite do que se pode afirmar:** os **critérios específicos** de avaliação e
+de documentação são da administradora e constam do contrato. Nenhuma página
+lista requisito documental específico — a regra acima é o regime; a lista é do
+contrato.
+
+### Onde já está aplicada
+
+| Página | Uso |
+|---|---|
+| `/consorcio-imoveis/` | FAQ "O imóvel precisa estar regularizado?" |
+
+### Fatos correlatos já estabelecidos no site
+
+Não são novos — ficam aqui para que a próxima página não os reintroduza como
+se fossem, nem os contradiga:
+
+| Fato | Onde foi estabelecido |
+|---|---|
+| ITBI, registro e escritura **não entram na carta** | FAQ "E se o imóvel custar mais que a carta?" em `/consorcio-imoveis/` |
+| Na construção, a liberação é **por etapa, mediante vistoria** | `/consorcio-imoveis/construcao/` |
+| A carta é de **abrangência nacional**, respeitadas avaliação e documentação | FAQ "Posso comprar imóvel em outra cidade?" |
+
 ## O que a MOVECON é
 
 Plataforma de consórcio. Apresenta os grupos, explica os custos por escrito e

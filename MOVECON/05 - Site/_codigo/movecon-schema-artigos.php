@@ -39,6 +39,31 @@ function mv_art_path() {
 }
 
 /**
+ * Ficha de autoria, ou false enquanto ela estiver incompleta.
+ *
+ * A mesma trava do gerador, do lado do servidor: se a bio publica nao existe,
+ * o schema NAO afirma autoria de pessoa. Apontar author Person para uma pagina
+ * de autor vazia e pior do que declarar Organization, porque promete uma
+ * credencial que o visitante nao encontra ao clicar.
+ */
+function mv_art_autor() {
+	$arq = __DIR__ . '/movecon-autor.json';
+	if ( ! is_readable( $arq ) ) {
+		return false;
+	}
+	$d = json_decode( file_get_contents( $arq ), true );
+	if ( ! is_array( $d ) || empty( $d['nome'] ) || empty( $d['url'] ) ) {
+		return false;
+	}
+	foreach ( array( 'nome', 'cargo', 'url', 'bioCurta' ) as $campo ) {
+		if ( empty( $d[ $campo ] ) || strpos( $d[ $campo ], '[PENDENTE' ) !== false ) {
+			return false;
+		}
+	}
+	return $d;
+}
+
+/**
  * Grafo por rota. As URLs sao montadas com home_url() em vez de literais:
  * os pacotes traziam [URL_HOME_MOVECON] e [URL_DO_ARTIGO] como placeholder, e
  * placeholder nao vai para producao nem em rascunho.
@@ -172,12 +197,29 @@ function mv_art_grafo( $rota ) {
 	$publicado = $post_id ? get_the_date( 'c', $post_id ) : '';
 	$alterado  = $post_id ? get_the_modified_date( 'c', $post_id ) : '';
 
+	// author Person quando a ficha de autoria estiver completa; Organization
+	// enquanto nao estiver. Nunca se afirma autoria de pessoa sem que a bio
+	// publica exista na pagina de autor - schema apontando para perfil vazio
+	// e pior que schema de organizacao.
+	$autor = array( '@type' => 'Organization', 'name' => 'MOVECON', 'url' => $home );
+	$ficha = mv_art_autor();
+	if ( $ficha ) {
+		$autor = array(
+			'@type' => 'Person',
+			'name'  => $ficha['nome'],
+			'url'   => $home . ltrim( $ficha['url'], '/' ),
+		);
+		if ( ! empty( $ficha['cargo'] ) ) {
+			$autor['jobTitle'] = $ficha['cargo'];
+		}
+	}
+
 	$article = array(
 		'@type'     => 'Article',
 		'headline'  => $a['headline'],
 		'url'       => $url,
 		'mainEntityOfPage' => array( '@type' => 'WebPage', '@id' => $url ),
-		'author'    => array( '@type' => 'Organization', 'name' => 'MOVECON', 'url' => $home ),
+		'author'    => $autor,
 		'publisher' => $publisher,
 	);
 	if ( $publicado ) {

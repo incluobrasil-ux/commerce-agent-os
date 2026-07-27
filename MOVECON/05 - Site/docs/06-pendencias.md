@@ -4,6 +4,54 @@
 > cliente, a Alpha ou uma fonte externa fornecem. Onde um destes bloqueia uma
 > página, a página usa `{{DADO_PENDENTE}}` ou não vai ao ar.
 
+## P3 — dados de autoria (ABERTA)
+
+**Estado em 26/07/2026: infraestrutura pronta, faltam 4 valores.**
+
+Confirmado pelo cliente: **Samuel Tanan, sócio-fundador da MOVECON e da
+Crelider**. Esse é o único dado real recebido — os outros quatro campos
+chegaram como marcadores de template (`[COLAR BIO CURTA]`, `[COLAR BIO
+LONGA]`, `[anexar/caminho]`, `[LinkedIn/Instagram ou "nenhum por ora"]`)
+e **não foram preenchidos por inferência**.
+
+### O que falta
+
+| Campo | Formato |
+|---|---|
+| `bioCurta` | 1 a 2 frases, até ~240 caracteres — vai na caixa ao fim de cada artigo |
+| `bioLonga` | 2 a 4 parágrafos — vai na página de autor |
+| `foto` | mínimo 400×400, quadrada |
+| `linkExterno` | URL do LinkedIn/Instagram, **ou** a string `nenhum` |
+
+### O que já está pronto
+
+- `content/autor.json` — ficha, fonte única dos três lugares
+- `scripts/gerar_autor.py` — página e caixa; **aborta com exit 1** se houver
+  campo obrigatório pendente, sem escrever nada
+- `movecon-schema-artigos.php` — `author` Person quando a ficha estiver
+  completa, `Organization` enquanto não estiver
+- `check_seo.py` / `validar_autoria()` — a bio passa pelas 11 expressões
+  proibidas, mais seis variações específicas de autoria
+- Rota `/autor/samuel-tanan/` registrada, camada `confianca`, `planejada`
+
+### Por que nada publicou
+
+A caixa de autor entra em **toda** página de artigo. Publicar com pendente
+espalharia `[COLAR BIO CURTA]` por 15 páginas de uma vez — exatamente o que a
+regra permanente do gate proíbe.
+
+Sobre o `author` Person: enquanto a bio pública não existir, o schema **não**
+afirma autoria de pessoa. Apontar `author` para uma página de autor vazia é
+pior do que declarar `Organization`, porque promete ao buscador uma credencial
+que o visitante não encontra ao clicar.
+
+### Atenção registrada pelo cliente
+
+A bio **não** pode conter nenhuma das 11 expressões proibidas. Em especial,
+nada de `white-label` — a construção aprovada é "plataforma que comercializa
+grupos administrados pela Alpha". O validador foi testado com violação
+injetada e barra com exit 1.
+
 ## P1 — Tabela comercial da MOVECON, por escrito, da Alpha
 
 **Bloqueia:** indexação dos 6 simuladores.

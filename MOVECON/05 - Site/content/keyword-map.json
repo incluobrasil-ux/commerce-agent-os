@@ -1385,6 +1385,17 @@
       "fase": 2
     },
     {
+      "url": "/autor/samuel-tanan/",
+      "keyword": "samuel tanan movecon",
+      "intencao": "navegacional",
+      "camada": "confianca",
+      "title": "Samuel Tanan | Autor | MOVECON Consórcio",
+      "description": "Sócio-fundador da MOVECON. Conheça a trajetória de quem assina os conteúdos sobre consórcio publicados no blog da plataforma.",
+      "indexavel": true,
+      "status": "planejada",
+      "fase": 3
+    },
+    {
       "url": "/avaliacoes/",
       "keyword": "movecon avaliações",
       "intencao": "navegacional",

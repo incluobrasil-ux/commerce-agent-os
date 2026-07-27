@@ -476,6 +476,14 @@ for url, kw, cam, t, d, fase in [
          'Conheça o time da MOVECON, a estrutura de atendimento e a administradora que responde pelos grupos. Transparência completa.', 2),
         ('/seguranca/', 'como saber se o consórcio é seguro', 'confianca', 'Segurança e Transparência | MOVECON',
          'CNPJ, autorização do Bacen, contrato e canais oficiais reunidos em uma página. Confira cada informação na fonte original.', 2),
+        # Pagina de autor. Nao havia padrao de rota para autoria no mapa - o
+        # padrao /autor/<slug>/ foi proposto e registrado em 26/07/2026.
+        # Camada 'confianca' e nao 'institucional' de proposito: a funcao dela
+        # e sustentar E-E-A-T, mesma familia de /seguranca/ e /avaliacoes/.
+        # Segue 'planejada' ate a ficha de autoria ter bio e foto reais.
+        ('/autor/samuel-tanan/', 'samuel tanan movecon', 'confianca',
+         'Samuel Tanan | Autor | MOVECON Consórcio',
+         'Sócio-fundador da MOVECON. Conheça a trajetória de quem assina os conteúdos sobre consórcio publicados no blog da plataforma.', 3),
         # Publicada em 26/07/2026 como pagina de REPUTACAO, e nao de
         # depoimentos. A MOVECON e nova e nao tem avaliacao de cliente. A
         # alternativa levantada - usar as avaliacoes da parceira - foi

@@ -335,6 +335,47 @@ def validar_sem_entrada():
     return erros
 
 
+def validar_autoria(doc):
+    """
+    A bio publica do autor passa pelas mesmas 11 expressoes proibidas.
+
+    Existe porque bio de autor e o unico texto do site escrito por uma pessoa
+    sobre si mesma, e e exatamente ali que "socio da administradora" ou
+    "white-label" entram sem malicia. O texto vem de fora do projeto e nao
+    passa pelos geradores, entao nenhum outro validador o alcanca.
+
+    Nao reclama de campo [PENDENTE]: quem barra pendente e o gerador, que se
+    recusa a escrever. Aqui so se verifica o que ja tem texto real.
+    """
+    import unicodedata
+
+    def norm(t):
+        t = unicodedata.normalize('NFD', t.lower())
+        return ''.join(c for c in t if unicodedata.category(c) != 'Mn')
+
+    caminho = os.path.join(RAIZ, 'content', 'autor.json')
+    if not os.path.isfile(caminho):
+        return []
+    ficha = json.load(io.open(caminho, encoding='utf-8'))
+    proibidas = [p.lower() for p in doc['site'].get('nuncaEscrever', [])]
+    extras = ['socio da administradora', 'socia da administradora',
+              'dono da administradora', 'da alpha administradora',
+              'administrador de consorcio', 'administradora movecon']
+    achados = []
+    for a in ficha.get('autores', []):
+        for campo in ('nome', 'cargo', 'bioCurta', 'bioLonga'):
+            txt = a.get(campo, '')
+            if not isinstance(txt, str) or txt.startswith('[PENDENTE'):
+                continue
+            n = norm(txt)
+            for p in proibidas + extras:
+                if norm(p) in n:
+                    achados.append(
+                        'AUTORIA - expressao proibida "%s" em %s / %s'
+                        % (p, a.get('slug', '?'), campo))
+    return achados
+
+
 def validar_prosa(doc):
     """
     Varre o HTML/PHP das paginas atras das expressoes proibidas.
@@ -444,6 +485,7 @@ def main():
     validar_prosa(doc)
     erros.extend(validar_modalidade())
     erros.extend(validar_sem_entrada())
+    erros.extend(validar_autoria(doc))
     if '--wp' in sys.argv:
         validar_wp(doc)
 

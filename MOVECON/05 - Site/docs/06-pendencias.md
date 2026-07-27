@@ -94,19 +94,86 @@ parcela".
 O Complianz foi desinstalado e os 11 options residuais limpos. **Nenhum plugin
 de consentimento está instalado.** Ver `PRÉ-REQUISITO DE CAMPANHA` no HANDOFF.
 
-## P8 — Backup
+## P8 — Backup · PARCIALMENTE RESOLVIDA em 26/07/2026
 
-**Não bloqueia página nenhuma. É o item de maior risco do projeto.**
+**Feito, e funcionando:** `backup-movecon.sh` diário às 03:20, com banco,
+uploads e configs. Retenção de 7 diários + 4 semanais. Trava que aborta se o
+dump vier vazio. **Restore testado em ambiente isolado** — 99 páginas, 9 hubs,
+24 itens de menu e 41 KB de CSS conferidos. Documentado em `backup-restore.md`.
 
-UpdraftPlus instalado e **completamente vazio**: sem destino remoto, sem
-agendamento, nenhum backup jamais executado. 99 páginas num único VPS sem cópia.
+**O que falta:** as cópias estão no **mesmo disco do site**. Protege contra erro
+humano e corrupção de banco; **não protege contra perda do VPS**, que é o
+cenário que originou a pendência.
 
-## P9 — Search Console e GA4
+**Precisa de você:** credencial de um destino externo — bucket S3 ou compatível,
+rclone para Drive/OneDrive, ou outro servidor com SSH. Escolhido o destino, o
+envio é uma linha no fim do script.
 
-**Bloqueia:** medição, os KPIs do plano mestre e o ciclo de quick wins.
+O UpdraftPlus segue instalado e vazio. Não foi usado: um script versionado é
+auditável e testável; a configuração de um plugin vive só no banco — e o banco
+é justamente o que se está tentando proteger.
 
-Site Kit instalado com `propertyID` vazio nos dois. 99 páginas no ar e ninguém
-sabe se estão sendo indexadas.
+## P8b — O repositório remoto é PÚBLICO
+
+**Descoberto em 26/07/2026, antes de qualquer push. Nada vazou.**
+
+`origin` aponta para `github.com/incluobrasil-ux/commerce-agent-os`, e a
+consulta à API retorna `"visibility":"PUBLIC"`.
+
+**57 commits nunca foram enviados.** O último commit no remoto é de 28/05/2026 —
+todo o projeto MOVECON existe apenas na máquina local. Confirmado que o remoto
+tem **zero arquivos** de `MOVECON/`.
+
+Um push levaria 104 arquivos e 18.826 linhas para um repositório público,
+incluindo estratégia de compliance, a decisão de não mencionar o processo
+administrativo da Alpha, análise pontuada de concorrentes nomeados e as
+decisões internas do HANDOFF.
+
+`gitleaks` nos 57 commits: **nenhum segredo**. Mas ausência de credencial não
+é o mesmo que conteúdo publicável.
+
+**Precisa de você — três caminhos:**
+
+1. Tornar `commerce-agent-os` privado. Um comando, mas afeta todo o monorepo e
+   qualquer coisa que dependa dele ser público.
+2. Criar um repositório privado novo só para MOVECON e apontar o `origin` do
+   subprojeto para lá.
+3. Manter o monorepo público e mover MOVECON para outro repositório privado.
+
+**Não faço nenhum dos três sem sua escolha explícita** — mudar visibilidade de
+repositório é ação de sentido único quando erra para o lado aberto.
+
+Enquanto isso, **o código não tem backup externo nenhum.**
+
+## P9 — Search Console e GA4 · PREPARADA em 26/07/2026
+
+**Feito:** sitemap conferido — 78 URLs, exatamente as rotas indexáveis no ar,
+XML válido, zero LP vazando, zero duplicata, robots apontando. Passo a passo de
+criação das propriedades documentado em `medicao-gsc-ga4.md`.
+
+**Precisa de você:** criar as propriedades na conta Google da MOVECON e me
+mandar (a) o valor da meta tag de verificação do Search Console e (b) o ID
+`G-XXXXXXXXXX` do GA4. Eu insiro os dois num mu-plugin.
+
+**ORDEM OBRIGATÓRIA:** Search Console pode ser agora — não coleta dado do
+visitante. **GA4 só depois da P7**, porque GA4 sem banner de consentimento é
+violação de LGPD, e o próprio plano mestre lista o GA4 como o primeiro dos
+quatro gatilhos que exigem o banner.
+
+## Regra da Fase 2 — nenhum artigo publica sem autor real
+
+**Decisão do cliente, 26/07/2026.**
+
+A pauta do Prompt 2.1 **pode** ser escrita e aprovada com a P3 em aberto. Os
+artigos **podem** ser escritos. Mas **nenhum vai ao ar sem autor real definido**.
+
+Motivo: conteúdo YMYL sobre dinheiro sem autoria identificável é a pior
+categoria possível para E-E-A-T — e assinar com autor inventado é fraude, não
+otimização. Os 21 guias já estão no ar sem caixa de autor por essa mesma razão;
+artigo de blog terá o mesmo tratamento até a P3 fechar.
+
+O `Article` schema segue com `publisher` `Organization` e **sem `author`
+pessoa**.
 
 ---
 

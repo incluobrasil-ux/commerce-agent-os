@@ -4,6 +4,50 @@
 > auditoria de 26/07/2026 mediu no site real
 > (`docs/auditoria-onpage-2026-07-26.md`).
 
+## Dosagem do tema custo de adesão
+
+**Decisão do cliente em 26/07/2026, depois da correção em massa ter deixado o
+assunto repetitivo.** A regra `SEM_ENTRADA` não mudou — alegação e ressalva
+sempre no mesmo bloco. O que mudou foi a **frequência**.
+
+**Máximo de dois pontos por página:**
+
+1. **Um ponto do corpo** — a linha da tabela comparativa **ou** o passo
+   "Adesão", nunca os dois
+2. **A FAQ "Preciso dar entrada?"**, com a explicação por extenso
+
+**Onde há tabela, ela fica e o passo é limpo.** A linha "Entrada e primeiro
+desembolso" só significa alguma coisa ao lado da coluna do banco — é ali que o
+leitor compara. Sem tabela, o passo "Adesão" assume.
+
+**Answer-first não toca no assunto**, exceto em página cuja keyword seja sobre
+entrada ou custo de adesão. Ele volta a abrir com "sem juros" e o mecanismo:
+parcelas, sorteio ou lance, compra à vista.
+
+**Meta description mantém a formulação curta.** SERP é promessa de primeiro
+contato — a ressalva fica.
+
+**Simulador e LPs mantêm ênfase integral.** São as páginas de decisão.
+
+### O que NÃO conta como ocorrência do tema
+
+Três construções usam as mesmas palavras em outro sentido e foram deixadas
+intocadas:
+
+| Construção | Sentido real |
+|---|---|
+| "antecipar a contemplação" | lance, não custo de adesão |
+| "entrada do grupo" | ingressar, não desembolso |
+| "cobrança antecipada de uma taxa" | descrição de fraude |
+
+Contá-las como repetição levaria a limpar texto correto.
+
+### Estado em 26/07/2026
+
+Os 9 hubs em exatamente **2 ocorrências** cada — nenhum acima, nenhum sem a
+informação. As filhas que perderam a menção ao limpar o answer-first ganharam a
+FAQ, para que a informação continue disponível na própria página.
+
 ## Formulação de referência — custo de adesão
 
 **Texto aprovado em 26/07/2026. Nenhum conteúdo novo menciona custo de adesão

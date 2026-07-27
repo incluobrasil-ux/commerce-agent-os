@@ -123,6 +123,10 @@
   [
    "E se o carro custar menos que a carta?",
    "O saldo costuma poder ser usado conforme as regras do contrato, por exemplo para abater parcelas. As condições estão no contrato do seu grupo."
+  ],
+  [
+   "Preciso dar entrada para comprar o carro?",
+   "Não no sentido do financiamento: nenhum valor seu abate o preço do bem, e 100% do crédito continua disponível para a compra. Mas o primeiro desembolso é maior — na adesão antecipa-se parte da taxa de administração, o que torna a primeira parcela maior que as demais. O simulador mostra as duas separadamente."
   ]
  ],
  "/consorcio-veiculos/carro-usado/": [
@@ -291,6 +295,10 @@
   [
    "Estando negativado, posso participar?",
    "É possível entrar no grupo, mas a análise na contemplação continua existindo. Não prometemos liberação: seja cuidadoso com quem promete."
+  ],
+  [
+   "Preciso dar entrada para comprar o caminhão?",
+   "Não no sentido do financiamento: nenhum valor seu abate o preço do bem, e 100% do crédito continua disponível para a compra. Mas o primeiro desembolso é maior — na adesão antecipa-se parte da taxa de administração, o que torna a primeira parcela maior que as demais. O simulador mostra as duas separadamente."
   ]
  ],
  "/consorcio-maquinas-agricolas/trator/": [
@@ -481,6 +489,10 @@
   [
    "Consigo antes do verão?",
    "Não há como prometer. A contemplação depende de sorteio ou lance, sem data previsível. Quem quer usar numa temporada específica precisa começar com bastante antecedência."
+  ],
+  [
+   "Preciso dar entrada para comprar o jet ski?",
+   "Não no sentido do financiamento: nenhum valor seu abate o preço do bem, e 100% do crédito continua disponível para a compra. Mas o primeiro desembolso é maior — na adesão antecipa-se parte da taxa de administração, o que torna a primeira parcela maior que as demais. O simulador mostra as duas separadamente."
   ]
  ],
  "/consorcio-moto/moto-para-trabalhar/": [
@@ -495,6 +507,10 @@
   [
    "Consigo a moto a tempo de começar a trabalhar?",
    "Não há como prometer. A contemplação depende de sorteio ou lance e não tem data previsível. Quem precisa da moto para começar a trabalhar agora deve avaliar outra via."
+  ],
+  [
+   "Preciso dar entrada para comprar a moto?",
+   "Não no sentido do financiamento: nenhum valor seu abate o preço do bem, e 100% do crédito continua disponível para a compra. Mas o primeiro desembolso é maior — na adesão antecipa-se parte da taxa de administração, o que torna a primeira parcela maior que as demais. O simulador mostra as duas separadamente."
   ]
  ],
  "/consorcio-moto/moto-zero/": [
@@ -509,6 +525,10 @@
   [
    "Sobra crédito se a moto custar menos que a carta?",
    "As regras variam conforme o contrato do grupo. Confirme como a diferença é tratada antes de aderir."
+  ],
+  [
+   "Preciso dar entrada para comprar a moto?",
+   "Não no sentido do financiamento: nenhum valor seu abate o preço do bem, e 100% do crédito continua disponível para a compra. Mas o primeiro desembolso é maior — na adesão antecipa-se parte da taxa de administração, o que torna a primeira parcela maior que as demais. O simulador mostra as duas separadamente."
   ]
  ],
  "/perguntas/": [
@@ -851,10 +871,6 @@
    "Sim. A carta de veículos costuma permitir a compra de usados dentro dos critérios de ano e estado definidos pela administradora. O consultor confirma as regras do grupo antes da adesão."
   ],
   [
-   "Preciso dar entrada para comprar o carro?",
-   "Não. O consórcio não exige entrada. Você começa a pagar as parcelas e já concorre à contemplação desde a primeira assembleia."
-  ],
-  [
    "Quanto tempo até eu receber a carta de crédito?",
    "Não há resposta honesta em forma de prazo. A contemplação ocorre por sorteio ou lance, em assembleia, e varia grupo a grupo. O lance aumenta a chance, não a certeza — e nenhuma administradora pode prometer data."
   ],
@@ -865,6 +881,10 @@
   [
    "Posso comprar de particular?",
    "Sim, desde que a documentação do veículo e do vendedor atenda às exigências e o carro passe na vistoria."
+  ],
+  [
+   "Preciso dar entrada para comprar o carro?",
+   "Não no sentido do financiamento: nenhum valor seu abate o preço do bem, e 100% do crédito continua disponível para a compra. Mas o primeiro desembolso é maior — na adesão antecipa-se parte da taxa de administração, o que torna a primeira parcela maior que as demais. O simulador mostra as duas separadamente."
   ]
  ],
  "/consorcio-moto/": [
@@ -891,6 +911,10 @@
   [
    "Posso comprar de particular?",
    "Sim, desde que a documentação da moto e do vendedor atenda às exigências e a moto passe na vistoria."
+  ],
+  [
+   "Preciso dar entrada para comprar a moto?",
+   "Não no sentido do financiamento: nenhum valor seu abate o preço do bem, e 100% do crédito continua disponível para a compra. Mas o primeiro desembolso é maior — na adesão antecipa-se parte da taxa de administração, o que torna a primeira parcela maior que as demais. O simulador mostra as duas separadamente."
   ]
  ],
  "/consorcio-imoveis/": [
@@ -943,6 +967,10 @@
   [
    "Posso usar mais de uma cota para renovar a frota?",
    "Sim. Cada cota concorre de forma independente, o que distribui as contemplações ao longo do tempo. Não há como prever se sairão juntas."
+  ],
+  [
+   "Preciso dar entrada para comprar o caminhão?",
+   "Não no sentido do financiamento: nenhum valor seu abate o preço do bem, e 100% do crédito continua disponível para a compra. Mas o primeiro desembolso é maior — na adesão antecipa-se parte da taxa de administração, o que torna a primeira parcela maior que as demais. O simulador mostra as duas separadamente."
   ]
  ],
  "/consorcio-maquinas-agricolas/": [
@@ -969,6 +997,10 @@
   [
    "Posso usar os dois?",
    "Sim. É comum usar a linha subsidiada no que ela cobre e o consórcio no que ficou de fora ou no próximo investimento."
+  ],
+  [
+   "Preciso dar entrada para comprar a máquina?",
+   "Não no sentido do financiamento: nenhum valor seu abate o preço do bem, e 100% do crédito continua disponível para a compra. Mas o primeiro desembolso é maior — na adesão antecipa-se parte da taxa de administração, o que torna a primeira parcela maior que as demais. O simulador mostra as duas separadamente."
   ]
  ],
  "/consorcio-servicos/": [
@@ -995,6 +1027,10 @@
   [
    "E se o serviço custar menos que a carta?",
    "As regras variam conforme o contrato do grupo. Confirme antes de aderir como a diferença é tratada — não assuma que sobra em dinheiro."
+  ],
+  [
+   "Preciso dar entrada para contratar o serviço?",
+   "Não no sentido do financiamento: nenhum valor seu abate o preço do bem, e 100% do crédito continua disponível para a compra. Mas o primeiro desembolso é maior — na adesão antecipa-se parte da taxa de administração, o que torna a primeira parcela maior que as demais. O simulador mostra as duas separadamente."
   ]
  ],
  "/consorcio-empresa/": [
@@ -1021,6 +1057,10 @@
   [
    "A análise na contemplação olha o CNPJ ou o sócio?",
    "Depende da administradora e do porte da empresa. Confirme o critério antes de aderir, porque é ele que determina o que preparar até lá."
+  ],
+  [
+   "Preciso dar entrada para a empresa aderir?",
+   "Não no sentido do financiamento: nenhum valor seu abate o preço do bem, e 100% do crédito continua disponível para a compra. Mas o primeiro desembolso é maior — na adesão antecipa-se parte da taxa de administração, o que torna a primeira parcela maior que as demais. O simulador mostra as duas separadamente."
   ]
  ],
  "/consorcio-embarcacoes/": [
@@ -1047,6 +1087,10 @@
   [
    "Além da embarcação, o que eu ainda vou pagar?",
    "Registro junto à Marinha, vaga em marina e manutenção não entram na carta. São custos recorrentes que costumam surpreender quem compra a primeira."
+  ],
+  [
+   "Preciso dar entrada para comprar a embarcação?",
+   "Não no sentido do financiamento: nenhum valor seu abate o preço do bem, e 100% do crédito continua disponível para a compra. Mas o primeiro desembolso é maior — na adesão antecipa-se parte da taxa de administração, o que torna a primeira parcela maior que as demais. O simulador mostra as duas separadamente."
   ]
  ],
  "/consorcio-contemplado/": [

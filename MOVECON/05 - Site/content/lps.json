@@ -6,11 +6,14 @@
       "slug": "veiculos",
       "simulador": "veiculos",
       "eyebrow": "Consórcio de carro",
-      "h1": "Seu carro sem juros e sem entrada",
+      "h1": "Seu carro sem os juros do financiamento",
       "lead": "No financiamento, os juros correm do primeiro ao último mês. No consórcio não há juros — você paga parcelas, é contemplado por sorteio ou lance, e chega na concessionária como comprador à vista.",
       "bullets": [
         ["Sem juros", "Você paga taxa de administração, não juros compostos"],
-        ["Sem entrada", "Comece a pagar e concorra desde a primeira assembleia"],
+        [
+          "Sem entrada para o bem — 1ª parcela maior",
+          "Comece a pagar e concorra desde a primeira assembleia"
+        ],
         ["À vista", "Com a carta em mãos, você negocia desconto"]
       ]
     },
@@ -18,11 +21,11 @@
       "slug": "moto",
       "simulador": null,
       "eyebrow": "Consórcio de moto",
-      "h1": "Sua moto sem juros e sem entrada",
+      "h1": "Sua moto sem os juros do financiamento",
       "lead": "Para trabalho ou para o fim de semana. O financiamento de moto cobra juros e quase sempre pede entrada. O consórcio não faz nem uma coisa nem outra.",
       "bullets": [
         ["Parcela menor", "Sem juros, o valor mensal fica abaixo do financiamento"],
-        ["Sem entrada", "O consórcio não exige entrada"],
+        ["Sem entrada para o bem — 1ª parcela maior", "O consórcio não exige entrada"],
         ["Nova ou usada", "Você escolhe marca e modelo na contemplação"]
       ]
     },
@@ -34,7 +37,10 @@
       "lead": "Num financiamento longo, é comum pagar mais de duas vezes o valor do imóvel só em juros. No consórcio não há juros — você paga parcelas, é contemplado por sorteio ou lance, e compra à vista.",
       "bullets": [
         ["Sem juros", "Você paga taxa de administração, não juros compostos"],
-        ["Sem entrada", "Comece a pagar e concorra desde a primeira assembleia"],
+        [
+          "Sem entrada para o bem — 1ª parcela maior",
+          "Comece a pagar e concorra desde a primeira assembleia"
+        ],
         ["FGTS", "Pode ser usado como lance para antecipar a contemplação"]
       ]
     },

@@ -83,7 +83,7 @@
         ],
         [
           "No financiamento preciso de entrada?",
-          "Quase sempre sim, um percentual à vista. No consórcio não há entrada obrigatória: você começa pela parcela."
+          "No financiamento, a entrada é um percentual do bem pago à vista. No consórcio, não há entrada destinada ao bem — mas a primeira parcela é maior, porque antecipa parte da taxa de administração. O simulador mostra a primeira e as demais separadamente."
         ],
         [
           "E se eu não for aprovado no financiamento?",
@@ -215,7 +215,7 @@
         ],
         [
           "Preciso de entrada no consórcio?",
-          "Não há entrada obrigatória. Você começa pela parcela e concorre desde a primeira assembleia."
+          "Não no sentido do financiamento: nenhum valor seu abate o preço do bem, e 100% do crédito continua disponível para a compra. Mas o primeiro desembolso é maior — na adesão antecipa-se parte da taxa de administração, o que torna a primeira parcela maior que as demais. O simulador mostra as duas separadamente."
         ],
         [
           "Terreno e construção entram?",

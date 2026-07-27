@@ -1,13 +1,9 @@
 {
   "_leia_me": "Filhas de silo de /consorcio-caminhao/. `respostaCurta` e o bloco ANSWER-FIRST: responde a keyword nas 2-3 primeiras frases, antes de qualquer contexto. Maximo ~55 palavras.",
-
   "_status": "AGUARDANDO APROVACAO DOS ANSWER-FIRST. Paginas geradas, nao publicadas.",
-
   "_nota": "Publico profissional: o caminhao e ferramenta de trabalho, nao desejo. A copy fala de margem, custo por quilometro e renovacao programada - nao de conquista. E declara que consorcio nao repoe veiculo parado.",
-
   "pai": "/consorcio-caminhao/",
   "simulador": "/simulador/caminhao/",
-
   "filhas": [
     {
       "slug": "caminhao-usado",
@@ -118,7 +114,7 @@
       "slug": "caminhoneiro-autonomo",
       "keyword": "consórcio para caminhoneiro autônomo",
       "h1": "Consórcio para caminhoneiro autônomo",
-      "respostaCurta": "Não há análise de crédito para entrar em um grupo de consórcio, o que facilita para o caminhoneiro autônomo sem comprovação de renda tradicional. A análise acontece na contemplação, quando o crédito é liberado. Também não há entrada obrigatória nem exigência de holerite na adesão.",
+      "respostaCurta": "Não há análise de crédito para entrar em um grupo de consórcio, o que facilita para o caminhoneiro autônomo sem comprovação de renda tradicional. A análise acontece na contemplação, quando o crédito é liberado. Também não há entrada destinada ao veículo nem exigência de holerite — a primeira parcela é maior, porque antecipa parte da taxa de administração.",
       "eyebrow": "Autônomo",
       "lead": "Quem trabalha por conta própria conhece a barreira: sem holerite, o banco dificulta e a taxa sobe. O consórcio inverte a ordem — você entra no grupo primeiro e a análise vem depois, na hora de liberar o crédito.",
       "secao": "O que isso significa na prática",
@@ -128,8 +124,8 @@
           "Você entra no grupo e começa a concorrer sem passar por aprovação de crédito."
         ],
         [
-          "Sem entrada obrigatória",
-          "Diferente do financiamento, que quase sempre exige um percentual à vista."
+          "Sem entrada para o bem",
+          "Diferente do financiamento, que exige um percentual à vista do caminhão. A primeira parcela é maior que as demais, porque antecipa parte da taxa de administração."
         ],
         [
           "Análise na contemplação",

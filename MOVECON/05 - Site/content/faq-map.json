@@ -546,7 +546,7 @@
   ],
   [
    "Preciso dar entrada?",
-   "Não. Diferente do financiamento, que quase sempre exige um percentual à vista, no consórcio você começa a pagar a parcela e já concorre desde a primeira assembleia. Lance é opcional e não é entrada: é oferta para tentar antecipar a contemplação."
+   "Não no sentido do financiamento: nenhum valor seu abate o preço do bem, e 100% do crédito continua disponível para a compra. Mas o primeiro desembolso é maior — na adesão antecipa-se parte da taxa de administração, o que torna a primeira parcela maior que as demais. O simulador mostra as duas separadamente. Lance é outra coisa: é opcional e serve para tentar antecipar a contemplação."
   ],
   [
    "Como sei se uma empresa de consórcio é confiável?",
@@ -792,7 +792,7 @@
   ],
   [
    "No financiamento preciso de entrada?",
-   "Quase sempre sim, um percentual à vista. No consórcio não há entrada obrigatória: você começa pela parcela."
+   "No financiamento, a entrada é um percentual do bem pago à vista. No consórcio, não há entrada destinada ao bem — mas a primeira parcela é maior, porque antecipa parte da taxa de administração. O simulador mostra a primeira e as demais separadamente."
   ],
   [
    "E se eu não for aprovado no financiamento?",
@@ -834,7 +834,7 @@
   ],
   [
    "Preciso de entrada no consórcio?",
-   "Não há entrada obrigatória. Você começa pela parcela e concorre desde a primeira assembleia."
+   "Não no sentido do financiamento: nenhum valor seu abate o preço do bem, e 100% do crédito continua disponível para a compra. Mas o primeiro desembolso é maior — na adesão antecipa-se parte da taxa de administração, o que torna a primeira parcela maior que as demais. O simulador mostra as duas separadamente."
   ],
   [
    "Terreno e construção entram?",
@@ -851,7 +851,7 @@
    "Sim. A carta de veículos costuma permitir a compra de usados dentro dos critérios de ano e estado definidos pela administradora. O consultor confirma as regras do grupo antes da adesão."
   ],
   [
-   "Preciso dar entrada?",
+   "Preciso dar entrada para comprar o carro?",
    "Não. O consórcio não exige entrada. Você começa a pagar as parcelas e já concorre à contemplação desde a primeira assembleia."
   ],
   [
@@ -915,8 +915,8 @@
    "Você complementa a diferença no momento da compra. Vale dimensionar a carta considerando isso já na adesão — e lembrar de ITBI, registro e escritura, que não entram na carta e chegam todos juntos."
   ],
   [
-   "Preciso dar entrada?",
-   "Não. Você começa pela parcela e concorre desde a primeira assembleia. É a diferença mais concreta em relação ao financiamento, que quase sempre exige um percentual à vista."
+   "Preciso dar entrada para comprar o imóvel?",
+   "Não no sentido do financiamento: nenhum valor seu abate o preço do bem, e 100% do crédito continua disponível para a compra. Mas o primeiro desembolso é maior — na adesão antecipa-se parte da taxa de administração, o que torna a primeira parcela maior que as demais. O simulador mostra as duas separadamente."
   ]
  ],
  "/consorcio-caminhao/": [

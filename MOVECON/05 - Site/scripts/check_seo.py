@@ -218,6 +218,123 @@ def validar_modalidade():
     return erros
 
 
+# Construcoes que afirmam ausencia de desembolso inicial.
+SEM_ENTRADA = (
+    'sem entrada',
+    'sem entrada obrigatoria',
+    'comeca pela parcela',
+    'comeca a pagar a parcela',
+    'so a parcela',
+    'sem desembolso inicial',
+    'sem precisar de entrada',
+    'sem dar entrada',
+    'nao ha entrada',
+    'nao precisa de entrada',
+    'nenhuma entrada',
+)
+
+# Marcadores que, no MESMO bloco, tornam a afirmacao honesta.
+REVELA_ANTECIPACAO = (
+    'primeira parcela',
+    # o indicador ordinal feminino nao e acento: NFD nao o decompoe, entao
+    # "1a parcela" nunca casaria com "1a parcela" escrito com o ordinal.
+    '1ª parcela',
+    '1a parcela',
+    'antecipa',
+    'antecipacao',
+    'maior que as demais',
+    'maior que as seguintes',
+)
+
+
+def validar_sem_entrada():
+    """
+    "Sem entrada" nunca aparece sozinho.
+
+    O produto tem antecipacao de taxa de administracao: a primeira parcela e
+    maior que as demais. Afirmar "sem entrada" sem essa ressalva no mesmo
+    bloco de texto e factualmente desalinhado - ver 01-compliance.md, secao
+    "Custo de adesao".
+
+    A regra e de CO-OCORRENCIA, nao de proibicao: "sem entrada" e verdade
+    quanto ao bem, e continua sendo diferencial contra o financiamento. So
+    nao pode vir desacompanhado.
+    """
+    import unicodedata
+
+    def norm(t):
+        t = unicodedata.normalize('NFD', t.lower())
+        return ''.join(c for c in t if unicodedata.category(c) != 'Mn')
+
+    erros = []
+    conteudo = os.path.join(RAIZ, 'content')
+
+    def checar(rota, valor, origem, campo):
+        if not isinstance(valor, str):
+            return
+        n = norm(valor)
+        # Fronteira de palavra: sem isso, "compromisso a parcela" casa com
+        # "so a parcela" e a regra acusa texto que nao fala de entrada.
+        achado = next(
+            (p for p in SEM_ENTRADA if re.search(r'\b%s\b' % re.escape(p), n)),
+            None)
+        if not achado:
+            return
+        if any(m in n for m in REVELA_ANTECIPACAO):
+            return
+        erros.append('SEM_ENTRADA - "%s" sem a ressalva da primeira parcela '
+                     'maior, em %s (%s / %s): "%s"'
+                     % (achado, rota, origem, campo, valor[:70]))
+
+    def varrer(rota, obj, origem, campo='?'):
+        if isinstance(obj, str):
+            checar(rota, obj, origem, campo)
+        elif isinstance(obj, list):
+            # Par [titulo, descricao] de card ou FAQ e UM bloco: os dois
+            # renderizam juntos, um debaixo do outro. Avaliar separado
+            # acusaria o titulo de um card cuja descricao ja traz a ressalva.
+            if (len(obj) == 2 and all(isinstance(x, str) for x in obj)):
+                checar(rota, ' '.join(obj), origem, campo)
+                return
+            for x in obj:
+                varrer(rota, x, origem, campo)
+        elif isinstance(obj, dict):
+            for k, v in obj.items():
+                if k.startswith('_'):
+                    continue
+                varrer(rota, v, origem, k)
+
+    # keyword-map: title e description sao blocos por si so
+    mapa = carregar()
+    for r in mapa['rotas']:
+        for campo in ('title', 'description'):
+            checar(r['url'], r.get(campo, ''), 'keyword-map.json', campo)
+
+    caminho = os.path.join(conteudo, 'segmentos.json')
+    if os.path.exists(caminho):
+        with io.open(caminho, encoding='utf-8') as fh:
+            for seg in json.load(fh)['segmentos']:
+                varrer('/%s/' % seg['slug'], seg, 'segmentos.json')
+
+    for nome in sorted(os.listdir(conteudo)):
+        if nome in ('keyword-map.json', 'faq-map.json', 'segmentos.json'):
+            continue
+        if not nome.endswith('.json'):
+            continue
+        with io.open(os.path.join(conteudo, nome), encoding='utf-8') as fh:
+            d = json.load(fh)
+        if nome.startswith('filhas-'):
+            for x in d.get('filhas', []):
+                varrer('%s%s/' % (d['pai'], x['slug']), x, nome)
+        elif nome.startswith('guias-'):
+            for x in d.get('guias', []):
+                varrer('/guia/%s/' % x['slug'], x, nome)
+        else:
+            varrer('(%s)' % nome, d, nome)
+
+    return erros
+
+
 def validar_prosa(doc):
     """
     Varre o HTML/PHP das paginas atras das expressoes proibidas.
@@ -326,6 +443,7 @@ def main():
     validar_mapa(doc)
     validar_prosa(doc)
     erros.extend(validar_modalidade())
+    erros.extend(validar_sem_entrada())
     if '--wp' in sys.argv:
         validar_wp(doc)
 

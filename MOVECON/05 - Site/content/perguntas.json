@@ -2,7 +2,6 @@
   "_leia_me": "Perguntas TRANSVERSAIS de /perguntas/. Sao perguntas que nao pertencem a nenhum silo especifico - valem para consorcio inteiro. NAO repetir aqui pergunta que ja existe no faq-map.json de uma filha: o mesmo par P/R em duas URLs do mesmo site e duplicacao interna, e o schema FAQPage sairia duas vezes.",
   "_regra": "O gerador ABORTA se qualquer pergunta daqui colidir com pergunta ja existente no faq-map.json. Colisao e comparada por texto normalizado (minusculas, sem acento, sem pontuacao).",
   "_indice": "A pagina tambem monta um indice das 110 perguntas ja respondidas nos silos, linkando para a pagina onde cada uma vive. Indice usa o TEXTO da pergunta como ancora e nao repete a resposta - isso e navegacao, nao conteudo duplicado.",
-
   "perguntas": [
     {
       "pergunta": "Consórcio é a mesma coisa que financiamento?",
@@ -38,7 +37,7 @@
     },
     {
       "pergunta": "Preciso dar entrada?",
-      "resposta": "Não. Diferente do financiamento, que quase sempre exige um percentual à vista, no consórcio você começa a pagar a parcela e já concorre desde a primeira assembleia. Lance é opcional e não é entrada: é oferta para tentar antecipar a contemplação."
+      "resposta": "Não no sentido do financiamento: nenhum valor seu abate o preço do bem, e 100% do crédito continua disponível para a compra. Mas o primeiro desembolso é maior — na adesão antecipa-se parte da taxa de administração, o que torna a primeira parcela maior que as demais. O simulador mostra as duas separadamente. Lance é outra coisa: é opcional e serve para tentar antecipar a contemplação."
     },
     {
       "pergunta": "Como sei se uma empresa de consórcio é confiável?",

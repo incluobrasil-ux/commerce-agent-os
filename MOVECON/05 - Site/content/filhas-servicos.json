@@ -1,108 +1,195 @@
 {
- "_leia_me": "Filhas de silo de /consorcio-servicos/. `respostaCurta` e o bloco ANSWER-FIRST: responde a keyword da pagina nas 2-3 primeiras frases, antes de qualquer contexto. Maximo ~55 palavras.",
+  "_leia_me": "Filhas de silo de /consorcio-servicos/. `respostaCurta` e o bloco ANSWER-FIRST: responde a keyword da pagina nas 2-3 primeiras frases, antes de qualquer contexto. Maximo ~55 palavras.",
 
- "_status": "AGUARDANDO APROVACAO DOS ANSWER-FIRST. Paginas geradas, nao publicadas.",
+  "_status": "AGUARDANDO APROVACAO DOS ANSWER-FIRST. Paginas geradas, nao publicadas.",
 
- "_nota_compliance": "Consorcio de servicos e a categoria com maior risco de promessa indevida: viagem com data, casamento marcado, procedimento agendado. Toda pagina deste silo diz explicitamente que o consorcio nao serve para o que tem prazo fechado.",
+  "_nota_compliance": "Consorcio de servicos e a categoria com maior risco de promessa indevida: viagem com data, casamento marcado, procedimento agendado. Toda pagina deste silo diz explicitamente que o consorcio nao serve para o que tem prazo fechado.",
 
- "pai": "/consorcio-servicos/",
- "simulador": "/simulador/servicos/",
+  "pai": "/consorcio-servicos/",
+  "simulador": "/simulador/servicos/",
 
- "filhas": [
-  {
-   "slug": "energia-solar",
-   "keyword": "consórcio de energia solar",
-   "h1": "Consórcio de energia solar",
-   "respostaCurta": "O consórcio de energia solar financia a instalação do sistema fotovoltaico sem juros. Você paga parcelas e, na contemplação, contrata o instalador à vista. Como o sistema reduz a conta de luz, parte da economia costuma ajudar a cobrir a parcela ao longo do tempo.",
-   "eyebrow": "Energia solar",
-   "lead": "Financiar energia solar com crédito bancário come boa parte da economia que o sistema gera. Sem juros, a conta muda: o que você deixa de pagar na conta de luz passa a trabalhar a seu favor mais cedo.",
-   "secao": "O que a carta cobre",
-   "itens": [
-    ["Sistema completo", "Placas, inversor, estrutura e instalação, conforme as regras da modalidade contratada."],
-    ["Pagamento à vista ao instalador", "O que costuma render desconto, já que o setor trabalha muito com parcelamento caro."],
-    ["Residencial ou empresarial", "Serve para os dois, respeitada a documentação exigida na liberação."]
-   ],
-   "faq": [
-    ["A economia na conta de luz cobre a parcela?", "Depende do seu consumo, do porte do sistema e da tarifa da sua distribuidora. Em muitos casos cobre parte relevante, mas não prometemos que cobre integralmente — a conta varia caso a caso."],
-    ["Posso escolher qualquer instalador?", "Em geral sim, desde que ele atenda aos requisitos de documentação exigidos para o pagamento da carta."],
-    ["Serve para ampliar um sistema existente?", "Costuma servir, conforme as regras da modalidade. Confirme com o consultor antes da adesão."]
-   ]
-  },
-  {
-   "slug": "viagem",
-   "keyword": "consórcio de viagem",
-   "h1": "Consórcio de viagem",
-   "respostaCurta": "O consórcio de viagem é uma forma de planejar a viagem sem os juros do cartão parcelado. Você paga parcelas e, na contemplação, contrata passagem e hospedagem à vista. Como a contemplação depende de sorteio ou lance, ele não serve para viagem com data fechada.",
-   "eyebrow": "Viagem",
-   "lead": "Parcelar viagem no cartão é uma das formas mais caras de viajar. O consórcio troca isso por planejamento — com uma limitação que precisa ficar clara desde o começo: ele não entrega data.",
-   "secao": "Como funciona",
-   "itens": [
-    ["Nacional ou internacional", "A carta cobre passagem, hospedagem e pacote, conforme a modalidade contratada."],
-    ["Contratação à vista", "Agência e operadora costumam abrir condição melhor para pagamento imediato."],
-    ["Planejamento, não urgência", "Funciona para quem pode escolher a data depois de ser contemplado."]
-   ],
-   "faq": [
-    ["Consigo viajar em data marcada?", "Não com garantia. A contemplação ocorre por sorteio ou por lance, sem data previsível. Se a viagem tem data fechada, o consórcio não é a ferramenta certa."],
-    ["Posso escolher qualquer agência?", "Em geral sim, desde que atenda aos requisitos de documentação para o pagamento da carta."],
-    ["A carta cobre a viagem toda?", "Cobre o que estiver dentro do valor contratado e das regras da modalidade. Despesas fora disso ficam por sua conta."]
-   ]
-  },
-  {
-   "slug": "casamento",
-   "keyword": "consórcio para casamento",
-   "h1": "Consórcio para casamento",
-   "respostaCurta": "O consórcio para casamento cobre festa, buffet, fotografia e demais itens da lista, sem juros de cartão ou de crédito pessoal. Na contemplação, você contrata os fornecedores à vista. Como não há data garantida de contemplação, ele exige começar com bastante antecedência.",
-   "eyebrow": "Casamento",
-   "lead": "A conta do casamento costuma acabar no crédito pessoal ou no cartão, e a dívida dura mais que a lua de mel. O consórcio é a alternativa de quem começa a planejar cedo.",
-   "secao": "O que a carta cobre",
-   "itens": [
-    ["Festa e fornecedores", "Buffet, espaço, fotografia, decoração e demais serviços, conforme a modalidade."],
-    ["Pagamento à vista", "Fornecedor de evento costuma dar desconto relevante para pagamento imediato."],
-    ["Comece cedo", "Quanto maior a antecedência, mais assembleias você atravessa antes da data pretendida."]
-   ],
-   "faq": [
-    ["Consigo garantir a contemplação antes da data do casamento?", "Não. Nenhuma administradora pode garantir prazo. O lance aumenta a chance, mas não assegura. Se a data já está marcada e próxima, considere outra via."],
-    ["Dá para usar em mais de um fornecedor?", "Em geral sim, dentro do valor da carta e das regras da modalidade contratada."],
-    ["E se sobrar valor da carta?", "O saldo segue as regras do contrato do seu grupo. Confirme as condições antes da adesão."]
-   ]
-  },
-  {
-   "slug": "educacao",
-   "keyword": "consórcio para estudos",
-   "h1": "Consórcio para estudos e intercâmbio",
-   "respostaCurta": "O consórcio para estudos cobre faculdade, pós-graduação, curso técnico e intercâmbio, sem os juros do financiamento estudantil. Você paga parcelas e, na contemplação, contrata a instituição à vista. Serve para quem planeja com antecedência, não para matrícula com prazo correndo.",
-   "eyebrow": "Educação e intercâmbio",
-   "lead": "Financiamento estudantil cobra juros por anos, e muitas vezes começa a ser pago antes de o diploma existir. O consórcio inverte a lógica: você planeja antes e contrata à vista.",
-   "secao": "O que a carta cobre",
-   "itens": [
-    ["Graduação e pós", "Mensalidade ou pacote de curso, conforme a modalidade contratada."],
-    ["Curso técnico e profissionalizante", "Inclusive formações curtas, dentro do valor da carta."],
-    ["Intercâmbio", "Programa, escola e itens relacionados, respeitadas as regras de comprovação."]
-   ],
-   "faq": [
-    ["Serve para pagar mensalidade que já está correndo?", "A carta é liberada na contemplação, que não tem data previsível. Para uma mensalidade já em curso, o consórcio não resolve o problema imediato."],
-    ["Posso escolher qualquer instituição?", "Em geral sim, desde que ela atenda aos requisitos de documentação para o pagamento da carta."],
-    ["Dá para usar em curso no exterior?", "A modalidade de intercâmbio costuma cobrir, respeitadas as regras de comprovação e câmbio. Confirme antes da adesão."]
-   ]
-  },
-  {
-   "slug": "saude-estetica",
-   "keyword": "consórcio para procedimento estético",
-   "h1": "Consórcio para procedimentos e tratamentos",
-   "respostaCurta": "O consórcio para procedimentos cobre cirurgia plástica, harmonização, tratamento odontológico e outros, sem os juros do cartão ou do crediário da clínica. Na contemplação, você paga a clínica à vista. Não serve para procedimento de urgência, porque a contemplação não tem data.",
-   "eyebrow": "Saúde e estética",
-   "lead": "O crediário da própria clínica é quase sempre a forma mais cara de pagar um procedimento. O consórcio é a alternativa de quem trata como planejamento, não como decisão de impulso.",
-   "secao": "O que a carta cobre",
-   "itens": [
-    ["Procedimentos eletivos", "Cirurgia plástica, harmonização e tratamento odontológico, conforme a modalidade."],
-    ["Pagamento à vista à clínica", "O que costuma abrir desconto relevante frente ao parcelamento próprio."],
-    ["Você escolhe o profissional", "Desde que a clínica atenda aos requisitos de documentação para receber a carta."]
-   ],
-   "faq": [
-    ["Serve para procedimento de urgência?", "Não. A contemplação depende de sorteio ou lance e não tem data previsível. O consórcio é para procedimento eletivo, planejado com antecedência."],
-    ["A carta cobre exames e pós-operatório?", "Depende do que estiver previsto na modalidade e do orçamento apresentado. Confirme o escopo com o consultor antes da adesão."],
-    ["Posso trocar de clínica depois de contemplado?", "A liberação acontece mediante comprovação da contratação. Enquanto não houver contratação formalizada, a escolha é sua."]
-   ]
-  }
- ]
+  "filhas": [
+    {
+      "slug": "energia-solar",
+      "keyword": "consórcio de energia solar",
+      "h1": "Consórcio de energia solar",
+      "respostaCurta": "O consórcio de energia solar financia a instalação do sistema fotovoltaico sem juros. Você paga parcelas e, na contemplação, contrata o instalador à vista. Como o sistema reduz a conta de luz, parte da economia costuma ajudar a cobrir a parcela ao longo do tempo.",
+      "eyebrow": "Energia solar",
+      "lead": "Financiar energia solar com crédito bancário come boa parte da economia que o sistema gera. Sem juros, a conta muda: o que você deixa de pagar na conta de luz passa a trabalhar a seu favor mais cedo.",
+      "secao": "O que a carta cobre",
+      "itens": [
+        [
+          "Sistema completo",
+          "Placas, inversor, estrutura e instalação, conforme as regras da modalidade contratada."
+        ],
+        [
+          "Pagamento à vista ao instalador",
+          "O que costuma render desconto, já que o setor trabalha muito com parcelamento caro."
+        ],
+        [
+          "Residencial ou empresarial",
+          "Serve para os dois, respeitada a documentação exigida na liberação."
+        ]
+      ],
+      "faq": [
+        [
+          "A economia na conta de luz cobre a parcela?",
+          "Depende do seu consumo, do porte do sistema e da tarifa da sua distribuidora. Em muitos casos cobre parte relevante, mas não prometemos que cobre integralmente — a conta varia caso a caso."
+        ],
+        [
+          "Posso escolher qualquer instalador?",
+          "Em geral sim, desde que ele atenda aos requisitos de documentação exigidos para o pagamento da carta."
+        ],
+        [
+          "Serve para ampliar um sistema existente?",
+          "Costuma servir, conforme as regras da modalidade. Confirme com o consultor antes da adesão."
+        ]
+      ]
+    },
+    {
+      "slug": "viagem",
+      "keyword": "consórcio de viagem",
+      "h1": "Consórcio de viagem",
+      "respostaCurta": "O consórcio de viagem é uma forma de planejar a viagem sem os juros do cartão parcelado. Você paga parcelas e, na contemplação, contrata passagem e hospedagem à vista. Como a contemplação depende de sorteio ou lance, ele não serve para viagem com data fechada.",
+      "eyebrow": "Viagem",
+      "lead": "Parcelar viagem no cartão é uma das formas mais caras de viajar. O consórcio troca isso por planejamento — com uma limitação que precisa ficar clara desde o começo: ele não entrega data.",
+      "secao": "Como funciona",
+      "itens": [
+        [
+          "Nacional ou internacional",
+          "A carta cobre passagem, hospedagem e pacote, conforme a modalidade contratada."
+        ],
+        [
+          "Contratação à vista",
+          "Agência e operadora costumam abrir condição melhor para pagamento imediato."
+        ],
+        [
+          "Planejamento, não urgência",
+          "Funciona para quem pode escolher a data depois de ser contemplado."
+        ]
+      ],
+      "faq": [
+        [
+          "Consigo viajar em data marcada?",
+          "Não com garantia. A contemplação ocorre por sorteio ou por lance, sem data previsível. Se a viagem tem data fechada, o consórcio não é a ferramenta certa."
+        ],
+        [
+          "Posso escolher qualquer agência?",
+          "Em geral sim, desde que atenda aos requisitos de documentação para o pagamento da carta."
+        ],
+        [
+          "A carta cobre a viagem toda?",
+          "Cobre o que estiver dentro do valor contratado e das regras da modalidade. Despesas fora disso ficam por sua conta."
+        ]
+      ]
+    },
+    {
+      "slug": "casamento",
+      "keyword": "consórcio para casamento",
+      "h1": "Consórcio para casamento",
+      "respostaCurta": "O consórcio para casamento cobre festa, buffet, fotografia e demais itens da lista, sem juros de cartão ou de crédito pessoal. Na contemplação, você contrata os fornecedores à vista. Como não há data garantida de contemplação, ele exige começar com bastante antecedência.",
+      "eyebrow": "Casamento",
+      "lead": "A conta do casamento costuma acabar no crédito pessoal ou no cartão, e a dívida dura mais que a lua de mel. O consórcio é a alternativa de quem começa a planejar cedo.",
+      "secao": "O que a carta cobre",
+      "itens": [
+        [
+          "Festa e fornecedores",
+          "Buffet, espaço, fotografia, decoração e demais serviços, conforme a modalidade."
+        ],
+        [
+          "Pagamento à vista",
+          "Fornecedor de evento costuma dar desconto relevante para pagamento imediato."
+        ],
+        [
+          "Comece cedo",
+          "Quanto maior a antecedência, mais assembleias você atravessa antes da data pretendida."
+        ]
+      ],
+      "faq": [
+        [
+          "Consigo garantir a contemplação antes da data do casamento?",
+          "Não. Nenhuma administradora pode garantir prazo. O lance aumenta a chance, mas não assegura. Se a data já está marcada e próxima, considere outra via."
+        ],
+        [
+          "Dá para usar em mais de um fornecedor?",
+          "Em geral sim, dentro do valor da carta e das regras da modalidade contratada."
+        ],
+        [
+          "E se sobrar valor da carta?",
+          "O saldo segue as regras do contrato do seu grupo. Confirme as condições antes da adesão."
+        ]
+      ]
+    },
+    {
+      "slug": "educacao",
+      "keyword": "consórcio para estudos",
+      "h1": "Consórcio para estudos e intercâmbio",
+      "respostaCurta": "O consórcio para estudos cobre faculdade, pós-graduação, curso técnico e intercâmbio, sem os juros do financiamento estudantil. Você paga parcelas e, na contemplação, contrata a instituição à vista. Serve para quem planeja com antecedência, não para matrícula com prazo correndo.",
+      "eyebrow": "Educação e intercâmbio",
+      "lead": "Financiamento estudantil cobra juros por anos, e muitas vezes começa a ser pago antes de o diploma existir. O consórcio inverte a lógica: você planeja antes e contrata à vista.",
+      "secao": "O que a carta cobre",
+      "itens": [
+        ["Graduação e pós", "Mensalidade ou pacote de curso, conforme a modalidade contratada."],
+        [
+          "Curso técnico e profissionalizante",
+          "Inclusive formações curtas, dentro do valor da carta."
+        ],
+        [
+          "Intercâmbio",
+          "Programa, escola e itens relacionados, respeitadas as regras de comprovação."
+        ]
+      ],
+      "faq": [
+        [
+          "Serve para pagar mensalidade que já está correndo?",
+          "A carta é liberada na contemplação, que não tem data previsível. Para uma mensalidade já em curso, o consórcio não resolve o problema imediato."
+        ],
+        [
+          "Posso escolher qualquer instituição?",
+          "Em geral sim, desde que ela atenda aos requisitos de documentação para o pagamento da carta."
+        ],
+        [
+          "Dá para usar em curso no exterior?",
+          "A modalidade de intercâmbio costuma cobrir, respeitadas as regras de comprovação e câmbio. Confirme antes da adesão."
+        ]
+      ]
+    },
+    {
+      "slug": "saude-estetica",
+      "keyword": "consórcio para procedimento estético",
+      "h1": "Consórcio para procedimentos e tratamentos",
+      "respostaCurta": "O consórcio para procedimentos cobre cirurgia plástica, harmonização, tratamento odontológico e outros, sem os juros do cartão ou do crediário da clínica. Na contemplação, você paga a clínica à vista. Não serve para procedimento de urgência, porque a contemplação não tem data.",
+      "eyebrow": "Saúde e estética",
+      "lead": "O crediário da própria clínica é quase sempre a forma mais cara de pagar um procedimento. O consórcio é a alternativa de quem trata como planejamento, não como decisão de impulso.",
+      "secao": "O que a carta cobre",
+      "itens": [
+        [
+          "Procedimentos eletivos",
+          "Cirurgia plástica, harmonização e tratamento odontológico, conforme a modalidade."
+        ],
+        [
+          "Pagamento à vista à clínica",
+          "O que costuma abrir desconto relevante frente ao parcelamento próprio."
+        ],
+        [
+          "Você escolhe o profissional",
+          "Desde que a clínica atenda aos requisitos de documentação para receber a carta."
+        ]
+      ],
+      "faq": [
+        [
+          "Serve para procedimento de urgência?",
+          "Não. A contemplação depende de sorteio ou lance e não tem data previsível. O consórcio é para procedimento eletivo, planejado com antecedência."
+        ],
+        [
+          "A carta cobre exames e pós-operatório?",
+          "Depende do que estiver previsto na modalidade e do orçamento apresentado. Confirme o escopo com o consultor antes da adesão."
+        ],
+        [
+          "Posso trocar de clínica depois de contemplado?",
+          "A liberação acontece mediante comprovação da contratação. Enquanto não houver contratação formalizada, a escolha é sua."
+        ]
+      ]
+    }
+  ]
 }

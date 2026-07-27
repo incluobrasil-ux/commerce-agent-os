@@ -118,6 +118,7 @@ def main():
     if os.path.exists(caminho_faq):
         faq_map = carregar(caminho_faq)
 
+    escritos = set()
     feitos = []
     for arq in arquivos:
         d = carregar(arq)
@@ -155,7 +156,17 @@ def main():
                 itens='\n'.join(ITEM % (t, x) for t, x in f['itens']),
                 faq='\n'.join(FAQ % (' open' if i == 0 else '', q, a)
                               for i, (q, a) in enumerate(f['faq'])))
-            io.open(os.path.join(BUILD, 'filha-%s.html' % f['slug']), 'w',
+            # O silo entra no nome: duas filhas podem ter o mesmo slug
+            # em silos diferentes (ex.: 'frota' em caminhao e em
+            # empresa), e sem isso a segunda sobrescreve a primeira.
+            silo = pai.strip('/').replace('consorcio-', '')
+            nome_arq = 'filha-%s-%s.html' % (silo, f['slug'])
+            if nome_arq in escritos:
+                print('[X] colisao de arquivo: %s geraria %s duas vezes'
+                      % (url, nome_arq))
+                return 1
+            escritos.add(nome_arq)
+            io.open(os.path.join(BUILD, nome_arq), 'w',
                     encoding='utf-8').write(html)
 
             faq_map[url] = f['faq']

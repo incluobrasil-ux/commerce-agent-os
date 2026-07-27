@@ -8,7 +8,7 @@
       "slug": "moto-para-trabalhar",
       "keyword": "consórcio de moto para trabalhar",
       "h1": "Consórcio de moto para trabalhar",
-      "respostaCurta": "Para quem tira o sustento da moto, o consórcio troca os juros do financiamento por uma parcela previsível, sem entrada e sem análise de crédito na adesão. A contraparte é não ter data: a contemplação sai por sorteio ou lance, então não serve para repor moto parada.",
+      "respostaCurta": "Para quem tira o sustento da moto, o consórcio troca os juros do financiamento por uma parcela previsível, sem análise de crédito e sem entrada destinada à moto — a primeira parcela é maior, porque antecipa parte da taxa de administração. A contraparte é não ter data: a contemplação sai por sorteio ou lance, então não serve para repor moto parada.",
       "eyebrow": "Trabalho",
       "lead": "Entregador e mototaxista conhecem a conta: a moto é a ferramenta que paga as contas, e financiar come a margem todo mês. O consórcio corta os juros — em troca de exigir planejamento, porque não entrega data.",
       "secao": "O que pesa na decisão",
@@ -45,7 +45,7 @@
       "slug": "moto-zero",
       "keyword": "consórcio de moto 0km",
       "h1": "Consórcio de moto 0km",
-      "respostaCurta": "O consórcio de moto 0km permite comprar na concessionária sem juros e sem entrada. Você paga parcelas e, na contemplação, fecha à vista — posição que costuma valer desconto e condição melhor do que a de quem chega financiando.",
+      "respostaCurta": "O consórcio de moto 0km permite comprar na concessionária sem juros e sem entrada destinada ao bem, com a primeira parcela maior. Você paga parcelas e, na contemplação, fecha à vista — posição que costuma valer desconto e condição melhor do que a de quem chega financiando.",
       "eyebrow": "Zero quilômetro",
       "lead": "Financiamento de moto está entre os mais caros do crédito de veículo. O consórcio troca esses juros por taxa de administração, com a limitação conhecida: você escolhe a moto, não a data.",
       "secao": "Como funciona",
@@ -54,7 +54,10 @@
           "Qualquer marca e cilindrada",
           "A carta acompanha o valor da moto pretendida, dentro dos limites da modalidade."
         ],
-        ["Sem entrada", "Você começa a pagar e já concorre desde a primeira assembleia."],
+        [
+          "Sem entrada para o bem",
+          "Nenhum valor seu abate o preço da moto. A primeira parcela é maior que as demais, porque antecipa parte da taxa de administração."
+        ],
         [
           "Compra à vista na concessionária",
           "Pagamento imediato costuma abrir desconto e condição melhor nos opcionais."

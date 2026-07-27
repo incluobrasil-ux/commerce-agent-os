@@ -110,7 +110,7 @@ porque comentário também vai no documento servido.
 | 3 | administradora MOVECON | Afirma o que o contrato social não permite |
 | 4 | plataforma autorizada pela Alpha | Autorização não é algo que a Alpha concede |
 | 5 | representante autorizada | Mesma confusão de papel |
-| 6 | white-label | Descreve relação contratual que não foi documentada |
+| 6 | white-label | **Regra de escopo desde 26/07/2026 — ver seção abaixo** |
 | 7 | sem nenhuma ocorrência | Existe processo administrativo público envolvendo a Alpha |
 | 8 | ficha limpa | idem |
 | 9 | histórico impecável | idem |
@@ -120,6 +120,80 @@ porque comentário também vai no documento servido.
 As cinco últimas existem porque há processo administrativo público do Banco
 Central envolvendo a Alpha. A decisão do projeto é **não mencionar o processo**
 e **nunca afirmar histórico limpo**. Silêncio é permitido; afirmação falsa não.
+
+## "white-label" — de proibição absoluta a regra de escopo
+
+**Decisão do cliente em 26/07/2026.** O termo deixa de ser proibição absoluta e
+passa a valer por audiência da página.
+
+### Permitido, sem ênfase e em uso pontual
+
+- `/seja-um-representante/`
+- `/quem-somos/`
+- Página de autor (`/autor/<slug>/`)
+- Materiais de recrutamento B2B
+
+Nesses contextos o leitor já opera no mercado e o termo descreve a operação de
+forma econômica.
+
+### Proibido, como antes
+
+Hubs, filhas, guias, artigos de blog, LPs de venda, simulador e **qualquer
+página de audiência consumidor**. Nelas a construção segue sendo:
+
+> plataforma que comercializa grupos administrados pela Alpha
+
+Para o consumidor o termo não informa nada e embaralha justamente o ponto que
+precisa ficar claro: **quem administra o grupo é a Alpha, não a MOVECON.**
+
+### Na bio do autor
+
+A **bio longa** usa o termo uma vez ("operação white-label em parceria com a
+Alpha..."). A **bio curta não usa** — ela é renderizada na caixa de autor ao fim
+de cada artigo, ou seja, em página de consumidor.
+
+Por isso `caixa-autor-*` **não** entra na allow-list de arquivos, embora
+`autor-*` entre. Manter o prefixo lá abriria na varredura de arquivo a porta que
+o validador fecha no campo.
+
+### Implementação
+
+`ESCOPO_TERMO` no `check_seo.py`, mesmo mecanismo já usado na `PARCELA_FIXA`:
+valor = onde o termo **pode** aparecer. O escopo é aplicado nos três pontos em
+que as 11 expressões são varridas — `validar_mapa` (title/description, por
+rota), `validar_prosa` (HTML/PHP, por arquivo) e `validar_autoria` (ficha, por
+campo).
+
+Testado nos dois sentidos, 9 casos: hub, guia, LP, caixa de autor e `bioCurta`
+falham; `/quem-somos/`, `/seja-um-representante/`, página de autor e `bioLonga`
+passam.
+
+### Ressalva registrada — ponto não resolvido pela mudança
+
+O motivo original da proibição **não era audiência**. Era: *"descreve relação
+contratual que não foi documentada"*.
+
+A regra de escopo não resolve esse ponto. Em `/quem-somos/` a afirmação continua
+sendo sobre um contrato, apenas dirigida a outro público. Duas situações
+possíveis:
+
+1. **A relação foi documentada** desde o registro original — nesse caso o
+   motivo caducou e vale substituir a justificativa da linha 6 pela nova regra,
+   registrando qual documento a sustenta.
+2. **A relação segue sem documentação** — nesse caso o uso do termo, mesmo em
+   página B2B, é uma afirmação contratual sem lastro, e o risco mudou de público
+   mas não desapareceu.
+
+**Pendente de confirmação do cliente.** A regra de escopo está implementada e
+ativa conforme determinado; esta ressalva não a bloqueia, apenas registra que a
+questão documental permanece aberta.
+
+### Rota ainda inexistente
+
+`/seja-um-representante/` está na allow-list mas **não existe no keyword-map**.
+Foi incluída de propósito, para que a regra já esteja correta quando a página
+for criada — allow-list que só se ajusta depois do fato é allow-list que chega
+tarde.
 
 ## Proibições de conteúdo
 

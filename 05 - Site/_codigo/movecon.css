@@ -1794,3 +1794,18 @@ a:hover {
     gap: 1rem;
   }
 }
+
+.mv-atualizado {
+  margin: 0.35rem 0 0;
+  font-size: 0.85rem;
+  color: var(--mv-texto);
+  opacity: 0.75;
+}
+.fontes {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+.fontes li {
+  margin-bottom: 0.7rem;
+  line-height: 1.6;
+}

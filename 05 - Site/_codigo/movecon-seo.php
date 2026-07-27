@@ -395,8 +395,19 @@ add_filter( 'robots_txt', function () {
 		'Disallow: /lp/',        // midia paga nunca entra no indice
 		'Disallow: /obrigado/',
 		'',
+		// Um sitemap so, e o curado. O /wp-sitemap.xml do WordPress lista
+		// TODA pagina publicada - inclusive as 15 LPs, que o Disallow acima
+		// bloqueia, e os 6 simuladores, que saem com noindex. Declarar no
+		// sitemap uma URL que o robots.txt proibe e que a pagina marca como
+		// noindex e mandar tres sinais contraditorios sobre o mesmo endereco.
+		//
+		// O sitemap-movecon.xml e gerado do keyword-map e conferido: hoje
+		// traz exatamente as 94 rotas indexaveis no ar, zero faltando e zero
+		// sobrando. Nao ha o que o wp-sitemap acrescente alem do ruido.
+		//
+		// O /wp-sitemap.xml segue existindo e acessivel - so deixa de ser
+		// anunciado. Reverter e apagar este comentario e a linha abaixo.
 		'Sitemap: ' . home_url( '/sitemap-movecon.xml' ),  // gerado do keyword-map
-		'Sitemap: ' . home_url( '/wp-sitemap.xml' ),
 		'',
 	);
 	return implode( "

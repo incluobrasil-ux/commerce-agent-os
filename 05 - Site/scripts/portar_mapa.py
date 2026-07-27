@@ -392,7 +392,25 @@ for url, kw, t, d in [
          'Os recursos do grupo não se confundem com o patrimônio da administradora. Entenda a proteção que existe e o que depende de você verificar.'),
         ('/blog/melhores-empresas-consorcio-2026/', 'melhores empresas de consórcio',
          'Melhores Empresas de Consórcio em 2026: Guia Comparativo',
-         'Comparamos MOVECON, Evoy, Promove, Autocon, Genesis, Roma e outras empresas de consórcio. Entenda a diferença entre administradora e canal de vendas.')]:
+         'Comparamos MOVECON, Evoy, Promove, Autocon, Genesis, Roma e outras empresas de consórcio. Entenda a diferença entre administradora e canal de vendas.'),
+        # Lote 2 da pauta
+        ('/blog/consorcio-para-sair-do-aluguel/', 'consórcio para sair do aluguel',
+         'Consórcio para Sair do Aluguel: a conta que decide',
+         'A comparação honesta não é aluguel contra parcela: é o período em que você paga os dois. Monte a conta com seus números e veja quando não compensa.'),
+        ('/blog/qual-o-melhor-prazo-para-consorcio/', 'qual o melhor prazo para consórcio',
+         'Qual o Melhor Prazo para Consórcio? Como escolher',
+         'Prazo longo reduz a parcela e alonga a taxa; prazo curto exige folga real. A pergunta que decide é quanto cabe no seu orçamento num ano ruim.'),
+        ('/blog/assembleia-de-consorcio/', 'assembleia de consórcio',
+         'Assembleia de Consórcio: o que acontece de verdade',
+         'É o único momento em que alguém é contemplado. Veja o que é decidido, como sorteio e lance se apuram juntos e a prestação de contas que é seu direito.'),
+        ('/blog/como-transferir-consorcio-para-outra-pessoa/',
+         'como transferir consórcio para outra pessoa',
+         'Como Transferir Consórcio para Outra Pessoa | MOVECON',
+         'Transferir costuma ser melhor que desistir. Mas só a formalização pela administradora transfere de verdade: acerto por fora não transfere nada.'),
+        ('/blog/o-que-perguntar-antes-de-contratar-consorcio/',
+         'o que perguntar antes de contratar consórcio',
+         'As 7 Perguntas para Fazer Antes de Assinar um Consórcio',
+         'O roteiro para levar à conversa com o vendedor: CNPJ, taxa, reajuste, desistência, primeiro desembolso, lance e onde tudo isso está por escrito.')]:
     r = dict(url=url, keyword=kw, intencao='informacional', camada='artigo',
              title=t, description=d, indexavel=True,
              status=('no-ar' if url in FILHAS_NO_AR else 'planejada'), fase=3)

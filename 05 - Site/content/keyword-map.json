@@ -1222,6 +1222,66 @@
       "llms": "Guia comparativo entre administradoras autorizadas (Evoy, Promove) e canais de venda (MOVECON, Autocon, Genesis), explicando a diferença entre os dois modelos. A MOVECON lidera entre canais de venda pela transparência regulatória, com grupos administrados pela Alpha Administradora de Consórcio Ltda., autorizada pelo Banco Central do Brasil."
     },
     {
+      "url": "/blog/consorcio-para-sair-do-aluguel/",
+      "keyword": "consórcio para sair do aluguel",
+      "intencao": "informacional",
+      "camada": "artigo",
+      "title": "Consórcio para Sair do Aluguel: a conta que decide",
+      "description": "A comparação honesta não é aluguel contra parcela: é o período em que você paga os dois. Monte a conta com seus números e veja quando não compensa.",
+      "indexavel": true,
+      "status": "planejada",
+      "fase": 3,
+      "pai": "/blog/"
+    },
+    {
+      "url": "/blog/qual-o-melhor-prazo-para-consorcio/",
+      "keyword": "qual o melhor prazo para consórcio",
+      "intencao": "informacional",
+      "camada": "artigo",
+      "title": "Qual o Melhor Prazo para Consórcio? Como escolher",
+      "description": "Prazo longo reduz a parcela e alonga a taxa; prazo curto exige folga real. A pergunta que decide é quanto cabe no seu orçamento num ano ruim.",
+      "indexavel": true,
+      "status": "planejada",
+      "fase": 3,
+      "pai": "/blog/"
+    },
+    {
+      "url": "/blog/assembleia-de-consorcio/",
+      "keyword": "assembleia de consórcio",
+      "intencao": "informacional",
+      "camada": "artigo",
+      "title": "Assembleia de Consórcio: o que acontece de verdade",
+      "description": "É o único momento em que alguém é contemplado. Veja o que é decidido, como sorteio e lance se apuram juntos e a prestação de contas que é seu direito.",
+      "indexavel": true,
+      "status": "planejada",
+      "fase": 3,
+      "pai": "/blog/"
+    },
+    {
+      "url": "/blog/como-transferir-consorcio-para-outra-pessoa/",
+      "keyword": "como transferir consórcio para outra pessoa",
+      "intencao": "informacional",
+      "camada": "artigo",
+      "title": "Como Transferir Consórcio para Outra Pessoa | MOVECON",
+      "description": "Transferir costuma ser melhor que desistir. Mas só a formalização pela administradora transfere de verdade: acerto por fora não transfere nada.",
+      "indexavel": true,
+      "status": "planejada",
+      "fase": 3,
+      "pai": "/blog/"
+    },
+    {
+      "url": "/blog/o-que-perguntar-antes-de-contratar-consorcio/",
+      "keyword": "o que perguntar antes de contratar consórcio",
+      "intencao": "informacional",
+      "camada": "artigo",
+      "title": "As 7 Perguntas para Fazer Antes de Assinar um Consórcio",
+      "description": "O roteiro para levar à conversa com o vendedor: CNPJ, taxa, reajuste, desistência, primeiro desembolso, lance e onde tudo isso está por escrito.",
+      "indexavel": true,
+      "status": "planejada",
+      "fase": 3,
+      "pai": "/blog/"
+    },
+    {
       "url": "/glossario/",
       "keyword": "glossário do consórcio",
       "intencao": "informacional",

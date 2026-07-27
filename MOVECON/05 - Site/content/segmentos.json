@@ -133,7 +133,74 @@
             "A administradora paga o vendedor diretamente, depois da vistoria e da conferência documental. Serve para concessionária ou particular, zero ou usado, respeitados os critérios de ano. As parcelas restantes continuam."
           ]
         ]
-      }
+      },
+      "secoes": [
+        {
+          "eyebrow": "A conta completa",
+          "titulo": "Os custos que não entram na carta",
+          "paragrafos": [
+            "A carta paga o carro. Ela não paga o que o Detran cobra para o carro ser seu, nem o que manter o carro custa a partir do dia seguinte. Esses valores existem em qualquer forma de compra — à vista, financiada ou por consórcio — e são o que mais some do planejamento de quem compra o primeiro carro.",
+            "Nenhum deles é fixo: dependem do estado, do valor do veículo e do ano. Por isso não publicamos valor aqui. O que dá para dizer com segurança é o que existe, para entrar no seu orçamento antes da compra."
+          ],
+          "itens": [
+            [
+              "Transferência e emplacamento",
+              "Custos junto ao Detran para o veículo passar para o seu nome. Pagos por você no momento da compra, e não pela carta."
+            ],
+            [
+              "Licenciamento e IPVA",
+              "Recorrentes, todo ano, enquanto o carro for seu. Entram no custo de manter, não no de comprar."
+            ],
+            [
+              "Seguro",
+              "Não é obrigatório por lei, mas é o item que mais pesa no orçamento de quem acabou de comprar — e o que menos aparece na conta feita antes."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "Escolha o caminho",
+          "titulo": "Zero, seminovo ou usado: o que muda de verdade",
+          "paragrafos": [
+            "A mesma carta compra os três, e a escolha muda mais do que o preço. Vale decidir antes da adesão, porque é o valor da carta que você define ali."
+          ],
+          "itens": [
+            [
+              "Zero quilômetro",
+              "Você chega à concessionária como comprador à vista, posição que costuma valer condição melhor do que a de quem chega financiando. A carta não é vinculada a marca nem a loja."
+            ],
+            [
+              "Seminovo",
+              "O ponto de equilíbrio para muita gente: a depreciação mais forte já aconteceu e o carro ainda é novo o bastante para não dar trabalho."
+            ],
+            [
+              "Usado",
+              "A administradora define um limite de ano de fabricação e exige vistoria e documentação regular. É o primeiro ponto a confirmar, porque determina quais carros a sua carta alcança — está detalhado em <a href=\"/consorcio-veiculos/carro-usado/\">consórcio de carro usado</a>."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "A resposta honesta",
+          "titulo": "Quando o consórcio de carro não é a resposta",
+          "paragrafos": [
+            "Consórcio de veículo serve a quem planeja a troca e não tem data. Fora disso ele frustra — e vale dizer antes da assinatura.",
+            "Se o seu caso está numa das situações abaixo, a ferramenta certa é outra. O <a href=\"/guia/consorcio-ou-financiamento/\">comparativo com o financiamento</a> mostra a troca com os números do seu orçamento."
+          ],
+          "itens": [
+            [
+              "Você precisa do carro esta semana",
+              "A contemplação sai por sorteio ou lance, sem data. Quem depende do carro para trabalhar agora precisa de uma ferramenta com data."
+            ],
+            [
+              "O carro atual já não roda",
+              "Consórcio não repõe veículo parado. Entre a adesão e a contemplação você segue sem carro, e o custo disso raramente entra na conta."
+            ],
+            [
+              "A parcela só cabe no mês bom",
+              "É compromisso longo, e cota em atraso não concorre à contemplação — você continua pagando e perde a chance pela qual está pagando."
+            ]
+          ]
+        }
+      ]
     },
     {
       "slug": "consorcio-moto",
@@ -340,6 +407,14 @@
         [
           "Preciso dar entrada para comprar o imóvel?",
           "Não no sentido do financiamento: nenhum valor seu abate o preço do bem, e 100% do crédito continua disponível para a compra. Mas o primeiro desembolso é maior — na adesão antecipa-se parte da taxa de administração, o que torna a primeira parcela maior que as demais. O simulador mostra as duas separadamente."
+        ],
+        [
+          "O imóvel precisa estar regularizado?",
+          "Sim. O imóvel comprado com a carta fica como garantia do plano até a quitação, e isso exige matrícula no cartório de registro de imóveis e documentação apta à transferência. Imóvel sem matrícula ou com pendência que impeça o registro não passa na análise de liberação do crédito. Os critérios específicos de avaliação e documentação são os da administradora e constam do contrato."
+        ],
+        [
+          "Quem paga o ITBI, a escritura e o registro?",
+          "São custos do comprador e não saem da carta de crédito. Os valores dependem do município e do valor do imóvel, então entram no seu planejamento à parte — vale levantá-los antes de definir o valor da carta, e não na semana da escritura."
         ]
       ],
       "tabela": {
@@ -399,7 +474,75 @@
             "A administradora paga o vendedor diretamente, depois de conferir a documentação do imóvel. Serve para novo, usado, terreno ou construção, em qualquer cidade do país. As parcelas restantes continuam: receber a carta não encerra o plano."
           ]
         ]
-      }
+      },
+      "secoes": [
+        {
+          "eyebrow": "A conta completa",
+          "titulo": "Os custos da compra que não entram na carta",
+          "paragrafos": [
+            "Quem compra imóvel orça o imóvel e esquece a transmissão. Ela tem custo próprio, é paga por fora do crédito e costuma aparecer só na hora de assinar — quando já não dá para replanejar.",
+            "Nenhum desses valores é fixo nem nacional: dependem do município e do valor do imóvel. Por isso não publicamos percentual aqui. O que dá para dizer com segurança é <strong>o que existe</strong>, para que entre no seu planejamento desde a adesão — e não no dia da escritura.",
+            "A conta honesta soma o valor do imóvel <em>mais</em> esses custos, e é esse total que precisa caber. Dimensionar a carta só pelo preço do imóvel deixa a diferença para o próprio bolso."
+          ],
+          "itens": [
+            [
+              "ITBI",
+              "Imposto municipal sobre a transmissão do imóvel. A alíquota e a base de cálculo são definidas pelo município, e é ele quem informa o valor devido no seu caso."
+            ],
+            [
+              "Escritura",
+              "Lavrada em cartório de notas. Os emolumentos seguem a tabela do estado e variam conforme o valor do imóvel."
+            ],
+            [
+              "Registro",
+              "É o registro na matrícula que efetivamente transfere o imóvel para o seu nome. Sem ele, a compra não se completa perante terceiros."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "Escolha o caminho",
+          "titulo": "Pronto, na planta ou construção: o que muda de verdade",
+          "paragrafos": [
+            "A carta de crédito serve aos três caminhos, mas eles não são variações do mesmo plano: mudam o momento em que você usa o imóvel, o que a carta paga e o risco que você assume. Vale escolher antes da adesão, porque a modalidade é definida ali."
+          ],
+          "itens": [
+            [
+              "Imóvel pronto",
+              "Contemplado, você compra à vista e usa o imóvel. É o caminho mais simples e o único em que a espera termina junto com a contemplação — depois dela não há mais prazo de obra a cumprir."
+            ],
+            [
+              "Na planta",
+              "Aqui há duas esperas somadas: a da contemplação, sem data, e a da entrega da obra, com data prometida pela incorporadora. Quem precisa morar em prazo definido está somando a incerteza do consórcio ao cronograma de terceiro."
+            ],
+            [
+              "Construção em terreno próprio",
+              "A carta é aplicada na obra do seu terreno, e a liberação costuma ser feita por etapa, mediante vistoria — não de uma vez. Isso exige projeto e orçamento organizados antes, e é tratado em detalhe na página de <a href=\"/consorcio-imoveis/construcao/\">consórcio para construir</a>."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "A resposta honesta",
+          "titulo": "Quando o consórcio de imóvel não é a resposta",
+          "paragrafos": [
+            "Consórcio de imóvel funciona bem para quem tem objetivo definido e não tem data. Fora disso, ele cobra caro em frustração — e esses casos merecem ser ditos antes da assinatura, não depois.",
+            "Se o seu caso está numa das situações abaixo, a ferramenta certa provavelmente é outra. O <a href=\"/guia/consorcio-ou-financiamento/\">comparativo com o financiamento</a> mostra a troca com números do seu orçamento."
+          ],
+          "itens": [
+            [
+              "Você tem data para entrar no imóvel",
+              "Contrato de aluguel vencendo, mudança marcada, casamento com data. A contemplação ocorre por sorteio ou lance, e ninguém pode prometer quando a sua sai. Quem tem data precisa de uma ferramenta com data."
+            ],
+            [
+              "A parcela só cabe se o aluguel acabar",
+              "Até a contemplação você paga os dois. Esse período de custo duplo é a regra, não a exceção, e é o que mais derruba plano de quem sai do aluguel."
+            ],
+            [
+              "Sua renda está instável agora",
+              "É compromisso longo, e cota em atraso não concorre à contemplação — você continua pagando e perde justamente a chance pela qual paga."
+            ]
+          ]
+        }
+      ]
     },
     {
       "slug": "consorcio-caminhao",
@@ -533,7 +676,74 @@
             "A administradora paga o vendedor após vistoria e conferência documental. Concessionária ou particular, zero ou usado. As parcelas restantes continuam."
           ]
         ]
-      }
+      },
+      "secoes": [
+        {
+          "eyebrow": "A conta completa",
+          "titulo": "Os custos que não entram na carta",
+          "paragrafos": [
+            "A carta paga o veículo. Não paga o que o Detran cobra para ele ser seu, nem o que rodar custa a partir do primeiro frete. Para quem vive do transporte, esse segundo grupo é o que decide se a operação fecha.",
+            "Nenhum valor é fixo: depende do estado, do veículo e da operação. Por isso não publicamos número aqui — o que dá para dizer é o que existe, para entrar no seu custo por quilômetro antes da compra."
+          ],
+          "itens": [
+            [
+              "Transferência e emplacamento",
+              "Custos junto ao Detran para o veículo passar para o seu nome. Pagos por você na compra, e não pela carta."
+            ],
+            [
+              "Licenciamento e IPVA",
+              "Recorrentes, e proporcionais ao porte do veículo. Entram no custo de manter a frota rodando."
+            ],
+            [
+              "Seguro e manutenção",
+              "Num ativo de trabalho os dois deixam de ser opcionais: veículo parado não fatura, e é o custo da parada que costuma faltar na conta."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "Escolha o caminho",
+          "titulo": "Novo ou usado: o que muda para quem vive do frete",
+          "paragrafos": [
+            "A mesma carta compra os dois, e a decisão é operacional antes de ser financeira. Vale definir antes da adesão, porque é ali que o valor da carta é dimensionado."
+          ],
+          "itens": [
+            [
+              "Novo",
+              "Garantia de fábrica, manutenção previsível e menos dias parado. Custa mais na carta e devolve em disponibilidade — que, para quem fatura por viagem, é o número que importa."
+            ],
+            [
+              "Usado",
+              "A administradora define um limite de ano de fabricação e exige vistoria e documentação regular. É o primeiro ponto a confirmar, porque determina quais veículos a sua carta alcança — está detalhado em <a href=\"/consorcio-caminhao/caminhao-usado/\">consórcio de caminhão usado</a>."
+            ],
+            [
+              "Renovação escalonada",
+              "Frota não se troca de uma vez. Cotas em paralelo acompanham o ritmo da substituição, e o assunto está em <a href=\"/blog/quantas-cotas-de-consorcio-posso-ter/\">quantas cotas vale a pena ter</a>."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "A resposta honesta",
+          "titulo": "Quando o consórcio de caminhão não é a resposta",
+          "paragrafos": [
+            "Consórcio de caminhão serve à renovação planejada. Não serve à urgência — e no transporte a urgência custa caro dos dois lados.",
+            "Se o seu caso está abaixo, a ferramenta é outra. O <a href=\"/guia/consorcio-ou-financiamento/\">comparativo com o financiamento</a> mostra a troca com os seus números."
+          ],
+          "itens": [
+            [
+              "Você precisa repor um veículo parado",
+              "Veículo parado é prejuízo diário. A contemplação sai por sorteio ou lance, sem data — o consórcio não cobre esse buraco."
+            ],
+            [
+              "A parcela foi dimensionada pelo melhor trimestre",
+              "A margem do frete oscila. Parcela calculada sobre o pico vira atraso na baixa, e cota em atraso não concorre à contemplação."
+            ],
+            [
+              "O contrato que sustenta a operação vence antes do plano",
+              "Compromisso longo apoiado em receita curta é o erro clássico do setor. A parcela precisa caber também sem aquele contrato."
+            ]
+          ]
+        }
+      ]
     },
     {
       "slug": "consorcio-maquinas-agricolas",

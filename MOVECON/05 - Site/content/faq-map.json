@@ -941,6 +941,14 @@
   [
    "Preciso dar entrada para comprar o imóvel?",
    "Não no sentido do financiamento: nenhum valor seu abate o preço do bem, e 100% do crédito continua disponível para a compra. Mas o primeiro desembolso é maior — na adesão antecipa-se parte da taxa de administração, o que torna a primeira parcela maior que as demais. O simulador mostra as duas separadamente."
+  ],
+  [
+   "O imóvel precisa estar regularizado?",
+   "Sim. O imóvel comprado com a carta fica como garantia do plano até a quitação, e isso exige matrícula no cartório de registro de imóveis e documentação apta à transferência. Imóvel sem matrícula ou com pendência que impeça o registro não passa na análise de liberação do crédito. Os critérios específicos de avaliação e documentação são os da administradora e constam do contrato."
+  ],
+  [
+   "Quem paga o ITBI, a escritura e o registro?",
+   "São custos do comprador e não saem da carta de crédito. Os valores dependem do município e do valor do imóvel, então entram no seu planejamento à parte — vale levantá-los antes de definir o valor da carta, e não na semana da escritura."
   ]
  ],
  "/consorcio-caminhao/": [

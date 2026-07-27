@@ -56,6 +56,17 @@ plugin.
 4. Copie o **ID da métrica**, no formato `G-XXXXXXXXXX`.
 5. Me mande. Eu insiro no mu-plugin **já condicionado ao consentimento**.
 
+## Sequência confirmada pelo cliente em 26/07/2026
+
+**GSC → P7 → GA4.** Nesta ordem, e não em outra.
+
+O cliente cria a propriedade do Search Console agora, escolhendo **Prefixo do
+URL** e verificação por **Tag HTML**, e me manda o valor do `content=`.
+
+O GA4 espera a P7. GA4 sem banner de consentimento é violação de LGPD, e o
+próprio plano mestre lista o GA4 como o primeiro dos quatro gatilhos que exigem
+o banner.
+
 ## O que eu faço quando você me passar os valores
 
 Um mu-plugin `movecon-medicao.php`, no mesmo padrão dos outros:

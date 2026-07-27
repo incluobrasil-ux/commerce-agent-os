@@ -410,7 +410,22 @@ for url, kw, t, d in [
         ('/blog/o-que-perguntar-antes-de-contratar-consorcio/',
          'o que perguntar antes de contratar consórcio',
          'As 7 Perguntas para Fazer Antes de Assinar um Consórcio',
-         'O roteiro para levar à conversa com o vendedor: CNPJ, taxa, reajuste, desistência, primeiro desembolso, lance e onde tudo isso está por escrito.')]:
+         'O roteiro para levar à conversa com o vendedor: CNPJ, taxa, reajuste, desistência, primeiro desembolso, lance e onde tudo isso está por escrito.'),
+        # Lote 3 da pauta
+        ('/blog/quanto-dar-de-lance-no-consorcio/', 'quanto dar de lance no consórcio',
+         'Quanto Dar de Lance no Consórcio? A resposta honesta',
+         'Não existe percentual que garanta contemplação: o lance vencedor muda a cada assembleia. Veja de onde tirar o valor sem comprometer as parcelas.'),
+        ('/blog/por-que-a-parcela-do-consorcio-aumentou/',
+         'por que a parcela do consórcio aumentou',
+         'Por Que a Parcela do Consórcio Aumentou? Entenda o reajuste',
+         'O aumento não é cobrança nova nem juro: é a atualização que mantém sua carta capaz de comprar o bem. Veja onde conferir e o que fazer se não couber.'),
+        ('/blog/quantas-cotas-de-consorcio-posso-ter/',
+         'quantas cotas de consórcio posso ter',
+         'Quantas Cotas de Consórcio Vale a Pena Ter ao Mesmo Tempo',
+         'Cada cota concorre sozinha e custa uma parcela. O limite real não é o da administradora: é o total que seu caixa sustenta num mês ruim.'),
+        ('/blog/consorcio-para-mei-vale-a-pena/', 'consórcio para mei vale a pena',
+         'Consórcio para MEI Vale a Pena? O que muda de verdade',
+         'Sem análise de crédito na adesão — mas ela existe na contemplação. Veja o que será avaliado, CNPJ ou CPF, e quando o MEI deveria escolher outra via.')]:
     r = dict(url=url, keyword=kw, intencao='informacional', camada='artigo',
              title=t, description=d, indexavel=True,
              status=('no-ar' if url in FILHAS_NO_AR else 'planejada'), fase=3)

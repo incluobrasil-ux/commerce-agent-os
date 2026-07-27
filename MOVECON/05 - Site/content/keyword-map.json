@@ -1282,6 +1282,54 @@
       "pai": "/blog/"
     },
     {
+      "url": "/blog/quanto-dar-de-lance-no-consorcio/",
+      "keyword": "quanto dar de lance no consórcio",
+      "intencao": "informacional",
+      "camada": "artigo",
+      "title": "Quanto Dar de Lance no Consórcio? A resposta honesta",
+      "description": "Não existe percentual que garanta contemplação: o lance vencedor muda a cada assembleia. Veja de onde tirar o valor sem comprometer as parcelas.",
+      "indexavel": true,
+      "status": "planejada",
+      "fase": 3,
+      "pai": "/blog/"
+    },
+    {
+      "url": "/blog/por-que-a-parcela-do-consorcio-aumentou/",
+      "keyword": "por que a parcela do consórcio aumentou",
+      "intencao": "informacional",
+      "camada": "artigo",
+      "title": "Por Que a Parcela do Consórcio Aumentou? Entenda o reajuste",
+      "description": "O aumento não é cobrança nova nem juro: é a atualização que mantém sua carta capaz de comprar o bem. Veja onde conferir e o que fazer se não couber.",
+      "indexavel": true,
+      "status": "planejada",
+      "fase": 3,
+      "pai": "/blog/"
+    },
+    {
+      "url": "/blog/quantas-cotas-de-consorcio-posso-ter/",
+      "keyword": "quantas cotas de consórcio posso ter",
+      "intencao": "informacional",
+      "camada": "artigo",
+      "title": "Quantas Cotas de Consórcio Vale a Pena Ter ao Mesmo Tempo",
+      "description": "Cada cota concorre sozinha e custa uma parcela. O limite real não é o da administradora: é o total que seu caixa sustenta num mês ruim.",
+      "indexavel": true,
+      "status": "planejada",
+      "fase": 3,
+      "pai": "/blog/"
+    },
+    {
+      "url": "/blog/consorcio-para-mei-vale-a-pena/",
+      "keyword": "consórcio para mei vale a pena",
+      "intencao": "informacional",
+      "camada": "artigo",
+      "title": "Consórcio para MEI Vale a Pena? O que muda de verdade",
+      "description": "Sem análise de crédito na adesão — mas ela existe na contemplação. Veja o que será avaliado, CNPJ ou CPF, e quando o MEI deveria escolher outra via.",
+      "indexavel": true,
+      "status": "planejada",
+      "fase": 3,
+      "pai": "/blog/"
+    },
+    {
       "url": "/glossario/",
       "keyword": "glossário do consórcio",
       "intencao": "informacional",

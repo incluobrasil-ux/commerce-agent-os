@@ -42,6 +42,40 @@ intocadas:
 
 Contá-las como repetição levaria a limpar texto correto.
 
+### Como se conta uma ocorrência
+
+**Definição confirmada pelo cliente em 26/07/2026.** Ela existe porque contar
+errado reprova texto correto e aprova texto repetitivo — os dois erros já
+aconteceram aqui.
+
+> Conta-se **seção que alega ou ressalva**, não ocorrência literal da palavra.
+
+Uma seção conta quando contém:
+
+- uma **alegação** — "sem entrada", "não há entrada", "nenhum valor seu abate o
+  preço do bem", "100% do crédito continua disponível"; **ou**
+- uma **ressalva** — "a primeira parcela é maior", "maior que as demais",
+  "antecipa-se parte da taxa de administração".
+
+**Não conta**, porque não repete a ideia:
+
+| Construção | Por que não conta |
+|---|---|
+| Nomear a pergunta num sumário ou índice | Indexa o assunto, não afirma nada sobre ele |
+| Célula de tabela do tipo "dois números: o do primeiro mês e o dos seguintes" | Descreve o que exigir, sem alegar nem ressalvar |
+| As três construções de sentido diverso da tabela acima | Outro assunto usando as mesmas palavras |
+
+**Por que não se conta por parágrafo.** Medido por parágrafo, o artigo do
+checklist de 7 perguntas marcava 8 ocorrências e seria reprovado — sendo que o
+custo de adesão é uma das 7 perguntas da própria pauta aprovada, e a página é o
+único lugar do site onde a formulação de referência aparece inteira. Medido por
+seção portadora de alegação, marca 2: a seção dedicada e a FAQ. O que a regra
+protege é o leitor da repetição da **ideia**, não da palavra.
+
+**Por que não se conta só a alegação.** Contar apenas alegações deixaria passar
+uma página que ressalva quatro vezes sem alegar nenhuma — repetitiva do mesmo
+jeito, e com tom defensivo, que foi exatamente o problema que originou a regra.
+
 ### Estado em 26/07/2026
 
 Os 9 hubs em exatamente **2 ocorrências** cada — nenhum acima, nenhum sem a

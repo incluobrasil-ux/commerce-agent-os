@@ -132,6 +132,29 @@ O UpdraftPlus segue instalado e vazio. Não foi usado: um script versionado é
 auditável e testável; a configuração de um plugin vive só no banco — e o banco
 é justamente o que se está tentando proteger.
 
+## P8b — Repositório privado · RESOLVIDA em 26/07/2026
+
+**Feito:** criado `incluobrasil-ux/movecon-site`, **privado**, com os 40 commits
+que tocam `MOVECON/` extraídos por `git subtree split` — histórico preservado,
+com o projeto na raiz.
+
+Confirmado nos dois sentidos: o repositório privado tem o projeto completo, e
+`commerce-agent-os` **continua público com zero arquivos de MOVECON**. A
+visibilidade do monorepo não foi alterada, conforme decidido.
+
+`gitleaks` sobre os 40 commits antes do push: **nenhum segredo**.
+
+**Fluxo a partir de agora**, documentado em `repositorio.md`:
+
+```bash
+git subtree push --prefix=MOVECON movecon main
+```
+
+**Rode a cada sessão de trabalho.** Enquanto não rodar, o código só existe na
+máquina local — foi essa a situação encontrada, com 57 commits nunca enviados.
+
+### O texto original desta pendência, para registro
+
 ## P8b — O repositório remoto é PÚBLICO
 
 **Descoberto em 26/07/2026, antes de qualquer push. Nada vazou.**

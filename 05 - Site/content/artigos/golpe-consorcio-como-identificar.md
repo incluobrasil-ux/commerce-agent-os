@@ -28,6 +28,18 @@ O pedido vem com nomes que soam administrativos: taxa de transferência, sinal d
 
 **Sua defesa:** valor de consórcio é pago à administradora, nunca a intermediário e nunca a pessoa física. PIX ou transferência para CPF encerra a conversa. Não existe exceção legítima para essa regra.
 
+## A frase que desarma qualquer versão do golpe
+
+Todas as variações — carta contemplada à venda, contemplação por antiguidade, "sua cota foi sorteada, pague a taxa para liberar" — dependem de você não saber uma coisa:
+
+> **Fora da assembleia, ninguém é contemplado.**
+
+A contemplação ocorre por sorteio ou lance em assembleia do seu grupo, e o resultado se confirma pelo canal oficial da administradora. Não existe contemplação por ligação, por indicação, por antiguidade, por insistência ou por pagamento de taxa.
+
+Isso transforma qualquer aviso de contemplação recebido por telefone ou aplicativo em uma coisa só: **um dado a verificar por iniciativa sua**, no canal oficial, antes de qualquer pagamento. Se a contemplação for real, ela está lá. Se não estiver lá, ela não existe — independentemente de quão convincente tenha sido a conversa.
+
+O funcionamento completo da assembleia, incluindo a prestação de contas que é seu direito acompanhar, está em [assembleia de consórcio](/blog/assembleia-de-consorcio/).
+
 ## Os três minutos de verificação que quebram o esquema
 
 Nenhuma das três depende de você entender de consórcio.

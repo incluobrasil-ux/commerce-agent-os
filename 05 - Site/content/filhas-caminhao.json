@@ -114,7 +114,7 @@
       "slug": "caminhoneiro-autonomo",
       "keyword": "consórcio para caminhoneiro autônomo",
       "h1": "Consórcio para caminhoneiro autônomo",
-      "respostaCurta": "Não há análise de crédito para entrar em um grupo de consórcio, o que facilita para o caminhoneiro autônomo sem comprovação de renda tradicional. A análise acontece na contemplação, quando o crédito é liberado. Também não há entrada destinada ao veículo nem exigência de holerite — a primeira parcela é maior, porque antecipa parte da taxa de administração.",
+      "respostaCurta": "Não há análise de crédito para entrar em um grupo de consórcio, o que facilita para o caminhoneiro autônomo sem comprovação de renda tradicional. A análise acontece na contemplação, quando o crédito é liberado. Também não há exigência de holerite na adesão.",
       "eyebrow": "Autônomo",
       "lead": "Quem trabalha por conta própria conhece a barreira: sem holerite, o banco dificulta e a taxa sobe. O consórcio inverte a ordem — você entra no grupo primeiro e a análise vem depois, na hora de liberar o crédito.",
       "secao": "O que isso significa na prática",
@@ -122,10 +122,6 @@
         [
           "Sem análise na adesão",
           "Você entra no grupo e começa a concorrer sem passar por aprovação de crédito."
-        ],
-        [
-          "Sem entrada para o bem",
-          "Diferente do financiamento, que exige um percentual à vista do caminhão. A primeira parcela é maior que as demais, porque antecipa parte da taxa de administração."
         ],
         [
           "Análise na contemplação",
@@ -144,6 +140,10 @@
         [
           "Estando negativado, posso participar?",
           "É possível entrar no grupo, mas a análise na contemplação continua existindo. Não prometemos liberação: seja cuidadoso com quem promete."
+        ],
+        [
+          "Preciso dar entrada para comprar o caminhão?",
+          "Não no sentido do financiamento: nenhum valor seu abate o preço do bem, e 100% do crédito continua disponível para a compra. Mas o primeiro desembolso é maior — na adesão antecipa-se parte da taxa de administração, o que torna a primeira parcela maior que as demais. O simulador mostra as duas separadamente."
         ]
       ]
     }

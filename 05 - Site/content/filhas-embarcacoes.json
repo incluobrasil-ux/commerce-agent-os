@@ -1,11 +1,8 @@
 {
   "_leia_me": "Filhas de silo de /consorcio-embarcacoes/. `respostaCurta` e o bloco ANSWER-FIRST. Maximo ~55 palavras.",
-
   "_status": "AGUARDANDO APROVACAO DOS ANSWER-FIRST. Paginas geradas, nao publicadas.",
-
   "pai": "/consorcio-embarcacoes/",
   "simulador": "/simulador/servicos/",
-
   "filhas": [
     {
       "slug": "lancha",
@@ -45,7 +42,7 @@
       "slug": "jet-ski",
       "keyword": "consórcio de jet ski",
       "h1": "Consórcio de jet ski",
-      "respostaCurta": "O consórcio de jet ski permite comprar novo ou usado sem juros e sem entrada destinada ao bem, com a primeira parcela maior. Você paga parcelas e, na contemplação, adquire à vista. Como o ticket é menor que o de uma lancha, os prazos costumam ser mais curtos e a parcela cabe em orçamentos menores.",
+      "respostaCurta": "O consórcio de jet ski permite comprar novo ou usado sem juros. Você paga parcelas e, na contemplação, adquire à vista. Como o ticket é menor que o de uma lancha, os prazos costumam ser mais curtos e a parcela cabe em orçamentos menores.",
       "eyebrow": "Jet ski",
       "lead": "Jet ski costuma ser financiado com taxa de crédito pessoal, que é das mais altas do mercado. O consórcio troca isso por planejamento, com a limitação de não entregar data.",
       "secao": "Como funciona",
@@ -53,10 +50,6 @@
         [
           "Novo ou usado",
           "Respeitados os critérios de ano e conservação definidos pela administradora."
-        ],
-        [
-          "Sem entrada para o bem",
-          "Nenhum valor seu abate o preço da embarcação. A primeira parcela é maior que as demais, porque antecipa parte da taxa de administração."
         ],
         ["Prazo mais curto", "O ticket menor permite prazos menores que os de embarcações maiores."]
       ],
@@ -72,6 +65,10 @@
         [
           "Consigo antes do verão?",
           "Não há como prometer. A contemplação depende de sorteio ou lance, sem data previsível. Quem quer usar numa temporada específica precisa começar com bastante antecedência."
+        ],
+        [
+          "Preciso dar entrada para comprar o jet ski?",
+          "Não no sentido do financiamento: nenhum valor seu abate o preço do bem, e 100% do crédito continua disponível para a compra. Mas o primeiro desembolso é maior — na adesão antecipa-se parte da taxa de administração, o que torna a primeira parcela maior que as demais. O simulador mostra as duas separadamente."
         ]
       ]
     }

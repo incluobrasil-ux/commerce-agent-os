@@ -1,17 +1,14 @@
 {
   "_leia_me": "Filhas de silo de /consorcio-veiculos/. `respostaCurta` e o bloco ANSWER-FIRST: responde a keyword da pagina nas 2-3 primeiras frases, antes de qualquer contexto. Maximo ~55 palavras. Aprovar os blocos ANTES de publicar (docs/prompts-execucao.md, bloco 5).",
-
   "_status": "AGUARDANDO APROVACAO DOS ANSWER-FIRST. Paginas geradas, nao publicadas.",
-
   "pai": "/consorcio-veiculos/",
   "simulador": "/simulador/veiculos/",
-
   "filhas": [
     {
       "slug": "carros",
       "keyword": "consórcio de carro",
       "h1": "Consórcio de carro",
-      "respostaCurta": "O consórcio de carro é uma compra planejada em grupo, sem juros e sem entrada destinada ao bem, com a primeira parcela maior. Você paga parcelas mensais e, ao ser contemplado por sorteio ou lance, recebe a carta de crédito para comprar à vista. A carta não é vinculada a marca nem a concessionária.",
+      "respostaCurta": "O consórcio de carro é uma compra planejada em grupo, sem juros. Você paga parcelas mensais e, ao ser contemplado por sorteio ou lance, recebe a carta de crédito para comprar à vista. A carta não é vinculada a marca nem a concessionária.",
       "eyebrow": "Carro novo ou seminovo",
       "lead": "No financiamento, os juros correm do primeiro ao último mês e o carro fica alienado ao banco. No consórcio você paga parcelas e, na contemplação, chega na concessionária como comprador à vista.",
       "secao": "Como funciona na prática",
@@ -41,6 +38,10 @@
         [
           "E se o carro custar menos que a carta?",
           "O saldo costuma poder ser usado conforme as regras do contrato, por exemplo para abater parcelas. As condições estão no contrato do seu grupo."
+        ],
+        [
+          "Preciso dar entrada para comprar o carro?",
+          "Não no sentido do financiamento: nenhum valor seu abate o preço do bem, e 100% do crédito continua disponível para a compra. Mas o primeiro desembolso é maior — na adesão antecipa-se parte da taxa de administração, o que torna a primeira parcela maior que as demais. O simulador mostra as duas separadamente."
         ]
       ]
     },

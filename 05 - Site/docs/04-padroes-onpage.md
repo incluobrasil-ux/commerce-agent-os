@@ -4,6 +4,77 @@
 > auditoria de 26/07/2026 mediu no site real
 > (`docs/auditoria-onpage-2026-07-26.md`).
 
+## PAGINA_VAZIA — rota indexável servindo corpo vazio
+
+**Codificada em 27/07/2026, na segunda ocorrência da mesma família.**
+
+| Quando | Rota | O que foi ao ar |
+|---|---|---|
+| jul/2026 | `/lp/` | 1 byte de conteúdo, H1 "LP" cru |
+| jul/2026 | `/autor/` | 0 caractere de corpo, nenhum H1 |
+
+**A causa não é descuido — é estrutural.** Página-pai de permalink precisa
+existir para que `/pai/<slug>/` se forme. Ela é criada por necessidade técnica,
+sem conteúdo previsto, e nada no fluxo pergunta se ela tem corpo. Vai acontecer
+de novo toda vez que um silo novo precisar de pai. Por isso virou detector, e
+não lembrete.
+
+### A regra
+
+Rota **indexável** e **no ar** que sirva menos de `MIN_CORPO` caracteres de
+texto visível, **ou** nenhum H1 → erro, exit 1.
+
+`MIN_CORPO = 250`. Calibrado contra o site real: a menor página legítima serve
+488 caracteres (`/autor/`), então a margem é de cerca de 2×. Os dois defeitos
+reais mediam 0 e 2.
+
+### Por que só no modo `--wp`
+
+Nem `/lp/` nem `/autor/` passaram por gerador — foram criadas direto no
+`wp-cli`, então não existe arquivo em `build/` para inspecionar. O único lugar
+onde o defeito aparece é o **HTML servido**. Checar `build/` daria sensação de
+cobertura sem cobrir nenhum dos dois casos reais.
+
+O modo offline do `check_seo` segue em ~0,4 s, que é o que o pré-commit precisa.
+
+### Duas armadilhas de medição, ambas cometidas antes de acertar
+
+**O rodapé global mascara a página vazia.** Medido no HTML inteiro, `/autor/`
+vazia dava 2.681 caracteres — o rodapé, o menu e o schema. Por isso `nav` e
+`footer` saem antes da contagem, e o texto é medido dentro de `<main>`.
+
+**Descartar `<header>` inventa 17 páginas sem H1.** No Astra o título do post
+vive em `<header class="entry-header">`. Descartá-lo fez 17 artigos com H1
+legítimo aparecerem como defeito. `<header>` **fica**; o menu do topo, que era a
+razão de querer removê-lo, já sai junto com `<nav>`.
+
+### O teste
+
+A regressão injeta o defeito pela função de download (`baixar=`), percorrendo o
+caminho real do validador — em vez de publicar uma página vazia em produção para
+testá-la. Quatro casos: `/autor/` como foi ao ar, `/lp/` como foi ao ar, corpo
+curto com H1, e página real. 4 de 4.
+
+## O padrão: erro recorrente vira detector
+
+Terceira vez que a mesma decisão é tomada, e vale registrá-la como método.
+
+| Detector | Erro que o originou |
+|---|---|
+| `PARCELA_FIXA` | "sem variação de taxa" nasceu num card e se espalhou por 12 lugares |
+| `TERMOS_MODALIDADE` | FGTS citado fora de imóveis, herdado na replicação de molde |
+| `PAGINA_VAZIA` | página-pai de permalink publicada sem corpo, duas vezes |
+
+O critério para promover um erro a detector: **ele reapareceu por causa
+estrutural, não por distração.** Erro estrutural volta sozinho — quem o corrige
+sem codificar a regra está apenas adiando a próxima ocorrência.
+
+Corolário já aplicado duas vezes aqui: quando o detector acusa algo que parece
+legítimo, a investigação começa pelo conteúdo e pelo detector, **não pela
+allow-list**. Afrouxar o detector para o build passar torna o detector inútil —
+foi assim no gate 0.2, e foi assim de novo quando o gate acusou `white-label` na
+página de autor e a saída foi ensinar o escopo, não remover a checagem.
+
 ## Dosagem do tema custo de adesão
 
 **Decisão do cliente em 26/07/2026, depois da correção em massa ter deixado o

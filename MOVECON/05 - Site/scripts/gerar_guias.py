@@ -66,6 +66,12 @@ TPL = '''<!-- wp:html -->
     <p class="eyebrow">%(eyebrow)s</p>
     <h1>%(h1)s</h1>
 
+    <!-- Data preenchida em tempo de requisicao pelo movecon-seo.php, a partir
+         do post_modified. NAO assar a data aqui: HTML gerado hoje e editado
+         depois passaria a exibir data falsa, e data errada e pior que data
+         nenhuma numa pagina que se apresenta como referencia. -->
+    <p class="mv-atualizado"><!--MV_DATA--></p>
+
     <!-- ANSWER-FIRST: responde a keyword antes de qualquer contexto.
          E este paragrafo que motores generativos extraem e citam.
          Nao mover, nao enfeitar, nao colocar storytelling antes. -->
@@ -103,6 +109,21 @@ TPL = '''<!-- wp:html -->
   </div>
 </section>
 
+<section class="sec">
+  <div class="wrap stack-l">
+    <div class="stack prosa">
+      <p class="eyebrow">Confira na origem</p>
+      <h2>Onde verificar o que está nesta página</h2>
+      <p>Consórcio é atividade regulada. Tudo o que esta página descreve sobre
+      o funcionamento do sistema pode ser conferido direto na fonte — e é assim
+      que deve ser lido: confira, não confie.</p>
+    </div>
+    <ul class="fontes prosa">
+%(fontes)s
+    </ul>
+  </div>
+</section>
+
 <section class="sec sec--dark chevrons">
   <div class="wrap stack prosa">
     <h2>Quer conversar sobre o seu caso?</h2>
@@ -117,6 +138,69 @@ TPL = '''<!-- wp:html -->
 </div>
 <!-- /wp:html -->
 '''
+
+
+# ---------------------------------------------------------------- fontes
+# URLs CONFERIDAS em 27/07/2026, uma a uma, antes de entrarem aqui:
+# HTTP 200 e - onde o HTML permite ler - conteudo batendo com a afirmacao.
+# A Lei 11.795/08 foi lida no Planalto (decodificada em iso-8859-1) e a
+# ementa confere: "Dispoe sobre o Sistema de Consorcio".
+#
+# DESCARTADAS, e o motivo importa:
+#   abac.org.br/imprensa/numeros-do-setor .......... 404
+#   Circular 3.432 do Bacen ........................ responde 200, mas o
+#     conteudo e renderizado por JS e nao consigo comprovar que e o
+#     normativo que eu afirmaria ser. Citar numero de norma sem conferir
+#     e inventar credencial - a mesma regra que vale para taxa e prazo.
+#
+# As paginas do Bacen sao SPA: 200 sem texto no HTML cru. Entram porque o
+# caminho corresponde ao que o cliente confirmou em 25/07/2026 (Bacen ->
+# Estabilidade Financeira -> ... -> "Administradora de Consorcio").
+FONTE = {
+    'lei': ('Lei 11.795/2008 — texto integral no Planalto',
+            'https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2008/lei/l11795.htm',
+            'A lei que institui o Sistema de Consórcio e define o que a '
+            'administradora pode e não pode fazer.'),
+    'bacen': ('Banco Central — Sistema de Consórcios',
+              'https://www.bcb.gov.br/estabilidadefinanceira/consorcio',
+              'A página do regulador sobre o funcionamento e a fiscalização '
+              'do setor.'),
+    'consulta': ('Banco Central — consulta de instituições autorizadas',
+                 'https://www.bcb.gov.br/estabilidadefinanceira/encontreinstituicao',
+                 'Onde conferir, pelo CNPJ, se uma administradora está '
+                 'autorizada a funcionar.'),
+    'reclamacao': ('Banco Central — como registrar reclamação',
+                   'https://www.bcb.gov.br/meubc/faqs/p/como-registrar-reclamacao-'
+                   'contra-uma-instituicao-financeira',
+                   'O caminho formal quando a administradora não resolve.'),
+    'abac': ('ABAC — Associação Brasileira de Administradoras de Consórcios',
+             'https://abac.org.br/',
+             'Entidade do setor; publica os números consolidados de vendas e '
+             'contemplações.'),
+}
+
+# Toda pagina recebe lei + bacen: os 20 guias descrevem o regime que a lei
+# cria, e o rodape global ja cita a Lei 11.795/08 em todas elas - linkar e
+# tornar verificavel uma citacao que ja existe, nao acrescentar enfeite.
+# As demais fontes entram so onde a materia do guia as invoca.
+FONTES_BASE = ('lei', 'bacen')
+FONTES_EXTRA = {
+    'consorcio-e-confiavel': ('consulta', 'reclamacao'),
+    'contemplacao-garantida-e-golpe': ('consulta',),
+    'direitos-do-consorciado': ('reclamacao',),
+    'consorcio-vale-a-pena': ('abac',),
+}
+
+
+def montar_fontes(slug):
+    chaves = list(FONTES_BASE) + list(FONTES_EXTRA.get(slug, ()))
+    itens = []
+    for k in chaves:
+        titulo, url, porque = FONTE[k]
+        itens.append(
+            '      <li><a href="%s" rel="nofollow noopener" '
+            'target="_blank">%s</a> — %s</li>' % (url, titulo, porque))
+    return chr(10).join(itens)
 
 
 def carregar(caminho):
@@ -175,6 +259,7 @@ def main():
                 h1Low=g['h1'][0].lower() + g['h1'][1:],
                 itens='\n'.join(ITEM % (t, d) for t, d in g['itens']),
                 relacionados=RELACIONADOS % '\n'.join(rel) if rel else '',
+                fontes=montar_fontes(g['slug']),
                 faq='\n'.join(FAQ % (' open' if i == 0 else '', q, a)
                               for i, (q, a) in enumerate(g['faq'])))
 

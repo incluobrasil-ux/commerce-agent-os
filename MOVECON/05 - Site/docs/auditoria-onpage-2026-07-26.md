@@ -7,6 +7,61 @@ Googlebot recebem de fato, depois de mu-plugin, tema e cache. Reproduzível com
 **Limite do método:** contagem de palavra e presença de bloco são proxy de
 completude, não de qualidade. A nota prioriza o que olhar; ela não decide.
 
+## RESOLVIDO em 27/07/2026 — os dois zeros dos guias
+
+| Critério | Antes | Depois |
+|---|---|---|
+| Fonte primária linkada | 0 de 20 | **20 de 20** |
+| Data de publicação/atualização visível | 0 de 20 | **20 de 20** |
+
+### Fontes — conferidas uma a uma antes de entrar
+
+Cada URL foi buscada e, onde o HTML permite ler, teve o conteúdo comparado com
+a afirmação. A Lei 11.795/08 foi lida no Planalto (decodificada em
+`iso-8859-1`) e a ementa confere: *"Dispõe sobre o Sistema de Consórcio"*.
+
+**Descartadas, e o motivo importa mais que a lista:**
+
+| Candidata | Por quê |
+|---|---|
+| `abac.org.br/imprensa/numeros-do-setor` | 404 |
+| Circular 3.432 do Bacen | responde 200, mas o conteúdo é renderizado por JS e não consigo comprovar que é o normativo que eu afirmaria ser. Citar número de norma sem conferir é inventar credencial — mesma regra que vale para taxa e prazo |
+
+As páginas do Bacen são SPA: retornam 200 sem texto no HTML cru. Entraram
+porque o caminho corresponde ao que o cliente confirmou em 25/07/2026.
+
+**Distribuição:** todo guia recebe Lei 11.795/08 + Bacen (os 20 descrevem o
+regime que a lei cria, e o rodapé global já a cita em todos — linkar torna
+verificável uma citação que já existe). As demais entram só onde a matéria as
+invoca: consulta de autorizadas em `/guia/consorcio-e-confiavel/` e
+`/guia/contemplacao-garantida-e-golpe/`; canal de reclamação em
+`/guia/direitos-do-consorciado/`; ABAC em `/guia/consorcio-vale-a-pena/`.
+
+### Data — dinâmica, nunca assada
+
+O gerador emite `<!--MV_DATA-->`; o `movecon-seo.php` substitui em tempo de
+requisição pelo `post_modified` real.
+
+**Assar a data no HTML seria exibir a data da geração, não a da última
+alteração** — bastaria uma correção de vírgula pelo painel para a página passar
+a mentir sobre quando foi revisada. Numa página que se apresenta como
+referência, data errada é pior que data nenhuma: é uma afirmação verificável e
+falsa.
+
+Quando publicação e modificação caem no mesmo dia, exibe só "Publicado em" —
+mostrar as duas sugeriria uma revisão que não houve.
+
+**Defeito encontrado e corrigido na verificação:** a primeira versão publicou
+*"26 de July de 2026"* em 20 guias. O locale deste WordPress é `en_US` e
+`wp_date('F')` devolve o mês em inglês. O mês passou a vir de tabela própria —
+trocar o locale do site inteiro para consertar uma data seria efeito colateral
+grande demais para o problema.
+
+### O que segue aberto da auditoria
+
+Itens 3 a 5 da ordem sugerida: bloco de compliance no corpo das páginas
+comerciais, engorda dos hubs e engorda das filhas.
+
 ## Veredito geral
 
 Nenhuma das 66 páginas medidas atinge a extensão mínima do plano. Não é um

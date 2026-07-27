@@ -413,3 +413,61 @@ add_filter( 'robots_txt', function () {
 	return implode( "
 ", $linhas );
 }, 99 );
+
+/* ==========================================================================
+   DATA VISIVEL — preenche <!--MV_DATA--> no conteudo
+
+   O marcador e emitido pelos geradores; a data vem de post_modified, em tempo
+   de requisicao. Assar a data no HTML gerado faria a pagina exibir a data da
+   GERACAO, nao a da ultima alteracao - e bastaria uma correcao de virgula pelo
+   painel para a pagina passar a mentir sobre quando foi revisada.
+
+   Data errada e pior que data nenhuma numa pagina que se apresenta como
+   referencia: e uma afirmacao verificavel e falsa.
+   ========================================================================== */
+add_filter( 'the_content', function ( $conteudo ) {
+	if ( is_admin() || strpos( $conteudo, '<!--MV_DATA-->' ) === false ) {
+		return $conteudo;
+	}
+	$id = get_the_ID();
+	if ( ! $id ) {
+		// Sem post resolvido nao ha data confiavel: remove o marcador em vez
+		// de exibir rotulo vazio.
+		return str_replace( '<!--MV_DATA-->', '', $conteudo );
+	}
+	$mod = get_post_modified_time( 'U', true, $id );
+	$pub = get_post_time( 'U', true, $id );
+
+	// Mes por extenso vem de tabela propria, e nao de wp_date('F'). O locale
+	// deste WordPress e en_US: a primeira versao publicou "26 de July de 2026"
+	// em 20 guias. Trocar o locale do site inteiro para consertar uma data
+	// seria efeito colateral grande demais para o problema.
+	$meses = array( 1 => 'janeiro', 'fevereiro', 'março', 'abril', 'maio',
+		'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro',
+		'dezembro' );
+	$por_extenso = function ( $ts ) use ( $meses ) {
+		return sprintf( '%s de %s de %s',
+			wp_date( 'j', $ts ), $meses[ (int) wp_date( 'n', $ts ) ],
+			wp_date( 'Y', $ts ) );
+	};
+
+	if ( $mod && $pub && ( $mod - $pub ) > DAY_IN_SECONDS ) {
+		$txt = sprintf(
+			'Publicado em %s · Atualizado em %s',
+			$por_extenso( $pub ),
+			$por_extenso( $mod )
+		);
+		$iso = wp_date( 'c', $mod );
+	} else {
+		// Enquanto publicacao e revisao sao do mesmo dia, exibir as duas seria
+		// ruido - e sugeriria uma revisao que nao houve.
+		$txt = 'Publicado em ' . $por_extenso( $pub ? $pub : $mod );
+		$iso = wp_date( 'c', $pub ? $pub : $mod );
+	}
+
+	return str_replace(
+		'<!--MV_DATA-->',
+		'<time datetime="' . esc_attr( $iso ) . '">' . esc_html( $txt ) . '</time>',
+		$conteudo
+	);
+}, 20 );

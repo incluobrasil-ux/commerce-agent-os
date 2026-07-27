@@ -7,6 +7,52 @@ Googlebot recebem de fato, depois de mu-plugin, tema e cache. Reproduzível com
 **Limite do método:** contagem de palavra e presença de bloco são proxy de
 completude, não de qualidade. A nota prioriza o que olhar; ela não decide.
 
+## RESOLVIDO em 27/07/2026 — bloco de compliance no corpo (item 3)
+
+**94 de 94 rotas indexáveis** trazem a atribuição à Alpha **no corpo**, e não
+apenas no rodapé global.
+
+| Camada | Antes | Depois |
+|---|---|---|
+| hub | 9 / 9 | 9 / 9 |
+| filha | 1 / 36 | **36 / 36** |
+| guia | 0 / 21 | **21 / 21** |
+| artigo | 16 / 17 | **17 / 17** |
+| confiança | 5 / 6 | **6 / 6** |
+| glossário | 2 / 3 | **3 / 3** |
+| institucional | 1 / 2 | **2 / 2** |
+
+### Por que o rodapé global não bastava
+
+Motor generativo recorta o **conteúdo** da página e descarta o rodapé do site.
+Sem o bloco no corpo, a página podia ser citada sem a informação de quem
+administra os grupos — que é exatamente a afirmação que o projeto inteiro
+existe para não deixar ambígua.
+
+### O bloco virou módulo, e isso não é detalhe
+
+`COMPLIANCE` estava declarado dentro do `gerar_hubs.py`. Ao estender para
+filhas, guias, `/dados/`, `/blog/`, `/guia/`, `/contato/` e a página de autor,
+copiar o texto criaria **sete versões do mesmo parágrafo jurídico** — e na
+primeira revisão, seis delas passariam a mentir.
+
+Extraído para `scripts/compliance.py`, fonte única de todos os geradores.
+**Compliance com cópia divergente é pior que compliance ausente, porque parece
+resolvido.**
+
+### Medição
+
+A checagem mede o corpo com o mesmo recorte da `PAGINA_VAZIA` — descarta
+`script`, `style`, `nav` e `footer`, e lê dentro de `<main>`. Medir no HTML
+inteiro daria 94 de 94 desde antes da mudança, porque o rodapé global sempre
+esteve lá: a métrica teria confirmado um problema que continuava de pé.
+
+### O que segue aberto da auditoria
+
+Itens 4 e 5: engorda dos hubs (imóveis → veículos → caminhão) e engorda das
+filhas, começando pelas 10 menores. São escrita, 1 página por ciclo — não cabem
+em gerador.
+
 ## RESOLVIDO em 27/07/2026 — os dois zeros dos guias
 
 | Critério | Antes | Depois |

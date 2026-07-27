@@ -16,6 +16,9 @@ import os
 import re
 import sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from compliance import COMPLIANCE  # noqa: E402
+
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(BASE)
 sys.stdout.reconfigure(encoding='utf-8', errors='replace')
@@ -103,6 +106,7 @@ def pagina(a):
         '<p>Todos os textos publicados no '
         '<a href="/blog/">blog da MOVECON</a>.</p>'
         '</section>'
+        + COMPLIANCE +
         '</div>'
     ) % ('' if img else ' autor-perfil__topo--sem-foto', img, esc(a['nome']),
          esc(a['cargo']), link, paras, esc(a['nome']))

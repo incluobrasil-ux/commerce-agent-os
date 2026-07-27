@@ -14,6 +14,9 @@ import json
 import os
 import sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from compliance import COMPLIANCE  # noqa: E402
+
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BUILD = os.path.join(RAIZ, 'build')
 URL = '/blog/'
@@ -60,6 +63,8 @@ TPL = '''<!-- wp:html -->
     </div>
   </div>
 </section>
+
+''' + COMPLIANCE + '''
 
 <section class="sec sec--dark chevrons">
   <div class="wrap stack prosa">

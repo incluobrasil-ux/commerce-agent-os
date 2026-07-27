@@ -108,6 +108,37 @@ def pagina(a):
          esc(a['cargo']), link, paras, esc(a['nome']))
 
 
+def indice(autores):
+    """Indice /autor/.
+
+    Existe porque a pagina-pai e obrigatoria para o permalink /autor/<slug>/
+    se formar - e pagina-pai criada so por necessidade tecnica sai com corpo
+    vazio, sem H1 e sem link. Ja aconteceu com /lp/ neste site. Pagina vazia
+    indexavel e conteudo fino servido ao buscador.
+    """
+    cartoes = []
+    for a in autores:
+        img = foto_tag(a, 'autor-indice__foto', 72)
+        cartoes.append(
+            '<li class="autor-indice__item%s">%s<div>'
+            '<h2><a href="%s" rel="author">%s</a></h2>'
+            '<p class="autor-indice__cargo">%s</p>'
+            '<p>%s</p></div></li>'
+            % ('' if img else ' autor-indice__item--sem-foto', img,
+               esc(a['url']), esc(a['nome']), esc(a['cargo']),
+               esc(a['bioCurta'])))
+    return (
+        '<div class="mv-page mv-autor-indice">'
+        '<h1>Quem escreve na MOVECON</h1>'
+        '<p class="lead">Todo conteúdo publicado aqui é assinado. '
+        'Abaixo, quem escreve, com trajetória e área de atuação declaradas — '
+        'para você julgar a fonte, e não só o texto.</p>'
+        '<ul class="autor-indice">%s</ul>'
+        '<p><a href="/blog/">Ver todos os artigos do blog</a></p>'
+        '</div>'
+    ) % ''.join(cartoes)
+
+
 def main():
     ficha = json.load(io.open('content/autor.json', encoding='utf-8'))
     bloqueado = False
@@ -136,6 +167,10 @@ def main():
         io.open('%s/caixa-autor-%s.html' % (SAIDA, a['slug']), 'w',
                 encoding='utf-8', newline='\n').write(caixa(a))
         print('[OK] %s: pagina e caixa gerados' % a['slug'])
+
+    io.open('%s/autor-indice.html' % SAIDA, 'w', encoding='utf-8',
+            newline='\n').write(indice(ficha['autores']))
+    print('[OK] indice /autor/ gerado (%d autor(es))' % len(ficha['autores']))
     return 0
 
 

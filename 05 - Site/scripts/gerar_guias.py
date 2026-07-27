@@ -22,6 +22,9 @@ import json
 import os
 import sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from compliance import COMPLIANCE  # noqa: E402
+
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BUILD = os.path.join(RAIZ, 'build')
 
@@ -123,6 +126,8 @@ TPL = '''<!-- wp:html -->
     </ul>
   </div>
 </section>
+
+%(compliance)s
 
 <section class="sec sec--dark chevrons">
   <div class="wrap stack prosa">
@@ -260,6 +265,7 @@ def main():
                 itens='\n'.join(ITEM % (t, d) for t, d in g['itens']),
                 relacionados=RELACIONADOS % '\n'.join(rel) if rel else '',
                 fontes=montar_fontes(g['slug']),
+                compliance=COMPLIANCE,
                 faq='\n'.join(FAQ % (' open' if i == 0 else '', q, a)
                               for i, (q, a) in enumerate(g['faq'])))
 

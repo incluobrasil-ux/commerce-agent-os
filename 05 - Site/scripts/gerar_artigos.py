@@ -29,6 +29,9 @@ import sys
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BUILD = os.path.join(RAIZ, 'build')
 ARTIGOS = os.path.join(RAIZ, 'content', 'artigos')
+# Autor unico do blog hoje. Quando houver mais de um, o slug passa a sair
+# do front-matter de cada .md - nao de constante.
+AUTOR_SLUG = 'samuel-tanan'
 
 
 def inline(txt):
@@ -192,6 +195,19 @@ def main():
             print('[X] %s nao tem H1 (linha "# ...").' % arq)
             return 1
         slug = os.path.splitext(os.path.basename(arq))[0]
+
+        # Caixa de autor no fim de todo artigo. Vem do build/ e nao de literal
+        # aqui: nome, cargo e bio tem uma fonte so, content/autor.json. Se a
+        # caixa nao existir, o artigo NAO e gerado - artigo sem autoria e
+        # exatamente o que a regra da pauta proibe publicar.
+        caixa = os.path.join(BUILD, 'caixa-autor-%s.html' % AUTOR_SLUG)
+        if not os.path.isfile(caixa):
+            print('[X] caixa de autor ausente: %s' % caixa)
+            print('    rode scripts/gerar_autor.py antes.')
+            return 1
+        bloco_autor = io.open(caixa, encoding='utf-8').read().strip()
+        html = html + '\n<!-- wp:html -->\n' + bloco_autor + '\n<!-- /wp:html -->'
+
         destino = os.path.join(BUILD, 'artigo-%s.html' % slug)
         io.open(destino, 'w', encoding='utf-8', newline=chr(10)).write(html + '\n')
 

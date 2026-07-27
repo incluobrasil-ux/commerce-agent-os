@@ -1156,7 +1156,7 @@
       "title": "Golpe de Consórcio: Como Identificar Antes de Pagar",
       "description": "O golpe da carta contemplada segue sempre o mesmo roteiro. Veja como reconhecer cada tática e as três verificações que desmontam o esquema.",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/blog/"
     },
@@ -1168,7 +1168,7 @@
       "title": "Como Declarar Consórcio no Imposto de Renda | MOVECON",
       "description": "Onde o consórcio aparece na declaração, o que muda depois da contemplação e por que o informe da administradora é o documento que vale.",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/blog/"
     },
@@ -1180,7 +1180,7 @@
       "title": "Consórcio de Imóvel para Investimento: a conta real",
       "description": "O investimento é o imóvel; o consórcio é o meio de compra. Veja a conta de aluguel sobre custo e o risco que quase ninguém menciona.",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/blog/"
     },
@@ -1192,7 +1192,7 @@
       "title": "Consórcio de Energia Solar Vale a Pena? A conta completa",
       "description": "A fórmula do payback para você calcular com seus números, e por que a espera pela contemplação pesa mais em solar que em qualquer bem.",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/blog/"
     },
@@ -1204,7 +1204,7 @@
       "title": "E se a Administradora de Consórcio Tiver Problemas?",
       "description": "Os recursos do grupo não se confundem com o patrimônio da administradora. Entenda a proteção que existe e o que depende de você verificar.",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/blog/"
     },
@@ -1229,7 +1229,7 @@
       "title": "Consórcio para Sair do Aluguel: a conta que decide",
       "description": "A comparação honesta não é aluguel contra parcela: é o período em que você paga os dois. Monte a conta com seus números e veja quando não compensa.",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/blog/"
     },
@@ -1241,7 +1241,7 @@
       "title": "Qual o Melhor Prazo para Consórcio? Como escolher",
       "description": "Prazo longo reduz a parcela e alonga a taxa; prazo curto exige folga real. A pergunta que decide é quanto cabe no seu orçamento num ano ruim.",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/blog/"
     },
@@ -1253,7 +1253,7 @@
       "title": "Assembleia de Consórcio: o que acontece de verdade",
       "description": "É o único momento em que alguém é contemplado. Veja o que é decidido, como sorteio e lance se apuram juntos e a prestação de contas que é seu direito.",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/blog/"
     },
@@ -1265,7 +1265,7 @@
       "title": "Como Transferir Consórcio para Outra Pessoa | MOVECON",
       "description": "Transferir costuma ser melhor que desistir. Mas só a formalização pela administradora transfere de verdade: acerto por fora não transfere nada.",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/blog/"
     },
@@ -1277,7 +1277,7 @@
       "title": "As 7 Perguntas para Fazer Antes de Assinar um Consórcio",
       "description": "O roteiro para levar à conversa com o vendedor: CNPJ, taxa, reajuste, desistência, primeiro desembolso, lance e onde tudo isso está por escrito.",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/blog/"
     },
@@ -1289,7 +1289,7 @@
       "title": "Quanto Dar de Lance no Consórcio? A resposta honesta",
       "description": "Não existe percentual que garanta contemplação: o lance vencedor muda a cada assembleia. Veja de onde tirar o valor sem comprometer as parcelas.",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/blog/"
     },
@@ -1301,7 +1301,7 @@
       "title": "Por Que a Parcela do Consórcio Aumentou? Entenda o reajuste",
       "description": "O aumento não é cobrança nova nem juro: é a atualização que mantém sua carta capaz de comprar o bem. Veja onde conferir e o que fazer se não couber.",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/blog/"
     },
@@ -1313,7 +1313,7 @@
       "title": "Quantas Cotas de Consórcio Vale a Pena Ter ao Mesmo Tempo",
       "description": "Cada cota concorre sozinha e custa uma parcela. O limite real não é o da administradora: é o total que seu caixa sustenta num mês ruim.",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/blog/"
     },
@@ -1325,7 +1325,7 @@
       "title": "Consórcio para MEI Vale a Pena? O que muda de verdade",
       "description": "Sem análise de crédito na adesão — mas ela existe na contemplação. Veja o que será avaliado, CNPJ ou CPF, e quando o MEI deveria escolher outra via.",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
       "fase": 3,
       "pai": "/blog/"
     },
@@ -1392,7 +1392,18 @@
       "title": "Samuel Tanan | Autor | MOVECON Consórcio",
       "description": "Sócio-fundador da MOVECON. Conheça a trajetória de quem assina os conteúdos sobre consórcio publicados no blog da plataforma.",
       "indexavel": true,
-      "status": "planejada",
+      "status": "no-ar",
+      "fase": 3
+    },
+    {
+      "url": "/autor/",
+      "keyword": "autores movecon",
+      "intencao": "navegacional",
+      "camada": "confianca",
+      "title": "Autores | MOVECON Consórcio",
+      "description": "Quem escreve os conteúdos sobre consórcio publicados pela MOVECON, com trajetória e área de atuação de cada autor declaradas.",
+      "indexavel": true,
+      "status": "no-ar",
       "fase": 3
     },
     {

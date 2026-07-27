@@ -1,5 +1,5 @@
 {
-  "_leia_me": "Ficha de autoria. Fonte unica: caixa de autor dos artigos, pagina de autor e o author Person do Article schema leem daqui. Enquanto houver [PENDENTE: ...] em campo obrigatorio, nada publica - a regra permanente do gate proibe placeholder renderizado.",
+  "_leia_me": "Ficha de autoria. Fonte unica: caixa de autor dos artigos, pagina de autor e o author Person do Article schema leem daqui. Enquanto houver [PENDENTE: ...] em campo OBRIGATORIO, nada publica - a regra permanente do gate proibe placeholder renderizado.",
   "_regra": "NUNCA preencher por inferencia. Bio, foto e link sao dados sobre uma pessoa real e so entram com o texto que ela aprovou.",
   "_confirmado_em": "26/07/2026",
   "autores": [
@@ -8,14 +8,15 @@
       "nome": "Samuel Tanan",
       "cargo": "Sócio-fundador da MOVECON e da Crelider",
       "url": "/autor/samuel-tanan/",
-      "_regra_white_label": "Decisao de 26/07/2026: a bioLonga pode usar 'white-label' UMA vez ('operacao white-label em parceria com a Alpha...'). A bioCurta NAO usa - ela e renderizada na caixa ao fim de cada artigo, ou seja, em pagina de consumidor. Codificado em ESCOPO_TERMO no check_seo.py.",
-      "bioCurta": "[PENDENTE: bio curta para a caixa de autor, 1 a 2 frases, ate ~240 caracteres. NAO usar 'white-label']",
-      "bioLonga": "[PENDENTE: bio longa para a pagina de autor, 2 a 4 paragrafos. Pode usar 'white-label' uma vez]",
-      "foto": "[PENDENTE: caminho ou URL da foto, minimo 400x400]",
+      "_regra_white_label": "Decisao de 26/07/2026: a bioLonga pode usar 'white-label' UMA vez. A bioCurta NAO usa - ela e renderizada na caixa ao fim de cada artigo, ou seja, em pagina de consumidor. Codificado em ESCOPO_TERMO no check_seo.py.",
+      "bioCurta": "Samuel Tanan atua no mercado de consórcios desde 2020. Foi supervisor comercial, vendedor autônomo e fundou a Crelider. É sócio-fundador da MOVECON, que comercializa grupos administrados pela Alpha, autorizada pelo Banco Central.",
+      "bioLonga": "Samuel Tanan começou no mercado de consórcios em dezembro de 2020, como vendedor. Em cinco meses tornou-se supervisor, liderando uma equipe de 9 representantes juniores. Depois, seguiu como autônomo — período em que conheceu na prática os erros que quebram um vendedor de consórcio, e que hoje orientam o que escreve sobre planejamento, parcela que cabe no mês ruim e venda transparente.\n\nDessa experiência fundou a Crelider, consultoria de vendas de consórcio em Vitória da Conquista (BA), e em 2026 a MOVECON, operação white-label em parceria com a Alpha Administradora de Consórcio, autorizada pelo Banco Central do Brasil — uma plataforma nacional de comercialização de consórcios.\n\nEscreve com um princípio: o leitor decide melhor sabendo tudo — inclusive quando o consórcio não é a resposta.",
+      "foto": "",
       "fotoAlt": "Samuel Tanan, sócio-fundador da MOVECON",
-      "linkExterno": "[PENDENTE: URL do LinkedIn/Instagram, ou a string \"nenhum\"]",
-      "_obrigatorios": ["nome", "cargo", "url", "bioCurta", "bioLonga", "foto"],
-      "_opcionais": ["linkExterno"]
+      "_foto_pendente": "PENDENTE, autorizado a NAO bloquear em 26/07/2026. Publicar a caixa e a pagina sem foto; inserir depois, minimo 400x400 quadrada. Campo vazio faz o gerador OMITIR o <img> - nunca renderizar placeholder nem src quebrado.",
+      "linkExterno": "nenhum",
+      "_obrigatorios": ["nome", "cargo", "url", "bioCurta", "bioLonga"],
+      "_opcionais": ["foto", "linkExterno"]
     }
   ]
 }

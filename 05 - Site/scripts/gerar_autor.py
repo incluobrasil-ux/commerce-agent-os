@@ -40,6 +40,22 @@ def pendentes(a):
     return faltam
 
 
+def foto_tag(a, classe, lado, lazy=True):
+    """<img> da foto, ou string vazia enquanto ela nao existir.
+
+    Campo vazio OMITE a tag inteira. Nunca renderizar src="" nem imagem
+    generica: src vazio faz o navegador requisitar a propria pagina, e foto
+    generica de pessoa e pior que foto nenhuma numa caixa que existe
+    justamente para dizer quem assina.
+    """
+    src = (a.get('foto') or '').strip()
+    if not src or src.startswith('['):
+        return ''
+    return ('<img class="%s" src="%s" alt="%s" width="%d" height="%d"%s>'
+            % (classe, esc(src), esc(a['fotoAlt']), lado, lado,
+               ' loading="lazy"' if lazy else ''))
+
+
 def caixa(a):
     """Caixa de autor: vai no fim de cada artigo."""
     link = ''
@@ -48,10 +64,10 @@ def caixa(a):
         link = ('<p class="autor-caixa__link">'
                 '<a href="%s" rel="author noopener" target="_blank">Perfil'
                 '</a></p>' % esc(ext))
+    img = foto_tag(a, 'autor-caixa__foto', 96)
     return (
-        '<aside class="autor-caixa">'
-        '<img class="autor-caixa__foto" src="%s" alt="%s" width="96" '
-        'height="96" loading="lazy">'
+        '<aside class="autor-caixa%s">'
+        '%s'
         '<div class="autor-caixa__texto">'
         '<p class="autor-caixa__rotulo">Escrito por</p>'
         '<p class="autor-caixa__nome">'
@@ -60,8 +76,8 @@ def caixa(a):
         '<p class="autor-caixa__bio">%s</p>'
         '%s'
         '</div></aside>'
-    ) % (esc(a['foto']), esc(a['fotoAlt']), esc(a['url']), esc(a['nome']),
-         esc(a['cargo']), esc(a['bioCurta']), link)
+    ) % ('' if img else ' autor-caixa--sem-foto', img, esc(a['url']),
+         esc(a['nome']), esc(a['cargo']), esc(a['bioCurta']), link)
 
 
 def pagina(a):
@@ -74,11 +90,11 @@ def pagina(a):
         link = ('<p class="autor-perfil__link">'
                 '<a href="%s" rel="me noopener" target="_blank">'
                 'Perfil externo</a></p>' % esc(ext))
+    img = foto_tag(a, 'autor-perfil__foto', 160, lazy=False)
     return (
         '<div class="mv-page mv-autor">'
-        '<header class="autor-perfil__topo">'
-        '<img class="autor-perfil__foto" src="%s" alt="%s" width="160" '
-        'height="160">'
+        '<header class="autor-perfil__topo%s">'
+        '%s'
         '<div><h1>%s</h1><p class="autor-perfil__cargo">%s</p>%s</div>'
         '</header>'
         '<div class="autor-perfil__bio">%s</div>'
@@ -88,8 +104,8 @@ def pagina(a):
         '<a href="/blog/">blog da MOVECON</a>.</p>'
         '</section>'
         '</div>'
-    ) % (esc(a['foto']), esc(a['fotoAlt']), esc(a['nome']), esc(a['cargo']),
-         link, paras, esc(a['nome']))
+    ) % ('' if img else ' autor-perfil__topo--sem-foto', img, esc(a['nome']),
+         esc(a['cargo']), link, paras, esc(a['nome']))
 
 
 def main():

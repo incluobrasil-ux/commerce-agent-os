@@ -503,6 +503,81 @@ def validar_prosa(doc):
                 erros.append('SINTAXE (%s) - "%s" em %s' % (rotulo, ruim, rel))
 
 
+# PAGINA_VAZIA — rota indexavel servindo corpo vazio.
+#
+# SEGUNDA OCORRENCIA DA MESMA FAMILIA. /lp/ foi ao ar com 1 byte de conteudo
+# e H1 "LP", cru, porque existia so para o permalink /lp/<slug>/ se formar.
+# Corrigido. Semanas depois criei /autor/ pelo MESMO motivo - pai de
+# /autor/<slug>/ - e ela foi ao ar com 0 caractere de corpo e nenhum H1.
+#
+# A causa nao e descuido, e estrutural: pagina-pai de permalink e criada por
+# necessidade tecnica, sem conteudo previsto, e nada no fluxo pergunta se ela
+# tem corpo. Vai continuar acontecendo toda vez que um silo novo precisar de
+# pai - por isso vira detector, e nao lembrete.
+#
+# POR QUE SO NO --wp: nenhuma das duas passou por gerador. Foram criadas
+# direto no wp-cli, entao nao existe arquivo em build/ para inspecionar. O
+# unico lugar onde o defeito aparece e o HTML SERVIDO. Checar build/ daria a
+# sensacao de cobertura sem cobrir nenhum dos dois casos reais.
+MIN_CORPO = 250   # caracteres de texto visivel, fora de nav/header/footer
+
+
+def medir_corpo(html):
+    """(caracteres de texto visivel, quantidade de H1) do conteudo da pagina.
+
+    Descarta script, style, nav, header e footer: o rodape global do site tem
+    centenas de caracteres e faria qualquer pagina vazia parecer cheia. Foi
+    exatamente assim que /autor/ passou desapercebida - "a pagina tem 178 KB".
+    """
+    corpo = re.sub(r'(?is)<(script|style|nav|footer)[^>]*>.*?</\1>', ' ', html)
+
+    # <header> NAO e descartado. Parece chrome do site, mas no Astra o titulo
+    # do post vive em <header class="entry-header"> - descarta-lo fazia 17
+    # artigos com H1 legitimo aparecerem como "sem H1". O menu do topo, que era
+    # a razao de querer descartar header, ja sai junto com <nav>.
+    h1 = len(re.findall(r'(?is)<h1[^>]*>.*?</h1>', corpo))
+
+    m = re.search(r'(?is)<main[^>]*>(.*?)</main>', corpo)
+    if m:
+        corpo = m.group(1)
+    texto = ' '.join(re.sub(r'(?s)<[^>]+>', ' ', corpo).split())
+    return len(texto), h1
+
+
+def _baixar(url):
+    from urllib.request import urlopen, Request
+    req = Request(url, headers={'User-Agent': 'movecon-check/1.0'})
+    return urlopen(req, timeout=45).read().decode('utf-8', 'replace')
+
+
+def validar_pagina_vazia(doc, baixar=None):
+    """Nenhuma rota indexavel no ar serve corpo vazio ou sem H1.
+
+    `baixar` e injetavel para teste - assim a regressao percorre o caminho
+    real do validador sem publicar pagina vazia em producao para testa-la.
+    """
+    baixar = baixar or _baixar
+    base = doc.get('site', {}).get('url', 'https://moveconconsorcio.com')
+    base = base.rstrip('/')
+    achados = []
+    alvo = [r for r in doc['rotas']
+            if r.get('status') == 'no-ar' and r.get('indexavel')]
+    for r in alvo:
+        try:
+            html = baixar(base + r['url'])
+        except Exception as exc:                               # noqa: BLE001
+            achados.append('PAGINA VAZIA - nao consegui ler %s (%s)'
+                           % (r['url'], type(exc).__name__))
+            continue
+        chars, h1 = medir_corpo(html)
+        if h1 == 0:
+            achados.append('PAGINA VAZIA - %s nao tem H1' % r['url'])
+        if chars < MIN_CORPO:
+            achados.append('PAGINA VAZIA - %s serve %d caractere(s) de corpo '
+                           '(minimo %d)' % (r['url'], chars, MIN_CORPO))
+    return achados
+
+
 def validar_wp(doc):
     """Sincronia mapa <-> WordPress. Exige SSH."""
     if not os.path.exists(SSH_KEY):
@@ -551,6 +626,7 @@ def main():
     erros.extend(validar_autoria(doc))
     if '--wp' in sys.argv:
         validar_wp(doc)
+        erros.extend(validar_pagina_vazia(doc))
 
     rotas = doc['rotas']
     if avisos:

@@ -1,304 +1,295 @@
 {
- "_leia_me": "Filhas de silo de /consorcio-imoveis/. `respostaCurta` e o bloco ANSWER-FIRST: responde a keyword da pagina nas 2-3 primeiras frases, antes de qualquer contexto. Maximo ~55 palavras. E o trecho que motores generativos extraem e citam - nao e introducao, e resposta. Aprovar os 8 blocos ANTES de escrever o corpo das paginas (docs/prompts-execucao.md, bloco 5).",
- "_status": "Answer-first aprovados em 25/07/2026. Corpo, FAQ e compliance escritos.",
- "pai": "/consorcio-imoveis/",
- "simulador": "/simulador/imoveis/",
- "filhas": [
-  {
-   "slug": "casa",
-   "keyword": "consórcio para comprar casa",
-   "h1": "Consórcio para comprar casa",
-   "respostaCurta": "O consórcio para comprar casa é uma compra planejada sem juros: você paga parcelas mensais e, ao ser contemplado por sorteio ou lance, recebe a carta de crédito para comprar à vista. O FGTS pode ser usado como lance. Serve para casa nova, usada ou em condomínio.",
-   "eyebrow": "Casa própria",
-   "lead": "Comprar casa com financiamento significa pagar juros por duas ou três décadas. O consórcio troca isso por uma parcela previsível — e, na contemplação, por um pagamento à vista, que muda a sua posição na negociação.",
-   "secao": "Como funciona na prática",
-   "itens": [
-    [
-     "Você escolhe a carta e o prazo",
-     "O valor da carta define o teto do imóvel que você pode comprar. Prazo maior significa parcela menor, e vice-versa."
-    ],
-    [
-     "Paga e concorre desde a primeira assembleia",
-     "Não há entrada obrigatória. Você já participa dos sorteios desde o primeiro mês."
-    ],
-    [
-     "Na contemplação, compra à vista",
-     "Casa nova, usada ou em condomínio, respeitadas as regras de avaliação e documentação."
-    ]
-   ],
-   "faq": [
-    [
-     "Serve para casa usada?",
-     "Sim. A carta de crédito de imóvel costuma cobrir imóvel novo e usado, respeitadas as regras de avaliação e a documentação exigida."
-    ],
-    [
-     "Posso comprar em outra cidade?",
-     "Sim. A carta é de abrangência nacional, dentro das regras de avaliação do imóvel."
-    ],
-    [
-     "E se a casa custar menos que a carta?",
-     "O saldo costuma poder ser usado conforme as regras do contrato — por exemplo, para abater parcelas. As condições estão no contrato do seu grupo."
-    ]
-   ]
-  },
-  {
-   "slug": "apartamento",
-   "keyword": "consórcio de apartamento",
-   "h1": "Consórcio de apartamento",
-   "respostaCurta": "O consórcio de apartamento permite comprar unidade nova, usada ou na planta sem juros. Você paga parcelas e recebe a carta de crédito na contemplação, que ocorre por sorteio ou lance. Com a carta, negocia com a construtora como comprador à vista.",
-   "eyebrow": "Apartamento",
-   "lead": "Apartamento na planta costuma vir com correção e juros embutidos no contrato da construtora. Com a carta de crédito em mãos, você deixa de ser comprador financiado e passa a ser comprador à vista.",
-   "secao": "O que muda ao comprar com carta",
-   "itens": [
-    [
-     "Poder de negociação",
-     "Construtora e proprietário costumam abrir desconto para pagamento imediato."
-    ],
-    [
-     "Novo, usado ou na planta",
-     "A carta atende as três situações, conforme as regras de avaliação e documentação."
-    ],
-    [
-     "Sem análise de crédito na entrada",
-     "A avaliação acontece na contemplação, não na adesão ao grupo."
-    ]
-   ],
-   "faq": [
-    [
-     "Serve para imóvel na planta?",
-     "Sim, conforme as regras da modalidade contratada e a documentação da construtora."
-    ],
-    [
-     "Posso usar o FGTS?",
-     "Sim, dentro das regras aplicáveis. O uso mais comum é como lance, para antecipar a contemplação."
-    ],
-    [
-     "E se eu quiser trocar de imóvel depois de contemplado?",
-     "A carta é usada uma vez, no imóvel aprovado pela administradora. A escolha acontece após a contemplação, então você tem tempo para decidir."
-    ]
-   ]
-  },
-  {
-   "slug": "terreno",
-   "keyword": "consórcio de terreno",
-   "h1": "Consórcio de terreno",
-   "respostaCurta": "O consórcio de terreno financia a compra de lote urbano ou rural sem juros. Na contemplação, você paga o terreno à vista — o que costuma render desconto com loteador ou proprietário. Há cartas que cobrem terreno e construção na mesma modalidade.",
-   "eyebrow": "Terreno e lote",
-   "lead": "Loteadora costuma parcelar com juros e correção. Comprar o terreno à vista, com a carta de crédito, é o que abre desconto real — e é a forma mais comum de começar um projeto de construção sem dívida cara.",
-   "secao": "Terreno hoje, obra depois",
-   "itens": [
-    [
-     "Lote urbano ou rural",
-     "A carta cobre a compra do terreno, respeitadas as regras de documentação e avaliação."
-    ],
-    [
-     "Terreno e construção na mesma carta",
-     "Há modalidades que cobrem os dois. Definir isso na adesão evita ter que contratar duas vezes."
-    ],
-    [
-     "Negociação à vista",
-     "Loteadora e proprietário particular costumam abrir margem para quem paga imediato."
-    ]
-   ],
-   "faq": [
-    [
-     "Dá para comprar terreno e construir com a mesma carta?",
-     "Depende da modalidade contratada. Existem cartas que cobrem terreno e construção — defina isso na adesão."
-    ],
-    [
-     "Serve para terreno em loteamento não registrado?",
-     "Não. A administradora exige documentação regular do imóvel para liberar o crédito."
-    ],
-    [
-     "Posso comprar de pessoa física?",
-     "Sim, desde que a documentação do imóvel e do vendedor atenda às exigências da administradora."
-    ]
-   ]
-  },
-  {
-   "slug": "construcao",
-   "keyword": "consórcio para construir",
-   "h1": "Consórcio para construir",
-   "respostaCurta": "O consórcio para construir usa a carta de crédito na obra do seu terreno, sem juros. A liberação costuma ser feita por etapa, mediante vistoria, e não de uma vez. A modalidade é escolhida na adesão, então defina o objetivo desde o começo.",
-   "eyebrow": "Construção",
-   "lead": "Construir com recurso próprio costuma travar no meio da obra. Com a carta de crédito, o recurso existe do começo ao fim — mas é liberado conforme o andamento, não de uma vez.",
-   "secao": "Como a liberação funciona",
-   "itens": [
-    [
-     "Liberação por etapa",
-     "O crédito é liberado conforme o avanço da obra, mediante vistoria. É proteção sua e do grupo."
-    ],
-    [
-     "Terreno próprio",
-     "A construção pressupõe terreno regularizado em seu nome, com documentação aceita pela administradora."
-    ],
-    [
-     "Projeto e orçamento",
-     "A administradora avalia projeto e cronograma antes de liberar. Vale ter isso pronto antes da contemplação."
-    ]
-   ],
-   "faq": [
-    [
-     "O dinheiro cai todo de uma vez?",
-     "Não. Na modalidade construção, a liberação acompanha o andamento da obra e passa por vistoria a cada etapa."
-    ],
-    [
-     "Preciso ter o terreno antes?",
-     "Sim, para a modalidade construção. Se ainda não tem, existem cartas que cobrem terreno e obra."
-    ],
-    [
-     "Posso usar para ampliar o que já existe?",
-     "Ampliação costuma se enquadrar em reforma, não em construção. A modalidade correta é definida na adesão."
-    ]
-   ]
-  },
-  {
-   "slug": "reforma",
-   "keyword": "consórcio para reforma",
-   "h1": "Consórcio para reforma de imóvel",
-   "respostaCurta": "O consórcio para reforma cobre obra, ampliação e materiais sem os juros do crédito pessoal ou do cartão. Você paga parcelas e, na contemplação, contrata e compra à vista. É a alternativa planejada para quem não tem pressa de começar a obra.",
-   "eyebrow": "Reforma",
-   "lead": "Reforma quase sempre acaba no cartão parcelado ou no crédito pessoal — as duas linhas mais caras do mercado. O consórcio é a alternativa para quem consegue planejar a obra com alguns meses de antecedência.",
-   "secao": "O que a carta cobre",
-   "itens": [
-    [
-     "Obra e ampliação",
-     "Serviço e material, conforme as regras da modalidade contratada."
-    ],
-    [
-     "Pagamento à vista ao fornecedor",
-     "O que costuma render desconto em material e mão de obra."
-    ],
-    [
-     "Sem juros",
-     "Você paga taxa de administração, não juros de crédito pessoal ou de cartão."
-    ]
-   ],
-   "faq": [
-    [
-     "Preciso comprovar como vou usar o crédito?",
-     "Sim. A liberação acontece mediante comprovação da contratação ou da compra, conforme as regras da administradora."
-    ],
-    [
-     "Serve para reforma de imóvel alugado?",
-     "A carta é destinada a imóvel do titular. Reforma em imóvel de terceiro não costuma ser aceita."
-    ],
-    [
-     "Dá para usar parte em material e parte em mão de obra?",
-     "Em geral sim, dentro das regras da modalidade. Confirme com o consultor antes da adesão."
-    ]
-   ]
-  },
-  {
-   "slug": "fgts",
-   "keyword": "usar fgts no consórcio",
-   "h1": "Como usar o FGTS no consórcio de imóvel",
-   "respostaCurta": "O FGTS pode ser usado no consórcio de imóvel em três situações: como lance para antecipar a contemplação, para amortizar parcelas ou para complementar a carta de crédito. Cada uso tem regras próprias e exige que o imóvel e o titular atendam às condições do FGTS.",
-   "eyebrow": "FGTS",
-   "lead": "O FGTS é a ferramenta mais subaproveitada do consórcio imobiliário. Bem usado, ele encurta a espera — mas cada uso tem regra própria, e nenhum deles garante contemplação.",
-   "secao": "As três formas de usar",
-   "itens": [
-    [
-     "Como lance",
-     "O saldo é ofertado como lance para antecipar a contemplação. É o uso mais comum, e não garante que você seja contemplado."
-    ],
-    [
-     "Para amortizar",
-     "Reduz o saldo devedor ou abate parcelas, conforme as regras aplicáveis."
-    ],
-    [
-     "Para complementar a carta",
-     "Soma ao crédito na hora da compra, quando o imóvel custa mais que a carta contratada."
-    ]
-   ],
-   "faq": [
-    [
-     "Usar o FGTS garante que eu seja contemplado?",
-     "Não. O lance com FGTS aumenta a competitividade da sua oferta na assembleia, mas a contemplação continua dependendo do resultado do lance ou do sorteio."
-    ],
-    [
-     "Qualquer imóvel aceita FGTS?",
-     "Não. O imóvel precisa atender às condições do FGTS — entre elas, ser residencial, urbano e destinado à moradia do titular."
-    ],
-    [
-     "Preciso ter tempo de trabalho mínimo?",
-     "As condições de saque do FGTS seguem as regras do fundo, não do consórcio. Vale conferir seu enquadramento antes de contar com esse recurso."
-    ]
-   ]
-  },
-  {
-   "slug": "imovel-rural",
-   "keyword": "consórcio de imóvel rural",
-   "h1": "Consórcio de imóvel rural",
-   "respostaCurta": "O consórcio de imóvel rural permite comprar terra, sítio, chácara ou fazenda sem juros e sem depender de crédito rural. Você paga parcelas e compra à vista na contemplação. O prazo longo costuma se ajustar melhor ao ciclo de retorno da atividade no campo.",
-   "eyebrow": "Imóvel rural",
-   "lead": "Crédito rural para compra de terra é escasso e burocrático. O consórcio funciona como planejamento de longo prazo, com prazo que costuma acompanhar melhor o ciclo de retorno da atividade.",
-   "secao": "Como funciona no campo",
-   "itens": [
-    [
-     "Terra, sítio ou fazenda",
-     "A carta cobre a compra, respeitadas a documentação e a avaliação do imóvel."
-    ],
-    [
-     "Sem depender de linha de crédito",
-     "Você não fica preso a calendário de liberação nem a enquadramento."
-    ],
-    [
-     "Prazo longo",
-     "Casa melhor com atividade cujo retorno acontece por safra, não por mês."
-    ]
-   ],
-   "faq": [
-    [
-     "Serve para qualquer imóvel rural?",
-     "O imóvel precisa ter documentação regular e ser aceito na avaliação da administradora. Área sem registro não é aceita."
-    ],
-    [
-     "Produtor pessoa física pode aderir?",
-     "Sim, pessoa física e jurídica, conforme as regras do grupo."
-    ],
-    [
-     "Dá para usar a carta em benfeitorias?",
-     "A modalidade imóvel destina-se à aquisição. Benfeitoria e obra costumam exigir modalidade específica — confirme na adesão."
-    ]
-   ]
-  },
-  {
-   "slug": "investimento",
-   "keyword": "consórcio como investimento imobiliário",
-   "h1": "Consórcio como investimento imobiliário",
-   "respostaCurta": "Consórcio não é investimento: é compra programada e não gera rendimento. O que investidores fazem é usar a carta de crédito, sem juros, para adquirir imóvel destinado a renda de aluguel ou revenda. O retorno vem do imóvel, nunca do consórcio em si.",
-   "eyebrow": "Formação de patrimônio",
-   "lead": "Vale repetir, porque é o erro mais comum nessa busca: o consórcio não rende. Ele é uma forma de adquirir o imóvel sem juros. Quem investe está apostando no imóvel, não no consórcio.",
-   "secao": "Como investidores usam",
-   "itens": [
-    [
-     "Segundo imóvel para aluguel",
-     "A carta compra o imóvel; a renda vem do aluguel, não do consórcio."
-    ],
-    [
-     "Formação de patrimônio no longo prazo",
-     "Parcela previsível e sem juros, em vez de crédito imobiliário caro."
-    ],
-    [
-     "Mais de uma cota",
-     "É possível manter cotas em paralelo para escalonar aquisições. O risco também escala."
-    ]
-   ],
-   "faq": [
-    [
-     "Consórcio rende alguma coisa?",
-     "Não. Consórcio é modalidade de compra programada e não gera rendimento. Quem apresenta consórcio como aplicação financeira está informando errado."
-    ],
-    [
-     "Vale mais a pena que financiar e alugar?",
-     "Depende do seu prazo e da sua liquidez. Sem juros, o custo total tende a ser menor; em compensação, não há data garantida para receber o imóvel."
-    ],
-    [
-     "Posso vender a cota depois?",
-     "A transferência de cota é prevista e formalizada pela administradora, com contrato e análise. Nunca por acerto direto entre particulares."
-    ]
-   ]
-  }
- ]
+  "_leia_me": "Filhas de silo de /consorcio-imoveis/. `respostaCurta` e o bloco ANSWER-FIRST: responde a keyword da pagina nas 2-3 primeiras frases, antes de qualquer contexto. Maximo ~55 palavras. E o trecho que motores generativos extraem e citam - nao e introducao, e resposta. Aprovar os 8 blocos ANTES de escrever o corpo das paginas (docs/prompts-execucao.md, bloco 5).",
+  "_status": "Answer-first aprovados em 25/07/2026. Corpo, FAQ e compliance escritos.",
+  "pai": "/consorcio-imoveis/",
+  "simulador": "/simulador/imoveis/",
+  "filhas": [
+    {
+      "slug": "casa",
+      "keyword": "consórcio para comprar casa",
+      "h1": "Consórcio para comprar casa",
+      "respostaCurta": "O consórcio para comprar casa é uma compra planejada sem juros: você paga parcelas mensais e, ao ser contemplado por sorteio ou lance, recebe a carta de crédito para comprar à vista. O FGTS pode ser usado como lance. Serve para casa nova, usada ou em condomínio.",
+      "eyebrow": "Casa própria",
+      "lead": "Comprar casa com financiamento significa pagar juros por duas ou três décadas. O consórcio troca isso por uma parcela previsível — e, na contemplação, por um pagamento à vista, que muda a sua posição na negociação.",
+      "secao": "Como funciona na prática",
+      "itens": [
+        [
+          "Você escolhe a carta e o prazo",
+          "O valor da carta define o teto do imóvel que você pode comprar. Prazo maior significa parcela menor, e vice-versa."
+        ],
+        [
+          "Paga e concorre desde a primeira assembleia",
+          "Não há entrada destinada ao imóvel, mas a primeira parcela é maior que as demais, porque antecipa parte da taxa de administração. Você já participa dos sorteios desde o primeiro mês."
+        ],
+        [
+          "Na contemplação, compra à vista",
+          "Casa nova, usada ou em condomínio, respeitadas as regras de avaliação e documentação."
+        ]
+      ],
+      "faq": [
+        [
+          "Serve para casa usada?",
+          "Sim. A carta de crédito de imóvel costuma cobrir imóvel novo e usado, respeitadas as regras de avaliação e a documentação exigida."
+        ],
+        [
+          "Posso comprar em outra cidade?",
+          "Sim. A carta é de abrangência nacional, dentro das regras de avaliação do imóvel."
+        ],
+        [
+          "E se a casa custar menos que a carta?",
+          "O saldo costuma poder ser usado conforme as regras do contrato — por exemplo, para abater parcelas. As condições estão no contrato do seu grupo."
+        ]
+      ]
+    },
+    {
+      "slug": "apartamento",
+      "keyword": "consórcio de apartamento",
+      "h1": "Consórcio de apartamento",
+      "respostaCurta": "O consórcio de apartamento permite comprar unidade nova, usada ou na planta sem juros. Você paga parcelas e recebe a carta de crédito na contemplação, que ocorre por sorteio ou lance. Com a carta, negocia com a construtora como comprador à vista.",
+      "eyebrow": "Apartamento",
+      "lead": "Apartamento na planta costuma vir com correção e juros embutidos no contrato da construtora. Com a carta de crédito em mãos, você deixa de ser comprador financiado e passa a ser comprador à vista.",
+      "secao": "O que muda ao comprar com carta",
+      "itens": [
+        [
+          "Poder de negociação",
+          "Construtora e proprietário costumam abrir desconto para pagamento imediato."
+        ],
+        [
+          "Novo, usado ou na planta",
+          "A carta atende as três situações, conforme as regras de avaliação e documentação."
+        ],
+        [
+          "Sem análise de crédito na entrada",
+          "A avaliação acontece na contemplação, não na adesão ao grupo."
+        ]
+      ],
+      "faq": [
+        [
+          "Serve para imóvel na planta?",
+          "Sim, conforme as regras da modalidade contratada e a documentação da construtora."
+        ],
+        [
+          "Posso usar o FGTS?",
+          "Sim, dentro das regras aplicáveis. O uso mais comum é como lance, para antecipar a contemplação."
+        ],
+        [
+          "E se eu quiser trocar de imóvel depois de contemplado?",
+          "A carta é usada uma vez, no imóvel aprovado pela administradora. A escolha acontece após a contemplação, então você tem tempo para decidir."
+        ]
+      ]
+    },
+    {
+      "slug": "terreno",
+      "keyword": "consórcio de terreno",
+      "h1": "Consórcio de terreno",
+      "respostaCurta": "O consórcio de terreno financia a compra de lote urbano ou rural sem juros. Na contemplação, você paga o terreno à vista — o que costuma render desconto com loteador ou proprietário. Há cartas que cobrem terreno e construção na mesma modalidade.",
+      "eyebrow": "Terreno e lote",
+      "lead": "Loteadora costuma parcelar com juros e correção. Comprar o terreno à vista, com a carta de crédito, é o que abre desconto real — e é a forma mais comum de começar um projeto de construção sem dívida cara.",
+      "secao": "Terreno hoje, obra depois",
+      "itens": [
+        [
+          "Lote urbano ou rural",
+          "A carta cobre a compra do terreno, respeitadas as regras de documentação e avaliação."
+        ],
+        [
+          "Terreno e construção na mesma carta",
+          "Há modalidades que cobrem os dois. Definir isso na adesão evita ter que contratar duas vezes."
+        ],
+        [
+          "Negociação à vista",
+          "Loteadora e proprietário particular costumam abrir margem para quem paga imediato."
+        ]
+      ],
+      "faq": [
+        [
+          "Dá para comprar terreno e construir com a mesma carta?",
+          "Depende da modalidade contratada. Existem cartas que cobrem terreno e construção — defina isso na adesão."
+        ],
+        [
+          "Serve para terreno em loteamento não registrado?",
+          "Não. A administradora exige documentação regular do imóvel para liberar o crédito."
+        ],
+        [
+          "Posso comprar de pessoa física?",
+          "Sim, desde que a documentação do imóvel e do vendedor atenda às exigências da administradora."
+        ]
+      ]
+    },
+    {
+      "slug": "construcao",
+      "keyword": "consórcio para construir",
+      "h1": "Consórcio para construir",
+      "respostaCurta": "O consórcio para construir usa a carta de crédito na obra do seu terreno, sem juros. A liberação costuma ser feita por etapa, mediante vistoria, e não de uma vez. A modalidade é escolhida na adesão, então defina o objetivo desde o começo.",
+      "eyebrow": "Construção",
+      "lead": "Construir com recurso próprio costuma travar no meio da obra. Com a carta de crédito, o recurso existe do começo ao fim — mas é liberado conforme o andamento, não de uma vez.",
+      "secao": "Como a liberação funciona",
+      "itens": [
+        [
+          "Liberação por etapa",
+          "O crédito é liberado conforme o avanço da obra, mediante vistoria. É proteção sua e do grupo."
+        ],
+        [
+          "Terreno próprio",
+          "A construção pressupõe terreno regularizado em seu nome, com documentação aceita pela administradora."
+        ],
+        [
+          "Projeto e orçamento",
+          "A administradora avalia projeto e cronograma antes de liberar. Vale ter isso pronto antes da contemplação."
+        ]
+      ],
+      "faq": [
+        [
+          "O dinheiro cai todo de uma vez?",
+          "Não. Na modalidade construção, a liberação acompanha o andamento da obra e passa por vistoria a cada etapa."
+        ],
+        [
+          "Preciso ter o terreno antes?",
+          "Sim, para a modalidade construção. Se ainda não tem, existem cartas que cobrem terreno e obra."
+        ],
+        [
+          "Posso usar para ampliar o que já existe?",
+          "Ampliação costuma se enquadrar em reforma, não em construção. A modalidade correta é definida na adesão."
+        ]
+      ]
+    },
+    {
+      "slug": "reforma",
+      "keyword": "consórcio para reforma",
+      "h1": "Consórcio para reforma de imóvel",
+      "respostaCurta": "O consórcio para reforma cobre obra, ampliação e materiais sem os juros do crédito pessoal ou do cartão. Você paga parcelas e, na contemplação, contrata e compra à vista. É a alternativa planejada para quem não tem pressa de começar a obra.",
+      "eyebrow": "Reforma",
+      "lead": "Reforma quase sempre acaba no cartão parcelado ou no crédito pessoal — as duas linhas mais caras do mercado. O consórcio é a alternativa para quem consegue planejar a obra com alguns meses de antecedência.",
+      "secao": "O que a carta cobre",
+      "itens": [
+        ["Obra e ampliação", "Serviço e material, conforme as regras da modalidade contratada."],
+        [
+          "Pagamento à vista ao fornecedor",
+          "O que costuma render desconto em material e mão de obra."
+        ],
+        ["Sem juros", "Você paga taxa de administração, não juros de crédito pessoal ou de cartão."]
+      ],
+      "faq": [
+        [
+          "Preciso comprovar como vou usar o crédito?",
+          "Sim. A liberação acontece mediante comprovação da contratação ou da compra, conforme as regras da administradora."
+        ],
+        [
+          "Serve para reforma de imóvel alugado?",
+          "A carta é destinada a imóvel do titular. Reforma em imóvel de terceiro não costuma ser aceita."
+        ],
+        [
+          "Dá para usar parte em material e parte em mão de obra?",
+          "Em geral sim, dentro das regras da modalidade. Confirme com o consultor antes da adesão."
+        ]
+      ]
+    },
+    {
+      "slug": "fgts",
+      "keyword": "usar fgts no consórcio",
+      "h1": "Como usar o FGTS no consórcio de imóvel",
+      "respostaCurta": "O FGTS pode ser usado no consórcio de imóvel em três situações: como lance para antecipar a contemplação, para amortizar parcelas ou para complementar a carta de crédito. Cada uso tem regras próprias e exige que o imóvel e o titular atendam às condições do FGTS.",
+      "eyebrow": "FGTS",
+      "lead": "O FGTS é a ferramenta mais subaproveitada do consórcio imobiliário. Bem usado, ele encurta a espera — mas cada uso tem regra própria, e nenhum deles garante contemplação.",
+      "secao": "As três formas de usar",
+      "itens": [
+        [
+          "Como lance",
+          "O saldo é ofertado como lance para antecipar a contemplação. É o uso mais comum, e não garante que você seja contemplado."
+        ],
+        [
+          "Para amortizar",
+          "Reduz o saldo devedor ou abate parcelas, conforme as regras aplicáveis."
+        ],
+        [
+          "Para complementar a carta",
+          "Soma ao crédito na hora da compra, quando o imóvel custa mais que a carta contratada."
+        ]
+      ],
+      "faq": [
+        [
+          "Usar o FGTS garante que eu seja contemplado?",
+          "Não. O lance com FGTS aumenta a competitividade da sua oferta na assembleia, mas a contemplação continua dependendo do resultado do lance ou do sorteio."
+        ],
+        [
+          "Qualquer imóvel aceita FGTS?",
+          "Não. O imóvel precisa atender às condições do FGTS — entre elas, ser residencial, urbano e destinado à moradia do titular."
+        ],
+        [
+          "Preciso ter tempo de trabalho mínimo?",
+          "As condições de saque do FGTS seguem as regras do fundo, não do consórcio. Vale conferir seu enquadramento antes de contar com esse recurso."
+        ]
+      ]
+    },
+    {
+      "slug": "imovel-rural",
+      "keyword": "consórcio de imóvel rural",
+      "h1": "Consórcio de imóvel rural",
+      "respostaCurta": "O consórcio de imóvel rural permite comprar terra, sítio, chácara ou fazenda sem juros e sem depender de crédito rural. Você paga parcelas e compra à vista na contemplação. O prazo longo costuma se ajustar melhor ao ciclo de retorno da atividade no campo.",
+      "eyebrow": "Imóvel rural",
+      "lead": "Crédito rural para compra de terra é escasso e burocrático. O consórcio funciona como planejamento de longo prazo, com prazo que costuma acompanhar melhor o ciclo de retorno da atividade.",
+      "secao": "Como funciona no campo",
+      "itens": [
+        [
+          "Terra, sítio ou fazenda",
+          "A carta cobre a compra, respeitadas a documentação e a avaliação do imóvel."
+        ],
+        [
+          "Sem depender de linha de crédito",
+          "Você não fica preso a calendário de liberação nem a enquadramento."
+        ],
+        ["Prazo longo", "Casa melhor com atividade cujo retorno acontece por safra, não por mês."]
+      ],
+      "faq": [
+        [
+          "Serve para qualquer imóvel rural?",
+          "O imóvel precisa ter documentação regular e ser aceito na avaliação da administradora. Área sem registro não é aceita."
+        ],
+        [
+          "Produtor pessoa física pode aderir?",
+          "Sim, pessoa física e jurídica, conforme as regras do grupo."
+        ],
+        [
+          "Dá para usar a carta em benfeitorias?",
+          "A modalidade imóvel destina-se à aquisição. Benfeitoria e obra costumam exigir modalidade específica — confirme na adesão."
+        ]
+      ]
+    },
+    {
+      "slug": "investimento",
+      "keyword": "consórcio como investimento imobiliário",
+      "h1": "Consórcio como investimento imobiliário",
+      "respostaCurta": "Consórcio não é investimento: é compra programada e não gera rendimento. O que investidores fazem é usar a carta de crédito, sem juros, para adquirir imóvel destinado a renda de aluguel ou revenda. O retorno vem do imóvel, nunca do consórcio em si.",
+      "eyebrow": "Formação de patrimônio",
+      "lead": "Vale repetir, porque é o erro mais comum nessa busca: o consórcio não rende. Ele é uma forma de adquirir o imóvel sem juros. Quem investe está apostando no imóvel, não no consórcio.",
+      "secao": "Como investidores usam",
+      "itens": [
+        [
+          "Segundo imóvel para aluguel",
+          "A carta compra o imóvel; a renda vem do aluguel, não do consórcio."
+        ],
+        [
+          "Formação de patrimônio no longo prazo",
+          "Parcela previsível e sem juros, em vez de crédito imobiliário caro."
+        ],
+        [
+          "Mais de uma cota",
+          "É possível manter cotas em paralelo para escalonar aquisições. O risco também escala."
+        ]
+      ],
+      "faq": [
+        [
+          "Consórcio rende alguma coisa?",
+          "Não. Consórcio é modalidade de compra programada e não gera rendimento. Quem apresenta consórcio como aplicação financeira está informando errado."
+        ],
+        [
+          "Vale mais a pena que financiar e alugar?",
+          "Depende do seu prazo e da sua liquidez. Sem juros, o custo total tende a ser menor; em compensação, não há data garantida para receber o imóvel."
+        ],
+        [
+          "Posso vender a cota depois?",
+          "A transferência de cota é prevista e formalizada pela administradora, com contrato e análise. Nunca por acerto direto entre particulares."
+        ]
+      ]
+    }
+  ]
 }

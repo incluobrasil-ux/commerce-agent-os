@@ -6,6 +6,62 @@
 > entre este documento e o validador, o validador vence** — inclusive contra o
 > manual de prompts.
 
+## Custo de adesão — a primeira parcela é maior
+
+**Esta é a correção de produto de 26/07/2026. Toda afirmação de "sem entrada"
+sem esta ressalva está factualmente desalinhada.**
+
+### O que é verdade
+
+Não há entrada destinada ao bem: **100% do crédito continua disponível para a
+compra**. Isso segue sendo diferencial real contra o financiamento, onde a
+entrada sai do seu bolso e abate o preço do bem antes de você tê-lo.
+
+O que existe é **antecipação de parte da taxa de administração na adesão**, o
+que torna **a primeira parcela maior que as demais**.
+
+### Magnitude, por modalidade
+
+Da fonte `content/simuladores.json`, campo `kFirst`, sobre o valor da carta:
+
+| Modalidade | 1ª parcela | Em carta de R$ 100 mil | Demais | Proporção |
+|---|---|---|---|---|
+| Imóveis | 19,21% | R$ 19.210 | R$ 676 × 200 | 28,4× |
+| Caminhão e agro | 19,31% | R$ 19.313 | R$ 908 × 150 | 21,3× |
+| Veículos | 14,12% | R$ 14.115 | R$ 1.261 × 80 | 11,2× |
+| Serviços | 13,89% | R$ 13.887 | R$ 2.113 × 60 | 6,6× |
+| Moto | — | **sem parâmetro na tabela** | — | — |
+
+**Nenhum destes percentuais vai para o site.** Eles orientam a redação e
+sustentam a ressalva; quem mostra número ao visitante é o simulador, que já
+exibe "1ª parcela" e "Demais parcelas" separadamente.
+
+### Log de decisão de produto
+
+| | |
+|---|---|
+| **O que** | A primeira parcela maior é antecipação da taxa de administração — padrão da Alpha, comparável ao praticado no mercado |
+| **Fonte da tabela** | `content/simuladores.json`, fornecida pela Alpha |
+| **Quem confirmou** | Samuel, sócio da operação, diretamente com o proprietário da Alpha |
+| **Quando** | semana de 20/07/2026 |
+| **O que autoriza** | uso desta descrição na comunicação pública |
+| **Reforço pendente** | confirmação por escrito da Alpha, por e-mail — **não bloqueante** |
+
+### A regra
+
+**Nunca escrever "sem entrada" sozinho.** Sempre acompanhado da primeira
+parcela maior, **no mesmo bloco de texto** — não em nota de rodapé, não em outra
+seção, não em outra página.
+
+Proibidas quando o bloco não revela a antecipação: `sem entrada`, `sem entrada
+obrigatória`, `começa pela parcela`, `só a parcela`, `sem desembolso inicial`,
+`sem precisar de entrada`, `não há entrada`.
+
+Codificado em `SEM_ENTRADA` no `check_seo.py`, com exit 1.
+
+**A FAQ "Preciso dar entrada?" é o lugar da explicação por extenso**, em toda
+página que a tiver. A resposta honesta é o diferencial — não o obstáculo.
+
 ## O bloco obrigatório
 
 Construção aprovada do projeto, usada em toda página que precise atribuir a

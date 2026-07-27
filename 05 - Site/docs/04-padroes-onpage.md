@@ -4,6 +4,55 @@
 > auditoria de 26/07/2026 mediu no site real
 > (`docs/auditoria-onpage-2026-07-26.md`).
 
+## Formulação de referência — custo de adesão
+
+**Texto aprovado em 26/07/2026. Nenhum conteúdo novo menciona custo de adesão
+fora desta formulação.**
+
+### Completa — answer-first, FAQ, corpo
+
+> Não há entrada destinada ao bem: 100% do crédito continua disponível para a
+> compra. Na adesão, antecipa-se parte da taxa de administração, o que torna a
+> primeira parcela maior que as demais — o valor exato depende da modalidade e
+> do plano, e o simulador mostra a primeira parcela e as seguintes
+> separadamente.
+
+### Curta — meta description, card, linha de tabela
+
+> Sem entrada para o bem — a primeira parcela é maior.
+
+### A distinção que precisa sobreviver
+
+**"Entrada destinada ao bem" de fato não existe**, e isso pode e deve continuar
+sendo dito: é diferencial real contra o financiamento, onde a entrada abate o
+preço do bem e sai antes de você tê-lo.
+
+**O que não pode é omitir a primeira parcela maior.** As duas coisas cabem na
+mesma frase, e é assim que devem aparecer.
+
+Ver `01-compliance.md` para a magnitude por modalidade e o log de decisão.
+
+### Defeito estrutural corrigido junto — colisão de nome de arquivo
+
+`gerar_filhas.py` escrevia `build/filha-<slug>.html`. Duas filhas com o mesmo
+slug em silos diferentes — **`frota` em `/consorcio-caminhao/` e em
+`/consorcio-empresa/`** — geravam o mesmo arquivo, e a segunda sobrescrevia a
+primeira.
+
+No ar, `/consorcio-caminhao/frota/` servia o texto de empresa: duas URLs com
+conteúdo idêntico, e a página de caminhão sem o próprio conteúdo — o que fala
+de transportadora, frete e cavalo mecânico.
+
+O `check_seo` não pegava porque compara keywords do keyword-map, e as duas são
+diferentes. O defeito estava no nome do arquivo de saída.
+
+**Corrigido:** o nome passa a ser `filha-<silo>-<slug>.html`, e o gerador aborta
+se dois conteúdos tentarem escrever o mesmo arquivo.
+
+**A publicação também mudou:** o ID da página é resolvido por **pai + slug**,
+nunca por slug sozinho. `wp post list --name=frota` devolve as duas — foi assim
+que uma página ficou meses servindo o conteúdo da outra.
+
 ## Limites duros
 
 **Extensão é meta indicativa, não gate.** Decisão do cliente em 26/07/2026: as

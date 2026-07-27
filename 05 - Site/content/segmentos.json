@@ -6,13 +6,13 @@
       "nome": "Veículos",
       "eyebrow": "Veículos",
       "h1": "Consórcio de veículos: comprar à vista, pagando aos poucos",
-      "respostaCurta": "O consórcio de veículos permite comprar carro novo ou usado sem juros e sem entrada obrigatória. Você paga parcelas, é contemplado por sorteio ou lance e fecha à vista, como quem chega com dinheiro na mão. Serve a quem pode esperar — não a quem precisa do carro esta semana.",
+      "respostaCurta": "O consórcio de veículos permite comprar carro novo ou usado sem juros e sem entrada destinada ao bem — na adesão antecipa-se parte da taxa de administração, e a primeira parcela é maior que as demais. Você paga parcelas, é contemplado por sorteio ou lance e fecha à vista, como quem chega com dinheiro na mão. Serve a quem pode esperar — não a quem precisa do carro esta semana.",
       "lead": "Financiamento cobra juros do primeiro ao último mês. No consórcio não há juros — você paga parcelas, é contemplado por sorteio ou lance, e chega na concessionária como comprador à vista.",
       "porque_titulo": "Por que consórcio para veículo",
       "porque": [
         [
-          "Sem juros, sem entrada obrigatória",
-          "Você paga a carta de crédito e a taxa de administração. Não há juros compostos corroendo cada parcela."
+          "Sem juros e sem entrada para o bem",
+          "Você paga a carta de crédito e a taxa de administração, sem juros compostos corroendo cada parcela. Nenhum valor seu abate o preço do carro. A primeira parcela é maior que as demais, porque antecipa parte da taxa de administração."
         ],
         [
           "Poder de compra à vista",
@@ -64,7 +64,7 @@
           "Sim. A carta de veículos costuma permitir a compra de usados dentro dos critérios de ano e estado definidos pela administradora. O consultor confirma as regras do grupo antes da adesão."
         ],
         [
-          "Preciso dar entrada?",
+          "Preciso dar entrada para comprar o carro?",
           "Não. O consórcio não exige entrada. Você começa a pagar as parcelas e já concorre à contemplação desde a primeira assembleia."
         ],
         [
@@ -114,7 +114,7 @@
         "itens": [
           [
             "Adesão",
-            "Você escolhe o valor da carta e o prazo, sem entrada. A carta é dimensionada pelo carro que você pretende comprar — inclusive o que ele deve custar daqui a alguns meses, e não hoje. Não há análise de crédito nesta etapa."
+            "Você escolhe o valor da carta e o prazo. Não há entrada destinada ao bem, mas a primeira parcela é maior que as demais, porque antecipa parte da taxa de administração. A carta é dimensionada pelo carro que você pretende comprar — inclusive o que ele deve custar daqui a alguns meses, e não hoje. Não há análise de crédito nesta etapa."
           ],
           [
             "Parcelas",
@@ -136,7 +136,7 @@
       "nome": "Moto",
       "eyebrow": "Moto",
       "h1": "Consórcio de moto: da primeira ao trabalho",
-      "respostaCurta": "O consórcio de moto permite comprar moto nova ou usada sem juros e sem entrada, com parcela geralmente menor que a de um financiamento. Você é contemplado por sorteio ou lance e compra à vista. Serve a quem pode esperar — não a quem depende da moto para trabalhar agora.",
+      "respostaCurta": "O consórcio de moto permite comprar moto nova ou usada sem juros e sem entrada destinada ao bem — na adesão antecipa-se parte da taxa de administração, e a primeira parcela é maior que as demais. Você é contemplado por sorteio ou lance e compra à vista. Serve a quem pode esperar — não a quem depende da moto para trabalhar agora.",
       "lead": "Moto nova ou usada, para o trabalho ou para o fim de semana, e muitas vezes a primeira da vida. O financiamento cobra juros e quase sempre pede entrada. O consórcio não faz nem uma coisa nem outra — você planeja e compra à vista.",
       "porque_titulo": "Por que consórcio de moto",
       "porque": [
@@ -144,7 +144,10 @@
           "Parcela menor que a do financiamento",
           "Sem juros, o valor mensal costuma ficar abaixo do que o banco cobra pelo mesmo crédito."
         ],
-        ["Sem entrada", "O financiamento de moto quase sempre pede entrada. O consórcio não pede."],
+        [
+          "Sem entrada",
+          "O financiamento de moto quase sempre pede entrada, que abate o preço da moto. No consórcio isso não existe: 100% do crédito fica para a compra. A primeira parcela é maior que as demais, porque antecipa parte da taxa de administração."
+        ],
         [
           "Você escolhe na contemplação",
           "Marca, cilindrada, nova ou usada — a carta não é vinculada a concessionária."
@@ -230,7 +233,7 @@
         "itens": [
           [
             "Adesão",
-            "Você escolhe o valor da carta e o prazo, sem entrada e sem análise de crédito."
+            "Você escolhe o valor da carta e o prazo, sem análise de crédito. Não há entrada destinada ao bem, mas a primeira parcela é maior, porque antecipa parte da taxa de administração."
           ],
           [
             "Parcelas",
@@ -330,8 +333,8 @@
           "Você complementa a diferença no momento da compra. Vale dimensionar a carta considerando isso já na adesão — e lembrar de ITBI, registro e escritura, que não entram na carta e chegam todos juntos."
         ],
         [
-          "Preciso dar entrada?",
-          "Não. Você começa pela parcela e concorre desde a primeira assembleia. É a diferença mais concreta em relação ao financiamento, que quase sempre exige um percentual à vista."
+          "Preciso dar entrada para comprar o imóvel?",
+          "Não no sentido do financiamento: nenhum valor seu abate o preço do bem, e 100% do crédito continua disponível para a compra. Mas o primeiro desembolso é maior — na adesão antecipa-se parte da taxa de administração, o que torna a primeira parcela maior que as demais. O simulador mostra as duas separadamente."
         ]
       ],
       "tabela": {
@@ -372,7 +375,7 @@
         "itens": [
           [
             "Adesão",
-            "Você escolhe o valor da carta e o prazo, sem entrada. A carta é dimensionada pelo imóvel que você pretende comprar, e não pelo que cabe hoje na parcela — crédito curto demais vira complementação do próprio bolso na hora da compra. Não há análise de crédito nesta etapa."
+            "Você escolhe o valor da carta e o prazo. Não há entrada destinada ao bem, mas a primeira parcela é maior que as demais, porque antecipa parte da taxa de administração. A carta é dimensionada pelo imóvel que você pretende comprar, e não pelo que cabe hoje na parcela — crédito curto demais vira complementação do próprio bolso na hora da compra. Não há análise de crédito nesta etapa."
           ],
           [
             "Parcelas",
@@ -394,7 +397,7 @@
       "nome": "Caminhão",
       "eyebrow": "Caminhão e transporte",
       "h1": "Consórcio de caminhão: renovar a frota sem comprometer o caixa",
-      "respostaCurta": "O consórcio de caminhão permite comprar ou renovar caminhão, carreta e implementos sem juros e sem entrada. Você paga parcelas, é contemplado por sorteio ou lance e compra à vista. Serve a quem planeja a renovação — não a quem precisa repor um veículo parado agora.",
+      "respostaCurta": "O consórcio de caminhão permite comprar ou renovar caminhão, carreta e implementos sem juros e sem entrada destinada ao bem — a primeira parcela é maior, porque antecipa parte da taxa de administração. Você paga parcelas, é contemplado por sorteio ou lance e compra à vista. Serve a quem planeja a renovação — não a quem precisa repor um veículo parado agora.",
       "lead": "Para quem vive de transporte, o caminhão é ferramenta de trabalho — e juros de financiamento saem direto da margem do frete. O consórcio troca isso por uma parcela previsível, sem juros.",
       "porque_titulo": "Por que consórcio para transporte",
       "porque": [
@@ -498,7 +501,7 @@
         "itens": [
           [
             "Adesão",
-            "Você escolhe o valor da carta e o prazo, sem entrada e sem análise de crédito. A carta é dimensionada pelo veículo pretendido, considerando o que ele deve custar na contemplação."
+            "Você escolhe o valor da carta e o prazo, sem análise de crédito. Não há entrada destinada ao bem, mas a primeira parcela é maior, porque antecipa parte da taxa de administração. A carta é dimensionada pelo veículo pretendido, considerando o que ele deve custar na contemplação."
           ],
           [
             "Parcelas",
@@ -617,7 +620,7 @@
         "itens": [
           [
             "Adesão",
-            "Você escolhe a carta pelo valor da máquina pretendida, sem entrada e sem análise de crédito. Pessoa física e jurídica podem aderir."
+            "Você escolhe a carta pelo valor da máquina pretendida, sem análise de crédito. Não há entrada destinada ao bem, mas a primeira parcela é maior, porque antecipa parte da taxa de administração. Pessoa física e jurídica podem aderir."
           ],
           [
             "Parcelas",
@@ -742,7 +745,7 @@
         "itens": [
           [
             "Adesão",
-            "Você escolhe o valor da carta pelo orçamento do serviço pretendido, sem entrada e sem análise de crédito."
+            "Você escolhe o valor da carta pelo orçamento do serviço pretendido, sem análise de crédito. Não há entrada destinada ao bem, mas a primeira parcela é maior, porque antecipa parte da taxa de administração."
           ],
           [
             "Parcelas",
@@ -864,7 +867,7 @@
         "itens": [
           [
             "Adesão",
-            "A empresa escolhe o valor da carta e o prazo, sem entrada. Não há análise de crédito nesta etapa, e a linha bancária da empresa segue intacta."
+            "A empresa escolhe o valor da carta e o prazo. Não há entrada destinada ao bem, mas a primeira parcela é maior que as demais, porque antecipa parte da taxa de administração. Não há análise de crédito nesta etapa, e a linha bancária da empresa segue intacta."
           ],
           [
             "Parcelas",
@@ -971,7 +974,7 @@
         "itens": [
           [
             "Adesão",
-            "Você escolhe o valor da carta pela embarcação pretendida, sem entrada e sem análise de crédito."
+            "Você escolhe o valor da carta pela embarcação pretendida, sem análise de crédito. Não há entrada destinada ao bem, mas a primeira parcela é maior, porque antecipa parte da taxa de administração."
           ],
           [
             "Parcelas",

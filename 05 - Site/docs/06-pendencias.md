@@ -22,6 +22,25 @@ Modo de falha: o lead simula um valor, o vendedor apresenta outro.
 3. com data de validade
 4. conferida contra a fórmula (1ª parcela = valor × kFirst; demais = valor × tot ÷ prazo)
 
+### Subitens, após a correção de produto de 26/07/2026
+
+**(a) Composição da primeira parcela — RESOLVIDA.** A primeira parcela maior é
+antecipação da taxa de administração, padrão da Alpha. Confirmado por Samuel,
+sócio da operação, diretamente com o proprietário da Alpha, na semana de
+20/07/2026, com autorização de uso na comunicação. Log completo em
+`01-compliance.md`.
+*Pendente como reforço documental, não bloqueante:* confirmação por e-mail da
+Alpha.
+
+**(b) Validade e versão da tabela — ABERTA.** `content/simuladores.json` não
+registra data da tabela nem prazo de revalidação. Tabela de consórcio muda, e
+hoje não há como saber se a que está no arquivo ainda vale. **Registrar a data
+da tabela vigente e definir prazo de revalidação.**
+
+**(c) Parâmetros de moto — ABERTA.** `kFirst`, `tot` e as faixas estão todos
+`null` para moto. **Enquanto isso, nenhuma promessa de condição específica em
+página de moto** — nem primeira parcela, nem faixa de crédito, nem prazo.
+
 ## P2 — Alinhamento sobre `/administrado-pela-alpha/`
 
 **Bloqueia:** a nova versão da página âncora de confiança.

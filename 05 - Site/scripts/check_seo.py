@@ -109,8 +109,11 @@ def validar_mapa(doc):
     for r in rotas:
         blob = ('%s %s' % (r.get('title', ''), r.get('description', ''))).lower()
         for p in proibidas:
-            if p in blob:
-                erros.append('COMPLIANCE - expressao proibida "%s" em %s' % (p, r['url']))
+            if p not in blob:
+                continue
+            if permitido_em_rota(p, r['url']):
+                continue
+            erros.append('COMPLIANCE - expressao proibida "%s" em %s' % (p, r['url']))
 
 
 # Termo -> prefixos de rota onde ele PODE aparecer. Fora disso e erro.
@@ -145,6 +148,55 @@ PARCELA_FIXA = {
     'sem sobressalto': (),
     'sem reajuste': ('/guia/reajuste-da-parcela/',),
 }
+
+
+# Expressoes que deixaram de ser proibicao absoluta e viraram regra de ESCOPO.
+# Mesmo mecanismo da PARCELA_FIXA: valor = onde o termo PODE aparecer.
+#
+# "white-label" (decisao do cliente em 26/07/2026): descreve a operacao para
+# quem ja opera no mercado - candidato a representante, parceiro, leitor da
+# pagina institucional. Para o CONSUMIDOR o termo nao informa nada e embaralha
+# o unico ponto que precisa ficar claro: quem administra o grupo e a Alpha, nao
+# a MOVECON. Em pagina de audiencia consumidor a construcao segue sendo
+# "plataforma que comercializa grupos administrados pela Alpha".
+#
+# RESSALVA REGISTRADA: o motivo original da proibicao no 01-compliance.md nao
+# era audiencia, era "descreve relacao contratual que nao foi documentada".
+# Mudar o escopo nao resolve esse ponto - em /quem-somos/ a afirmacao continua
+# sendo sobre um contrato. Ver 01-compliance.md, secao da decisao datada.
+ESCOPO_TERMO = {
+    'white-label': {
+        'rotas': ('/seja-um-representante/', '/quem-somos/', '/autor/'),
+        # validar_prosa varre arquivo, nao rota: os prefixos abaixo sao os
+        # nomes de arquivo que correspondem as rotas acima.
+        # 'caixa-autor-' NAO entra: a caixa e renderizada no rodape de TODO
+        # artigo, ou seja, em pagina de audiencia consumidor. Ela carrega a
+        # bioCurta, que pela mesma decisao nao usa o termo. Manter o prefixo
+        # aqui seria abrir na varredura de arquivo a porta que validar_autoria
+        # fecha no campo.
+        'arquivos': ('pagina-quem-somos', 'pagina-seja-um-representante',
+                     'autor-'),
+        'campos_autor': ('bioLonga',),
+    },
+}
+
+
+def com_escopo(termo):
+    """Regra de escopo do termo, ou None se ele for proibicao absoluta."""
+    return ESCOPO_TERMO.get(termo.lower().strip())
+
+
+def permitido_em_rota(termo, rota):
+    reg = com_escopo(termo)
+    return bool(reg) and any(rota.startswith(p) for p in reg['rotas'])
+
+
+def permitido_em_arquivo(termo, caminho_rel):
+    reg = com_escopo(termo)
+    if not reg:
+        return False
+    nome = os.path.basename(caminho_rel).lower()
+    return any(nome.startswith(p.lower()) for p in reg['arquivos'])
 
 
 TERMOS_MODALIDADE = {
@@ -369,10 +421,18 @@ def validar_autoria(doc):
                 continue
             n = norm(txt)
             for p in proibidas + extras:
-                if norm(p) in n:
-                    achados.append(
-                        'AUTORIA - expressao proibida "%s" em %s / %s'
-                        % (p, a.get('slug', '?'), campo))
+                if norm(p) not in n:
+                    continue
+                # Termo com escopo: na ficha de autoria ele so vale nos campos
+                # declarados. "white-label" entra na bio longa, onde ha espaco
+                # para a frase inteira; nao entra na bio curta, que aparece ao
+                # fim de cada artigo - ou seja, em pagina de consumidor.
+                reg = com_escopo(p)
+                if reg and campo in reg.get('campos_autor', ()):
+                    continue
+                achados.append(
+                    'AUTORIA - expressao proibida "%s" em %s / %s'
+                    % (p, a.get('slug', '?'), campo))
     return achados
 
 
@@ -406,8 +466,11 @@ def validar_prosa(doc):
             texto = fh.read().lower()
         rel = os.path.relpath(caminho, RAIZ).replace('\\', '/')
         for p in padroes:
-            if p and p in texto:
-                erros.append('COMPLIANCE NA PROSA - "%s" em %s' % (p, rel))
+            if not p or p not in texto:
+                continue
+            if permitido_em_arquivo(p, rel):
+                continue
+            erros.append('COMPLIANCE NA PROSA - "%s" em %s' % (p, rel))
 
     # REGRA PERMANENTE: nenhuma pagina publica com placeholder renderizado.
     #

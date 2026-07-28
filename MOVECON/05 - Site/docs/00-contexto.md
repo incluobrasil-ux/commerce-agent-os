@@ -1,5 +1,43 @@
 # 00 — Contexto
 
+## Cortado por falta de qualificação — georreferenciamento (imóvel rural)
+
+**Decisão do cliente em 27/07/2026.** O bloco sobre georreferenciamento foi
+**cortado** de `/consorcio-imoveis/imovel-rural/` antes de ser escrito.
+
+**Por quê.** A exigência existe em lei, mas é **escalonada por área do imóvel**,
+segundo calendário do INCRA. Afirmá-la sem essa qualificação estaria **errada
+para parte dos casos** — e uma página sobre dinheiro não pode acertar só na
+média.
+
+**O que ficou no lugar:** a base já registrada — matrícula e documentação apta à
+transferência, com as exigências específicas do rural verificadas na análise da
+administradora.
+
+**Para reavaliar no futuro** é preciso uma fonte que sustente o escalonamento:
+o calendário do INCRA por faixa de área, com data de vigência. Sem isso, o
+assunto continua fora.
+
+Este registro existe para que a próxima página que tocar em imóvel rural não
+reintroduza o tema achando que foi esquecimento.
+
+## Regra de produto — pagamento na modalidade serviços
+
+**Confirmado pelo cliente em 27/07/2026 como regra da MODALIDADE, não do nicho.**
+Vale para educação, casamento, viagem, energia solar e saúde/estética.
+
+> A administradora paga o **fornecedor diretamente, contra nota fiscal**. A carta
+> **não vira saldo em conta** e não quita dívida. O cliente escolhe o prestador,
+> dentro do que a modalidade contratada cobre.
+
+**Fonte:** o próprio hub `/consorcio-servicos/`, onde a regra está publicada e
+aprovada — card "O que a carta não faz" e FAQ "A carta vira dinheiro na minha
+conta?". Replicar nas filhas é aplicar regra existente, não criar claim.
+
+A segunda metade importa tanto quanto a primeira: *"não existe consórcio que
+vire saldo livre — e quem oferecer isso está fora das regras"* é frase
+protetiva contra golpe, e não deve ser separada da primeira ao replicar.
+
 ## Regra de produto — garantia e exigência de registro (imóveis)
 
 **Base confirmada pelo cliente em 27/07/2026.** Registrada aqui porque outras

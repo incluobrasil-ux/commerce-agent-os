@@ -1,13 +1,9 @@
 {
   "_leia_me": "Filhas de silo de /consorcio-servicos/. `respostaCurta` e o bloco ANSWER-FIRST: responde a keyword da pagina nas 2-3 primeiras frases, antes de qualquer contexto. Maximo ~55 palavras.",
-
   "_status": "AGUARDANDO APROVACAO DOS ANSWER-FIRST. Paginas geradas, nao publicadas.",
-
   "_nota_compliance": "Consorcio de servicos e a categoria com maior risco de promessa indevida: viagem com data, casamento marcado, procedimento agendado. Toda pagina deste silo diz explicitamente que o consorcio nao serve para o que tem prazo fechado.",
-
   "pai": "/consorcio-servicos/",
   "simulador": "/simulador/servicos/",
-
   "filhas": [
     {
       "slug": "energia-solar",
@@ -80,7 +76,74 @@
         [
           "A carta cobre a viagem toda?",
           "Cobre o que estiver dentro do valor contratado e das regras da modalidade. Despesas fora disso ficam por sua conta."
+        ],
+        [
+          "A carta paga passagem solta ou só pacote?",
+          "Depende da modalidade contratada. O pagamento é feito pela administradora diretamente ao fornecedor, mediante nota fiscal — confirme com o consultor o que a sua carta cobre antes da adesão."
         ]
+      ],
+      "secoes": [
+        {
+          "eyebrow": "Como o dinheiro anda",
+          "titulo": "A carta não vira dinheiro na sua conta",
+          "paragrafos": [
+            "A administradora paga o fornecedor diretamente, contra nota fiscal. A carta não vira saldo em conta e não quita dívida — quem oferecer isso está fora das regras. Você escolhe o prestador, dentro do que a modalidade contratada cobre.",
+            "Na viagem isso costuma significar comprar por agência ou operadora, que emite nota — e não montar o roteiro pagando cada item por conta própria."
+          ],
+          "itens": [
+            [
+              "Pagamento ao fornecedor",
+              "A administradora paga a agência ou operadora diretamente, mediante nota fiscal."
+            ],
+            [
+              "Escolha do prestador",
+              "Você escolhe com quem viajar, dentro do que a modalidade cobre."
+            ],
+            [
+              "Confirme o escopo",
+              "O que a carta cobre — passagem, hospedagem, pacote fechado — é definido pela modalidade contratada."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "A decisão",
+          "titulo": "Pacote à vista, parcelado ou milhas",
+          "paragrafos": [
+            "O concorrente real do consórcio de viagem não é o financiamento: é o cartão parcelado e o programa de milhas."
+          ],
+          "itens": [
+            [
+              "Pacote à vista com a carta",
+              "Sem juros, e com a posição de quem paga integral na negociação com a operadora."
+            ],
+            [
+              "Cartão parcelado",
+              "Resolve agora e cobra juros — das taxas mais altas do crédito pessoal quando o parcelamento é longo."
+            ],
+            [
+              "Milhas",
+              "Custo baixo quando você já as tem. Vale comparar antes de aderir a qualquer plano."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "A resposta honesta",
+          "titulo": "Quando a data manda",
+          "paragrafos": [
+            "Viagem quase sempre tem data — férias, lua de mel, um evento. É o que mais conflita com contemplação sem data."
+          ],
+          "itens": [
+            [
+              "A viagem tem data definida",
+              "Não conte com a contemplação para uma data de embarque."
+            ],
+            ["O valor é baixo", "Se dá para poupar em poucos meses, poupar chega antes."],
+            [
+              "Serve a quem planeja sem pressa",
+              "Aderir pensando em viajar quando a contemplação vier inverte a lógica a seu favor."
+            ]
+          ]
+        }
       ]
     },
     {
@@ -117,7 +180,77 @@
         [
           "E se sobrar valor da carta?",
           "O saldo segue as regras do contrato do seu grupo. Confirme as condições antes da adesão."
+        ],
+        [
+          "Posso escolher qualquer fornecedor?",
+          "Sim, dentro do que a modalidade cobre — desde que o fornecedor emita nota fiscal. A administradora paga diretamente a ele; a carta não vira saldo na sua conta."
         ]
+      ],
+      "secoes": [
+        {
+          "eyebrow": "Como o dinheiro anda",
+          "titulo": "A carta não vira dinheiro na sua conta",
+          "paragrafos": [
+            "A administradora paga o fornecedor diretamente, contra nota fiscal. A carta não vira saldo em conta e não quita dívida — quem oferecer isso está fora das regras. Você escolhe o prestador, dentro do que a modalidade contratada cobre.",
+            "Para o casamento isso muda o planejamento: cada fornecedor que você quiser pagar com a carta precisa emitir nota."
+          ],
+          "itens": [
+            [
+              "Pagamento ao fornecedor",
+              "A administradora paga buffet, espaço ou cerimonial diretamente, mediante nota fiscal."
+            ],
+            [
+              "Escolha do prestador",
+              "Você escolhe os fornecedores, dentro do que a modalidade cobre."
+            ],
+            [
+              "Fornecedor sem nota fica de fora",
+              "Não é burocracia: é como a modalidade funciona. Vale conferir antes de fechar contrato."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "A decisão",
+          "titulo": "Pagar à vista ou parcelar com cada fornecedor",
+          "paragrafos": [
+            "Fornecedor de casamento costuma dar desconto para pagamento integral. É essa diferença que o consórcio tenta capturar."
+          ],
+          "itens": [
+            [
+              "À vista com a carta",
+              "Contemplado, você negocia com cada fornecedor como quem paga integral."
+            ],
+            [
+              "Parcelado direto",
+              "Começa agora, sem desconto, e costuma exigir entrada com cada fornecedor."
+            ],
+            [
+              "O que decide",
+              "Quanto o desconto representa, contra a data que você já tem em mente."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "A resposta honesta",
+          "titulo": "Quando a data manda",
+          "paragrafos": [
+            "Casamento tem data marcada, e essa é a característica mais incompatível com um mecanismo sem data. Vale ser dito antes."
+          ],
+          "itens": [
+            [
+              "A data já está marcada",
+              "A contemplação sai por sorteio ou lance. Nenhum plano deve depender dela para uma data de cerimônia."
+            ],
+            [
+              "Faltam menos de dois anos",
+              "Quanto mais perto a data, mais o plano depende de lance — e lance não garante contemplação."
+            ],
+            [
+              "Serve melhor a quem ainda não marcou",
+              "Aderir antes de definir a data inverte a lógica a seu favor: a data se ajusta à contemplação, e não o contrário."
+            ]
+          ]
+        }
       ]
     },
     {
@@ -151,7 +284,77 @@
         [
           "Dá para usar em curso no exterior?",
           "A modalidade de intercâmbio costuma cobrir, respeitadas as regras de comprovação e câmbio. Confirme antes da adesão."
+        ],
+        [
+          "A carta paga a faculdade direto?",
+          "Sim. A administradora paga a instituição diretamente, mediante nota fiscal. A carta não vira saldo na sua conta — quem oferecer isso está fora das regras."
         ]
+      ],
+      "secoes": [
+        {
+          "eyebrow": "Como o dinheiro anda",
+          "titulo": "A carta não vira dinheiro na sua conta",
+          "paragrafos": [
+            "A administradora paga o fornecedor diretamente, contra nota fiscal. A carta não vira saldo em conta e não quita dívida — quem oferecer isso está fora das regras. Você escolhe o prestador, dentro do que a modalidade contratada cobre.",
+            "Na prática, isso significa que a instituição de ensino precisa emitir nota — e que o pagamento sai da administradora para ela, não de você para ela."
+          ],
+          "itens": [
+            [
+              "Pagamento ao fornecedor",
+              "A administradora paga a instituição diretamente, mediante nota fiscal."
+            ],
+            [
+              "Escolha do prestador",
+              "Você escolhe onde estudar, dentro do que a modalidade cobre."
+            ],
+            [
+              "Confirme o escopo",
+              "O que a carta cobre — matrícula, mensalidades, material — é definido pela modalidade contratada. Confirme antes da adesão."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "A decisão",
+          "titulo": "Pagar à vista ou mensalidade",
+          "paragrafos": [
+            "Curso pago à vista costuma ter desconto; pago mês a mês, não. É essa diferença que o consórcio tenta capturar — e ela precisa ser maior que o custo de esperar."
+          ],
+          "itens": [
+            [
+              "À vista com a carta",
+              "Contemplado, você negocia como quem paga integral. É a posição que rende desconto."
+            ],
+            [
+              "Mensalidade direta",
+              "Começa agora e não tem desconto. Para curso que precisa começar já, é a via realista."
+            ],
+            [
+              "O que decide",
+              "Quanto o desconto à vista representa, contra quantos meses você pode esperar sem prejuízo."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "A resposta honesta",
+          "titulo": "Quando não compensa",
+          "paragrafos": [
+            "Educação tem calendário, e calendário é o inimigo natural de um mecanismo sem data."
+          ],
+          "itens": [
+            [
+              "O curso começa no próximo semestre",
+              "A contemplação sai por sorteio ou lance. Não dá para contar com ela para uma data de matrícula."
+            ],
+            [
+              "O valor é baixo e você junta rápido",
+              "Se dá para poupar em poucos meses, poupar chega antes — o comparativo está em <a href=\"/guia/consorcio-ou-poupar/\">consórcio ou poupar</a>."
+            ],
+            [
+              "A instituição não emite nota",
+              "Sem nota fiscal o pagamento não acontece, porque é assim que a modalidade funciona."
+            ]
+          ]
+        }
       ]
     },
     {

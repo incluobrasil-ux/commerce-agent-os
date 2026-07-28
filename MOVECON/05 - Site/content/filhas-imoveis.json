@@ -71,7 +71,77 @@
         [
           "E se eu quiser trocar de imóvel depois de contemplado?",
           "A carta é usada uma vez, no imóvel aprovado pela administradora. A escolha acontece após a contemplação, então você tem tempo para decidir."
+        ],
+        [
+          "O condomínio entra na carta de crédito?",
+          "Não. A carta é destinada à aquisição do imóvel; condomínio, IPTU e custos de transmissão são despesas suas, pagas à parte."
         ]
+      ],
+      "secoes": [
+        {
+          "eyebrow": "A conta completa",
+          "titulo": "O que o apartamento custa depois da compra",
+          "paragrafos": [
+            "Apartamento tem um custo que casa não tem, e ele não entra na carta: o condomínio. É mensal, sobe com o tempo e independe de você usar as áreas comuns.",
+            "Some ainda os custos de transmissão — ITBI, escritura e registro —, que também ficam fora da carta. Nenhum deles é fixo: dependem do município, do prédio e do valor do imóvel."
+          ],
+          "itens": [
+            [
+              "Condomínio",
+              "Mensal e permanente. Prédio com piscina, academia e portaria 24h cobra por isso todo mês, e é o item que mais aperta orçamento apertado."
+            ],
+            [
+              "Fundo de reserva e obras",
+              "O condomínio pode aprovar rateio para obra. Não é frequente, mas quando vem, vem em valor alto."
+            ],
+            [
+              "ITBI, escritura e registro",
+              "Custos de transmissão, pagos por você na compra e fora da carta."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "Escolha o caminho",
+          "titulo": "Pronto ou na planta",
+          "paragrafos": [
+            "A carta compra os dois, e a diferença não é de preço: é de quando você entra e de quanto risco assume."
+          ],
+          "itens": [
+            [
+              "Pronto",
+              "Contemplado, você compra e muda. A espera termina junto com a contemplação — não há obra a esperar depois."
+            ],
+            [
+              "Na planta",
+              "São duas esperas somadas: a da contemplação, sem data, e a da entrega, com data prometida pela incorporadora. Quem precisa morar em prazo definido soma a incerteza do consórcio ao cronograma de terceiro."
+            ],
+            [
+              "O que conferir antes",
+              "Matrícula e documentação apta à transferência — o imóvel fica como garantia do plano até a quitação, e isso exige registro."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "A resposta honesta",
+          "titulo": "Quando continuar alugando é melhor",
+          "paragrafos": [
+            "Nem toda saída do aluguel é ganho. Estes casos são reais e o <a href=\"/blog/consorcio-para-sair-do-aluguel/\">artigo sobre sair do aluguel</a> desenvolve cada um."
+          ],
+          "itens": [
+            [
+              "Você tem data para desocupar",
+              "A contemplação sai por sorteio ou lance, sem data. Quem tem prazo precisa de ferramenta com prazo."
+            ],
+            [
+              "A parcela só cabe sem o aluguel",
+              "Até a contemplação você paga os dois. Esse custo duplo é a regra do período."
+            ],
+            [
+              "Você pode mudar de cidade",
+              "Comprar amarra; alugar preserva mobilidade — e nesse caso o aluguel está comprando flexibilidade."
+            ]
+          ]
+        }
       ]
     },
     {
@@ -247,7 +317,76 @@
         [
           "Dá para usar a carta em benfeitorias?",
           "A modalidade imóvel destina-se à aquisição. Benfeitoria e obra costumam exigir modalidade específica — confirme na adesão."
+        ],
+        [
+          "O imóvel rural precisa ter matrícula?",
+          "Sim. O imóvel fica como garantia do plano até a quitação, e isso exige matrícula no registro de imóveis e documentação apta à transferência. As exigências específicas do rural são verificadas na análise da administradora e constam do contrato."
         ]
+      ],
+      "secoes": [
+        {
+          "eyebrow": "A conta completa",
+          "titulo": "O que não entra na carta",
+          "paragrafos": [
+            "A carta paga a terra. Os custos de transmissão e o que é preciso para a propriedade produzir ficam fora dela."
+          ],
+          "itens": [
+            [
+              "ITBI, escritura e registro",
+              "Custos de transmissão, pagos por você e definidos por município e estado."
+            ],
+            [
+              "Documentação do imóvel",
+              "O imóvel fica como garantia do plano até a quitação, e isso exige matrícula e documentação apta à transferência. As exigências específicas do rural são verificadas na análise da administradora."
+            ],
+            [
+              "Infraestrutura",
+              "Cerca, água, energia e acesso entram no orçamento da operação, não na carta."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "Escolha o caminho",
+          "titulo": "Terra nua ou com benfeitorias",
+          "paragrafos": [
+            "O que a carta cobre é definido na adesão, e a diferença muda o valor que você precisa contratar."
+          ],
+          "itens": [
+            [
+              "Terra nua",
+              "Carta menor e decisão mais simples. A estrutura vem depois, por conta da operação."
+            ],
+            [
+              "Com benfeitorias",
+              "Sede, curral, galpão e cercas já existentes entram no preço — e portanto no dimensionamento da carta."
+            ],
+            [
+              "Confirme o escopo",
+              "Modalidade de imóvel rural tem regras próprias sobre o que a carta cobre. Confirme com o consultor antes da adesão."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "A resposta honesta",
+          "titulo": "Quando não é a resposta",
+          "paragrafos": [
+            "Consórcio de imóvel rural serve à aquisição planejada, e a terra raramente é compra de urgência — mas há casos em que não serve."
+          ],
+          "itens": [
+            [
+              "Há uma oportunidade com prazo",
+              "Negócio de terra com data para fechar não combina com contemplação sem data."
+            ],
+            [
+              "A renda depende de uma safra",
+              "Compromisso longo apoiado em receita sazonal precisa caber também no ano ruim."
+            ],
+            [
+              "A documentação não está resolvida",
+              "Imóvel sem matrícula ou com pendência que impeça o registro não passa na análise de liberação."
+            ]
+          ]
+        }
       ]
     },
     {

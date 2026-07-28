@@ -25,6 +25,10 @@
   [
    "E se eu quiser trocar de imóvel depois de contemplado?",
    "A carta é usada uma vez, no imóvel aprovado pela administradora. A escolha acontece após a contemplação, então você tem tempo para decidir."
+  ],
+  [
+   "O condomínio entra na carta de crédito?",
+   "Não. A carta é destinada à aquisição do imóvel; condomínio, IPTU e custos de transmissão são despesas suas, pagas à parte."
   ]
  ],
  "/consorcio-imoveis/terreno/": [
@@ -95,6 +99,10 @@
   [
    "Dá para usar a carta em benfeitorias?",
    "A modalidade imóvel destina-se à aquisição. Benfeitoria e obra costumam exigir modalidade específica — confirme na adesão."
+  ],
+  [
+   "O imóvel rural precisa ter matrícula?",
+   "Sim. O imóvel fica como garantia do plano até a quitação, e isso exige matrícula no registro de imóveis e documentação apta à transferência. As exigências específicas do rural são verificadas na análise da administradora e constam do contrato."
   ]
  ],
  "/consorcio-imoveis/investimento/": [
@@ -197,6 +205,10 @@
   [
    "A carta cobre a viagem toda?",
    "Cobre o que estiver dentro do valor contratado e das regras da modalidade. Despesas fora disso ficam por sua conta."
+  ],
+  [
+   "A carta paga passagem solta ou só pacote?",
+   "Depende da modalidade contratada. O pagamento é feito pela administradora diretamente ao fornecedor, mediante nota fiscal — confirme com o consultor o que a sua carta cobre antes da adesão."
   ]
  ],
  "/consorcio-servicos/casamento/": [
@@ -211,6 +223,10 @@
   [
    "E se sobrar valor da carta?",
    "O saldo segue as regras do contrato do seu grupo. Confirme as condições antes da adesão."
+  ],
+  [
+   "Posso escolher qualquer fornecedor?",
+   "Sim, dentro do que a modalidade cobre — desde que o fornecedor emita nota fiscal. A administradora paga diretamente a ele; a carta não vira saldo na sua conta."
   ]
  ],
  "/consorcio-servicos/educacao/": [
@@ -225,6 +241,10 @@
   [
    "Dá para usar em curso no exterior?",
    "A modalidade de intercâmbio costuma cobrir, respeitadas as regras de comprovação e câmbio. Confirme antes da adesão."
+  ],
+  [
+   "A carta paga a faculdade direto?",
+   "Sim. A administradora paga a instituição diretamente, mediante nota fiscal. A carta não vira saldo na sua conta — quem oferecer isso está fora das regras."
   ]
  ],
  "/consorcio-servicos/saude-estetica/": [
@@ -267,6 +287,10 @@
   [
    "Posso somar duas cotas para um conjunto maior?",
    "É possível manter mais de uma cota e usar as contemplações de forma combinada, conforme as regras do contrato."
+  ],
+  [
+   "Dá para comprar carreta usada?",
+   "Sim, respeitados os critérios de ano e estado de conservação definidos pela administradora para a carta contratada, com vistoria e documentação regular."
   ]
  ],
  "/consorcio-caminhao/frota/": [
@@ -341,6 +365,10 @@
   [
    "Preciso ter o trator antes?",
    "Não é exigência do consórcio. A carta se destina ao implemento, independentemente do que você já possui."
+  ],
+  [
+   "Posso comprar implemento usado?",
+   "Depende da modalidade contratada. Quando o usado é aceito, a administradora define critérios de ano e estado, e exige avaliação e documentação regular. Confirme antes da adesão."
   ]
  ],
  "/consorcio-maquinas-agricolas/pronaf-ou-consorcio/": [
@@ -405,6 +433,10 @@
   [
    "E se o contrato de aluguel vencer antes da contemplação?",
    "O consórcio não resolve prazo de locação. Se a saída do aluguel tem data, avalie outra via em paralelo."
+  ],
+  [
+   "A empresa pode adquirir o imóvel em nome da PJ?",
+   "Sim — a empresa adere pelo CNPJ e o imóvel é adquirido em nome da PJ, ficando alienado à administradora até a quitação. Documentação e análise seguem os critérios da administradora."
   ]
  ],
  "/consorcio-empresa/mei/": [
@@ -483,6 +515,10 @@
   [
    "Preciso de habilitação náutica para contratar?",
    "Não. A habilitação é exigida para conduzir a embarcação, não para participar do grupo."
+  ],
+  [
+   "Preciso ter vaga em marina antes de comprar?",
+   "Não é exigência do consórcio, mas é a conta que mais pesa depois da compra. Vale levantar o custo da vaga na sua região antes de dimensionar a carta."
   ]
  ],
  "/consorcio-embarcacoes/jet-ski/": [

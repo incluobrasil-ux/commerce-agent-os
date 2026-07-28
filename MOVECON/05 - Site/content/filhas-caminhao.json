@@ -70,7 +70,73 @@
         [
           "Posso somar duas cotas para um conjunto maior?",
           "É possível manter mais de uma cota e usar as contemplações de forma combinada, conforme as regras do contrato."
+        ],
+        [
+          "Dá para comprar carreta usada?",
+          "Sim, respeitados os critérios de ano e estado de conservação definidos pela administradora para a carta contratada, com vistoria e documentação regular."
         ]
+      ],
+      "secoes": [
+        {
+          "eyebrow": "A conta completa",
+          "titulo": "O que não entra na carta",
+          "paragrafos": [
+            "A carta paga o implemento rodoviário. Não paga o que o Detran cobra para ele rodar no seu nome, nem o que mantê-lo em operação custa."
+          ],
+          "itens": [
+            [
+              "Emplacamento e transferência",
+              "Implemento rodoviário emplaca. São custos junto ao Detran, pagos por você e fora da carta."
+            ],
+            ["Licenciamento anual", "Recorrente, enquanto o implemento for seu."],
+            [
+              "Seguro e manutenção",
+              "Num ativo de trabalho não são opcionais: implemento parado é frete que não sai."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "Escolha o caminho",
+          "titulo": "Implemento avulso ou conjunto completo",
+          "paragrafos": [
+            "A decisão muda o valor da carta e o momento em que a operação começa a faturar. Vale definir antes da adesão."
+          ],
+          "itens": [
+            [
+              "Só o implemento",
+              "Para quem já tem o cavalo mecânico e quer ampliar capacidade ou trocar o baú. Carta menor, decisão mais simples."
+            ],
+            [
+              "Conjunto completo",
+              "Cavalo e implemento juntos exigem carta maior — ou mais de uma cota, assunto tratado em <a href=\"/blog/quantas-cotas-de-consorcio-posso-ter/\">quantas cotas vale a pena ter</a>."
+            ],
+            [
+              "Usado",
+              "A administradora define limite de ano e exige vistoria e documentação regular. Confirme antes: é o que determina quais implementos a carta alcança."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "A resposta honesta",
+          "titulo": "Quando não é a resposta",
+          "paragrafos": [
+            "Implemento rodoviário é ativo de produção, e o consórcio serve à ampliação planejada — não à reposição urgente."
+          ],
+          "itens": [
+            [
+              "O implemento atual quebrou",
+              "Carreta parada é frete recusado. A contemplação não tem data."
+            ],
+            [
+              "Há contrato de frete já assinado",
+              "Assumir carga apostando em contemplação transfere ao cliente um risco que você não controla."
+            ],
+            [
+              "A parcela veio do melhor trimestre",
+              "A margem do frete oscila, e cota em atraso não concorre à contemplação."
+            ]
+          ]
+        }
       ]
     },
     {

@@ -14,6 +14,53 @@
 > repositório e o resumo divergem, a divergência está registrada na seção 5 —
 > nenhum dos dois foi assumido como certo.
 
+## Atualização de 2026-07-27 — auditoria pós-Fase-2 ENCERRADA
+
+Os cinco itens da fila da auditoria estão concluídos. Não sobrou item aberto
+dela.
+
+| Item | Resultado |
+|---|---|
+| Fontes primárias nos guias | 20/20 |
+| Datas visíveis nos guias | 20/20, preenchidas em tempo de requisição |
+| Compliance no corpo | 94/94 rotas indexáveis |
+| Engorda dos hubs | imóveis 1.974, veículos 1.653, caminhão 1.556 |
+| Engorda das filhas | 10 filhas, todas acima do piso de 600 |
+
+### As 10 filhas engordadas
+
+| Rota | Antes | Depois |
+|---|---|---|
+| `/consorcio-empresa/equipamentos/` | 336 | 855 |
+| `/consorcio-imoveis/apartamento/` | 336 | 701 |
+| `/consorcio-maquinas-agricolas/implementos/` | 336 | 657 |
+| `/consorcio-caminhao/carreta-implementos/` | 341 | 627 |
+| `/consorcio-empresa/imovel-comercial/` | 343 | 640 |
+| `/consorcio-imoveis/imovel-rural/` | 345 | 657 |
+| `/consorcio-servicos/educacao/` | 345 | 683 |
+| `/consorcio-embarcacoes/lancha/` | 349 | 625 |
+| `/consorcio-servicos/casamento/` | 351 | 672 |
+| `/consorcio-servicos/viagem/` | 351 | 674 |
+
+FAQ visível = FAQ no schema em todas. Nenhuma foi preenchida para bater meta:
+seis ficaram entre 625 e 683, abaixo do alvo de 900, e foram publicadas assim.
+
+### O que segue aberto — e depende do cliente
+
+| Pendência | O que falta |
+|---|---|
+| **P8** — envio externo do backup | credencial do Backblaze B2 |
+| **P9** — Search Console | o valor `content=` da meta de verificação |
+| **P3b** — foto do autor | mínimo 400×400; a caixa já está no ar sem ela, por autorização |
+
+Nenhuma dessas depende de trabalho pendente aqui: as três são dado externo.
+
+### Estado do repositório
+
+O clone do `movecon-site` é o repositório de trabalho; o subtree do monorepo
+está aposentado para push. `scripts/verificar_sync.py` roda no `post-commit` e
+avisa quando há trabalho não publicado.
+
 ## Proveniência desta leitura
 
 **Reconciliado.** O relatório original foi produzido num clone defasado; esta

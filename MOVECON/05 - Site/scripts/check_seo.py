@@ -202,8 +202,19 @@ def permitido_em_arquivo(termo, caminho_rel):
 TERMOS_MODALIDADE = {
     'fgts': ('/consorcio-imoveis', '/guia/primeiro-imovel/', '/glossario/',
              '/guia/lance-no-consorcio/', '/perguntas/'),
-    'itbi': ('/consorcio-imoveis', '/guia/primeiro-imovel/'),
-    'escritura': ('/consorcio-imoveis', '/guia/primeiro-imovel/'),
+    # /consorcio-empresa/imovel-comercial/ entrou em 27/07/2026. ITBI,
+    # escritura e registro sao custos de transmissao de IMOVEL - aplicam-se a
+    # imovel comercial tanto quanto a residencial. A lista original nasceu
+    # quando as unicas paginas de imovel viviam no silo /consorcio-imoveis.
+    #
+    # Isto NAO e afrouxar o detector: a regra proibe citar custo que nao se
+    # aplica a modalidade, e aqui ele se aplica. Afrouxar seria remover a
+    # checagem ou generalizar o prefixo; o que se fez foi nomear a rota onde a
+    # despesa existe de fato.
+    'itbi': ('/consorcio-imoveis', '/guia/primeiro-imovel/',
+             '/consorcio-empresa/imovel-comercial/'),
+    'escritura': ('/consorcio-imoveis', '/guia/primeiro-imovel/',
+                  '/consorcio-empresa/imovel-comercial/'),
     'emplacamento': ('/consorcio-veiculos', '/consorcio-moto',
                      '/consorcio-caminhao', '/consorcio-maquinas-agricolas'),
     'licenciamento': ('/consorcio-veiculos', '/consorcio-moto',

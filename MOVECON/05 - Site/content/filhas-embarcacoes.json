@@ -35,7 +35,73 @@
         [
           "Preciso de habilitação náutica para contratar?",
           "Não. A habilitação é exigida para conduzir a embarcação, não para participar do grupo."
+        ],
+        [
+          "Preciso ter vaga em marina antes de comprar?",
+          "Não é exigência do consórcio, mas é a conta que mais pesa depois da compra. Vale levantar o custo da vaga na sua região antes de dimensionar a carta."
         ]
+      ],
+      "secoes": [
+        {
+          "eyebrow": "A conta completa",
+          "titulo": "O custo de ter a lancha",
+          "paragrafos": [
+            "A carta paga a embarcação. O que mantê-la custa é outra conta, e no náutico ela pesa mais do que a maioria imagina antes de comprar."
+          ],
+          "itens": [
+            [
+              "Vaga em marina",
+              "Mensal, e o valor varia com o tamanho da embarcação e a região. É o custo recorrente mais alto."
+            ],
+            [
+              "Seguro e documentação",
+              "Embarcação tem registro e documentação próprios, com custos periódicos."
+            ],
+            [
+              "Manutenção e combustível",
+              "Motor náutico exige manutenção regular, e o consumo é proporcional ao uso."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "Escolha o caminho",
+          "titulo": "Nova ou usada",
+          "paragrafos": [
+            "A modalidade contratada define se a carta cobre nova, seminova ou ambas. Confirme antes da adesão."
+          ],
+          "itens": [
+            [
+              "Nova",
+              "Garantia de fábrica e escolha de acabamento. Como você paga à vista na contemplação, a negociação com o estaleiro parte de outra posição."
+            ],
+            [
+              "Usada",
+              "A administradora define critérios de ano e estado, e exige avaliação e documentação regular."
+            ],
+            [
+              "Negociação à vista",
+              "Num ativo dessa faixa de valor, pagamento imediato costuma abrir condição relevante."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "A resposta honesta",
+          "titulo": "Quando não é a hora",
+          "paragrafos": [
+            "Lancha é bem de lazer, e a conta que decide não é a da compra — é a de manter."
+          ],
+          "itens": [
+            [
+              "A vaga em marina não cabe no mês",
+              "Se o custo recorrente aperta, o problema não é a aquisição."
+            ],
+            ["Você quer usar nesta temporada", "A contemplação não tem data, e temporada tem."],
+            [
+              "O uso previsto é esporádico",
+              "Poucos fins de semana por ano podem não justificar o custo fixo de posse."
+            ]
+          ]
+        }
       ]
     },
     {

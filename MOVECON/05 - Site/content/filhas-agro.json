@@ -1,13 +1,9 @@
 {
   "_leia_me": "Filhas de silo de /consorcio-maquinas-agricolas/. `respostaCurta` e o bloco ANSWER-FIRST: responde a keyword nas 2-3 primeiras frases. Maximo ~55 palavras.",
-
   "_status": "AGUARDANDO APROVACAO DOS ANSWER-FIRST. Paginas geradas, nao publicadas.",
-
   "_nota": "Publico que compara com credito rural subsidiado. A copy NAO afirma que consorcio e mais barato que Pronaf - nao e, quando o produtor se enquadra. O argumento honesto e previsibilidade e independencia de aprovacao. A pagina /pronaf-ou-consorcio/ diz isso abertamente.",
-
   "pai": "/consorcio-maquinas-agricolas/",
   "simulador": "/simulador/maquinas-agricolas/",
-
   "filhas": [
     {
       "slug": "trator",
@@ -111,7 +107,77 @@
         [
           "Preciso ter o trator antes?",
           "Não é exigência do consórcio. A carta se destina ao implemento, independentemente do que você já possui."
+        ],
+        [
+          "Posso comprar implemento usado?",
+          "Depende da modalidade contratada. Quando o usado é aceito, a administradora define critérios de ano e estado, e exige avaliação e documentação regular. Confirme antes da adesão."
         ]
+      ],
+      "secoes": [
+        {
+          "eyebrow": "A conta completa",
+          "titulo": "O que não entra na carta",
+          "paragrafos": [
+            "A carta paga o implemento. Não paga o que é preciso para ele entrar em operação, e no campo essa diferença costuma ser grande por causa da distância até a propriedade."
+          ],
+          "itens": [
+            [
+              "Frete até a propriedade",
+              "Implemento pesado tem logística própria, e o custo cresce com a distância do revendedor."
+            ],
+            [
+              "Montagem e regulagem",
+              "Boa parte dos implementos chega desmontado ou exige regulagem para o trator que vai puxar."
+            ],
+            [
+              "Manutenção e peças",
+              "Entram no custo de operar, não no de adquirir — e num equipamento de safra, parada custa janela."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "Escolha o caminho",
+          "titulo": "Novo ou usado",
+          "paragrafos": [
+            "A mesma carta compra os dois. A decisão é operacional antes de ser financeira, porque implemento parado na safra não espera."
+          ],
+          "itens": [
+            [
+              "Novo",
+              "Garantia e disponibilidade de peça. Custa mais na carta e devolve em dias de operação sem parada."
+            ],
+            [
+              "Usado",
+              "A administradora define limite de ano e exige avaliação e documentação regular. É o primeiro ponto a confirmar, porque determina quais implementos a sua carta alcança."
+            ],
+            [
+              "Compatibilidade",
+              "Implemento se escolhe pelo trator que já existe na propriedade. Carta dimensionada sem isso compra máquina que não acopla."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "A resposta honesta",
+          "titulo": "Quando o crédito rural vence o consórcio",
+          "paragrafos": [
+            "Existe linha subsidiada para investimento no campo, e quando ela está disponível para o seu caso pode vencer o consórcio — inclusive porque entrega o implemento agora. Dizer o contrário seria desonesto.",
+            "A comparação está em <a href=\"/consorcio-maquinas-agricolas/pronaf-ou-consorcio/\">PRONAF ou consórcio</a>."
+          ],
+          "itens": [
+            [
+              "A safra já começou",
+              "Implemento que falta agora não se resolve com contemplação sem data."
+            ],
+            [
+              "Você se enquadra numa linha subsidiada",
+              "Vale conferir antes: enquadramento e taxa mudam a conta inteira."
+            ],
+            [
+              "A parcela foi feita pela safra boa",
+              "Preço de commodity oscila. Parcela dimensionada pelo pico vira atraso no ano ruim."
+            ]
+          ]
+        }
       ]
     },
     {

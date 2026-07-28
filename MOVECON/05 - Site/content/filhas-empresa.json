@@ -181,7 +181,76 @@
         [
           "E se o contrato de aluguel vencer antes da contemplação?",
           "O consórcio não resolve prazo de locação. Se a saída do aluguel tem data, avalie outra via em paralelo."
+        ],
+        [
+          "A empresa pode adquirir o imóvel em nome da PJ?",
+          "Sim — a empresa adere pelo CNPJ e o imóvel é adquirido em nome da PJ, ficando alienado à administradora até a quitação. Documentação e análise seguem os critérios da administradora."
         ]
+      ],
+      "secoes": [
+        {
+          "eyebrow": "A conta completa",
+          "titulo": "O que não entra na carta",
+          "paragrafos": [
+            "A carta paga o imóvel. Os custos de transmissão ficam de fora e são pagos pela empresa na compra — vale levantá-los antes de dimensionar a carta, e não na semana da escritura."
+          ],
+          "itens": [
+            [
+              "ITBI",
+              "Imposto municipal sobre a transmissão. Alíquota e base são definidas pelo município."
+            ],
+            [
+              "Escritura e registro",
+              "Emolumentos de cartório, pela tabela do estado. É o registro que efetivamente transfere o imóvel."
+            ],
+            [
+              "Adequação do ponto",
+              "Reforma, acessibilidade e licenças de funcionamento entram no orçamento da operação, não na carta."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "Escolha o caminho",
+          "titulo": "Pronto ou construção",
+          "paragrafos": [
+            "A modalidade é definida na adesão, então vale decidir antes o que a operação precisa."
+          ],
+          "itens": [
+            [
+              "Imóvel pronto",
+              "Contemplado, a empresa compra à vista e ocupa. É o caminho de quem precisa do ponto funcionando."
+            ],
+            [
+              "Construção em terreno próprio",
+              "A carta é aplicada na obra, e a liberação costuma ser por etapa, mediante vistoria — exige projeto e orçamento organizados antes."
+            ],
+            [
+              "A garantia",
+              "O imóvel fica alienado à administradora até a quitação, o que exige matrícula e documentação apta à transferência."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "A resposta honesta",
+          "titulo": "Quando alugar o ponto é melhor",
+          "paragrafos": [
+            "Comprar o ponto imobiliza capital que a operação pode precisar. Estes casos merecem ser ditos antes."
+          ],
+          "itens": [
+            [
+              "O ponto ainda está em teste",
+              "Faturamento que depende de local específico precisa de histórico antes de virar patrimônio."
+            ],
+            [
+              "A empresa cresce rápido",
+              "Espaço comprado hoje pode ficar pequeno antes da quitação; alugar preserva a mobilidade."
+            ],
+            [
+              "O giro está apertado",
+              "A parcela concorre com folha e estoque, e cota em atraso não concorre à contemplação."
+            ]
+          ]
+        }
       ]
     },
     {

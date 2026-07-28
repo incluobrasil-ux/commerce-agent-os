@@ -7,6 +7,54 @@ Googlebot recebem de fato, depois de mu-plugin, tema e cache. Reproduzível com
 **Limite do método:** contagem de palavra e presença de bloco são proxy de
 completude, não de qualidade. A nota prioriza o que olhar; ela não decide.
 
+## AUDITORIA ENCERRADA em 27/07/2026 — itens 4 e 5
+
+| Item | Estado |
+|---|---|
+| 1. Fontes primárias nos guias | ✅ 20/20 |
+| 2. Datas visíveis nos guias | ✅ 20/20, dinâmicas |
+| 3. Compliance no corpo | ✅ 94/94 |
+| 4. Engorda dos hubs | ✅ imóveis, veículos, caminhão |
+| 5. Engorda das filhas | ✅ 10 filhas, as 10 menores |
+
+### Item 5 — as 10 filhas
+
+Molde: **o que a carta não paga → a decisão da modalidade → quando não é a
+resposta.** Answer-first intocado, sem tabela (o hub pai já tem uma, e replicar
+duplicaria o argumento dentro do mesmo silo), publicar abaixo do alvo em vez de
+completar para fechar métrica.
+
+Regime aprovado pelo cliente: parada obrigatória na **primeira**
+(`/consorcio-empresa/equipamentos/`); aprovado o molde, as **9 restantes em lote
+único**.
+
+### As três pendências de produto, respondidas pelo cliente
+
+| Pendência | Resposta | Efeito |
+|---|---|---|
+| Georreferenciamento no rural | **Cortar** — a exigência é escalonada por área (calendário INCRA), e afirmá-la sem qualificação estaria errada para parte dos casos | bloco removido antes de ser escrito; motivo registrado em `00-contexto.md` para reavaliação com fonte |
+| Imóvel comercial pela PJ | **Sim** — combinação de duas bases já registradas: adesão por CNPJ + alienação fiduciária até a quitação | FAQ publicada |
+| Pagamento em serviços | Regra da **modalidade**, não do nicho | replicada nas três filhas de serviços, com as duas metades juntas |
+
+A segunda metade da regra de serviços — *"não vira saldo em conta, e quem
+oferecer isso está fora das regras"* — é frase protetiva contra golpe e foi
+replicada junto com a primeira, nunca separada.
+
+### Um ajuste de detector, e por que não é afrouxamento
+
+`/consorcio-empresa/imovel-comercial/` reprovou em `TERMOS_MODALIDADE`: cita
+ITBI e escritura, e a allow-list liberava esses termos apenas no silo
+`/consorcio-imoveis`.
+
+O detector estava certo em acusar e o conteúdo também estava certo: **imóvel
+comercial é imóvel, e paga ITBI**. A lista nasceu quando as únicas páginas de
+imóvel viviam num silo só.
+
+A rota foi **nomeada** na allow-list — não o prefixo, não a regra. Afrouxar
+seria remover a checagem ou generalizar; o que se fez foi registrar a rota onde
+a despesa existe de fato. Testado depois da mudança: ITBI injetado em
+`/consorcio-veiculos/carros/` continua reprovando com exit 1.
+
 ## RESOLVIDO em 27/07/2026 — bloco de compliance no corpo (item 3)
 
 **94 de 94 rotas indexáveis** trazem a atribuição à Alpha **no corpo**, e não

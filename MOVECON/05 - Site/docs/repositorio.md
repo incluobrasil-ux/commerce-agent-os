@@ -22,6 +22,39 @@ o mesmo problema — commit não enviado.
 
 **O `estado-do-projeto.md` também se atualiza ao fim de cada item concluído.**
 
+### ⚠️ O caminho por `git subtree push` está quebrado — decisão pendente
+
+**Estado em 27/07/2026.** O conteúdo está **100% sincronizado**: 135 arquivos,
+hashes idênticos entre `MOVECON/` no monorepo e o `movecon-site`. O que quebrou
+foi a **linhagem**, não o conteúdo.
+
+**Causa.** Dois commits nasceram fora do subtree — o `merge` da `pc2-trabalho` e
+o `docs: reconcilia estado-do-projeto` — feitos direto no clone standalone,
+porque o roteiro de reconciliação assim determinava. O `git subtree split` do
+monorepo não os conhece, então todo `subtree push` seguinte é rejeitado por
+não-fast-forward. Um `subtree pull` também falha: `refusing to merge unrelated
+histories`.
+
+**O que funciona hoje:** publicar pelo clone standalone.
+
+```bash
+cd <clone do movecon-site>
+git pull --ff-only origin main
+# copiar os arquivos alterados de MOVECON/ para o clone
+git add -A && git commit && git push origin main
+```
+
+**As duas saídas, e nenhuma foi executada** — a escolha é do cliente porque uma
+delas descarta histórico:
+
+| Saída | O que custa |
+|---|---|
+| **Adotar o clone** como caminho oficial de publicação | Nada se perde. Passa a haver dois checkouts a manter em sincronia |
+| **Rebaselinar o subtree** com `git push --force` do split | Restabelece o fluxo de um comando só, mas **descarta do histórico remoto** o merge da `pc2-trabalho` e o commit da reconciliação. O conteúdo sobrevive (é idêntico); o registro de como se chegou nele, não |
+
+Não force-pushei por conta própria: descartar histórico é ação de sentido único,
+e o registro da reconciliação é justamente o que evita repetir o problema.
+
 ### Se outra máquina trabalhar em paralelo
 
 A regra que funcionou: a máquina defasada opera em **regime aditivo** — só

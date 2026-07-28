@@ -20,7 +20,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from compliance import COMPLIANCE  # noqa: E402
+from compliance import COMPLIANCE, montar_secoes  # noqa: E402
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BUILD = os.path.join(RAIZ, 'build')
@@ -74,6 +74,8 @@ TPL = '''<!-- wp:html -->
     </div>
   </div>
 </section>
+
+%(secoes)s
 
 <section class="sec sec--alt">
   <div class="wrap stack-l">
@@ -155,7 +157,7 @@ def main():
                         % (dst['titulo'], dst['texto']))
 
             html = TPL % dict(
-                f, compliance=COMPLIANCE,
+                f, compliance=COMPLIANCE, secoes=montar_secoes(f),
                 destaque=destaque, pai=pai, paiNome=pai_nome,
                 simulador=d['simulador'],
                 h1Low=f['h1'][0].lower() + f['h1'][1:],

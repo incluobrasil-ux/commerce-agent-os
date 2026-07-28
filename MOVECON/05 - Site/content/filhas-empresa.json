@@ -1,13 +1,9 @@
 {
   "_leia_me": "Filhas de silo de /consorcio-empresa/. `respostaCurta` e o bloco ANSWER-FIRST: responde a keyword nas 2-3 primeiras frases. Maximo ~55 palavras.",
-
   "_status": "AGUARDANDO APROVACAO DOS ANSWER-FIRST. Paginas geradas, nao publicadas.",
-
   "_nota": "Publico PJ. A copy fala de capital de giro, limite bancario e previsibilidade de orcamento - nao de conquista. NENHUMA pagina do silo da orientacao tributaria: o tratamento contabil depende do regime da empresa e do bem, e isso e trabalho de contador.",
-
   "pai": "/consorcio-empresa/",
   "simulador": "/simulador/servicos/",
-
   "filhas": [
     {
       "slug": "frota",
@@ -77,7 +73,81 @@
         [
           "Posso somar cotas para um equipamento maior?",
           "Sim, é possível manter cotas em paralelo e combinar as contemplações conforme as regras do contrato."
+        ],
+        [
+          "Posso usar a carta para equipamento usado?",
+          "Depende da modalidade contratada. Quando o usado é aceito, a administradora define critérios de ano e estado, e exige avaliação e documentação regular. Confirme antes da adesão — é o que determina quais máquinas a sua carta alcança."
+        ],
+        [
+          "A empresa precisa ter faturamento mínimo?",
+          "Não há análise de crédito na adesão — a empresa entra no grupo e concorre desde a primeira assembleia, sem comprovação prévia. A avaliação acontece na contemplação, quando o crédito vai ser liberado: capacidade de pagamento demonstrável e regularidade do CNPJ pesam ali. Critérios específicos são os da administradora e constam do contrato."
         ]
+      ],
+      "secoes": [
+        {
+          "eyebrow": "A conta completa",
+          "titulo": "O que a carta não paga",
+          "paragrafos": [
+            "A carta paga o equipamento. Ela não paga o que é preciso fazer para o equipamento produzir — e é essa segunda conta que estoura orçamento de aquisição, porque quase ninguém a levanta antes.",
+            "Nenhum desses custos é fixo: dependem do porte da máquina, do fornecedor e das condições da sua instalação. Por isso não publicamos valor aqui. O que dá para dizer é o que existe, para entrar no orçamento antes da adesão — quando ainda dá para dimensionar a carta considerando o total."
+          ],
+          "itens": [
+            [
+              "Frete e instalação",
+              "Máquina pesada tem logística própria, e montagem costuma ser contratada à parte do equipamento."
+            ],
+            [
+              "Adequação do local",
+              "Rede elétrica, piso, exaustão, ponto de ar. É o item que mais surpreende, porque só aparece quando o fornecedor faz a vistoria técnica."
+            ],
+            [
+              "Treinamento e manutenção",
+              "Equipamento que ninguém opera bem não entrega a produtividade que justificou a compra. O contrato de manutenção entra no custo de operar, não no de adquirir."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "A decisão",
+          "titulo": "Comprar à vista, financiar ou consorciar",
+          "paragrafos": [
+            "As três vias compram a mesma máquina e cobram coisas diferentes da empresa. A escolha não é sobre qual é mais barata no papel — é sobre qual recurso da operação você prefere não comprometer."
+          ],
+          "itens": [
+            [
+              "À vista",
+              "Resolve agora e trava caixa. Para operação com sazonalidade, o capital de giro que sai hoje é o que faltaria no mês fraco."
+            ],
+            [
+              "Financiamento",
+              "Resolve agora, cobra juros e consome limite bancário — limite que deixa de estar disponível para giro, folha ou uma oportunidade que apareça."
+            ],
+            [
+              "Consórcio",
+              "Não cobra juros e não consome limite; preserva o giro. A contrapartida é não ter data: a contemplação sai por sorteio ou lance. Serve a quem consegue planejar a aquisição com antecedência."
+            ]
+          ]
+        },
+        {
+          "eyebrow": "A resposta honesta",
+          "titulo": "Quando o consórcio de equipamento não é a resposta",
+          "paragrafos": [
+            "Consórcio de equipamento serve à aquisição planejada. Há casos em que ele é a ferramenta errada, e vale dizer antes da assinatura."
+          ],
+          "itens": [
+            [
+              "O equipamento atual parou",
+              "Máquina parada é produção parada, e a contemplação não tem data. Quem precisa repor agora precisa de uma ferramenta com data."
+            ],
+            [
+              "Há contrato assinado com prazo de entrega",
+              "Assumir demanda contratada apostando em contemplação é transferir para o cliente um risco que você não controla."
+            ],
+            [
+              "Existe linha subsidiada para bem de capital",
+              "Quando disponível e com taxa realmente baixa, uma linha específica para máquinas e equipamentos pode vencer o consórcio — inclusive porque entrega o bem agora. Vale conferir antes, e dizer o contrário seria desonesto."
+            ]
+          ]
+        }
       ]
     },
     {

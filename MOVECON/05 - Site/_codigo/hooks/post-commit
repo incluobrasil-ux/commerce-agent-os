@@ -1,0 +1,8 @@
+#!/bin/sh
+# Avisa quando um commit toca MOVECON/ e o trabalho ainda nao esta no
+# movecon-site. Nao bloqueia: commit ja aconteceu, e travar aqui nao ajuda.
+# O objetivo e que o autor VEJA - o problema ja aconteceu duas vezes por
+# ninguem ver.
+if git diff-tree --no-commit-id --name-only -r HEAD | grep -q '^MOVECON/'; then
+  python "MOVECON/05 - Site/scripts/verificar_sync.py" --aviso 2>/dev/null
+fi

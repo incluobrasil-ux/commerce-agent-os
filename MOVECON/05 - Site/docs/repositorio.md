@@ -22,38 +22,58 @@ o mesmo problema — commit não enviado.
 
 **O `estado-do-projeto.md` também se atualiza ao fim de cada item concluído.**
 
-### ⚠️ O caminho por `git subtree push` está quebrado — decisão pendente
+### O clone é o repositório de trabalho — subtree aposentado para push
 
-**Estado em 27/07/2026.** O conteúdo está **100% sincronizado**: 135 arquivos,
-hashes idênticos entre `MOVECON/` no monorepo e o `movecon-site`. O que quebrou
-foi a **linhagem**, não o conteúdo.
+**Decisão do cliente em 27/07/2026.** Não houve force-push: o registro do merge
+da `pc2-trabalho` e o commit da reconciliação ficam no histórico.
 
-**Causa.** Dois commits nasceram fora do subtree — o `merge` da `pc2-trabalho` e
-o `docs: reconcilia estado-do-projeto` — feitos direto no clone standalone,
-porque o roteiro de reconciliação assim determinava. O `git subtree split` do
-monorepo não os conhece, então todo `subtree push` seguinte é rejeitado por
-não-fast-forward. Um `subtree pull` também falha: `refusing to merge unrelated
-histories`.
+| | |
+|---|---|
+| **Repositório de trabalho** | clone standalone do `movecon-site` |
+| **Subtree do monorepo** | **aposentado para push** — serve como histórico e como cópia de trabalho dos arquivos |
+| **Regra de fim de sessão** | `git push` simples, do clone |
 
-**O que funciona hoje:** publicar pelo clone standalone.
+**Por que.** Dois commits nasceram fora do subtree — o merge da `pc2-trabalho` e
+o da reconciliação —, feitos no clone porque o roteiro assim determinava. O
+`git subtree split` do monorepo não os conhece, então `subtree push` é rejeitado
+por não-fast-forward e `subtree pull` recusa históricos não relacionados.
+Rebaselinar com `--force` restabeleceria o comando único, mas descartaria do
+remoto justamente o registro de como a reconciliação foi feita.
+
+### Publicar
 
 ```bash
 cd <clone do movecon-site>
 git pull --ff-only origin main
-# copiar os arquivos alterados de MOVECON/ para o clone
+# copiar de MOVECON/ para o clone o que mudou
 git add -A && git commit && git push origin main
 ```
 
-**As duas saídas, e nenhuma foi executada** — a escolha é do cliente porque uma
-delas descarta histórico:
+### A trava contra a terceira ocorrência
 
-| Saída | O que custa |
-|---|---|
-| **Adotar o clone** como caminho oficial de publicação | Nada se perde. Passa a haver dois checkouts a manter em sincronia |
-| **Rebaselinar o subtree** com `git push --force` do split | Restabelece o fluxo de um comando só, mas **descarta do histórico remoto** o merge da `pc2-trabalho` e o commit da reconciliação. O conteúdo sobrevive (é idêntico); o registro de como se chegou nele, não |
+`scripts/verificar_sync.py` compara o **conteúdo** — hash de cada arquivo —
+entre `MOVECON/` e o `movecon-site`. Compara conteúdo e não contagem de commits
+de propósito: contagem diverge por rebase e por merge sem que nada esteja
+errado; conteúdo, não.
 
-Não force-pushei por conta própria: descartar histórico é ação de sentido único,
-e o registro da reconciliação é justamente o que evita repetir o problema.
+```bash
+python scripts/verificar_sync.py          # exit 1 se divergir
+python scripts/verificar_sync.py --aviso  # só informa
+```
+
+Instalado como **`post-commit`** (cópia versionada em `_codigo/hooks/`): todo
+commit que toca `MOVECON/` dispara a checagem e imprime o que falta publicar,
+com o comando pronto. Não bloqueia — o commit já aconteceu, e travar depois do
+fato não ajuda. O objetivo é que o autor **veja**: nas duas ocorrências
+anteriores nada quebrou e nada avisou, e foi exatamente por isso que o trabalho
+ficou parado.
+
+Para instalar num checkout novo:
+
+```bash
+cp "MOVECON/05 - Site/_codigo/hooks/post-commit" .git/hooks/post-commit
+chmod +x .git/hooks/post-commit
+```
 
 ### Se outra máquina trabalhar em paralelo
 

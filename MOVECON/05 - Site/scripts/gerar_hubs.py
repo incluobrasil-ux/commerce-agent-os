@@ -58,46 +58,8 @@ TABELA = """
 
 TABELA_LINHA = ('          <tr><th scope="row">%s</th><td>%s</td><td>%s</td></tr>')
 
-from compliance import COMPLIANCE  # noqa: E402
+from compliance import COMPLIANCE, montar_secoes  # noqa: E402
 
-# Secoes de prosa da engorda. Entram entre a tabela/passos e a FAQ.
-#
-# Slot generico de proposito: a engorda de cada hub acrescenta blocos
-# diferentes, e criar um slot nomeado por bloco ("custos", "modalidades",
-# "quando-nao-serve") amarraria o gerador ao conteudo de imoveis. O que e
-# comum a todos os hubs e a FORMA - titulo, paragrafos, lista opcional.
-SECAO = """
-<section class="sec">
-  <div class="wrap stack-l">
-    <div class="stack prosa">
-      <p class="eyebrow">%(eyebrow)s</p>
-      <h2>%(titulo)s</h2>
-%(paragrafos)s
-    </div>
-%(lista)s
-  </div>
-</section>"""
-
-SECAO_ITEM = ('      <div class="card card--acento">' + chr(10) +
-              '        <h3>%s</h3>' + chr(10) +
-              '        <p>%s</p>' + chr(10) +
-              '      </div>')
-
-
-def montar_secoes(seg):
-    """Blocos de prosa da engorda, ou string vazia se o hub nao tiver."""
-    out = []
-    for sec in seg.get('secoes', []):
-        paras = chr(10).join('      <p>%s</p>' % t for t in sec['paragrafos'])
-        lista = ''
-        if sec.get('itens'):
-            cartoes = chr(10).join(SECAO_ITEM % (t, d) for t, d in sec['itens'])
-            lista = ('    <div class="cards cards--3">' + chr(10) + cartoes +
-                     chr(10) + '    </div>')
-        out.append(SECAO % dict(eyebrow=sec.get('eyebrow', 'Em detalhe'),
-                                titulo=sec['titulo'], paragrafos=paras,
-                                lista=lista))
-    return chr(10).join(out)
 
 
 # Como funciona em 4 passos. A numeracao aqui NAO e decorativa: o

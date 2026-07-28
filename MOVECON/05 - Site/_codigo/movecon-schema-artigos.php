@@ -190,9 +190,14 @@ function mv_art_grafo( $rota ) {
 	$a   = $artigos[ $rota ];
 	$url = home_url( $rota );
 
+	// ItemList so existe para os comparativos, que tem ranking de verdade.
+	// Antes desta guarda, os 14 artigos sem lista emitiam
+	// {"@type":"ItemList","name":null,"numberOfItems":0,"itemListElement":[]} -
+	// marcacao declarando uma lista com zero itens, que e pior que marcacao
+	// nenhuma: promete estrutura ao buscador e entrega vazio.
 	$lista_itens = array();
 	$pos         = 1;
-	foreach ( $a['lista']['itens'] as $item ) {
+	foreach ( ( isset( $a['lista']['itens'] ) ? $a['lista']['itens'] : array() ) as $item ) {
 		$li = array(
 			'@type'    => 'ListItem',
 			'position' => $pos,
@@ -205,12 +210,12 @@ function mv_art_grafo( $rota ) {
 		$pos++;
 	}
 
-	$lista = array(
+	$lista = $lista_itens ? array(
 		'@type'           => 'ItemList',
 		'name'            => $a['lista']['name'],
 		'numberOfItems'   => count( $lista_itens ),
 		'itemListElement' => $lista_itens,
-	);
+	) : null;
 	if ( $a['lista']['ordem'] ) {
 		$lista['itemListOrder'] = $a['lista']['ordem'];
 	}

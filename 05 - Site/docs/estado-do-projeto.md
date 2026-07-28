@@ -1,14 +1,10 @@
 # Estado do projeto — mapa vivo
 
-> 🔶 **Branch `pc2-trabalho` — gerada de clone defasado (HEAD `516b255`).
-> Reconciliar APÓS o subtree push da máquina principal.**
->
-> Esta cópia está ~2 dias atrás da máquina principal. Regra desta máquina:
-> **somente trabalho aditivo** (arquivos novos — docs, relatórios, propostas).
-> Proibido rodar geradores, publicar em produção ou editar conteúdo existente
-> (`segmentos.json`, artigos, guias) — editá-los aqui conflitaria com o trabalho
-> da principal. Os marcadores **`⟳`** da §5 só são rebaixados na reconciliação
-> pós-push. Passo a passo em `docs/reconciliacao-pc2-para-maquina-principal.md`.
+> ✅ **RECONCILIADO em 2026-07-27 na máquina principal.** A branch
+> `pc2-trabalho` foi mergeada em `main` e apagada. Os marcadores `⟳` da §5 foram
+> rebaixados um a um contra o estado real do repositório e do site — nenhum por
+> suposição. O roteiro que guiou esta reconciliação está em
+> `docs/reconciliacao-pc2-para-maquina-principal.md`.
 
 > **O que é.** Onde estamos e o que falta no site da MOVECON, derivado do
 > repositório e reconciliado contra o resumo de decisões da conversa com o
@@ -18,38 +14,22 @@
 > repositório e o resumo divergem, a divergência está registrada na seção 5 —
 > nenhum dos dois foi assumido como certo.
 
-## Proveniência desta leitura — LEIA ANTES
+## Proveniência desta leitura
 
-Este relatório foi produzido a partir de um **clone do remoto**
-`github.com/incluobrasil-ux/movecon-site`, não da máquina principal.
+**Reconciliado.** O relatório original foi produzido num clone defasado; esta
+versão foi conferida contra a máquina principal e contra o site no ar.
 
-| | |
-|---|---|
-| Fonte | clone de `github.com/incluobrasil-ux/movecon-site` |
-| Commit (HEAD) | `516b2552cefd67d7b21a82e8d2324d1cc22b4f2b` |
-| Data do HEAD | **2026-07-26 21:49 -0300** — `docs(movecon): registra a sequencia GSC -> P7 -> GA4` |
-| Histórico | 42 commits, de 2026-07-25 21:32 a 2026-07-26 21:49 (≈ 2 dias) |
-| Arquivos versionados | 114 |
+| | Original (clone pc2) | Reconciliado |
+|---|---|---|
+| Fonte | clone de `movecon-site` | máquina principal, `commerce-agent-os/MOVECON/` |
+| HEAD | `516b255` — 2026-07-26 21:49 | `148e8f5` — 2026-07-27 |
+| Defasagem | ~2 dias | nenhuma |
+| Medição no ar | não executada | executada (D8 e contagens abaixo) |
 
-**O remoto está atrás da máquina principal.** O `git subtree push` é manual,
-por sessão (P8b) — enquanto não roda, o código só existe local. O próprio
-histórico do projeto registra o caso: *"57 commits nunca enviados"* antes do
-push que criou este repositório. A cópia de trabalho principal
-(`C:\projetos-incluo\commerce-agent-os\MOVECON\`, citada no HANDOFF) **não está
-nesta máquina** — o `commerce-agent-os` presente aqui é um checkout antigo, sem
-`MOVECON/`.
-
-**Consequência para a leitura das divergências:** quando o resumo de decisões
-cita algo que este clone não contém, a hipótese mais provável é **commit não
-enviado**, não decisão não executada. Esses casos estão marcados
-**`⟳ verificar na máquina principal`**, e não como pendência real.
-
-> Nada foi executado contra o site em produção a partir desta sessão. Os scripts
-> `gate_correcao_entrada.py` e `auditar_onpage.py` fazem requisição a
-> `moveconconsorcio.com` — **não foram rodados**. Os números de auditoria abaixo
-> vêm dos documentos já versionados, não de uma medição nova.
-
----
+**A causa da defasagem foi confirmada e corrigida:** o `git subtree push` não
+havia rodado desde 26/07 21:49. Ao reconciliar, 12 commits do MOVECON foram
+enviados de uma vez — incluindo P3, os 14 artigos, os guias, o bloco de
+compliance e a engorda dos hubs.
 
 ## 1. Placar geral
 
@@ -174,8 +154,8 @@ pela auditoria on-page de 26/07 (`docs/auditoria-onpage-2026-07-26.md`):
 **O resumo indica que os itens 1–3 e o molde do item 4 já avançaram na máquina
 principal** (molde de `/consorcio-imoveis/` aprovado — 3 blocos + FAQ 6→8, com
 regularização baseada na alienação fiduciária; regime molde → lote de 4
-aprovações; fila veículos + caminhão). **Nada disso está no clone** →
-`⟳ verificar na máquina principal` (D9). A **próxima parada** de aprovação
+aprovações; fila veículos + caminhão). **Confirmado na principal e concluído** (D9,
+commit `26e7312`). A **próxima parada** de aprovação
 (molde da 1ª filha menor → lote das 9) segue valendo — paradas de molde são a
 exceção ao "tudo que precisa do cliente fica para o final".
 
@@ -233,30 +213,30 @@ agora; prioridade segue `FAQPage`/`Organization`/`BreadcrumbList`).
 
 ---
 
-## 5. Divergências (repositório × resumo)
+## 5. Divergências — RESOLVIDAS em 2026-07-27
 
-Convenção: **`⟳`** = o resumo está adiante do clone; provável commit não
-enviado, a confirmar na máquina principal, **não** pendência real.
+Todos os nove marcadores eram **commit não enviado**, exatamente a hipótese que
+o relatório original registrou. Nenhum era decisão não executada.
 
-| # | Resumo diz | Clone mostra | Leitura |
+| # | O que o resumo afirmava | Verificação na principal | Resultado |
 |---|---|---|---|
-| **D1** | P3 fechada: autor **Samuel Tanan**, `/autor/samuel-tanan/`, bio curta/longa, schema `Person` | P3 **ABERTA**; zero ocorrência de `samuel-tanan`, `/autor/`, `author` pessoa; `Autor - dados pendentes.md` aberto; regra "nenhum artigo publica sem autor real" ativa | **`⟳`** |
-| **D2** | Fase 2: pauta de 15, **14 artigos publicados** | camada `artigo` = **3 rotas** (`/blog/` + 2 comparativos) | **`⟳`** |
-| **D3** | atribuição à Alpha "no corpo de **94/94**"; "sitemap único curado (**94=94**)" | **78** indexáveis no ar / **99** no ar total; auditoria: atribuição à Alpha **só no rodapé global, zero no corpo** dos 9 hubs | **`⟳`** (o número 94 supõe ~14 artigos + itens não versionados aqui) |
-| **D4** | "fontes primárias + data dinâmica nos **20 guias** — concluído" | **21 guias**; auditoria: **0 de 21** com fonte primária linkada, **0 de 21** com data visível | **`⟳`** + divergência de contagem (20 vs 21) |
-| **D5** | engorda dos hubs: **molde `/consorcio-imoveis/` APROVADO** (3 blocos, FAQ 6→8) | auditoria apenas **recomenda** a engorda (item 4 da fila); molde aprovado não versionado | **`⟳`** |
-| **D6** | **6 detectores**: +`ESCOPO_TERMO`, +`PAGINA_VAZIA` | **4 detectores**; `white-label` é **proibido sem exceção** no HANDOFF (a exceção B2B/institucional/autor do `ESCOPO_TERMO` não existe aqui) | **`⟳`** |
-| **D7** | "`compliance.py` como módulo único" | não existe `compliance.py`; a lógica de compliance vive no `check_seo.py` (+ `01-compliance.md`) | **`⟳`** provável refactor posterior — **confirmar o nome do módulo** |
-| **D8** | "`llms.txt` atualizado/ampliado", "robots com um sitemap", "sitemap único curado" | `llms.txt`, `sitemap*.xml` e `robots.txt` **não são versionados** — são gerados pelo mu-plugin `movecon-seo.php` (vivem na produção) | Não-verificável neste clone; **verificar em produção / máquina principal** |
-| **D9** | regime molde→lote (4 aprovações), fila veículos+caminhão, molde de filha | ausente no clone | **`⟳`** (item em curso pós-HEAD) |
-| **D10** | — | **Interna ao clone:** `HANDOFF.md` (snapshot de 25/07) diz 40 no ar / 100 rotas / 58 arquivos / 7 commits; `keyword-map` diz 99 no ar / 102 rotas; git diz 114 arquivos / 42 commits | HANDOFF é briefing datado, naturalmente atrás do mapa — não é erro |
+| **D1** | P3 fechada, autor Samuel Tanan, `/autor/` | `content/autor.json` preenchido; rotas `/autor/` e `/autor/samuel-tanan/` no mapa, ambas `no-ar`; `author` Person no schema | **concluído** — `854ccfb` |
+| **D2** | 14 artigos da Fase 2 publicados | camada `artigo` = **17 rotas** (`/blog/` + 2 comparativos + 14 novos) | **concluído** — `c73da5b`, `97cbcde`, `854ccfb` |
+| **D3** | atribuição à Alpha no corpo de 94/94 | medido no HTML servido, com recorte que descarta `nav`/`footer`: **94 de 94** | **concluído** — `be9e8bd` |
+| **D4** | fontes primárias + data nos guias | 20 de 20 com fonte linkada e data dinâmica; **divergência 20 vs 21 resolvida** — são 20 guias de conteúdo mais o índice `/guia/`, que soma 21 rotas no mapa | **concluído** — `3f2b845` |
+| **D5** | molde de hub aprovado (3 blocos, FAQ 6→8) | `secoes` em `segmentos.json` nos 3 hubs; imóveis 1.286→1.974, veículos 1.177→1.653, caminhão 1.112→1.556 | **concluído** — `26e7312` |
+| **D6** | 6 detectores, com `ESCOPO_TERMO` e `PAGINA_VAZIA` | `grep` em `check_seo.py`: 6 blocos de regra, incluindo `ESCOPO_TERMO` (linha 167) e `MIN_CORPO` (linha 522) | **concluído** — `d864ef3`, `f5aa2f1` |
+| **D7** | `compliance.py` como módulo único | `scripts/compliance.py` existe; `gerar_hubs`, `gerar_filhas`, `gerar_guias`, `gerar_dados`, `gerar_indice_blog` e `gerar_indice_guias` importam dele | **concluído** — `be9e8bd`. O nome no resumo estava certo |
+| **D8** | `llms.txt`, sitemap e robots no ar | HTTP **200** nos três; `sitemap-movecon.xml` com **94 URLs** = exatamente as 94 indexáveis no ar | **concluído** — `5ea3f85` |
+| **D9** | regime molde→lote, fila veículos+caminhão | registrado em `02-mapeamento-blueprint.md`; veículos e caminhão publicados no lote único | **concluído** — `26e7312` |
 
-Convergências que **batem** (sem divergência): as 3 planejadas do clone
-(`/simulador/moto/` + 2 legais) = exatamente o que P5/P6 preveem; os 6
-simuladores em `noindex`; o número 78 do sitemap reconcilia com a contagem de
-indexáveis; P8b como causa declarada da defasagem.
+### Sobre o `white-label` (parte do D6)
 
----
+O clone lia o HANDOFF, onde o termo era **proibido sem exceção**. A regra mudou
+por decisão do cliente em 26/07: passou a ser **escopo por audiência** —
+permitido em `/quem-somos/`, `/seja-um-representante/` e página de autor;
+proibido em toda página de consumidor. O clone não estava errado; estava lendo
+a versão anterior da regra.
 
 ## 6. Próximos passos
 
@@ -264,10 +244,12 @@ indexáveis; P8b como causa declarada da defasagem.
 Ordem da auditoria on-page — itens 1–3 são estruturais (cabem em gerador,
 atingem dezenas de páginas); item 4 é escrita, 1 página por ciclo, com parada
 de molde:
-1. Links de fonte primária nos 21 guias *(o resumo indica feito — `⟳` confirmar)*
-2. Datas visíveis nos guias *(idem)*
-3. Bloco de compliance no corpo das páginas comerciais *(idem)*
-4. Engorda dos hubs: imóveis → veículos → caminhão
+1. ~~Links de fonte primária nos guias~~ — **feito**, 20/20 (`3f2b845`)
+2. ~~Datas visíveis nos guias~~ — **feito**, 20/20, dinâmicas (`3f2b845`)
+3. ~~Bloco de compliance no corpo~~ — **feito**, 94/94 (`be9e8bd`)
+4. ~~Engorda dos hubs: imóveis → veículos → caminhão~~ — **feito** (`26e7312`)
+5. **Engorda das filhas** — único item aberto da auditoria. 35 de 36 abaixo de
+   600 palavras; menor é `/consorcio-empresa/equipamentos/`, com 336
 5. Engorda das 36 filhas (10 menores primeiro)
 
 ### Fila do cliente (destrava o resto — ver §4a)
@@ -301,6 +283,13 @@ moto · contato/equipe/depoimentos reais.
 
 ---
 
-*Mapa vivo. Atualizar ao fim de cada item concluído. Ao reconciliar contra a
-máquina principal, rebaixar cada `⟳` para "concluído" ou "pendente real"
-conforme o commit correspondente for encontrado (ou não).*
+*Mapa vivo. Atualizar ao fim de cada item concluído.*
+
+*Reconciliação de 2026-07-27 encerrada: os nove marcadores viraram "concluído",
+nenhum sobrou como pendência real. A causa da defasagem era uma só — o `git
+subtree push` não roda sozinho.*
+
+**Passo obrigatório de fechamento de sessão:** rodar
+`git subtree push --prefix=MOVECON movecon main`. Enquanto não roda, o código só
+existe na máquina local — foi o que produziu os 57 commits nunca enviados e,
+depois, esta reconciliação.*

@@ -1,5 +1,15 @@
 # Estado do projeto — mapa vivo
 
+> 🔶 **Branch `pc2-trabalho` — gerada de clone defasado (HEAD `516b255`).
+> Reconciliar APÓS o subtree push da máquina principal.**
+>
+> Esta cópia está ~2 dias atrás da máquina principal. Regra desta máquina:
+> **somente trabalho aditivo** (arquivos novos — docs, relatórios, propostas).
+> Proibido rodar geradores, publicar em produção ou editar conteúdo existente
+> (`segmentos.json`, artigos, guias) — editá-los aqui conflitaria com o trabalho
+> da principal. Os marcadores **`⟳`** da §5 só são rebaixados na reconciliação
+> pós-push. Passo a passo em `docs/reconciliacao-pc2-para-maquina-principal.md`.
+
 > **O que é.** Onde estamos e o que falta no site da MOVECON, derivado do
 > repositório e reconciliado contra o resumo de decisões da conversa com o
 > cliente. Atualizado ao fim de cada item concluído.

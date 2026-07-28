@@ -520,9 +520,9 @@ for url, kw, cam, t, d, fase in [
         # autores sem autor nao tem o que dizer. Se um dia houver os dois,
         # basta reintroduzir as rotas aqui.
         ('/politica-de-privacidade/', 'política de privacidade movecon', 'institucional', 'Política de Privacidade | MOVECON',
-         'Como a MOVECON coleta, usa e protege seus dados pessoais, conforme a Lei Geral de Proteção de Dados (LGPD).', 1),
+         'Como a MOVECON coleta, usa e protege seus dados pessoais, conforme a Lei Geral de Proteção de Dados. Veja quais dados o site registra e como exercer seus direitos.', 1),
         ('/termos-de-uso/', 'termos de uso movecon', 'institucional', 'Termos de Uso | MOVECON',
-         'Condições de uso do site moveconconsorcio.com e dos canais de atendimento da MOVECON. Leia antes de utilizar.', 1)]:
+         'Condições de uso do site e dos canais de atendimento da MOVECON, plataforma que apresenta grupos administrados pela Alpha. Leia antes de utilizar.', 1)]:
     R.append(dict(url=url, keyword=kw, intencao='navegacional', camada=cam,
                   title=t, description=d, indexavel=True,
                   status=('no-ar' if url in FILHAS_NO_AR else 'planejada'),

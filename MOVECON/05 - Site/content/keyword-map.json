@@ -1423,7 +1423,7 @@
       "intencao": "navegacional",
       "camada": "institucional",
       "title": "Política de Privacidade | MOVECON",
-      "description": "Como a MOVECON coleta, usa e protege seus dados pessoais, conforme a Lei Geral de Proteção de Dados (LGPD).",
+      "description": "Como a MOVECON coleta, usa e protege seus dados pessoais, conforme a Lei Geral de Proteção de Dados. Veja quais dados o site registra e como exercer seus direitos.",
       "indexavel": true,
       "status": "planejada",
       "fase": 1
@@ -1434,7 +1434,7 @@
       "intencao": "navegacional",
       "camada": "institucional",
       "title": "Termos de Uso | MOVECON",
-      "description": "Condições de uso do site moveconconsorcio.com e dos canais de atendimento da MOVECON. Leia antes de utilizar.",
+      "description": "Condições de uso do site e dos canais de atendimento da MOVECON, plataforma que apresenta grupos administrados pela Alpha. Leia antes de utilizar.",
       "indexavel": true,
       "status": "planejada",
       "fase": 1

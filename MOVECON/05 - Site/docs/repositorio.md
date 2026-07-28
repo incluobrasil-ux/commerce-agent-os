@@ -1,5 +1,34 @@
 # Repositório
 
+## Passo obrigatório de fechamento de sessão
+
+**Registrado em 27/07/2026, depois da reconciliação da `pc2-trabalho`.**
+
+```bash
+git subtree push --prefix=MOVECON movecon main
+```
+
+**Enquanto não roda, o código só existe na máquina local.** Foi essa a situação
+duas vezes:
+
+| Quando | Sintoma |
+|---|---|
+| 26/07 | 57 commits nunca enviados; último no remoto datava de 28/05 |
+| 27/07 | 12 commits parados desde 26/07 21:49 — P3, os 14 artigos, os guias, o bloco de compliance e a engorda dos hubs |
+
+O segundo caso custou uma reconciliação inteira: outra máquina clonou o remoto
+defasado, produziu um relatório de estado com nove divergências, e os nove eram
+o mesmo problema — commit não enviado.
+
+**O `estado-do-projeto.md` também se atualiza ao fim de cada item concluído.**
+
+### Se outra máquina trabalhar em paralelo
+
+A regra que funcionou: a máquina defasada opera em **regime aditivo** — só
+arquivos novos, nunca editar conteúdo existente — numa branch própria. O merge
+depois é trivial e a regra de conflito fica clara de antemão: **conteúdo → a
+máquina principal vence; relatório → a branch de origem vence.**
+
 ## Onde o código vive
 
 | Repositório | Visibilidade | Contém MOVECON |

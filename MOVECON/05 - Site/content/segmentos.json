@@ -1237,23 +1237,23 @@
     {
       "slug": "consorcio-contemplado",
       "nome": "Contemplado",
-      "eyebrow": "Atenção redobrada",
-      "h1": "Consórcio contemplado: onde mora a maior parte dos golpes",
-      "respostaCurta": "Cota contemplada é aquela que já teve o crédito liberado por sorteio ou lance. A transferência de cota contemplada é legítima e formalizada pela administradora — mas é também o terreno da fraude mais comum do setor: cobrança antecipada para liberar uma carta que não existe.",
-      "lead": "“Carta contemplada disponível para transferência imediata” é uma das frases mais usadas por golpistas no Brasil. Existe transferência legítima de cota contemplada — mas ela não funciona do jeito que o golpe promete. Leia antes de pagar qualquer valor.",
-      "porque_titulo": "Como o golpe funciona",
+      "eyebrow": "Consórcio contemplado",
+      "h1": "Consórcio contemplado: como funciona de verdade",
+      "respostaCurta": "Cota contemplada é aquela que já teve o crédito liberado por sorteio ou lance. A transferência de cota contemplada é legítima e formalizada pela administradora, com contrato e análise das partes — é esse registro que passa a titularidade.",
+      "lead": "“Carta contemplada disponível para transferência imediata” é uma oferta que aparece muito e quase nunca vem explicada. Esta página mostra como a operação realmente funciona, do primeiro contato ao registro da transferência.",
+      "porque_titulo": "Como a transferência acontece",
       "porque": [
         [
-          "Urgência e desconto grande",
-          "O golpista cria pressa: a carta é “de uma pessoa que precisa vender hoje”. Pressa existe para impedir você de conferir."
+          "Prazo para conferir",
+          "Uma transferência regular acontece no ritmo da administradora, com contrato para ler. Você tem tempo para conferir cada dado antes de decidir."
         ],
         [
-          "Pagamento antecipado de taxa",
-          "Pedem transferência de uma taxa, sinal ou despachante antes de qualquer formalização. Depois disso, desaparecem."
+          "Formalização antes do pagamento",
+          "A análise e o registro da transferência pela administradora vêm primeiro. O pagamento acompanha a formalização, não a antecede."
         ],
         [
-          "Conta de pessoa física",
-          "O dinheiro do consórcio vai para a administradora, nunca para a conta pessoal de um intermediário."
+          "Conta da administradora",
+          "O dinheiro do consórcio vai para a administradora, identificada pelo CNPJ dela, nunca para a conta pessoal de um intermediário."
         ]
       ],
       "cobre_titulo": "Regras que te protegem",
@@ -1262,8 +1262,8 @@
         "Transferência de cota é formalizada pela administradora, com contrato",
         "Ninguém pode garantir contemplação em data certa",
         "Peça o CNPJ da administradora e confira no Banco Central",
-        "Desconfie de pressa, desconto exagerado e sigilo",
-        "Se a empresa dificultar a conferência, encerre a conversa"
+        "Contrato, extrato da cota e prazo para ler são parte da operação regular",
+        "A administradora informa a situação da cota quando você pergunta"
       ],
       "faq": [
         [
@@ -1275,8 +1275,8 @@
           "Por sorteio ou por lance nas assembleias do grupo. Um consultor pode explicar estratégias de lance, mas ninguém pode prometer data."
         ],
         [
-          "Já paguei e acho que caí em golpe. E agora?",
-          "Registre boletim de ocorrência, reúna todos os comprovantes e comunicações, e procure a administradora informada pelo vendedor para confirmar se a cota existe."
+          "Como sei que a transferência foi concluída?",
+          "A administradora emite a confirmação da transferência e passa a registrar você como titular da cota. Peça esse documento e confira o seu nome nele antes de considerar a operação encerrada."
         ]
       ],
       "template": "proprio"

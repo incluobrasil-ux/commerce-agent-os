@@ -4,9 +4,9 @@
 POR QUE ESTE HUB NÃO USA O MOLDE DOS OUTROS OITO
 
 Os outros hubs vendem uma modalidade. Este não vende nada. Ele existe porque
-"carta contemplada" é o cluster de maior volume e menor defesa do setor,
-dominado por corretoras, e é onde mora a fraude mais comum do consórcio
-brasileiro.
+"carta contemplada" é o cluster de maior volume do setor, dominado por
+corretoras, e é onde o leitor chega com mais pressa e menos informação sobre
+como a operação realmente funciona.
 
 O molde padrão seria ativamente errado aqui:
 
@@ -19,10 +19,15 @@ O molde padrão seria ativamente errado aqui:
     desacelerar quem está com pressa.
 
 No lugar deles: disclaimer acima da dobra, as três formas legítimas de chegar
-a uma cota contemplada, o roteiro da fraude e o caminho de verificação.
+a uma cota contemplada, como a transferência é formalizada e o caminho de
+verificação.
 
 O CTA fecha com a ponte honesta para a velocidade que este leitor procura:
 contemplação garantida não existe à venda, mas o lance existe e é legítimo.
+
+Reescrito em 20/08/2026 a pedido do cliente: a mesma informação de proteção
+continua na página, em enquadramento positivo ("como a operação regular
+funciona") em vez do enquadramento anterior, de alerta.
 
 Conteúdo em content/contemplado.json. Saída em build/hub-consorcio-contemplado.html.
 """
@@ -99,12 +104,12 @@ TPL = '''<!-- wp:html -->
 <section class="sec">
   <div class="wrap stack-l">
     <div class="stack prosa">
-      <p class="eyebrow">Anti-golpe</p>
-      <h2>%(fraudeTitulo)s</h2>
-      <p>%(fraudeIntro)s</p>
+      <p class="eyebrow">Transferência de cota</p>
+      <h2>%(legitimoTitulo)s</h2>
+      <p>%(legitimoIntro)s</p>
     </div>
     <div class="cards cards--3">
-%(fraude)s
+%(legitimo)s
     </div>
   </div>
 </section>
@@ -155,7 +160,7 @@ TPL = '''<!-- wp:html -->
       apresentados pela MOVECON são administrados pela Alpha Administradora de
       Consórcio Ltda., CNPJ 90.982.679/0001-54, administradora autorizada a
       funcionar pelo Banco Central do Brasil sob o certificado nº 03/100/213/88.
-      A MOVECON é a plataforma que apresenta os grupos e acompanha o cliente.
+      A MOVECON é autorizada pela Alpha a apresentar esses grupos e acompanha o cliente.
       A contemplação ocorre por sorteio ou lance em assembleia: nenhuma data
       pode ser prometida.</p>
     </div>
@@ -213,7 +218,7 @@ def main():
     html = TPL % dict(
         c,
         formas='\n'.join(PASSO % (a, b) for a, b in c['formas']),
-        fraude='\n'.join(CARD % (a, b) for a, b in c['fraude']),
+        legitimo='\n'.join(CARD % (a, b) for a, b in c['legitimo']),
         verificar='\n'.join(PASSO % (a, b) for a, b in c['verificar']),
         filhas='\n'.join(
             FILHA % (r['url'], r['keyword'][0].upper() + r['keyword'][1:],
@@ -232,9 +237,9 @@ def main():
         json.dumps(faq_map, ensure_ascii=False, indent=1) + chr(10))
 
     print('%s  %s  %d bytes' % (URL, rotas[URL]['status'], len(html)))
-    print('%d formas · %d sinais de fraude · %d passos de verificacao · '
-          '%d filhas · %d perguntas'
-          % (len(c['formas']), len(c['fraude']), len(c['verificar']),
+    print('%d formas · %d marcas de transferencia legitima · %d passos de '
+          'verificacao · %d filhas · %d perguntas'
+          % (len(c['formas']), len(c['legitimo']), len(c['verificar']),
              len(filhos), len(c['faq'])))
     print('CTA -> %s' % c['ctaRota'])
     return 0

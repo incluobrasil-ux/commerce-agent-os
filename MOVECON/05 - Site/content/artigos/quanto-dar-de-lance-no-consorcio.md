@@ -16,7 +16,7 @@ Disso decorre tudo o que importa:
 - Um lance alto pode perder numa assembleia em que alguém ofertou mais.
 - **O mesmo percentual tem resultados diferentes em meses diferentes**, no mesmo grupo.
 
-E há um segundo motivo, que fecha a questão: quem promete resultado de lance está prometendo **data de contemplação** — o sinal mais confiável de que a conversa deixou de ser legítima, como detalha [contemplação garantida é golpe](/guia/contemplacao-garantida-e-golpe/).
+E há um segundo motivo, que fecha a questão: quem promete resultado de lance está prometendo **data de contemplação** — e nenhuma data pode ser assegurada, como detalha [como a contemplação acontece](/guia/como-a-contemplacao-acontece/).
 
 Se você chegou aqui procurando um número para digitar, a resposta honesta é que a decisão é outra: **quanto cabe no seu caixa**. O resto deste texto trata disso.
 

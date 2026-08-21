@@ -19,9 +19,37 @@ COMPLIANCE = """
       apresentados pela MOVECON são administrados pela Alpha Administradora de
       Consórcio Ltda., CNPJ 90.982.679/0001-54, administradora autorizada a
       funcionar pelo Banco Central do Brasil sob o certificado nº 03/100/213/88.
-      A MOVECON é a plataforma que apresenta os grupos e acompanha o cliente.
+      A MOVECON é autorizada pela Alpha a apresentar esses grupos e acompanha o cliente.
       A contemplação ocorre por sorteio ou lance em assembleia: nenhuma data
       pode ser prometida.</p>
+    </div>
+  </div>
+</section>"""
+
+
+# Chamada final de pagina. O componente (.sec--dark + .chevrons) ja fechava
+# hub, guia, filha, LP e institucional, cada um com o texto escrito a mao
+# dentro do proprio gerador. Artigo e pagina de autor ficaram sem nenhuma: o
+# leitor chegava ao fim do texto e nao tinha para onde ir.
+#
+# Passa a morar aqui pelo mesmo motivo do COMPLIANCE acima - um bloco copiado
+# em dois geradores diverge na primeira revisao de copy.
+#
+# Sai SEM o wrapper .mv-page de proposito. Na pagina de autor ele entra dentro
+# do wrapper que ja existe; no artigo, que e Gutenberg puro e nao tem wrapper
+# nenhum, quem embrulha e o gerador - .mv-page e a regra que zera a margem dos
+# <p>, e sem ela o gap do .stack soma com a margem do tema.
+CTA_FINAL = """
+<section class="sec sec--dark chevrons">
+  <div class="wrap stack prosa">
+    <h2>Vamos conversar sobre o seu objetivo?</h2>
+    <p class="lead">
+      Sem pressa e sem compromisso. Um consultor apresenta os grupos disponíveis, explica os custos
+      por escrito e responde o que você precisar — inclusive as perguntas difíceis.
+    </p>
+    <div class="botoes">
+      <a class="btn btn--cta" href="/contato/">Falar com um consultor</a>
+      <a class="btn btn--ghost" href="/administrado-pela-alpha/">Conferir nossa autorização</a>
     </div>
   </div>
 </section>"""

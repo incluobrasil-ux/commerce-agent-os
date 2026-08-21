@@ -60,7 +60,7 @@ Os recursos do grupo não se confundem com o patrimônio da administradora, e o 
 
 **Quem administra os grupos da MOVECON?**
 
-A Alpha Administradora de Consórcio Ltda., CNPJ 90.982.679/0001-54, autorizada a funcionar pelo Banco Central do Brasil sob o certificado nº 03/100/213/88. A MOVECON é a plataforma que apresenta os grupos e acompanha o cliente.
+A Alpha Administradora de Consórcio Ltda., CNPJ 90.982.679/0001-54, autorizada a funcionar pelo Banco Central do Brasil sob o certificado nº 03/100/213/88. A MOVECON é autorizada pela Alpha a apresentar esses grupos e acompanha o cliente.
 
 **Como confiro se uma administradora está autorizada?**
 

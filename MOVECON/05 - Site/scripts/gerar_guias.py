@@ -13,7 +13,7 @@ SEM CAIXA DE AUTOR. Conteudo YMYL sobre dinheiro pede autor identificavel,
 e o dado de autoria (nome completo, foto, anos de experiencia, credencial)
 ainda nao chegou. A escolha aqui foi publicar o conteudo sem assinatura em
 vez de assinar com dado inventado: guia sem autor e conteudo anonimo, guia
-com autor falso e fraude. Quando o dado chegar, a caixa entra por aqui e
+com autor sem identificacao real. Quando o dado chegar, a caixa entra por aqui e
 todas as 20 paginas sao regeneradas de uma vez.
 """
 import glob
@@ -191,7 +191,7 @@ FONTE = {
 FONTES_BASE = ('lei', 'bacen')
 FONTES_EXTRA = {
     'consorcio-e-confiavel': ('consulta', 'reclamacao'),
-    'contemplacao-garantida-e-golpe': ('consulta',),
+    'como-a-contemplacao-acontece': ('consulta',),
     'direitos-do-consorciado': ('reclamacao',),
     'consorcio-vale-a-pena': ('abac',),
 }

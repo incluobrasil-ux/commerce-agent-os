@@ -17,7 +17,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from compliance import COMPLIANCE  # noqa: E402
+from compliance import COMPLIANCE, CTA_FINAL  # noqa: E402
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(BASE)
@@ -106,7 +106,7 @@ def pagina(a):
         '<p>Todos os textos publicados no '
         '<a href="/blog/">blog da MOVECON</a>.</p>'
         '</section>'
-        + COMPLIANCE +
+        + COMPLIANCE + CTA_FINAL +
         '</div>'
     ) % ('' if img else ' autor-perfil__topo--sem-foto', img, esc(a['nome']),
          esc(a['cargo']), link, paras, esc(a['nome']))
@@ -139,6 +139,7 @@ def indice(autores):
         'para você julgar a fonte, e não só o texto.</p>'
         '<ul class="autor-indice">%s</ul>'
         '<p><a href="/blog/">Ver todos os artigos do blog</a></p>'
+        + CTA_FINAL +
         '</div>'
     ) % ''.join(cartoes)
 

@@ -50,7 +50,7 @@ logo e favicon · padrão de página (`.mv-page` + bloco `wp:html`) · 11 plugin
 | `/` — Home | ✅ publicada |
 | ⭐ `/administrado-pela-alpha` | ✅ publicada |
 | `/contato` | ✅ publicada · ⏳ falta telefone, e-mail e WhatsApp reais |
-| ⭐ `/seguranca-anti-golpe` | 🔲 **prioridade** — pilar diferenciador |
+| ⭐ `/seguranca/` | ✅ publicada — pilar diferenciador |
 | `/sobre` | 🔲 depende de dados reais de equipe |
 | `/regulamentacao` | 🔲 |
 | `/politica-de-privacidade` | 🔲 obrigatório LGPD |
@@ -77,7 +77,7 @@ logo e favicon · padrão de página (`.mv-page` + bloco `wp:html`) · 11 plugin
 | `/consorcio-servicos` | ✅ publicado | 10 |
 | `/consorcio-empresa` | ✅ publicado | 4 |
 | `/consorcio-embarcacoes` | ✅ publicado | 2 |
-| ⭐ `/consorcio-contemplado` | ✅ publicado — conteúdo anti-golpe | 1 |
+| ⭐ `/consorcio-contemplado` | ✅ publicado — como a operação funciona | 1 |
 
 Cada hub tem keyword própria, title e description únicos (anti-canibalização), 3 vantagens,
 lista de cobertura, FAQ próprio e bloco de compliance.
@@ -93,11 +93,11 @@ aparecem no rodapé de **todas** as páginas.
 ## Ordem sugerida de produção
 
 1. ~~**Hubs de segmento** (8)~~ ✅ **concluído em 25/07/2026**
-2. ⭐ `/seguranca-anti-golpe` — volume alto, concorrência séria baixa, é o diferencial da marca
+2. ⭐ `/seguranca/` — volume alto, concorrência séria baixa, é o diferencial da marca
 3. **Bloco B** (11) — `/como-funciona` e spokes educacionais alimentam os hubs por link interno
 4. **Spokes de segmento** (42) — cauda longa, em lotes por categoria
 5. **Legais** — privacidade e termos (LGPD)
-6. **Blog** — abrir pelo cluster Segurança & golpe
+6. **Blog** — abrir pelo cluster Segurança e verificação
 
 ---
 

@@ -166,7 +166,7 @@
         {
           "termo": "Transferência de cota",
           "slug": "transferencia-de-cota",
-          "definicao": "Passagem da cota para outra pessoa, formalizada pela administradora, com contrato e análise das partes. Acerto direto entre particulares não transfere cota, e é exatamente aí que mora a fraude mais comum do setor."
+          "definicao": "Passagem da cota para outra pessoa, formalizada pela administradora, com contrato e análise das partes. Acerto direto entre particulares não transfere cota: é o registro na administradora que passa a titularidade."
         },
         {
           "termo": "Cessão de direitos",
@@ -208,7 +208,7 @@
         {
           "termo": "Administradora autorizada",
           "slug": "administradora-autorizada",
-          "definicao": "Empresa autorizada pelo Banco Central a constituir e administrar grupos de consórcio. Somente ela pode gerir os recursos do grupo. Plataformas e representantes podem existir, mas não administram: os grupos MOVECON são administrados pela Alpha Administradora de Consórcio Ltda."
+          "definicao": "Empresa autorizada pelo Banco Central a constituir e administrar grupos de consórcio. Somente ela pode gerir os recursos do grupo. Empresas parceiras e representantes podem existir, mas não administram: os grupos MOVECON são administrados pela Alpha Administradora de Consórcio Ltda."
         },
         {
           "termo": "Banco Central do Brasil",
@@ -244,8 +244,8 @@
         {
           "termo": "Contemplação garantida",
           "slug": "contemplacao-garantida",
-          "definicao": "Não existe. É a promessa mais usada em golpe de consórcio. A contemplação ocorre por sorteio ou lance, em assembleia, e nenhuma administradora pode assegurar data. Quem promete está cometendo fraude ou vendendo o que não pode entregar.",
-          "guia": "/guia/contemplacao-garantida-e-golpe/",
+          "definicao": "Não existe. A contemplação ocorre por sorteio ou lance, em assembleia, e nenhuma administradora pode assegurar data. É o que determina a Lei 11.795/08.",
+          "guia": "/guia/como-a-contemplacao-acontece/",
           "alerta": true
         }
       ]

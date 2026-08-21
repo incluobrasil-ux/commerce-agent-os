@@ -45,7 +45,7 @@ Contrato de aluguel vencendo, imóvel vendido, mudança de cidade, casamento mar
 
 **Consórcio não tem data.** A contemplação ocorre por sorteio ou lance em assembleia. Ninguém — nem a administradora, nem o vendedor, nem esta página — pode dizer quando a sua sai.
 
-Se alguém prometeu prazo, isso não é otimismo comercial: é o [padrão do golpe da contemplação garantida](/guia/contemplacao-garantida-e-golpe/). A promessa de data é o sinal mais confiável de que a conversa deixou de ser legítima.
+Se alguém prometeu prazo, isso não é otimismo comercial: nenhuma data pode ser assegurada, como explica [como a contemplação acontece](/guia/como-a-contemplacao-acontece/). A contemplação depende de sorteio ou lance em assembleia.
 
 Quem tem data precisa de uma ferramenta com data. Financiamento tem. Consórcio não tem — e é honesto dizer isso antes da assinatura, não depois.
 

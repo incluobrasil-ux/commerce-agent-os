@@ -27,13 +27,13 @@ Este é o ponto que impede um "copiar e trocar o logo".
 | Proposta de valor | "**Comparamos** as administradoras e indicamos a melhor pra você" | "**Nossos grupos.** Conduzimos você da simulação à contemplação" |
 | Relação com concorrente | Compara, é o diferencial | **Não compara nem lista** — a MOVECON é o produto |
 | Autoridade | Experiência do consultor | **Autorizada pela Alpha Administradora de Consórcio Ltda.** (que é autorizada pelo Bacen) |
-| Diferencial central | Sem juros, consultor dedicado | **Anti-golpe / transparência** |
+| Diferencial central | Sem juros, consultor dedicado | **Transparência e verificação** |
 | Público secundário | — | **Representantes** (prioridade nº1 do negócio) |
 
 > **Consequência prática:** o léxico da Crelider — *"comparamos"*, *"indicamos a opção certa"*, *"administradoras parceiras"* — é **proibido** na Movecon. Está no tom de voz da Crelider como palavra-chave recorrente. Toda copy herdada precisa passar por esse filtro, não por find-and-replace.
 
 ### Regra de compliance (inegociável, de [[Posicionamento & Credibilidade]])
-- ✅ MOVECON = *"**plataforma de consórcio. Os grupos são administrados pela Alpha Administradora de Consórcio Ltda.**"*
+- ✅ MOVECON = *"**autorizada pela Alpha Administradora de Consórcio Ltda., que administra os grupos**"* (vocabulário de 20/08/2026 — "plataforma" saiu do site)
 - ✅ Ao citar a Alpha = *"**Alpha Administradora de Consórcio Ltda.** — autorizada pelo Banco Central (Cert. BCB 03/100/213/88 · CNPJ 90.982.679/0001-54)"*
 - ❌ **Nunca** "MOVECON autorizada pelo Bacen" · ❌ nunca "white-label"
 - 📍 **Dosagem:** a menção ao Bacen aparece **só onde a Alpha é citada** — não é elemento recorrente do site. Sem selo no header, sem faixa repetida.
@@ -68,7 +68,7 @@ Este é o ponto que impede um "copiar e trocar o logo".
 | Página / bloco | Por quê |
 |---|---|
 | ⭐ `/administrado-pela-alpha` | **Página-âncora de confiança** — recebe link interno de todo o site, concentra autoridade |
-| ⭐ `/seguranca-anti-golpe` | Diferencial central da marca; pilar de blog próprio |
+| ⭐ `/seguranca/` | Diferencial central da marca; pilar de blog próprio |
 | `/area-do-consorciado` + `/segunda-via-boleto` | Retenção + busca de marca — só administradora tem |
 | **Camada Representantes** (5 páginas) | `/seja-representante` · `/representante/como-funciona` · `/representante/cadastro` · `/representante/faq` · `/area-do-representante` |
 | CNPJ e endereço da MOVECON visíveis (footer) | Camada E-E-A-T fixa — **sem** selo Bacen no header |
@@ -135,7 +135,7 @@ Grafismo    chevrons modulares, baixa opacidade, uma cor só
 
 ### ⚠️ Consequências que exigem atenção
 
-**a) "Nacional" endurece o SEO.** Sem a camada local, some o atalho de baixa concorrência — as páginas de cidade eram o caminho mais barato para ranquear. A compensação tem de vir de **profundidade**: os ~41 spokes de segmento e o blog em 8 clusters deixam de ser "fase 3" e passam a ser o motor principal. O pilar **Segurança & golpe** ganha peso extra: é keyword de volume alto onde ninguém sério disputa, e casa com o diferencial da marca.
+**a) "Nacional" endurece o SEO.** Sem a camada local, some o atalho de baixa concorrência — as páginas de cidade eram o caminho mais barato para ranquear. A compensação tem de vir de **profundidade**: os ~41 spokes de segmento e o blog em 8 clusters deixam de ser "fase 3" e passam a ser o motor principal. O pilar **Segurança e verificação** ganha peso extra: é keyword de volume alto onde ninguém sério disputa, e casa com o diferencial da marca.
 
 **b) Endereço e CNPJ continuam visíveis.** Mesmo sem alvo de SEO local, E-E-A-T em YMYL exige endereço físico, CNPJ e telefone no header/footer. Nacional muda o *schema alvo*, não a camada de confiança.
 
@@ -169,10 +169,10 @@ Grafismo    chevrons modulares, baixa opacidade, uma cor só
 **Fase 3 — Conteúdo (ordem por valor estratégico — ajustada para escopo nacional)**
 1. ⭐ `/administrado-pela-alpha` — âncora de autoridade, publicar **primeiro**
 2. Home + `/sobre` + `/contato`
-3. ⭐ `/seguranca-anti-golpe`
+3. ⭐ `/seguranca/`
 4. `/como-funciona` + spokes educacionais + `/simulacao-consorcio` + `/faq`
 5. **Hubs de segmento + ~41 spokes** — com escopo nacional, este é o motor de SEO. Não é fase opcional.
-6. **Blog em 8 clusters** — abrir pelo pilar **Segurança & golpe** (volume alto, concorrência séria baixa, casa com o diferencial)
+6. **Blog em 8 clusters** — abrir pelo pilar **Segurança e verificação** (volume alto, concorrência séria baixa, casa com o diferencial)
 7. `/area-do-consorciado` + `/segunda-via-boleto`
 8. `/lp/seja-representante` (noindex, fora do menu) → [[00 - Funil Cadastro de Representantes]]
 9. ~~Camada de cidades~~ — fora do escopo (decisão: nacional)

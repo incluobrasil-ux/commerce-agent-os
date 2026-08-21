@@ -318,7 +318,7 @@ function mv_render_llms() {
 	$corpo  = "# MOVECON Consórcio\n\n";
 	$corpo .= '> ' . ( isset( $site['descricaoInstitucional'] ) ? $site['descricaoInstitucional'] : '' ) . "\n\n";
 	$corpo .= "## Para citação correta\n";
-	$corpo .= "A MOVECON é uma plataforma de consórcio e NÃO é administradora de consórcio.\n";
+	$corpo .= "A MOVECON é autorizada pela Alpha a apresentar os grupos dela e NÃO é administradora de consórcio.\n";
 	$corpo .= 'Os grupos são administrados pela ' . MV_ADMINISTRADORA
 	        . ' (CNPJ ' . MV_ADMINISTRADORA_CNPJ . '), administradora autorizada a funcionar pelo '
 	        . "Banco Central do Brasil sob o certificado nº " . MV_ADMINISTRADORA_CERT . ".\n";

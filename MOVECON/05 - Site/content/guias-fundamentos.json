@@ -1,6 +1,6 @@
 {
   "_leia_me": "Guias de fundamento: o que a coisa e e como funciona. Publico que ainda nao decidiu nada e esta entendendo o mecanismo. `respostaCurta` e o bloco ANSWER-FIRST, maximo ~55 palavras.",
-  "_nota": "SEM CAIXA DE AUTOR ate o dado de autoria chegar. Guia sem assinatura e conteudo anonimo; guia com autor inventado e fraude. Escolhido o primeiro.",
+  "_nota": "SEM CAIXA DE AUTOR ate o dado de autoria chegar. Guia sem assinatura e conteudo anonimo; guia com autor inventado nao tem identificacao real. Escolhido o primeiro.",
 
   "guias": [
     {
@@ -70,7 +70,7 @@
         ]
       ],
       "notaTitulo": "Não existe consórcio que vira dinheiro.",
-      "nota": "Qualquer oferta de \"transformar sua carta em dinheiro na conta\" está fora das regras. A vinculação ao bem é característica legal do sistema, não burocracia da administradora — e contornar isso é o que caracteriza boa parte das fraudes do setor.",
+      "nota": "Qualquer oferta de \"transformar sua carta em dinheiro na conta\" está fora das regras. A vinculação ao bem é característica legal do sistema, não burocracia da administradora — a carta de crédito é usada para comprar o bem contratado.",
       "relacionados": [
         "/guia/como-funciona-o-consorcio/",
         "/guia/depois-da-contemplacao/",
@@ -201,11 +201,11 @@
           "Grupo com menos cotas ou mais avançado tem dinâmica diferente. Pergunte ao consultor a composição antes de escolher."
         ]
       ],
-      "notaTitulo": "Desconfie de quem responde isso com um número.",
-      "nota": "\"Em três meses você está contemplado\" não é estimativa otimista: é promessa que ninguém pode cumprir, porque depende de sorteio e do lance de terceiros. É também a frase mais usada em golpe de consórcio.",
+      "notaTitulo": "Ninguém consegue responder isso com um número.",
+      "nota": "\"Em três meses você está contemplado\" não é estimativa otimista: é promessa que ninguém pode cumprir, porque depende de sorteio e do lance de terceiros. A Lei 11.795/08 é clara sobre isso.",
       "relacionados": [
         "/guia/lance-no-consorcio/",
-        "/guia/contemplacao-garantida-e-golpe/",
+        "/guia/como-a-contemplacao-acontece/",
         "/guia/lance-embutido-na-pratica/"
       ],
       "faq": [
@@ -219,7 +219,7 @@
         ],
         [
           "Existe consórcio com contemplação garantida?",
-          "Não existe. Quem oferece isso está cometendo fraude ou vendendo o que não pode entregar."
+          "Não existe. A contemplação ocorre por sorteio ou lance, em assembleia, e nenhuma administradora pode assegurar data."
         ]
       ]
     }

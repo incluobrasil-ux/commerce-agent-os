@@ -47,10 +47,10 @@ que o visitante não encontra ao clicar.
 
 ### Atenção registrada pelo cliente
 
-A bio **não** pode conter nenhuma das 11 expressões proibidas. Em especial,
-nada de `white-label` — a construção aprovada é "plataforma que comercializa
-grupos administrados pela Alpha". O validador foi testado com violação
-injetada e barra com exit 1.
+A bio **não** pode conter nenhuma das expressões proibidas. Em especial,
+nada de `white-label` — a construção aprovada é "autorizada pela Alpha, que
+administra os grupos" (revisada em 20/08/2026). O validador foi testado com
+violação injetada e barra com exit 1.
 
 ## P1 — Tabela comercial da MOVECON, por escrito, da Alpha
 
@@ -106,7 +106,7 @@ mestre listava como dependentes de P2. Os artigos estão publicados.
 Falta: nome completo, foto, anos de experiência no setor, credencial
 verificável e perfil público. Enquanto não houver, o `publisher` é
 `Organization` e **não existe `author` pessoa** — guia sem assinatura é
-conteúdo anônimo; guia com autor inventado é fraude.
+conteúdo anônimo; guia com autor inventado não tem autoria real.
 
 O relatório de concorrentes registra que **quase nenhum player identifica
 autoria de blog**. É ganho fácil e barato, e depende só do cliente.
@@ -258,8 +258,8 @@ A pauta do Prompt 2.1 **pode** ser escrita e aprovada com a P3 em aberto. Os
 artigos **podem** ser escritos. Mas **nenhum vai ao ar sem autor real definido**.
 
 Motivo: conteúdo YMYL sobre dinheiro sem autoria identificável é a pior
-categoria possível para E-E-A-T — e assinar com autor inventado é fraude, não
-otimização. Os 21 guias já estão no ar sem caixa de autor por essa mesma razão;
+categoria possível para E-E-A-T — e assinar com autor inventado não é
+otimização, é conteúdo sem autoria real. Os 21 guias já estão no ar sem caixa de autor por essa mesma razão;
 artigo de blog terá o mesmo tratamento até a P3 fechar.
 
 O `Article` schema segue com `publisher` `Organization` e **sem `author`
@@ -339,11 +339,11 @@ essa busca dizendo que **não vendemos**.
 Isso é deliberado, e não um descuido de otimização:
 
 - Interceptar essa intenção é **proteção do usuário e da marca**. O cluster
-  "carta contemplada" é o de maior volume e menor defesa do setor, dominado por
-  corretoras, e é onde mora a fraude mais comum do consórcio brasileiro.
-- **Bounce de leitor avisado é sucesso, não custo.** Quem chega com pressa para
-  comprar contemplação e sai sabendo que ela não se compra saiu ganhando — e
-  não pagou um golpe.
+  "carta contemplada" é o de maior volume do setor, dominado por corretoras, e é
+  onde o leitor chega com mais pressa e menos informação sobre a operação.
+- **Bounce de leitor informado é sucesso, não custo.** Quem chega com pressa
+  para comprar contemplação e sai sabendo que ela não se compra, e sim se
+  transfere pela administradora, saiu ganhando.
 - O relatório de concorrentes registra que nenhum player defende a própria SERP
   nesse cluster.
 

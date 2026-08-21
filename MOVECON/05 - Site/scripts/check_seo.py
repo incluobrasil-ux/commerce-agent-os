@@ -158,7 +158,7 @@ PARCELA_FIXA = {
 # pagina institucional. Para o CONSUMIDOR o termo nao informa nada e embaralha
 # o unico ponto que precisa ficar claro: quem administra o grupo e a Alpha, nao
 # a MOVECON. Em pagina de audiencia consumidor a construcao segue sendo
-# "plataforma que comercializa grupos administrados pela Alpha".
+# "autorizada pela Alpha, que administra os grupos".
 #
 # RESSALVA REGISTRADA: o motivo original da proibicao no 01-compliance.md nao
 # era audiencia, era "descreve relacao contratual que nao foi documentada".
@@ -458,10 +458,16 @@ def validar_prosa(doc):
     """
     proibidas = [p.lower() for p in doc['site'].get('nuncaEscrever', [])]
     # variacoes que a regra proibe mas a string exata nao cobre
+    # 'autorizada pela alpha' saiu da lista em 20/08/2026: passou a ser o
+    # vocabulario oficial do site, por decisao do cliente. O que a regra
+    # continua barrando e a atribuicao FALSA - autorizacao do Banco Central
+    # em nome da MOVECON - e a afirmacao de que a MOVECON administra grupos.
     padroes = proibidas + [
-        'movecon é autorizada', 'movecon e autorizada',
-        'autorizada pela alpha', 'somos uma administradora',
-        'quem autoriza a movecon',
+        'movecon é autorizada pelo banco central',
+        'movecon e autorizada pelo banco central',
+        'movecon é autorizada pelo bacen',
+        'movecon e autorizada pelo bacen',
+        'somos uma administradora', 'quem autoriza a movecon',
     ]
     alvos = []
     for pasta in ('_codigo', 'build'):

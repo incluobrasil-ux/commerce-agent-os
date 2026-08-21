@@ -193,8 +193,8 @@ def montar(site):
             'oferta vinculante ou contrato.</strong>')),
 
         ('', 'Papéis', 'Quem faz o quê', p(
-            'A MOVECON é uma plataforma de consórcio. Os grupos são administrados pela '
-            '<strong>%s</strong>, administradora autorizada a funcionar pelo Banco Central do Brasil.' % adm,
+            'A MOVECON é autorizada pela <strong>%s</strong>, administradora autorizada a '
+            'funcionar pelo Banco Central do Brasil, a apresentar os grupos de consórcio dela.' % adm,
             'A relação contratual de consórcio é firmada com a administradora e regida pela '
             'Lei nº 11.795/2008, pelas normas do Banco Central e pelo contrato de adesão do grupo, '
             'que você recebe e lê antes de aderir.')),

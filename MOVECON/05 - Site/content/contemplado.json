@@ -8,10 +8,10 @@
 
   "respostaCurta": "Cota contemplada é aquela que já teve o crédito liberado, por sorteio ou por lance em assembleia. Ela não é vendida pela administradora nem por nós: o que existe é transferência entre consorciados, sempre formalizada pela administradora. Contemplação não se compra.",
 
-  "lead": "Este é o assunto em que mais se perde dinheiro no consórcio brasileiro — e quase nunca por causa do produto. É por causa de quem se aproveita da pressa de quem procura por ele.",
+  "lead": "É o assunto do consórcio em que mais gente decide com pressa e sem informação. Esta página existe para você entender a operação inteira antes de assinar ou pagar qualquer valor.",
 
   "disclaimerTitulo": "A MOVECON não vende cota contemplada",
-  "disclaimer": "A MOVECON não comercializa cotas contempladas, e a Alpha Administradora de Consórcio Ltda. não vende contemplação. Esta página é informativa: ela existe para você entender como a contemplação realmente acontece e reconhecer uma oferta fraudulenta antes de pagar.",
+  "disclaimer": "A MOVECON não comercializa cotas contempladas, e a Alpha Administradora de Consórcio Ltda. não vende contemplação. Esta página é informativa: ela existe para você entender como a contemplação realmente acontece e como uma transferência é formalizada.",
 
   "formasTitulo": "As três formas legítimas de se chegar a uma cota contemplada",
   "formas": [
@@ -29,24 +29,24 @@
     ]
   ],
 
-  "fraudeTitulo": "O roteiro da fraude é sempre o mesmo",
-  "fraudeIntro": "Não é sofisticado. Funciona porque cria pressa e porque a vítima não sabe onde conferir — e as duas coisas têm solução.",
-  "fraude": [
+  "legitimoTitulo": "Como uma transferência legítima acontece",
+  "legitimoIntro": "Toda transferência de cota contemplada passa pela administradora do grupo. São três marcas que definem a operação regular.",
+  "legitimo": [
     [
-      "Urgência fabricada",
-      "A carta é \"de alguém que precisa vender hoje\". A pressa não é do negócio: ela existe para impedir você de verificar."
+      "Prazo para conferir",
+      "Uma transferência regular acontece no ritmo da administradora, com contrato para ler. Você tem tempo para conferir cada dado antes de decidir."
     ],
     [
-      "Taxa antecipada",
-      "Pedem transferência de taxa, sinal ou despachante antes de qualquer formalização. Depois disso, o contato desaparece."
+      "Pagamento depois da formalização",
+      "Primeiro vem a análise e o registro da transferência pela administradora. O pagamento acompanha a formalização, não a antecede."
     ],
     [
-      "Conta de pessoa física",
-      "O pagamento nunca é para a administradora. É o sinal mais claro de todos, e o mais fácil de checar antes de perder dinheiro."
+      "Conta da administradora",
+      "O valor é pago à administradora do grupo, identificada pelo CNPJ dela. É o dado mais simples de conferir em toda a operação."
     ]
   ],
 
-  "verificarTitulo": "Como verificar antes de pagar qualquer valor",
+  "verificarTitulo": "O que conferir antes de pagar qualquer valor",
   "verificar": [
     [
       "Confirme a administradora na lista do Banco Central",
@@ -68,11 +68,11 @@
   "faq": [
     [
       "Vocês vendem carta contemplada?",
-      "Não. A MOVECON não comercializa cotas contempladas, e a Alpha Administradora de Consórcio Ltda. não vende contemplação. Quem oferece isso está fora das regras do sistema."
+      "Não. A MOVECON não comercializa cotas contempladas, e a Alpha Administradora de Consórcio Ltda. não vende contemplação. O que existe é transferência entre consorciados, sempre formalizada pela administradora."
     ],
     [
       "Existe consórcio com contemplação garantida?",
-      "Não existe. A contemplação ocorre por sorteio ou lance, em assembleia, e nenhuma administradora pode assegurar data. É a promessa mais usada em golpe no setor."
+      "Não existe. A contemplação ocorre por sorteio ou lance, em assembleia, e nenhuma administradora pode assegurar data. É o que determina a Lei 11.795/08."
     ],
     [
       "Então como alguém tem uma cota contemplada para transferir?",
@@ -87,13 +87,13 @@
       "Depende do saldo devedor, das parcelas já pagas e do ágio cobrado. Faça a conta completa: às vezes entrar em um grupo novo sai melhor. O risco não está na operação, e sim em fechá-la fora da administradora."
     ],
     [
-      "Caí em um golpe. O que faço agora?",
-      "Registre boletim de ocorrência, reúna todos os comprovantes e comunicações, e procure a administradora informada pelo vendedor para confirmar se a cota existe."
+      "Como confirmo que a cota realmente foi transferida para mim?",
+      "A administradora emite a confirmação da transferência e passa a constar você como titular da cota. Peça esse documento e confira o seu nome nele antes de considerar a operação concluída."
     ]
   ],
 
   "ctaTitulo": "Quer acelerar de forma legítima?",
-  "ctaTexto": "Contemplação garantida não existe à venda. O caminho legítimo para acelerar é o lance — livre ou embutido, dentro das regras do grupo.",
+  "ctaTexto": "O caminho para acelerar a contemplação é o lance — livre ou embutido, dentro das regras do grupo. Ele é previsto em contrato e disputado em assembleia.",
   "ctaRota": "/guia/lance-no-consorcio/",
   "ctaLabel": "Entender como funciona o lance"
 }

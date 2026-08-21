@@ -92,8 +92,8 @@ add_action( 'wp_footer', function () {
 	if ( mv_e_lp() ) {
 		printf(
 			'<footer class="mv-rodape mv-rodape--lp"><div class="mv-rodape__in"><div class="mv-rodape__legal">'
-			. '<p>MOVECON — plataforma de consórcio. Os grupos são administrados pela <strong>%s</strong>, '
-			. 'administradora autorizada a funcionar pelo Banco Central do Brasil. Consórcio é modalidade de '
+			. '<p>MOVECON — autorizada pela <strong>%s</strong>, administradora dos grupos, '
+			. 'autorizada a funcionar pelo Banco Central do Brasil. Consórcio é modalidade de '
 			. 'compra programada, não é investimento e não gera rendimento. Não há juros; há taxa de '
 			. 'administração e, quando previsto, fundo de reserva. A contemplação ocorre por sorteio ou lance, '
 			. 'sem data garantida. Leia o contrato antes de aderir.</p>'
@@ -206,7 +206,7 @@ add_action( 'wp_footer', function () {
 
     <div class="mv-rodape__legal">
       <p>
-        MOVECON — plataforma de consórcio. Os grupos são administrados pela <strong>Alpha Administradora de Consórcio Ltda.</strong>, autorizada pelo
+        MOVECON — autorizada pela <strong>Alpha Administradora de Consórcio Ltda.</strong>, que administra os grupos e é autorizada pelo
         Banco Central (Cert. BCB 03/100/213/88 · CNPJ 90.982.679/0001-54). Consórcio é modalidade de compra
         programada, não é investimento e não gera rendimento. Não há juros; há taxa de administração e,
         quando previsto, fundo de reserva. A contemplação ocorre por sorteio ou lance, sem data garantida.

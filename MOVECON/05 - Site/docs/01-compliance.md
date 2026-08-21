@@ -67,9 +67,14 @@ página que a tiver. A resposta honesta é o diferencial — não o obstáculo.
 Construção aprovada do projeto, usada em toda página que precise atribuir a
 administração:
 
-> A MOVECON é uma plataforma de consórcio. Os grupos são administrados pela
-> Alpha Administradora de Consórcio Ltda., administradora autorizada a
-> funcionar pelo Banco Central do Brasil.
+> A MOVECON é autorizada pela Alpha Administradora de Consórcio Ltda. a
+> apresentar os grupos de consórcio dela. A Alpha é administradora autorizada
+> a funcionar pelo Banco Central do Brasil.
+
+**Reescrita em 20/08/2026, por decisão do cliente.** A construção anterior era
+"A MOVECON é uma plataforma de consórcio". O termo "plataforma" saiu do
+vocabulário do site; a atribuição da administração à Alpha, que é o que a
+norma exige, continua obrigatória em toda página.
 
 Quando houver espaço para a forma completa, acrescentar os identificadores:
 
@@ -97,7 +102,7 @@ e deixar só a atribuição de autorização.
 **Proibido:** "há mais de 40 anos", "quatro décadas", "40+ anos" ou qualquer
 variação sem fonte. Foram removidas dos dois artigos comparativos em 26/07/2026.
 
-## As 11 expressões proibidas
+## As 12 expressões proibidas
 
 Lista literal em `site.nuncaEscrever` no keyword-map. O `check_seo.py` varre
 `_codigo/` e `build/` atrás delas — **inclusive dentro de comentário HTML**,
@@ -105,17 +110,33 @@ porque comentário também vai no documento servido.
 
 | # | Expressão | Por quê |
 |---|---|---|
-| 1 | MOVECON autorizada | A autorização é da administradora, não da plataforma |
-| 2 | nossa administradora | Sugere propriedade ou controle sobre a Alpha |
-| 3 | administradora MOVECON | Afirma o que o contrato social não permite |
-| 4 | plataforma autorizada pela Alpha | Autorização não é algo que a Alpha concede |
-| 5 | representante autorizada | Mesma confusão de papel |
-| 6 | white-label | **Regra de escopo desde 26/07/2026 — ver seção abaixo** |
-| 7 | sem nenhuma ocorrência | Existe processo administrativo público envolvendo a Alpha |
-| 8 | ficha limpa | idem |
-| 9 | histórico impecável | idem |
-| 10 | nunca foi penalizada | idem |
-| 11 | sem qualquer sanção | idem |
+| 1 | MOVECON autorizada pelo Banco Central | A autorização do Bacen é da administradora, não da MOVECON |
+| 2 | MOVECON autorizada pelo Bacen | idem |
+| 3 | MOVECON autorizada a funcionar | "autorizada a funcionar" é a fórmula do Bacen |
+| 4 | MOVECON é autorizada pelo Banco Central | idem |
+| 5 | nossa administradora | Sugere propriedade ou controle sobre a Alpha |
+| 6 | administradora MOVECON | Afirma o que o contrato social não permite |
+| 7 | representante autorizada | Confusão de papel; o site usa "autorizada pela Alpha" |
+| 8 | white-label | **Regra de escopo desde 26/07/2026 — ver seção abaixo** |
+| 9 | sem nenhuma ocorrência | Existe processo administrativo público envolvendo a Alpha |
+| 10 | ficha limpa | idem |
+| 11 | histórico impecável | idem |
+| 12 | nunca foi penalizada | idem |
+| 13 | sem qualquer sanção | idem |
+
+**Alteração de 20/08/2026.** As linhas 1–4 substituem a proibição genérica
+`MOVECON autorizada`, que barrava também a construção aprovada pelo cliente
+("MOVECON — autorizada pela Alpha"). O risco real nunca foi a atribuição à
+Alpha, e sim a atribuição ao Banco Central: é ela que segue proibida, agora de
+forma explícita. `plataforma autorizada pela Alpha` saiu da lista junto com o
+termo "plataforma".
+
+**Registro da ressalva.** A regra anterior existia porque "MOVECON autorizada"
+podia ser lida pelo consumidor como autorização do Bacen. Com a construção
+nova, essa leitura só é evitada enquanto a frase seguinte — a que atribui a
+administração e a autorização do Bacen à Alpha — continuar presente na mesma
+página. Ela é obrigatória e o `check_seo.py` não consegue verificar isso
+sozinho: é revisão humana.
 
 As cinco últimas existem porque há processo administrativo público do Banco
 Central envolvendo a Alpha. A decisão do projeto é **não mencionar o processo**
@@ -141,7 +162,7 @@ forma econômica.
 Hubs, filhas, guias, artigos de blog, LPs de venda, simulador e **qualquer
 página de audiência consumidor**. Nelas a construção segue sendo:
 
-> plataforma que comercializa grupos administrados pela Alpha
+> autorizada pela Alpha, que administra os grupos
 
 Para o consumidor o termo não informa nada e embaralha justamente o ponto que
 precisa ficar claro: **quem administra o grupo é a Alpha, não a MOVECON.**
@@ -202,7 +223,7 @@ tarde.
   `{{DADO_PENDENTE}}` e registrar em `06-pendencias.md`.
 - **Nenhuma promessa de contemplação ou prazo.** A contemplação ocorre por
   sorteio ou lance em assembleia. Vale inclusive para a MOVECON: o guia
-  `/guia/contemplacao-garantida-e-golpe/` diz isso explicitamente.
+  `/guia/como-a-contemplacao-acontece/` diz isso explicitamente.
 - **Consórcio não é investimento** e não gera rendimento.
 - **Não mencionar a Crelider** em documento público. A política de privacidade
   descreve o fluxo de dados sem nomeá-la.

@@ -26,6 +26,9 @@ import os
 import re
 import sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from compliance import CTA_FINAL  # noqa: E402
+
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BUILD = os.path.join(RAIZ, 'build')
 ARTIGOS = os.path.join(RAIZ, 'content', 'artigos')
@@ -207,6 +210,12 @@ def main():
             return 1
         bloco_autor = io.open(caixa, encoding='utf-8').read().strip()
         html = html + '\n<!-- wp:html -->\n' + bloco_autor + '\n<!-- /wp:html -->'
+
+        # Fecha o artigo com a mesma chamada do resto do site. Precisa do
+        # wrapper .mv-page: dentro do Gutenberg nao existe outro, e sem ele
+        # o h2 e os <p> do bloco caem no estilo do tema.
+        html = (html + '\n<!-- wp:html -->\n<div class="mv-page">'
+                + CTA_FINAL + '\n</div>\n<!-- /wp:html -->')
 
         destino = os.path.join(BUILD, 'artigo-%s.html' % slug)
         io.open(destino, 'w', encoding='utf-8', newline=chr(10)).write(html + '\n')

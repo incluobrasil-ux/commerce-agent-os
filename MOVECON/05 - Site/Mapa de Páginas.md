@@ -26,7 +26,7 @@ Relacionado: [[Arquitetura do Site]] · [[00 - Funil Cadastro de Representantes]
 | `/sobre` | Quem Somos — autoridade E-E-A-T | Institucional |
 | ⭐ `/administrado-pela-alpha` | Âncora Alpha/Bacen | Confiança/marca |
 | `/regulamentacao` | Regulamentação e transparência (Lei 11.795/08) | Confiança/informacional |
-| ⭐ `/seguranca-anti-golpe` | Como não cair em golpe | Confiança/informacional |
+| ⭐ `/seguranca/` | Como saber se um consórcio é seguro | Confiança/informacional |
 | ~~`/area-do-consorciado`~~ · ~~`/segunda-via-boleto`~~ | 🔗 **Link externo**, não são páginas | Retenção/marca |
 | `/contato` | Contato + unidades | Local/navegacional |
 | `/trabalhe-conosco` | Vagas institucionais (≠ representante) | Institucional |
@@ -71,7 +71,7 @@ Cidades candidatas: Vitória da Conquista · Jequié · Itabuna · Ilhéus · It
 | Empresa / PJ | Informacional |
 | Contemplação e lance | Informacional |
 | Região | Informacional/local |
-| ⭐ Segurança & golpe (pilar diferenciador) | Informacional |
+| ⭐ Segurança e verificação (pilar diferenciador) | Informacional |
 
 ## F. Representantes (recrutamento) — 🔁 MOVIDO PARA `/lp/` (decisão: administradora pura, 2026-07-25)
 Fora do site institucional: **sem link no menu**, noindex, alimentado só por tráfego pago.

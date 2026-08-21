@@ -39,7 +39,7 @@ atualizado: 2026-07-25
 
 ## 🎯 Objetivo da página
 
-Transformar a dúvida *"consórcio é golpe?"* em *"essa aqui é verificável"* — e fazer isso **ensinando o visitante a conferir sozinho**. Quem confere, confia. É o oposto da retórica de quem só afirma ser confiável.
+Transformar a dúvida *"dá para confiar nessa empresa?"* em *"essa aqui é verificável"* — e fazer isso **mostrando ao visitante como conferir sozinho**. Quem confere, confia. É o oposto da retórica de quem só afirma ser confiável.
 
 ---
 
@@ -111,14 +111,14 @@ Descumprimento tem consequência regulatória real, incluindo perda da autoriza�
 **Corpo:**
 Essa é a informação que mais gera confusão no mercado de consórcio, e a que a MOVECON faz questão de deixar explícita.
 
-> ⚠️ **NOTA DE COMPLIANCE.** Regra de [[Posicionamento & Credibilidade]]: a MOVECON é **plataforma de consórcio. Os grupos são administrados pela Alpha Administradora de Consórcio Ltda.** **Nunca** afirmar que a MOVECON é autorizada pelo Bacen — quem detém a autorização do Banco Central é a **Alpha**.
+> ⚠️ **NOTA DE COMPLIANCE.** Regra de [[Posicionamento & Credibilidade]], revisada em 20/08/2026: a MOVECON é **autorizada pela Alpha Administradora de Consórcio Ltda., que administra os grupos.** **Nunca** afirmar que a MOVECON é autorizada pelo Bacen — quem detém a autorização do Banco Central é a **Alpha**, e essa atribuição precisa aparecer na mesma página.
 
 **Tabela de dois blocos (`.mv-card` lado a lado):**
 
 **🏛️ Alpha Administradora de Consórcio Ltda. — a estrutura que sustenta**
 Autorizada pelo Banco Central (Cert. BCB 03/100/213/88 · CNPJ 90.982.679/0001-54). É a estrutura institucional sobre a qual os grupos operam: gestão dos recursos, assembleias, sorteios, contemplações e prestação de contas ao regulador.
 
-**🤝 MOVECON — plataforma autorizada pela Alpha**
+**🤝 MOVECON — autorizada pela Alpha**
 É quem você encontra do primeiro contato até a entrega da carta de crédito. Apresenta os grupos, orienta a escolha, acompanha o pagamento das parcelas e está do seu lado durante todo o plano.
 
 **Fecho da seção:**
@@ -186,7 +186,7 @@ Entre os pontos que mais importam no dia a dia:
 **H2:** Não confie na nossa palavra. Confira você mesmo, em 2 minutos
 
 **Corpo:**
-Um dos golpes mais comuns no mercado de consórcio é a empresa que **diz** ser autorizada e não é. A defesa contra isso não é escolher em quem acreditar — é **conferir na fonte**.
+A autorização de uma administradora de consórcio é informação pública, e a consulta leva dois minutos. Não é preciso escolher em quem acreditar — dá para **conferir na fonte**.
 
 Funciona assim, e vale para qualquer empresa, inclusive para nós:
 
@@ -205,9 +205,9 @@ Uma empresa idônea entrega o CNPJ na hora. Se pedirem para você "não se preoc
 
 > **Faixa turquesa (`.mv-card--acento`):**
 > **A pergunta que resolve quase tudo:** *"Qual é o CNPJ da administradora que vai administrar o meu grupo?"*
-> Faça essa pergunta a qualquer empresa de consórcio antes de assinar qualquer coisa. A resposta — e a reação — dizem quase tudo.
+> A nossa resposta está publicada: Alpha Administradora de Consórcio Ltda., CNPJ 90.982.679/0001-54, autorizada pelo Banco Central sob o certificado nº 03/100/213/88.
 
-**Link interno:** → [Como não cair em golpe de consórcio](/seguranca-anti-golpe)
+**Link interno:** → [Como saber se um consórcio é seguro](/seguranca/)
 
 ---
 
@@ -237,7 +237,7 @@ Taxa de administração, prazo, fundo de reserva e critérios de contemplação:
 **H2:** Perguntas sobre segurança e regulação
 
 **P: Quem autoriza a MOVECON?**
-R: A MOVECON é **plataforma de consórcio. Os grupos são administrados pela Alpha Administradora de Consórcio Ltda.** A Alpha, por sua vez, é autorizada pelo **Banco Central** (Cert. BCB 03/100/213/88 · CNPJ 90.982.679/0001-54). Fazemos questão de explicitar essa cadeia: no mercado de consórcio, imprecisão sobre quem autoriza quem costuma ser sinal de problema.
+R: A MOVECON é **autorizada pela Alpha Administradora de Consórcio Ltda. a apresentar os grupos dela.** A Alpha, por sua vez, é autorizada pelo **Banco Central** (Cert. BCB 03/100/213/88 · CNPJ 90.982.679/0001-54). Fazemos questão de explicitar essa cadeia, porque é ela que você consegue conferir na fonte.
 
 **P: Como sei que a Alpha é mesmo autorizada pelo Banco Central?**
 R: Consultando a relação oficial de administradoras de consórcio no site do Banco Central e buscando pelo CNPJ 90.982.679/0001-54. Recomendamos que você faça essa conferência — leva cerca de dois minutos.
@@ -276,16 +276,16 @@ Sem pressa e sem compromisso. Um consultor apresenta os grupos disponíveis, exp
 
 > [!info] Rodapé das **demais** páginas — versão curta
 > Não repetir o bloco acima no site inteiro. No rodapé global, uma linha discreta basta:
-> *"MOVECON — plataforma de consórcio. Consórcio é compra programada, não é investimento. Não há juros; há taxa de administração. Contemplação por sorteio ou lance. [Saiba quem autoriza a MOVECON](/administrado-pela-alpha)."*
+> *"MOVECON — autorizada pela Alpha Administradora de Consórcio Ltda., que administra os grupos. Consórcio é compra programada, não é investimento. Não há juros; há taxa de administração. Contemplação por sorteio ou lance. [Saiba quem administra os grupos](/administrado-pela-alpha)."*
 > A menção ao Bacen fica **nesta página**, para onde o link aponta.
 
 ---
 
 ## 🔗 Plano de links internos
 
-**Esta página RECEBE link de:** todas as páginas do site (selo no header/footer), Home, `/sobre`, `/seguranca-anti-golpe`, `/regulamentacao`, `/como-funciona`, `/faq`, todos os hubs de segmento e todo post do blog do cluster Segurança.
+**Esta página RECEBE link de:** todas as páginas do site (selo no header/footer), Home, `/sobre`, `/seguranca/`, `/regulamentacao`, `/como-funciona`, `/faq`, todos os hubs de segmento e todo post do blog do cluster Segurança.
 
-**Esta página ENVIA link para:** `/regulamentacao` · `/seguranca-anti-golpe` · `/como-funciona` · `/contato` · Bacen (externo, `nofollow` não — é link de autoridade, deixar seguir)
+**Esta página ENVIA link para:** `/regulamentacao` · `/seguranca/` · `/como-funciona` · `/contato` · Bacen (externo, `nofollow` não — é link de autoridade, deixar seguir)
 
 **Âncoras sugeridas:** "administrado pela Alpha", "autorizada pelo Banco Central", "veja como conferir a autorização"
 
@@ -294,7 +294,7 @@ Sem pressa e sem compromisso. Um consultor apresenta os grupos disponíveis, exp
 ## ⚖️ Notas de revisão
 
 **1. Nomenclatura — definida pelo cliente em 25/07/2026.**
-A MOVECON se apresenta como **plataforma de consórcio. Os grupos são administrados pela Alpha Administradora de Consórcio Ltda.** O termo "white-label" foi descartado. Esta copy já está escrita nesse enquadramento.
+A MOVECON se apresenta como **autorizada pela Alpha Administradora de Consórcio Ltda., que administra os grupos** (nomenclatura revisada pelo cliente em 20/08/2026 — o termo "plataforma" saiu do site). O termo "white-label" segue descartado. Esta copy já está escrita nesse enquadramento.
 Item que permanece na fila do jurídico (não bloqueia a publicação, mas convém confirmar antes do go-live): **qualificação formal exata do vínculo MOVECON↔Alpha no contrato**, para que a expressão "com grupos administrados pela Alpha Administradora de Consórcio Ltda." corresponda ao instrumento assinado.
 
 **2. Placeholders que bloqueiam a publicação:** URL oficial do Bacen · padrão de atendimento/PCA-10 · condições contratuais de desistência.

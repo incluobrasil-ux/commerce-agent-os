@@ -29,7 +29,7 @@ FILHAS_NO_AR = {
     '/consorcio-empresa/frota/', '/consorcio-empresa/equipamentos/',
     '/consorcio-empresa/imovel-comercial/', '/consorcio-empresa/mei/',
     '/consorcio-embarcacoes/lancha/', '/consorcio-embarcacoes/jet-ski/',
-    '/consorcio-contemplado/golpes-mais-comuns/',
+    '/consorcio-contemplado/o-que-conferir/',
     '/consorcio-contemplado/comprar-cota-contemplada/',
     # URL oficial do Bacen confirmada pelo cliente em 25/07/2026 - destravada.
     '/consorcio-contemplado/como-verificar-no-banco-central/',
@@ -57,12 +57,12 @@ FILHAS_NO_AR = {
     '/guia/consorcio-ou-poupar/', '/guia/como-ser-contemplado-mais-rapido/',
     '/guia/lance-embutido-na-pratica/', '/guia/depois-da-contemplacao/',
     '/guia/consorcio-e-confiavel/', '/guia/direitos-do-consorciado/',
-    '/guia/contemplacao-garantida-e-golpe/', '/guia/consorcio-para-autonomo/',
+    '/guia/como-a-contemplacao-acontece/', '/guia/consorcio-para-autonomo/',
     '/guia/consorcio-para-negativado/', '/guia/primeiro-imovel/',
     # lote 12 - autoria (P3 fechada em 26/07/2026)
     '/autor/', '/autor/samuel-tanan/',
     # lote 13 - os 14 artigos da pauta, publicados em 26/07/2026 com autoria
-    '/blog/golpe-consorcio-como-identificar/',
+    '/blog/como-verificar-uma-administradora/',
     '/blog/declarar-consorcio-imposto-de-renda/',
     '/blog/consorcio-imovel-para-investimento/',
     '/blog/consorcio-energia-solar-vale-a-pena/',
@@ -116,7 +116,7 @@ R += [
          camada='confianca', title='A MOVECON é confiável? Veja como conferir | MOVECON',
          description='Os grupos MOVECON são administrados pela Alpha, autorizada pelo Banco Central. Veja o passo a passo para conferir sozinho no site do Bacen.',
          indexavel=True, status='no-ar', fase=1,
-         secundarias=['movecon reclame aqui', 'movecon consórcio é golpe']),
+         secundarias=['movecon reclame aqui', 'movecon consórcio é confiável']),
     dict(url='/contato/', keyword='movecon contato', intencao='navegacional',
          camada='institucional', title='Contato | MOVECON Consórcio',
          description='Fale com a MOVECON: WhatsApp, telefone, e-mail e endereço. Atendimento em todo o Brasil e acesso ao portal do consorciado.',
@@ -218,8 +218,8 @@ HUBS = [
     ('/consorcio-embarcacoes/', 'consórcio de embarcações', 'Consórcio de Embarcações | Lancha e jet ski',
      'Crédito náutico é caro. O consórcio de embarcações compra lancha, jet ski ou barco sem juros. Simule sua parcela agora.',
      'no-ar', ['consórcio de lancha']),
-    ('/consorcio-contemplado/', 'consórcio contemplado', 'Consórcio Contemplado: como evitar golpe',
-     'Entenda o que é uma cota contemplada, como a fraude da carta contemplada funciona e como verificar tudo no Banco Central antes de pagar.',
+    ('/consorcio-contemplado/', 'consórcio contemplado', 'Consórcio Contemplado: como funciona',
+     'Entenda o que é uma cota contemplada, como a transferência é formalizada pela administradora e como conferir tudo no Banco Central antes de pagar.',
      'no-ar', ['carta de crédito contemplada']),
 ]
 for url, kw, t, d, st, sec in HUBS:
@@ -307,8 +307,8 @@ R += [
       'Consórcio náutico para lancha, barco e veleiro, sem os juros elevados do crédito náutico. Simule sua parcela agora.'),
     f(B + 'jet-ski/', 'consórcio de jet ski', B, 'Consórcio de Jet Ski | Sem juros | MOVECON',
       'Jet ski novo ou usado pela carta de crédito, sem os juros do crédito pessoal e sem entrada para o bem, com a primeira parcela maior.'),
-    f(K + 'golpes-mais-comuns/', 'golpe da carta contemplada', K, 'Golpe da Carta Contemplada: como evitar',
-      'Anatomia da fraude mais comum do setor: quem aborda, o que promete e qual pagamento nunca deve ser feito. Com verificação.'),
+    f(K + 'o-que-conferir/', 'como conferir carta contemplada', K, 'Carta Contemplada: o que conferir antes de pagar',
+      'As verificações que formalizam uma cota contemplada: quem administra o grupo, como a transferência é registrada e para quem o pagamento é feito.'),
     f(K + 'como-verificar-no-banco-central/', 'como consultar administradora no banco central', K,
       'Como Verificar uma Administradora no Banco Central',
       'Passo a passo com imagens para conferir, em 2 minutos, se a administradora é autorizada pelo Bacen. Confira a nossa também.'),
@@ -355,8 +355,8 @@ R += [
       'O sistema é regulado pelo Banco Central pela Lei 11.795. Veja como conferir qualquer administradora em 2 minutos.'),
     g('/guia/direitos-do-consorciado/', 'direitos do consorciado', 'Direitos do Consorciado: o que a lei garante',
       'O que a Lei 11.795/08 garante sobre contrato, custos, devolução, assembleia e prestação de contas. Em linguagem clara, para você cobrar.', GD),
-    g('/guia/contemplacao-garantida-e-golpe/', 'contemplação garantida', 'Por que Contemplação Garantida é Sempre Golpe',
-      'Nenhuma administradora pode garantir contemplação: ela depende de sorteio ou lance em assembleia. Quem promete prazo está vendendo o que não tem.', GD),
+    g('/guia/como-a-contemplacao-acontece/', 'como funciona a contemplação', 'Como a Contemplação Acontece: sorteio e lance',
+      'A contemplação ocorre por sorteio ou por lance, nas assembleias mensais do grupo. Veja como cada via funciona e o que a Lei 11.795/08 determina.', GD),
     g('/guia/consorcio-para-autonomo/', 'consórcio para autônomo', 'Consórcio para Autônomo: sem holerite',
       'Sem comprovação de renda tradicional e sem análise de crédito na entrada. Veja o que é exigido e em que momento.'),
     g('/guia/consorcio-para-negativado/', 'consórcio para negativado', 'Consórcio para Negativado: pode contratar?',
@@ -392,9 +392,9 @@ for url, kw, t, d in [
         ('/blog/melhores-parceiras-alpha-consorcios/', 'parceiras alpha consórcios',
          'Melhores Parceiras da Alpha Consórcios em 2026 [Ranking]',
          'Comparamos as principais parceiras de vendas da Alpha Administradora de Consórcio: MOVECON, Autocon, Unicons e Vellox. Veja critérios e ranking completo.'),
-        ('/blog/golpe-consorcio-como-identificar/', 'golpe de consórcio como identificar',
-         'Golpe de Consórcio: Como Identificar Antes de Pagar',
-         'O golpe da carta contemplada segue sempre o mesmo roteiro. Veja como reconhecer cada tática e as três verificações que desmontam o esquema.'),
+        ('/blog/como-verificar-uma-administradora/', 'como verificar administradora de consórcio',
+         'Como Verificar uma Administradora de Consórcio',
+         'As três verificações que confirmam uma administradora antes de você pagar qualquer valor: autorização no Bacen, CNPJ e forma de pagamento.'),
         ('/blog/declarar-consorcio-imposto-de-renda/', 'como declarar consórcio no imposto de renda',
          'Como Declarar Consórcio no Imposto de Renda | MOVECON',
          'Onde o consórcio aparece na declaração, o que muda depois da contemplação e por que o informe da administradora é o documento que vale.'),
@@ -500,7 +500,7 @@ for url, kw, cam, t, d, fase in [
         # Segue 'planejada' ate a ficha de autoria ter bio e foto reais.
         ('/autor/samuel-tanan/', 'samuel tanan movecon', 'confianca',
          'Samuel Tanan | Autor | MOVECON Consórcio',
-         'Sócio-fundador da MOVECON. Conheça a trajetória de quem assina os conteúdos sobre consórcio publicados no blog da plataforma.', 3),
+         'Sócio-fundador da MOVECON. Conheça a trajetória de quem assina os conteúdos sobre consórcio publicados no blog da MOVECON.', 3),
         ('/autor/', 'autores movecon', 'confianca',
          'Autores | MOVECON Consórcio',
          'Quem escreve os conteúdos sobre consórcio publicados pela MOVECON, com trajetória e área de atuação de cada autor declaradas.', 3),
@@ -522,7 +522,7 @@ for url, kw, cam, t, d, fase in [
         ('/politica-de-privacidade/', 'política de privacidade movecon', 'institucional', 'Política de Privacidade | MOVECON',
          'Como a MOVECON coleta, usa e protege seus dados pessoais, conforme a Lei Geral de Proteção de Dados. Veja quais dados o site registra e como exercer seus direitos.', 1),
         ('/termos-de-uso/', 'termos de uso movecon', 'institucional', 'Termos de Uso | MOVECON',
-         'Condições de uso do site e dos canais de atendimento da MOVECON, plataforma que apresenta grupos administrados pela Alpha. Leia antes de utilizar.', 1)]:
+         'Condições de uso do site e dos canais de atendimento da MOVECON, autorizada pela Alpha a apresentar seus grupos. Leia antes de utilizar.', 1)]:
     R.append(dict(url=url, keyword=kw, intencao='navegacional', camada=cam,
                   title=t, description=d, indexavel=True,
                   status=('no-ar' if url in FILHAS_NO_AR else 'planejada'),
@@ -558,14 +558,21 @@ doc['site'] = collections.OrderedDict([
     ('caminhoConsultaBacen',
      'bcb.gov.br > "Encontre uma Instituição" > Segmento > "Administradora de Consórcio"'),
     ('descricaoInstitucional',
-     'A MOVECON é uma plataforma de consórcio. Os grupos são administrados pela '
-     'Alpha Administradora de Consórcio Ltda., administradora autorizada a funcionar '
-     'pelo Banco Central do Brasil.'),
+     'A MOVECON é autorizada pela Alpha Administradora de Consórcio Ltda. a '
+     'apresentar seus grupos de consórcio. A Alpha é administradora autorizada a '
+     'funcionar pelo Banco Central do Brasil.'),
     ('nuncaEscrever', [
-        'MOVECON autorizada',
+        # Reescrita em 20/08/2026: 'MOVECON autorizada' virou proibicao
+        # ESPECIFICA ao Bacen. A construcao 'autorizada pela Alpha' passou a ser
+        # o vocabulario oficial do site por decisao do cliente; o que segue
+        # falso, e por isso proibido, e atribuir a autorizacao do Banco Central
+        # a MOVECON em vez de a Alpha.
+        'MOVECON autorizada pelo Banco Central',
+        'MOVECON autorizada pelo Bacen',
+        'MOVECON autorizada a funcionar',
+        'MOVECON é autorizada pelo Banco Central',
         'nossa administradora',
         'administradora MOVECON',
-        'plataforma autorizada pela Alpha',
         'representante autorizada',
         'white-label',
         # Adicionadas em 25/07/2026. Nao mencionamos o PE 202816 - e assunto do

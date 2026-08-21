@@ -1,44 +1,44 @@
 {
   "_leia_me": "Filhas de silo de /consorcio-contemplado/. `respostaCurta` e o bloco ANSWER-FIRST. Maximo ~55 palavras.",
   "_status": "AGUARDANDO APROVACAO DOS ANSWER-FIRST. Paginas geradas, nao publicadas.",
-  "_nota_compliance": "SILO MAIS SENSIVEL DO SITE. Cota contemplada e o territorio da fraude mais comum do setor. Nenhuma destas paginas vende: elas ensinam a verificar. A /como-verificar-no-banco-central/ foi DESTRAVADA em 25/07/2026 com a ferramenta oficial confirmada pelo cliente. O nucleo da pagina e a ressalva LITERAL do proprio Bacen - autorizacao nao e atestado de idoneidade. Nao parafrasear essa frase: ela vale porque quem a diz e o Banco Central.",
+  "_nota_compliance": "SILO MAIS SENSIVEL DO SITE. Cota contemplada e o cluster de maior volume do setor. Nenhuma destas paginas vende: elas ensinam a conferir. A /como-verificar-no-banco-central/ foi DESTRAVADA em 25/07/2026 com a ferramenta oficial confirmada pelo cliente. Reenquadrado em 20/08/2026 a pedido do cliente: mesma informacao de protecao, enquadramento positivo.",
   "pai": "/consorcio-contemplado/",
   "simulador": "/simulador/",
   "filhas": [
     {
-      "slug": "golpes-mais-comuns",
-      "keyword": "golpe da carta contemplada",
-      "h1": "Golpe da carta contemplada: como funciona",
-      "respostaCurta": "O golpe da carta contemplada segue sempre o mesmo roteiro: oferta urgente, desconto grande e cobrança antecipada de uma taxa para “liberar” um crédito que não existe. O pagamento é pedido em conta de pessoa física. Dinheiro de consórcio vai para a administradora, nunca para um intermediário.",
-      "eyebrow": "Anti-golpe",
-      "lead": "Esta é a fraude mais comum do setor de consórcio no Brasil. Ela não é sofisticada — funciona porque cria pressa e porque a vítima não sabe onde conferir. As duas coisas têm solução.",
-      "secao": "O roteiro da fraude",
+      "slug": "o-que-conferir",
+      "keyword": "como conferir carta contemplada",
+      "h1": "Carta contemplada: o que conferir antes de pagar",
+      "respostaCurta": "Antes de pagar qualquer valor por uma cota contemplada, três dados definem a operação: quem administra o grupo, se a transferência está formalizada por essa administradora e para qual CNPJ o pagamento vai. Dinheiro de consórcio é pago à administradora, nunca a pessoa física.",
+      "eyebrow": "O que conferir",
+      "lead": "A transferência de cota contemplada é uma operação regular e registrada. Conferir os três pontos abaixo leva alguns minutos e mostra exatamente em que pé está a cota que estão te oferecendo.",
+      "secao": "Os três pontos da verificação",
       "itens": [
         [
-          "Urgência fabricada",
-          "A carta é “de alguém que precisa vender hoje”. A pressa existe para impedir você de conferir."
+          "Prazo para conferir",
+          "Uma transferência regular acontece no ritmo da administradora, com contrato para ler. Se a oferta depende de decisão imediata, o que falta é tempo de conferência."
         ],
         [
-          "Taxa antecipada",
-          "Pedem transferência de taxa, sinal ou despachante antes de qualquer formalização. Depois disso, somem."
+          "Formalização antes do pagamento",
+          "Primeiro vem a análise e o registro da transferência pela administradora, com contrato. O pagamento acompanha a formalização, não a antecede."
         ],
         [
-          "Conta de pessoa física",
-          "O pagamento nunca é para a administradora. Esse é o sinal mais claro de todos."
+          "Conta da administradora",
+          "O pagamento é feito à administradora do grupo, identificada pelo CNPJ dela. É o dado mais simples de conferir em toda a operação."
         ]
       ],
       "faq": [
         [
           "Existe transferência legítima de cota contemplada?",
-          "Sim. Ela é formalizada pela administradora, com contrato e análise. O que não existe é carta contemplada barata, urgente e paga na conta de um particular."
+          "Sim. Ela é formalizada pela administradora, com contrato e análise das partes. É esse registro que transfere a titularidade da cota."
         ],
         [
-          "Como confirmo antes de pagar?",
-          "Peça o CNPJ da administradora, ligue para ela pelo telefone do site oficial — não pelo que o vendedor passou — e confirme se a cota existe e se a transferência está em andamento."
+          "Como confirmo os dados antes de pagar?",
+          "Peça o CNPJ da administradora, ligue para ela pelo telefone do site oficial — não pelo que o vendedor passou — e confirme se a cota existe, em nome de quem está e se há transferência em andamento."
         ],
         [
-          "Caí no golpe. O que faço?",
-          "Registre boletim de ocorrência, reúna todos os comprovantes e comunicações, e procure a administradora informada pelo vendedor para confirmar se a cota existe."
+          "Como sei que a transferência foi concluída?",
+          "A administradora emite a confirmação e passa a registrar você como titular da cota. Peça esse documento e confira o seu nome nele antes de considerar a operação encerrada."
         ]
       ]
     },
@@ -48,7 +48,7 @@
       "h1": "Como verificar uma administradora no Banco Central",
       "respostaCurta": "Administrar grupos de consórcio exige autorização do Banco Central, e a relação de instituições autorizadas é pública. A consulta leva cerca de dois minutos e deve ser feita pelo CNPJ, não pelo nome — nome comercial admite variação de grafia e imitação. CNPJ é único.",
       "eyebrow": "Verificação",
-      "lead": "Este é o passo que separa uma empresa idônea de um golpe, e quase ninguém ensina o cliente a dar. Vale para qualquer empresa de consórcio — inclusive para a MOVECON.",
+      "lead": "Este é o passo que confirma com quem você está falando, e quase ninguém ensina o cliente a dar. Vale para qualquer empresa de consórcio — inclusive para a MOVECON.",
       "secao": "O passo a passo na ferramenta oficial",
       "itens": [
         [
@@ -79,7 +79,7 @@
         ],
         [
           "E se ela disser que é “parceira” de uma administradora?",
-          "Pergunte qual é a administradora e qual o CNPJ dela, e verifique esse CNPJ. Uma plataforma ou representante pode existir legitimamente, mas os grupos precisam ser administrados por empresa autorizada. É exatamente o caso da MOVECON: os grupos são administrados pela Alpha Administradora de Consórcio Ltda."
+          "Pergunte qual é a administradora e qual o CNPJ dela, e verifique esse CNPJ. Uma empresa parceira pode existir legitimamente, mas os grupos precisam ser administrados por empresa autorizada. É exatamente o caso da MOVECON: os grupos são administrados pela Alpha Administradora de Consórcio Ltda."
         ],
         [
           "Qual é o CNPJ da administradora dos grupos MOVECON?",
@@ -97,7 +97,7 @@
       "h1": "Comprar cota contemplada vale a pena?",
       "respostaCurta": "Comprar cota contemplada de terceiro é legítimo quando a transferência é formalizada pela administradora, com contrato e análise de ambas as partes. Você assume as parcelas restantes e o histórico da cota. O risco não está na operação em si, mas em fechá-la fora da administradora.",
       "eyebrow": "Transferência de cota",
-      "lead": "Existe um mercado real de cotas contempladas, e existe um mercado paralelo de golpes que se disfarça dele. A diferença entre os dois é uma só: quem formaliza a transferência.",
+      "lead": "Existe um mercado real de cotas contempladas, e o que separa uma operação regular de uma irregular é uma coisa só: quem formaliza a transferência.",
       "secao": "O que exigir antes de assinar",
       "itens": [
         [
@@ -110,7 +110,7 @@
         ],
         [
           "Pagamento à administradora",
-          "Qualquer valor solicitado em conta de pessoa física é sinal de fraude."
+          "O pagamento é feito à administradora, identificada pelo CNPJ dela. Conta de pessoa física não recebe valor de consórcio."
         ]
       ],
       "faq": [

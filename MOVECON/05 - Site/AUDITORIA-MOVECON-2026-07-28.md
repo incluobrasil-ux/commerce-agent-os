@@ -1,5 +1,12 @@
 # AUDITORIA MOVECON — 2026-07-28
 
+> [!warning] Registro historico - anterior a 20/08/2026
+> Este documento descreve o site como ele estava na data acima. Em
+> 20/08/2026 o vocabulario mudou: o termo "plataforma" saiu do site
+> (a MOVECON passou a se apresentar como "autorizada pela Alpha") e o
+> enquadramento de golpe/fraude foi substituido por enquadramento
+> positivo. Rotas e frases citadas aqui podem nao existir mais.
+
 > Somente leitura. Nenhum arquivo foi alterado nesta auditoria.
 > Método: varredura da fonte (`content/`, `_codigo/`, `scripts/`, `docs/`) **e**
 > do HTML servido em produção nas 115 rotas no ar. Toda linha da tabela de

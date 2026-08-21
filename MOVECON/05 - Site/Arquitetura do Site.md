@@ -6,10 +6,10 @@ tags: [site, arquitetura, seo, status/em-andamento]
 Relacionado: [[00 - Briefing do Site]] · [[Posicionamento & Credibilidade]] · [[Mapa de Páginas]] · [[00 - Funil Cadastro de Representantes]]
 
 ## 0. Posicionamento do site
-A MOVECON é uma **plataforma de consórcio**. Os grupos são administrados pela **Alpha Administradora de Consórcio Ltda.** No site, a MOVECON **é o produto** — não compara nem lista concorrentes; apresenta os próprios grupos e conduz o cliente da simulação à contemplação com segurança.
+A MOVECON é **autorizada pela Alpha Administradora de Consórcio Ltda.** a apresentar os grupos de consórcio dela, e a Alpha é a administradora autorizada pelo Banco Central. No site, a MOVECON **é o produto** — não compara nem lista concorrentes; apresenta os próprios grupos e conduz o cliente da simulação à contemplação com segurança.
 
 > [!warning] Regra de precisão (compliance)
-> MOVECON = "**plataforma de consórcio. Os grupos são administrados pela Alpha Administradora de Consórcio Ltda.**".
+> MOVECON = "**autorizada pela Alpha Administradora de Consórcio Ltda., que administra os grupos**" (vocabulário definido em 20/08/2026; o termo "plataforma" saiu do site).
 > Ao citar a Alpha: "**Alpha Administradora de Consórcio Ltda. — autorizada pelo Banco Central (Cert. BCB 03/100/213/88 · CNPJ 90.982.679/0001-54)**".
 > Nunca "MOVECON autorizada pelo Bacen". Nunca usar "white-label".
 
@@ -39,7 +39,7 @@ Consórcio é **YMYL** (dinheiro/finanças): o Google só rankeia bem quem prova
 - **Hub-and-spoke + interlinking:** cada spoke linka pro hub e pro simulador; o hub agrega os spokes.
 - **E-E-A-T (YMYL):** autor identificado, citar Bacen/Lei 11.795/08/ABAC, dados atualizados, institucional forte — o que destrava ranqueamento em nicho financeiro.
 - **Página-âncora de confiança** (`/administrado-pela-alpha`) recebe links internos de todo o site — concentra autoridade e sinal de marca.
-- **Contemplado / carta contemplada:** volume alto, mas minado por golpe — só atacar com conteúdo que reforça segurança.
+- **Contemplado / carta contemplada:** volume alto e leitor com pressa — atacar com conteúdo que explica a operação inteira, do sorteio à formalização da transferência.
 - **Técnico:** sitemap.xml, schema, Core Web Vitals, mobile-first, canonical, breadcrumbs.
 
 ## 3. SEO pago (Google Ads)
@@ -52,8 +52,8 @@ Consórcio é **YMYL** (dinheiro/finanças): o Google só rankeia bem quem prova
 
 ## 4. Faseamento de implementação
 1. Aplicar identidade visual da MOVECON ([[Identidade & Marca]]).
-2. Copy de plataforma ("nossos grupos", "com grupos administrados pela Alpha Administradora de Consórcio Ltda.").
-3. Publicar a página-âncora `/administrado-pela-alpha` e a de segurança/anti-golpe.
+2. Copy da marca ("nossos grupos", "autorizada pela Alpha Administradora de Consórcio Ltda., que administra os grupos").
+3. Publicar a página-âncora `/administrado-pela-alpha` e a de `/seguranca/`.
 4. Adicionar Área do Consorciado, 2ª via e a seção de Representantes.
 5. Montar a taxonomia de URLs de segmento e o blog em clusters.
 6. Definir o CMS antes de escalar a camada programática de cidades.

@@ -453,20 +453,6 @@
    "O tratamento tributário depende do seu regime e do bem adquirido. Consulte seu contador — não prestamos orientação fiscal."
   ]
  ],
- "/consorcio-contemplado/golpes-mais-comuns/": [
-  [
-   "Existe transferência legítima de cota contemplada?",
-   "Sim. Ela é formalizada pela administradora, com contrato e análise. O que não existe é carta contemplada barata, urgente e paga na conta de um particular."
-  ],
-  [
-   "Como confirmo antes de pagar?",
-   "Peça o CNPJ da administradora, ligue para ela pelo telefone do site oficial — não pelo que o vendedor passou — e confirme se a cota existe e se a transferência está em andamento."
-  ],
-  [
-   "Caí no golpe. O que faço?",
-   "Registre boletim de ocorrência, reúna todos os comprovantes e comunicações, e procure a administradora informada pelo vendedor para confirmar se a cota existe."
-  ]
- ],
  "/consorcio-contemplado/como-verificar-no-banco-central/": [
   [
    "Onde fica a consulta oficial?",
@@ -482,7 +468,7 @@
   ],
   [
    "E se ela disser que é “parceira” de uma administradora?",
-   "Pergunte qual é a administradora e qual o CNPJ dela, e verifique esse CNPJ. Uma plataforma ou representante pode existir legitimamente, mas os grupos precisam ser administrados por empresa autorizada. É exatamente o caso da MOVECON: os grupos são administrados pela Alpha Administradora de Consórcio Ltda."
+   "Pergunte qual é a administradora e qual o CNPJ dela, e verifique esse CNPJ. Uma empresa parceira pode existir legitimamente, mas os grupos precisam ser administrados por empresa autorizada. É exatamente o caso da MOVECON: os grupos são administrados pela Alpha Administradora de Consórcio Ltda."
   ],
   [
    "Qual é o CNPJ da administradora dos grupos MOVECON?",
@@ -617,12 +603,12 @@
    "Comece verificando a administradora na relação pública do Banco Central, buscando por CNPJ e não por nome. Mas leia a ressalva do próprio Bacen: o sistema não garante que a instituição é confiável, somente que ela é autorizada. Estar na relação é o mínimo, não a conclusão."
   ],
   [
-   "Recebi uma oferta de carta contemplada barata. É seguro?",
-   "Quase sempre não. O golpe mais comum do setor tem sempre o mesmo roteiro: urgência, desconto grande e taxa antecipada para \"liberar\" um crédito inexistente, paga na conta de uma pessoa física. Dinheiro de consórcio vai para a administradora. Transferência legítima existe, mas é formalizada por ela."
+   "Recebi uma oferta de carta contemplada. Como confiro?",
+   "Peça o CNPJ da administradora do grupo e confirme se a transferência está formalizada por ela, com contrato e análise das partes. Dinheiro de consórcio é pago à administradora, identificada por esse CNPJ. Transferência entre consorciados existe, mas é sempre ela quem formaliza."
   ],
   [
    "Quem administra os grupos da MOVECON?",
-   "A Alpha Administradora de Consórcio Ltda., CNPJ 90.982.679/0001-54, autorizada a funcionar pelo Banco Central do Brasil sob o certificado nº 03/100/213/88. A MOVECON é a plataforma; a administração dos grupos e a gestão dos recursos são da Alpha. Confira o CNPJ você mesmo."
+   "A Alpha Administradora de Consórcio Ltda., CNPJ 90.982.679/0001-54, autorizada a funcionar pelo Banco Central do Brasil sob o certificado nº 03/100/213/88. A MOVECON é autorizada pela Alpha a apresentar esses grupos; a administração deles e a gestão dos recursos são da Alpha. Confira o CNPJ você mesmo."
   ]
  ],
  "/guia/como-funciona-o-consorcio/": [
@@ -692,7 +678,7 @@
   ],
   [
    "Existe consórcio com contemplação garantida?",
-   "Não existe. Quem oferece isso está cometendo fraude ou vendendo o que não pode entregar."
+   "Não existe. A contemplação ocorre por sorteio ou lance, em assembleia, e nenhuma administradora pode assegurar data."
   ]
  ],
  "/guia/taxa-de-administracao/": [
@@ -786,25 +772,11 @@
   ],
   [
    "E se a empresa disser que é parceira de uma administradora?",
-   "Pergunte qual é a administradora e o CNPJ dela, e verifique esse CNPJ. Plataformas e representantes podem existir, mas os grupos precisam ser administrados por empresa autorizada."
+   "Pergunte qual é a administradora e o CNPJ dela, e verifique esse CNPJ. Empresas parceiras e representantes podem existir, mas os grupos precisam ser administrados por empresa autorizada."
   ],
   [
    "O que acontece se a administradora quebrar?",
    "O Banco Central tem competência para intervir e determinar a administração do grupo por outra instituição. Os recursos do grupo não se confundem com o patrimônio da administradora."
-  ]
- ],
- "/guia/contemplacao-garantida-e-golpe/": [
-  [
-   "Mas existe cota já contemplada à venda?",
-   "Existe transferência legítima de cota contemplada, formalizada pela administradora, com contrato e análise. O que não existe é carta contemplada barata, urgente e paga na conta de um particular."
-  ],
-  [
-   "Como confirmo antes de pagar?",
-   "Peça o CNPJ da administradora, ligue para ela pelo telefone do site oficial — nunca pelo número que o vendedor passou — e confirme se a cota existe e se a transferência está em andamento."
-  ],
-  [
-   "Caí no golpe. O que faço?",
-   "Registre boletim de ocorrência, reúna todos os comprovantes e comunicações, e procure a administradora citada pelo vendedor para confirmar se a cota existe."
   ]
  ],
  "/guia/consorcio-para-autonomo/": [
@@ -1148,11 +1120,11 @@
  "/consorcio-contemplado/": [
   [
    "Vocês vendem carta contemplada?",
-   "Não. A MOVECON não comercializa cotas contempladas, e a Alpha Administradora de Consórcio Ltda. não vende contemplação. Quem oferece isso está fora das regras do sistema."
+   "Não. A MOVECON não comercializa cotas contempladas, e a Alpha Administradora de Consórcio Ltda. não vende contemplação. O que existe é transferência entre consorciados, sempre formalizada pela administradora."
   ],
   [
    "Existe consórcio com contemplação garantida?",
-   "Não existe. A contemplação ocorre por sorteio ou lance, em assembleia, e nenhuma administradora pode assegurar data. É a promessa mais usada em golpe no setor."
+   "Não existe. A contemplação ocorre por sorteio ou lance, em assembleia, e nenhuma administradora pode assegurar data. É o que determina a Lei 11.795/08."
   ],
   [
    "Então como alguém tem uma cota contemplada para transferir?",
@@ -1167,8 +1139,36 @@
    "Depende do saldo devedor, das parcelas já pagas e do ágio cobrado. Faça a conta completa: às vezes entrar em um grupo novo sai melhor. O risco não está na operação, e sim em fechá-la fora da administradora."
   ],
   [
-   "Caí em um golpe. O que faço agora?",
-   "Registre boletim de ocorrência, reúna todos os comprovantes e comunicações, e procure a administradora informada pelo vendedor para confirmar se a cota existe."
+   "Como confirmo que a cota realmente foi transferida para mim?",
+   "A administradora emite a confirmação da transferência e passa a constar você como titular da cota. Peça esse documento e confira o seu nome nele antes de considerar a operação concluída."
+  ]
+ ],
+ "/consorcio-contemplado/o-que-conferir/": [
+  [
+   "Existe transferência legítima de cota contemplada?",
+   "Sim. Ela é formalizada pela administradora, com contrato e análise das partes. É esse registro que transfere a titularidade da cota."
+  ],
+  [
+   "Como confirmo os dados antes de pagar?",
+   "Peça o CNPJ da administradora, ligue para ela pelo telefone do site oficial — não pelo que o vendedor passou — e confirme se a cota existe, em nome de quem está e se há transferência em andamento."
+  ],
+  [
+   "Como sei que a transferência foi concluída?",
+   "A administradora emite a confirmação e passa a registrar você como titular da cota. Peça esse documento e confira o seu nome nele antes de considerar a operação encerrada."
+  ]
+ ],
+ "/guia/como-a-contemplacao-acontece/": [
+  [
+   "Mas existe cota já contemplada à venda?",
+   "Existe transferência de cota contemplada entre consorciados, sempre formalizada pela administradora, com contrato e análise das partes. O que a administradora não vende é a contemplação em si."
+  ],
+  [
+   "Como confirmo os dados antes de pagar?",
+   "Peça o CNPJ da administradora, ligue para ela pelo telefone do site oficial — nunca pelo número que o vendedor passou — e confirme se a cota existe e se a transferência está em andamento."
+  ],
+  [
+   "Dá para saber quantas contemplações meu grupo tem por mês?",
+   "Sim. O número de contemplações por assembleia depende do saldo arrecadado pelo grupo naquele mês e consta da prestação de contas que a administradora envia. É o dado que mostra o ritmo real do seu grupo."
   ]
  ]
 }

@@ -25,7 +25,7 @@ atualizado: 2026-07-20
 ## 🏢 Empresa
 - [[Identidade & Marca]]
 - [[Modelo de Negócio]]
-- [[Posicionamento & Credibilidade]] — âncora Alpha/Bacen + regra anti-golpe (base de Social e Site)
+- [[Posicionamento & Credibilidade]] — âncora Alpha/Bacen + regra de precisão de nomenclatura (base de Social e Site)
 - [[Decisões]] — *o que foi batido o martelo (se não está lá, não foi decidido)*
 - [[Organograma]]
 

@@ -75,7 +75,7 @@
       "titulo": "Transferir seu consórcio para outra pessoa: como funciona e o que exigir",
       "keyword": "como transferir consórcio para outra pessoa",
       "intencao": "informacional",
-      "porque": "Alternativa à desistência, com volume real de busca e ligação direta com o cluster anti-golpe.",
+      "porque": "Alternativa à desistência, com volume real de busca e ligação direta com o cluster de transferência de cota.",
       "naoCanibaliza": "/guia/atraso-e-desistencia/ trata de sair; este trata de transferir, que costuma ser a saída melhor.",
       "h2": [
         "Por que transferir costuma ser melhor que desistir",
@@ -87,17 +87,17 @@
     },
     {
       "n": 6,
-      "titulo": "Consórcio contemplado que some: como o golpe do falso vendedor funciona por dentro",
-      "keyword": "golpe de consórcio como identificar",
+      "titulo": "Transferência de cota contemplada: como a administradora formaliza a operação",
+      "keyword": "como verificar administradora de consórcio",
       "intencao": "informacional",
       "porque": "O relatório aponta o cluster contemplados como dominado por corretoras. É o gap onde a MOVECON tem mais a dizer.",
-      "naoCanibaliza": "/consorcio-contemplado/golpes-mais-comuns/ é a filha de silo; aqui o ângulo é o roteiro do golpista, não o do consumidor.",
+      "naoCanibaliza": "/consorcio-contemplado/o-que-conferir/ é a filha de silo, focada no que o consumidor confere; aqui o ângulo é o processo interno da administradora.",
       "h2": [
-        "O golpe não é sofisticado — ele é rápido",
-        "Como a urgência é fabricada",
-        "Por que sempre pedem para pagar antes de formalizar",
-        "Os três minutos de verificação que quebram o esquema",
-        "O que fazer se você já pagou"
+        "O que a administradora registra numa transferência",
+        "Por que a análise das duas partes existe",
+        "Por que a formalização vem antes do pagamento",
+        "Os três minutos de verificação que confirmam a cota",
+        "O que conferir depois que a transferência é concluída"
       ]
     },
     {

@@ -47,7 +47,7 @@ Se você é quem está entrando, esta seção é a sua. Você não está compran
 
 **Eventuais pendências.** Antes de assinar qualquer coisa, exija da **administradora** — não do vendedor — a situação atual da cota: se está em dia, quantas parcelas foram pagas, se há débito.
 
-E se a cota anunciada for **contemplada**, o cuidado precisa ser maior, porque é aí que o golpe mais caro do setor acontece. O roteiro completo está em [consórcio contemplado](/consorcio-contemplado/) e em [como identificar o golpe](/blog/golpe-consorcio-como-identificar/).
+E se a cota anunciada for **contemplada**, a formalização pela administradora pesa ainda mais, porque é ela que passa a titularidade. O caminho completo está em [consórcio contemplado](/consorcio-contemplado/) e em [como verificar uma administradora](/blog/como-verificar-uma-administradora/).
 
 ## Documentos e análise das duas partes
 

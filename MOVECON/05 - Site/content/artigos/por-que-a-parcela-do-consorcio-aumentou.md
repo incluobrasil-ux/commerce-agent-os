@@ -79,7 +79,7 @@ Os caminhos, na ordem em que valem ser tentados:
 
 **4. Desistir é a última opção, e ela tem regras.** A devolução ao consorciado desistente segue o contrato e não é resgate à vista. Antes de escolher esse caminho, leia [atraso e desistência](/guia/atraso-e-desistencia/).
 
-E uma proteção que vale enquanto você resolve: quem liga oferecendo "resolver seu consórcio", "antecipar sua contemplação" ou "quitar sua cota" mediante pagamento a pessoa física está aplicando golpe. Consorciado com dificuldade é alvo preferencial justamente por estar aflito. Valores de consórcio se pagam à administradora, nunca a intermediário. O roteiro está em [como identificar o golpe](/blog/golpe-consorcio-como-identificar/).
+E uma regra que vale enquanto você resolve: valores de consórcio se pagam à administradora, identificada pelo CNPJ dela, nunca a intermediário nem a conta de pessoa física. Ofertas de "resolver seu consórcio", "antecipar sua contemplação" ou "quitar sua cota" mediante pagamento a terceiro estão fora das regras do sistema. O caminho de verificação está em [como verificar uma administradora](/blog/como-verificar-uma-administradora/).
 
 ## Perguntas frequentes
 

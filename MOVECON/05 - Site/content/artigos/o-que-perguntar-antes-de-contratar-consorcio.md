@@ -14,7 +14,7 @@ Consórcio é atividade autorizada e fiscalizada pelo Banco Central. Empresa nã
 
 Vale a ressalva que o próprio Bacen registra sobre o sistema de consulta: "O sistema não garante que a instituição é confiável, somente que ela é autorizada." Estar na relação é o requisito mínimo, não o veredito sobre conduta.
 
-Uma distinção que muita gente não faz: **quem vende e quem administra podem ser empresas diferentes.** Os grupos apresentados aqui são administrados pela Alpha Administradora de Consórcio Ltda., CNPJ 90.982.679/0001-54, autorizada pelo Banco Central sob o certificado nº 03/100/213/88. A MOVECON é a plataforma que apresenta os grupos e acompanha o cliente. Pergunte sempre qual empresa é qual — e é o CNPJ da **administradora** que você confere.
+Uma distinção que muita gente não faz: **quem vende e quem administra podem ser empresas diferentes.** Os grupos apresentados aqui são administrados pela Alpha Administradora de Consórcio Ltda., CNPJ 90.982.679/0001-54, autorizada pelo Banco Central sob o certificado nº 03/100/213/88. A MOVECON é autorizada pela Alpha a apresentar esses grupos e acompanha o cliente. Pergunte sempre qual empresa é qual — e é o CNPJ da **administradora** que você confere.
 
 ## 2. Qual a taxa de administração e se há fundo de reserva
 
@@ -86,7 +86,7 @@ O que perguntar:
 - **Como os lances são apurados** e qual o critério de contemplação.
 - **Quando posso ofertar** e por qual canal.
 
-E o alerta que fecha o assunto: **ninguém pode prometer data de contemplação.** Nem com lance, nem sem. Se o vendedor disser que "com lance de tanto você sai em X meses", encerre a conversa — esse é o roteiro descrito em [contemplação garantida é golpe](/guia/contemplacao-garantida-e-golpe/).
+E o alerta que fecha o assunto: **ninguém pode prometer data de contemplação.** Nem com lance, nem sem. Se o vendedor disser que "com lance de tanto você sai em X meses", peça a regra no contrato — as duas vias reais estão em [como a contemplação acontece](/guia/como-a-contemplacao-acontece/).
 
 Como o lance funciona: [lance no consórcio](/guia/lance-no-consorcio/) e [lance embutido na prática](/guia/lance-embutido-na-pratica/).
 
@@ -124,7 +124,7 @@ O CNPJ da administradora, conferido na relação pública do Banco Central. Se a
 
 **O vendedor pode me dizer quando serei contemplado?**
 
-Não. A contemplação ocorre por sorteio ou lance em assembleia. Promessa de data é o principal sinal de golpe no setor, independentemente de quem a faça.
+Não. A contemplação ocorre por sorteio ou lance em assembleia, e nenhuma administradora pode assegurar data — independentemente de quem prometa.
 
 **Preciso dar entrada?**
 

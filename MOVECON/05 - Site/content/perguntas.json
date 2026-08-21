@@ -44,12 +44,12 @@
       "resposta": "Comece verificando a administradora na relação pública do Banco Central, buscando por CNPJ e não por nome. Mas leia a ressalva do próprio Bacen: o sistema não garante que a instituição é confiável, somente que ela é autorizada. Estar na relação é o mínimo, não a conclusão."
     },
     {
-      "pergunta": "Recebi uma oferta de carta contemplada barata. É seguro?",
-      "resposta": "Quase sempre não. O golpe mais comum do setor tem sempre o mesmo roteiro: urgência, desconto grande e taxa antecipada para \"liberar\" um crédito inexistente, paga na conta de uma pessoa física. Dinheiro de consórcio vai para a administradora. Transferência legítima existe, mas é formalizada por ela."
+      "pergunta": "Recebi uma oferta de carta contemplada. Como confiro?",
+      "resposta": "Peça o CNPJ da administradora do grupo e confirme se a transferência está formalizada por ela, com contrato e análise das partes. Dinheiro de consórcio é pago à administradora, identificada por esse CNPJ. Transferência entre consorciados existe, mas é sempre ela quem formaliza."
     },
     {
       "pergunta": "Quem administra os grupos da MOVECON?",
-      "resposta": "A Alpha Administradora de Consórcio Ltda., CNPJ 90.982.679/0001-54, autorizada a funcionar pelo Banco Central do Brasil sob o certificado nº 03/100/213/88. A MOVECON é a plataforma; a administração dos grupos e a gestão dos recursos são da Alpha. Confira o CNPJ você mesmo."
+      "resposta": "A Alpha Administradora de Consórcio Ltda., CNPJ 90.982.679/0001-54, autorizada a funcionar pelo Banco Central do Brasil sob o certificado nº 03/100/213/88. A MOVECON é autorizada pela Alpha a apresentar esses grupos; a administração deles e a gestão dos recursos são da Alpha. Confira o CNPJ você mesmo."
     }
   ]
 }

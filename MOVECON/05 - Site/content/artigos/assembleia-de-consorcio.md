@@ -16,7 +16,7 @@ O que ocorre nela:
 - **A prestação de contas** da administradora sobre os recursos do grupo.
 - **A comunicação dos resultados** aos consorciados.
 
-Um ponto que muda a forma de pensar o plano: **fora da assembleia, ninguém é contemplado.** Não existe contemplação por ligação, por indicação, por antiguidade ou por insistência. Quem oferece contemplação fora desse mecanismo está descrevendo algo que não existe — e é exatamente o roteiro da [contemplação garantida, que é golpe](/guia/contemplacao-garantida-e-golpe/).
+Um ponto que muda a forma de pensar o plano: **fora da assembleia, ninguém é contemplado.** Não existe contemplação por ligação, por indicação, por antiguidade ou por insistência. Quem oferece contemplação fora desse mecanismo está descrevendo algo que não existe — as duas vias reais estão em [como a contemplação acontece](/guia/como-a-contemplacao-acontece/).
 
 Para estar apto à contemplação é preciso estar **em dia** com as parcelas. Cota em atraso não concorre, e essa é uma das consequências práticas descritas em [atraso e desistência](/guia/atraso-e-desistencia/).
 
@@ -56,9 +56,9 @@ Extrato, aplicativo, portal do consorciado, comunicado formal — o que o seu co
 
 Duas regras que vale gravar antes de qualquer coisa:
 
-**Contemplação se confirma no canal oficial, não em mensagem recebida.** Ligação, WhatsApp ou e-mail dizendo que você foi contemplado e pedindo um pagamento para "liberar" o crédito é o golpe mais comum do setor. Confira sempre no canal, por iniciativa sua.
+**Contemplação se confirma no canal oficial, não em mensagem recebida.** Ligação, WhatsApp ou e-mail dizendo que você foi contemplado é um dado a conferir, não uma confirmação. Confira sempre no canal oficial, por iniciativa sua.
 
-**Nenhum pagamento vai para pessoa física.** Nem para "o consultor", nem para "o despachante". Os valores do grupo circulam pela administradora, em nome dela. O roteiro completo de verificação está em [como identificar o golpe](/blog/golpe-consorcio-como-identificar/).
+**Nenhum pagamento vai para pessoa física.** Nem para "o consultor", nem para "o despachante". Os valores do grupo circulam pela administradora, em nome dela. O roteiro completo de verificação está em [como verificar uma administradora](/blog/como-verificar-uma-administradora/).
 
 Contemplado, o que vem depois — prazo de liberação, análise, escolha do bem — está em [depois da contemplação](/guia/depois-da-contemplacao/).
 

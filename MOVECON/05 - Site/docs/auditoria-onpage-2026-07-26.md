@@ -1,5 +1,12 @@
 # Auditoria on-page — 26/07/2026
 
+> [!warning] Registro historico - anterior a 20/08/2026
+> Este documento descreve o site como ele estava na data acima. Em
+> 20/08/2026 o vocabulario mudou: o termo "plataforma" saiu do site
+> (a MOVECON passou a se apresentar como "autorizada pela Alpha") e o
+> enquadramento de golpe/fraude foi substituido por enquadramento
+> positivo. Rotas e frases citadas aqui podem nao existir mais.
+
 Medido no **HTML servido**, não nos arquivos de build: é o que o usuário e o
 Googlebot recebem de fato, depois de mu-plugin, tema e cache. Reproduzível com
 `python scripts/auditar_onpage.py`.

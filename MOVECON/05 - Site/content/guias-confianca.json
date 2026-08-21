@@ -1,6 +1,6 @@
 {
   "_leia_me": "Guias de confianca, perfil e pos-contemplacao. Publico que ja tem intencao mas tem medo, ou que ja foi contemplado e nao sabe o que fazer. `respostaCurta` e o bloco ANSWER-FIRST, maximo ~55 palavras.",
-  "_nota": "O guia /contemplacao-garantida-e-golpe/ e o mais sensivel do conjunto: ele descreve o roteiro de uma fraude. Nenhuma frase dele pode ser suavizada por conveniencia comercial - a pagina so vale se disser que a promessa nao existe, inclusive quando quem promete e um concorrente.",
+  "_nota": "O guia /como-a-contemplacao-acontece/ e o mais sensivel do conjunto: ele explica que nenhuma data de contemplacao pode ser prometida. Nenhuma frase dele pode ser suavizada por conveniencia comercial - a pagina so vale se disser que a promessa nao existe, inclusive quando quem promete e um concorrente. Reenquadrado em 20/08/2026 a pedido do cliente: mesma informacao, enquadramento positivo.",
 
   "guias": [
     {
@@ -53,7 +53,7 @@
       "eyebrow": "Confiança",
       "h1": "Consórcio é confiável?",
       "respostaCurta": "O sistema de consórcio é regulado pela Lei 11.795/08 e fiscalizado pelo Banco Central, que autoriza as administradoras e mantém pública a relação delas. A confiabilidade não é do setor em abstrato: é de cada administradora, e você consegue verificar a sua em dois minutos.",
-      "lead": "A pergunta é legítima, porque o setor convive com um volume alto de fraude — quase sempre praticada por quem não é administradora autorizada, vendendo cotas que não existem.",
+      "lead": "A pergunta é legítima, porque quem administra grupo de consórcio precisa de autorização do Banco Central — e essa autorização é pública, consultável por qualquer pessoa em dois minutos.",
       "secao": "Como verificar antes de confiar",
       "itens": [
         [
@@ -66,13 +66,13 @@
         ],
         [
           "Pagamento só à administradora",
-          "Valor pedido em conta de pessoa física é o indício mais claro de fraude que existe no setor."
+          "Valor de consórcio é sempre pago à administradora, identificada pelo CNPJ dela. Conta de pessoa física não recebe pagamento de consórcio."
         ]
       ],
       "notaTitulo": "O Banco Central faz a ressalva, e ela importa.",
       "nota": "Nas palavras do próprio Bacen, o sistema de consulta \"não garante que a instituição é confiável, somente que ela é autorizada\". Autorização é requisito para funcionar, não atestado de conduta. Estar na relação é o mínimo — continue avaliando contrato, atendimento e reputação.",
       "relacionados": [
-        "/guia/contemplacao-garantida-e-golpe/",
+        "/guia/como-a-contemplacao-acontece/",
         "/guia/direitos-do-consorciado/",
         "/guia/como-funciona-o-consorcio/"
       ],
@@ -83,7 +83,7 @@
         ],
         [
           "E se a empresa disser que é parceira de uma administradora?",
-          "Pergunte qual é a administradora e o CNPJ dela, e verifique esse CNPJ. Plataformas e representantes podem existir, mas os grupos precisam ser administrados por empresa autorizada."
+          "Pergunte qual é a administradora e o CNPJ dela, e verifique esse CNPJ. Empresas parceiras e representantes podem existir, mas os grupos precisam ser administrados por empresa autorizada."
         ],
         [
           "O que acontece se a administradora quebrar?",
@@ -92,29 +92,29 @@
       ]
     },
     {
-      "slug": "contemplacao-garantida-e-golpe",
-      "keyword": "contemplação garantida",
-      "eyebrow": "Anti-golpe",
-      "h1": "Contemplação garantida é golpe",
-      "respostaCurta": "Não existe contemplação garantida. A contemplação ocorre por sorteio ou lance, em assembleia, e nenhuma administradora autorizada pode assegurar data. Quem promete prazo está cometendo fraude ou vendendo o que não tem como entregar — e essa é a promessa mais usada em golpe no setor.",
-      "lead": "É a frase que abre praticamente todo golpe de consórcio no Brasil. Ela funciona porque atende exatamente ao que a pessoa quer ouvir, e porque quase ninguém sabe que ela é impossível.",
-      "secao": "Como o golpe funciona",
+      "slug": "como-a-contemplacao-acontece",
+      "keyword": "como funciona a contemplação",
+      "eyebrow": "Como funciona",
+      "h1": "Como a contemplação acontece",
+      "respostaCurta": "A contemplação ocorre por sorteio ou por lance, nas assembleias mensais do grupo. Nenhuma administradora pode assegurar data, porque o resultado depende do sorteio e dos lances dos demais consorciados. É o que determina a Lei 11.795/08.",
+      "lead": "É a dúvida mais comum de quem entra em um grupo: quando chega a minha vez. A resposta honesta é que existem duas vias, as duas disputadas em assembleia, e nenhuma delas tem data marcada.",
+      "secao": "As duas vias de contemplação",
       "itens": [
         [
-          "Urgência fabricada",
-          "\"É hoje ou perde.\" A pressa não é do negócio, é do golpe: ela existe para impedir você de conferir."
+          "Sorteio",
+          "Todo mês, na assembleia, o grupo sorteia contemplações entre as cotas em dia. Não há ordem de chegada nem preferência: cada cota em dia concorre em igualdade."
         ],
         [
-          "Taxa antecipada",
-          "Pedem transferência para \"liberar\" o crédito. Depois disso, o contato desaparece. Nenhuma liberação legítima exige pagamento a intermediário."
+          "Lance",
+          "Você oferece antecipar um número de parcelas e o maior lance da assembleia é contemplado. É a via de quem quer acelerar, e ela está prevista no contrato do grupo."
         ],
         [
-          "Conta de pessoa física",
-          "O pagamento nunca é para a administradora. Este é o sinal mais claro e mais fácil de checar."
+          "Lance embutido",
+          "Parte do lance sai da própria carta de crédito, o que reduz o valor que você precisa ter em caixa e também o crédito final. As regras estão no contrato do grupo."
         ]
       ],
       "notaTitulo": "Nem a MOVECON pode prometer prazo.",
-      "nota": "Não é modéstia comercial: é como o sistema funciona. Se qualquer pessoa — inclusive um consultor nosso — disser que garante contemplação em determinado prazo, isso é motivo para desconfiar e para nos avisar. A promessa não existe para ninguém.",
+      "nota": "Não é modéstia comercial: é como o sistema funciona. A contemplação depende do sorteio e dos lances dos outros consorciados, e isso vale para todo grupo de toda administradora. O que um consultor pode fazer é explicar as estratégias de lance — nunca garantir prazo.",
       "relacionados": [
         "/guia/consorcio-e-confiavel/",
         "/guia/como-ser-contemplado-mais-rapido/",
@@ -123,15 +123,15 @@
       "faq": [
         [
           "Mas existe cota já contemplada à venda?",
-          "Existe transferência legítima de cota contemplada, formalizada pela administradora, com contrato e análise. O que não existe é carta contemplada barata, urgente e paga na conta de um particular."
+          "Existe transferência de cota contemplada entre consorciados, sempre formalizada pela administradora, com contrato e análise das partes. O que a administradora não vende é a contemplação em si."
         ],
         [
-          "Como confirmo antes de pagar?",
+          "Como confirmo os dados antes de pagar?",
           "Peça o CNPJ da administradora, ligue para ela pelo telefone do site oficial — nunca pelo número que o vendedor passou — e confirme se a cota existe e se a transferência está em andamento."
         ],
         [
-          "Caí no golpe. O que faço?",
-          "Registre boletim de ocorrência, reúna todos os comprovantes e comunicações, e procure a administradora citada pelo vendedor para confirmar se a cota existe."
+          "Dá para saber quantas contemplações meu grupo tem por mês?",
+          "Sim. O número de contemplações por assembleia depende do saldo arrecadado pelo grupo naquele mês e consta da prestação de contas que a administradora envia. É o dado que mostra o ritmo real do seu grupo."
         ]
       ]
     },
@@ -206,7 +206,7 @@
       "relacionados": [
         "/guia/consorcio-para-autonomo/",
         "/guia/depois-da-contemplacao/",
-        "/guia/contemplacao-garantida-e-golpe/"
+        "/guia/como-a-contemplacao-acontece/"
       ],
       "faq": [
         [

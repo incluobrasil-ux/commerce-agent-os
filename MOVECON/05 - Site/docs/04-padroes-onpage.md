@@ -109,7 +109,7 @@ intocadas:
 |---|---|
 | "antecipar a contemplação" | lance, não custo de adesão |
 | "entrada do grupo" | ingressar, não desembolso |
-| "cobrança antecipada de uma taxa" | descrição de fraude |
+| "cobrança antecipada de uma taxa" | descrição do que não ocorre na operação regular |
 
 Contá-las como repetição levaria a limpar texto correto.
 

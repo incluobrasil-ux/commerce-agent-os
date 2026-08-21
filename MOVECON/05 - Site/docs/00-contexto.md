@@ -36,7 +36,7 @@ conta?". Replicar nas filhas é aplicar regra existente, não criar claim.
 
 A segunda metade importa tanto quanto a primeira: *"não existe consórcio que
 vire saldo livre — e quem oferecer isso está fora das regras"* é frase
-protetiva contra golpe, e não deve ser separada da primeira ao replicar.
+protetiva de quem lê, e não deve ser separada da primeira ao replicar.
 
 ## Regra de produto — garantia e exigência de registro (imóveis)
 
@@ -76,7 +76,7 @@ se fossem, nem os contradiga:
 
 ## O que a MOVECON é
 
-Plataforma de consórcio. Apresenta os grupos, explica os custos por escrito e
+Autorizada pela Alpha a apresentar os grupos dela. Apresenta os grupos, explica os custos por escrito e
 acompanha o cliente até a carta de crédito.
 
 **Não administra grupos, não gere recursos, não realiza assembleias e não

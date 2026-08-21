@@ -217,7 +217,7 @@ def main():
     saida = []
     for s in segs:
         # /consorcio-contemplado/ tem estrutura propria: nao vende
-        # modalidade, ensina a nao cair em golpe. Gerado por
+        # modalidade, ensina o que conferir antes de fechar. Gerado por
         # scripts/gerar_hub_contemplado.py. Ver a docstring de la.
         if s.get('template') == 'proprio':
             continue

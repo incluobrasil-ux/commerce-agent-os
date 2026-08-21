@@ -35,7 +35,21 @@ Vitória da Conquista — BA · CEP 45.028-045
 | Campo | Valor | Observação |
 |---|---|---|
 | Telefone | (77) 9170-8914 | ⚠️ Confirmar — parece faltar um dígito (celular BR tem 9). Provável **(77) 99170-8914** |
-| E-mail | kaio_brito@hotmail.com | ⚠️ **Pessoal** — não usar no site. Criar `contato@moveconconsorcio.com` |
+| E-mail | kaio_brito@hotmail.com | ⚠️ **Pessoal** — não usar no site nem em material |
+
+## Contato comercial (confirmado 28/07/2026 — usar em site e materiais)
+
+| Campo | Valor |
+|---|---|
+| **E-mail** | **samuel@moveconconsorcio.com** |
+| **WhatsApp** | **+55 77 9170-8914** |
+| **Instagram** | **@moveconconsorcio** |
+| **Site** | **moveconconsorcio.com** |
+
+> ⚠️ **Verificar o WhatsApp antes de imprimir qualquer material.** `9170-8914` tem 8 dígitos;
+> número de celular no Brasil tem 9 e começa com 9 — o provável correto é **+55 77 99170-8914**.
+> O número foi informado sem o nono dígito tanto no contrato social quanto na confirmação de
+> 28/07/2026, então pode ser repetição da mesma fonte. Confirmar discando.
 
 ## Sócios
 
@@ -73,10 +87,12 @@ Isso é coerente com a estrutura real do negócio: quem administra os grupos é 
 **Consequência para o site:** apresentar a MOVECON publicamente como "**administradora de consórcio**" contraria o próprio contrato social e o registro na Receita — além de esbarrar no regime do Bacen, em que administrar grupo de consórcio exige autorização própria.
 
 **✅ Enquadramento DEFINIDO em 25/07/2026** (ver [[Decisões]]):
-> ✅ "MOVECON Consórcios — **plataforma de consórcio. Os grupos são administrados pela Alpha Administradora de Consórcio Ltda.**"
+> ✅ "MOVECON Consórcios — **autorizada pela Alpha Administradora de Consórcio Ltda., que administra os grupos.**" *(redação de 20/08/2026)*
 > ❌ **não** usar "administradora" para a MOVECON — só para a Alpha, ou em frase genérica sobre o mercado
 
-"Plataforma" é termo comercial não regulado: não reivindica administrar grupos e convive sem atrito com os CNAEs de intermediação e correspondente. Aplicado em todo o vault e na copy.
+**Enquadramento de 25/07/2026, substituído:** *"plataforma de consórcio. Os grupos são administrados pela Alpha Administradora de Consórcio Ltda."* O motivo da escolha ficou registrado e continua valendo como critério: "plataforma" era termo comercial não regulado, que não reivindicava administrar grupos e convivia sem atrito com os CNAEs de intermediação e correspondente.
+
+**Por que mudou:** decisão do cliente em 20/08/2026 — retirar "plataforma" do site e atribuir a autorização à Alpha. O critério que a redação nova precisa cumprir é o mesmo: **não reivindicar a administração dos grupos nem a autorização do Bacen.** Ela cumpre desde que a frase de atribuição à Alpha apareça na mesma tela. Confirmar com o jurídico a qualificação formal do vínculo MOVECON↔Alpha antes do próximo go-live.
 
 ---
 
@@ -92,7 +108,8 @@ Av. Rosa Cruz, 926 — Candeias
 Vitória da Conquista/BA — CEP 45.028-045
 ```
 
-⏳ Ainda faltam para o site: **telefone comercial** confirmado, **e-mail** com domínio próprio, **WhatsApp** comercial, **horário de atendimento**.
+✅ E-mail, WhatsApp e Instagram definidos em 28/07/2026 (ver bloco *Contato comercial* acima).
+⏳ Ainda falta: **horário de atendimento** e confirmação do nono dígito do WhatsApp.
 
 ---
 

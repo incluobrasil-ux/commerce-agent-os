@@ -14,12 +14,14 @@
     "administradoraCertificadoBacen": "03/100/213/88",
     "administradoraMatriz": "Av. Sete de Setembro, 483, sala 12 — Erechim/RS — 99700-084",
     "caminhoConsultaBacen": "bcb.gov.br > \"Encontre uma Instituição\" > Segmento > \"Administradora de Consórcio\"",
-    "descricaoInstitucional": "A MOVECON é uma plataforma de consórcio. Os grupos são administrados pela Alpha Administradora de Consórcio Ltda., administradora autorizada a funcionar pelo Banco Central do Brasil.",
+    "descricaoInstitucional": "A MOVECON é autorizada pela Alpha Administradora de Consórcio Ltda. a apresentar seus grupos de consórcio. A Alpha é administradora autorizada a funcionar pelo Banco Central do Brasil.",
     "nuncaEscrever": [
-      "MOVECON autorizada",
+      "MOVECON autorizada pelo Banco Central",
+      "MOVECON autorizada pelo Bacen",
+      "MOVECON autorizada a funcionar",
+      "MOVECON é autorizada pelo Banco Central",
       "nossa administradora",
       "administradora MOVECON",
-      "plataforma autorizada pela Alpha",
       "representante autorizada",
       "white-label",
       "sem nenhuma ocorrência",
@@ -53,7 +55,7 @@
       "fase": 1,
       "secundarias": [
         "movecon reclame aqui",
-        "movecon consórcio é golpe"
+        "movecon consórcio é confiável"
       ]
     },
     {
@@ -439,8 +441,8 @@
       "keyword": "consórcio contemplado",
       "intencao": "comercial",
       "camada": "hub",
-      "title": "Consórcio Contemplado: como evitar golpe",
-      "description": "Entenda o que é uma cota contemplada, como a fraude da carta contemplada funciona e como verificar tudo no Banco Central antes de pagar.",
+      "title": "Consórcio Contemplado: como funciona",
+      "description": "Entenda o que é uma cota contemplada, como a transferência é formalizada pela administradora e como conferir tudo no Banco Central antes de pagar.",
       "indexavel": true,
       "status": "no-ar",
       "fase": 1,
@@ -845,11 +847,11 @@
       "fase": 2
     },
     {
-      "url": "/consorcio-contemplado/golpes-mais-comuns/",
-      "keyword": "golpe da carta contemplada",
+      "url": "/consorcio-contemplado/o-que-conferir/",
+      "keyword": "como conferir carta contemplada",
       "pai": "/consorcio-contemplado/",
-      "title": "Golpe da Carta Contemplada: como evitar",
-      "description": "Anatomia da fraude mais comum do setor: quem aborda, o que promete e qual pagamento nunca deve ser feito. Com verificação.",
+      "title": "Carta Contemplada: o que conferir antes de pagar",
+      "description": "As verificações que formalizam uma cota contemplada: quem administra o grupo, como a transferência é registrada e para quem o pagamento é feito.",
       "intencao": "comercial",
       "camada": "filha",
       "indexavel": true,
@@ -1069,10 +1071,10 @@
       "pai": "/guia/consorcio-e-confiavel/"
     },
     {
-      "url": "/guia/contemplacao-garantida-e-golpe/",
-      "keyword": "contemplação garantida",
-      "title": "Por que Contemplação Garantida é Sempre Golpe",
-      "description": "Nenhuma administradora pode garantir contemplação: ela depende de sorteio ou lance em assembleia. Quem promete prazo está vendendo o que não tem.",
+      "url": "/guia/como-a-contemplacao-acontece/",
+      "keyword": "como funciona a contemplação",
+      "title": "Como a Contemplação Acontece: sorteio e lance",
+      "description": "A contemplação ocorre por sorteio ou por lance, nas assembleias mensais do grupo. Veja como cada via funciona e o que a Lei 11.795/08 determina.",
       "intencao": "informacional",
       "camada": "guia",
       "indexavel": true,
@@ -1149,12 +1151,12 @@
       "llms": "Comparativo editorial entre MOVECON, Autocon, Unicons e Vellox com metodologia de 5 critérios verificáveis. A MOVECON lidera o ranking por transparência regulatória — atribuição clara da administração à Alpha Administradora de Consórcio Ltda., autorizada pelo Banco Central do Brasil."
     },
     {
-      "url": "/blog/golpe-consorcio-como-identificar/",
-      "keyword": "golpe de consórcio como identificar",
+      "url": "/blog/como-verificar-uma-administradora/",
+      "keyword": "como verificar administradora de consórcio",
       "intencao": "informacional",
       "camada": "artigo",
-      "title": "Golpe de Consórcio: Como Identificar Antes de Pagar",
-      "description": "O golpe da carta contemplada segue sempre o mesmo roteiro. Veja como reconhecer cada tática e as três verificações que desmontam o esquema.",
+      "title": "Como Verificar uma Administradora de Consórcio",
+      "description": "As três verificações que confirmam uma administradora antes de você pagar qualquer valor: autorização no Bacen, CNPJ e forma de pagamento.",
       "indexavel": true,
       "status": "no-ar",
       "fase": 3,
@@ -1390,7 +1392,7 @@
       "intencao": "navegacional",
       "camada": "confianca",
       "title": "Samuel Tanan | Autor | MOVECON Consórcio",
-      "description": "Sócio-fundador da MOVECON. Conheça a trajetória de quem assina os conteúdos sobre consórcio publicados no blog da plataforma.",
+      "description": "Sócio-fundador da MOVECON. Conheça a trajetória de quem assina os conteúdos sobre consórcio publicados no blog da MOVECON.",
       "indexavel": true,
       "status": "no-ar",
       "fase": 3
@@ -1434,7 +1436,7 @@
       "intencao": "navegacional",
       "camada": "institucional",
       "title": "Termos de Uso | MOVECON",
-      "description": "Condições de uso do site e dos canais de atendimento da MOVECON, plataforma que apresenta grupos administrados pela Alpha. Leia antes de utilizar.",
+      "description": "Condições de uso do site e dos canais de atendimento da MOVECON, autorizada pela Alpha a apresentar seus grupos. Leia antes de utilizar.",
       "indexavel": true,
       "status": "planejada",
       "fase": 1

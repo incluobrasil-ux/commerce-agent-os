@@ -56,13 +56,13 @@ TITULOS = {
     'Planejamento':     'Planejamento de compra',
     'Pós-contemplação': 'Depois de ser contemplado',
     'Confiança':        'Segurança e verificação',
-    'Anti-golpe':       'Como não cair em golpe',
+    'Como funciona':    'Como a contemplação acontece',
     'Perfil':           'Para o seu perfil',
 }
 
 ORDEM = ['Fundamentos', 'Contemplação', 'Custos', 'Contrato', 'Decisão',
          'Comparativo', 'Planejamento', 'Pós-contemplação', 'Confiança',
-         'Anti-golpe', 'Perfil']
+         'Como funciona', 'Perfil']
 
 TPL = '''<!-- wp:html -->
 <div class="mv-page">

@@ -137,8 +137,8 @@ Fotografia real, não render 3D. Proporção [X:Y]. Alta resolução.
 ### A. og:image — o buraco mais grave do site
 
 Hoje **94 rotas indexáveis compartilham sem imagem**, e o `twitter:card` promete
-imagem grande. Num setor onde golpe é a objeção nº 1, link sem preview parece
-link suspeito.
+imagem grande. Num setor onde a confiança é a objeção nº 1, link sem preview
+parece link suspeito.
 
 São **4 moldes**, não 94 imagens. Texto e rota entram por cima em HTML/SVG.
 
@@ -188,9 +188,9 @@ de cor. Contraste médio, saturação levemente contida. Proporção 1,91:1.
 | embarcações | uma cornamusa de aço inox e um cabo náutico enrolado | oxidação leve, cabo com fibras abertas pelo uso |
 | contemplado | um carimbo de protocolo de papel e um envelope pardo fechado | **sem desgaste; objeto limpo, formal, burocrático** |
 
-**Por que o contemplado foge do padrão:** é a página anti-golpe. Objeto de
-processo formal — protocolo, envelope — reforça "isto se resolve por documento",
-que é exatamente a tese do texto.
+**Por que o contemplado foge do padrão:** é a página que explica a
+formalização da transferência. Objeto de processo formal — protocolo, envelope —
+reforça "isto se resolve por documento", que é exatamente a tese do texto.
 
 #### A3 · `og-molde-guia.webp` — 1200×630
 
@@ -358,7 +358,7 @@ Honestidade sobre o limite da ferramenta:
 |---|---|---|
 | **Screenshot da consulta ao Bacen** (P0, o mais valioso do site) | É prova verificável. Gerada, vira falsificação de página de órgão regulador — e o site inteiro se apoia nessa consulta | Capturar a tela real, anotar por cima em SVG |
 | **Foto do Samuel** (P0, fecha a P3b) | Rosto de pessoa real. Gerar é fabricar likeness | Foto real, mín. 400×400, fundo neutro |
-| **Fachada da sede** | Prova de existência física. Gerada, é fraude de prova | Foto real ou **não publicar** |
+| **Fachada da sede** | Prova de existência física. Gerada, é prova falsificada | Foto real ou **não publicar** |
 | **Screencast da consulta ao Bacen** | idem screenshot, em movimento | Gravar a tela real |
 | **Qualquer prova de operação** | A MOVECON é nova | Não inventar substituto |
 

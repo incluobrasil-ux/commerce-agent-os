@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Nota de Re-review GMC — Incluo</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm; }
+  body { font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color:#111; font-size:11pt; line-height:1.45; }
+  h1 { font-size:18pt; border-bottom:2px solid #222; padding-bottom:6px; margin-bottom:4px; }
+  h2 { font-size:13pt; margin-top:22px; border-bottom:1px solid #ccc; padding-bottom:3px; }
+  h3 { font-size:11.5pt; margin-top:14px; }
+  .meta { color:#555; font-size:9.5pt; margin-bottom:18px; }
+  .callout { background:#f3f6fa; border-left:4px solid #2a6fb8; padding:10px 14px; margin:14px 0; border-radius:3px; }
+  .callout strong { color:#1a4a7c; }
+  ul.checklist { list-style:none; padding-left:0; }
+  ul.checklist li { padding:4px 0 4px 24px; position:relative; }
+  ul.checklist li::before { content:"☐"; position:absolute; left:0; font-size:13pt; color:#666; }
+  pre.note { background:#fafafa; border:1px solid #ddd; border-radius:4px; padding:16px 18px; font-family:"Cascadia Mono","Consolas",monospace; font-size:10pt; line-height:1.5; white-space:pre-wrap; page-break-inside: avoid; }
+  .tag { display:inline-block; background:#eef; color:#225; font-size:8.5pt; padding:2px 8px; border-radius:10px; margin-right:4px; }
+  hr { border:none; border-top:1px solid #ddd; margin:22px 0; }
+  .small { font-size:9.5pt; color:#555; }
+  a { color:#2a6fb8; text-decoration:none; }
+</style>
+</head>
+<body>
+
+<h1>Nota de Re-review GMC — Incluo (Misrepresentation)</h1>
+<div class="meta">
+  <span class="tag">misrepresentation</span>
+  <span class="tag">remediation</span>
+  <span class="tag">T0</span>
+  <span class="tag">incluo</span>
+  <span class="tag">gmc-re-review</span>
+  <br>Gerado em 2026-05-27 · Operação Incluo Brasil
+</div>
+
+<div class="callout">
+  <strong>Para que serve:</strong> texto pronto para colar em <em>Google Merchant Center → Diagnostics → Misrepresentation → "Solicitar nova análise"</em>.
+</div>
+
+<h2>Pré-requisitos antes de enviar</h2>
+<ul class="checklist">
+  <li><strong>T0.1</strong> — Reescrita PDPs completa (ver guia A)</li>
+  <li><strong>T0.2</strong> — Disclaimer em 100% das PDPs</li>
+  <li><strong>T0.3</strong> — Página "Quem somos" reforçada (razão social, CNPJ, modelo de negócio)</li>
+  <li><strong>T0.4</strong> — SKUs <code>14:XXX#YYY</code> substituídos por <code>INC-&lt;slug&gt;-&lt;variante&gt;</code></li>
+  <li><code>pnpm merchant:audit</code> retornando 🟢 0 em <code>link:therapeutic-claim</code> e <code>content:therapeutic-claim</code></li>
+  <li>Feed Simprosys re-puxado e validado pós-edições</li>
+</ul>
+
+<div class="callout">
+  <strong>Tom:</strong> factual, sem desculpas extensas, sem promessas vagas. Revisor Google quer ver <strong>mudanças concretas e verificáveis</strong>, não compromisso futuro.
+</div>
+
+<hr>
+
+<h2>Texto da nota (PT-BR, colar como está)</h2>
+
+<pre class="note">Prezada equipe de Política do Merchant Center,
+
+Solicitamos nova análise após implementarmos quatro correções estruturais
+que endereçam diretamente a sinalização de Deturpação:
+
+1. REVISÃO DE LINGUAGEM EM 100% DO CATÁLOGO
+   Removemos de todos os títulos, descrições e URLs (handles) qualquer
+   terminologia clínica ou de diagnóstico (incluindo TDAH, TEA, autismo,
+   ansiedade, depressão, "autorregulação sensorial", "anti-estresse",
+   "anti-ansiedade", "alívio", "trata"). Substituímos por linguagem
+   funcional neutra que descreve apenas o objeto físico (ex.: "brinquedo
+   manipulativo", "conforto tátil", "objeto sensorial"). A loja não
+   possui registro ANVISA e não comercializa dispositivos médicos —
+   a linguagem agora reflete essa realidade.
+
+2. DISCLAIMER PADRONIZADO EM TODAS AS PDPs
+   Adicionamos em 100% das páginas de produto o aviso: "Este produto é
+   um brinquedo recreativo. Não é dispositivo médico, não trata, cura
+   ou alivia condições de saúde, e não substitui acompanhamento
+   profissional."
+
+3. IDENTIDADE DE NEGÓCIO REFORÇADA
+   Atualizamos a página "Sobre" com razão social, CNPJ, endereço,
+   modelo de negócio explícito (loja varejista de brinquedos sensoriais)
+   e canais de contato. Políticas de privacidade, troca, devolução e
+   termos seguem publicadas em incluobrasil.com/policies/.
+
+4. NORMALIZAÇÃO DE SKUs
+   Substituímos identificadores de SKU em padrão de marketplace externo
+   (ex.: "14:200006152#VT03-GREEN") por SKUs internos padronizados
+   (formato INC-&lt;produto&gt;-&lt;variante&gt;), eliminando ambiguidade sobre
+   identidade da loja.
+
+Todos os ajustes já estão refletidos no feed enviado via Simprosys e
+podem ser verificados nas próprias PDPs em incluobrasil.com.
+
+Permanecemos à disposição para esclarecimentos adicionais.
+
+Atenciosamente,
+Equipe Incluo Brasil
+contato@incluobrasil.com</pre>
+
+<h2>Após envio</h2>
+<ul>
+  <li>Anotar data/hora do envio em <code>07_memory/vault/projects/commerce-agent-os/next-actions.md</code> (T0.5).</li>
+  <li>Janela esperada de resposta: <strong>3-7 dias úteis</strong> (pode chegar a 14).</li>
+  <li>Se <strong>aprovado</strong>: liberar fila T1 (N26.c/d, N27 writeback real).</li>
+  <li>Se <strong>negado novamente</strong>: capturar print do motivo, abrir run-summary novo, <strong>não</strong> reenviar antes de identificar o gap.</li>
+</ul>
+
+<hr>
+<p class="small">commerce-agent-os · 12_reports/misrepresentation-remediation/incluo/</p>
+
+</body>
+</html>

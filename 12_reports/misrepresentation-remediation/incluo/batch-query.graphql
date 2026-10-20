@@ -1,0 +1,7 @@
+mutation BulkUpdate($i0: ProductInput!, $i1: ProductInput!, $i2: ProductInput!, $i3: ProductInput!, $i4: ProductInput!) {
+  p0: productUpdate(input: $i0) { product { id title handle } userErrors { field message } }
+  p1: productUpdate(input: $i1) { product { id title handle } userErrors { field message } }
+  p2: productUpdate(input: $i2) { product { id title handle } userErrors { field message } }
+  p3: productUpdate(input: $i3) { product { id title handle } userErrors { field message } }
+  p4: productUpdate(input: $i4) { product { id title handle } userErrors { field message } }
+}

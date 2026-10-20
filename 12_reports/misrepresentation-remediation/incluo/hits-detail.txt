@@ -1,0 +1,542 @@
+IMAGES total=944 withAlt=719
+ALT SAMPLES:
+  - Cubo Fidget 12 Lados - Foco e Conforto Sensorial | Incluo
+  - Cubo Fidget 12 Lados Incluo - imagem 2
+  - Cubo Fidget 12 Lados Incluo - imagem 3
+  - Cubo Fidget 12 Lados Incluo - imagem 4
+  - Cubo Fidget 12 Lados Incluo - imagem 5
+  - Cubo Fidget 12 Lados Incluo - imagem 6
+  - Cubo Fidget 12 Lados Incluo - imagem 7
+  - Cubo Fidget 12 Lados Incluo - imagem 8
+
+================================================================================
+
+### bola-massagem-amendoim-texturizada-estimulo-tatil  (id 8924991750306)
+title: Bola de Massagem Amendoim Texturizada - Conforto Tátil e Bem-Estar
+global.title_tag: 'Bola de Massagem Amendoim Texturizada - Conforto Tátil | Incluo'
+global.description_tag: 'Bola de massagem formato amendoim com textura espetada em PVC. Conforto tátil e bem-estar no dia a dia. 15 cm, 80 g, 4 cores. Frete grátis.'
+--- custom.detalhes_do_produto (type=multi_line_text_field) ---
+Massageador de Pontos – Alívio e Relaxamento
+
+Proporcione relaxamento e bem-estar com este massageador de pontos, ideal para aliviar tensões musculares e estimular a circulação.
+
+Com design simples e funcional, é perfeito para uso em diferentes áreas do corpo, auxiliando no alívio de dores e no relaxamento após um dia cansativo.
+
+Prático e fácil de usar, pode ser utilizado em casa, no trabalho ou em momentos de descanso.
+
+Características
+
+• Massageador de pontos (point massage)
+• Auxilia no alívio de dores e tensões
+• Estimula a circulação sanguínea
+• Ideal para relaxamento diário
+• Design simples e funcional
+• Fácil de usar em qualquer lugar
+• Produto versátil
+
+Especificações
+
+• Marca: Sem marca
+• Tipo: Massageador de pontos
+• Estilo: Point Massage
+• Substâncias químicas perigosas: Nenhuma
+--- seoking.settings (type=json) ---
+{"item_id":"8924991750306","backup":{"body_html":"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"},"focus_keywords":["bola massagem amendoim","bola massagem amendoim texturizada","bola de massagem","bola de massagem texturizada","bola sensorial de massagem"],"custom_fields":["title"]}
+
+### bolas-magneticas-fidget-silicone-4-texturas  (id 8924989325474)
+title: Bolas Magnéticas Fidget de Silicone com 4 Texturas - Foco e Conforto Tátil
+global.title_tag: 'Bolas Magnéticas Fidget Silicone 4 Texturas - Conforto Tátil | Incluo'
+global.description_tag: 'Kit de bolas magnéticas fidget em silicone livre de BPA com 4 texturas. Útil durante atividades de foco, conforto tátil e uso discreto. A partir de 6 anos.'
+--- custom.detalhes_do_produto (type=multi_line_text_field) ---
+Bolas Magnéticas Fidget – SquishMeez
+
+Kit de bolas magnéticas em silicone macio com 4 texturas diferentes. Brinquedo manipulativo tátil para foco e conforto sensorial.
+
+As bolas magnéticas permitem criar formas e movimentos, estimulando criatividade, coordenação motora e concentração.
+
+Características
+
+• Kit de bolas magnéticas fidget em silicone
+• 4 texturas diferentes para estímulo tátil
+• Permite criar formas e combinações
+• Material macio e resistente (silicone)
+• Hipoalergênico e BPA Free
+• A partir de 6 anos
+
+Especificações
+
+• Marca: SquishMeez
+• Tipo: Brinquedo sensorial magnético
+• Material: Silicone
+• Certificação: CE (Conformidade Europeia)
+• Idade recomendada: 6 a 12 anos / 14 anos ou mais
+• Substâncias químicas perigosas: Nenhuma
+--- seoking.settings (type=json) ---
+{"item_id":"8924989325474","focus_keywords":["bolas magnéticas fidget","autorregulação sensorial","silicone macio"]}
+
+### canudos-bolas-sopro-kit-10-pecas-ludico  (id 8928405160098)
+title: Kit Canudos e Bolas para Brincadeiras de Sopro - 10 Peças Atóxico
+global.title_tag: None
+global.description_tag: 'Kit 10 canudos e bolas para brincadeiras de sopro em plástico atóxico. 145g. Atividades de sopro e coordenação. 3+ anos. Frete grátis.'
+--- custom.detalhes_do_produto (type=multi_line_text_field) ---
+Bola de Malabarismo Interativa – MEADE
+
+Divirta-se e desenvolva habilidades com esta bola de malabarismo interativa da marca MEADE. Ideal para quem busca entretenimento dinâmico, coordenação motora e momentos de lazer.
+
+Com design leve e fácil de transportar, é perfeita para uso em qualquer lugar. Seu efeito de suspensão ao soprar torna a brincadeira ainda mais interessante e desafiadora, proporcionando uma experiência única.
+
+Indicada para jovens e adultos, também pode ser utilizada para treinar foco, equilíbrio e coordenação.
+
+Características
+
+• Brinquedo interativo e esportivo
+• Tipo: Bola de malabarismo
+• Efeito de suspensão ao soprar
+• Estimula coordenação motora e concentração
+• Leve e fácil de transportar
+• Material resistente (plástico)
+• Produto unissex
+• Cor enviada de forma aleatória
+
+Especificações
+
+• Marca: MEADE
+• Material: Plástico
+• Tipo: Juggling Ball (bola de malabarismo)
+• Gênero: Unissex
+
+--- seoking.settings (type=json) ---
+{"item_id":"8928405160098","backup":{"body_html":"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"},"focus_keywords":["kit canudos","canudos e bolas de sopro","bolas de sopro","canudos"]}
+
+### cubo-fidget-12-lados-foco-conforto-tatil  (id 8924974350498)
+title: Cubo Fidget 12 Lados - Conforto Tátil
+global.title_tag: None
+global.description_tag: 'Cubo fidget 12 lados com engrenagens, botões e joystick. Plástico ABS premium. Discreto, portátil e silencioso. Frete grátis Brasil.'
+--- custom.detalhes_do_produto (type=multi_line_text_field) ---
+Cubo Fidget 12 Lados – YIYUEQIANLI
+
+Brinquedo manipulativo compacto com 12 lados de estímulo tátil da marca YIYUEQIANLI. Ideal para uso em casa, escola ou trabalho.
+
+Com múltiplas funções interativas — clicar, girar, pressionar, deslizar — proporciona uma experiência sensorial completa e envolvente.
+
+Características
+
+• Cubo fidget com 12 lados de estimulação tátil
+• Múltiplas funções: clicar, girar, pressionar, deslizar
+• Material resistente (ABS)
+• Compacto e portátil
+• Design discreto para uso diário
+• 14+ anos
+
+Especificações
+
+• Marca: YIYUEQIANLI
+• Material: ABS
+• Certificação: CE (Conformidade Europeia)
+• Tipo: Brinquedo manipulativo fidget
+• Substâncias químicas perigosas: Nenhuma
+--- seoking.settings (type=json) ---
+{"item_id":"8924974350498","backup":{"body_html":"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"},"focus_keywords":["cubo fidget","cubo sensorial","brinquedo sensorial","cubo fidget antiestress"],"custom_fields":["title"]}
+
+### cubo-fidget-magnetico-botoes-clique  (id 8924984311970)
+title: Cubo Fidget Magnético com Botões de Clique - Conforto Tátil
+global.title_tag: 'Cubo Fidget Magnético Incluo - Foco e Conforto Tátil | Botões de Clique'
+global.description_tag: 'Cubo fidget com botões magnéticos de clique satisfatório. ABS premium, 32g, 3 botões sonoros + 2 silenciosos. Brinquedo manipulativo de bolso para adolescentes e adultos.'
+--- custom.detalhes_do_produto (type=multi_line_text_field) ---
+Produto Funcional em ABS – hairun
+
+Ideal para uso no dia a dia, este produto da marca hairun oferece praticidade, durabilidade e facilidade de uso.
+
+Com design simples e funcional, é versátil e pode ser utilizado em diferentes situações, proporcionando mais conforto e eficiência nas atividades.
+
+Fabricado em material resistente (ABS) e livre de substâncias químicas nocivas, garantindo mais segurança durante o uso.
+
+Características
+
+• Produto prático e funcional
+• Material resistente (ABS)
+• Design simples e eficiente
+• Versátil para diferentes aplicações
+• Fácil de usar no dia a dia
+• Seguro (sem químicos perigosos)
+
+Especificações
+
+• Marca: hairun
+• Material: ABS
+• Certificação: CE (Conformidade Europeia)
+• Substâncias químicas perigosas: Nenhuma
+--- seoking.settings (type=json) ---
+{"item_id":"8924984311970","backup":{"body_html":"eJzFV8tu20YU3fcrBgYKpKhlWXYgO4nsInHiokCNGHGS/ZAcSpMOeZl5qE5W/YHu+gFNsyhcwKukX8A/6Zf03CElUrLyALLIxjBJzX2ec+6dyWzveOK8pXJ6fBISEqc6myovzuS0rK+8TkmkVIgH5Ot/lROZEidGvwxqMmwPTYaw8M2kOn4sPmHnpzI1gZYHRX0lQiFFrqyVhSq9ZOsLGzJ4slZNg5H13/VbEk6VjqyWpjOQKbyck5nrTIpKWilkRVpaQUszOaWdx20hlx9SKlP4tI31zqbqHZ4qq8pUx+CIg3OUWJVKO5WbwinxG40Y+O+OuFDBiaQtG5ewvi7qt06oIgleZ+REZSkLr1WBKog0FhWvVKodIQonvXa59PU7q2lbEKqkEHCGb87DVDAkfP3Ga4Mfy5Bpr+fcKqRERma0MxlWsS0TXUyFs+nR1sz7yt0dDtOs3HEzqnT+ageBDd0w10a54Wi4e7B7OLw92tsfHozH4/Z1im4O8tjNQYFuKm7mAAcHyI6UG2Rq0IQ/cKEi69VA4gAKPxgfHuxU5fSH+dHo4OD23vjOweGdLSGNP9r6KEbEQDzXDoDIUVkvTaxf0kGwcbclnH9l1NFWIS8Hv+rMz+6K0e7ut/dEgRbpEk/j6lLs3ts6boox219C/ZGrUOlcp9x/tvq0vkpLPLo+sPdxKBj8MRp/2vdn0itu/N2u8/cfXHBYSEwKqxxCr/9h4IhbRs+titAJCd7+xW8dkJLquXTfTYbRcN/6U5WWZGiqZc9+/fsadErqsBWBfwM/QALHAeSqDV5OqMz1NLTo5/haaz2n+yvozZXKEpn+Ag6UZEl8L/aW3x1wgsTIkdvg634qk4ZCPeNP1aWHe5RFzlV04CorX3Ek9TujOIOC5BTkKGQZmGU37J4r17e4vyem4lYwnqtBRSVTT5sK/FAjFreW6ynZQoLjjHXx329/CMSsRMmqYiBRkJciqsQNa6dSX0qhwERAAr2HZ5BUZv3ujW4LyQ2jgGT0phKdBCgY+to79LNGCjZWpsJp6E1K94Saax/fghW+UWZTX78MDIrW7jAC9uvyfjQerfH+YNTy/qECn2egRA/BxZL/YDeJvjQ0evAlTD+3VFmtUF94Og2M0zJ24RM0Z4ogqYXK9lpzESpl8/o61Q1y5RLgLZyZiXJqgQIhcZ74mVtWX5dhE4geLRV9OVXwH+jZx/fpgoBLsWe6c26UqqpRf2l0ArfUaEKAEOAXBsfxboPfi6ZtHCS3refsTCLaK6TmIvCB3TRUyCeqb85kwZBzqVU8tMFjqIwA8RK0FsMKEypkDeCtCqXmJm/izsrgXx/4fXkNl9qAXqDBZ41kEanLwgH9axUOrVg8bAjljFC0TsZ6vnsqBzFykY68aBSJZm11sdnqUrNUxZLoxuGtRCdGk0dsbhvT3DS1k0iPC4TfNaN94xA4R1tkgpwZtesa1zagoX+UuahYOlPIPAaXkHFoQ0HpTBvJbUBH6AWtKESPIidUkHjmpF0nBbWkuGAw8mYU9TFtmAGkG24D0i/iIrcqkecYhA5cw7HNTI+homde88LWDjB2sjZqOpP3DSYvDPLeplamE/dF9edQG2TB9ha96gw9c2oJW3C5viaGa3YTw1w79B1jVXTjFQIcB/oKeTrjPwZp8R1gjX2Ist92IqaMHBY26z/7RRvS11fuw9115R7vftbGxhhwvLit1aVZRfpK+iVi/rhEZTchdSHfjzpmwfOMGAA51ryu3y/IllHJoi6udL3r4QX42tG1ozLv2kvm43uDku7ck4Xc4aqBBjO6FwumErimKOJiAHFxPeyJ4nONZadsJGKugYltUb8vdRKiikLf7Fp0rXugdzUoZoMHuoC7yITu1Il0MipFRGFBUUKjGUzGVEI7IZEYIx9SiYc6b8VXxzF9ztcXT58cpN1G29EfMV8CNg5bcE/emptlTGFli1Z4xHAoabHfbpomD0NlZMRab7GNCtJ3AXyQmclWQvIbMxXFZhh7wpbSiFsnKpvmRnsXiDcABFfoUPS8PVGLHXyb8Ve/gWSKeB3I6zcprm4zPUXf9Gv5ocHULc9C2SmV9ftCpx9epLl8uZwT3xUFrTPv49vAs7g6GzW/MXEYNCWXs1KAEI/WVs9KsH6hc+vr5yKBOd9HkHGcIRITeKXj1OwZ7d24UkgAq/IOOE69bbpdaLA9I7MI2Xan3ombCgQVaUoGpTRAchpLDCGI7hZmpevuxKo4buG70C/O0Smj4nqYNat1o18FqiqbURy7uBzMfWlb7h7wAePs6H9M51Wy"},"focus_keywords":["cubo fidget magnético","autorregulação sensorial","cubo fidget magnético com botões de clique"],"custom_fields":["title"]}
+
+### cubo-infinito-sensorial-fidget  (id 8924979953826)
+title: Cubo Infinito Sensorial - Conforto Tátil
+global.title_tag: 'Cubo Infinito Sensorial | Foco e Conforto Tátil | Incluo'
+global.description_tag: 'Cubo infinito dobrável em metal ou plástico ABS. Útil durante atividades de foco, conforto tátil, leve e silencioso. Disponível em 10 cores. Frete grátis.'
+--- custom.detalhes_do_produto (type=multi_line_text_field) ---
+Brinquedo Interativo Metálico
+
+Aproveite momentos de diversão e entretenimento com este brinquedo interativo, ideal para crianças maiores, jovens e adultos.
+
+Fabricado em metal, oferece maior durabilidade e resistência, sendo perfeito para quem busca um produto prático e de longa vida útil.
+
+Com design simples e funcional, é ideal para estimular concentração, raciocínio e coordenação, proporcionando uma experiência envolvente no dia a dia.
+
+Características
+
+• Brinquedo interativo e resistente
+• Material durável (metal)
+• Estimula concentração e raciocínio
+• Auxilia no desenvolvimento cognitivo
+• Indicado para diversas idades
+• Design simples e funcional
+• Ótima opção de presente
+
+Especificações
+
+• Marca: other
+• Material: Metal
+• Certificação: CE (Conformidade Europeia)
+• Idade recomendada: 6 a 12 anos / 14 anos ou mais
+• Substâncias químicas perigosas: Nenhuma
+--- seoking.settings (type=json) ---
+{"item_id":"8924979953826","backup":{"body_html":"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"},"focus_keywords":["cubo infinito sensorial","cubo sensorial","cubo autorregulação","cubo antiestress"]}
+
+### cubo-sensorial-silicone-textura-responsiva-conforto-tatil  (id 8925006528674)
+title: Cubo Sensorial de Silicone - Textura Responsiva e Conforto Tátil
+global.title_tag: 'Cubo Sensorial de Silicone - Textura Responsiva e Conforto Tátil | Incluo'
+global.description_tag: 'Cubo sensorial de silicone hipoalergênico com textura responsiva dupla. Brinquedo manipulativo, livre de BPA. 5,7cm, 199g. Frete grátis. Incluo.'
+--- custom.detalhes_do_produto (type=multi_line_text_field) ---
+Brinquedo Interativo – Tema Animais & Natureza
+
+Aproveite momentos de diversão e entretenimento com este brinquedo interativo, ideal para jovens e adultos que buscam relaxamento e atividades envolventes.
+
+Com temática de Animais & Natureza, proporciona uma experiência leve e divertida, sendo uma ótima opção para uso individual ou em grupo.
+
+Fabricado com materiais seguros e livre de substâncias químicas nocivas, garantindo mais tranquilidade durante o uso.
+
+Características
+
+• Brinquedo interativo e divertido
+• Tema: Animais & Natureza
+• Ideal para lazer e entretenimento
+• Estimula criatividade e concentração
+• Pode ser usado individualmente ou em grupo
+• Design simples e funcional
+• Ótima opção de presente
+
+Especificações
+
+• Marca: Sem marca
+• Modelo: 1
+• Tema: Animais & Natureza
+• Substâncias químicas perigosas: Nenhuma
+• Aviso: Utilizar conforme orientação do produto
+--- seoking.settings (type=json) ---
+{"item_id":"8925006528674","backup":{"body_html":"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"},"focus_keywords":["cubo sensorial silicone","cubo silicone autorregulação","cubo sensorial","cubo sensorial texturizado","cubo silicone texturizado"]}
+
+### fidget-pad-controlador-sensorial-foco  (id 8924983754914)
+title: Fidget Pad Controlador Sensorial - Conforto Tátil
+global.title_tag: None
+global.description_tag: 'Fidget pad formato controlador com botões, joystick e interruptores. Plástico ABS, 40g. Discreto e portátil. Frete grátis Brasil.'
+--- custom.detalhes_do_produto (type=multi_line_text_field) ---
+Produto Interativo em Plástico
+
+Ideal para momentos de lazer e entretenimento, este produto interativo é perfeito para jovens e adultos que buscam atividades envolventes no dia a dia.
+
+Com design simples e funcional, pode ser utilizado em diferentes ambientes, proporcionando diversão, foco e relaxamento.
+
+Fabricado em material resistente e livre de substâncias químicas nocivas, garantindo mais segurança durante o uso.
+
+Características
+
+• Produto interativo e versátil
+• Ideal para lazer e entretenimento
+• Estimula foco e concentração
+• Pode ser usado individualmente ou em grupo
+• Material resistente (plástico)
+• Design simples e funcional
+• Ótima opção de presente
+
+Especificações
+
+• Marca: Sem marca
+• Material: Plástico
+• Certificação: CE (Conformidade Europeia)
+• Substâncias químicas perigosas: Nenhuma
+--- seoking.settings (type=json) ---
+{"item_id":"8924983754914","backup":{"body_html":"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"},"focus_keywords":["fidget pad controlador","fidget sensorial","controlador sensorial","pad controlador sensorial","autorregulação"]}
+
+### orbita-cubo-sensorial-infinito-conforto-tatil-foco  (id 8924985065634)
+title: Órbita Cubo Sensorial Infinito de Plástico - Conforto Tátil
+global.title_tag: 'Órbita Cubo Sensorial Infinito de Plástico - Foco e Conforto Tátil | Incluo'
+global.description_tag: 'Órbita cubo sensorial com movimento giratório infinito. Plástico resistente, 56g, silencioso e portátil. Brinquedo manipulativo para crianças e adultos. Frete grátis Brasil.'
+--- custom.detalhes_do_produto (type=multi_line_text_field) ---
+Brinquedo Interativo – Modelo LYY0115
+
+Aproveite momentos de diversão e entretenimento com este brinquedo interativo, ideal para diferentes faixas etárias.
+
+Com design simples e funcional, pode ser utilizado por crianças, jovens e adultos, proporcionando uma experiência envolvente que estimula a criatividade, concentração e coordenação.
+
+Perfeito para uso em casa ou em ambientes educativos, sendo também uma ótima opção de presente.
+
+Características
+
+• Brinquedo interativo e versátil
+• Estimula criatividade e concentração
+• Auxilia no desenvolvimento cognitivo
+• Indicado para diversas idades
+• Pode ser usado individualmente ou em grupo
+• Design simples e funcional
+• Ótima opção de presente
+
+Especificações
+
+• Marca: Sem marca
+• Modelo: lyy0115
+• Certificação: CE (Conformidade Europeia)
+• Idade recomendada: 3 a 6 anos / 6 a 12 anos / 14 anos ou mais
+• Substâncias químicas perigosas: Nenhuma
+• Aviso: Não ingerir
+--- seoking.settings (type=json) ---
+{"item_id":"8924985065634","backup":{"body_html":"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"},"focus_keywords":["cubo sensorial infinito","autorregulação sensorial","sobrecarga sensorial"]}
+
+### pulseiras-fidget-sensoriais-texturizadas-silicone-kit-6  (id 8928052805794)
+title: Pulseiras Fidget Sensoriais Silicone BPA Free - Kit 6 Texturas Estímulo Tátil 180g
+global.title_tag: None
+global.description_tag: 'Kit 6 pulseiras fidget sensoriais em silicone BPA Free atóxico. 6 texturas variadas. 14+ anos. Laváveis e silenciosas. Frete grátis Brasil.'
+--- custom.detalhes_do_produto (type=multi_line_text_field) ---
+Pulseiras Fidget Sensoriais de Silicone – FUYAOZHISHANG
+
+Kit de 6 pulseiras fidget sensoriais em silicone BPA Free com 6 texturas diferentes. Brinquedo manipulativo tátil para conforto sensorial e foco durante o dia.
+
+Leves, silenciosas e laváveis para uso discreto em qualquer situação.
+
+Características
+• Kit 6 pulseiras fidget em silicone macio
+• 6 texturas diferentes para estímulo tátil
+• BPA Free e hipoalergênico
+• 180g — silenciosas e laváveis
+• 14+ anos
+
+Especificações
+• Marca: FUYAOZHISHANG
+• Tipo: Pulseira sensorial fidget
+• Material: Silicone BPA Free
+• Certificação: CE (Conformidade Europeia)
+• Idade recomendada: 14 anos ou mais
+• Substâncias químicas perigosas: Nenhuma
+--- seoking.settings (type=json) ---
+{"item_id":"8928052805794","backup":{"body_html":"eJzNWMuO3EQU3fMVpawyons6kwmdhEwGTZ4gQBmYwL7arnaXKLucqnJryIqP4AOIWCCQsooQUpb4T/gSzr1+lfsxCayymBmPXb731H2ce8onq5unJz44W2Sn55XxSjvpxROdZiqIC1V467TUXjxXl6Fy+qVM8Vjl4kIbndhCnczal09msPTRyer4tHsknjpZiTOjc1UE6cSD8zPxxCkl/v5LfKmDmLdGYRB3ju7cyOjvd96KR5U0n4oOjvi4w/PMSQM/x/BTnp558Z+Bp1J8USSmsj1s4etfrahyKZbKOclQRap608qH+nVeGSt8a9OIUL8K2gglLOPpLA0v+aq0LihR/yJkFaxzKquMrH+Dq2E5QrRUSaJt0cW0f70LIHBkFEPZxXAiZKjfXOLpRKx0aaVRLqv/KHAD7rsA9z4OxTPxAyKd2MH4XJR9tGA/dClINQKgikQTmgHldaeMWls/EaUtAv21BcMVpUxd/adiK7LQOQVbiULCnHopD0TpLKLA+7symnn91gRdmig0pUTWW0ABHkqncI19Ap3vX9UAs5Rr61SiitQK27uR1WX92mgrpBVLy7FBKhBSLAxuMxEqepOSgtRF+IZ12Cee5YTMJ06hTpRAqihm1svDk1nJddmZokJOqZCjfdkUafbKicpz0gvL2bCUIdsnRthK5Agp/m9W4ScHZC/++elngXQgJNe5X4IN0hxMhJHr+tVacQao9FCg+OdQfKtgGMGRCI+ksAbt4uo+uoXU2TjdFcCgfJVba8+laZtswAoC7Q+Gbeo8E94l96+tQij9p7NZkhaHfmVLvfzxEG5nfrZEdPzsaHbj9o07s1tHN49nt+fzeXu7L8Ppkpt2OuR12nXAdFHK6RIlPUUZT+fTrlqnKCRNdTS9c3x0WBbZZ+v7R7dv37o5vzu/M7+Ghgn3rzWdLv4Pqw1cNe0baN73yrXTJgggoi6QD1ShlvVrqgTxpCq46rWPyZFIqzL4ZTR+tfcf72WXqGrme5p0X29OdrXmqB9zMTRiS2ZrCecpdYqXQfsl8YzT6BKG+y7MRIQR4v0ENgTWgxNdV1wS6cyavkT1ybUCDnUJTmibtWXaLSwX+4k2gjNmdllaMMOLClfVJYBK6sKsDSutsrRK5RZmKIZKoO5L68OIenaAOXsP1olQ7eLClllszCy2Jzm0sAyq6MLkA20plTugPNyisZiFImKm522I0zYnEg4k79rIyzYgaI3c8iXXFArKOiEzHTou3Q6GCcphGOg1eMd6TRcRhi70pfLeIrCUjkXlE5SmrxaohlCBqVb1q4Umn06VKpCNxn9Dww3aHb7PsXW5gH3wnurZelyfLWtTehtC5UIk9sNeX4C2gQhbzBeaRhB85SJZyRwV3Keg9Tzjrv5gCPHW0d0NQrx71BLiI0TBrBARbHsvqdDPVZTZsirNsU2y3MGLj32pEr3UiWy76Xn9ewK5It/NjV8j0BuVewWv0GTcq40mA+0g3Xrt2MIS0ZDB7mpl9E9Q9dvUjmh4EE40D/Yppy1jncqNbLXETXq3oW66aoQV3bpSWe0qeIW6ZS0Q+YBAEJm43o6v0hCtUKkPEkGbgx3GoFtisug0SS9VIE6a+iSNgkaZ7eHmh2ioBCmsX6M0k9H2l0aBKkmvTCCRXCNdxiomatEdtp9IfQmOwiZQIYhmp3JGFBPpnVbnvFve7PD1uc7AAdAImwQOuCg8KoX6VVaxGpQLYtJCVViCQVO/QakAFfHKPVZ/LP7oxZRbiK6mxlZgXIArHUrecLQZI0j24B7eSBo3lELmY3VPwJ9LcZts2ASTA41Q8thALO7FHOpp4mFrTZsgJSuZctkij6nyGUYvzdoERAx6HXFa1McXMNa1MHZB2nbQlvub+bFPrJHcnOSUmFRiQJNEcXbdgKAZwUzdTAF1qTPsahh0WGlgejTonju5AJXRhkF8FYJJLvCaU1WhCSWqSWlqO3KBnatlO2WgwCVA51vHgc7219Ggw+BXrsGP5b4yjSqig4c2DXwfRSbCX8pENweWwfL3WmYg0g4r0urIlFwzYgaKGHmWNBhI9dsF0V1U/w+lHwfT6H52o8PkaNPxwI5m+WDtbAi8twmTO9mmFtmtQ4AZ/ME2Yb8P9Yc5B4/n8805+Ek7B99jvHk+UVagyPZwwCyxpZrVluzcMQMf0tnuOy/dZpfYtku+YiIJlvyQq9GY2cMtfC4m9nKYgBp3kLYhtdx3KxIwA4GTMdlNLS7VXKGFGkGTslYtFNMAy6ZIlNqulgYHtJ2rT69g/ujg2sr85ky70XCPG6HvxDBLaXP9fCXgXMapbQnDYVD83irRzZNDVN+NBAVJosuVYNETx5Ykcq5GHxfiY39n5iIaF07YTiMmWFUwb7ezI5ozXUfYDRY9h+BYU5WChNesQR6Q5t2si/J0gNmO2qEFtmUXSYYdlUljmR5tnH426pVWbH/0oLs7PqKMKZMW/cDf8fpUdQqM/TbI+7LoceMZS/2N8yMrn25xk1dSAw2W6DSx61Cw+e3lDPliVrzoTzTR4B5n9KpE9kTLaT8EO7Ce5ffaFlT9hD8UjxT6rggasogH78pWa7SB1/QxgJamZHTrS9FTSU405+cbKKqmARsmimCfO5tWnCXTYODjegKExANg+I689nEVRXkirvg4yXw2zvqE26/Jfx4fELn5WKGzXnvR4ebd/Qs3UWEj"},"focus_keywords":["suporte à autorregulação","pulseiras fidget sensoriais","grau alimentar"]}
+
+### quadro-rotina-visual-magnetico-infantil  (id 8928816693410)
+title: Quadro de Rotina Visual Magnético Infantil - Autonomia e Organização Diária
+global.title_tag: 'Quadro de Rotina Visual Magnético Infantil - Autonomia | Incluo'
+global.description_tag: 'Quadro magnético com 154 peças para organizar a rotina diária infantil. Sistema de recompensa, canetas apagáveis e tarefas personalizáveis. 3–12 anos.'
+--- custom.detalhes_do_produto (type=multi_line_text_field) ---
+O Quadro de Rotina Visual Magnético Infantil é uma ferramenta prática e educativa desenvolvida para ajudar crianças a organizarem sua rotina diária de forma visual, leve e divertida. Com um sistema magnético funcional e temas infantis atrativos, ele incentiva a autonomia, a responsabilidade e a criação de hábitos saudáveis no dia a dia.
+
+Ideal para rotinas matinais e noturnas, o quadro ajuda a transformar tarefas comuns em atividades mais claras e motivadoras, facilitando a participação da criança e contribuindo para uma convivência mais tranquila entre pais e filhos.
+
+Destaques
+
+Auxilia no desenvolvimento da autonomia e da responsabilidade.
+Ajuda na criação de hábitos saudáveis de forma lúdica.
+Organiza a rotina diária de maneira visual e prática.
+Contribui para melhorar o foco e a concentração nas tarefas.
+Reduz conflitos na rotina entre pais e filhos.
+Conta com sistema de recompensa com estrelas para maior motivação.
+
+Como usar
+
+Fixe os quadros em uma geladeira ou outra superfície metálica.
+Organize os adesivos de tarefas nos quadros de rotina matinal e noturna.
+Personalize as tarefas de acordo com a rotina da criança.
+A cada atividade concluída, a criança pode marcar com caneta ou usar estrelas como recompensa.
+O acompanhamento diário ajuda a incentivar constância, organização e senso de conquista.
+
+Benefícios desenvolvidos
+
+Estimula autonomia e senso de responsabilidade.
+Fortalece a criação de hábitos diários.
+Melhora a organização da rotina infantil.
+Ajuda na concentração e no acompanhamento das tarefas.
+Torna o processo de aprendizado mais visual e motivador.
+Favorece a participação ativa da criança nas atividades do dia a dia.
+
+Especificações
+
+Conteúdo do kit: 2 quadros magnéticos para rotina matinal e noturna.
+24 adesivos de tarefas: 19 tarefas pré-definidas e 5 personalizadas.
+120 estrelas adesivas para sistema de recompensa.
+8 canetas marcadoras em cores variadas, apagáveis e de secagem rápida.
+Material: papel magnético resistente.
+Peso: 238 g.
+Temas disponíveis: Espaço Sideral, Unicórnio e Padrão Colorido.
+
+Tarefas incluídas
+
+Entre as tarefas pré-definidas estão escovar os dentes, tomar café da manhã, arrumar a cama, vestir-se, fazer lição de casa, tomar banho, jantar, ler um livro e dormir no horário, além de outras tarefas comuns da rotina infantil.
+
+Indicações de uso
+
+Indicado para crianças de 3 a 12 anos. Também é ideal para auxiliar na organização de rotina de crianças com autismo, TDAH e outras necessidades específicas. Pode ser utilizado em casa, escolas, consultórios terapêuticos e centros de desenvolvimento infantil.
+
+Onde usar
+
+Na cozinha, fixado na geladeira.
+No quarto infantil, em superfícies metálicas.
+No banheiro, para rotina de higiene.
+Na sala de estudos.
+Em escolas e salas de aula.
+Em consultórios terapêuticos.
+
+Diferenciais
+
+Sistema magnético prático para fixar e reposicionar.
+Design temático atrativo para engajar as crianças.
+Tarefas personalizáveis conforme a rotina da família.
+Sistema de recompensa com estrelas motivadoras.
+Canetas apagáveis para reutilização contínua.
+Kit completo, pronto para uso.
+
+Informações adicionais
+
+Os adesivos são eletrostáticos e podem ser reposicionados com facilidade. As canetas possuem borracha na extremidade para apagar de forma prática. É uma excelente opção de presente educativo para aniversários, Dia das Crianças, volta às aulas e para famílias que desejam incentivar mais organização e autonomia na rotina infantil.
+--- seoking.settings (type=json) ---
+{"item_id":"8928816693410","backup":{"body_html":"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"},"focus_keywords":["rotina visual magnético","visual magnético infantil","quadro de rotina infantil","quadro de rotina infantil magnético","quadro de rotina magnético"]}
+
+### slime-sensorial-reutilizavel-massa-cristal-foco  (id 8928542589090)
+title: Slime Sensorial Reutilizável TPR - Conforto Tátil e organização pessoal
+global.title_tag: None
+global.description_tag: 'Slime sensorial reutilizável em alumínio + TPR atóxico. 7cm diâmetro, 95g. Não-newtoniano. Estímulo tátil. 14+ anos. Frete grátis Brasil.'
+--- custom.detalhes_do_produto (type=multi_line_text_field) ---
+Brinquedo / Produto Educativo
+
+Ideal para jovens e adultos (14+), este produto foi desenvolvido para proporcionar entretenimento, estímulo mental e momentos de lazer. Perfeito para quem busca atividades que envolvam raciocínio, criatividade ou relaxamento no dia a dia.
+
+Com design simples e funcional, pode ser utilizado tanto individualmente quanto em grupo, sendo uma ótima opção para uso em casa ou em ambientes educativos.
+
+Fabricado sem substâncias químicas nocivas, garantindo maior segurança durante o uso.
+
+Características
+
+• Produto interativo e envolvente
+• Estimula raciocínio e concentração
+• Ideal para jovens e adultos (14+)
+• Pode ser usado individualmente ou em grupo
+• Seguro (sem químicos perigosos)
+• Design simples e funcional
+• Ótima opção para lazer ou presente
+
+Especificações
+
+• Marca: Sem marca
+• Idade recomendada: 14 anos ou mais
+• Substâncias químicas perigosas: Nenhuma
+--- seoking.settings (type=json) ---
+{"item_id":"8928542589090","backup":{"body_html":"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"},"focus_keywords":["slime sensorial reutilizável","slime sensorial reutilizável tpr","slime reutilizável","slime sensorial","slime infantil"],"custom_fields":["title"]}
+
+### squishy-mochi-morango-slow-rising  (id 8924989587618)
+title: Squishy Mochi Morango Slow Rising - Brinquedo de Apertar
+global.title_tag: 'Squishy Mochi Morango Slow Rising - Brinquedo Tátil | Incluo'
+global.description_tag: 'Squishy Mochi Morango com recuperação lenta e espuma macia premium. Estímulo tátil, conforto ao apertar e design kawaii fofo. A partir de 14 anos. Frete grátis.'
+--- custom.detalhes_do_produto (type=multi_line_text_field) ---
+Brinquedo Interativo – Tema Animais & Natureza
+
+Aproveite momentos de diversão e entretenimento com este brinquedo interativo, ideal para jovens e adultos que buscam relaxamento e atividades envolventes.
+
+Com temática de Animais & Natureza, proporciona uma experiência criativa e agradável, sendo uma ótima opção para uso individual ou em grupo.
+
+Fabricado com materiais seguros e livre de substâncias químicas nocivas, garantindo mais tranquilidade durante o uso.
+
+Características
+
+• Brinquedo interativo e versátil
+• Tema: Animais & Natureza
+• Estimula criatividade e imaginação
+• Ideal para lazer e entretenimento
+• Pode ser usado individualmente ou em grupo
+• Design simples e funcional
+• Ótima opção de presente
+
+Especificações
+
+• Marca: Sem marca
+• Tema: Animais & Natureza
+• Substâncias químicas perigosas: Nenhuma
+--- seoking.settings (type=json) ---
+{"item_id":"8924989587618","backup":{"body_html":"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"},"focus_keywords":["squishy mochi morango slow rising","squishy morango","morango slow rising","squishy mochi"],"custom_fields":["title"]}
+
+### tapete-tatil-pedras-texturizadas-removiveis  (id 8925007675554)
+title: Tapete Tátil de Pedras Texturizadas Removíveis - 3 Tamanhos
+global.title_tag: 'Tapete Tátil de Pedras Texturizadas Removíveis - 3 Tamanhos | Incluo'
+global.description_tag: 'Tapete tátil com pedras texturizadas removíveis em PVC ecológico. Estímulo tátil nos pés ao caminhar. 3 tamanhos disponíveis. Incluo.'
+--- custom.detalhes_do_produto (type=multi_line_text_field) ---
+Massageador para Pés – DHDH
+
+Proporcione relaxamento e alívio para os pés com este massageador da marca DHDH, ideal para reduzir tensões e melhorar o bem-estar no dia a dia.
+
+Desenvolvido para uso simples e prático, auxilia na estimulação da circulação e no alívio do cansaço após longos períodos em pé ou atividades intensas.
+
+Com design funcional e material resistente, é perfeito para uso doméstico, proporcionando conforto sem a necessidade de energia elétrica.
+
+Características
+
+• Massageador para pés
+• Auxilia no alívio de dores e tensões
+• Estimula a circulação sanguínea
+• Ideal para relaxamento diário
+• Não elétrico (dispensa energia)
+• Material resistente (borracha)
+• Fácil de usar em casa
+• Design simples e funcional
+
+Especificações
+
+• Marca: DHDH
+• Tipo: Massageador e relaxamento
+• Aplicação: Pés
+• Material: Borracha
+• Alimentação: Não elétrico
+• Tamanhos: Pequeno, Médio e Grande
+• Certificação: CE
+• Substâncias químicas perigosas: Nenhuma
+--- seoking.settings (type=json) ---
+{"item_id":"8925007675554","focus_keywords":["tapete massageador reflexologia podal","tapete massageador","massageador reflexologia podal"],"custom_fields":["title"],"backup":{"body_html":"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"}}
+
+### tapete-tatil-pontos-texturizados-travesseiro  (id 8925008593058)
+title: Tapete Tátil com Pontos Texturizados e Travesseiro Ergonômico
+global.title_tag: 'Tapete Tátil com Pontos Texturizados e Travesseiro Ergonômico | Incluo'
+global.description_tag: 'Kit tapete tátil com pontos texturizados em PVC e travesseiro ergonômico. Algodão ecológico, 66x40cm, 700g. Conforto tátil e bem-estar. Incluo.'
+--- custom.detalhes_do_produto (type=multi_line_text_field) ---
+Tapete de Acupressão – AMYOGA
+
+Relaxe o corpo e alivie tensões com este tapete de acupressão da marca AMYOGA, ideal para promover bem-estar, reduzir o estresse e auxiliar no alívio de dores musculares.
+
+Inspirado na técnica Kuznetsov, pode ser utilizado em diferentes áreas do corpo como pescoço, costas e pés, proporcionando uma experiência de massagem estimulante e relaxante.
+
+Perfeito para uso em casa, ajuda na recuperação muscular, melhora a circulação e promove relaxamento após um dia cansativo.
+
+Características
+
+• Tapete de acupressão (Kuznetsov)
+• Auxilia no alívio de dores e tensões
+• Ajuda a reduzir estresse e ansiedade
+• Pode ser usado no pescoço, costas e pés
+• Estimula a circulação sanguínea
+• Ideal para relaxamento e recuperação muscular
+• Fácil de usar em casa
+• Espessura confortável para iniciantes
+
+Especificações
+
+• Marca: AMYOGA
+• Modelo: Accupressure Mat
+• Material: PVC
+• Funções: Alívio de dor e redução de estresse
+• Uso: Pescoço, costas e pés
+• Espessura: 6 mm (iniciante)
+• Substâncias químicas perigosas: Nenhuma
+--- seoking.settings (type=json) ---
+{"item_id":"8925008593058","focus_keywords":["travesseiro ergonômico","tapete de acuppressão com travesseiro","tapete de acuppressão"],"custom_fields":["title"],"backup":{"body_html":"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"}}

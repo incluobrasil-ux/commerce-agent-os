@@ -1,12 +1,40 @@
 ---
 created_at: 2026-05-23T00:00:00Z
-updated_at: 2026-05-27T17:40:00Z
+updated_at: 2026-05-27T20:00:00Z
 tags: [next-actions]
 source: mixed
 confidence: 1.0
 ---
 
 # Next Actions
+
+## 🔴 T0 — BLOQUEADOR ATIVO: Misrepresentation manual action no GMC Incluo (2026-05-27)
+
+**Status:** Google Merchant Center → Diagnostics → **Deturpação** impede todos os produtos Incluo de aparecerem em Brasil. Última revisão pedida 19-mai-2026 foi NEGADA. Todo o resto da fila (N27/N28/N29) está parado até isso resolver.
+
+**Descoberta:** sessão de chat 2026-05-27 com operador. Score scorer = 93.2 🟢 mas GMC bloqueado 🔴 — gap entre audit interno e realidade Google.
+
+| # | Ação | Status |
+|---|---|---|
+| **T0.1** | Reescrever PDPs removendo `TDAH/TEA/autismo/ansiedade/depressão/autorregulação/anti-estresse/anti-ansiedade/trata/alívio/ADHD/OCD` de titles e descriptions. Substituir por linguagem funcional neutra (foco, conforto tátil, brinquedo manipulativo). | 🔵 gerar CSV no chat |
+| **T0.2** | Padronizar disclaimer médico no rodapé de toda PDP: "Não é dispositivo médico nem substitui acompanhamento profissional. Brinquedo recreativo." | 🔵 pendente |
+| **T0.3** | Reforçar página "Quem somos / Sobre" com razão social, CNPJ, modelo de negócio explícito, sem claims clínicos. | 🔵 pendente |
+| **T0.4** | Completar N26.b nas pgs 2/3 do catálogo: trocar SKUs `\d+:\d+#` restantes (~50 produtos) por `INC-<slug>-<variante>`. Já estava em backlog, agora bloqueador. | 🔵 pendente |
+| **T0.5** | GMC → "Solicitar nova análise" com nota explicando T0.1–T0.4. **NÃO EXECUTAR antes dos quatro acima completos** — re-review prematura penaliza. | 🔴 trava em T0.1–T0.4 |
+
+**Análise completa:** [run-summary 2026-05-27-audit-gmc-misrepresentation-block-incluo](run-summaries/2026-05-27-audit-gmc-misrepresentation-block-incluo.md).
+
+**Cooldown esperado:** 7-14 dias entre re-request e aprovação. Toda receita Google Shopping da Incluo = R$ 0 até lá.
+
+### 📌 Decisões do dono registradas (2026-07-06)
+
+- **Prazo de frete (fecha T3-003 + T8-002):** **15 a 35 dias úteis**, uniforme para todo o Brasil. Gatilho de reembolso por atraso: **45 dias corridos**. (35 úteis ≈ 49 corridos, então a garantia dispara antes do teto — sem limbo, pró-consumidor.) Propagar em: página de envios, política nativa, FAQ Q1, feed GMC/Simprosys.
+- **Modelo de claims:** **evitar/segregar** — feed do GMC 100% limpo (zero autismo/TDAH/terapêutico em título/descrição/tags/alt/marca). Gancho de autismo só em blog/landing separada que NÃO alimenta o feed. (Modelo Criando Brinquedos.)
+- **Contexto:** vários produtos foram retirados do catálogo Incluo (contagens da auditoria 14-jun desatualizadas — re-varredura necessária antes do re-request).
+- **Pacote de políticas pronto:** `AUDITORIA-GMC-2026/politicas-novas-2026-07-06/` (privacidade LGPD, envios, disclaimer+identidade+FAQ). Benchmark: `AUDITORIA-GMC-2026/benchmark-concorrentes-2026-07-06.md`.
+
+---
+
 
 **Para que serve:** lista pequena, ordenada e **executável** das próximas ações. Cada item tem pré-requisito, resultado esperado e papel sugerido — qualquer operador deveria conseguir puxar um item e saber se entregou.
 

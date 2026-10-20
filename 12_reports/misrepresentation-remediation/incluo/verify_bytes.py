@@ -1,0 +1,10 @@
+from pathlib import Path
+b = Path(r"c:\projetos-incluo\commerce-agent-os\12_reports\misrepresentation-remediation\incluo\llm-rewrite-plan-20260527.jsonl").read_bytes()
+print("Proper a-acute (c3a1):", b.count(bytes.fromhex("c3a1")))
+print("Double  a-acute (c383c2a1):", b.count(bytes.fromhex("c383c2a1")))
+print("Proper a-tilde (c3a3):", b.count(bytes.fromhex("c3a3")))
+print("Double  a-tilde (c383c2a3):", b.count(bytes.fromhex("c383c2a3")))
+print("Proper e-acute (c3a9):", b.count(bytes.fromhex("c3a9")))
+print("Double  e-acute (c383c2a9):", b.count(bytes.fromhex("c383c2a9")))
+print("Proper c-cedilla (c3a7):", b.count(bytes.fromhex("c3a7")))
+print("Double  c-cedilla (c383c2a7):", b.count(bytes.fromhex("c383c2a7")))

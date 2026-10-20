@@ -1,0 +1,1 @@
+C:\Users\samue\AppData\Local\Python\pythoncore-3.14-64\python.exe: can't open file 'C:\\projetos-incluo\\commerce-agent-os\\projetos-incluocommerce-agent-os10_opsscriptsaudit-eixo1-claims.py': [Errno 2] No such file or directory

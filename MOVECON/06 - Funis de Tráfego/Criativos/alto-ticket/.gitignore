@@ -1,0 +1,4 @@
+_busca/
+_tmp/
+# clipes brutos de banco (re-baixáveis pelos links em midia/CREDITOS.md); ficam só na máquina
+midia/**/*.mp4
